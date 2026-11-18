@@ -37,7 +37,7 @@ jobs:
           key: whisper-small-v1
 
       - name: Зависимости
-        run: pip install streamlink yt-dlp requests PyYAML websocket-client faster-whisper
+        run: pip install streamlink yt-dlp requests PyYAML websocket-client faster-whisper pywebpush
 
       - name: Слежу за эфиром и нарезаю клипы
         env:
@@ -53,4 +53,6 @@ jobs:
           NOTIFY_PUSHOVER_USER_KEY: ${{ secrets.NOTIFY_PUSHOVER_USER_KEY }}
           NOTIFY_PUSHOVER_API_TOKEN: ${{ secrets.NOTIFY_PUSHOVER_API_TOKEN }}
           NOTIFY_WEBHOOK_URL: ${{ secrets.NOTIFY_WEBHOOK_URL }}
+          VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}
+          VAPID_SUB: ${{ secrets.VAPID_SUB }}
         run: python gh_run.py --monitor --channel "${{ inputs.channel }}"
