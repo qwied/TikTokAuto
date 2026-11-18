@@ -52,6 +52,7 @@ UPLOADS = "https://uploads.github.com"
 RELEASE_TAG = "auto"
 CLIPS_JSON = "clips.json"
 SUBS_JSON = "subscriptions.json"
+PUSH_SUBS = "push_subscriptions.json"   # подписки Web Push (пишет сайт)
 MAX_CLIPS = 60          # сколько клипов держать в clips.json
 MAX_ASSETS = 60         # сколько файлов держать в релизе (старые удаляются)
 PROBE_WAIT = 45         # секунд на первую проверку эфиров
@@ -243,14 +244,22 @@ class GitHubPublisher:
         try:
             self._publish(video_path, caption)
             self.posted += 1
+            cap = str(caption or "Клип готов")
+            if self.last_url:
+                cap += f"\n\nСкачать: {self.last_url}"
             if self.push is not None:
-                cap = str(caption or "Клип готов")
-                if self.last_url:
-                    cap += f"\n\nСкачать: {self.last_url}"
                 try:
                     self.push.notify_clip(str(video_path), cap)
                 except Exception:
                     log.exception("Пуш-уведомление не ушло (клип опубликован)")
+            try:
+                send_web_pushes(self.gh, {
+                    "title": "Клип готов",
+                    "body": cap[:400],
+                    "url": self.last_url or "",
+                })
+            except Exception:
+                log.exception("Web Push не удался (клип опубликован)")
             return True
         except Exception:
             log.exception("Не удалось опубликовать клип в GitHub")
@@ -472,6 +481,76 @@ def run_check(max_probe=PROBE_WAIT):
 
 
 # --- уведомления из секретов ---------------------------------------------------------------
+
+def _vapid_key_for_pywebpush(key):
+    """pywebpush ждёт ключ в base64url-DER; PEM приводим к нему."""
+    k = str(key or "").strip()
+    if not k.startswith("-----BEGIN"):
+        return k
+    body = "".join(line for line in k.splitlines()
+                   if not line.startswith("-----"))
+    import base64 as _b64
+    der = _b64.b64decode(body)
+    return _b64.urlsafe_b64encode(der).rstrip(b"=").decode("ascii")
+
+
+def send_web_pushes(gh, payload, pusher=None):
+    """Web Push всем подпискам сайта из push_subscriptions.json.
+
+    Подписки пишет сайт (кнопка «Пуши на устройство» — push_subscriptions.json
+    в репозитории). Подписки с ошибкой 404/410 (протухшие) вычищаются.
+    Требуются секреты VAPID_PRIVATE_KEY (PEM) и, опционально, VAPID_SUB.
+    pusher — точка подмены в тестах (pywebpush.webpush).
+    """
+    try:
+        raw, sha = gh.get_file(PUSH_SUBS)
+    except Exception:
+        log.exception("Не прочитать %s", PUSH_SUBS)
+        return
+    if raw is None:
+        return                                  # подписок ещё нет — тихо выходим
+    try:
+        subs = [s for s in (json.loads(raw.decode("utf-8")).get("subscriptions") or [])
+                if isinstance(s, dict) and s.get("endpoint")]
+    except ValueError:
+        log.warning("%s не читается — пропускаю", PUSH_SUBS)
+        return
+    if not subs:
+        return
+    priv = os.environ.get("VAPID_PRIVATE_KEY", "").strip()
+    if not priv:
+        log.info("VAPID_PRIVATE_KEY не задан — Web Push пропущен")
+        return
+    priv = _vapid_key_for_pywebpush(priv)
+    if pusher is None:
+        try:
+            from pywebpush import webpush as pusher
+        except ImportError:
+            log.info("pywebpush не установлен — Web Push пропущен")
+            return
+    claims = {"sub": os.environ.get("VAPID_SUB",
+                                    "mailto:streamclipper@users.noreply.github.com")}
+    kept, changed = [], False
+    for s in subs:
+        try:
+            pusher(s, data=json.dumps(payload, ensure_ascii=False),
+                   vapid_private_key=priv, vapid_claims=claims)
+            kept.append(s)
+            log.info("Web Push: отправлено …%s", s["endpoint"][-14:])
+        except Exception as e:
+            code = getattr(e, "status_code", 0) or \
+                getattr(getattr(e, "response", None), "status_code", 0)
+            if code in (404, 410):
+                changed = True
+                log.info("Web Push: подписка протухла (%s) — убираю", code)
+            else:
+                log.warning("Web Push: %s", str(e)[:200])
+                kept.append(s)
+    if changed:
+        gh.put_file(PUSH_SUBS,
+                    json.dumps({"subscriptions": kept}, ensure_ascii=False).encode("utf-8"),
+                    sha, "push: почистить протухшие подписки")
+
 
 def notify_cfg_from_env(cfg):
     """Секреты NOTIFY_* -> конфиг уведомлений (GitHub-режим).
