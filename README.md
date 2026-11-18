@@ -310,7 +310,7 @@ Content Posting API, ключи лежат в секретах репозито�
 | Что | Где взять | Куда ввести |
 |---|---|---|
 | Ссылки на стримеров | скопируйте адрес канала: twitch.tv/ник, youtube.com/@канал | Сайт → «Каналы» (или subscriptions.json на github.com) |
-| GitHub-токен («Каналы» с телефона) | github.com → Settings → Developer settings → **Fine-grained personal access tokens** → Generate new token → Only select repositories → ваш репозиторий → Repository permissions → **Contents: Read and write** | Сайт → Настройки → «GitHub без компьютера» → вставить → Сохранить |
+| GitHub-токен («Каналы» с телефона) | github.com → Settings → Developer settings → **Fine-grained personal access tokens** → Generate new token → имя любое (например `streamclipper`) → **Expiration: No expiration** (иначе через месяц всё сломается) → Repository access: **Only select repositories** → ваш репозиторий → Permissions: найдите в списке **Contents** → **Read and write** (остальные пункты не трогайте — Metadata включится сам) → **Generate token** → сразу скопируйте `github_pat_…` — показывается ОДИН раз | Сайт → Настройки → «GitHub без компьютера» → вставить → Сохранить |
 | TikTok client_key / client_secret | developers.tiktok.com → Log in → **Manage apps** → **Create app** → продукт **Content Posting API** (scopes: video.upload, video.publish) → вкладка Key | Репозиторий → Settings → Secrets and variables → Actions → `TIKTOK_CLIENT_KEY`, `TIKTOK_CLIENT_SECRET` |
 | TikTok refresh_token (один раз, на ПК) | в config.yaml впишите client_key/client_secret → `python tiktok_auth.py` → войдите в TikTok → в появившемся tiktok_tokens.json скопируйте refresh_token | Репозиторий → Secrets → `TIKTOK_REFRESH_TOKEN` |
 | Telegram / ntfy / Bark (необязательно) | BotFather / приложения ntfy, Bark | config.yaml → notify (работает в режиме ПК) |
@@ -514,6 +514,11 @@ recorder.py             кольцевой буфер записи (ffmpeg, ко
 hype_detector.py        оценка «восторга» чата
 chat_watcher.py         чаты Twitch и YouTube в реальном времени
 subtitle.py             Whisper: субтитры ТОЛЬКО из речи (белый/жёлтый капс, низ)
+vertical.py             вертикальный формат TikTok 9:16 (1080x1920, blur/crop)
+gh_run.py               автоматизация на GitHub Actions: --check / --monitor
+subscriptions.json      каналы для GitHub-режима (правится с сайта, «Каналы»)
+clips.json              лента клипов для GitHub-режима (обновляет Actions)
+.github/workflows/      check.yml (каждые 5 минут) + monitor.yml (запись и публикация)
 banner.py               RubUP: пауза нарезки, центр, ≥25% площади, со звуком
 ad_guard.py             реклама RubAp/RubUp: нарезка СТОП -> авто-продолжение
 notifier.py             Telegram / ntfy / Bark / Pushover / webhook (или все сразу)

@@ -17,7 +17,7 @@
 import os
 
 try:
-    from .utils import ffprobe_meta, run_cmd
+    from utils import ffprobe_meta, run_cmd
 except ImportError:                                    # плоский репозиторий
     from utils import ffprobe_meta, run_cmd
 

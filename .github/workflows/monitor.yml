@@ -1,0 +1,48 @@
+# StreamClipper: сессия слежения за эфиром.
+# Запускается автоматически из Check live, когда стример вышел в эфир.
+# Режет клипы 60 сек (9:16 TikTok) с субтитрами и баннером RubUP,
+# заливает их в Releases и обновляет clips.json; TikTok — из секретов.
+name: Monitor
+
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: "Канал (ссылка) — можно оставить пустым"
+        required: false
+        default: ""
+
+permissions:
+  contents: write                  # релизы + коммиты clips.json
+
+concurrency:
+  group: monitor
+  cancel-in-progress: false        # не убивать идущую запись
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350           # чуть меньше лимита задачи (6 ч)
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Кэш модели Whisper (субтитры)
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: whisper-small-v1
+
+      - name: Зависимости
+        run: pip install streamlink yt-dlp requests PyYAML websocket-client faster-whisper
+
+      - name: Слежу за эфиром и нарезаю клипы
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TIKTOK_CLIENT_KEY: ${{ secrets.TIKTOK_CLIENT_KEY }}
+          TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
+          TIKTOK_REFRESH_TOKEN: ${{ secrets.TIKTOK_REFRESH_TOKEN }}
+        run: python gh_run.py --monitor --channel "${{ inputs.channel }}"

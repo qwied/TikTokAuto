@@ -1020,7 +1020,16 @@
     }).then(function (r) {
       if (r.status === 401) throw new Error("токен не принят (401)");
       if (r.status === 403) throw new Error("токен без права Contents: Read and write (403)");
-      if (r.status === 404) throw new Error("репозиторий или файл не найдены (404)");
+      if (r.status === 404) {
+        // различаем: нет репозитория / нет файла (репозиторий пуст)
+        return fetch("https://api.github.com/repos/" + repo, {
+          headers: ghHeaders()
+        }).then(function (rr) {
+          if (rr.status === 404)
+            throw new Error("репозиторий не найден — проверьте имя владелец/репозиторий и доступ токена (404)");
+          throw new Error("репозиторий есть, но subscriptions.json ещё нет — загрузите файлы StreamClipper-GitHub.zip в репозиторий (404)");
+        });
+      }
       if (!r.ok) throw new Error("HTTP " + r.status);
       el.ghStatus.textContent = "Доступ есть: " + repo + " — нажмите «Сохранить», и «Каналы» будут работать с телефона";
       el.ghStatus.className = "check-result ok";
