@@ -1,21 +1,9 @@
 {
- "updated": "2026-11-18T19:39:42Z",
+ "updated": "",
  "meta": {
   "mode": "github",
-  "channels": [
-   {
-    "name": "honeymad",
-    "display": "twitch.tv/honeymad",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 36956,
-    "title": "GTA 6 честное мнение"
-   }
-  ],
-  "tiktok": {
-   "enabled": false
-  },
-  "_live_sig": "[[\"honeymad\", true]]"
+  "channels": [],
+  "tiktok": {"enabled": false}
  },
  "clips": []
 }

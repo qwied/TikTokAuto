@@ -632,6 +632,12 @@ def run_monitor(channel="", max_minutes=280):
         log.error("Нет GITHUB_REPOSITORY/GH_TOKEN — это режим GitHub Actions. "
                   "На компьютере запускайте main.py.")
         return 2
+    # Уже идёт другая сессия слежения (например, резервный крон запустил
+    # вторую) — не пишем эфир ДВАЖДЫ: выходим сразу.
+    if gh_workflow_monitor_in_progress():
+        log.info("Monitor уже работает (другая сессия) — не запускаю вторую "
+                 "запись эфира")
+        return 0
     push = Notifier(cfg.get("notify") or {}) if providers else None
     pub = GitHubPublisher(gh, workdir=base, push=push)
 
