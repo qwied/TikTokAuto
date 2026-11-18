@@ -56,6 +56,8 @@
     inpGhRepo: $("inp-gh-repo"), inpGhToken: $("inp-gh-token"),
     btnGhCheck: $("btn-gh-check"), btnGhSave: $("btn-gh-save"),
     ghStatus: $("gh-status"),
+    btnPushOn: $("btn-push-on"), btnPushOff: $("btn-push-off"),
+    pushStatus: $("push-status"),
     btnChannels: $("btn-channels"), channels: $("channels"),
     channelsBackdrop: $("channels-backdrop"), channelsClose: $("channels-close"),
     inpChannel: $("inp-channel"), btnAddChannel: $("btn-add-channel"),
@@ -1327,6 +1329,156 @@
   el.btnTkSave.addEventListener("click", saveTikTokToken);
   el.btnGhCheck.addEventListener("click", ghCheck);
   el.btnGhSave.addEventListener("click", ghSave);
+
+  // --- Web Push: уведомления прямо от иконки сайта ----------------------------------
+  // Публичный VAPID-ключ (не секрет): приватный — в секретах репозитория.
+  var VAPID_PUB = "BJTk0ZpU8Hil3aHSxT3AgLJd9fALBmAnukKeisGQWersdjoLVLEo9Bt5HayEIGH7cyXOlufL6Zvcm61YUsqQ34g";
+  var PUSH_FILE = "push_subscriptions.json";
+
+  function urlB64ToUint8(b64) {
+    var pad = "=".repeat((4 - (b64.length % 4)) % 4);
+    var raw = atob((b64 + pad).replace(/-/g, "+").replace(/_/g, "/"));
+    var out = new Uint8Array(raw.length);
+    for (var i = 0; i < raw.length; i++) out[i] = raw.charCodeAt(i);
+    return out;
+  }
+
+  function pushSay(text, ok) {
+    el.pushStatus.textContent = text;
+    el.pushStatus.className = "check-result " + (ok ? "ok" : "err");
+  }
+
+  function pushStandalone() {
+    return !!(window.matchMedia && matchMedia("(display-mode: standalone)").matches) ||
+           window.navigator.standalone === true;
+  }
+
+  function ghPutPushSubs(subs, sha, message) {
+    var json = JSON.stringify({ subscriptions: subs });
+    return ghApi("/repos/" + state.gh.repo + "/contents/" + PUSH_FILE, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        message: message,
+        content: btoa(unescape(encodeURIComponent(json))),
+        sha: sha
+      })
+    });
+  }
+
+  function savePushSubscription(sub) {
+    // Подписка -> push_subscriptions.json в репозитории (читаем-меняем-пишем).
+    var rec = { endpoint: sub.endpoint, keys: sub.toJSON().keys || {} };
+    return ghApi("/repos/" + state.gh.repo + "/contents/" + PUSH_FILE, {
+      headers: ghHeaders()
+    }).then(function (r) {
+      if (r.status === 404) return { sha: null, subs: [] };
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json().then(function (j) {
+        var subs = [];
+        try { subs = (JSON.parse(b64decodeUtf8(j.content)) || {}).subscriptions || []; } catch (_) {}
+        return { sha: j.sha, subs: subs };
+      });
+    }).then(function (cur) {
+      var kept = cur.subs.filter(function (s) {
+        return s && s.endpoint !== rec.endpoint;
+      });
+      kept.unshift(rec);
+      if (kept.length > 10) kept = kept.slice(0, 10);   // не раздуваем файл
+      return ghPutPushSubs(kept, cur.sha, "push: подписка на уведомления");
+    });
+  }
+
+  function b64decodeUtf8(b64) {
+    return decodeURIComponent(escape(atob(String(b64 || "").replace(/\n/g, ""))));
+  }
+
+  function enablePush() {
+    if (!("serviceWorker" in navigator) || !("PushManager" in window) ||
+        !("Notification" in window)) {
+      pushSay("Браузер не поддерживает Web Push (нужен Safari iOS 16.4+ или современный Chrome)");
+      return;
+    }
+    if (!state.gh.repo || !state.gh.token) {
+      pushSay("Сначала заполните «GitHub без компьютера» выше — подписку надо сохранить в репозиторий");
+      return;
+    }
+    var ios = /iPhone|iPad|iPod/.test(navigator.userAgent);
+    if (ios && !pushStandalone()) {
+      pushSay("Сначала добавьте сайт на экран «Домой»: Safari → Поделиться → «На экран „Домой“», откройте с иконки и нажмите снова", false);
+      return;
+    }
+    pushSay("Запрашиваю разрешение…", true);
+    Notification.requestPermission().then(function (perm) {
+      if (perm !== "granted") {
+        pushSay("Разрешение не выдано — в Настройках iOS: Safari/StreamClipper → Уведомления → Разрешить");
+        return;
+      }
+      navigator.serviceWorker.ready.then(function (reg) {
+        return reg.pushManager.getSubscription().then(function (old) {
+          if (old) return old;
+          return reg.pushManager.subscribe({
+            userVisibleOnly: true,
+            applicationServerKey: urlB64ToUint8(VAPID_PUB)
+          });
+        });
+      }).then(function (sub) {
+        return savePushSubscription(sub).then(function () {
+          return sub;
+        });
+      }).then(function (sub) {
+        return navigator.serviceWorker.ready.then(function (reg) {
+          reg.showNotification("Пуши включены", {
+            body: "Так придёт сообщение о готовом клипе",
+            icon: "icon-192.png",
+            tag: "streamclipper-test",
+            data: { url: "./" }
+          });
+          return sub;
+        });
+      }).then(function () {
+        pushSay("Готово: уведомления включены — тест-пуш уже отправлен", true);
+      }).catch(function (e) {
+        pushSay("Не вышло: " + (e && e.message ? e.message : "сеть/права токена"));
+      });
+    });
+  }
+
+  function disablePush() {
+    navigator.serviceWorker.ready.then(function (reg) {
+      return reg.pushManager.getSubscription();
+    }).then(function (sub) {
+      var ep = sub && sub.endpoint;
+      var un = sub ? sub.unsubscribe() : Promise.resolve();
+      return un.then(function () {
+        if (!ep || !state.gh.repo || !state.gh.token) return;
+        return ghApi("/repos/" + state.gh.repo + "/contents/" + PUSH_FILE, {
+          headers: ghHeaders()
+        }).then(function (r) {
+          if (!r.ok) return;
+          return r.json().then(function (j) {
+            var subs = [];
+            try { subs = (JSON.parse(b64decodeUtf8(j.content)) || {}).subscriptions || []; } catch (_) {}
+            var kept = subs.filter(function (s) { return s && s.endpoint !== ep; });
+            if (kept.length !== subs.length)
+              return ghPutPushSubs(kept, j.sha, "push: подписка удалена");
+          });
+        });
+      });
+    }).then(function () {
+      pushSay("Пуши выключены", true);
+    }).catch(function (e) {
+      pushSay("Не вышло: " + (e && e.message ? e.message : "сеть"));
+    });
+  }
+
+  el.btnPushOn.addEventListener("click", enablePush);
+  el.btnPushOff.addEventListener("click", disablePush);
+  navigator.serviceWorker.ready.then(function (reg) {
+    return reg.pushManager.getSubscription();
+  }).then(function (sub) {
+    if (sub) pushSay("Пуши включены на этом устройстве", true);
+  }).catch(function () {});
   el.modalBackdrop.addEventListener("click", closeSettings);
   el.btnSave.addEventListener("click", function () {
     var v = normalizeServer(el.inpServer.value);
