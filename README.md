@@ -302,7 +302,7 @@ Content Posting API, ключи лежат в секретах репозито�
 |---|---|---|
 | замечает выход в эфир | ~2–4 секунды | до 5 минут (шаг проверки GitHub) |
 | клип появляется на сайте | секунды после пика | 2–5 минут (запись → субтитры → заливка) |
-| уведомления Telegram/ntfy/Bark | да | нет (клипы и так на сайте) |
+| уведомления о клипах | Telegram/ntfy/Bark из config.yaml | те же каналы через секреты NOTIFY_* (см. «Уведомления») |
 | TikTok | API или Chrome-окно | только API (секреты) |
 | YouTube «подтвердите, что не робот» | редко мешает | может мешать; Twitch — надёжно |
 
@@ -314,11 +314,29 @@ Content Posting API, ключи лежат в секретах репозито�
 | GitHub-токен («Каналы» с телефона) | github.com → Settings → Developer settings → **Fine-grained personal access tokens** → Generate new token → имя любое (например `streamclipper`) → **Expiration: No expiration** (иначе через месяц всё сломается) → Repository access: **Only select repositories** → ваш репозиторий → Permissions: найдите в списке **Contents** → **Read and write** (остальные пункты не трогайте — Metadata включится сам) → **Generate token** → сразу скопируйте `github_pat_…` — показывается ОДИН раз | Сайт → Настройки → «GitHub без компьютера» → вставить → Сохранить |
 | TikTok client_key / client_secret | developers.tiktok.com → Log in → **Manage apps** → **Create app** → продукт **Content Posting API** (scopes: video.upload, video.publish) → вкладка Key | Репозиторий → Settings → Secrets and variables → Actions → `TIKTOK_CLIENT_KEY`, `TIKTOK_CLIENT_SECRET` |
 | TikTok refresh_token (один раз, на ПК) | в config.yaml впишите client_key/client_secret → двойной клик **tiktok_auth.bat** (или `python tiktok_auth.py`) → войдите в TikTok → в появившемся tiktok_tokens.json скопируйте refresh_token | Репозиторий → Secrets → `TIKTOK_REFRESH_TOKEN` |
-| Telegram / ntfy / Bark (необязательно) | BotFather / приложения ntfy, Bark | config.yaml → notify (работает в режиме ПК) |
+| Telegram / ntfy / Bark (необязательно) | BotFather / приложения ntfy, Bark | config.yaml → notify (режим ПК) или секреты NOTIFY_* (режим GitHub) |
+| ntfy topic (самый простой пуш) | App Store / Google Play → приложение **ntfy** → «+» → подписка на уникальный топик (например `sc-и-случайные-буквы`) | Репозиторий → Secrets → `NOTIFY_NTFY_TOPIC` |
 
 Без TikTok-секретов всё остальное работает: клипы появляются на сайте, но не
 публикуются в TikTok. Без аудита приложения TikTok принимает посты в «Только
 я» (SELF_ONLY) — после аудита поменяйте `privacy: PUBLIC_TO_EVERYONE`.
+
+## Уведомления: пуш, когда клип готов
+
+В режиме GitHub уведомления включаются секретами репозитория (Settings →
+Secrets and variables → Actions → New repository secret). Клип готов → Monitor
+отправляет пуш во ВСЕ заполненные каналы сразу:
+
+| Секрет(ы) | Что это |
+|---|---|
+| `NOTIFY_NTFY_TOPIC` | ntfy: приложение ntfy (iPhone/Android/десктоп), подписка на этот топик. Проще всего: без аккаунта. Клипы ≤ 14 МБ приходят прямо с видео во вложении |
+| `NOTIFY_TELEGRAM_BOT_TOKEN` + `NOTIFY_TELEGRAM_CHAT_ID` | Telegram-бот пришлёт ВИДЕО прямо в чат (≤ 50 МБ). Токен от @BotFather; chat_id — через getUpdates |
+| `NOTIFY_BARK_DEVICE_KEY` | Bark (iPhone): ключ из приложения Bark |
+| `NOTIFY_PUSHOVER_USER_KEY` + `NOTIFY_PUSHOVER_API_TOKEN` | Pushover |
+| `NOTIFY_WEBHOOK_URL` | любой webhook (POST c JSON) |
+| `NOTIFY_NTFY_SERVER` | необязательно: свой сервер ntfy (по умолчанию https://ntfy.sh) |
+
+В режиме ПК те же каналы настраиваются в config.yaml (раздел `notify`).
 
 ## Как сейчас работает сайт
 
