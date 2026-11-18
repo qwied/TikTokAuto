@@ -14,6 +14,7 @@ on:
 
 permissions:
   contents: write                  # релизы + коммиты clips.json
+  actions: write                   # финальная проверка может перезапустить Monitor
 
 concurrency:
   group: monitor
@@ -56,3 +57,13 @@ jobs:
           VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}
           VAPID_SUB: ${{ secrets.VAPID_SUB }}
         run: python gh_run.py --monitor --channel "${{ inputs.channel }}"
+
+      # Сессия закончилась (лимит времени или эфир кончился): проверяем
+      # ещё раз. Если эфир ПРОДОЛЖАЕТСЯ — запускаем новую сессию Monitor
+      # (цепочка: пока стрим идёт — слежение не прерывается, даже если
+      # cron GitHub задерживается). Если никто не в эфире — тихий выход.
+      - name: Финальная проверка — эфир продолжается?
+        if: always() && !cancelled()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python gh_run.py --check

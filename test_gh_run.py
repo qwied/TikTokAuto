@@ -208,7 +208,6 @@ def test_send_web_pushes_prune_and_skip(tmp_path, monkeypatch):
 
 def test_send_web_pushes_no_file(tmp_path, monkeypatch):
     """Нет push_subscriptions.json — тихий выход, без ошибок."""
-
     class FakeGH:
         def get_file(self, path):
             return None, None
@@ -218,3 +217,37 @@ def test_send_web_pushes_no_file(tmp_path, monkeypatch):
 
     monkeypatch.setenv("VAPID_PRIVATE_KEY", "PEM-KEY")
     gh_run.send_web_pushes(FakeGH(), {"title": "t"}, pusher=lambda *a, **k: None)
+
+
+def test_monitor_in_progress_excludes_self(monkeypatch):
+    """Свой запуск (GITHUB_RUN_ID) не считается «Monitor уже работает».
+
+    Финальная проверка внутри monitor.yml должна мочь запустить СЛЕДУЮЩУЮ
+    сессию, пока её же задача ещё in_progress, — иначе цепочка слежения
+    обрывалась бы после каждой сессии.
+    """
+    import subprocess as sp
+
+    class R:
+        returncode = 0
+        stdout = '[{"databaseId": 111}, {"databaseId": 222}]'
+        stderr = ""
+
+    calls = []
+
+    def fake_run(cmd, **kw):
+        calls.append(cmd)
+        return R()
+
+    monkeypatch.setenv("GITHUB_REPOSITORY", "o/r")
+    monkeypatch.setenv("GITHUB_RUN_ID", "222")
+    monkeypatch.setattr(sp, "run", fake_run)
+    assert gh_run.gh_workflow_monitor_in_progress() is True   # 111 — чужой
+
+    monkeypatch.setenv("GITHUB_RUN_ID", "111")
+    assert gh_run.gh_workflow_monitor_in_progress() is True   # 222 — чужой
+
+    monkeypatch.setattr(gh_run, "subprocess", sp)             # на всякий
+    R.stdout = '[{"databaseId": 333}]'
+    monkeypatch.setenv("GITHUB_RUN_ID", "333")
+    assert gh_run.gh_workflow_monitor_in_progress() is False  # только свой
