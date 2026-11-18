@@ -6,7 +6,7 @@
 
 "use strict";
 
-var CACHE = "sc-shell-v5";
+var CACHE = "sc-shell-v6";
 var SHELL = [
   "./",
   "./index.html",
@@ -99,4 +99,25 @@ self.addEventListener("fetch", function (e) {
       return hit || net;
     })
   );
+});
+
+// --- Web Push: уведомление «Клип готов» прямо от иконки сайта ----------------
+
+self.addEventListener("push", function (e) {
+  var d = {};
+  try { d = e.data.json(); } catch (_) {
+    d = { title: "Клип готов", body: (e.data && e.data.text()) || "" };
+  }
+  e.waitUntil(self.registration.showNotification(d.title || "Клип готов", {
+    body: d.body || "",
+    icon: "./icon-192.png",
+    badge: "./icon-192.png",
+    tag: d.tag || "streamclipper",
+    data: { url: d.url || "./" }
+  }));
+});
+
+self.addEventListener("notificationclick", function (e) {
+  e.notification.close();
+  e.waitUntil(self.clients.openWindow((e.notification.data || {}).url || "./"));
 });
