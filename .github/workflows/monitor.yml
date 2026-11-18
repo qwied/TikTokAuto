@@ -45,6 +45,16 @@ jobs:
       - name: Зависимости
         run: pip install streamlink yt-dlp requests PyYAML websocket-client faster-whisper pywebpush
 
+      # КРИТИЧНО: на раннере нет ffmpeg — без него запись эфира невозможна
+      # (в логе это выглядело как «ffmpeg не найден» и «Буфер пуст»).
+      - name: FFmpeg (запись и склейка клипов)
+        run: |
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update -y
+            sudo apt-get install -y --no-install-recommends ffmpeg
+          fi
+          ffmpeg -version | head -n 1
+
       - name: Слежу за эфиром и нарезаю клипы
         env:
           GH_TOKEN: ${{ secrets.SC_PAT }}   # PAT: релизы, коммиты, перезапуск
