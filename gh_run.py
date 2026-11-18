@@ -34,11 +34,13 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 try:                                       # дерево с пакетом clipper/
     from clipper.links import dedup_key, parse_link, refs_from_config
+    from clipper.notifier import Notifier
     from clipper.pipeline import Pipeline
     from clipper.stream_monitor import StreamMonitor
     from clipper.utils import load_config, setup_logging
 except ImportError:                        # плоский репозиторий
     from links import dedup_key, parse_link, refs_from_config
+    from notifier import Notifier
     from pipeline import Pipeline
     from stream_monitor import StreamMonitor
     from utils import load_config, setup_logging
@@ -224,20 +226,31 @@ def prune_assets(gh, rel_id, max_assets=MAX_ASSETS):
 
 
 class GitHubPublisher:
-    """Получает готовый клип: релиз + запись в clips.json (коммит)."""
+    """Получает готовый клип: релиз + запись в clips.json (коммит) + пуш."""
 
-    def __init__(self, gh, workdir, max_clips=MAX_CLIPS, max_assets=MAX_ASSETS):
+    def __init__(self, gh, workdir, max_clips=MAX_CLIPS, max_assets=MAX_ASSETS,
+                 push=None):
         self.gh = gh
         self.workdir = str(workdir or ".")
         self.max_clips = int(max_clips)
         self.max_assets = int(max_assets)
         self.base_url = ""
         self.posted = 0
+        self.push = push          # Notifier по секретам NOTIFY_* (или None)
+        self.last_url = ""
 
     def notify_clip(self, video_path, caption=""):
         try:
             self._publish(video_path, caption)
             self.posted += 1
+            if self.push is not None:
+                cap = str(caption or "Клип готов")
+                if self.last_url:
+                    cap += f"\n\nСкачать: {self.last_url}"
+                try:
+                    self.push.notify_clip(str(video_path), cap)
+                except Exception:
+                    log.exception("Пуш-уведомление не ушло (клип опубликован)")
             return True
         except Exception:
             log.exception("Не удалось опубликовать клип в GitHub")
@@ -265,6 +278,7 @@ class GitHubPublisher:
                                                 indent=1).encode("utf-8"),
                          sha, f"clip: {entry['file']}")
         log.info("clips.json обновлён: %s", url)
+        self.last_url = url
         prune_assets(self.gh, rel, max_assets=self.max_assets)
 
     def update_channels_meta(self, channels):
@@ -457,6 +471,45 @@ def run_check(max_probe=PROBE_WAIT):
     return 0
 
 
+# --- уведомления из секретов ---------------------------------------------------------------
+
+def notify_cfg_from_env(cfg):
+    """Секреты NOTIFY_* -> конфиг уведомлений (GitHub-режим).
+
+    Поддержка: Telegram, ntfy, Bark, Pushover, webhook — провайдер "all"
+    (каждый клип уходит во все заполненные каналы). Возвращает список
+    настроенных провайдеров; без секретов уведомления не включаются.
+    """
+    n = cfg.setdefault("notify", {})
+    tg_tok = os.environ.get("NOTIFY_TELEGRAM_BOT_TOKEN", "").strip()
+    tg_chat = os.environ.get("NOTIFY_TELEGRAM_CHAT_ID", "").strip()
+    if tg_tok and tg_chat:
+        tg = n.setdefault("telegram", {})
+        tg["bot_token"], tg["chat_id"] = tg_tok, tg_chat
+    topic = os.environ.get("NOTIFY_NTFY_TOPIC", "").strip()
+    if topic:
+        nt = n.setdefault("ntfy", {})
+        nt["topic"] = topic
+        srv = os.environ.get("NOTIFY_NTFY_SERVER", "").strip()
+        if srv:
+            nt["server"] = srv
+    bark = os.environ.get("NOTIFY_BARK_DEVICE_KEY", "").strip()
+    if bark:
+        n.setdefault("bark", {})["device_key"] = bark
+    po_user = os.environ.get("NOTIFY_PUSHOVER_USER_KEY", "").strip()
+    po_tok = os.environ.get("NOTIFY_PUSHOVER_API_TOKEN", "").strip()
+    if po_user and po_tok:
+        po = n.setdefault("pushover", {})
+        po["user_key"], po["api_token"] = po_user, po_tok
+    hook = os.environ.get("NOTIFY_WEBHOOK_URL", "").strip()
+    if hook:
+        n.setdefault("webhook", {})["url"] = hook
+    providers = Notifier(n).configured_providers()
+    if providers:
+        n["provider"] = "all"
+    return providers
+
+
 def run_monitor(channel="", max_minutes=280):
     setup_logging()
     base = os.path.dirname(os.path.abspath(__file__))
@@ -479,6 +532,9 @@ def run_monitor(channel="", max_minutes=280):
     # CI-настройки: без веб-сервера и Telegram-бота; TikTok из секретов.
     cfg.setdefault("server", {})["enabled"] = False
     cfg.setdefault("notify", {})["provider"] = "none"
+    providers = notify_cfg_from_env(cfg)      # секреты NOTIFY_* перекрывают none
+    if providers:
+        log.info("Уведомления включены: %s", ", ".join(providers))
     apply_tiktok_secrets(cfg)
 
     gh = env_gh()
@@ -486,7 +542,8 @@ def run_monitor(channel="", max_minutes=280):
         log.error("Нет GITHUB_REPOSITORY/GH_TOKEN — это режим GitHub Actions. "
                   "На компьютере запускайте main.py.")
         return 2
-    pub = GitHubPublisher(gh, workdir=base)
+    push = Notifier(cfg.get("notify") or {}) if providers else None
+    pub = GitHubPublisher(gh, workdir=base, push=push)
 
     log.info("Первичная проверка эфиров (%d с)...", PROBE_WAIT)
     snap = probe_live(refs, cfg)
