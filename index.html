@@ -180,6 +180,20 @@
     </p>
   </div>
   <div class="howto">
+    <div class="howto-title">Пуши на устройство (прям с сайта, без приложений)</div>
+    <p class="field-help">
+      iPhone: сначала добавьте сайт на экран «Домой» (Safari → Поделиться →
+      «На экран „Домой“»), затем откройте с иконки и нажмите кнопку — iOS
+      спросит разрешение. Уведомления будут приходить от иконки StreamClipper.
+      Подписка хранится в репозитории (push_subscriptions.json).
+    </p>
+    <div class="row">
+      <button id="btn-push-on" class="btn primary">Включить пуши</button>
+      <button id="btn-push-off" class="btn ghost">Выключить</button>
+    </div>
+    <p id="push-status" class="check-result"></p>
+  </div>
+  <div class="howto">
     <div class="howto-title">Как это работает</div>
     <ol class="steps">
       <li><b>run.bat</b> на ПК — программа сама следит за каналами из links.txt</li>
