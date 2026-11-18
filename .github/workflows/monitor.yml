@@ -12,7 +12,7 @@ on:
         required: false
         default: ""
   schedule:
-    # Резервный вход: если Check live (каждые 5 мин) вдруг не сработал,
+    # Резервный вход: если Check live (каждые ~5 мин) вдруг не сработал,
     # Monitor сам проверит эфир. Никто не стримит — быстрый выход (~1 мин);
     # кто-то стримит — начнётся сессия слежения.
     - cron: "14,44 * * * *"
@@ -47,7 +47,7 @@ jobs:
 
       - name: Слежу за эфиром и нарезаю клипы
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.SC_PAT }}   # PAT: релизы, коммиты, перезапуск
           TIKTOK_CLIENT_KEY: ${{ secrets.TIKTOK_CLIENT_KEY }}
           TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
           TIKTOK_REFRESH_TOKEN: ${{ secrets.TIKTOK_REFRESH_TOKEN }}
@@ -65,10 +65,19 @@ jobs:
 
       # Сессия закончилась (лимит времени или эфир кончился): проверяем
       # ещё раз. Если эфир ПРОДОЛЖАЕТСЯ — запускаем новую сессию Monitor
-      # (цепочка: пока стрим идёт — слежение не прерывается, даже если
-      # cron GitHub задерживается). Если никто не в эфире — тихий выход.
+      # (цепочка: пока стрим идёт — слежение не прерывается). Запуск через
+      # SC_PAT: от GITHUB_TOKEN GitHub такие запуски молча не выполняет.
       - name: Финальная проверка — эфир продолжается?
         if: always() && !cancelled()
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.SC_PAT }}
         run: python gh_run.py --check
+
+      # Эстафета: после любой сессии Monitor перезапускаем Check live,
+      # чтобы цикл «проверка каждые ~5 минут» гарантированно продолжался,
+      # даже если эстафетная цепочка Check где-то оборвалась.
+      - name: Эстафета — перезапустить Check live
+        if: always() && !cancelled()
+        env:
+          GH_TOKEN: ${{ secrets.SC_PAT }}
+        run: gh workflow run check.yml --repo "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME"

@@ -653,6 +653,14 @@ def run_monitor(channel="", max_minutes=280):
             pass
         return 0
 
+    # ГЛАВНЫЙ ФИКС: Pipeline берёт каналы ТОЛЬКО из config.yaml (channels) и
+    # links.txt — в GitHub-режиме оба пусты, и он следил за 0 каналами
+    # (в логе это выглядело как «Слежу за 0 канал(ами): список пуст», а клипов
+    # не было НИКОГДА). Прокидываем ссылки из subscriptions.json в конфиг:
+    # refs_from_config(cfg) прочитает их и Pipeline начнёт следить и писать.
+    cfg["channels"] = [getattr(r, "raw", "") for r in refs if getattr(r, "raw", "")]
+    log.info("Pipeline получает каналы: %s", ", ".join(cfg["channels"]) or "—")
+
     class _Notifier:
         """Мост: Pipeline -> релиз + clips.json."""
         base_url = ""
@@ -669,9 +677,32 @@ def run_monitor(channel="", max_minutes=280):
     started = time.time()
     pl.start()
     deadline = started + max(15, int(max_minutes)) * 60
+    offline_strikes = 0
     try:
         while time.time() < deadline:
-            time.sleep(10)
+            time.sleep(60)
+            # Живой статус сессии раз в минуту: видно в логе Actions,
+            # кто в записи и сколько клипов сделано. Заодно выходим сразу,
+            # как только все каналы оффлайн 3 проверки подряд (не жжём
+            # минуты раннера до конца 280-минутного лимита).
+            try:
+                rows = pl.monitor.status_rows() or []
+                any_live = any(bool(r[2]) for r in rows)
+                act = len(getattr(pl, "active", {}) or {})
+                log.info("Статус: в записи %d, клипов за сессию %d, эфир идёт: %s",
+                         act, int(getattr(pl, "_clips_made", 0) or 0),
+                         "да" if any_live else "нет")
+                if not any_live and not act:
+                    offline_strikes += 1
+                    if offline_strikes >= 3:
+                        log.info("Все каналы оффлайн — сессия завершена раньше лимита")
+                        break
+                    log.info("Похоже, эфир закончился (%d/3) — проверю ещё раз",
+                             offline_strikes)
+                else:
+                    offline_strikes = 0
+            except Exception:
+                pass
     except KeyboardInterrupt:
         pass
     finally:
