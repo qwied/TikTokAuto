@@ -99,3 +99,101 @@ def test_publisher_updates_clips_json(tmp_path):
     assert len(data["clips"]) == 2                      # max_clips=2
     assert data["clips"][0]["channel"] == "c3"          # новый сверху
     assert len(gh.assets) == 1                          # max_assets=1
+
+
+def test_notify_cfg_from_env(monkeypatch):
+    """Секреты NOTIFY_* включают уведомления; без секретов — выключены."""
+    for k in [k for k in os.environ if k.startswith("NOTIFY_")]:
+        monkeypatch.delenv(k)
+    cfg = {"notify": {"provider": "none"}}
+    assert gh_run.notify_cfg_from_env(cfg) == []
+    assert cfg["notify"]["provider"] == "none"      # ничего не настроено
+
+    monkeypatch.setenv("NOTIFY_NTFY_TOPIC", "sc-test-topic-123")
+    providers = gh_run.notify_cfg_from_env(cfg)
+    assert providers == ["ntfy"]
+    assert cfg["notify"]["provider"] == "all"
+    assert cfg["notify"]["ntfy"]["topic"] == "sc-test-topic-123"
+
+    monkeypatch.setenv("NOTIFY_TELEGRAM_BOT_TOKEN", "123:ABC")
+    monkeypatch.setenv("NOTIFY_TELEGRAM_CHAT_ID", "42")
+    providers = gh_run.notify_cfg_from_env(cfg)
+    assert sorted(providers) == ["ntfy", "telegram"]
+
+
+def test_publisher_push_hook(tmp_path, monkeypatch):
+    """После публикации клипа уходит пуш со ссылкой на релиз."""
+    class FakePush:
+        def __init__(self):
+            self.got = []
+
+        def notify_clip(self, path, caption):
+            self.got.append((path, caption))
+
+    pub = gh_run.GitHubPublisher(gh=None, workdir=str(tmp_path),
+                                 push=FakePush())
+    monkeypatch.setattr(pub, "_publish",
+                        lambda p, c="": setattr(pub, "last_url", "https://x/1"))
+    assert pub.notify_clip("/tmp/clip.mp4", "Новый клип") is True
+    path, cap = pub.push.got[0]
+    assert path == "/tmp/clip.mp4"
+    assert "Новый клип" in cap and "https://x/1" in cap
+
+    # пуш сломался — публикация всё равно считается успешной
+    pub.push.got.clear()
+    pub.push.notify_clip = lambda p, c: 1 / 0
+    assert pub.notify_clip("/tmp/clip.mp4") is True
+
+
+def test_send_web_pushes_prune_and_skip(tmp_path, monkeypatch):
+    """Web Push: подписки из push_subscriptions.json, протухшие чистятся."""
+    class FakeGH:
+        def __init__(self, store):
+            self.store = store
+
+        def get_file(self, path):
+            return self.store.get(path, (None, None))
+
+        def put_file(self, path, data, sha, message):
+            self.store[path] = (data, "sha-next")
+
+    subs = {"subscriptions": [
+        {"endpoint": "https://push/ok", "keys": {"p256dh": "a", "auth": "b"}},
+        {"endpoint": "https://push/gone", "keys": {"p256dh": "a", "auth": "b"}},
+    ]}
+    store = {"push_subscriptions.json": (json.dumps(subs).encode(), "sha1")}
+    gh = FakeGH(store)
+    for k in ("VAPID_PRIVATE_KEY", "VAPID_SUB"):
+        monkeypatch.delenv(k, raising=False)
+
+    calls = []
+
+    def pusher(sub, data, vapid_private_key, vapid_claims):
+        calls.append(sub["endpoint"])
+        if "gone" in sub["endpoint"]:
+            err = Exception("gone")
+            err.status_code = 410
+            raise err
+
+    gh_run.send_web_pushes(gh, {"title": "t"}, pusher=pusher)
+    assert calls == []                       # нет VAPID — отправок нет, файл цел
+
+    monkeypatch.setenv("VAPID_PRIVATE_KEY", "PEM-KEY")
+    gh_run.send_web_pushes(gh, {"title": "t"}, pusher=pusher)
+    assert sorted(calls) == ["https://push/gone", "https://push/ok"]
+    data = json.loads(store["push_subscriptions.json"][0].decode())
+    assert [s["endpoint"] for s in data["subscriptions"]] == ["https://push/ok"]
+
+
+def test_send_web_pushes_no_file(tmp_path, monkeypatch):
+    """Нет push_subscriptions.json — тихий выход, без ошибок."""
+
+    class FakeGH:
+        def get_file(self, path):
+            return None, None
+
+        def put_file(self, *a):
+            raise AssertionError("не должен писать")
+
+    monkeypatch.setenv("VAPID_PRIVATE_KEY", "PEM-KEY")
+    gh_run.send_web_pushes(FakeGH(), {"title": "t"}, pusher=lambda *a, **k: None)

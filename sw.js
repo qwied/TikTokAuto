@@ -6,7 +6,7 @@
 
 "use strict";
 
-var CACHE = "sc-shell-v6";
+var CACHE = "sc-shell-v7";   // v7: app.js — чтение GitHub без токена (401-fix)
 var SHELL = [
   "./",
   "./index.html",

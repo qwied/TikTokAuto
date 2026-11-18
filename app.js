@@ -671,7 +671,7 @@
 
   function refreshChannels() {
     if (!state.server) {
-      if (ghConfigured()) { ghRefreshChannels(); return; }
+      if (state.gh.repo) { ghRefreshChannels(); return; }   // список виден и без токена
       el.channelList.innerHTML = "";
       setChannelsOffline("Подключите компьютер (Настройки) — или GitHub: Настройки → «GitHub без компьютера»");
       return;
@@ -773,7 +773,7 @@
       return;
     }
     if (!state.server) {
-      if (ghConfigured()) { ghAddChannel(url); return; }
+      if (state.gh.repo) { ghAddChannel(url); return; }     // проверка токена — внутри
       el.addChStatus.textContent = "Подключите компьютер или GitHub — оба варианта в Настройках";
       el.addChStatus.className = "check-result err";
       return;
@@ -803,7 +803,7 @@
 
   function removeChannel(name) {
     if (!state.server) {
-      if (ghConfigured()) ghRemoveChannel(name);
+      if (state.gh.repo) ghRemoveChannel(name);
       return;
     }
     apiPost("/api/channels/remove", { url: name }).then(function (j) {
@@ -865,10 +865,19 @@
   }
 
   function ghHeaders(extra) {
-    return Object.assign({
-      "Authorization": "Bearer " + state.gh.token,
-      "Accept": "application/vnd.github+json"
-    }, extra || {});
+    // Публичный репозиторий читается и БЕЗ токена: авторизацию добавляем
+    // только когда токен реально есть — иначе GitHub отвечает 401 на всё.
+    var h = { "Accept": "application/vnd.github+json" };
+    if (state.gh.token) h["Authorization"] = "Bearer " + state.gh.token;
+    return Object.assign(h, extra || {});
+  }
+
+  function ghErr(status) {
+    if (status === 401)
+      return new Error("токен не принят (401). Настройки → GitHub → «Токен»: вставьте его ЦЕЛИКОМ, начинается с ghp_ или github_pat_, без пробелов");
+    if (status === 403)
+      return new Error("нет доступа (403). Токену нужно право Contents: Read and write на этот репозиторий");
+    return new Error("HTTP " + status);
   }
 
   function fetchGhClips() {
@@ -903,9 +912,20 @@
 
   function ghApi(path, opts) {
     opts = opts || {};
+    var hadToken = !!state.gh.token;
     opts.headers = ghHeaders(opts.headers);
+    var isGet = !opts.method || opts.method === "GET";
     return fetch("https://api.github.com" + path, opts).then(function (r) {
-      if (!r.ok) throw new Error("HTTP " + r.status);
+      if (!r.ok) {
+        // Сохранённый токен испорчен, но репозиторий публичный: чтение
+        // пробуем ещё раз анонимно, чтобы сайт продолжал работать.
+        if (r.status === 401 && hadToken && isGet) {
+          var h2 = Object.assign({}, opts.headers);
+          delete h2.Authorization;
+          return ghApi(path, { method: opts.method, headers: h2 });
+        }
+        throw ghErr(r.status);
+      }
       return r.json();
     });
   }
@@ -953,11 +973,17 @@
         "REFRESH_TOKEN). Как получить — README, «Откуда брать данные».";
     }).catch(function (e) {
       setChannelsOffline("GitHub: " + (e && e.message ? e.message : "ошибка") +
-        " — проверьте репозиторий и токен в Настройках");
+        " — клипы всё равно показываются; для правки каналов вставьте токен в Настройках");
     });
   }
 
   function ghAddChannel(url) {
+    if (!state.gh.token) {
+      el.addChStatus.textContent = "Чтобы добавить канал с сайта, вставьте токен: Настройки → GitHub → «Токен» (ghp_…). " +
+        "Или просто пришлите ссылку в чат — добавлю сам.";
+      el.addChStatus.className = "check-result err";
+      return;
+    }
     el.addChStatus.textContent = "Добавляю в subscriptions.json…";
     ghGetSubs().then(function (j) {
       var dup = (j.channels || []).some(function (c) {
@@ -979,8 +1005,7 @@
       });
     }).catch(function (e) {
       el.addChStatus.textContent = "Ошибка GitHub: " +
-        (e && e.message ? e.message : "сеть") +
-        " (проверьте репозиторий и токен с правом Contents: Read and write)";
+        (e && e.message ? e.message : "сеть");
       el.addChStatus.className = "check-result err";
     });
   }
@@ -1013,6 +1038,16 @@
     if (!repo || repo.indexOf("/") < 0) {
       el.ghStatus.textContent = "Введите репозиторий в виде владелец/имя";
       el.ghStatus.className = "check-result err";
+      return;
+    }
+    if (tok && !/^(ghp|gho|ghu|ghs|ghr|github_pat)_/.test(tok)) {
+      el.ghStatus.textContent = "Это не похоже на токен GitHub: классический начинается с ghp_, fine-grained — с github_pat_. Скопируйте ВСЮ строку целиком";
+      el.ghStatus.className = "check-result err";
+      return;
+    }
+    if (!tok) {
+      el.ghStatus.textContent = "Токен пустой: просмотр клипов и каналов работает и так. Чтобы менять каналы с сайта — вставьте токен (ghp_…)";
+      el.ghStatus.className = "check-result";
       return;
     }
     el.ghStatus.textContent = "Проверяю доступ…";
@@ -1049,7 +1084,7 @@
     lsSet(LS_GH_REPO, repo);
     lsSet(LS_GH_TOKEN, tok);
     el.ghStatus.textContent = tok ? "Сохранено: GitHub-режим включён"
-                                  : "Сохранено: GitHub-режим выключен";
+                                  : "Сохранено: только просмотр — для правки каналов вставьте токен (ghp_…)";
     el.ghStatus.className = "check-result ok";
     toast(tok ? "GitHub-режим сохранён" : "GitHub-режим очищен");
     if (!state.server) { setGhPill(false); fetchGhClips(); }
@@ -1526,7 +1561,9 @@
 
   var srv = detectServer();
   state.server = srv || "";
-  state.gh = { repo: lsGet(LS_GH_REPO, ""), token: lsGet(LS_GH_TOKEN, "") };
+  var DEFAULT_GH_REPO = "qwied/TikTokAuto";   // этот сайт живёт в этом репозитории
+  state.gh = { repo: lsGet(LS_GH_REPO, "") || DEFAULT_GH_REPO,
+               token: lsGet(LS_GH_TOKEN, "") };
   loadDownloaded();
   updateBadge();
   setOnline(false);
