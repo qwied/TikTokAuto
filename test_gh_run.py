@@ -58,6 +58,27 @@ def test_channels_meta_and_sig():
     assert meta[0]["title"] == "Title!"
 
 
+def test_channels_meta_accepts_monitor_rows():
+    """Регрессия: probe_live отдаёт StreamMonitor.status_rows() (кортежи).
+
+    Раньше probe_live возвращал mon.snapshot() — список объектов ChannelState;
+    channels_meta_from_snapshot падала с TypeError «cannot unpack non-iterable
+    ChannelState object» РОВНО в момент, когда канал в эфире: Check live умирал,
+    Monitor не запускался, клипы не появлялись.
+    """
+    from stream_monitor import StreamMonitor
+    ref = gh_run.parse_link("https://www.twitch.tv/abc")
+    m = StreamMonitor(channels=[ref], quality="best", poll_twitch=2,
+                      poll_youtube=3, yt_workers=3, cookies_file="",
+                      cookies_from_browser="", links_file=None,
+                      refresh_refs=lambda: [ref],
+                      on_live=lambda ch: None, on_offline=lambda ch: None)
+    rows = m.status_rows()
+    assert rows and isinstance(rows[0], tuple) and rows[0][0] == "twitch"
+    meta = gh_run.channels_meta_from_snapshot([ref], rows)
+    assert meta and meta[0]["name"] == "abc"
+
+
 def test_publisher_updates_clips_json(tmp_path):
     class FakeGH:
         repo = "o/r"

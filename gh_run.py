@@ -354,7 +354,11 @@ def probe_live(refs, cfg, wait_s=PROBE_WAIT):
                         on_live=lambda ch: None, on_offline=lambda ch: None)
     mon.start()
     time.sleep(max(10, int(wait_s)))
-    snap = mon.snapshot()
+    # ВАЖНО: именно status_rows() — кортежи (platform, name, live, title, viewers).
+    # mon.snapshot() отдаёт объекты ChannelState, и channels_meta_from_snapshot
+    # падала с TypeError ровно в момент, когда кто-то СТРИМИТ: Check live умирал
+    # и Monitor никогда не запускался.
+    snap = mon.status_rows()
     mon.stop()
     return snap or []
 
