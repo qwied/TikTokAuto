@@ -329,6 +329,7 @@ Secrets and variables → Actions → New repository secret). Клип гото�
 
 | Секрет(ы) | Что это |
 |---|---|
+| `VAPID_PRIVATE_KEY` | **Пуши прям с сайта, без сторонних приложений**: в Настройках сайта кнопка «Пуши на устройство». iPhone: сначала Safari → Поделиться → «На экран „Домой“», открыть с иконки, нажать кнопку. Подписки лежат в push_subscriptions.json, ключ уже записан в секрет |
 | `NOTIFY_NTFY_TOPIC` | ntfy: приложение ntfy (iPhone/Android/десктоп), подписка на этот топик. Проще всего: без аккаунта. Клипы ≤ 14 МБ приходят прямо с видео во вложении |
 | `NOTIFY_TELEGRAM_BOT_TOKEN` + `NOTIFY_TELEGRAM_CHAT_ID` | Telegram-бот пришлёт ВИДЕО прямо в чат (≤ 50 МБ). Токен от @BotFather; chat_id — через getUpdates |
 | `NOTIFY_BARK_DEVICE_KEY` | Bark (iPhone): ключ из приложения Bark |
