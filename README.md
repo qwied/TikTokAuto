@@ -198,7 +198,8 @@ Enter в консоли — снять клип немедленно, Ctrl+C —
    подключите продукт **Content Posting API** (scopes: video.upload, video.publish).
 2. В config.yaml впишите `client_key` и `client_secret`; Redirect URI
    `http://localhost:8321/callback` пропишите и в настройках приложения.
-3. Запустите **python tiktok_auth.py** → откроется браузер → войдите в TikTok →
+3. Запустите **tiktok_auth.bat** (двойной клик) или `python tiktok_auth.py` →
+   откроется браузер → войдите в TikTok →
    токен сохранится в tiktok_tokens.json (потом обновляется автоматически).
 4. `mode: api`, `enabled: true`.
 
@@ -312,7 +313,7 @@ Content Posting API, ключи лежат в секретах репозито�
 | Ссылки на стримеров | скопируйте адрес канала: twitch.tv/ник, youtube.com/@канал | Сайт → «Каналы» (или subscriptions.json на github.com) |
 | GitHub-токен («Каналы» с телефона) | github.com → Settings → Developer settings → **Fine-grained personal access tokens** → Generate new token → имя любое (например `streamclipper`) → **Expiration: No expiration** (иначе через месяц всё сломается) → Repository access: **Only select repositories** → ваш репозиторий → Permissions: найдите в списке **Contents** → **Read and write** (остальные пункты не трогайте — Metadata включится сам) → **Generate token** → сразу скопируйте `github_pat_…` — показывается ОДИН раз | Сайт → Настройки → «GitHub без компьютера» → вставить → Сохранить |
 | TikTok client_key / client_secret | developers.tiktok.com → Log in → **Manage apps** → **Create app** → продукт **Content Posting API** (scopes: video.upload, video.publish) → вкладка Key | Репозиторий → Settings → Secrets and variables → Actions → `TIKTOK_CLIENT_KEY`, `TIKTOK_CLIENT_SECRET` |
-| TikTok refresh_token (один раз, на ПК) | в config.yaml впишите client_key/client_secret → `python tiktok_auth.py` → войдите в TikTok → в появившемся tiktok_tokens.json скопируйте refresh_token | Репозиторий → Secrets → `TIKTOK_REFRESH_TOKEN` |
+| TikTok refresh_token (один раз, на ПК) | в config.yaml впишите client_key/client_secret → двойной клик **tiktok_auth.bat** (или `python tiktok_auth.py`) → войдите в TikTok → в появившемся tiktok_tokens.json скопируйте refresh_token | Репозиторий → Secrets → `TIKTOK_REFRESH_TOKEN` |
 | Telegram / ntfy / Bark (необязательно) | BotFather / приложения ntfy, Bark | config.yaml → notify (работает в режиме ПК) |
 
 Без TikTok-секретов всё остальное работает: клипы появляются на сайте, но не
@@ -523,7 +524,7 @@ banner.py               RubUP: пауза нарезки, центр, ≥25% п�
 ad_guard.py             реклама RubAp/RubUp: нарезка СТОП -> авто-продолжение
 notifier.py             Telegram / ntfy / Bark / Pushover / webhook (или все сразу)
 tiktok.py               автопостинг клипов в TikTok (Chrome+cookies или официальный API)
-tiktok_auth.py          получение токена TikTok API (python tiktok_auth.py)
+tiktok_auth.py          получение токена TikTok API (двойной клик tiktok_auth.bat)
 bot.py                  Telegram-бот: ссылки, /list /status /clip
 clip_server.py          веб-сервер: сайт + API + клипы (Range/CORS, белый список)
 pipeline.py             оркестратор всего процесса
