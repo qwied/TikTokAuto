@@ -72,6 +72,11 @@ class HypeDetector(threading.Thread):
         self.keywords = [str(k) for k in hype_cfg.get("keywords", DEFAULT_KEYWORDS)]
         self.cooldown = float(clip_cfg.get("cooldown", 180))
         self.max_per_hour = int(clip_cfg.get("max_per_hour", 6))
+        # Гарантированная нарезка: если хайпа нет дольше N минут, клип всё
+        # равно снимается (0 = выключено). Чтобы за любой стрим у пользователя
+        # точно были клипы и уведомления, даже когда чат спокойный.
+        self.max_idle = max(0.0, float(clip_cfg.get("max_idle_min", 20))) * 60.0
+        self.started_at = 0.0          # момент первого сообщения чата
         self.on_hype = on_hype
 
         self.msgs = deque(maxlen=6000)
@@ -84,6 +89,8 @@ class HypeDetector(threading.Thread):
 
     def feed(self, msg):
         if msg and msg.text and msg.text.strip():
+            if not self.started_at:
+                self.started_at = float(msg.ts)
             self.msgs.append(msg)
 
     def stop(self):
@@ -138,6 +145,16 @@ class HypeDetector(threading.Thread):
                 and now - self.last_trigger >= self.cooldown
                 and len(self.trigger_times) < self.max_per_hour):
             self._trigger(now, self.smooth, win, users)
+            return
+
+        # Гарантированный клип: давно ни хайпа, ни клипов — снимаем всё равно.
+        anchor = max(self.last_trigger, self.started_at)
+        if (self.max_idle > 0 and self.msgs and anchor > 0
+                and now - anchor >= self.max_idle
+                and len(self.trigger_times) < self.max_per_hour):
+            log.info("Хайпа нет уже %.0f мин — снимаю клип без ожидания "
+                     "(гарантированная нарезка)", (now - anchor) / 60)
+            self._trigger(now, max(self.smooth, 50.0), win, users)
 
     def _trigger(self, now, score, win, users):
         self.last_trigger = now

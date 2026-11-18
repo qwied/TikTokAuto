@@ -52,6 +52,34 @@ def test_burst_triggers_clip():
     print(f"ok: всплеск -> клип (score={events[0].score})")
 
 
+def test_idle_fallback():
+    """Гарантированная нарезка: 25 минут без хайпа -> клип всё равно снимается."""
+    cfg = {"window": 5.0, "threshold": 90, "sustain": 2, "min_users": 3}
+    clip_cfg = {"cooldown": 0, "max_per_hour": 10, "max_idle_min": 20}
+    events = []
+    d = HypeDetector("test:twitch", cfg, clip_cfg, on_hype=events.append)
+    now = time.time()
+    # тихий чат 25 минут назад (порог 90 недостижим)
+    for i in range(8):
+        d.feed(ChatMessage(ts=now - 1500 + i, user=f"c{i}", text="тихое сообщение",
+                           platform="twitch"))
+    d.evaluate(now)
+    assert events, "после 20 минут без хайпа должен быть принудительный клип"
+    # сразу второй раз не стреляет: last_trigger обновился
+    d.evaluate(now + 1)
+    assert len(events) == 1, "принудительные клипы не должны идти подряд"
+    # а с выключенной настройкой — не стреляет вовсе
+    events.clear()
+    d2 = HypeDetector("test:twitch", cfg, {"cooldown": 0, "max_per_hour": 10,
+                                           "max_idle_min": 0}, on_hype=events.append)
+    for i in range(8):
+        d2.feed(ChatMessage(ts=now - 1500 + i, user=f"c{i}", text="тихое сообщение",
+                            platform="twitch"))
+    d2.evaluate(now)
+    assert not events, "max_idle_min: 0 должен отключать принудительную нарезку"
+    print("ok: гарантированный клип после 20 минут тишины")
+
+
 def test_no_false_alarm():
     d, events = make_detector()
     now = time.time()
