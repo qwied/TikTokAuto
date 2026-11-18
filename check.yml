@@ -1,0 +1,35 @@
+# StreamClipper: проверка эфиров каждые 5 минут.
+# Кто-то стримит -> запускается Monitor (он сам всё нарежет и опубликует).
+name: Check live
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"          # каждые 5 минут (минимальный шаг GitHub)
+  workflow_dispatch: {}            # кнопка «Run» вручную
+
+permissions:
+  contents: write                  # обновить clips.json (статусы каналов)
+  actions: write                   # запустить Monitor
+
+concurrency:
+  group: check-live
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Зависимости
+        run: pip install streamlink yt-dlp requests PyYAML
+
+      - name: Проверить эфиры и запустить Monitor
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python gh_run.py --check

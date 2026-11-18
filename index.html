@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#05060a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="StreamClipper">
+<title>StreamClipper — клипы</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg" aria-hidden="true"><i class="orb orb-a"></i><i class="orb orb-b"></i><i class="grain"></i></div>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="logo"><i>SC</i></span>
+    <span class="brand-name">Stream<em>Clipper</em></span>
+  </div>
+  <div class="top-actions">
+    <button id="conn-pill" class="conn-pill off" title="Состояние сервера">
+      <i class="dot"></i><span id="conn-text">нет связи</span>
+    </button>
+    <button id="btn-channels" class="icon-btn" aria-label="Каналы">
+      <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    </button>
+    <button id="btn-settings" class="icon-btn" aria-label="Настройки">
+      <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    </button>
+  </div>
+</header>
+
+<section id="live-strip" class="live-strip" hidden></section>
+
+<main id="clips" class="clips"></main>
+
+<div id="skeleton" class="skeleton" hidden aria-hidden="true">
+  <div class="sk-card"><i class="sk-thumb shimmer"></i><i class="sk-line shimmer"></i><i class="sk-line short shimmer"></i><i class="sk-btn shimmer"></i></div>
+  <div class="sk-card"><i class="sk-thumb shimmer"></i><i class="sk-line shimmer"></i><i class="sk-line short shimmer"></i><i class="sk-btn shimmer"></i></div>
+</div>
+
+<div id="empty" class="empty" hidden>
+  <div class="empty-icon">
+    <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="3.5"/><path d="M10 9.2l5 2.8-5 2.8z" fill="currentColor" stroke="none"/><path d="M2.5 9h2M2.5 15h2M19.5 9h2M19.5 15h2"/></svg>
+  </div>
+  <h2 id="empty-title">Клипы появятся здесь</h2>
+  <p id="empty-text">Как только чат стримера «взорвётся», готовый клип на 60 секунд
+     с субтитрами появится здесь автоматически.</p>
+
+  <div id="connect-card" class="connect-card">
+    <div class="connect-head">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 15.8a5.5 5.5 0 0 1 7 0"/><circle cx="12" cy="19" r="1.4" fill="currentColor" stroke="none"/></svg>
+      Подключить компьютер
+    </div>
+    <div class="connect-row">
+      <input id="inp-server-empty" type="url" inputmode="url" autocomplete="off"
+             autocapitalize="off" spellcheck="false" placeholder="http://192.168.1.5:8765">
+      <button id="btn-connect-empty" class="btn primary sm">Войти</button>
+    </div>
+    <p id="connect-status" class="connect-status"></p>
+    <ol class="steps">
+      <li><b>Запустите run.bat</b> на компьютере — окно программы покажет адрес</li>
+      <li><b>Введите адрес</b> сюда и нажмите «Войти»</li>
+      <li><b>Готово</b> — клипы будут прилетать сами</li>
+    </ol>
+    <p class="install-hint">
+      На iPhone: <b>Поделиться → «На экран „Домой“»</b> — сайт станет
+      приложением и будет открываться даже без интернета.
+    </p>
+    <p class="mix-note" id="mix-note-empty" hidden>
+      Эта страница открыта по https и не может достучаться до http-адреса.
+      Откройте адрес сервера в Safari напрямую или поднимите https-туннель
+      (cloudflared — инструкция в README проекта).
+    </p>
+  </div>
+</div>
+
+<button id="dl-corner" class="dl-corner" hidden aria-label="Загруженное">
+  <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+  <span>Загруженное</span>
+  <span id="dl-badge" class="badge">0</span>
+</button>
+
+<div id="player-backdrop" class="overlay" hidden></div>
+<section id="player" class="sheet player" hidden aria-label="Просмотр клипа">
+  <div class="grip"></div>
+  <div class="sheet-head">
+    <h3 id="player-title">Клип</h3>
+    <button id="player-close" class="icon-btn" aria-label="Закрыть">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="player-video-wrap">
+    <video id="player-video" controls playsinline preload="metadata"></video>
+  </div>
+  <p class="player-note" id="player-note">Офлайн-копия на этом устройстве</p>
+  <button id="player-dl" class="btn primary">Скачать файл</button>
+</section>
+
+<div id="sheet-backdrop" class="overlay" hidden></div>
+<section id="sheet" class="sheet" hidden aria-label="Загруженное">
+  <div class="grip"></div>
+  <div class="sheet-head">
+    <h3>Загруженное</h3>
+    <button id="sheet-clear" class="text-btn danger">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+      Очистить
+    </button>
+  </div>
+  <p class="sheet-sub" id="sheet-sub">Видео, которые вы скачали на это устройство. Прячутся из общей ленты и хранятся здесь.</p>
+  <div id="sheet-list" class="sheet-list"></div>
+</section>
+
+<div id="modal-backdrop" class="overlay" hidden></div>
+<section id="settings" class="sheet" hidden aria-label="Настройки">
+  <div class="grip"></div>
+  <h3 class="settings-title">Настройки</h3>
+  <label class="field">
+    <span>Адрес сервера StreamClipper</span>
+    <input id="inp-server" type="url" inputmode="url" autocomplete="off"
+           autocapitalize="off" spellcheck="false" placeholder="http://192.168.1.5:8765">
+  </label>
+  <p class="field-help">
+    Адрес показывается в окне программы на компьютере
+    («Веб-интерфейс: http://…:8765»). Если эта страница открыта прямо с
+    компьютера — адрес уже подставлен.
+  </p>
+  <div id="mix-warning" class="mix-note" hidden>
+    GitHub Pages работает по https и не может обращаться к серверу по http.
+    Откройте адрес сервера в Safari напрямую или поднимите бесплатный
+    https-туннель cloudflared (инструкция в README, раздел «GitHub Pages»).
+  </div>
+  <div class="row">
+    <button id="btn-check" class="btn ghost">Проверить</button>
+    <button id="btn-tk-save" class="btn ghost">TikTok</button>
+    <button id="btn-save" class="btn primary">Сохранить</button>
+  </div>
+  <p id="check-result" class="check-result"></p>
+  <label class="field">
+    <span>TikTok access_token — чтобы клипы публиковались сами</span>
+    <input id="inp-tk-token" type="text" autocomplete="off" autocapitalize="off"
+           spellcheck="false" placeholder="act.xxxx…">
+  </label>
+  <p class="field-help">
+    Кнопка «TikTok» сохранит токен (Content Posting API — как получить,
+    написано в README). Клип готов → сам уходит в TikTok: РОВНО 60 секунд,
+    субтитры внизу, баннер RubUP, хештеги #fyp #рек #стрим.
+  </p>
+  <div class="howto">
+    <div class="howto-title">GitHub без компьютера (автоматизация)</div>
+    <label class="field">
+      <span>Репозиторий (владелец/имя)</span>
+      <input id="inp-gh-repo" type="text" autocomplete="off" autocapitalize="off"
+             spellcheck="false" placeholder="ivan/clipper">
+    </label>
+    <label class="field">
+      <span>GitHub-токен (Contents: Read and write)</span>
+      <input id="inp-gh-token" type="password" autocomplete="off" autocapitalize="off"
+             spellcheck="false" placeholder="github_pat_…">
+    </label>
+    <div class="row">
+      <button id="btn-gh-check" class="btn ghost">Проверить</button>
+      <button id="btn-gh-save" class="btn primary">Сохранить</button>
+    </div>
+    <p id="gh-status" class="check-result"></p>
+    <p class="field-help">
+      Нужен только для кнопки «Каналы» с телефона — добавляет ссылку стримера
+      в subscriptions.json вашего репозитория. Создать токен за минуту:
+      github.com → Settings → Developer settings → Fine-grained personal
+      access tokens → Generate → выберите только свой репозиторий →
+      Repository permissions → Contents: <b>Read and write</b>.
+      TikTok подключается через Secrets репозитория (README, «Откуда брать
+      данные»).
+    </p>
+  </div>
+  <div class="howto">
+    <div class="howto-title">Как это работает</div>
+    <ol class="steps">
+      <li><b>run.bat</b> на ПК — программа сама следит за каналами из links.txt</li>
+      <li>Чат «взорвался» — клип <b>ровно 60 секунд</b> с субтитрами готов</li>
+      <li>Уведомление прилетает на <b>любое устройство</b> (Telegram / ntfy / Bark)</li>
+      <li>«Скачать» — видео уходит на телефон и прячется в «Загруженное»</li>
+    </ol>
+  </div>
+</section>
+
+<div id="channels-backdrop" class="overlay" hidden></div>
+<section id="channels" class="sheet" hidden aria-label="Каналы">
+  <div class="grip"></div>
+  <div class="sheet-head">
+    <h3>Каналы</h3>
+    <button id="channels-close" class="icon-btn" aria-label="Закрыть">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <p class="sheet-sub">Киньте ссылку ОДИН раз — следим постоянно и максимально быстро:
+     стример вышел в эфир → запись включилась сама → клипы снимаются сами.</p>
+  <div class="connect-row">
+    <input id="inp-channel" type="url" inputmode="url" autocomplete="off"
+           autocapitalize="off" spellcheck="false"
+           placeholder="twitch.tv/ник или youtube.com/@канал">
+    <button id="btn-add-channel" class="btn primary sm">Добавить</button>
+  </div>
+  <p id="add-channel-status" class="check-result"></p>
+  <div id="channel-list" class="channel-list"></div>
+  <div class="howto">
+    <div class="howto-title">Реклама RubAp / RubUp</div>
+    <p class="install-hint">
+      Пока на стриме идёт реклама, нарезка СТОП (на карточке канала кнопка
+      <b>РЕКЛАМА</b>). Реклама кончилась — тапните ещё раз, нарезка продолжится.
+      Серверная реклама ловится и ставится на паузу автоматически.
+    </p>
+    <div class="howto-title">TikTok-автопостинг</div>
+    <p id="tk-status" class="install-hint tk-status">Проверяю…</p>
+  </div>
+</section>
+
+<div id="toast" class="toast" hidden></div>
+
+<script src="app.js"></script>
+</body>
+</html>
