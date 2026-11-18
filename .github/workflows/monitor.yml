@@ -45,4 +45,12 @@ jobs:
           TIKTOK_CLIENT_KEY: ${{ secrets.TIKTOK_CLIENT_KEY }}
           TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
           TIKTOK_REFRESH_TOKEN: ${{ secrets.TIKTOK_REFRESH_TOKEN }}
+          NOTIFY_TELEGRAM_BOT_TOKEN: ${{ secrets.NOTIFY_TELEGRAM_BOT_TOKEN }}
+          NOTIFY_TELEGRAM_CHAT_ID: ${{ secrets.NOTIFY_TELEGRAM_CHAT_ID }}
+          NOTIFY_NTFY_TOPIC: ${{ secrets.NOTIFY_NTFY_TOPIC }}
+          NOTIFY_NTFY_SERVER: ${{ secrets.NOTIFY_NTFY_SERVER }}
+          NOTIFY_BARK_DEVICE_KEY: ${{ secrets.NOTIFY_BARK_DEVICE_KEY }}
+          NOTIFY_PUSHOVER_USER_KEY: ${{ secrets.NOTIFY_PUSHOVER_USER_KEY }}
+          NOTIFY_PUSHOVER_API_TOKEN: ${{ secrets.NOTIFY_PUSHOVER_API_TOKEN }}
+          NOTIFY_WEBHOOK_URL: ${{ secrets.NOTIFY_WEBHOOK_URL }}
         run: python gh_run.py --monitor --channel "${{ inputs.channel }}"
