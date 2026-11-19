@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-19T17:14:13Z",
+ "updated": "2026-11-19T17:14:28Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,89 +15,89 @@
     "name": "illojuan",
     "display": "twitch.tv/illojuan",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "DÍA 2 🦩 INSTALANDO GTA VI POR TERCERA VEZ 🙀 A GOZARLO FUERTE 💖 - Grand Theft Auto VI #2"
    },
    {
     "name": "alanzoka",
     "display": "twitch.tv/alanzoka",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "VICE CITY BABYYYYYYYYYYY"
    },
    {
     "name": "auronplay",
     "display": "twitch.tv/auronplay",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🚨 !DROPS ON 🌴 SEGUIMOS EL GTA VI  DESDE PS5 PRO 🌴 HOY EXTENSIBLE DE 5 HORITAS 🌴"
    },
    {
     "name": "ohnepixel",
     "display": "twitch.tv/ohnepixel",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🔴[DROPS] GTA 6 FULL PLAYTHROUGH🔴"
    },
    {
     "name": "kaicenat",
     "display": "twitch.tv/kaicenat",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🌴PLAYING GTA 6 FOR THE FIRST TIME🌴"
    },
    {
     "name": "trymacs",
     "display": "twitch.tv/trymacs",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "5 Tage GTA 6 Stream!  | !Wolt !Emma !Loco !ESN !Nobomi !Prepmymeal"
    },
    {
     "name": "shadowkekw",
     "display": "twitch.tv/shadowkekw",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "[DROPS] 🌴 GTA VI 🌴 МАРАФОН 🌴 @evelone2004 @mokrivskyi 🌴 👉 !тг !betboom !торнадо !РО !yota !розыгрыш"
    },
    {
     "name": "squeezie",
     "display": "twitch.tv/squeezie",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "GTA 6 ON CONTINUE LIVE 233H"
    },
    {
     "name": "zarbex",
     "display": "twitch.tv/zarbex",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "[DROPS] 🦩🌴 100+ STUNDEN GTA 6 STREAM 🦩🌴 GEILSTES SPIEL ALLER ZEITEN 🦩🌴 1. MAL LIVE AUS HALLE 🦩🌴 PS5 VERLOSUNG  !socials !esn !pmm"
    },
    {
     "name": "joe_bartolozzi",
     "display": "twitch.tv/joe_bartolozzi",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "IT HAS BEGUN GTA GRIND ALL DAY LOCK IN JOIN JOIN JOIN"
    },
    {
     "name": "ishowspeed",
     "display": "twitch.tv/ishowspeed",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🔴PLAYING GTA 6 EARLY ACCESS GAMEPLAY GET IN HERE!"
    },
    {
     "name": "eliasn97",
@@ -239,7 +239,7 @@
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"illojuan\", false, \"\", 0], [\"alanzoka\", false, \"\", 0], [\"auronplay\", false, \"\", 0], [\"ohnepixel\", false, \"\", 0], [\"kaicenat\", false, \"\", 0], [\"trymacs\", false, \"\", 0], [\"shadowkekw\", false, \"\", 0], [\"squeezie\", false, \"\", 0], [\"zarbex\", false, \"\", 0], [\"joe_bartolozzi\", false, \"\", 0], [\"ishowspeed\", false, \"\", 0], [\"eliasn97\", false, \"\", 0], [\"montanablack88\", false, \"\", 0], [\"leb1ga\", false, \"\", 0], [\"buster\", false, \"\", 0], [\"youngmulti\", false, \"\", 0], [\"yaritaiji\", false, \"\", 0], [\"stableronaldo\", false, \"\", 0], [\"papaplatte\", false, \"\", 0], [\"recrent\", false, \"\", 0], [\"cohhcarnage\", false, \"\", 0], [\"hutchmf\", false, \"\", 0], [\"t2x2\", false, \"\", 0], [\"indegnasen0706\", false, \"\", 0], [\"fps_shaka\", false, \"\", 0], [\"rubius\", false, \"\", 0], [\"anyme023\", false, \"\", 0], [\"lacy\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"illojuan\", true, \"DÍA 2 🦩 INSTALANDO GTA VI POR TERCERA VEZ 🙀 A GOZARLO FUERTE 💖 - Grand Theft Auto VI #2\", 0], [\"alanzoka\", true, \"VICE CITY BABYYYYYYYYYYY\", 0], [\"auronplay\", true, \"🚨 !DROPS ON 🌴 SEGUIMOS EL GTA VI  DESDE PS5 PRO 🌴 HOY EXTENSIBLE DE 5 HORITAS 🌴\", 0], [\"ohnepixel\", true, \"🔴[DROPS] GTA 6 FULL PLAYTHROUGH🔴\", 0], [\"kaicenat\", true, \"🌴PLAYING GTA 6 FOR THE FIRST TIME🌴\", 0], [\"trymacs\", true, \"5 Tage GTA 6 Stream!  | !Wolt !Emma !Loco !ESN !Nobomi !Prepmymeal\", 0], [\"shadowkekw\", true, \"[DROPS] 🌴 GTA VI 🌴 МАРАФОН 🌴 @evelone2004 @mokrivskyi 🌴 👉 !тг !betboom !торнадо !РО !yota !розыгрыш\", 0], [\"squeezie\", true, \"GTA 6 ON CONTINUE LIVE 233H\", 0], [\"zarbex\", true, \"[DROPS] 🦩🌴 100+ STUNDEN GTA 6 STREAM 🦩🌴 GEILSTES SPIEL ALLER ZEITEN 🦩🌴 1. MAL LIVE AUS HALLE 🦩🌴 PS5 VERLOSUNG  !socials !esn !pmm\", 0], [\"joe_bartolozzi\", true, \"IT HAS BEGUN GTA GRIND ALL DAY LOCK IN JOIN JOIN JOIN\", 0], [\"ishowspeed\", true, \"🔴PLAYING GTA 6 EARLY ACCESS GAMEPLAY GET IN HERE!\", 0], [\"eliasn97\", false, \"\", 0], [\"montanablack88\", false, \"\", 0], [\"leb1ga\", false, \"\", 0], [\"buster\", false, \"\", 0], [\"youngmulti\", false, \"\", 0], [\"yaritaiji\", false, \"\", 0], [\"stableronaldo\", false, \"\", 0], [\"papaplatte\", false, \"\", 0], [\"recrent\", false, \"\", 0], [\"cohhcarnage\", false, \"\", 0], [\"hutchmf\", false, \"\", 0], [\"t2x2\", false, \"\", 0], [\"indegnasen0706\", false, \"\", 0], [\"fps_shaka\", false, \"\", 0], [\"rubius\", false, \"\", 0], [\"anyme023\", false, \"\", 0], [\"lacy\", false, \"\", 0]]"
  },
  "clips": [
   {
