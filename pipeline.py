@@ -17,6 +17,7 @@ import time
 
 import banner
 import subtitle
+import vod as vod_mod
 import vertical as vertical_mod
 from ad_guard import AdGuard
 from bot import TelegramBot
@@ -103,6 +104,9 @@ class Pipeline:
         self.keep_temp = bool(storage.get("keep_temp", False))
 
         self.sub_cfg = cfg.get("subtitle", {}) or {}
+        # Порог публикации: клипы с оценкой ниже — «скучные» — не выходят
+        # вообще (задается сайтом: loose/normal/strict). 0 — выключить гейт.
+        self.min_publish = float((cfg.get("_min_publish")) or 40.0)
         self.banner_cfg = cfg.get("banner", {}) or {}
         self.ad_cfg = cfg.get("ad", {}) or {}      # пауза нарезки во время рекламы
         self.banner_path = banner.resolve_file(self.banner_cfg, base_dir)
@@ -574,6 +578,33 @@ class Pipeline:
             return
 
         dur_real = ffprobe_meta(out_path).get("duration") or dur_est
+
+        # --- КОНТРОЛЬ КАЧЕСТВА ПОСЛЕ НАРЕЗКИ -------------------------------------
+        # Хайп чата — оценка ДО нарезки. Теперь смотрим и на сам клип:
+        # битрейт (движение в кадре), громкость, распознанная речь. Скучное
+        # («гарантированная» нарезка при мёртвом чате, статичный кадр 2 МБ)
+        # не публикуем вовсе: лучше меньше клипов, но все — огонь.
+        try:
+            q_score, q_parts = vod_mod.clip_quality(out_path, smeta,
+                                                    base=float(ev.score),
+                                                    duration=dur_real)
+        except Exception:
+            log.exception("Оценка качества не удалась — публикую как есть")
+            q_score, q_parts = float(ev.score), {}
+        if self.min_publish > 0 and q_score < self.min_publish:
+            log.info("СКУКА: %.0f/100 < порога %.0f — клип не публикую "
+                     "(битрейт %.2f Мбит/с, звук %.0f dB, слов %d)",
+                     q_score, self.min_publish, q_parts.get("mbps", 0),
+                     q_parts.get("mean_db", -99), q_parts.get("words", 0))
+            self._drop_clip(out_path)
+            for f in (orig_ts, raw_ts):
+                try:
+                    if os.path.exists(f):
+                        os.remove(f)
+                except OSError:
+                    pass
+            return
+
         self._write_meta(out_path, ch, ev, dur_real, subs=smeta)
         self._make_thumb(out_path)
 
@@ -587,7 +618,7 @@ class Pipeline:
                                        platform=st.ch.platform,
                                        display=st.ch.display(),
                                        title=st.ch.title or "",
-                                       score=ev.score, subs=smeta)
+                                       score=q_score, subs=smeta)
         if self.tiktok:
             tk_caption = tiktok_mod.build_caption(
                 {"title": st.ch.title or "", "channel": st.ch.display(),
@@ -702,6 +733,17 @@ class Pipeline:
                 json.dump(meta, f, ensure_ascii=False)
         except OSError:
             pass
+
+    def _drop_clip(self, out_path):
+        """Удалить забракованный клип и его побочные файлы (превью, мета)."""
+        stem = os.path.splitext(os.path.basename(str(out_path)))[0]
+        thumb = os.path.join(self.clips_dir, "thumbs", stem + ".jpg")
+        for f in (str(out_path), str(out_path) + ".json", thumb):
+            try:
+                if os.path.exists(f):
+                    os.remove(f)
+            except OSError:
+                pass
 
     def _make_thumb(self, out_path):
         """Превью для веб-интерфейса: clips/thumbs/<имя>.jpg (1 кадр из клипа)."""

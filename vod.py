@@ -482,3 +482,88 @@ def process_clip(src_video, clips_dir, workdir, cfg, display, platform,
     out_path = os.path.join(str(clips_dir), out_name)
     os.replace(out_tmp, out_path)
     return out_path, smeta
+
+
+# --- контроль качества ПОСЛЕ нарезки ----------------------------------------------------------
+
+def clip_quality(mp4_path, smeta=None, base=None, duration=None):
+    """Финальная оценка «сочности» готового клипа 0..100.
+
+    Практика показала: скучные клипы почти всегда весят ~2 МБ, а живые —
+    30-45 МБ. Размер — честный сигнал: статичная сцена (игра стоит, камера
+    не двигается, только голос поверх) сжимается в копейки, а взрыв действия
+    (движение, огонь, толпа, драки) весит в 10-20 раз больше.
+
+    Итог = база (хайп чата / оценка окна) + три добавки:
+      * БИТРЕЙТ (Мбит/с): сколько «движения» было в кадре;
+      * ЗВУК: средняя громкость + динамика (всплески) + штраф за тишину;
+      * РЕЧЬ: сколько слов распознал Whisper — говорливые клипы живее.
+
+    Возвращает (оценка, детали) — детали попадают в лог, чтобы было видно,
+    ПОЧЕМУ клип забракован (и в отладку порогов).
+    """
+    import numpy as np
+    try:
+        meta = ffprobe_meta(mp4_path)
+        dur = float(duration or meta.get("duration") or 0) or 60.0
+        size = os.path.getsize(str(mp4_path))
+    except Exception:
+        dur, size = 60.0, 0
+    mbps = size * 8.0 / max(dur, 1.0) / 1e6
+    try:
+        rms = loudness_curve(mp4_path)
+        db = 20.0 * np.log10(np.maximum(rms, 1e-6))
+        mean_db = float(np.mean(db))
+        std_db = float(np.std(db))
+        silent_r = float((db <= float(np.mean(db)) - 14.0).mean())
+    except Exception:
+        mean_db, std_db, silent_r = -30.0, 3.0, 0.5
+
+    # --- битрейт: <0.9 Мбит/с — статичный кадр (типичный «скучный 2 МБ»)
+    if mbps < 0.9:
+        d_bit = -30.0
+    elif mbps < 1.6:
+        d_bit = -12.0
+    elif mbps < 2.5:
+        d_bit = 0.0
+    elif mbps < 3.5:
+        d_bit = 5.0
+    else:
+        d_bit = 9.0
+
+    # --- звук: крик/смех/взрывы громче ровного фона; тишина — штраф
+    if mean_db < -34.0:
+        d_snd = -9.0
+    elif mean_db < -22.0:
+        d_snd = 0.0
+    elif mean_db < -14.0:
+        d_snd = 5.0
+    else:
+        d_snd = 8.0
+    if std_db >= 6.0:
+        d_snd += 3.0               # динамика: всплески на фоне среднего
+    if silent_r > 0.5:
+        d_snd -= 7.0               # половина клипа — мёртвая тишина
+
+    # --- речь: сколько слов распознано за клип
+    words = int((smeta or {}).get("words") or 0)
+    if words >= 80:
+        d_sub = 6.0
+    elif words >= 40:
+        d_sub = 3.0
+    elif words < 10:
+        d_sub = -9.0
+    else:
+        d_sub = 0.0
+
+    b = 50.0 if base is None else max(0.0, min(100.0, float(base)))
+    score = max(0.0, min(100.0, b + d_bit + d_snd + d_sub))
+    parts = {"score": round(score, 1), "base": round(b, 1),
+             "mbps": round(mbps, 2), "mean_db": round(mean_db, 1),
+             "std_db": round(std_db, 1), "silent": round(silent_r, 2),
+             "words": words, "d_bit": d_bit, "d_snd": round(d_snd, 1),
+             "d_sub": d_sub}
+    log.info("Качество клипа: %.0f/100 (база %.0f, битрейт %.2f Мбит/с %+.0f, "
+             "звук %.0f dB %+.0f, слов %d %+.0f)", score, b, mbps, d_bit,
+             mean_db, d_snd, words, d_sub)
+    return score, parts

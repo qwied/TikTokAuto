@@ -93,6 +93,9 @@ VOD_MAX_WINDOWS = 100   # максимальный клипов из одног�
 VOD_MAX_JOBS = 40       # сколько окон обрабатывает один запуск --vod
 NO_SPEECH_SKIP_MAX = 8  # сколько окон без речи пропускаем за запуск (чтобы
                         # не сжечь весь run на тихих кусках)
+BORED_SKIP_MAX = 6      # сколько «скучных» окон (низкая оценка качества)
+                        # откладываем за запуск; лучший из отложенных всё же
+                        # публикуем, если за весь run не вышел ни один клип
 
 # Настройки качества по умолчанию (их меняет сайт -> settings.json).
 # speech_language: auto — Whisper сам определяет язык (стример может быть
@@ -107,6 +110,14 @@ SELECTION_PRESETS = {
     "loose":  (-14, 7),     # клипов больше: порог ниже, ожидание короче
     "normal": (0, 12),
     "strict": (+12, 20),    # клипов меньше, но попадания точнее
+}
+# Порог публикации ПОСЛЕ нарезки (оценка clip_quality 0..100): скучные клипы
+# (статичный кадр ~2 МБ, тишина, нет речи) не выходят вовсе. Практика: живые
+# клипы весят 30-45 МБ, скучные — 2 МБ. Регулируется кнопкой «отбор» на сайте.
+MIN_PUBLISH_PRESETS = {
+    "loose": 30.0,
+    "normal": 40.0,
+    "strict": 50.0,
 }
 
 # --- автопоиск лучших стримов Twitch ---------------------------------------
@@ -538,10 +549,11 @@ def apply_settings(cfg, s):
     if "_base_idle" not in clip:
         clip["_base_idle"] = float(clip.get("max_idle_min", 12))
     clip["max_idle_min"] = float(clip["_base_idle"]) if delta == 0 else idle
+    cfg["_min_publish"] = float(MIN_PUBLISH_PRESETS[sel])
     cfg["_settings"] = s
-    log.info("Настройки: язык=%s, отбор=%s (порог %.0f, пауза %.0f мин), "
-             "пропуск без речи=%s", cfg["speech_language"], sel,
-             hyp["threshold"], clip["max_idle_min"],
+    log.info("Настройки: язык=%s, отбор=%s (порог %.0f, пауза %.0f мин, "
+             "браковка < %.0f), пропуск без речи=%s", cfg["speech_language"], sel,
+             hyp["threshold"], clip["max_idle_min"], cfg["_min_publish"],
              "да" if s.get("skip_no_speech") else "нет")
     return cfg
 
@@ -1367,6 +1379,10 @@ def run_monitor(channel="", max_minutes=280):
             s = load_site_settings(gh)
             apply_settings(cfg, s)
             pl.speech_language = cfg["speech_language"]
+            try:
+                pl.min_publish = float(cfg.get("_min_publish") or 40.0)
+            except Exception:
+                pass
             items = load_feedback(gh)
             if items:
                 fb_state["items"] = items
@@ -1510,6 +1526,8 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
     deadline = time.time() + max(10, int(max_minutes)) * 60
     made = 0
     skips = 0
+    bored = 0
+    holdout = []      # отложенные как «скучные»: (path, score, display, platform, smeta, url, start)
     while jobs and made < max_jobs and time.time() < deadline - 12 * 60:
         job = jobs[0]
         key = vod_key(job)
@@ -1575,9 +1593,49 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
                 save(JOBS_JSON, jobs_list=jobs, msg="vod: окно без речи пропущено")
                 continue
             size_mb = os.path.getsize(out) / 1e6
-            win_score = None
+            # --- КОНТРОЛЬ КАЧЕСТВА ПОСЛЕ НАРЕЗКИ ---------------------------------
+            # база: оценка окна (z-единицы -> 0..100); у готовых клипов Twitch
+            # база 50 (они уже отобраны людьми)
+            base = 50.0
             if job.get("kind") == "video" and job.get("scores"):
-                win_score = job["scores"][0]
+                try:
+                    base = max(5.0, min(95.0, 50.0 + 12.0 * float(job["scores"][0])))
+                except (TypeError, ValueError):
+                    base = 50.0
+            min_score = float(cfg.get("_min_publish") or 40.0)
+            try:
+                final_score, qparts = vod_mod.clip_quality(out, smeta, base=base)
+            except Exception:
+                log.exception("Оценка качества не удалась — публикую как есть")
+                final_score, qparts = base, {}
+            if final_score < min_score and bored < BORED_SKIP_MAX:
+                bored += 1
+                holdout.append((out, final_score, display, platform, smeta, url,
+                                int(start or 0)))
+                log.info("СКУКА: %.0f/100 < порога %.0f (битрейт %.2f Мбит/с, "
+                         "звук %.0f dB, слов %d) — окно отложено (%d/%d)",
+                         final_score, min_score, qparts.get("mbps", 0),
+                         qparts.get("mean_db", -99), qparts.get("words", 0),
+                         bored, BORED_SKIP_MAX)
+                for f in (src,):
+                    try:
+                        if os.path.exists(f):
+                            os.remove(f)
+                    except OSError:
+                        pass
+                if job.get("kind") == "video":
+                    job["windows"].pop(0)
+                    if job.get("scores"):
+                        job["scores"].pop(0)
+                    if not job["windows"]:
+                        jobs.pop(0)
+                        done.add(key)
+                else:
+                    jobs.pop(0)
+                    done.add(key)
+                save(JOBS_JSON, jobs_list=jobs, msg="vod: скучное окно отложено")
+                continue
+            win_score = final_score
             caption = (f"Клип готов: {display} ({platform}, нарезка видео) — "
                        f"{size_mb:.1f} МБ\n" + subs_caption(smeta))
             if pub.notify_clip(out, caption, platform=platform,
@@ -1618,6 +1676,29 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
             save(PROCESSED_JSON, done_set=done, msg="vod: отмечаю пропущенное")
 
     remaining = len(jobs)
+    # Спасательный круг: если гейт отбраковал ВСЁ и за запуск не published ни
+    # одного клипа — публикуем лучший из отложенных, чтобы лента не пустовала.
+    if made == 0 and holdout:
+        best = max(holdout, key=lambda x: x[1])
+        _p, bscore, bdisp, bplat, bsmeta, burl, bstart = best
+        try:
+            size_mb = os.path.getsize(_p) / 1e6
+            caption = (f"Клип готов: {bdisp} ({bplat}, нарезка видео) — "
+                       f"{size_mb:.1f} МБ\n" + subs_caption(bsmeta))
+            if pub.notify_clip(_p, caption, platform=bplat, display=bdisp,
+                               title=bdisp, score=bscore, subs=bsmeta,
+                               src=burl, start=bstart):
+                made += 1
+                holdout.remove(best)
+                log.info("За запуск всё было скучным — опубликовал лучший из "
+                         "отложенных (оценка %.0f), чтобы лента не пустовала", bscore)
+        except Exception:
+            log.exception("Не удалось опубликовать лучший из отложенных")
+    for item in holdout:
+        try:
+            os.remove(item[0])
+        except OSError:
+            pass
     flag = "1" if remaining else "0"
     try:
         with open(os.path.join(base, "vod_remaining.txt"), "w") as f:

@@ -17,6 +17,7 @@
   var LS_QUALITY = "sc.quality";         // качество клипов: язык субтитров, строгость отбора
   var LS_FEEDBACK = "sc.feedback";       // оценки «Интересно/Скучно» до синхронизации
   var LS_REQUESTS = "sc.requests";       // «Ещё отсюда» — запросы нарезки соседних минут
+  var LS_HIDDEN = "sc.hidden";           // клипы, скрытые крестиком на карточке
   var OFFLINE_CAP = 150 * 1024 * 1024;   // офлайн-копия: не сохраняем файлы больше 150 МБ
 
   var state = {
@@ -268,6 +269,21 @@
 
   function saveRequests(list) { lsSet(LS_REQUESTS, list); }
 
+  // --- скрытые крестиком: пропадают из ленты, можно вернуть одним нажатием -------
+
+  function loadHidden() { return lsGet(LS_HIDDEN, []); }
+
+  function saveHidden(list) { lsSet(LS_HIDDEN, list.slice(-500)); }
+
+  function isHidden(id) { return loadHidden().indexOf(String(id)) !== -1; }
+
+  function hideClip(id) {
+    var list = loadHidden();
+    if (list.indexOf(String(id)) === -1) { list.push(String(id)); saveHidden(list); }
+  }
+
+  function hiddenCount() { return loadHidden().length; }
+
   function qualityIsDefault() {
     var q = loadQuality(), d = DEFAULT_QUALITY, same = true;
     for (var k in d) { if (String(q[k]) !== String(d[k])) same = false; }
@@ -377,7 +393,9 @@
   // --- отрисовка клипов ---------------------------------------------------------------
 
   function visibleClips() {
-    return state.clips.filter(function (c) { return !isDownloaded(c.id); });
+    return state.clips.filter(function (c) {
+      return !isDownloaded(c.id) && !isHidden(c.id);
+    });
   }
 
   function renderClips() {
@@ -394,6 +412,21 @@
 
     el.clips.innerHTML = "";
     list.forEach(function (clip, i) { el.clips.appendChild(cardEl(clip, i)); });
+    // полоска «показать скрытые»: крестик не приговор — вернуть легко
+    var hid = hiddenCount();
+    if (hid > 0) {
+      var bar = document.createElement("button");
+      bar.type = "button";
+      bar.className = "restore-bar";
+      bar.textContent = "Показать скрытые клипы (" + hid + ")";
+      bar.addEventListener("click", function () {
+        saveHidden([]);
+        renderClips._lastSig = null;
+        renderClips();
+        toast("Скрытые клипы вернулись в ленту", "ok");
+      });
+      el.clips.appendChild(bar);
+    }
     renderEmpty();
   }
 
@@ -409,7 +442,9 @@
     if (fresh) card.classList.add("fresh");
 
     var thumb = document.createElement("div");
-    thumb.className = "thumb-wrap";
+    thumb.className = "thumb-wrap has-player";
+    thumb.title = "Нажмите, чтобы посмотреть видео до скачивания";
+    thumb.addEventListener("click", function () { openPlayerForClip(clip); });
     if (clip.thumb) {
       var img = document.createElement("img");
       img.src = (/^(https?:|data:)/i.test(clip.thumb) || !state.server)
@@ -470,6 +505,12 @@
     chips.appendChild(right);
 
     thumb.appendChild(chips);
+
+    // подсказка «смотреть» прямо на превью: видео открывается ДО скачивания
+    var watch = document.createElement("span");
+    watch.className = "watch-chip";
+    watch.innerHTML = ICON_PLAY + " Смотреть";
+    thumb.appendChild(watch);
     card.appendChild(thumb);
 
     var body = document.createElement("div");
@@ -481,6 +522,20 @@
     nm.className = "nm";
     nm.textContent = clip.display || clip.channel || "клип";
     title.appendChild(nm);
+    // крестик: скучный клип убирается из ленты одним нажатием
+    var xBtn = document.createElement("button");
+    xBtn.type = "button";
+    xBtn.className = "x-hide";
+    xBtn.setAttribute("aria-label", "Скрыть клип");
+    xBtn.innerHTML = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>';
+    xBtn.addEventListener("click", function (ev) {
+      ev.stopPropagation();
+      hideClip(clip.id);
+      renderClips._lastSig = null;
+      renderClips();
+      toast("Клип скрыт — вернётся кнопкой «Показать скрытые»", "ok");
+    });
+    title.appendChild(xBtn);
     body.appendChild(title);
 
     var sub = document.createElement("div");
@@ -550,11 +605,26 @@
       body.appendChild(tagsLine);
     }
 
+    var dlRow = document.createElement("div");
+    dlRow.className = "dl-row";
     var btn = document.createElement("button");
     btn.className = "dl-btn";
     btn.innerHTML = '<span class="prog"></span>' + ICON_DL + "<span>Скачать</span>";
     btn.addEventListener("click", function () { downloadClip(clip, btn); });
-    body.appendChild(btn);
+    dlRow.appendChild(btn);
+    var ttBtn = document.createElement("button");
+    ttBtn.type = "button";
+    ttBtn.className = "tt-btn";
+    ttBtn.title = "Открыть TikTok — загрузка видео";
+    ttBtn.textContent = "TikTok";
+    ttBtn.addEventListener("click", function (ev) {
+      ev.stopPropagation();
+      try { navigator.clipboard && clip.hashtags && navigator.clipboard.writeText(clip.hashtags.join(" ")); } catch (e) {}
+      window.open("https://www.tiktok.com/upload", "_blank", "noopener");
+      toast("Открыл TikTok. Хэштеги уже скопированы — вставьте в описание", "ok");
+    });
+    dlRow.appendChild(ttBtn);
+    body.appendChild(dlRow);
 
     // --- обратная связь: помогаем боту отбирать интересные моменты ---------
     var fb = loadFb()[clip.id] || null;
@@ -735,7 +805,7 @@
   }
 
   function openPlayer(item, rec) {
-    el.playerTitle.textContent = item.channel || "Клип";
+    el.playerTitle.textContent = item.display || item.channel || "Клип";
     el.player.hidden = false;
     el.playerBackdrop.hidden = false;
     player.file = item.file;
@@ -765,6 +835,16 @@
     el.playerVideo.removeAttribute("src");
     el.playerNote.textContent = "Нет ни офлайн-копии, ни связи с сервером";
     el.playerDl.hidden = true;
+  }
+
+  // Смотреть ДО скачивания: тап по превью открывает плеер с видео из Releases
+  function openPlayerForClip(clip) {
+    if (clip.gh && clip.url) { openPlayer(clip, null); return; }
+    if (state.server && !httpsPageHttpServer(state.server)) {
+      openPlayer(clip, null);
+      return;
+    }
+    toast("Видео станет доступно, когда появится связь с GitHub/сервером", "err");
   }
 
   function playerDownload() {
@@ -1838,6 +1918,14 @@
     toast("Список «Загруженное» и офлайн-копии очищены");
   });
   el.playerClose.addEventListener("click", closePlayer);
+  // Браузер (особенно iPhone/Safari) иногда не может проиграть файл напрямую
+  // из Releases (content-type octet-stream) — объясняем, что делать: скачать.
+  el.playerVideo.addEventListener("error", function () {
+    if (player.urlSrc) {
+      el.playerNote.textContent = "Браузер не смог проиграть видео прямо с GitHub — " +
+        "нажмите «Скачать файл»: телефон откроет его в своём плеере";
+    }
+  });
   el.playerBackdrop.addEventListener("click", closePlayer);
   el.playerDl.addEventListener("click", playerDownload);
 

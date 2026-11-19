@@ -94,7 +94,13 @@ def transcribe_full(wav_path, language="ru", model_size="small", beam_size=1,
     lang = None if (not language or str(language).lower() == "auto") else str(language)
     kw = {"language": lang, "word_timestamps": True,
           "beam_size": max(1, int(beam_size or 1)),
-          "condition_on_previous_text": False}
+          "condition_on_previous_text": False,
+          # Мягкие пороги «немой речи»: значения по умолчанию (0.6 / -1.0)
+          # выкидывали сегменты, где стример говорит на фоне шума игры —
+          # «стример говорит, а субтитров нет». Снижаем оба порога:
+          # сегмент выбраковывается только при ЯВНО отсутствующей речи.
+          "no_speech_threshold": 0.35,
+          "log_prob_threshold": -0.9}
     if vad:
         kw["vad_filter"] = True
         kw["vad_parameters"] = {"min_silence_duration_ms": 700,
@@ -146,27 +152,31 @@ def transcribe_smart(wav_path, language="ru", model_size="small", beam_size=1,
     """
     attempts = []
     wav = str(wav_path)
+    # Нормализация ОДИН раз в начале: тихие и шумные эфиры распознаются
+    # одинаково хорошо уже с ПЕРВОЙ попытки (раньше громкость выравнивалась
+    # только на третьей попытке — две попытки уходили впустую на тихих клипах).
+    norm = normalize_audio(wav, str(workdir)) if workdir else None
+    fast_src = norm or wav
     try:
         attempts.append(("язык=%s, beam 1" % (language or "авто"),
-                         transcribe_full(wav, language, model_size, beam_size, vad=True)))
+                         transcribe_full(fast_src, language, model_size, beam_size, vad=True)))
         if attempts[-1][1][2]["chars"] >= MIN_CHARS:
             return attempts[-1][1]
         attempts.append(("язык=%s, beam 5" % (language or "авто"),
-                         transcribe_full(wav, language, model_size, 5, vad=True)))
+                         transcribe_full(fast_src, language, model_size, 5, vad=True)))
         if attempts[-1][1][2]["chars"] >= MIN_CHARS:
             return attempts[-1][1]
-        if workdir:
-            norm = normalize_audio(wav, str(workdir))
-            if norm:
-                attempts.append(("нормализованный звук, язык=авто, beam 5",
-                                 transcribe_full(norm, None, model_size, 5, vad=True)))
-                if attempts[-1][1][2]["chars"] >= MIN_CHARS:
-                    return attempts[-1][1]
-                # совсем тихо: пробуем БЕЗ VAD — вдруг фильтр съел всю речь
-                attempts.append(("нормализованный звук, язык=авто, без VAD",
-                                 transcribe_full(norm, None, model_size, 5, vad=False)))
-                if attempts[-1][1][2]["chars"] > 0:
-                    return attempts[-1][1]
+        if norm:
+            # совсем тихо: пробуем БЕЗ VAD — вдруг фильтр съел всю речь
+            attempts.append(("нормализованный звук, язык=авто, без VAD",
+                             transcribe_full(norm, None, model_size, 5, vad=False)))
+            if attempts[-1][1][2]["chars"] > 0:
+                return attempts[-1][1]
+        else:
+            attempts.append(("язык=авто, beam 5, без VAD",
+                             transcribe_full(wav, None, model_size, 5, vad=False)))
+            if attempts[-1][1][2]["chars"] > 0:
+                return attempts[-1][1]
         return attempts[-1][1]
     except SubtitleUnavailable:
         raise

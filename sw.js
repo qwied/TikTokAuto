@@ -6,7 +6,8 @@
 
 "use strict";
 
-var CACHE = "sc-shell-v8";   // v8: хэштеги TikTok на карточке (до скачивания)
+var CACHE = "sc-shell-v9";   // v9: плеер до скачивания + крестик + TikTok-кнопка;
+                              // app.js/style.css теперь НЕ липнут к старому кэшу
 var SHELL = [
   "./",
   "./index.html",
@@ -84,20 +85,43 @@ self.addEventListener("fetch", function (e) {
     return;
   }
 
-  // Прочие файлы сайта (css/js/иконки/превью): сперва кэш, обновление в фоне.
+  // Файлы интерфейса (app.js/style.css/…): СНАЧАЛА СЕТЬ, кэш — только офлайн.
+  // Раньше было «сперва кэш» — телефон неделями показывал старый интерфейс
+  // (из-за этого «хэштеги не появляются»: они были в новой версии сайта,
+  // а телефон держал старую). Теперь любое обновление видно сразу.
+  var SHELL_NET_FIRST = {
+    "./index.html": 1, "index.html": 1,
+    "./app.js": 1, "app.js": 1,
+    "./style.css": 1, "style.css": 1,
+    "./manifest.webmanifest": 1, "manifest.webmanifest": 1
+  };
   e.respondWith(
-    caches.match(req).then(function (hit) {
-      var net = fetch(req).then(function (res) {
-        if (res && res.ok && res.type === "basic") {
-          var copy = res.clone();
-          caches.open(CACHE).then(function (c) { c.put(req, copy); });
-        }
-        return res;
-      }).catch(function () {
-        return hit || Response.error();
-      });
-      return hit || net;
-    })
+    (SHELL_NET_FIRST[url.pathname.split("/").pop()] ||
+     url.pathname === "./" || url.pathname === "/")
+      ? fetch(req).then(function (res) {
+          if (res && res.ok && res.type === "basic") {
+            var copy = res.clone();
+            caches.open(CACHE).then(function (c) { c.put(req, copy); });
+          }
+          return res;
+        }).catch(function () {
+          return caches.match(req).then(function (hit) {
+            return hit || (req.mode === "navigate"
+              ? caches.match("./index.html") : Response.error());
+          });
+        })
+      : caches.match(req).then(function (hit) {   // иконки: кэш, обновление в фоне
+          var net = fetch(req).then(function (res) {
+            if (res && res.ok && res.type === "basic") {
+              var copy = res.clone();
+              caches.open(CACHE).then(function (c) { c.put(req, copy); });
+            }
+            return res;
+          }).catch(function () {
+            return hit || Response.error();
+          });
+          return hit || net;
+        })
   );
 });
 
