@@ -6,7 +6,7 @@
 
 "use strict";
 
-var CACHE = "sc-shell-v7";   // v7: app.js — чтение GitHub без токена (401-fix)
+var CACHE = "sc-shell-v8";   // v8: хэштеги TikTok на карточке (до скачивания)
 var SHELL = [
   "./",
   "./index.html",
