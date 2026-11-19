@@ -1,34 +1,34 @@
 {
-  "_help": "Ссылки на стримеров: Twitch и YouTube. Добавляйте с сайта (кнопка «Каналы») или правьте прямо здесь — по одной ссылке. Программа следит за ними постоянно.",
-  "channels": [
-    "https://www.twitch.tv/honeymad"
-  ],
-  "auto_channels": [
-    "https://www.twitch.tv/kato_junichi0817",
-    "https://www.twitch.tv/ishowspeed",
-    "https://www.twitch.tv/shadowkekw",
-    "https://www.twitch.tv/indegnasen0706",
-    "https://www.twitch.tv/yaritaiji",
-    "https://www.twitch.tv/zarbex",
-    "https://www.twitch.tv/trymacs",
-    "https://www.twitch.tv/montanablack88",
-    "https://www.twitch.tv/leb1ga",
-    "https://www.twitch.tv/batora324",
-    "https://www.twitch.tv/jerma985",
-    "https://www.twitch.tv/eliasn97",
-    "https://www.twitch.tv/hiiragitsurugi",
-    "https://www.twitch.tv/brucedropemoff",
-    "https://www.twitch.tv/kaicenat",
-    "https://www.twitch.tv/ravshann",
-    "https://www.twitch.tv/yourragegaming",
-    "https://www.twitch.tv/summit1g",
-    "https://www.twitch.tv/leva2k",
-    "https://www.twitch.tv/yuyuta0702",
-    "https://www.twitch.tv/stariy_bog",
-    "https://www.twitch.tv/pietsmiet",
-    "https://www.twitch.tv/welovegames",
-    "https://www.twitch.tv/blusewilly_retry",
-    "https://www.twitch.tv/zerost_s"
-  ],
-  "auto_updated": "2026-11-19T11:21:26Z"
+ "_help": "Ссылки на стримеров: Twitch и YouTube. Добавляйте с сайта (кнопка «Каналы») или правьте прямо здесь — по одной ссылке. Программа следит за ними постоянно.",
+ "channels": [
+  "https://www.twitch.tv/honeymad"
+ ],
+ "auto_channels": [
+  "https://www.twitch.tv/kato_junichi0817",
+  "https://www.twitch.tv/ishowspeed",
+  "https://www.twitch.tv/shadowkekw",
+  "https://www.twitch.tv/yaritaiji",
+  "https://www.twitch.tv/indegnasen0706",
+  "https://www.twitch.tv/zarbex",
+  "https://www.twitch.tv/trymacs",
+  "https://www.twitch.tv/montanablack88",
+  "https://www.twitch.tv/leb1ga",
+  "https://www.twitch.tv/batora324",
+  "https://www.twitch.tv/eliasn97",
+  "https://www.twitch.tv/jerma985",
+  "https://www.twitch.tv/hiiragitsurugi",
+  "https://www.twitch.tv/kaicenat",
+  "https://www.twitch.tv/yourragegaming",
+  "https://www.twitch.tv/ravshann",
+  "https://www.twitch.tv/recrent",
+  "https://www.twitch.tv/leva2k",
+  "https://www.twitch.tv/summit1g",
+  "https://www.twitch.tv/yuyuta0702",
+  "https://www.twitch.tv/stariy_bog",
+  "https://www.twitch.tv/zerost_s",
+  "https://www.twitch.tv/welovegames",
+  "https://www.twitch.tv/blusewilly_retry",
+  "https://www.twitch.tv/pietsmiet"
+ ],
+ "auto_updated": "2026-11-19T11:41:26Z"
 }
