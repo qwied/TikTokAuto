@@ -10,9 +10,10 @@
   // --- состояние ---------------------------------------------------------------
 
   var LS_SERVER = "sc.server";
-  var LS_DOWNLOADED = "sc.downloaded";   // { "<server>": { "<clipId>": {...} } }
+  var LS_DOWNLOADED = "sc.downloaded";   // { "<server|github>": { "<clipId>": {...} } }
   var LS_GH_REPO = "sc.ghrepo";          // репозиторий GitHub (owner/name)
   var LS_GH_TOKEN = "sc.ghtoken";        // fine-grained токен (Contents: Read and write)
+  var LS_PENDING = "sc.pending";         // каналы, добавленные с телефона, до синхронизации
   var OFFLINE_CAP = 150 * 1024 * 1024;   // офлайн-копия: не сохраняем файлы больше 150 МБ
 
   var state = {
@@ -62,6 +63,7 @@
     channelsBackdrop: $("channels-backdrop"), channelsClose: $("channels-close"),
     inpChannel: $("inp-channel"), btnAddChannel: $("btn-add-channel"),
     addChStatus: $("add-channel-status"), channelList: $("channel-list"),
+    btnSync: $("btn-sync"), syncCode: $("sync-code"),
     tkStatus: $("tk-status"),
     toast: $("toast")
   };
@@ -159,19 +161,22 @@
   function idbClear()    { return idbReq("readwrite", function (s) { return s.clear(); }); }
   function idbAll()      { return idbReq("readonly",  function (s) { return s.getAll(); }); }
 
-  // --- «Загруженное» (localStorage по каждому серверу) ----------------------------
+  // --- «Загруженное» (localStorage по каждому серверу / github) -------------------
+
+  function dlKey() {
+    // GitHub-режим тоже должен помнить скачанное НАВСЕГДА: ключ "github"
+    return state.server || "github";
+  }
 
   function loadDownloaded() {
     var all = lsGet(LS_DOWNLOADED, {});
-    state.downloaded = (state.server && all[state.server]) || {};
+    state.downloaded = all[dlKey()] || {};
   }
 
   function saveDownloaded() {
     var all = lsGet(LS_DOWNLOADED, {});
-    if (state.server) {
-      all[state.server] = state.downloaded;
-      lsSet(LS_DOWNLOADED, all);
-    }
+    all[dlKey()] = state.downloaded;
+    lsSet(LS_DOWNLOADED, all);
   }
 
   function isDownloaded(id) { return !!state.downloaded[id]; }
@@ -193,6 +198,37 @@
   }
 
   function downloadedIds() { return Object.keys(state.downloaded); }
+
+  // --- каналы, добавленные с телефона (до синхронизации с GitHub) -----------------
+
+  function loadPending() {
+    return lsGet(LS_PENDING, []);
+  }
+
+  function savePending(list) {
+    lsSet(LS_PENDING, list);
+  }
+
+  function addPending(url) {
+    var list = loadPending();
+    var s = String(url || "").trim();
+    if (!s) return false;
+    var low = s.toLowerCase();
+    for (var i = 0; i < list.length; i++) {
+      if (String(list[i]).trim().toLowerCase() === low) return false;
+    }
+    list.push(s);
+    savePending(list);
+    return true;
+  }
+
+  function removePending(url) {
+    var list = loadPending().filter(function (c) {
+      return String(c).trim().toLowerCase() !== String(url).toLowerCase();
+    });
+    savePending(list);
+    return list;
+  }
 
   function updateBadge() {
     var n = downloadedIds().length;
@@ -248,7 +284,7 @@
     if (!state.server) {
       if (state.ghEver) {
         el.emptyTitle.textContent = "GitHub следит за каналами";
-        el.emptyText.textContent = "Репозиторий проверяет эфиры каждые 5 минут. Как только чат стримера «взорвётся», готовый вертикальный клип появится здесь сам (задача Monitor в Actions).";
+        el.emptyText.textContent = "Репозиторий проверяет каналы каждые ~20 секунд и включает запись сам. Как только чат стримера «взорвётся», готовый вертикальный клип появится здесь, а на телефон придёт уведомление.";
         el.connectCard.hidden = true;
       } else {
         el.emptyTitle.textContent = "Подключите компьютер — или всё сделает GitHub";
@@ -717,11 +753,13 @@
       nm.textContent = c.display || c.name;
       meta.appendChild(nm);
       var st = document.createElement("div");
-      st.className = "ch-state" + (c.live ? " live" : "");
-      st.textContent = c.live
-        ? (c.ad ? "LIVE · РЕКЛАМА — нарезка на паузе"
-                : "LIVE · " + (c.viewers ? c.viewers + " зрителей" : "записываем"))
-        : "следим — зайдём на стрим автоматически";
+      st.className = "ch-state" + (c.pending ? "" : (c.live ? " live" : ""));
+      st.textContent = c.pending
+        ? "добавлен на сайте — попадёт в монитор после синхронизации"
+        : (c.live
+          ? (c.ad ? "LIVE · РЕКЛАМА — нарезка на паузе"
+                  : "LIVE · " + (c.viewers ? c.viewers + " зрителей" : "записываем"))
+          : "следим — зайдём на стрим автоматически");
       meta.appendChild(st);
       row.appendChild(meta);
 
@@ -739,8 +777,17 @@
       var drop = document.createElement("button");
       drop.className = "ch-remove";
       drop.textContent = "✕";
-      drop.title = "Убрать из слежки";
-      drop.addEventListener("click", function () { removeChannel(c.name); });
+      drop.title = c.pending ? "Убрать из списка синхронизации"
+                             : "Убрать из слежки";
+      drop.addEventListener("click", function () {
+        if (c.pending) {
+          removePending(c.name);
+          toast("Убрано из списка синхронизации");
+          ghRefreshChannels();
+          return;
+        }
+        removeChannel(c.name);
+      });
       row.appendChild(drop);
 
       el.channelList.appendChild(row);
@@ -966,22 +1013,74 @@
   }
 
   function ghRefreshChannels() {
+    var pending = loadPending();
     ghGetSubs().then(function (j) {
-      renderChannelList(j.channels.map(ghChanItem), null);
-      el.tkStatus.innerHTML = "<b>TikTok в GitHub-режиме</b>: публикуется задачей " +
-        "Monitor через Secrets репозитория (TIKTOK_CLIENT_KEY / CLIENT_SECRET / " +
-        "REFRESH_TOKEN). Как получить — README, «Откуда брать данные».";
+      var items = j.channels.map(ghChanItem);
+      // каналы, добавленные с телефона, но ещё не залитые в репозиторий
+      var repoLow = j.channels.map(function (c) {
+        return String(c).trim().toLowerCase();
+      });
+      pending.forEach(function (p) {
+        if (repoLow.indexOf(String(p).trim().toLowerCase()) < 0) {
+          var it = ghChanItem(p);
+          it.pending = true;
+          items.push(it);
+        }
+      });
+      renderChannelList(items, null);
+      el.tkStatus.innerHTML = "<b>Слежение в GitHub</b>: задача Check live проверяет " +
+        "каналы каждые ~20 секунд, Monitor включает запись сам, клипы с видео " +
+        "режет Clip video. Уведомление о готовом клипе придёт на это устройство " +
+        "(если включены пуши или приложение ntfy).";
     }).catch(function (e) {
       setChannelsOffline("GitHub: " + (e && e.message ? e.message : "ошибка") +
         " — клипы всё равно показываются; для правки каналов вставьте токен в Настройках");
     });
   }
 
+  function syncCode() {
+    // Код синхронизации: base64(JSON со списком каналов с телефона).
+    // Пользователь пришлёт его в чат — и каналы окажутся в subscriptions.json
+    // (публичный сайт не может писать в GitHub сам: токен в JS не положишь).
+    var list = loadPending();
+    if (!list.length) {
+      el.syncCode.textContent = "Нет новых каналов — всё уже в GitHub (или добавьте ссылку выше)";
+      el.syncCode.className = "check-result sync-code";
+      return;
+    }
+    var json = JSON.stringify({ channels: list });
+    var code = btoa(unescape(encodeURIComponent(json)));
+    el.syncCode.textContent = code;
+    el.syncCode.className = "check-result sync-code show";
+    var done = function () {
+      toast("Код скопирован — пришлите его в чат Z.ai", "ok");
+      el.addChStatus.textContent = "Код готов. Пришлите его в чат Z.ai — я залью каналы " +
+        "в монитор за минуту. Код также виден ниже, можно скопировать вручную.";
+      el.addChStatus.className = "check-result ok";
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(done, done);   // даже без клипборда код виден
+    } else {
+      done();
+    }
+  }
+
   function ghAddChannel(url) {
     if (!state.gh.token) {
-      el.addChStatus.textContent = "Чтобы добавить канал с сайта, вставьте токен: Настройки → GitHub → «Токен» (ghp_…). " +
-        "Или просто пришлите ссылку в чат — добавлю сам.";
-      el.addChStatus.className = "check-result err";
+      // Без токена канал нельзя записать в GitHub прямо с сайта — сохраняем
+      // локально: он виден в списке с пометкой и попадёт в монитор после
+      // синхронизации (кнопка ниже).
+      if (addPending(url)) {
+        el.addChStatus.textContent = "Сохранил канал на устройстве. Нажмите «Синхронизировать каналы» " +
+          "ниже и пришлите код в чат Z.ai — канал попадёт в монитор.";
+        el.addChStatus.className = "check-result ok";
+        el.inpChannel.value = "";
+        toast("Канал сохранён — синхронизируйте с GitHub", "ok");
+        ghRefreshChannels();
+      } else {
+        el.addChStatus.textContent = "Этот канал уже ждёт синхронизации";
+        el.addChStatus.className = "check-result err";
+      }
       return;
     }
     el.addChStatus.textContent = "Добавляю в subscriptions.json…";
@@ -1364,10 +1463,11 @@
   el.btnTkSave.addEventListener("click", saveTikTokToken);
   el.btnGhCheck.addEventListener("click", ghCheck);
   el.btnGhSave.addEventListener("click", ghSave);
+  el.btnSync.addEventListener("click", syncCode);
 
   // --- Web Push: уведомления прямо от иконки сайта ----------------------------------
   // Публичный VAPID-ключ (не секрет): приватный — в секретах репозитория.
-  var VAPID_PUB = "BJTk0ZpU8Hil3aHSxT3AgLJd9fALBmAnukKeisGQWersdjoLVLEo9Bt5HayEIGH7cyXOlufL6Zvcm61YUsqQ34g";
+  var VAPID_PUB = "BLSwyfg4ClPCi8o0imc7HAdgbVR0WMhmhyJZp0WjCVmBlO88yP3y4dA4amqBFCVEhfbO6fVyjDCFJAUFeL9Jilk";
   var PUSH_FILE = "push_subscriptions.json";
 
   function urlB64ToUint8(b64) {

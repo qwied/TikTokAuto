@@ -29,6 +29,10 @@ class ChannelRef:
     """Ссылка на стримера: платформа + адрес канала (или конкретной трансляции).
 
     Появляется из файла links.txt, из Telegram-бота или из config.yaml.
+
+    kind: "" — канал в эфире (следим постоянно); "clip" — готовый клип
+    Twitch; "vod" — запись трансляции (Twitch videos). Клипы и записи не
+    «стримят» — они не мониторятся, а сразу нарезаются на клипы (vod.py).
     """
 
     platform: str = ""     # twitch | youtube
@@ -37,6 +41,7 @@ class ChannelRef:
     video_url: str = ""    # YouTube: https://www.youtube.com/watch?v=...
     raw: str = ""          # строка, как её ввёл пользователь
     source: str = ""       # file | telegram | config
+    kind: str = ""         # "" | "clip" | "vod"
 
     @property
     def key(self):
@@ -60,10 +65,22 @@ class ChannelRef:
 
     def display(self):
         """Компактная ссылка для сообщений человеку."""
+        if self.kind == "clip" and self.id.startswith("clip_"):
+            return f"clips.twitch.tv/{self.id[5:]}"
+        if self.kind == "vod" and self.id.startswith("vod_"):
+            return f"twitch.tv/videos/{self.id[4:]}"
         if self.platform == "twitch":
             return f"twitch.tv/{self.id}"
         m = re.search(r"youtube\.com/(.+)$", self.id)
         return "youtube.com/" + (m.group(1) if m else self.id)
+
+    def vod_url(self):
+        """Каноническая ссылка для нарезки клипов и клипа Twitch."""
+        if self.kind == "clip" and self.id.startswith("clip_"):
+            return f"https://clips.twitch.tv/{self.id[5:]}"
+        if self.kind == "vod" and self.id.startswith("vod_"):
+            return f"https://www.twitch.tv/videos/{self.id[4:]}"
+        return self.video_url or self.raw
 
 
 @dataclass

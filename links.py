@@ -8,9 +8,11 @@
     youtube.com/@канал
     https://www.youtube.com/channel/UCxxxx
     https://www.youtube.com/c/имя
-    https://www.youtube.com/watch?v=VIDEO      (прямая ссылка на трансляцию)
+    https://www.youtube.com/watch?v=VIDEO      (трансляция ИЛИ обычное видео)
     https://youtu.be/VIDEO
     https://www.youtube.com/live/VIDEO
+    https://clips.twitch.tv/SLUG               (готовый клип -> вертикальный клип)
+    https://www.twitch.tv/videos/123456789     (запись -> нарезка на клипы)
 
 Просто ник без точки и слэшей считается ником на Twitch.
 """
@@ -27,6 +29,21 @@ log = logging.getLogger("links")
 TWITCH_RE = re.compile(
     r"^(?:https?://)?(?:www\.)?twitch\.tv/(?P<name>[A-Za-z0-9_]{2,25})(?:[/?#].*)?$",
     re.IGNORECASE)
+
+# Готовый клип Twitch: clips.twitch.tv/SLUG или twitch.tv/канал/clip/SLUG.
+# Проверяются ДО TWITCH_RE: «twitch.tv/x/clip/y» иначе распознаётся как канал x.
+TWITCH_CLIP_URL_RE = re.compile(
+    r"^(?:https?://)?(?:www\.)?clips\.twitch\.tv/(?P<slug>[A-Za-z0-9_-]{5,})"
+    r"(?:[/?#].*)?$", re.IGNORECASE)
+
+TWITCH_CLIP_PATH_RE = re.compile(
+    r"^(?:https?://)?(?:www\.)?twitch\.tv/[A-Za-z0-9_]{2,25}"
+    r"/clip/(?P<slug>[A-Za-z0-9_-]{5,})(?:[/?#].*)?$", re.IGNORECASE)
+
+# Запись трансляции (VOD): twitch.tv/videos/123456789
+TWITCH_VOD_RE = re.compile(
+    r"^(?:https?://)?(?:www\.)?twitch\.tv/videos/(?P<vid>\d{3,})"
+    r"(?:[/?#].*)?$", re.IGNORECASE)
 
 YT_VIDEO_RE = re.compile(
     r"^(?:https?://)?(?:www\.|m\.)?"
@@ -49,6 +66,15 @@ def parse_link(text, source=""):
     if not s or s.startswith("#") or s.startswith("//"):
         return None
     s = s.split()[0]                      # «twitch.tv/xxx — комментарий» -> ссылка
+    m = TWITCH_CLIP_URL_RE.match(s) or TWITCH_CLIP_PATH_RE.match(s)
+    if m:
+        slug = m.group("slug")
+        return ChannelRef(platform="twitch", id=f"clip_{slug}", kind="clip",
+                          raw=s, source=source)
+    m = TWITCH_VOD_RE.match(s)
+    if m:
+        return ChannelRef(platform="twitch", id=f"vod_{m.group('vid')}",
+                          kind="vod", raw=s, source=source)
     m = TWITCH_RE.match(s)
     if m:
         return ChannelRef(platform="twitch", id=m.group("name").lower(),

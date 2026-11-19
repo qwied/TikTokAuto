@@ -1,0 +1,81 @@
+# StreamClipper: нарезка ГОТОВЫХ видео и клипов (YouTube-видео, записи и
+# клипы Twitch). Задача забирает очередь jobs.json, сам находит интересные
+# моменты (по громкости звука), режет окна по 60 секунд, делает вертикальный
+# формат 9:16, субтитры Whisper, баннер, заливает в Releases, шлёт пуши.
+#
+# Длинное видео (даже 9 часов) -> ~100 клипов: за один запуск ~40, остаток
+# цепочкой продолжает следующий запуск (gh_run.py пишет vod_remaining.txt).
+# Новый клип/видео с сайта попадает в очередь через Check live, который
+# запускает эту задачу сразу же.
+name: Clip video
+
+on:
+  schedule:
+    # запасной вход (основное — цепочка от самой задачи и от Check live)
+    - cron: "11 */2 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write                  # релизы + коммиты jobs/processed/clips.json
+  actions: write                   # цепочка: запустить следующий запуск
+
+concurrency:
+  group: clip-video
+  cancel-in-progress: false        # не убивать идущую нарезку
+
+jobs:
+  clip:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350           # чуть меньше лимита задачи (6 ч)
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Кэш модели Whisper (субтитры)
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: whisper-small-v1
+
+      - name: Зависимости
+        run: pip install streamlink yt-dlp requests PyYAML numpy websocket-client faster-whisper pywebpush
+
+      - name: FFmpeg (нарезка и склейка)
+        run: |
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update -y
+            sudo apt-get install -y --no-install-recommends ffmpeg
+          fi
+          ffmpeg -version | head -n 1
+
+      - name: Нарезать видео на клипы
+        env:
+          GH_TOKEN: ${{ secrets.SC_PAT }}
+          NOTIFY_TELEGRAM_BOT_TOKEN: ${{ secrets.NOTIFY_TELEGRAM_BOT_TOKEN }}
+          NOTIFY_TELEGRAM_CHAT_ID: ${{ secrets.NOTIFY_TELEGRAM_CHAT_ID }}
+          NOTIFY_NTFY_TOPIC: ${{ secrets.NOTIFY_NTFY_TOPIC }}
+          NOTIFY_NTFY_SERVER: ${{ secrets.NOTIFY_NTFY_SERVER }}
+          NOTIFY_BARK_DEVICE_KEY: ${{ secrets.NOTIFY_BARK_DEVICE_KEY }}
+          NOTIFY_PUSHOVER_USER_KEY: ${{ secrets.NOTIFY_PUSHOVER_USER_KEY }}
+          NOTIFY_PUSHOVER_API_TOKEN: ${{ secrets.NOTIFY_PUSHOVER_API_TOKEN }}
+          NOTIFY_WEBHOOK_URL: ${{ secrets.NOTIFY_WEBHOOK_URL }}
+          VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}
+          VAPID_SUB: ${{ secrets.VAPID_SUB }}
+          YOUTUBE_COOKIES_FILE: ${{ secrets.YOUTUBE_COOKIES_FILE }}
+        run: python gh_run.py --vod --max-minutes 260
+
+      # Остались куски — цепочкой запускаем следующий заход.
+      - name: Продолжить нарезку, если есть остаток
+        if: always() && !cancelled()
+        env:
+          GH_TOKEN: ${{ secrets.SC_PAT }}
+        run: |
+          if [ -f vod_remaining.txt ] && grep -q '^1' vod_remaining.txt; then
+            sleep 20
+            gh workflow run clip.yml --repo "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME"
+          else
+            echo "Очередь пуста — цепочка завершена"
+          fi

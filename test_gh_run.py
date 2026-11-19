@@ -154,7 +154,7 @@ def test_publisher_push_hook(tmp_path, monkeypatch):
     pub = gh_run.GitHubPublisher(gh=None, workdir=str(tmp_path),
                                  push=FakePush())
     monkeypatch.setattr(pub, "_publish",
-                        lambda p, c="": setattr(pub, "last_url", "https://x/1"))
+                        lambda p, c="", **kw: setattr(pub, "last_url", "https://x/1"))
     assert pub.notify_clip("/tmp/clip.mp4", "Новый клип") is True
     path, cap = pub.push.got[0]
     assert path == "/tmp/clip.mp4"

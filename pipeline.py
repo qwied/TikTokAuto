@@ -496,6 +496,10 @@ class Pipeline:
         ch = st.ch
         now = time.time()
         start_ts = max(ev.ts - self.pre_roll, st.started_at)
+        # Конец клипа: пик + post_roll. У «лучшего момента из прошлого»
+        # (гарантированная нарезка при тихом чате) этот конец уже в прошлом —
+        # тогда ждать ничего не нужно: берём [пик-30, пик+30] из буфера.
+        end_ts = ev.ts + self.post_roll
         log.info("Клип: %.0f c до пика + %.0f c после = РОВНО %d c",
                  self.pre_roll, self.post_roll, int(self.pre_roll + self.post_roll))
         # рекламные интервалы из guard -> в пометки буфера: сегменты, записанные
@@ -504,17 +508,19 @@ class Pipeline:
             for a0, a1 in st.guard.intervals:
                 if a1 is not None:
                     st.recorder.mark_ad(a0, a1)
-        segs = st.recorder.reserve_segments(start_ts)
+        segs = st.recorder.reserve_segments(start_ts, min(end_ts, now))
         if not segs:
             log.warning("Буфер пуст — клип не собран (стрим только что начался?)")
             return
-        deadline = now + self.post_roll
-        while time.time() < deadline:
+        # Ждём «хвост» клипа только если пик настолько свежий, что 30 с после
+        # него ещё не записались (у момента из прошлого хвост уже на диске).
+        deadline = now + max(1.0, min(self.post_roll, end_ts - now)) if end_ts > now else 0.0
+        while deadline and time.time() < deadline:
             time.sleep(0.5)
             if (not st.recorder.is_recording
                     and time.time() - st.recorder.last_new_file_ts > 6):
                 break  # стрим кончился и новых сегментов нет — берём что есть
-        segs = st.recorder.reserve_segments(start_ts)   # добавляем пост-ролл
+        segs = st.recorder.reserve_segments(start_ts, end_ts if end_ts <= time.time() else None)   # добавляем пост-ролл
         dur_est = len(segs) * st.recorder.seg_time
 
         workdir = st.recorder.workdir

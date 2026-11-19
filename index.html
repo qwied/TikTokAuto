@@ -214,15 +214,27 @@
     </button>
   </div>
   <p class="sheet-sub">Киньте ссылку ОДИН раз — следим постоянно и максимально быстро:
-     стример вышел в эфир → запись включилась сама → клипы снимаются сами.</p>
+     стример вышел в эфир → запись включилась сама → клипы снимаются сами.
+     Можно и ссылку на видео YouTube / клип Twitch — нарежем вертикальные клипы с субтитрами.</p>
   <div class="connect-row">
     <input id="inp-channel" type="url" inputmode="url" autocomplete="off"
            autocapitalize="off" spellcheck="false"
-           placeholder="twitch.tv/ник или youtube.com/@канал">
+           placeholder="twitch.tv/ник · youtube.com/@канал · ссылка на видео">
     <button id="btn-add-channel" class="btn primary sm">Добавить</button>
   </div>
   <p id="add-channel-status" class="check-result"></p>
   <div id="channel-list" class="channel-list"></div>
+  <div class="howto">
+    <div class="howto-title">Синхронизация каналов с GitHub</div>
+    <p class="install-hint">
+      Канал добавлен, а в монитор его ещё нет? Нажмите кнопку — получите КОД,
+      скопируйте и пришлите его в чат Z.ai: каналы попадут в монитор за минуту.
+    </p>
+    <div class="row">
+      <button id="btn-sync" class="btn primary">Синхронизировать каналы</button>
+    </div>
+    <p id="sync-code" class="check-result sync-code"></p>
+  </div>
   <div class="howto">
     <div class="howto-title">Реклама RubAp / RubUp</div>
     <p class="install-hint">

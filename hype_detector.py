@@ -17,7 +17,12 @@ log = logging.getLogger("hype")
 DEFAULT_KEYWORDS = [
     "ахах", "хахах", "кек", "лол", "пгг", "рофл", "гоол", "клип", "аааа",
     "kekw", "lul", "lol", "lmao", "pog", "poggers", "rofl", "clip", "hype", "wtf",
+    "жесть", "шок", "ойбой", "огонь", "боже", "вот это", "no way", "insane",
 ]
+
+# «Гарантированный» клип берёт лучший момент за последние 4 минуты:
+# дальше кольцевой буфер записи (buffer_keep 300 с) уже не хранит.
+IDLE_LOOKBACK_S = 240.0
 
 # смех и восторженные повторы: ахахах, хахаха, оооо, ааааа ...
 LAUGH_RE = re.compile(r"(?:ах|ха|хо|ох|оф|кек){2,}|([аоыиуе])\1{2,}", re.IGNORECASE)
@@ -147,16 +152,22 @@ class HypeDetector(threading.Thread):
             self._trigger(now, self.smooth, win, users)
             return
 
-        # Гарантированный клип: давно ни хайпа, ни клипов — снимаем всё равно.
+        # Гарантированный клип: давно ни хайпа, ни клипов — снимаем ВСЁ РАВНО,
+        # но не «сейчас», а ЛУЧШИЙ момент за последние 4 минуты: ищем окно
+        # чата с максимальной «горячестью» (скорость + восторг + авторы).
+        # Так даже при спокойном чате в клип попадает самый живой момент,
+        # а не случайная минута.
         anchor = max(self.last_trigger, self.started_at)
         if (self.max_idle > 0 and self.msgs and anchor > 0
                 and now - anchor >= self.max_idle
                 and len(self.trigger_times) < self.max_per_hour):
-            log.info("Хайпа нет уже %.0f мин — снимаю клип без ожидания "
-                     "(гарантированная нарезка)", (now - anchor) / 60)
-            self._trigger(now, max(self.smooth, 50.0), win, users)
+            ts = self._best_window_ts(now)
+            log.info("Хайпа нет уже %.0f мин — снимаю клип с лучшего момента "
+                     "за последние %.0f мин (гарантированная нарезка)",
+                     (now - anchor) / 60, IDLE_LOOKBACK_S / 60)
+            self._trigger(now, max(self.smooth, 55.0), win, users, ts=ts)
 
-    def _trigger(self, now, score, win, users):
+    def _trigger(self, now, score, win, users, ts=None):
         self.last_trigger = now
         self.trigger_times.append(now)
         self.hot_streak = 0
@@ -166,10 +177,43 @@ class HypeDetector(threading.Thread):
             "msgs": len(win),
             "rate": round(len(win) / self.window, 2),
         }
-        ev = HypeEvent(ts=now, score=round(float(score), 1), top_messages=top, stats=stats)
+        ev = HypeEvent(ts=ts if ts else now, score=round(float(score), 1),
+                       top_messages=top, stats=stats)
         log.info("ХАЙП %.0f/100 на %s (%.1f сообщ/сек, авторов %d) — снимаю клип",
                  ev.score, self.channel_key, stats["rate"], stats["users"])
         self.on_hype(ev)
+
+    def _best_window_ts(self, now, bucket_s=5.0):
+        """Лучший момент чата за последние IDLE_LOOKBACK_S секунд.
+
+        Разбиваем сообщения на бакеты по bucket_s, каждый оцениваем теми же
+        сигналами, что и основной хайп (всплеск скорости, восторженные
+        сообщения, разные авторы), и берём конец самого горячего бакета.
+        Pipeline от него отложит 30 с ДО и 30 с ПОСЛЕ — получится ровно 60 с
+        с пиком внутри. Если чат совсем мёртвый — берём текущий момент.
+        """
+        t0 = max(self.last_trigger, now - IDLE_LOOKBACK_S)
+        msgs = [m for m in self.msgs if t0 <= m.ts <= now]
+        if not msgs:
+            return now
+        n_buckets = max(2, int((now - t0) // bucket_s))
+        base = max(self.baseline, 0.1)
+        best_s, best_ts = 0.0, now
+        for i in range(n_buckets):
+            a = t0 + i * bucket_s
+            b = a + bucket_s
+            bm = [m for m in msgs if a <= m.ts < b]
+            if not bm:
+                continue
+            rate = min(len(bm) / bucket_s / base, 6.0) / 6.0
+            hot = sum(1 for m in bm if _is_excited(m.text, self.keywords)) / len(bm)
+            users_n = min(len({m.user for m in bm}) / 15.0, 1.0)
+            s = 0.40 * rate + 0.35 * hot + 0.25 * users_n
+            if s > best_s:
+                best_s, best_ts = s, min(b, now)
+        if best_s <= 0.05:
+            return now
+        return best_ts
 
     def manual_trigger(self, reason=""):
         """Клип по нажатию Enter — без проверок порога."""

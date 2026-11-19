@@ -1,11 +1,16 @@
 """StreamClipper на GitHub Actions: ВСЁ работает внутри репозитория.
 
-Два режима (запускаются workflow-ами из .github/workflows):
+Режимы (запускаются workflow-ами из .github/workflows):
+
+  python gh_run.py --check-loop [--max-minutes 55]
+      ПОСТОЯННОЕ слежение: задача живёт до ~55 минут и каждые ~25 секунд
+      проверяет по subscriptions.json, кто в эфире (внутри неё же видит новые
+      видео/клипы и ставит их в очередь нарезки). Кто-то стримит — запускает
+      Monitor. В конце задача-эстафета запускает следующую — слежение идёт
+      без пауз, а выход в эфир замечается за считанные секунды.
 
   python gh_run.py --check
-      Каждые 5 минут: проверяет по subscriptions.json, кто в эфире,
-      обновляет статусы в clips.json (их показывает сайт) и, если кто-то
-      стримит, а задачи Monitor ещё нет — запускает её (gh workflow run).
+      Разовая проверка (резервный вход и финальная проверка Monitor).
 
   python gh_run.py --monitor [--channel URL] [--max-minutes 280]
       Сессия слежения до ~4.7 часов: подключается к эфиру, читает чат,
@@ -14,6 +19,13 @@
       Releases репозитория и добавляется в clips.json — сайт показывает
       его и отдаёт на телефон. TikTok-автопостинг включается секретами:
       TIKTOK_CLIENT_KEY + TIKTOK_CLIENT_SECRET + TIKTOK_REFRESH_TOKEN.
+
+  python gh_run.py --vod [--max-minutes 260]
+      Нарезка готовых видео и клипов из очереди jobs.json (YouTube-видео,
+      записи и клипы Twitch): сам находит интересные минуты (по громкости),
+      режет окна по 60 с, вертикальный формат, субтитры, баннер, релиз,
+      уведомление (ntfy/Web Push). Длинное видео (даже 9 часов) нарезается
+      на ~100 клипов — по ~40 за запуск, остаток цепочкой продолжит следующий.
 
 Один и тот же файл работает и в пакете (clipper/…), и в плоском
 репозитории, где модули лежат рядом (GitHub-режим).
@@ -45,6 +57,15 @@ except ImportError:                        # плоский репозитори
     from stream_monitor import StreamMonitor
     from utils import load_config, setup_logging
 
+try:                                       # нарезка готовых видео
+    from clipper import banner as banner_mod
+    from clipper.utils import detect_h264_encoder, ensure_dir
+    from clipper import vod as vod_mod
+except ImportError:
+    import banner as banner_mod
+    from utils import detect_h264_encoder, ensure_dir
+    import vod as vod_mod
+
 log = logging.getLogger("gh_run")
 
 API = "https://api.github.com"
@@ -53,9 +74,15 @@ RELEASE_TAG = "auto"
 CLIPS_JSON = "clips.json"
 SUBS_JSON = "subscriptions.json"
 PUSH_SUBS = "push_subscriptions.json"   # подписки Web Push (пишет сайт)
+JOBS_JSON = "jobs.json"                 # очередь нарезки видео (пишет сайт/Check)
+PROCESSED_JSON = "processed.json"       # уже нарезанные видео (не повторяем)
 MAX_CLIPS = 60          # сколько клипов держать в clips.json
 MAX_ASSETS = 60         # сколько файлов держать в релизе (старые удаляются)
-PROBE_WAIT = 45         # секунд на первую проверку эфиров
+PROBE_WAIT = 15         # секунд на проверку эфиров (быстрые API платформ)
+CHECK_EVERY_S = 25      # пауза проверки эфиров внутри --check-loop
+CHECK_LOOP_MIN = 55     # длина одной задачи --check-loop (потом эстафета)
+VOD_MAX_WINDOWS = 100   # максимальный клипов из одного длинного видео
+VOD_MAX_JOBS = 40       # сколько окон обрабатывает один запуск --vod
 
 
 # --- GitHub REST -------------------------------------------------------------------------
@@ -163,7 +190,8 @@ def load_clips_json_bytes(raw):
     return data
 
 
-def clip_entry(video_path, asset_url, thumb_b64=None, dur=None, size=None):
+def clip_entry(video_path, asset_url, thumb_b64=None, dur=None, size=None,
+               platform="twitch", display=None, title=""):
     name = os.path.basename(str(video_path))
     stem = os.path.splitext(name)[0]
     parts = stem.split("_")
@@ -177,8 +205,9 @@ def clip_entry(video_path, asset_url, thumb_b64=None, dur=None, size=None):
         "size": int(size or 0),
         "duration": round(float(dur or 60), 1),
         "channel": chan,
-        "display": chan,
-        "platform": "twitch",
+        "display": display or chan,
+        "platform": platform,
+        "title": title or "",
         "created": int(os.path.getmtime(str(video_path))),
         "gh": True,
     }
@@ -240,9 +269,11 @@ class GitHubPublisher:
         self.push = push          # Notifier по секретам NOTIFY_* (или None)
         self.last_url = ""
 
-    def notify_clip(self, video_path, caption=""):
+    def notify_clip(self, video_path, caption="", platform="twitch",
+                    display=None, title=""):
         try:
-            self._publish(video_path, caption)
+            self._publish(video_path, caption, platform=platform,
+                          display=display, title=title)
             self.posted += 1
             cap = str(caption or "Клип готов")
             if self.last_url:
@@ -265,7 +296,8 @@ class GitHubPublisher:
             log.exception("Не удалось опубликовать клип в GitHub")
             return False
 
-    def _publish(self, video_path, caption=""):
+    def _publish(self, video_path, caption="", platform="twitch",
+                 display=None, title=""):
         rel = self.gh.release_id()
         log.info("Заливаю клип в Releases: %s", os.path.basename(video_path))
         asset = self.gh.upload_asset(rel, video_path)
@@ -274,7 +306,8 @@ class GitHubPublisher:
                f"{RELEASE_TAG}/{quote(asset_name)}")
         entry = clip_entry(video_path, url,
                            thumb_b64=compact_thumb(video_path, self.workdir),
-                           size=os.path.getsize(str(video_path)))
+                           size=os.path.getsize(str(video_path)),
+                           platform=platform, display=display, title=title)
         raw, sha = self.gh.get_file(CLIPS_JSON)
         data = load_clips_json_bytes(raw)
         ids = {c.get("id") for c in data["clips"]}
@@ -343,8 +376,109 @@ def merged_refs(cfg, subs):
     return refs
 
 
+# --- очередь нарезки готовых видео (jobs.json / processed.json) ----------------------------
+
+def vod_key(job):
+    """Уникальный ключ задачи в очереди (URL + границы окна)."""
+    u = str((job or {}).get("url") or "")
+    if (job or {}).get("kind") == "window":
+        return f"{u}|{int(job.get('start') or 0)}-{int(job.get('end') or 0)}"
+    return u
+
+
+def load_json_state(gh, path):
+    """(данные, sha) файла состояния; нет файла или битый JSON -> ({}, sha)."""
+    try:
+        raw, sha = gh.get_file(path)
+    except Exception:
+        return {}, None
+    data = {}
+    if raw:
+        try:
+            data = json.loads(raw.decode("utf-8"))
+            if not isinstance(data, dict):
+                data = {}
+        except ValueError:
+            data = {}
+    return data, sha
+
+
+def put_json_state(gh, path, data, sha, message):
+    gh.put_file(path, json.dumps(data, ensure_ascii=False, indent=1).encode("utf-8"),
+                sha, message)
+
+
+def live_refs(refs):
+    """Ссылки для ПОСТОЯННОГО мониторинга эфиров (без клипов и записей)."""
+    return [r for r in refs if getattr(r, "kind", "") in ("", None)]
+
+
+def vod_refs(refs):
+    """Ссылки на ГОТОВЫЕ видео/клипы: нарезаем, а не следим за эфиром.
+
+    Прямые ссылки на YouTube-видео обрабатываются отдельно: это может быть
+    И текущая трансляция (тогда её подхватывает Monitor), И обычное видео
+    (тогда нарезаем). Решение принимается по статусу эфира в момент проверки.
+    """
+    return [r for r in refs if getattr(r, "kind", "") in ("clip", "vod")]
+
+
+def enqueue_vod_jobs(gh, refs, live_keys):
+    """Новые видео/клипы -> jobs.json. Возвращает число добавленных.
+
+    live_keys — set(f'{platform}:{short_id}') каналов, которые СЕЙЧАС в эфире:
+    прямую ссылку на YouTube-эфир не ставим в очередь, её пишет Monitor.
+    """
+    if gh is None:
+        return 0
+    jobs_data, jsha = load_json_state(gh, JOBS_JSON)
+    proc_data, _psha = load_json_state(gh, PROCESSED_JSON)
+    jobs = [j for j in (jobs_data.get("jobs") or []) if isinstance(j, dict)]
+    done = set(proc_data.get("done") or [])
+    queued = {vod_key(j) for j in jobs}
+    added = 0
+    for r in refs:
+        kind = getattr(r, "kind", "")
+        is_yt_video = (r.platform == "youtube" and getattr(r, "video_id", ""))
+        if not kind and not is_yt_video:
+            continue
+        if kind == "clip":
+            url, jkind = r.vod_url(), "clip"
+        elif kind == "vod":
+            url, jkind = r.vod_url(), "video"
+        else:
+            url, jkind = r.video_url or r.raw, "video"
+        if f"{r.platform}:{r.short_id()}" in (live_keys or set()):
+            continue                          # эфир идёт — записываем, не режем
+        job = {"url": url, "kind": jkind, "fails": 0,
+               "added": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}
+        key = vod_key(job)
+        if key in done or key in queued:
+            continue
+        jobs.append(job)
+        queued.add(key)
+        added += 1
+        log.info("В очередь нарезки: %s (%s)", url, jkind)
+    if added:
+        jobs_data["jobs"] = jobs
+        jobs_data["updated"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+        try:
+            put_json_state(gh, JOBS_JSON, jobs_data, jsha,
+                           f"vod: +{added} в очередь нарезки")
+        except Exception:
+            log.exception("Не записать jobs.json — очередь не обновлена")
+            return 0
+        gh_workflow_dispatch("clip.yml")      # нарезка стартует сразу
+    return added
+
+
 def probe_live(refs, cfg, wait_s=PROBE_WAIT):
-    """Одна проверка «кто в эфире» тем же кодом, что и постоянный монитор."""
+    """Одна проверка «кто в эфире» тем же кодом, что и постоянный монитор.
+
+    Клипы и записи (kind clip/vod) в мониторинг эфиров не входят: их нарезает
+    Clip video, а не проверяет как канал.
+    """
+    refs = live_refs(refs)
     yt = cfg.get("youtube", {}) or {}
     mon = StreamMonitor(channels=refs, quality="best", poll_twitch=2,
                         poll_youtube=3, yt_workers=3,
@@ -408,6 +542,26 @@ def gh_workflow_monitor_in_progress():
         return False
 
 
+def gh_workflow_dispatch(workflow):
+    """Запустить workflow через gh CLI (SC_PAT — от встроенного GITHUB_TOKEN
+    GitHub молча отказывается запускать workflow из workflow)."""
+    repo = os.environ.get("GITHUB_REPOSITORY", "")
+    if not repo:
+        log.warning("GITHUB_REPOSITORY не задан — не запустить %s", workflow)
+        return False
+    cmd = ["gh", "workflow", "run", workflow, "--repo", repo]
+    try:
+        out = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
+        if out.returncode != 0:
+            log.warning("gh workflow run %s: %s", workflow, (out.stderr or "")[:300])
+            return False
+        log.info("Workflow запущен: %s", workflow)
+        return True
+    except Exception as e:
+        log.warning("gh workflow run %s не удался: %s", workflow, e)
+        return False
+
+
 def gh_trigger_monitor(channel_url):
     repo = os.environ.get("GITHUB_REPOSITORY", "")
     if not repo:
@@ -461,6 +615,7 @@ def apply_tiktok_secrets(cfg):
 # --- режимы ---------------------------------------------------------------------------------
 
 def run_check(max_probe=PROBE_WAIT):
+    """Одна проверка: статусы -> clips.json, новые видео -> очередь, эфир -> Monitor."""
     setup_logging()
     cfg = load_config("config.yaml")
     cfg["_config_path"] = os.path.abspath("config.yaml")
@@ -483,11 +638,45 @@ def run_check(max_probe=PROBE_WAIT):
             pub.update_channels_meta(meta)
         except Exception:
             log.exception("Не удалось обновить clips.json")
+        try:
+            # готовые видео/клипы из subscriptions.json -> очередь нарезки;
+            # прямые ссылки на YouTube-эфир не ставим в очередь (их пишет Monitor)
+            keys = {f"{m['platform']}:{m['name']}" for m in live}
+            enqueue_vod_jobs(gh, refs, keys)
+        except Exception:
+            log.exception("Очередь нарезки: не удалось обновить")
     if live:
         if gh_workflow_monitor_in_progress():
             log.info("Monitor уже работает — не запускаю второй")
         else:
             gh_trigger_monitor(live[0]["name"])
+    return 0
+
+
+def run_check_loop(max_minutes=CHECK_LOOP_MIN):
+    """ПОСТОЯННОЕ слежение: проверка каждые ~CHECK_EVERY_S секунд до дедлайна.
+
+    Одна задача Actions живёт до ~55 минут, затем эстафета запускает
+    следующую. Так выход стримера в эфир замечается за секунды, а не через
+    «каждые 5-20 минут» (cron GitHub сам по себе не бывает чаще 5 минут).
+    """
+    setup_logging()
+    deadline = time.time() + max(1, int(max_minutes)) * 60
+    n = 0
+    log.info("Постоянное слежение: проверка каждые %d c, %d мин, потом эстафета",
+             CHECK_EVERY_S, max_minutes)
+    while time.time() < deadline:
+        started = time.time()
+        try:
+            run_check()
+            n += 1
+        except Exception:
+            log.exception("Проверка не удалась — повторю после паузы")
+        rest = CHECK_EVERY_S - (time.time() - started)
+        if rest > 0:
+            time.sleep(rest)
+    log.info("Смена: %d проверок за %d мин — запускаю следующую задачу",
+             n, max_minutes)
     return 0
 
 
@@ -607,7 +796,8 @@ def run_monitor(channel="", max_minutes=280):
     cfg["_config_path"] = os.path.join(base, "config.yaml")
 
     subs = load_subscriptions(os.path.join(base, SUBS_JSON))
-    refs = merged_refs(cfg, subs)
+    # клипы и записи Twitch — не эфиры: их нарезает Clip video, а не Monitor
+    refs = live_refs(merged_refs(cfg, subs))
     if channel:
         r = parse_link(channel, source="arg")
         if r:
@@ -712,20 +902,180 @@ def run_monitor(channel="", max_minutes=280):
     return 0
 
 
+# --- нарезка готовых видео -------------------------------------------------------------------
+
+def _vod_display(url):
+    """Короткое имя для файлов/карточек из URL клипа/видео."""
+    u = str(url or "").rstrip("/")
+    tail = u.split("/")[-1].split("?")[0] or "video"
+    return tail[:40]
+
+
+def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
+    """Нарезка готовых видео и клипов из очереди jobs.json (workflow Clip video).
+
+    Длинное видео (даже 9 часов) разворачивается в ~100 окон по 60 с и
+    обрабатывается по ~max_jobs за запуск; если после запуска остались куски,
+    пишем vod_remaining.txt="1" — workflow цепочкой запустит следующий.
+    Каждый готовый клип: релиз + clips.json + ntfy/Web Push уведомление.
+    """
+    setup_logging()
+    base = os.path.dirname(os.path.abspath(__file__))
+    cfg = load_config(os.path.join(base, "config.yaml"))
+    cfg["_config_path"] = os.path.join(base, "config.yaml")
+    gh = env_gh()
+    if gh is None:
+        log.error("Нет GITHUB_REPOSITORY/GH_TOKEN — это режим GitHub Actions")
+        return 2
+    cfg.setdefault("server", {})["enabled"] = False
+    cfg.setdefault("notify", {})["provider"] = "none"
+    providers = notify_cfg_from_env(cfg)
+    if providers:
+        log.info("Уведомления включены: %s", ", ".join(providers))
+    push = Notifier(cfg.get("notify") or {}) if providers else None
+    pub = GitHubPublisher(gh, workdir=base, push=push)
+
+    enc_name, vcodec_args = detect_h264_encoder(str((cfg.get("processing") or {}).get("encoder", "auto")))
+    log.info("Кодировщик финальной обработки: %s", enc_name)
+    banner_path = banner_mod.resolve_file(cfg.get("banner") or {}, base)
+    if banner_path:
+        log.info("Баннер: %s (в каждой нарезке)", os.path.basename(banner_path))
+
+    cookies = os.environ.get("YOUTUBE_COOKIES_FILE", "").strip()
+    if not cookies:
+        for cand in ("cookies.txt", os.path.join(base, "cookies.txt")):
+            if os.path.isfile(cand):
+                cookies = cand
+                break
+    if cookies:
+        log.info("Cookies для YouTube: %s", cookies)
+
+    workdir = ensure_dir(os.path.join(base, "temp", "vod"))
+    clips_dir = ensure_dir(os.path.join(base, "clips"))
+
+    def save(path, jobs_list=None, done_set=None, msg="vod: очередь"):
+        """Читаем-меняем-пишем: кто-то мог коммитнуть файл параллельно."""
+        data, sha = load_json_state(gh, path)
+        if jobs_list is not None:
+            data["jobs"] = jobs_list
+            data["updated"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+        if done_set is not None:
+            data["done"] = sorted(done_set)[-5000:]
+            data["updated"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+        put_json_state(gh, path, data, sha, msg)
+
+    jobs_data, _ = load_json_state(gh, JOBS_JSON)
+    proc_data, _ = load_json_state(gh, PROCESSED_JSON)
+    jobs = [j for j in (jobs_data.get("jobs") or []) if isinstance(j, dict)]
+    done = set(proc_data.get("done") or [])
+    log.info("Очередь нарезки: %d задач, уже сделано %d", len(jobs), len(done))
+    if not jobs:
+        log.info("Очередь пуста — нарезать нечего. Ссылки на видео кидаются на сайт "
+                 "(Каналы) и попадают сюда через Check live")
+        return 0
+
+    deadline = time.time() + max(10, int(max_minutes)) * 60
+    made = 0
+    while jobs and made < max_jobs and time.time() < deadline - 12 * 60:
+        job = jobs[0]
+        key = vod_key(job)
+        try:
+            url = str(job.get("url") or "")
+            display = str(job.get("display") or _vod_display(url))
+            platform = "twitch" if "twitch." in url else "youtube"
+            if job.get("kind") == "video" and not job.get("windows"):
+                # ещё не размечено: ищем интересные моменты по громкости звука
+                title, wins = vod_mod.expand_video(
+                    url, workdir, cookies_file=cookies,
+                    max_windows=int(os.environ.get("VOD_MAX_WINDOWS", VOD_MAX_WINDOWS)))
+                job["display"] = title or display
+                job["windows"] = [[int(a), int(b)] for a, b in wins]
+                log.info("%s: %d интересных моментов", job["display"], len(job["windows"]))
+                if not job["windows"]:
+                    jobs.pop(0)
+                    done.add(key)
+                save(JOBS_JSON, jobs_list=jobs, msg="vod: разметка видео")
+                continue
+            if job.get("kind") == "video":
+                start, end = job["windows"][0]
+                src = vod_mod.download_section(url, start, end,
+                                               "vod_part.mp4", workdir,
+                                               cookies_file=cookies)
+            else:                                       # готовый клип Twitch
+                src = vod_mod.download_clip_full(url, "vod_clip.mp4", workdir,
+                                                 cookies_file=cookies)
+            out = vod_mod.process_clip(src, clips_dir, workdir, cfg,
+                                       display, platform,
+                                       vcodec_args=vcodec_args,
+                                       banner_path=banner_path)
+            size_mb = os.path.getsize(out) / 1e6
+            caption = f"Клип готов: {display} ({platform}, нарезка видео) — {size_mb:.1f} МБ"
+            if pub.notify_clip(out, caption, platform=platform,
+                               display=display, title=display):
+                made += 1
+            # кусок обработан: сдвигаем очередь
+            for f in (src, os.path.join(workdir, "vod_9x16.mp4"),
+                      os.path.join(workdir, "vod_final.mp4"),
+                      os.path.join(workdir, "vod_raw.mp4")):
+                try:
+                    if os.path.exists(f):
+                        os.remove(f)
+                except OSError:
+                    pass
+            if job.get("kind") == "video":
+                job["windows"].pop(0)
+                if not job["windows"]:
+                    jobs.pop(0)
+                    done.add(key)
+            else:
+                jobs.pop(0)
+                done.add(key)
+            save(JOBS_JSON, jobs_list=jobs, msg="vod: очередь после клипа")
+            save(PROCESSED_JSON, done_set=done, msg="vod: отмечаю сделанное")
+        except Exception as e:
+            job["fails"] = int(job.get("fails") or 0) + 1
+            log.exception("Кусок не обработан (%s/3): %s", job["fails"], e)
+            if job["fails"] >= 3:
+                log.error("Не осилил после 3 попыток — пропускаю: %s", job.get("url"))
+                jobs.pop(0)
+                done.add(key)            # чтобы не зациклиться навсегда
+            save(JOBS_JSON, jobs_list=jobs, msg="vod: очередь после ошибки")
+            save(PROCESSED_JSON, done_set=done, msg="vod: отмечаю пропущенное")
+
+    remaining = len(jobs)
+    flag = "1" if remaining else "0"
+    try:
+        with open(os.path.join(base, "vod_remaining.txt"), "w") as f:
+            f.write(flag)
+    except OSError:
+        pass
+    log.info("Готово за этот запуск: %d клипов. Осталось в очереди: %d (%s)",
+             made, remaining, "продолжу цепочкой" if remaining else "всё нарезано")
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser(description="StreamClipper на GitHub Actions")
     ap.add_argument("--check", action="store_true",
-                    help="проверить эфиры и запустить Monitor при необходимости")
+                    help="разовая проверка эфиров (резервный вход)")
+    ap.add_argument("--check-loop", action="store_true",
+                    help="постоянное слежение: проверка каждые ~25 сек до дедлайна")
     ap.add_argument("--monitor", action="store_true",
                     help="сессия слежения: запись, клипы 9:16, релиз, clips.json")
+    ap.add_argument("--vod", action="store_true",
+                    help="нарезка готовых видео/клипов из очереди jobs.json")
     ap.add_argument("--channel", default="", help="канал (для --monitor)")
     ap.add_argument("--max-minutes", type=int, default=280,
-                    help="максимальная длина сессии --monitor, минут")
+                    help="лимит времени текущего режима, минут")
     args = ap.parse_args()
     if args.check:
         return run_check()
+    if args.check_loop:
+        return run_check_loop(max_minutes=args.max_minutes)
     if args.monitor:
         return run_monitor(channel=args.channel, max_minutes=args.max_minutes)
+    if args.vod:
+        return run_vod(max_minutes=args.max_minutes)
     ap.print_help()
     return 2
 
