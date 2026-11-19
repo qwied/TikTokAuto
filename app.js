@@ -445,6 +445,51 @@
       body.appendChild(tl);
     }
 
+    // Хэштеги ДО скачивания: сразу видно, что вставить в описание TikTok
+    if (clip.hashtags && clip.hashtags.length) {
+      var tagsLine = document.createElement("div");
+      tagsLine.className = "tags-line";
+      var chips = document.createElement("div");
+      chips.className = "tags-chips";
+      clip.hashtags.slice(0, 12).forEach(function (t) {
+        var chip = document.createElement("span");
+        chip.className = "tag-chip";
+        chip.textContent = t;
+        chips.appendChild(chip);
+      });
+      var copyBtn = document.createElement("button");
+      copyBtn.className = "tags-copy";
+      copyBtn.type = "button";
+      copyBtn.textContent = "Копировать";
+      copyBtn.addEventListener("click", function (ev) {
+        ev.stopPropagation();
+        var text = clip.hashtags.join(" ");
+        function done() {
+          copyBtn.textContent = "Скопировано";
+          toast("Хэштеги скопированы — вставьте в описание TikTok", "ok");
+          setTimeout(function () { copyBtn.textContent = "Копировать"; }, 2200);
+        }
+        function fallback() {
+          var ta = document.createElement("textarea");
+          ta.value = text;
+          ta.style.cssText = "position:fixed;opacity:0;";
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand("copy"); done(); }
+          catch (e) { toast("Не удалось скопировать", "err"); }
+          ta.remove();
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done, fallback);
+        } else {
+          fallback();
+        }
+      });
+      tagsLine.appendChild(chips);
+      tagsLine.appendChild(copyBtn);
+      body.appendChild(tagsLine);
+    }
+
     var btn = document.createElement("button");
     btn.className = "dl-btn";
     btn.innerHTML = '<span class="prog"></span>' + ICON_DL + "<span>Скачать</span>";

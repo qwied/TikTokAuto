@@ -101,6 +101,65 @@ DISCOVERY_REFRESH_MIN = 20    # как часто обновлять топ, м�
 DISCOVERY_TOP_FETCH = 30      # сколько стримов запрашивать (лимит Twitch: 30)
 
 
+# --- хэштеги для TikTok (видны на сайте ДО скачивания клипа) -------------------
+# Подбираем по игре из названия, нику стримера и платформе: сначала
+# игровые теги, затем ник, затем самые «рекомендательные» общего плана.
+GAME_TAG_MAP = [
+    (["cs2", "counter-strike", "counter strike", "cs:go", "csgo", "кс2", "ксго", "контр"],
+     ["cs2", "кс2", "cs"]),
+    (["dota", "дота"], ["dota2", "дота2"]),
+    (["minecraft", "майнкрафт", "майн"], ["minecraft", "майнкрафт"]),
+    (["gta", "гта", "grand theft auto", "rp "], ["gta", "гта5", "gtarp"]),
+    (["valorant", "валорант"], ["valorant", "валорант"]),
+    (["fortnite", "фортнайт"], ["fortnite", "фортнайт"]),
+    (["pubg", "пабг"], ["pubg", "пабг"]),
+    (["apex", "апекс"], ["apexlegends", "апекс"]),
+    (["warzone", "call of duty", "callofduty", "варзон", "кал оф дьюти"],
+     ["warzone", "callofduty"]),
+    (["rust", " раст"], ["rustgame", "раст"]),
+    (["league of legends", " lol ", "лига легенд"], ["leagueoflegends", "лол"]),
+    (["world of warcraft", " wow ", " вов ", "вова"], ["wow", "вов"]),
+    (["hearthstone", "хартстоун"], ["hearthstone"]),
+    (["genshin", "геншин"], ["genshin", "геншин"]),
+    (["roblox", "роблокс"], ["roblox", "роблокс"]),
+    (["fifa", "ea fc", "eafc", "фифа"], ["fifa", "eafc"]),
+    (["nba", "нба"], ["nba2k", "нба"]),
+    (["stalker", "s.t.a.l.k.e.r", "сталкер"], ["stalker2", "сталкер"]),
+    (["escape from tarkov", "tarkov", "тарков", " эфт"], ["tarkov", "тарков"]),
+]
+VIRAL_TAGS = ["рек", "рекомендации", "fyp", "foryou", "viral", "прикол",
+              "смешно", "хайп", "стрим", "клипы", "стример"]
+
+
+def make_hashtags(platform="", channel="", title="", game=""):
+    """Подборка хэштегов под конкретный клип (показываем ДО скачивания).
+
+    Порядок: теги ИГРЫ (по названию видео/стрима) -> ник стримера ->
+    платформа -> общие «рекомендательные». Без дублей, максимум 14 —
+    длиннее в описании TikTok всё равно не нужно.
+    """
+    text = " ".join(str(x or "") for x in (title, game)).lower()
+    tags = []
+    for keys, tg in GAME_TAG_MAP:
+        if tg and any(k in text for k in keys):
+            tags.extend(tg)
+    chan = "".join(ch for ch in str(channel or "").lower()
+                   if ch.isalnum() and ch.isascii()) or \
+        "".join(ch for ch in str(channel or "").lower()
+                if ch.isalnum())
+    if chan:
+        tags.append(chan)
+    tags.append("twitch" if platform == "twitch" else "youtube")
+    tags.extend(VIRAL_TAGS)
+    out, seen = [], set()
+    for t in tags:
+        t = str(t).strip().lstrip("#").lower()
+        if t and t not in seen:
+            seen.add(t)
+            out.append("#" + t)
+    return out[:14]
+
+
 # --- GitHub REST -------------------------------------------------------------------------
 
 class GitHub:
@@ -207,7 +266,8 @@ def load_clips_json_bytes(raw):
 
 
 def clip_entry(video_path, asset_url, thumb_b64=None, dur=None, size=None,
-               platform="twitch", display=None, title="", score=None):
+               platform="twitch", display=None, title="", score=None,
+               hashtags=None):
     name = os.path.basename(str(video_path))
     stem = os.path.splitext(name)[0]
     parts = stem.split("_")
@@ -229,6 +289,7 @@ def clip_entry(video_path, asset_url, thumb_b64=None, dur=None, size=None,
         "platform": platform,
         "title": title or "",
         "score": score_val,          # «насколько сочный момент» (для карточки)
+        "hashtags": list(hashtags or []),   # рекомендации для TikTok до скачивания
         "created": int(os.path.getmtime(str(video_path))),
         "gh": True,
     }
@@ -289,6 +350,7 @@ class GitHubPublisher:
         self.posted = 0
         self.push = push          # Notifier по секретам NOTIFY_* (или None)
         self.last_url = ""
+        self.last_tags = []
 
     def notify_clip(self, video_path, caption="", platform="twitch",
                     display=None, title="", score=None):
@@ -297,6 +359,9 @@ class GitHubPublisher:
                           display=display, title=title, score=score)
             self.posted += 1
             cap = str(caption or "Клип готов")
+            if self.last_tags:
+                # хэштеги прямо в уведомление: видно ещё до скачивания
+                cap += "\n\nХэштеги для TikTok:\n" + " ".join(self.last_tags)
             if self.last_url:
                 cap += f"\n\nСкачать: {self.last_url}"
             if self.push is not None:
@@ -325,11 +390,20 @@ class GitHubPublisher:
         asset_name = asset.get("name") or os.path.basename(video_path)
         url = (f"https://github.com/{self.gh.repo}/releases/download/"
                f"{RELEASE_TAG}/{quote(asset_name)}")
+        entry_chan = ""
+        _stem = os.path.splitext(os.path.basename(str(video_path)))[0]
+        _parts = _stem.split("_")
+        if len(_parts) > 2:
+            entry_chan = _parts[2]
         entry = clip_entry(video_path, url,
                            thumb_b64=compact_thumb(video_path, self.workdir),
                            size=os.path.getsize(str(video_path)),
                            platform=platform, display=display, title=title,
-                           score=score)
+                           score=score,
+                           hashtags=make_hashtags(platform=platform,
+                                                  channel=entry_chan or display or "",
+                                                  title=title))
+        self.last_tags = list(entry.get("hashtags") or [])
         raw, sha = self.gh.get_file(CLIPS_JSON)
         data = load_clips_json_bytes(raw)
         ids = {c.get("id") for c in data["clips"]}

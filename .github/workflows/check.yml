@@ -24,7 +24,9 @@ permissions:
 
 concurrency:
   group: check-live
-  cancel-in-progress: true
+  cancel-in-progress: false   # НЕ убивать идущую смену: новый запуск подождёт
+                              # в очереди и начнётся сразу после текущей —
+                              # слежение идёт без пауз (смена за сменой)
 
 jobs:
   check:

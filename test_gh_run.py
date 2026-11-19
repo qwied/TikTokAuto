@@ -61,6 +61,37 @@ def test_clip_entry_shape(tmp_path):
     assert e3["score"] == 0                    # мусор не ломает публикацию
 
 
+def test_make_hashtags_game_channel_and_cap():
+    """Хэштеги: игра по названию -> ник -> платформа -> вирусные; без дублей."""
+    tags = gh_run.make_hashtags(platform="twitch", channel="Honeymad",
+                                title="CS2 ПАК РАНКЕД!!")
+    assert tags[0] == "#cs2" and "#кс2" in tags
+    assert "#honeymad" in tags and "#twitch" in tags
+    assert "#рек" in tags and "#fyp" in tags
+    assert len(tags) <= 14
+    assert len(set(tags)) == len(tags)               # без дублей
+    ru = gh_run.make_hashtags(platform="twitch", channel="стример",
+                              title="Дота 2 мид")
+    assert "#дота2" in ru and "#стример" in ru       # кириллические теги тоже ок
+    assert gh_run.make_hashtags()[0].startswith("#")  # даже без данных — не пусто
+
+
+def test_clip_entry_hashtags_kept():
+    v = tmp_vfile()
+    e = gh_run.clip_entry(str(v), "u", hashtags=["#рек", "#fyp"])
+    assert e["hashtags"] == ["#рек", "#fyp"]
+    assert gh_run.clip_entry(str(v), "u")["hashtags"] == []
+
+
+def tmp_vfile():
+    import pathlib
+    import tempfile
+    d = pathlib.Path(tempfile.mkdtemp())
+    f = d / "2026-11-19_12-15-00_x.mp4"
+    f.write_bytes(b"xx")
+    return f
+
+
 def test_load_clips_json_bytes():
     data = gh_run.load_clips_json_bytes(json.dumps({"clips": [{"id": "a"}]}).encode())
     assert data["clips"][0]["id"] == "a"
