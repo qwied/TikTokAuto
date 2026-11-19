@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-19T10:05:28Z",
+ "updated": "2026-11-19T10:05:48Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -10,12 +10,220 @@
     "live": false,
     "viewers": 0,
     "title": ""
+   },
+   {
+    "name": "caseoh_",
+    "display": "twitch.tv/caseoh_",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "shadowkekw",
+    "display": "twitch.tv/shadowkekw",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "ishowspeed",
+    "display": "twitch.tv/ishowspeed",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "montanablack88",
+    "display": "twitch.tv/montanablack88",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "zarbex",
+    "display": "twitch.tv/zarbex",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "indegnasen0706",
+    "display": "twitch.tv/indegnasen0706",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "sasatikk",
+    "display": "twitch.tv/sasatikk",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "jerma985",
+    "display": "twitch.tv/jerma985",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "kaicenat",
+    "display": "twitch.tv/kaicenat",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "brucedropemoff",
+    "display": "twitch.tv/brucedropemoff",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "trymacs",
+    "display": "twitch.tv/trymacs",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "yaritaiji",
+    "display": "twitch.tv/yaritaiji",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "yourragegaming",
+    "display": "twitch.tv/yourragegaming",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "summit1g",
+    "display": "twitch.tv/summit1g",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "ravshann",
+    "display": "twitch.tv/ravshann",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "leb1ga",
+    "display": "twitch.tv/leb1ga",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "welovegames",
+    "display": "twitch.tv/welovegames",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "theburntpeanut_247",
+    "display": "twitch.tv/theburntpeanut_247",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "yuyuta0702",
+    "display": "twitch.tv/yuyuta0702",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "shinjifromjapanxd",
+    "display": "twitch.tv/shinjifromjapanxd",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "leva2k",
+    "display": "twitch.tv/leva2k",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "zloyn",
+    "display": "twitch.tv/zloyn",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "frametamer666",
+    "display": "twitch.tv/frametamer666",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "valkyrae",
+    "display": "twitch.tv/valkyrae",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "stariy_bog",
+    "display": "twitch.tv/stariy_bog",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "melharucos",
+    "display": "twitch.tv/melharucos",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"caseoh_\", false, \"\", 0], [\"shadowkekw\", false, \"\", 0], [\"ishowspeed\", false, \"\", 0], [\"montanablack88\", false, \"\", 0], [\"zarbex\", false, \"\", 0], [\"indegnasen0706\", false, \"\", 0], [\"sasatikk\", false, \"\", 0], [\"jerma985\", false, \"\", 0], [\"kaicenat\", false, \"\", 0], [\"brucedropemoff\", false, \"\", 0], [\"trymacs\", false, \"\", 0], [\"yaritaiji\", false, \"\", 0], [\"yourragegaming\", false, \"\", 0], [\"summit1g\", false, \"\", 0], [\"ravshann\", false, \"\", 0], [\"leb1ga\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"theburntpeanut_247\", false, \"\", 0], [\"yuyuta0702\", false, \"\", 0], [\"shinjifromjapanxd\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"zloyn\", false, \"\", 0], [\"frametamer666\", false, \"\", 0], [\"valkyrae\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"melharucos\", false, \"\", 0]]"
  },
  "clips": []
 }
