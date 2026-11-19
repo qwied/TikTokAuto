@@ -417,13 +417,20 @@ def process_clip(src_video, clips_dir, workdir, cfg, display, platform,
     dur = float(meta.get("duration") or 0)
 
     # --- замазка ЧУЖИХ банеров/виджетов/рекламы (кроме RubUp) -----------------
-    # Детект на исходнике (там оверлеи резкие), координаты -> вертикальный кадр;
-    # сами зоны замазываются в цепочке 9:16 без лишнего перекодирования.
+    # Слой 1: детект СТАТИЧНЫХ оверлеев (виджеты с непрозрачной панелью,
+    # соцсети, спонсорские плашки) по «неподвижности» пикселей за минуту.
+    # Слой 2: КОНСТАНТНЫЕ ВЕРХНИЕ УГЛЫ — полупрозрачные и анимированные
+    # виджеты донатов просвечивают фон (для детекта они «движутся»), но
+    # висят они почти всегда в верхних углах, поэтому углы замазываются
+    # всегда. RubUp рисуется ПОСЛЕ — его замазка не трогает.
     clip_cfg = cfg.get("clip") or {}
     mask_boxes = None
     if bool(clip_cfg.get("hide_overlays", True)) and bool(clip_cfg.get("vertical", True)):
         try:
             raw_boxes = overlays_mod.detect_overlay_boxes(src_video, workdir)
+            if bool(clip_cfg.get("mask_corners", True)):
+                raw_boxes = raw_boxes + overlays_mod.corner_boxes(
+                    int(meta.get("width") or 0), int(meta.get("height") or 0))
             if raw_boxes:
                 mask_boxes = overlays_mod.map_boxes(
                     raw_boxes, int(meta.get("width") or 0),
