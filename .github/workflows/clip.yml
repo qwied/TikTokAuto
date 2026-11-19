@@ -41,7 +41,7 @@ jobs:
           key: whisper-small-v1
 
       - name: Зависимости
-        run: pip install streamlink yt-dlp requests PyYAML numpy websocket-client faster-whisper pywebpush
+        run: pip install streamlink yt-dlp requests PyYAML numpy websocket-client faster-whisper pywebpush opencv-python-headless
 
       - name: FFmpeg (нарезка и склейка)
         run: |

@@ -12,8 +12,13 @@ PyYAML>=6.0
 # Выбор интересных моментов в готовых видео (громкость по секундам)
 numpy>=1.24
 
+# Авто-детект вебкамеры стримера (макет split: камера сверху, игра снизу)
+opencv-python-headless>=4.9
+
 # Субтитры из речи (распознавание; при первом запуске скачает модель Whisper)
 faster-whisper>=1.0.0
+# PyAV: совместимость обеспечивает subtitle._patch_av_open (PyAV 15+ убрал
+# metadata_errors, который faster-whisper передаёт в av.open)
 
 # Автопостинг в TikTok (mode: browser — окно Chrome; нужен установленный Chrome)
 selenium>=4.20

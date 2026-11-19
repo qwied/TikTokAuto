@@ -305,20 +305,46 @@ def test_monitor_in_progress_excludes_self(monkeypatch):
 # --- автопоиск топовых стримов Twitch ----------------------------------------
 
 TOP = [
-    {"login": "caseoh_", "display": "caseoh_", "viewers": 86000, "title": "t", "game": "GTA"},
-    {"login": "big1", "display": "Big1", "viewers": 30000, "title": "t", "game": "GTA"},
-    {"login": "small", "display": "small", "viewers": 500, "title": "t", "game": "GTA"},
-    {"login": "big2", "display": "Big2", "viewers": 5000, "title": "t", "game": "GTA"},
+    {"login": "caseoh_", "display": "caseoh_", "viewers": 86000,
+     "title": "t", "game": "GTA", "language": "ru"},
+    {"login": "big1", "display": "Big1", "viewers": 30000,
+     "title": "t", "game": "GTA", "language": "ru"},
+    {"login": "small", "display": "small", "viewers": 500,
+     "title": "t", "game": "GTA", "language": "ru"},
+    {"login": "big2", "display": "Big2", "viewers": 5000,
+     "title": "t", "game": "GTA", "language": "ru"},
+    # нерусские эфиры — фильтр языка их выкидывает (новое поведение)
+    {"login": "fren", "display": "Fren", "viewers": 90000,
+     "title": "hola", "game": "GTA", "language": "es"},
 ]
 
 
 def test_discovery_urls_filters_and_caps():
+    # discovery_urls сам язык НЕ фильтрует (фильтр применяет auto_discover):
+    # нерусский "fren" с 90000 зрителей попадает первым
     urls = gh_run.discovery_urls(TOP, min_viewers=2000, count=2,
-                                 exclude=["caseoh_"])
-    assert urls == ["https://www.twitch.tv/big1", "https://www.twitch.tv/big2"]
+                                 exclude=["fren"])
+    assert urls == ["https://www.twitch.tv/caseoh_", "https://www.twitch.tv/big1"]
+    # порядок = порядок входа (реальный Twitch отдаёт уже отсортированный)
     assert gh_run.discovery_urls(TOP, min_viewers=2000, count=25) \
         == ["https://www.twitch.tv/caseoh_", "https://www.twitch.tv/big1",
-            "https://www.twitch.tv/big2"]
+            "https://www.twitch.tv/big2", "https://www.twitch.tv/fren"]
+
+
+def test_filter_by_language_keeps_only_russian():
+    """Автопоиск берёт ТОЛЬКО русскоязычные эфиры (запрос пользователя)."""
+    ru = gh_run.filter_by_language(TOP, "ru")
+    logins = [s["login"] for s in ru]
+    assert "fren" not in logins                       # испанский — отфильтрован
+    assert {"caseoh_", "big1", "big2"} <= set(logins)
+    # Twitch не дал language — кириллица в тайтле считается русским
+    heur = gh_run.filter_by_language(
+        [{"login": "rus", "title": "GTA 6 МАРАФОН", "viewers": 3000},
+         {"login": "ger", "title": "GTA 6 NACH 13 JAHREN", "viewers": 9000}],
+        "ru")
+    assert [s["login"] for s in heur] == ["rus"]
+    # фильтр отключается
+    assert len(gh_run.filter_by_language(TOP, "")) == len(TOP)
     assert gh_run.discovery_urls([], min_viewers=0) == []
     assert gh_run.discovery_urls(TOP, min_viewers=100000) == []
 
@@ -350,7 +376,7 @@ def test_auto_discover_preserves_user_channels_and_dedups():
     gh = FakeGH({"channels": ["https://www.twitch.tv/big1"],
                  "_help": "hi"})
     cfg = {"discovery": {"enabled": True, "count": 3, "min_viewers": 2000}}
-    urls = gh_run.auto_discover(gh, cfg, top_fn=lambda n: TOP)
+    urls = gh_run.auto_discover(gh, cfg, top_fn=lambda n: TOP, probe_fn=lambda: [])
     # big1 уже у человека — в авто-список не попадает, дубли не заводятся
     assert urls == ["https://www.twitch.tv/caseoh_",
                     "https://www.twitch.tv/big2"]
@@ -367,7 +393,7 @@ def test_auto_discover_no_commit_when_same():
                                    "https://www.twitch.tv/big1"]})
     cfg = {"discovery": {"count": 2, "min_viewers": 2000}}
     before = gh.store[gh_run.SUBS_JSON]
-    urls = gh_run.auto_discover(gh, cfg, top_fn=lambda n: TOP)
+    urls = gh_run.auto_discover(gh, cfg, top_fn=lambda n: TOP, probe_fn=lambda: [])
     assert urls == ["https://www.twitch.tv/caseoh_", "https://www.twitch.tv/big1"]
     assert gh.store[gh_run.SUBS_JSON] is before          # коммита не было
 
@@ -375,8 +401,8 @@ def test_auto_discover_no_commit_when_same():
 def test_auto_discover_disabled_and_no_gh():
     gh = FakeGH()
     assert gh_run.auto_discover(gh, {"discovery": {"enabled": False}},
-                                top_fn=lambda n: TOP) == []
-    assert gh_run.auto_discover(None, {}, top_fn=lambda n: TOP) == []
+                                top_fn=lambda n: TOP, probe_fn=lambda: []) == []
+    assert gh_run.auto_discover(None, {}, top_fn=lambda n: TOP, probe_fn=lambda: []) == []
     # файл не тронут
     data = json.loads(gh.store[gh_run.SUBS_JSON][0].decode("utf-8"))
     assert "auto_channels" not in data
@@ -409,7 +435,7 @@ def test_twitch_top_streams_parses_gql(monkeypatch):
     assert captured["json"]["variables"]["n"] == 10
     assert len(top) == 1                      # узел без login отброшен
     assert top[0] == {"login": "big1", "display": "Big1", "viewers": 12345,
-                      "title": "LIVE", "game": "GTA VI"}
+                      "title": "LIVE", "game": "GTA VI", "language": ""}
 
 
 def test_twitch_top_streams_never_raises(monkeypatch):

@@ -159,8 +159,10 @@ class HypeDetector(threading.Thread):
             cnt = Counter(_norm(m.text) for m in win)
             dup_n = min(sum(c for c in cnt.values() if c >= 3) / len(win), 1.0)
 
-        score = 100.0 * (0.40 * spike_n + 0.25 * kw_n + 0.10 * caps_n
+        score = 100.0 * (0.35 * spike_n + 0.30 * kw_n + 0.10 * caps_n
                          + 0.10 * dup_n + 0.15 * user_n)
+        # «моменты ещё лучше»: живая реакция чата (восторги/смех) весит чуть
+        # больше чистой скорости сообщений — попадания точнее, мусора меньше
         self.smooth = 0.5 * self.smooth + 0.5 * score
 
         threshold = self.effective_threshold()

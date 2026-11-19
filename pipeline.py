@@ -538,11 +538,12 @@ class Pipeline:
         # --- вертикальный формат 9:16 (TikTok) -------------------------------------
         # До субтитров: ASS рисуется уже под полотно 1080x1920. Если перевод
         # не удался, клип останется горизонтальным — клип не теряется.
-        # ЗАМАЗКА ЧУЖИХ БАНЕРОВ/ВИДЖЕТОВ (кроме RubUp): как в VOD-пути —
-        # детект статичных оверлеев + верхние углы, RubUp рисуется ПОСЛЕ
-        # замазки, поэтому остаётся чётким (запрос: «замазывай всё, кроме RubUp»).
+        # ЗАМАЗКА ЧУЖИХ БАНЕРОВ/ВИДЖЕТОВ (кроме RubUp): детект статичных
+        # оверлеев + верхние углы — передаём ЗОНЫ В ИСХОДНИКЕ (raw_boxes),
+        # маппинг под фактический макет (split/blur) делает make_vertical.
+        # RubUp рисуется ПОСЛЕ замазки — остаётся чётким.
         if self.vertical:
-            mask_boxes = None
+            raw_boxes = None
             clip_cfg = self.cfg.get("clip") or {}
             if bool(clip_cfg.get("hide_overlays", True)):
                 try:
@@ -553,19 +554,16 @@ class Pipeline:
                             int(raw_meta.get("width") or 0),
                             int(raw_meta.get("height") or 0))
                     if raw_boxes:
-                        mask_boxes = overlays_mod.map_boxes(
-                            raw_boxes, int(raw_meta.get("width") or 0),
-                            int(raw_meta.get("height") or 0),
-                            mode=str(self.vertical_mode))
-                        log.info("Замазка (эфир): %d зон чужих оверлеев", len(mask_boxes))
+                        log.info("Замазка (эфир): %d зон чужих оверлеев",
+                                 len(raw_boxes))
                 except Exception:
                     log.exception("Замазка оверлеев (эфир) не удалась — клип без неё")
-                    mask_boxes = None
+                    raw_boxes = None
             try:
                 raw_ts = vertical_mod.make_vertical(
                     orig_ts, os.path.join(workdir, f"clip_{stamp}_9x16.mp4"),
                     workdir, mode=self.vertical_mode,
-                    vcodec_args=self._vcodec_args, mask_boxes=mask_boxes)
+                    vcodec_args=self._vcodec_args, raw_boxes=raw_boxes)
             except Exception:
                 log.exception("9:16 не удался — клип останется горизонтальным")
                 raw_ts = orig_ts

@@ -286,6 +286,47 @@ def map_boxes(boxes, src_w, src_h, mode="blur", out_w=1080, out_h=1920):
     return out
 
 
+def map_boxes_split(boxes, src_w, src_h, cam_win, game_win, cam_h,
+                    out_w=1080, out_h=1920):
+    """Координаты ИСХОДНИКА -> координаты вертикального кадра для макета
+    split (камера сверху, игра снизу).
+
+    cam_win/game_win — окна секций в исходнике (vertical.split_windows),
+    cam_h — высота секции камеры в ГОТОВОМ кадре. Зона чужого виджета
+    относится к той секции, где её центр; внутри секции повторяется та же
+    трансформация, что и в ffmpeg (scale=increase + центральный кроп).
+    """
+    out = []
+    cx, cy, cw, ch = [float(v) for v in cam_win]
+    gx, gy, gw, gh = [float(v) for v in game_win]
+    game_h = out_h - cam_h
+
+    def _clamp(nx, ny, nw, nh, y_top, y_bot):
+        x0 = max(0, int(nx))
+        y0 = max(y_top, int(ny))
+        x1 = min(out_w, int(nx + nw))
+        y1 = min(y_bot, int(ny + nh))
+        if x1 - x0 >= 40 and y1 - y0 >= 40:
+            out.append((x0, y0, x1 - x0, y1 - y0))
+
+    for (x, y, w, h) in boxes:
+        bcx, bcy = x + w / 2.0, y + h / 2.0
+        if (cx <= bcx <= cx + cw and cy <= bcy <= cy + ch):
+            # секция камеры: scale=increase -> центральный кроп
+            s = max(out_w / cw, cam_h / ch)
+            nx = (x - cx) * s - (cw * s - out_w) / 2.0
+            ny = (y - cy) * s - (ch * s - cam_h) / 2.0
+            _clamp(nx, ny, w * s, h * s, 0, cam_h)
+        elif (gx <= bcx <= gx + gw and gy <= bcy <= gy + gh):
+            # секция игры: та же математика, сдвиг вниз на высоту камеры
+            s = max(out_w / gw, game_h / gh)
+            nx = (x - gx) * s - (gw * s - out_w) / 2.0
+            ny = cam_h + (y - gy) * s - (gh * s - game_h) / 2.0
+            _clamp(nx, ny, w * s, h * s, cam_h, out_h)
+        # зоны вне обоих окон (замазка не видна в макете) пропускаем
+    return out
+
+
 def blur_fragment(boxes, in_label="v"):
     """ffmpeg-фрагмент: boxblur на каждом прямоугольнике поверх кадра.
 

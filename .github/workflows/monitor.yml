@@ -43,7 +43,7 @@ jobs:
           key: whisper-small-v1
 
       - name: Зависимости
-        run: pip install streamlink yt-dlp requests PyYAML numpy websocket-client faster-whisper pywebpush
+        run: pip install streamlink yt-dlp requests PyYAML numpy websocket-client faster-whisper pywebpush opencv-python-headless
 
       # КРИТИЧНО: на раннере нет ffmpeg — без него запись эфира невозможна
       # (в логе это выглядело как «ffmpeg не найден» и «Буфер пуст»).

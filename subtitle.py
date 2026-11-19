@@ -11,6 +11,7 @@
 
 import logging
 import os
+import re
 import threading
 import zlib
 
@@ -58,6 +59,72 @@ def whisper_available():
         return False
 
 
+_AV_PATCHED = False
+
+
+_PROMPT_TOKENS_RE = re.compile(r"[а-яёa-z]+")
+
+
+def _drop_prompt_echo(collected, prompt):
+    """Убрать сегменты, где Whisper «спарротил» initial_prompt.
+
+    На паузах модель иногда повторяет текст подсказки как «распознанную»
+    речь (стрим — разреженная речь, классическая ловушка). Сегмент, чьи
+    слова в основном совпадают со словами подсказки, мусор — вырезаем.
+    Возвращает (коллекция, сколько вырезано).
+    """
+    if not prompt:
+        return collected, 0
+    ptoks = set(_PROMPT_TOKENS_RE.findall(str(prompt).lower()))
+    if not ptoks:
+        return collected, 0
+    out, dropped = [], 0
+    for seg, words in collected:
+        stoks = set(_PROMPT_TOKENS_RE.findall(str(seg.get("text") or "").lower()))
+        if stoks and len(stoks & ptoks) / len(stoks) >= 0.6:
+            dropped += 1
+            continue
+        out.append((seg, words))
+    return out, dropped
+
+
+def _patch_av_open():
+    """Совместимость faster-whisper с новыми PyAV.
+
+    PyAV 15+ убрал аргумент metadata_errors из av.open, а faster-whisper
+    продолжает его передавать — распознавание падало с TypeError и
+    «субтитры не пишутся». Шим молча выбрасывает неизвестный аргумент,
+    если новая версия PyAV на него заругалась. Старые версии PyAV не
+    затрагиваются вообще.
+    """
+    global _AV_PATCHED
+    if _AV_PATCHED:
+        return
+    _AV_PATCHED = True
+    try:
+        import av
+
+        orig = av.open
+        if getattr(orig, "_sc_compat", False):
+            return
+
+        def _open(*args, **kwargs):
+            try:
+                return orig(*args, **kwargs)
+            except TypeError as e:
+                if "metadata_errors" in str(e) and "metadata_errors" in kwargs:
+                    kwargs = {k: v for k, v in kwargs.items()
+                              if k != "metadata_errors"}
+                    return orig(*args, **kwargs)
+                raise
+
+        _open._sc_compat = True
+        av.open = _open
+        log.info("PyAV %s: шим совместимости av.open включён", av.__version__)
+    except Exception:
+        log.debug("PyAV шим не потребовался/не установился", exc_info=True)
+
+
 def _get_model(size):
     global _model, _model_name
     with _model_lock:
@@ -87,9 +154,13 @@ def transcribe_full(wav_path, language="ru", model_size="small", beam_size=1,
     Мягкий VAD: стандартный агрессивно вырезает речь на фоне шума игры и
     музыки — из-за этого «стример говорит, а субтитров нет». Здесь пороги
     смягчены (длинные паузы разрешены, речь с запасом по краям).
+    Плюс: initial_prompt настраивает модель на стримскую лексику, а
+    «галлюцинации» Whisper на паузах/музыке (шаблонные фразы-мусор)
+    вырезаются до сборки субтитров.
     """
     if not whisper_available():
         raise SubtitleUnavailable("faster-whisper не установлен")
+    _patch_av_open()
     model = _get_model(model_size)
     lang = None if (not language or str(language).lower() == "auto") else str(language)
     kw = {"language": lang, "word_timestamps": True,
@@ -101,6 +172,12 @@ def transcribe_full(wav_path, language="ru", model_size="small", beam_size=1,
           # сегмент выбраковывается только при ЯВНО отсутствующей речи.
           "no_speech_threshold": 0.35,
           "log_prob_threshold": -0.9}
+    if (lang or "").lower() == "ru":
+        # Подсказка модели: стримская лексика — меньше ошибок на сленге,
+        # донатах и игровых названиях (субтитры точнее, «мусора» меньше).
+        kw["initial_prompt"] = ("Стрим, чат, донат, подписка, привет, "
+                                "погнали, го, жесть, клип, лол, ахах, "
+                                "брат, игра, момент.")
     if vad:
         kw["vad_filter"] = True
         kw["vad_parameters"] = {"min_silence_duration_ms": 700,
@@ -109,13 +186,30 @@ def transcribe_full(wav_path, language="ru", model_size="small", beam_size=1,
     else:
         kw["vad_filter"] = False
     gen, info = model.transcribe(str(wav_path), **kw)
-    segs, words = [], []
+    collected = []          # [(seg, [words])] — фильтруем ДО сборки результата
     for s in gen:
-        segs.append({"start": s.start, "end": s.end, "text": (s.text or "").strip()})
+        seg = {"start": s.start, "end": s.end, "text": (s.text or "").strip()}
+        swords = []
         for w in (s.words or []):
             word = (w.word or "").strip()
             if word:
-                words.append({"start": w.start, "end": w.end, "word": word})
+                swords.append({"start": w.start, "end": w.end, "word": word})
+        collected.append((seg, swords))
+    # --- эхо initial_prompt (модель повторила подсказку вместо речи) --------
+    collected, echo_n = _drop_prompt_echo(collected, kw.get("initial_prompt"))
+    if echo_n:
+        log.info("Эхо подсказки Whisper: %d сегментов вырезано", echo_n)
+    # --- фильтр галлюцинаций: мусорные фразы на паузах/музыке не в субтитры ---
+    segs, words = [], []
+    dropped = 0
+    for seg, swords in collected:
+        if _is_hallucination(seg["text"]):
+            dropped += 1
+            continue
+        segs.append(seg)
+        words.extend(swords)
+    if dropped:
+        log.info("Галлюцинации Whisper: %d мусорных сегментов вырезано", dropped)
     lang_seen = getattr(info, "language", None)
     speech_s = 0.0
     for s in segs:
@@ -130,6 +224,47 @@ def transcribe_full(wav_path, language="ru", model_size="small", beam_size=1,
 
 
 MIN_CHARS = 25          # меньше символов за клип = «распознавание не удалось»
+
+
+# --- «Галлюцинации» Whisper: мусорные фразы на паузах и музыке -----------------
+# Модель на тишине/шуме любит выдавать шаблонные строки («Субтитры делал…»,
+# «Продолжение следует», «Музыка», amara.org и т.п.) — в субтитрах им НЕ место.
+HALLUCINATION_EXACT = {
+    "...", "..", ".", "музыка", "музыка.", "аплодисменты", "музыка играет",
+    "звучит музыка", "играет музыка", "инструментальная музыка",
+    "смотреть позже", "подписаться", "подписаться на канал",
+    "спасибо за просмотр", "спасибо за просмотр!", "продолжение следует",
+    "до встречи в новом видео", "пока", "пока!", "bye", "bye.", "byebye",
+    "thanks for watching", "thank you for watching", "like and subscribe",
+    "subscribe", "hello everyone", "amara.org", "amaraorg",
+    "subtitles by", "субтитры делал dimatorzok", "делал dimatorzok",
+    "субтитры делал", "мандаринки", "mandarincas", "мандаринка",
+    "он", "она", "i", "you", "м", "а",
+}
+HALLUCINATION_PREFIXES = (
+    "субтитры делал", "продолжение следует", "спасибо за просмотр",
+    "подписывайтесь", "субтитры: ", "subtitles by", "amara.org",
+    "смотрите также", "перевод: ", "звук: ",
+    # титры/творческая группа — Whisper любит «узнать» их в шуме эфира
+    "редактор субтитров", "корректор", "оформление", "монтаж",
+    "генеральный продюсер", "исполнительный продюсер", "в титрах",
+)
+
+
+def _is_hallucination(text):
+    """True — строка почти наверняка мусор от модели, а не речь стримера."""
+    t = str(text or "").strip().lower()
+    t = t.strip("♪♫ .,!?;:«»\"'()[]-—_~")
+    if not t:
+        return True
+    if t in HALLUCINATION_EXACT:
+        return True
+    if any(t.startswith(p) for p in HALLUCINATION_PREFIXES):
+        return True
+    # меньше двух буквенных символов — не речь
+    if sum(1 for ch in t if ch.isalpha()) < 2:
+        return True
+    return False
 
 
 # Мат маскируется в «тексте для TikTok» (публичное описание ролика)
@@ -185,9 +320,21 @@ def transcribe_smart(wav_path, language="ru", model_size="small", beam_size=1,
     Возвращает (сегменты, слова, мета). Мета -> сайт и уведомление показывают,
     какие субтитры получились (язык, слов, % речи), а «нет речи» теперь
     отличается от «распознать не удалось».
+
+    Защита от мусора: попытка 3 (язык АВТО без VAD) верит шуму игры —
+    музыка/взрывы «распознаются» как английские фразы. Поэтому авто-попытка
+    принимается, только если язык совпал с ожидаемым (или пользователь сам
+    просил авто) — иначе возвращаем результат попытки 1 (честные пустые
+    субтитры: «в моменте не было речи» лучше выдуманных строк).
     """
     attempts = []
     wav = str(wav_path)
+    req_lang = str(language or "").strip().lower() or None
+
+    def _auto_ok(meta):
+        return (req_lang is None
+                or str(meta.get("lang") or "").lower() == req_lang)
+
     # Нормализация ОДИН раз в начале: тихие и шумные эфиры распознаются
     # одинаково хорошо уже с ПЕРВОЙ попытки (раньше громкость выравнивалась
     # только на третьей попытке — две попытки уходили впустую на тихих клипах).
@@ -206,14 +353,16 @@ def transcribe_smart(wav_path, language="ru", model_size="small", beam_size=1,
             # совсем тихо: пробуем БЕЗ VAD — вдруг фильтр съел всю речь
             attempts.append(("нормализованный звук, язык=авто, без VAD",
                              transcribe_full(norm, None, model_size, 5, vad=False)))
-            if attempts[-1][1][2]["chars"] > 0:
+            if attempts[-1][1][2]["chars"] > 0 and _auto_ok(attempts[-1][1][2]):
                 return attempts[-1][1]
         else:
             attempts.append(("язык=авто, beam 5, без VAD",
                              transcribe_full(wav, None, model_size, 5, vad=False)))
-            if attempts[-1][1][2]["chars"] > 0:
+            if attempts[-1][1][2]["chars"] > 0 and _auto_ok(attempts[-1][1][2]):
                 return attempts[-1][1]
-        return attempts[-1][1]
+        # ни одна попытка не дала честных субтитров — возвращаем первую
+        # (мета честно покажет «мало речи», клип выйдет без субтитров)
+        return attempts[0][1]
     except SubtitleUnavailable:
         raise
     except Exception:

@@ -422,23 +422,20 @@ def process_clip(src_video, clips_dir, workdir, cfg, display, platform,
     # Слой 2: КОНСТАНТНЫЕ ВЕРХНИЕ УГЛЫ — полупрозрачные и анимированные
     # виджеты донатов просвечивают фон (для детекта они «движутся»), но
     # висят они почти всегда в верхних углах, поэтому углы замазываются
-    # всегда. RubUp рисуется ПОСЛЕ — его замазка не трогает.
+    # всегда. Зоны передаются В КООРДИНАТАХ ИСХОДНИКА (raw_boxes): маппинг
+    # под фактический макет (split/blur) делает make_vertical.
+    # RubUp рисуется ПОСЛЕ — его замазка не трогает.
     clip_cfg = cfg.get("clip") or {}
-    mask_boxes = None
+    raw_boxes = None
     if bool(clip_cfg.get("hide_overlays", True)) and bool(clip_cfg.get("vertical", True)):
         try:
             raw_boxes = overlays_mod.detect_overlay_boxes(src_video, workdir)
             if bool(clip_cfg.get("mask_corners", True)):
                 raw_boxes = raw_boxes + overlays_mod.corner_boxes(
                     int(meta.get("width") or 0), int(meta.get("height") or 0))
-            if raw_boxes:
-                mask_boxes = overlays_mod.map_boxes(
-                    raw_boxes, int(meta.get("width") or 0),
-                    int(meta.get("height") or 0),
-                    mode=str(clip_cfg.get("vertical_mode", "blur")))
         except Exception:
             log.exception("Замазка оверлеев не удалась — клип пойдёт без неё")
-            mask_boxes = None
+            raw_boxes = None
 
     cur = src_video
     if bool((cfg.get("clip") or {}).get("vertical", True)):
@@ -446,7 +443,7 @@ def process_clip(src_video, clips_dir, workdir, cfg, display, platform,
             cur = vertical_mod.make_vertical(
                 src_video, vertical_mp4, workdir,
                 mode=str((cfg.get("clip") or {}).get("vertical_mode", "blur")),
-                vcodec_args=vcodec_args, mask_boxes=mask_boxes)
+                vcodec_args=vcodec_args, raw_boxes=raw_boxes)
         except Exception:
             log.exception("9:16 не удался — клип останется горизонтальным")
             cur = src_video

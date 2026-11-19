@@ -37,6 +37,7 @@ import argparse
 import json
 import logging
 import os
+import re
 import subprocess
 import sys
 import time
@@ -113,11 +114,12 @@ SELECTION_PRESETS = {
 }
 # Порог публикации ПОСЛЕ нарезки (оценка clip_quality 0..100): скучные клипы
 # (статичный кадр ~2 МБ, тишина, нет речи) не выходят вовсе. Практика: живые
-# клипы весят 30-45 МБ, скучные — 2 МБ. Регулируется кнопкой «отбор» на сайте.
+# клипы весят 30-45 МБ, скучные — 2 МБ. Порог поднят (запрос: «моменты ещё
+# лучше»). Регулируется кнопкой «отбор» на сайте.
 MIN_PUBLISH_PRESETS = {
-    "loose": 30.0,
-    "normal": 40.0,
-    "strict": 50.0,
+    "loose": 33.0,
+    "normal": 45.0,
+    "strict": 56.0,
 }
 
 # --- автопоиск лучших стримов Twitch ---------------------------------------
@@ -131,6 +133,9 @@ DISCOVERY_COUNT = 25         # сколько топовых стримеров 
 DISCOVERY_MIN_VIEWERS = 2000  # отсечка по зрителям (мелкие каналы не нужны)
 DISCOVERY_REFRESH_MIN = 20    # как часто обновлять топ, минут
 DISCOVERY_TOP_FETCH = 30      # сколько стримов запрашивать (лимит Twitch: 30)
+DISCOVERY_LANGUAGE = "ru"     # ТОЛЬКО русскоязычные эфиры (запрос пользователя);
+                              # "" — все языки. Мелких русских не набралось —
+                              # планка зрителей временно опускается до 800.
 
 
 # --- хэштеги для TikTok (видны на сайте ДО скачивания клипа) -------------------
@@ -645,7 +650,7 @@ def subs_caption(subs):
 # --- автопоиск топовых стримов Twitch ---------------------------------------
 
 def _parse_stream_node(node):
-    """Узел GQL-стрима -> {login, display, viewers, title, game} или None."""
+    """Узел GQL-стрима -> {login, display, viewers, title, game, language} или None."""
     b = node.get("broadcaster") or {}
     login = str(b.get("login") or "").strip().lower()
     if not login:
@@ -658,7 +663,34 @@ def _parse_stream_node(node):
             "display": str(b.get("displayName") or login),
             "viewers": viewers,
             "title": str(node.get("title") or "")[:120],
-            "game": str((node.get("game") or {}).get("displayName") or "")}
+            "game": str((node.get("game") or {}).get("displayName") or ""),
+            "language": str(node.get("language") or "").lower()}
+
+
+_RE_CYRILLIC = re.compile(r"[\u0400-\u04FF]")
+
+
+def filter_by_language(top, language="ru"):
+    """Только эфиры нужного языка (по умолчанию — русскоязычные).
+
+    Поле language отдаёт сам Twitch (GQL). Нюанс: часть русскоязычных
+    стримеров помечает стрим «uk»/«other» — им доверяем только при
+    кириллическом названии (русский тайтл = русскоязычный эфир).
+    language=None или "" отключает фильтр (все языки).
+    """
+    lang = str(language or "").strip().lower()
+    if not lang or lang in ("any", "all", "off"):
+        return list(top or [])
+    out = []
+    for s in top or []:
+        s_lang = str(s.get("language") or "").lower()
+        title = s.get("title") or ""
+        cyr = bool(_RE_CYRILLIC.search(title))
+        if s_lang == lang:
+            out.append(s)
+        elif s_lang in ("", "uk", "other") and cyr:
+            out.append(s)          # язык не указан/помечен uk — но тайтл русский
+    return out
 
 
 def twitch_top_streams(limit=DISCOVERY_TOP_FETCH):
@@ -668,35 +700,106 @@ def twitch_top_streams(limit=DISCOVERY_TOP_FETCH):
     За один запрос Twitch отдаёт НЕ БОЛЬШЕ 30 стримов (больше — уже
     «failed integrity check»: страницам нужен браузерный токен), поэтому
     лимит режется до 30. Возвращает [{login, display, viewers, title,
-    game}]; при любой ошибке [] — слежение по списку каналов продолжается
-    как работало.
+    game, language}]; при любой ошибке [] — слежение по списку каналов
+    продолжается как работало.
     """
     limit = max(1, min(int(limit), 30))          # Twitch: first <= 30
-    body = {"query": (
-        "query($n: Int!) { streams(first: $n) { edges { node { "
-        "broadcaster { login displayName } title viewersCount "
-        "game { displayName } } } } }"),
-        "variables": {"n": limit}}
-    try:
-        r = requests.post(TWITCH_GQL, json=body, timeout=30,
-                          headers={"Client-ID": TWITCH_WEB_CLIENT_ID})
-        if r.status_code != 200:
-            log.warning("Топ Twitch: HTTP %s", r.status_code)
+
+    def _query(with_language=True):
+        fields = ("broadcaster { login displayName } title viewersCount "
+                  "game { displayName } language" if with_language else
+                  "broadcaster { login displayName } title viewersCount "
+                  "game { displayName }")
+        return {"query": ("query($n: Int!) { streams(first: $n) { edges { node { "
+                           + fields + " } } } }")}
+
+    j = None
+    for with_lang in (True, False):   # если Twitch не знает поле language —
+        try:                          # повторяем запрос по старой схеме
+            r = requests.post(TWITCH_GQL, json=dict(_query(with_lang),
+                                                    variables={"n": limit}),
+                              timeout=30,
+                              headers={"Client-ID": TWITCH_WEB_CLIENT_ID})
+            if r.status_code != 200:
+                log.warning("Топ Twitch: HTTP %s", r.status_code)
+                return []
+            j = r.json()
+            if not j.get("errors"):
+                break
+            log.warning("Топ Twitch (language=%s): %s", with_lang,
+                        str(j["errors"][0].get("message") or "")[:160])
+        except Exception as e:
+            log.warning("Топ Twitch недоступен: %s", e)
             return []
-        j = r.json()
-        if j.get("errors"):
-            log.warning("Топ Twitch: %s",
-                        str(j["errors"][0].get("message") or "")[:200])
-            return []
-        edges = ((j.get("data") or {}).get("streams") or {}).get("edges") or []
-    except Exception as e:
-        log.warning("Топ Twitch недоступен: %s", e)
+    if j is None or j.get("errors"):
         return []
+    edges = ((j.get("data") or {}).get("streams") or {}).get("edges") or []
     out = []
     for edge in edges:
         s = _parse_stream_node((edge or {}).get("node") or {})
         if s:
             out.append(s)
+    return out
+
+
+# Глобальный топ-30 может быть заполнен испанцами/немцами (крупный релиз
+# игры) — русских там не будет вовсе. Поэтому русскоязычных ищем ДВУМЯ
+# путями: фильтр глобального топа + прямая проверка живых эфиров у
+# известных русских стримеров (публичный GQL, без ключей).
+RU_CANDIDATE_LOGINS = [
+    "recrent", "evelone200", "leb1ga", "shadowkekw", "t2x2",
+    "bratishkinoff", "melharucos", "sparkling_water", "nuuuur", "buster",
+    "ppperry", "hoshigami", "welovegames", "mileenagordeeva",
+    "chpu_official", "jdanoffffffff", "yogrouz", "4er4el", "nanopro",
+    "ks1lva", "baten_show", "morojennaya", "onepegger", "weaksac",
+    "goodwin4k", "feelleepetrov", "iskat", "daria_kit", "slindvind",
+    "pionggg", "kyshapn", "icdbreak", "dmitrylaxov", "anthonyyygo",
+]
+
+
+def ru_probe_streams(logins=None):
+    """Живые эфиры среди известных русскоязычных стримеров (GQL users+stream).
+
+    Возвращает тот же формат, что twitch_top_streams: [{login, display,
+    viewers, title, game, language}]. Ошибка сети -> [] — слежка по
+    остальным каналам продолжается.
+    """
+    logins = [str(x).strip().lower() for x in (logins or RU_CANDIDATE_LOGINS)
+              if str(x).strip()][:100]          # лимит GQL users
+    if not logins:
+        return []
+    body = {"query": ("query($logins:[String!]) { users(logins:$logins) "
+                      "{ login displayName stream { title viewersCount "
+                      "language game { displayName } } } }")}
+    try:
+        r = requests.post(TWITCH_GQL, json=dict(body, variables={"logins": logins}),
+                          timeout=30, headers={"Client-ID": TWITCH_WEB_CLIENT_ID})
+        if r.status_code != 200:
+            log.warning("RU-проба Twitch: HTTP %s", r.status_code)
+            return []
+        j = r.json()
+        if j.get("errors"):
+            log.warning("RU-проба Twitch: %s",
+                        str(j["errors"][0].get("message") or "")[:160])
+            return []
+    except Exception as e:
+        log.warning("RU-проба недоступна: %s", e)
+        return []
+    out = []
+    for u in (j.get("data") or {}).get("users") or []:
+        st = u.get("stream")
+        if not st or not u.get("login"):
+            continue
+        try:
+            viewers = int(st.get("viewersCount") or 0)
+        except (TypeError, ValueError):
+            viewers = 0
+        out.append({"login": str(u["login"]).lower(),
+                    "display": str(u.get("displayName") or u["login"]),
+                    "viewers": viewers,
+                    "title": str(st.get("title") or "")[:120],
+                    "game": str((st.get("game") or {}).get("displayName") or ""),
+                    "language": str(st.get("language") or "").lower()})
     return out
 
 
@@ -731,20 +834,22 @@ def _subs_twitch_logins(links):
     return logins
 
 
-def auto_discover(gh, cfg, top_fn=None):
-    """Обновить auto_channels в subscriptions.json топом Twitch.
+def auto_discover(gh, cfg, top_fn=None, probe_fn=None):
+    """Обновить auto_channels в subscriptions.json русскоязычным топом Twitch.
 
-    Читает subscriptions.json из репозитория, находит топ по зрителям,
-    кладёт его в ключ auto_channels (каналы человека в channels не
-    трогаются). Если топ не изменился — коммита нет. Возвращает СПИСОК
-    авто-ссылок (даже если не изменился), чтобы слежка подхватила их
-    сразу, не дожидаясь следующего запуска.
+    Читает subscriptions.json из репозитория, находит живых русскоязычных
+    (глобальный топ + проба известных русских каналов), кладёт их в ключ
+    auto_channels (каналы человека в channels не трогаются). Если топ
+    не изменился — коммита нет. Возвращает СПИСОК авто-ссылок (даже если
+    не изменился), чтобы слежка подхватила их сразу, не дожидаясь
+    следующего запуска. probe_fn — подмена пробы в тестах.
     """
     disc = (cfg or {}).get("discovery") or {}
     if disc.get("enabled", True) is False:
         return []
     count = int(disc.get("count") or DISCOVERY_COUNT)
     min_viewers = int(disc.get("min_viewers") or DISCOVERY_MIN_VIEWERS)
+    disc_lang = str(disc.get("language") or DISCOVERY_LANGUAGE)
     if gh is None:
         return []
     try:
@@ -765,8 +870,30 @@ def auto_discover(gh, cfg, top_fn=None):
     exclude = _subs_twitch_logins(user_links)          # человек важнее топа
     fetch = (top_fn or twitch_top_streams)(max(count + 5,
                                                 DISCOVERY_TOP_FETCH))
+    # ТОЛЬКО РУССКОЯЗЫЧНЫЕ: глобальный топ + прямая проба известных русских
+    # стримеров (в день крупного релиза топ-30 забит испанцами/немцами —
+    # без пробы русских там просто не найдётся).
+    fetch = filter_by_language(fetch, disc_lang)
+    ru_live = filter_by_language(
+        (probe_fn or ru_probe_streams)(), disc_lang)
+    by_login = {}
+    for s in list(fetch) + list(ru_live):
+        prev = by_login.get(s.get("login", ""))
+        if prev is None or int(s.get("viewers") or 0) > int(prev.get("viewers") or 0):
+            by_login[s["login"]] = s
+    fetch = sorted(by_login.values(),
+                   key=lambda s: int(s.get("viewers") or 0), reverse=True)
+    log.info("Автопоиск: %d живых русскоязычных (топ+проба)", len(fetch))
     urls = discovery_urls(fetch, min_viewers=min_viewers, count=count,
                           exclude=exclude)
+    if len(urls) < min(8, count) and min_viewers > 800:
+        # Русских топов с 2000+ зрителями сейчас не набралось — опускаем
+        # планку, чтобы слежка не осталась полупустой (качество моментов
+        # всё равно отсекает скучные клипы после нарезки).
+        log.info("Русскоязычных с %d+ зрителями мало (%d) — опускаю планку до 800",
+                 min_viewers, len(urls))
+        urls = discovery_urls(fetch, min_viewers=800, count=count,
+                              exclude=exclude)
     if set(urls) == set(old_auto):
         if urls:
             log.info("Топ Twitch без изменений (%d каналов) — коммит не нужен",
