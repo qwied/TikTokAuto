@@ -324,21 +324,20 @@ class GitHubPublisher:
         prune_assets(self.gh, rel, max_assets=self.max_assets)
 
     def update_channels_meta(self, channels):
-        """Статусы каналов для сайта; коммит только при изменении."""
-        sig = json.dumps([[c.get("name"), bool(c.get("live"))]
-                          for c in channels], ensure_ascii=False)
+        """Статусы каналов для сайта; коммит ТОЛЬКО при реальном изменении.
+
+        sig учитывает LIVE-статус, заголовок и зрителей (округлённо до 25):
+        слежение идёт каждые ~25 секунд, и без округления каждый цикл
+        плодил бы коммит — GitHub такое не любит, а сайту это не нужно.
+        """
+        sig = json.dumps(
+            [[c.get("name"), bool(c.get("live")), c.get("title") or "",
+              int(round((c.get("viewers") or 0) / 25.0)) * 25]
+             for c in channels], ensure_ascii=False)
         raw, sha = self.gh.get_file(CLIPS_JSON)
         data = load_clips_json_bytes(raw)
         if data["meta"].get("_live_sig") == sig and data["meta"].get("channels"):
-            data["meta"]["channels"] = channels
-            data["updated"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
-            self.gh.put_file(CLIPS_JSON,
-                             json.dumps(data, ensure_ascii=False,
-                                        indent=1).encode("utf-8"),
-                             sha, "channels: refresh")
-            return
-        if data["meta"].get("_live_sig") == sig:
-            return
+            return                       # ничего не изменилось — без коммита
         data["meta"]["channels"] = channels
         data["meta"]["_live_sig"] = sig
         data["updated"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
