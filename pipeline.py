@@ -11,6 +11,7 @@ import json
 import logging
 import os
 import queue
+import re
 import shutil
 import threading
 import time
@@ -62,6 +63,145 @@ def resolve_rolls(clip_cfg):
             log.info("Длина клипа фиксируется на %.0f c: %.0f c до пика + %.0f c после",
                      total, pre, post)
     return pre, post
+
+
+# --- адаптивная длина клипа (clip.total: auto) ---------------------------------
+# Жирный момент -> длиннее: хайп 78+ тянет 60 секунд, 60+ — 45, обычный — 35.
+AUTO_TOTALS = ((78.0, 60.0), (60.0, 45.0))
+DEFAULT_TOTAL = 35.0
+
+
+def pick_total(score, clip_cfg):
+    """Длина клипа (сек) по СИЛЕ момента.
+
+    clip.total: auto (по умолчанию) — 35/45/60 по оценке хайпа: короткий
+    клип досматривают до конца чаще (это главный сигнал алгоритма TikTok),
+    а длинный оправдан только когда момент реально жирный. Число в конфиге
+    — фиксированная длина, как раньше. Границы 25-90 с.
+    """
+    raw = (clip_cfg or {}).get("total", "auto")
+    if isinstance(raw, str):
+        s = raw.strip().lower()
+        if s in ("", "auto", "adaptive", "smart"):
+            for thr, tot in AUTO_TOTALS:
+                if float(score or 0) >= thr:
+                    return tot
+            return DEFAULT_TOTAL
+        try:
+            raw = float(s)
+        except ValueError:
+            return DEFAULT_TOTAL
+    try:
+        total = float(raw)
+    except (TypeError, ValueError):
+        return DEFAULT_TOTAL
+    if total <= 0:
+        return DEFAULT_TOTAL
+    return max(25.0, min(total, 90.0))
+
+
+# --- логическое завершение клипа ------------------------------------------------
+# После пика хвост тянется до первой ПАУЗЫ речи: клип обрывается на конце
+# фразы, а не посреди слова. Максимум +logical_tail секунд к расчётной длине.
+LOGICAL_TAIL_DEFAULT = 10.0
+_SILENCE_START_RE = re.compile(r"silence_start:\s*([0-9.]+)")
+_SILENCE_END_RE = re.compile(r"silence_end:\s*([0-9.]+)")
+
+
+def find_logical_cut(ts_path, workdir, anchor, tail=LOGICAL_TAIL_DEFAULT,
+                     min_len=25.0):
+    """Секунда ЛОГИЧЕСКОГО конца клипа (пауза речи вокруг расчётного конца).
+
+    anchor — расчётная длина (пик + post_roll). Тишина ищется ffmpeg
+    silencedetect в окне [anchor-4, anchor+tail]. Приоритет:
+      1) пауза, накрывающая anchor — режем прямо по anchor (лишнего нет);
+      2) первая пауза ПОСЛЕ anchor — режем на её начале: стример договорил
+         фразу, клип заканчивается на конце речи, а не посреди слова;
+      3) пауза ДО anchor (в окне) — режем в её середине (фallback, когда
+         речь уже кончилась и хвост тянуть нечем).
+    Паузы нет вовсе — режем по anchor (как раньше, без хвоста).
+    """
+    anchor = float(anchor or 0)
+    tail = max(0.0, float(tail or 0))
+    meta = ffprobe_meta(ts_path)
+    dur = float(meta.get("duration") or 0)
+    if dur <= 0:
+        # у аудио-файла (wav) нет видеопотока — берём длительность контейнера
+        rc, out, _err = run_cmd(
+            ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+             "-of", "json", str(ts_path)], timeout=30)
+        try:
+            dur = float(json.loads(out).get("format", {}).get("duration") or 0)
+        except (ValueError, TypeError, AttributeError):
+            dur = 0.0
+    if dur <= 0 or tail <= 0:
+        return max(5.0, min(anchor, dur if dur > 0 else anchor))
+    anchor = min(anchor, max(dur - 0.3, 5.0))
+    lo = max(5.0, anchor - 4.0)
+    hi = min(dur, anchor + tail)
+    if hi <= lo:
+        return anchor
+    rc, _out, err = run_cmd(
+        ["ffmpeg", "-hide_banner", "-nostdin", "-i",
+         os.path.basename(str(ts_path)),
+         "-af", "silencedetect=noise=-32dB:d=0.45", "-f", "null", "-"],
+        timeout=180, cwd=str(workdir))
+    sil, cur = [], None
+    for line in ((err or "") + "\n").splitlines():
+        m = _SILENCE_START_RE.search(line)
+        if m:
+            cur = float(m.group(1))
+            continue
+        m = _SILENCE_END_RE.search(line)
+        if m and cur is not None:
+            sil.append((cur, float(m.group(1))))
+            cur = None
+    if cur is not None:
+        sil.append((cur, dur))          # тишина до самого конца файла
+    straddle = None
+    future, past = [], []
+    for s, e in sil:
+        if e <= lo or s >= hi:
+            continue
+        if s <= anchor <= e:
+            straddle = (s, e)
+        elif s >= anchor:
+            future.append((s, e))
+        else:
+            past.append((s, e))
+    if straddle:
+        return anchor
+    if future:
+        s, e = min(future, key=lambda p: p[0])   # первая тишина после anchor
+        return min(max(s + 0.15, lo), hi)        # режем сразу за концом речи
+    if past:
+        s, e = max(past, key=lambda p: p[1])     # ближайшая тишина сзади
+        return min(max((s + e) / 2.0, lo), hi)
+    return anchor
+
+
+def trim_clip_end(ts_path, cut_dur, workdir):
+    """Обрезать хвост клипа до cut_dur секунд (БЕЗ перекодирования).
+
+    Возвращает путь (тот же файл, содержимое заменено). Обрезка конца
+    копированием точна до кадра: паковщику не нужны ключевые кадры,
+    чтение просто останавливается на заданной секунде.
+    """
+    cut_dur = float(cut_dur or 0)
+    meta = ffprobe_meta(ts_path)
+    dur = float(meta.get("duration") or 0)
+    if dur <= 0 or cut_dur >= dur - 0.3 or cut_dur <= 0:
+        return ts_path                  # обрезать нечего
+    base, ext = os.path.splitext(str(ts_path))
+    tmp = base + ".cut" + ext
+    cmd = (["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-nostdin",
+            "-i", os.path.basename(str(ts_path)), "-t", f"{cut_dur:.3f}",
+            "-c", "copy", "-map", "0", os.path.basename(tmp)])
+    rc, _out, err = run_cmd(cmd, timeout=300, cwd=str(workdir))
+    if rc != 0:
+        raise RuntimeError("ffmpeg (логический конец): " + (err or "")[-300:])
+    os.replace(tmp, str(ts_path))
+    return ts_path
 
 
 class ActiveStream:
@@ -500,13 +640,20 @@ class Pipeline:
             return
         ch = st.ch
         now = time.time()
-        start_ts = max(ev.ts - self.pre_roll, st.started_at)
-        # Конец клипа: пик + post_roll. У «лучшего момента из прошлого»
-        # (гарантированная нарезка при тихом чате) этот конец уже в прошлом —
-        # тогда ждать ничего не нужно: берём [пик-30, пик+30] из буфера.
-        end_ts = ev.ts + self.post_roll
-        log.info("Клип: %.0f c до пика + %.0f c после = РОВНО %d c",
-                 self.pre_roll, self.post_roll, int(self.pre_roll + self.post_roll))
+        # --- длина клипа ПО СИЛЕ МОМЕНТА (clip.total: auto -> 35/45/60 c) -----
+        clip_cfg = self.cfg.get("clip") or {}
+        total = pick_total(ev.score, clip_cfg)
+        pre = max(5.0, min(round(total / 2.0), total - 5.0))
+        post = total - pre
+        tail = max(0.0, float(clip_cfg.get("logical_tail", LOGICAL_TAIL_DEFAULT)))
+        start_ts = max(ev.ts - pre, st.started_at)
+        # Конец клипа: пик + post (+ хвост до паузы). У «лучшего момента из
+        # прошлого» (гарантированная нарезка при тихом чате) этот конец уже
+        # в прошлом — тогда ждать ничего не нужно: берём окно из буфера.
+        end_ts = ev.ts + post + tail
+        log.info("Клип: сила момента %.0f/100 -> %d c (%.0f c до пика + %.0f c "
+                 "после) + до %d c хвоста до паузы",
+                 ev.score, int(total), pre, post, int(tail))
         # рекламные интервалы из guard -> в пометки буфера: сегменты, записанные
         # во время рекламы, не попадут в клип
         if st.guard and st.guard.intervals:
@@ -517,9 +664,10 @@ class Pipeline:
         if not segs:
             log.warning("Буфер пуст — клип не собран (стрим только что начался?)")
             return
-        # Ждём «хвост» клипа только если пик настолько свежий, что 30 с после
-        # него ещё не записались (у момента из прошлого хвост уже на диске).
-        deadline = now + max(1.0, min(self.post_roll, end_ts - now)) if end_ts > now else 0.0
+        # Ждём «хвост» клипа только если пик настолько свежий, что post_roll
+        # и логический хвост ещё не записались (у момента из прошлого хвост
+        # уже на диске).
+        deadline = now + max(1.0, min(post + tail, end_ts - now)) if end_ts > now else 0.0
         while deadline and time.time() < deadline:
             time.sleep(0.5)
             if (not st.recorder.is_recording
@@ -568,6 +716,30 @@ class Pipeline:
                 log.exception("9:16 не удался — клип останется горизонтальным")
                 raw_ts = orig_ts
 
+        # --- ЛОГИЧЕСКИЙ КОНЕЦ: хвост режется на паузе речи, не посреди слова --
+        # Расчётная длина (пик + post). Буфер запасён с хвостом +tail: если
+        # после пика стример договаривает фразу — клип тянется до первой
+        # тишины (но не дольше +tail); если тишина уже у расчётного конца —
+        # лишнего хвоста нет. Стрим оборвался — режем по фактической длине.
+        intended = (ev.ts + post) - start_ts
+        try:
+            cut_dur = find_logical_cut(raw_ts, workdir, intended, tail)
+        except Exception:
+            log.exception("Анализ паузы не удался — режу по расчётной длине")
+            cut_dur = intended
+        if abs(cut_dur - intended) > 0.25:
+            try:
+                raw_ts = trim_clip_end(raw_ts, cut_dur, workdir)
+                log.info("Логический конец: %.1f c (расчёт %.1f c, %+0.1f c)",
+                         cut_dur, intended, cut_dur - intended)
+            except Exception:
+                log.exception("Обрезка хвоста не удалась — клип прежней длины")
+                cut_dur = intended
+        try:
+            dur_est = float(ffprobe_meta(raw_ts).get("duration") or dur_est)
+        except Exception:
+            pass
+
         out_path = os.path.join(self.clips_dir, f"{stamp}_{sanitize(ch.short_id())}.mp4")
 
         chat_msgs = st.detector.recent_messages(start_ts, time.time()) if st.detector else []
@@ -580,7 +752,7 @@ class Pipeline:
                 intervals = banner.plan_intervals(
                     float(ffprobe_meta(raw_ts).get("duration") or dur_est),
                     float(bmeta.get("duration") or 0),
-                    start=self.banner_cfg.get("start", 8))
+                    start=self.banner_cfg.get("start", "middle"))
             except Exception:
                 log.warning("Не удалось рассчитать показы баннера — без пауз")
                 intervals = None
@@ -800,11 +972,16 @@ class Pipeline:
             })
         with self._lock:
             clips_today = self._clips_made
+        total_cfg = (self.cfg.get("clip") or {}).get("total", "auto")
+        try:
+            clip_len = int(float(total_cfg))
+        except (TypeError, ValueError):
+            clip_len = "35-60 (авто, по силе момента)"
         return {
             "channels": chans,
             "clips_today": clips_today,
             "uptime_s": int(time.time() - self._t0),
-            "clip_seconds": int(self.pre_roll + self.post_roll),
+            "clip_seconds": clip_len,
             "quality": self.quality,
             "ad_guard": bool(self.ad_cfg.get("enabled", True)),
             "tiktok": self.tiktok.status() if self.tiktok else None,

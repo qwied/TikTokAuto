@@ -6,8 +6,9 @@
   * баннер показывается СО ЗВУКОМ (звук самого ролика баннера);
   * занимает НЕ МЕНЬШЕ 25% площади экрана (по умолчанию ~30%, с запасом);
   * НЕ В УГЛУ — баннер ставится строго по центру кадра;
-  * видео длиннее минуты — баннер показывается РАЗ В МИНУТУ (60-секундный
-    клип получает один показ целиком).
+  * ПО СЕРЕДИНЕ клипа (start: middle): начало («крючок») и финал момента
+    чистые, зритель к моменту показа уже вовлёкся;
+  * видео длиннее минуты — баннер показывается РАЗ В МИНУТУ.
 
 Хотите другой баннер — просто замените файл banner.mp4, перезапускать
 программу не обязательно (файл читается при сборке каждого клипа).
@@ -25,11 +26,39 @@ log = logging.getLogger("banner")
 AREA_RULE = 0.25    # требование правил: не меньше 25% площади экрана
 PERIOD = 60.0       # длинные клипы: показ раз в минуту
 
+MIDDLE_WORDS = ("", "middle", "mid", "center", "auto", "середина")
+
 
 def _fnum(x):
     """Число для выражений ffmpeg: точка-разделитель, без хвостовых нулей."""
     s = f"{float(x):.3f}".rstrip("0").rstrip(".")
     return s if s else "0"
+
+
+def start_time(start, clip_dur, banner_dur):
+    """Секунда ПЕРВОГО показа баннера.
+
+    "middle" (по умолчанию и в config.yaml) — баннер ровно ПО СЕРЕДИНЕ
+    клипа: показ начинается на (длительность - длина баннера) / 2. Так
+    начало клипа («крючок» момента) и финал остаются чистыми, а зритель
+    уже вовлёкся к моменту показа. Число в конфиге — показ на заданной
+    секунде (как раньше). Некорректное значение — середина.
+    """
+    mid = max(0.0, (max(float(clip_dur or 0), 1.0) - max(float(banner_dur or 0), 0.5)) / 2.0)
+    if start is None:
+        return mid
+    if isinstance(start, str):
+        s = start.strip().lower()
+        if s in MIDDLE_WORDS:
+            return mid
+        try:
+            start = float(s)
+        except ValueError:
+            return mid
+    try:
+        return max(0.0, float(start))
+    except (TypeError, ValueError):
+        return mid
 
 
 def resolve_file(cfg, base_dir):
@@ -79,16 +108,17 @@ def banner_geometry(clip_w, clip_h, ban_w, ban_h, area=0.30):
     return bw, bh, real
 
 
-def plan_intervals(clip_dur, banner_dur, start=8.0, period=PERIOD):
-    """Интервалы показа [(начало, конец)]: раз в минуту для длинных видео.
+def plan_intervals(clip_dur, banner_dur, start="middle", period=PERIOD):
+    """Интервалы показа [(начало, конец)].
 
-    Первый показ — через start секунд от начала клипа; если клип короче
-    (start + баннер не влезает), показ сдвигается к концу так, чтобы
-    ролик баннера проигрался ЦЕЛИКОМ.
+    По умолчанию первый показ — ПО СЕРЕДИНЕ клипа (start="middle"):
+    «крючок» в начале и финал момента остаются чистыми. Число — показ
+    на заданной секунде. Если клип короткий и показ не влезает целиком,
+    он сдвигается так, чтобы ролик баннера проигрался ЦЕЛИКОМ.
     """
     clip_dur = max(float(clip_dur or 0), 1.0)
     banner_dur = max(float(banner_dur or 0), 0.5)
-    start = max(float(start or 0), 0.0)
+    start = start_time(start, clip_dur, banner_dur)
     if start + banner_dur > clip_dur:
         start = max(0.0, clip_dur - banner_dur - 0.5)
     out, t = [], start
@@ -142,7 +172,7 @@ def compose(raw_ts, banner_path, ass_path, video_out, workdir,
         raise RuntimeError("не удалось прочитать баннер (banner.mp4 повреждён?)")
 
     if not intervals:
-        intervals = plan_intervals(dur, bdur, start=cfg.get("start", 8))
+        intervals = plan_intervals(dur, bdur, start=cfg.get("start", "middle"))
     bw, bh, real = banner_geometry(w, h, bw0, bh0, area=cfg.get("area", 0.30))
     log.info("Баннер: %dx%d (%.1f%% экрана, правило >=25%%), показы: %s",
              bw, bh, real * 100,

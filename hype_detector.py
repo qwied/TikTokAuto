@@ -185,7 +185,7 @@ class HypeDetector(threading.Thread):
                 and now - self.last_trigger >= self.cooldown
                 and len(self.trigger_times) < self.max_per_hour):
             score_out = self.smooth if self.hot_streak >= self.sustain \
-                else max(self.smooth, 72.0)     # явный взрыв — высокий балл сразу
+                else max(self.smooth, 78.0)     # явный взрыв — жирный момент сразу
             self._trigger(now, score_out, win, users)
             return
 

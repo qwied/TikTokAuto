@@ -68,6 +68,29 @@ def test_intervals_once_per_minute():
           f"130с -> {starts})")
 
 
+def test_intervals_middle():
+    """banner.start: middle — показ РОВНО ПО СЕРЕДИНЕ клипа."""
+    iv = plan_intervals(45.0, 9.2)                  # start по умолчанию = middle
+    s, e = iv[0]
+    assert abs(e - s - 9.2) < 0.01, "баннер должен проиграться целиком"
+    mid = (s + e) / 2.0
+    assert abs(mid - 22.5) < 0.5, f"середина клипа 22.5с, а показ в {mid:.1f}с"
+    assert s >= 8.0, "начало клипа (крючок) должно остаться чистым"
+
+    iv = plan_intervals(60.0, 6.1, start="middle")
+    s, e = iv[0]
+    assert abs(s - (60.0 - 6.1) / 2.0) < 0.1, (s, e)
+
+    iv = plan_intervals(60.0, 6.1, start="мусор")   # некорректное значение -> middle
+    assert abs(iv[0][0] - (60.0 - 6.1) / 2.0) < 0.1, iv
+
+    iv = plan_intervals(8.0, 6.1, start="middle")   # короткий: целиком у конца
+    s, e = iv[0]
+    assert e <= 8.0 and e - s > 5.5, f"короткий клип: баннер обрезан {iv}"
+    print(f"ok: middle — показ по середине (45с клип: показ "
+          f"{iv[0][0]:.1f}-{iv[0][1]:.1f}с при коротком 8с)")
+
+
 def test_has_audio():
     probe = os.path.join(OUT_DIR, "ban_probe.mp4")
     os.makedirs(OUT_DIR, exist_ok=True)
@@ -147,6 +170,7 @@ def main():
     os.makedirs(OUT_DIR, exist_ok=True)
     test_geometry_rules()
     test_intervals_once_per_minute()
+    test_intervals_middle()
     test_has_audio()
     test_compose_banner_and_subs()
     print("ВСЕ ТЕСТЫ БАННЕРА ПРОШЛИ")
