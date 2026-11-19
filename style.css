@@ -894,3 +894,22 @@ input { font: inherit; }
   color: var(--muted, #aab3c2);
   line-height: 1.45;
 }
+
+/* --- текст для TikTok + совет по времени постинга (карточки) ---------------- */
+.caption-line {
+  margin-top: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--fg, #eef2f8);
+  background: rgba(139, 92, 246, 0.14);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  border-radius: 10px;
+  padding: 7px 10px;
+  line-height: 1.4;
+}
+.tip-line {
+  margin-top: 7px;
+  font-size: 11px;
+  color: var(--muted, #8a94a6);
+  line-height: 1.45;
+}

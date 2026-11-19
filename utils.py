@@ -36,10 +36,11 @@ def ensure_dir(path):
     return path
 
 
-def run_cmd(args, timeout=60, cwd=None):
+def run_cmd(args, timeout=60, cwd=None, binary=False):
     """Запуск внешней команды.
 
-    Возвращает (returncode, stdout, stderr) в utf-8.
+    Возвращает (returncode, stdout, stderr); stdout/stderr — строки utf-8.
+    binary=True — stdout возвращается как bytes (для rawvideo из ffmpeg).
     """
     try:
         p = subprocess.run(
@@ -48,6 +49,8 @@ def run_cmd(args, timeout=60, cwd=None):
             timeout=timeout,
             cwd=cwd,
         )
+        if binary:
+            return p.returncode, p.stdout, p.stderr.decode("utf-8", "replace")
         out = p.stdout.decode("utf-8", "replace")
         err = p.stderr.decode("utf-8", "replace")
         return p.returncode, out, err

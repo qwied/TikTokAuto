@@ -43,12 +43,17 @@ def crop_graph(w=WIDTH, h=HEIGHT):
 
 
 def make_vertical(video_in, video_out, workdir, width=WIDTH, height=HEIGHT,
-                  mode="blur", blur=26, vcodec_args=None):
+                  mode="blur", blur=26, vcodec_args=None, mask_boxes=None):
     """Перевести клип в вертикальный формат 9:16.
 
     Принимает собранный сырой клип (ts/mp4), возвращает путь к вертикальному
     mp4. Длительность и звук сохраняются; звук перекодируется в AAC
     (совместимо с TikTok). Выход: h264 + yuv420p + faststart.
+
+    mask_boxes — прямоугольники [(x, y, w, h)] в координатах ГОТОВОГО
+    вертикального кадра: чужие банеры/виджеты, найденные overlays.py.
+    Замазываются boxblur-ом в ТОЙ ЖЕ цепочке фильтров (без лишнего
+    перекодирования). Баннер RubUp рисуется позже — его замазка не трогает.
     """
     video_in = os.path.basename(str(video_in))
     video_out = os.path.basename(str(video_out))
@@ -56,9 +61,25 @@ def make_vertical(video_in, video_out, workdir, width=WIDTH, height=HEIGHT,
         ["-c:v", "libx264", "-preset", "veryfast", "-crf", "18"]
     graph = blur_graph(width, height, blur=blur) \
         if str(mode or "blur").lower() != "crop" else crop_graph(width, height)
+    out_label = "v"
+    if mask_boxes:
+        try:
+            try:
+                from overlays import blur_fragment
+            except ImportError:                       # плоский репозиторий
+                from overlays import blur_fragment
+            frag, out_label = blur_fragment(list(mask_boxes), "v")
+            if frag:
+                graph += ";" + frag
+                log.info("9:16 с замазкой: %d зон чужих оверлеев", len(mask_boxes))
+        except Exception:
+            log.exception("Фрагмент замазки не собрался — клип без неё")
+            graph = blur_graph(width, height, blur=blur) \
+                if str(mode or "blur").lower() != "crop" else crop_graph(width, height)
+            out_label = "v"
     cmd = (["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-nostdin",
             "-i", video_in, "-filter_complex", graph,
-            "-map", "[v]", "-map", "0:a?", "-c:a", "aac", "-b:a", "192k",
+            "-map", "[%s]" % out_label, "-map", "0:a?", "-c:a", "aac", "-b:a", "192k",
             "-ar", "44100", "-pix_fmt", "yuv420p", "-movflags", "+faststart"]
            + va + [video_out])
     rc, _out, err = run_cmd(cmd, timeout=900, cwd=str(workdir))

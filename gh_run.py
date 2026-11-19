@@ -192,6 +192,20 @@ def make_hashtags(platform="", channel="", title="", game=""):
     return out[:14]
 
 
+def make_caption(display="", hook=""):
+    """Готовый текст описания для TikTok (копируется с карточки одним тапом).
+
+    Живая цитата стримера из клипа работает в описании лучше шаблона —
+    она «цепляет» и повышает досмотры (а досмотр решает просмотры).
+    Мат уже замаскирован в subtitle._hook_from_words.
+    """
+    hook = str(hook or "").strip()
+    display = str(display or "").strip() or "стрим"
+    if hook:
+        return "«%s» — %s" % (hook, display)
+    return "Лучший момент со стрима %s" % display
+
+
 # --- GitHub REST -------------------------------------------------------------------------
 
 class GitHub:
@@ -299,7 +313,7 @@ def load_clips_json_bytes(raw):
 
 def clip_entry(video_path, asset_url, thumb_b64=None, dur=None, size=None,
                platform="twitch", display=None, title="", score=None,
-               hashtags=None, subs=None, src=None, start=None):
+               hashtags=None, subs=None, src=None, start=None, caption=""):
     name = os.path.basename(str(video_path))
     stem = os.path.splitext(name)[0]
     parts = stem.split("_")
@@ -325,6 +339,7 @@ def clip_entry(video_path, asset_url, thumb_b64=None, dur=None, size=None,
         "title": title or "",
         "score": score_val,          # «насколько сочный момент» (для карточки)
         "hashtags": list(hashtags or []),   # рекомендации для TikTok до скачивания
+        "caption": str(caption or ""),      # готовый текст описания для TikTok
         "subs": sub,                 # субтитры: {lang, words, speech_pct, ok}
         "src": src or "",            # источник (для клипов из видео) — для
         "start": int(start or 0),    # кнопки «Ещё отсюда» и фидбека
@@ -389,6 +404,7 @@ class GitHubPublisher:
         self.push = push          # Notifier по секретам NOTIFY_* (или None)
         self.last_url = ""
         self.last_tags = []
+        self.last_caption = ""
 
     def notify_clip(self, video_path, caption="", platform="twitch",
                     display=None, title="", score=None, subs=None):
@@ -401,6 +417,9 @@ class GitHubPublisher:
             if self.last_tags:
                 # хэштеги прямо в уведомление: видно ещё до скачивания
                 cap += "\n\nХэштеги для TikTok:\n" + " ".join(self.last_tags)
+            if self.last_caption:
+                cap += "\n\nТекст для TikTok (копируй в описание):\n" \
+                       + self.last_caption
             if self.last_url:
                 cap += f"\n\nСкачать: {self.last_url}"
             if self.push is not None:
@@ -441,8 +460,11 @@ class GitHubPublisher:
                            score=score, subs=subs,
                            hashtags=make_hashtags(platform=platform,
                                                   channel=entry_chan or display or "",
-                                                  title=title))
+                                                  title=title),
+                           caption=make_caption(display or entry_chan,
+                                                str((subs or {}).get("hook") or "")))
         self.last_tags = list(entry.get("hashtags") or [])
+        self.last_caption = str(entry.get("caption") or "")
         raw, sha = self.gh.get_file(CLIPS_JSON)
         data = load_clips_json_bytes(raw)
         ids = {c.get("id") for c in data["clips"]}
@@ -1608,15 +1630,27 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
             except Exception:
                 log.exception("Оценка качества не удалась — публикую как есть")
                 final_score, qparts = base, {}
-            if final_score < min_score and bored < BORED_SKIP_MAX:
+            # ЖЁСТКИЙ БРАК (статичный кадр ~2 МБ / обрезок < 45 с) выбрасывается
+            # совсем — он не попадает даже в спасательный круг публикации.
+            hard_reject = bool(qparts.get("hard"))
+            if final_score < min_score and (hard_reject or bored < BORED_SKIP_MAX):
                 bored += 1
-                holdout.append((out, final_score, display, platform, smeta, url,
-                                int(start or 0)))
-                log.info("СКУКА: %.0f/100 < порога %.0f (битрейт %.2f Мбит/с, "
-                         "звук %.0f dB, слов %d) — окно отложено (%d/%d)",
-                         final_score, min_score, qparts.get("mbps", 0),
-                         qparts.get("mean_db", -99), qparts.get("words", 0),
-                         bored, BORED_SKIP_MAX)
+                if hard_reject:
+                    try:
+                        os.remove(out)
+                    except OSError:
+                        pass
+                    log.info("БРАК (%s): оценка %.0f — окно выброшено совсем "
+                             "(%d брака за запуск)", qparts.get("hard"),
+                             final_score, bored)
+                else:
+                    holdout.append((out, final_score, display, platform, smeta,
+                                    url, int(start or 0)))
+                    log.info("СКУКА: %.0f/100 < порога %.0f (битрейт %.2f Мбит/с, "
+                             "звук %.0f dB, слов %d) — окно отложено (%d/%d)",
+                             final_score, min_score, qparts.get("mbps", 0),
+                             qparts.get("mean_db", -99), qparts.get("words", 0),
+                             bored, BORED_SKIP_MAX)
                 for f in (src,):
                     try:
                         if os.path.exists(f):

@@ -30,12 +30,14 @@ try:
     import banner
     import subtitle
     import vertical as vertical_mod
+    import overlays as overlays_mod
     from hype_detector import DEFAULT_KEYWORDS, _is_excited
     from utils import ensure_dir, ffprobe_meta, run_cmd, sanitize
 except ImportError:                                    # плоский репозиторий
     import banner
     import subtitle
     import vertical as vertical_mod
+    import overlays as overlays_mod
     from hype_detector import DEFAULT_KEYWORDS, _is_excited
     from utils import ensure_dir, ffprobe_meta, run_cmd, sanitize
 
@@ -414,13 +416,30 @@ def process_clip(src_video, clips_dir, workdir, cfg, display, platform,
     meta = ffprobe_meta(src_video)
     dur = float(meta.get("duration") or 0)
 
+    # --- замазка ЧУЖИХ банеров/виджетов/рекламы (кроме RubUp) -----------------
+    # Детект на исходнике (там оверлеи резкие), координаты -> вертикальный кадр;
+    # сами зоны замазываются в цепочке 9:16 без лишнего перекодирования.
+    clip_cfg = cfg.get("clip") or {}
+    mask_boxes = None
+    if bool(clip_cfg.get("hide_overlays", True)) and bool(clip_cfg.get("vertical", True)):
+        try:
+            raw_boxes = overlays_mod.detect_overlay_boxes(src_video, workdir)
+            if raw_boxes:
+                mask_boxes = overlays_mod.map_boxes(
+                    raw_boxes, int(meta.get("width") or 0),
+                    int(meta.get("height") or 0),
+                    mode=str(clip_cfg.get("vertical_mode", "blur")))
+        except Exception:
+            log.exception("Замазка оверлеев не удалась — клип пойдёт без неё")
+            mask_boxes = None
+
     cur = src_video
     if bool((cfg.get("clip") or {}).get("vertical", True)):
         try:
             cur = vertical_mod.make_vertical(
                 src_video, vertical_mp4, workdir,
                 mode=str((cfg.get("clip") or {}).get("vertical_mode", "blur")),
-                vcodec_args=vcodec_args)
+                vcodec_args=vcodec_args, mask_boxes=mask_boxes)
         except Exception:
             log.exception("9:16 не удался — клип останется горизонтальным")
             cur = src_video
@@ -558,11 +577,26 @@ def clip_quality(mp4_path, smeta=None, base=None, duration=None):
 
     b = 50.0 if base is None else max(0.0, min(100.0, float(base)))
     score = max(0.0, min(100.0, b + d_bit + d_snd + d_sub))
+
+    # --- ЖЁСТКИЙ ФЛОР: практика показала, что скучные клипы — это почти
+    # всегда либо статичная картинка (~0.3 Мбит/с, файл ~2 МБ), либо обрезок.
+    # Такой клип не публикуется независимо от хайп-оценки окна.
+    hard = ""
+    if dur and dur < 45.0:
+        score = min(score, 18.0)
+        hard = "короче 45 с"
+    elif mbps < 0.5:
+        score = min(score, 22.0)
+        hard = "статичный кадр (%.2f Мбит/с, ~2 МБ-класс)" % mbps
+
     parts = {"score": round(score, 1), "base": round(b, 1),
              "mbps": round(mbps, 2), "mean_db": round(mean_db, 1),
              "std_db": round(std_db, 1), "silent": round(silent_r, 2),
              "words": words, "d_bit": d_bit, "d_snd": round(d_snd, 1),
-             "d_sub": d_sub}
+             "d_sub": d_sub, "hard": hard}
+    if hard:
+        log.info("Качество клипа: %.0f/100 — ЖЁСТКИЙ ФЛОР (%s): бракуем", score, hard)
+        return score, parts
     log.info("Качество клипа: %.0f/100 (база %.0f, битрейт %.2f Мбит/с %+.0f, "
              "звук %.0f dB %+.0f, слов %d %+.0f)", score, b, mbps, d_bit,
              mean_db, d_snd, words, d_sub)

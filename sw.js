@@ -6,8 +6,9 @@
 
 "use strict";
 
-var CACHE = "sc-shell-v9";   // v9: плеер до скачивания + крестик + TikTok-кнопка;
-                              // app.js/style.css теперь НЕ липнут к старому кэшу
+var CACHE = "sc-shell-v10";  // v10: замазка чужих банеров (RubUp не трогаем),
+                              // текст для TikTok на карточках + совет по времени
+                              // постинга, blob-фолбэк плеера для iPhone
 var SHELL = [
   "./",
   "./index.html",

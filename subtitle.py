@@ -132,6 +132,42 @@ def transcribe_full(wav_path, language="ru", model_size="small", beam_size=1,
 MIN_CHARS = 25          # меньше символов за клип = «распознавание не удалось»
 
 
+# Мат маскируется в «тексте для TikTok» (публичное описание ролика)
+PROFANITY_STEMS = [
+    "бляд", "хуй", "хуе", "хуё", "пизд", "еба", "ёба", "еби", "ёби", "ебу",
+    "сука", "суки", "мудак", "гандон", "гондон", "шлюх", "долбо", "пидор",
+    "пидар", "пидр", "залуп", "заёб", "заеб", "охуе", "ахуе", "хер",
+    "fuck", "shit", "bitch", "whore", "cunt", "asshole", "nigg",
+]
+
+
+def _mask_profanity(text):
+    """Слова с матерными корнями -> «***» (описание ролика всё равно публичное)."""
+    out = []
+    for word in str(text or "").split():
+        low = word.lower()
+        if any(stem in low for stem in PROFANITY_STEMS):
+            out.append("***")
+        else:
+            out.append(word)
+    return " ".join(out)
+
+
+def _hook_from_words(words, max_chars=90):
+    """Первая фраза речи — «крючок» для описания ролика в TikTok.
+
+    Из первых распознанных слов собирается короткая цитата стримера: живая
+    подача работает в описании лучше шаблонного текста. Мат маскируется.
+    """
+    text = " ".join(str(w.get("word") or "").strip()
+                    for w in (words or [])[:14]).strip()
+    text = _mask_profanity(text)
+    if len(text) > max_chars:
+        cut = text.rfind(" ", 0, max_chars)
+        text = text[:cut if cut > 30 else max_chars].rstrip(",;:-")
+    return text.strip()
+
+
 def transcribe_smart(wav_path, language="ru", model_size="small", beam_size=1,
                      workdir=None):
     """Надёжное распознавание с ЛЕСТНИЦЕЙ ПОПЫТОК.
@@ -484,6 +520,12 @@ def make_subtitles_meta(video_path, workdir, sub_cfg, language, chat_messages,
     smeta["ok"] = bool(words)
     if smeta.get("lang"):
         smeta["lang"] = str(smeta["lang"]).lower()[:2]
+    if words:
+        # «крючок» для описания TikTok: первая фраза стримера из клипа
+        try:
+            smeta["hook"] = _hook_from_words(words)
+        except Exception:
+            smeta["hook"] = ""
 
     if words:
         if style == "classic":

@@ -284,6 +284,54 @@
 
   function hiddenCount() { return loadHidden().length; }
 
+  // --- хэштеги: гарантированный показ на КАЖДОЙ карточке --------------------------
+  // Клипы из старого clips.json могут не иметь поля hashtags — тогда теги
+  // собираются прямо в браузере (игра по названию/нику + платформа + виральные).
+  var GAME_TAGS_CLIENT = [
+    ["gta|гта|grand theft", ["gta", "гта5", "gtarp"]],
+    ["cs2|counter|кс2|ксго|контр", ["cs2", "кс2", "cs"]],
+    ["dota|дота", ["dota2", "дота2"]],
+    ["minecraft|майнкрафт|майн", ["minecraft", "майнкрафт"]],
+    ["valorant|валорант", ["valorant", "валорант"]],
+    ["fortnite|фортнайт", ["fortnite", "фортнайт"]],
+    ["pubg|пабг", ["pubg", "пабг"]],
+    ["apex|апекс", ["apexlegends", "апекс"]],
+    ["warzone|call of duty|варзон", ["warzone", "callofduty"]],
+    ["rust| раст", ["rustgame", "раст"]],
+    ["league of legends|лига легенд", ["leagueoflegends", "лол"]],
+    ["world of warcraft| wow |вов", ["wow", "вов"]],
+    ["genshin|геншин", ["genshin", "геншин"]],
+    ["roblox|роблокс", ["roblox", "роблокс"]],
+    ["tarkov|тарков", ["tarkov", "тарков"]],
+    ["stalker|сталкер", ["stalker2", "сталкер"]]
+  ];
+
+  function ensureHashtags(clip) {
+    if (clip.hashtags && clip.hashtags.length) return clip.hashtags;
+    var text = ((clip.title || "") + " " + (clip.display || "") + " "
+                + (clip.channel || "")).toLowerCase();
+    var tags = [];
+    GAME_TAGS_CLIENT.forEach(function (p) {
+      try { if (new RegExp(p[0]).test(text)) tags = tags.concat(p[1]); } catch (e) {}
+    });
+    var ch = String(clip.channel || clip.display || "").toLowerCase()
+      .replace(/[^a-z0-9]/g, "");
+    if (ch) tags.push(ch);
+    tags.push(clip.platform === "youtube" ? "youtube" : "twitch");
+    tags = tags.concat(["рек", "рекомендации", "fyp", "foryou", "стрим", "клипы"]);
+    var seen = {}, out = [];
+    tags.forEach(function (t) {
+      t = "#" + String(t).replace(/^#/, "").toLowerCase();
+      if (!seen[t]) { seen[t] = 1; out.push(t); }
+    });
+    out = out.slice(0, 14);
+    clip.hashtags = out;
+    return out;
+  }
+
+  // Совет по времени постинга: часы максимальной активности RU TikTok
+  var POST_TIP = "Совет для просмотров: выкладывай в 11:00–13:00 или 19:00–22:00 по МСК — в эти часы лента TikTok активнее всего";
+
   function qualityIsDefault() {
     var q = loadQuality(), d = DEFAULT_QUALITY, same = true;
     for (var k in d) { if (String(q[k]) !== String(d[k])) same = false; }
@@ -560,13 +608,24 @@
       body.appendChild(tl);
     }
 
-    // Хэштеги ДО скачивания: сразу видно, что вставить в описание TikTok
-    if (clip.hashtags && clip.hashtags.length) {
+    if (clip.caption) {
+      var capLine = document.createElement("div");
+      capLine.className = "caption-line";
+      var capTxt = String(clip.caption);
+      capLine.textContent = capTxt.length > 120 ? capTxt.slice(0, 117) + "…" : capTxt;
+      capLine.title = "Готовый текст описания для TikTok — скопируется кнопкой ниже";
+      body.appendChild(capLine);
+    }
+
+    // Хэштеги ДО скачивания: сразу видно, что вставить в описание TikTok.
+    // ensureHashtags: даже старые клипы без поля hashtags получают теги.
+    var cardTags = ensureHashtags(clip);
+    if (cardTags.length) {
       var tagsLine = document.createElement("div");
       tagsLine.className = "tags-line";
       var chips = document.createElement("div");
       chips.className = "tags-chips";
-      clip.hashtags.slice(0, 12).forEach(function (t) {
+      cardTags.slice(0, 12).forEach(function (t) {
         var chip = document.createElement("span");
         chip.className = "tag-chip";
         chip.textContent = t;
@@ -578,10 +637,10 @@
       copyBtn.textContent = "Копировать";
       copyBtn.addEventListener("click", function (ev) {
         ev.stopPropagation();
-        var text = clip.hashtags.join(" ");
+        var text = (clip.caption ? clip.caption + "\n\n" : "") + cardTags.join(" ");
         function done() {
           copyBtn.textContent = "Скопировано";
-          toast("Хэштеги скопированы — вставьте в описание TikTok", "ok");
+          toast("Текст и хэштеги скопированы — вставь в описание TikTok", "ok");
           setTimeout(function () { copyBtn.textContent = "Копировать"; }, 2200);
         }
         function fallback() {
@@ -603,6 +662,11 @@
       tagsLine.appendChild(chips);
       tagsLine.appendChild(copyBtn);
       body.appendChild(tagsLine);
+
+      var tip = document.createElement("div");
+      tip.className = "tip-line";
+      tip.textContent = POST_TIP;
+      body.appendChild(tip);
     }
 
     var dlRow = document.createElement("div");
@@ -619,7 +683,8 @@
     ttBtn.textContent = "TikTok";
     ttBtn.addEventListener("click", function (ev) {
       ev.stopPropagation();
-      try { navigator.clipboard && clip.hashtags && navigator.clipboard.writeText(clip.hashtags.join(" ")); } catch (e) {}
+      var ttTags = ensureHashtags(clip);
+      try { navigator.clipboard && ttTags.length && navigator.clipboard.writeText(ttTags.join(" ")); } catch (e) {}
       window.open("https://www.tiktok.com/upload", "_blank", "noopener");
       toast("Открыл TikTok. Хэштеги уже скопированы — вставьте в описание", "ok");
     });
@@ -821,7 +886,7 @@
     if (item.gh && item.url) {
       player.urlSrc = item.url;
       el.playerVideo.src = item.url;
-      el.playerNote.textContent = "Видео из GitHub (Releases) — нужна сеть";
+      el.playerNote.textContent = "Видео из GitHub (Releases) — если не заиграет, через мгновение кэширую сюда";
       el.playerDl.hidden = false;
       return;
     }
@@ -846,6 +911,48 @@
     }
     toast("Видео станет доступно, когда появится связь с GitHub/сервером", "err");
   }
+
+  // --- фолбэк плеера: iOS Safari не играет файлы GitHub Releases напрямую
+  // (Content-Disposition: attachment) — тогда качаем через fetch в blob
+  // и играем локально; прогресс виден в подписи плеера.
+  function ghBlobFallback() {
+    var url = player.urlSrc;
+    if (!url || player.url || player.blobBusy) return;
+    player.blobBusy = true;
+    el.playerNote.textContent = "Кэширую видео: 0%";
+    fetch(url).then(function (r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      var total = Number(r.headers.get("content-length") || 0);
+      if (!r.body || !total) return r.blob();
+      var reader = r.body.getReader(), chunks = [], got = 0;
+      return reader.read().then(function pump(res) {
+        if (res.done) return new Blob(chunks);
+        chunks.push(res.value);
+        got += res.value.byteLength;
+        el.playerNote.textContent = "Кэширую видео: "
+          + Math.min(99, Math.round(100 * got / total)) + "%";
+        return reader.read().then(pump);
+      });
+    }).then(function (blob) {
+      player.blobBusy = false;
+      if (!player.urlSrc || el.player.hidden) return;   // плеер уже закрыли
+      if (player.url) URL.revokeObjectURL(player.url);
+      player.url = URL.createObjectURL(blob);
+      el.playerVideo.src = player.url;
+      el.playerNote.textContent = "Видео в кэше браузера — играет даже без сети";
+      try { el.playerVideo.play().catch(function () {}); } catch (e) {}
+    }).catch(function () {
+      player.blobBusy = false;
+      if (!el.player.hidden) {
+        el.playerNote.textContent = "Видео не открылось — нажми «Скачать», файл сохранится в «Загруженное»";
+      }
+    });
+  }
+
+  // Ошибка прямого воспроизведения -> blob-фолбэк (кроме офлайн-копии)
+  el.playerVideo.addEventListener("error", function () {
+    if (player.urlSrc && !player.url) ghBlobFallback();
+  });
 
   function playerDownload() {
     if (!player.file) return;
