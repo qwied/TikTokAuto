@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-19T12:34:51Z",
+ "updated": "2026-11-19T12:37:06Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -236,18 +236,26 @@
     "title": "САМЫЙ ТУПОЙ + НЕ УМНЫЙ ФИКС GTA VI 🤓👑"
    },
    {
-    "name": "xrohat",
-    "display": "twitch.tv/xrohat",
+    "name": "akamikarubi",
+    "display": "twitch.tv/akamikarubi",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "[DROPS AKTIV] GTA VI RELEASE - 30 TAGE CHARITY STREAM - TAG 18 | !spenden !spendenziel !revolut !scuf"
+    "title": ""
+   },
+   {
+    "name": "mirwana",
+    "display": "twitch.tv/mirwana",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"kato_junichi0817\", true, \"ハイパードラフト会議FINAL\", 0], [\"ishowspeed\", true, \"🔴PLAYING GTA 6 EARLY ACCESS GAMEPLAY GET IN HERE!\", 0], [\"shadowkekw\", true, \"[DROPS] 🌴 GTA VI 🌴 МАРАФОН 🌴 @evelone2004 @mokrivskyi 🌴 👉 !тг !betboom !торнадо !РО !yota !розыгрыш\", 0], [\"yaritaiji\", true, \"20時のハイゲドラフト待機会場\", 0], [\"indegnasen0706\", true, \"ハイゲに６つの金貨があるのかどうか←文章とかじゃなく、ハイゲ濃厚ゲームの腕前を見てくれ←蟹がどこにも売ってなくてドラフトまで悲しみの雑談\", 0], [\"zarbex\", true, \"[DROPS] 🦩🌴 100+ STUNDEN GTA 6 STREAM 🦩🌴 GEILSTES SPIEL ALLER ZEITEN 🦩🌴 1. MAL LIVE AUS HALLE 🦩🌴 PS5 VERLOSUNG  !socials !esn !pmm\", 0], [\"trymacs\", true, \"5 Tage GTA 6 Stream!  | !Wolt !Emma !Loco !ESN !Nobomi !Prepmymeal\", 0], [\"montanablack88\", true, \"GTA6 NACH 13 JAHREN WARTEN UNSICHER MACHEN | GTA6 DROPS AKTIV !drops !abzeichen !vip\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | ДЕНЬ 1\", 0], [\"batora324\", true, \"まじむりだれか選んでくださいお願いしますほんとうにお願いします\", 0], [\"eliasn97\", true, \"[DROPS] GTA VI GRIND 🔥 |  !iconleague !doku !eligella !gaming\", 0], [\"jerma985\", true, \"Guys, I don't think this many people should be on the Elevator!!!!\", 0], [\"hiiragitsurugi\", true, \"ハイゲドラフト！！！ 取ってくれた人に一生ついていく。\", 0], [\"kaicenat\", true, \"🌴PLAYING GTA 6 FOR THE FIRST TIME🌴\", 0], [\"yourragegaming\", true, \"OG LEONIDAS NATIVE PLAYS GTA 6!! BASED ON HIS THUGGALICIOUS LOCO LIFE!!\", 0], [\"ravshann\", true, \"GTA VI 🔥 ПРОХОЖДЕНИЕ 🔥!тг !бб !yota\", 0], [\"recrent\", true, \"[1440p] GTA VI. День 2 | !pari !ggsel !tg !мерч\", 0], [\"leva2k\", true, \"Аук на вещь | ИЗОЛЯЦИЯ ДЕНЬ4 | !tg !donate !winline !ggsel\", 0], [\"summit1g\", false, \"wow forever rogue leveling  - !journey for %10 off - !starforge @StarforgeSystems\", 0], [\"yuyuta0702\", true, \"今日はハイゲドラフトやぞ\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"zerost_s\", true, \"よしなま以下は本当に嫌なドラフト待機配信\", 0], [\"welovegames\", true, \"[DROPS] Чисто геймплей Grand Theft Auto VI | !донатофон !карта !gta !ggsel !втб !dodo\", 0], [\"blusewilly_retry\", true, \"PS5 GTA6 11/19\", 0], [\"pietsmiet\", true, \"🌴🌆🦩GTA VI ★★★★★☆ Drops! PS5Pro !gta6 | !Friendlyfire !discord !ptsmt\", 0], [\"ohnepixel\", true, \"🔴[DROPS] GTA 6 FULL PLAYTHROUGH🔴\", 0], [\"domingo\", true, \"GTA VI : Jason & Lucia vont retourner Vice City\", 0], [\"skywhywalker\", true, \"САМЫЙ ТУПОЙ + НЕ УМНЫЙ ФИКС GTA VI 🤓👑\", 0], [\"xrohat\", true, \"[DROPS AKTIV] GTA VI RELEASE - 30 TAGE CHARITY STREAM - TAG 18 | !spenden !spendenziel !revolut !scuf\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"kato_junichi0817\", true, \"ハイパードラフト会議FINAL\", 0], [\"ishowspeed\", true, \"🔴PLAYING GTA 6 EARLY ACCESS GAMEPLAY GET IN HERE!\", 0], [\"shadowkekw\", true, \"[DROPS] 🌴 GTA VI 🌴 МАРАФОН 🌴 @evelone2004 @mokrivskyi 🌴 👉 !тг !betboom !торнадо !РО !yota !розыгрыш\", 0], [\"yaritaiji\", true, \"20時のハイゲドラフト待機会場\", 0], [\"indegnasen0706\", true, \"ハイゲに６つの金貨があるのかどうか←文章とかじゃなく、ハイゲ濃厚ゲームの腕前を見てくれ←蟹がどこにも売ってなくてドラフトまで悲しみの雑談\", 0], [\"zarbex\", true, \"[DROPS] 🦩🌴 100+ STUNDEN GTA 6 STREAM 🦩🌴 GEILSTES SPIEL ALLER ZEITEN 🦩🌴 1. MAL LIVE AUS HALLE 🦩🌴 PS5 VERLOSUNG  !socials !esn !pmm\", 0], [\"trymacs\", true, \"5 Tage GTA 6 Stream!  | !Wolt !Emma !Loco !ESN !Nobomi !Prepmymeal\", 0], [\"montanablack88\", true, \"GTA6 NACH 13 JAHREN WARTEN UNSICHER MACHEN | GTA6 DROPS AKTIV !drops !abzeichen !vip\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | ДЕНЬ 1\", 0], [\"batora324\", true, \"まじむりだれか選んでくださいお願いしますほんとうにお願いします\", 0], [\"eliasn97\", true, \"[DROPS] GTA VI GRIND 🔥 |  !iconleague !doku !eligella !gaming\", 0], [\"jerma985\", true, \"Guys, I don't think this many people should be on the Elevator!!!!\", 0], [\"hiiragitsurugi\", true, \"ハイゲドラフト！！！ 取ってくれた人に一生ついていく。\", 0], [\"kaicenat\", true, \"🌴PLAYING GTA 6 FOR THE FIRST TIME🌴\", 0], [\"yourragegaming\", true, \"OG LEONIDAS NATIVE PLAYS GTA 6!! BASED ON HIS THUGGALICIOUS LOCO LIFE!!\", 0], [\"ravshann\", true, \"GTA VI 🔥 ПРОХОЖДЕНИЕ 🔥!тг !бб !yota\", 0], [\"recrent\", true, \"[1440p] GTA VI. День 2 | !pari !ggsel !tg !мерч\", 0], [\"leva2k\", true, \"Аук на вещь | ИЗОЛЯЦИЯ ДЕНЬ4 | !tg !donate !winline !ggsel\", 0], [\"summit1g\", false, \"wow forever rogue leveling  - !journey for %10 off - !starforge @StarforgeSystems\", 0], [\"yuyuta0702\", true, \"今日はハイゲドラフトやぞ\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"zerost_s\", true, \"よしなま以下は本当に嫌なドラフト待機配信\", 0], [\"welovegames\", true, \"[DROPS] Чисто геймплей Grand Theft Auto VI | !донатофон !карта !gta !ggsel !втб !dodo\", 0], [\"blusewilly_retry\", true, \"PS5 GTA6 11/19\", 0], [\"pietsmiet\", true, \"🌴🌆🦩GTA VI ★★★★★☆ Drops! PS5Pro !gta6 | !Friendlyfire !discord !ptsmt\", 0], [\"ohnepixel\", true, \"🔴[DROPS] GTA 6 FULL PLAYTHROUGH🔴\", 0], [\"domingo\", true, \"GTA VI : Jason & Lucia vont retourner Vice City\", 0], [\"skywhywalker\", true, \"САМЫЙ ТУПОЙ + НЕ УМНЫЙ ФИКС GTA VI 🤓👑\", 0], [\"akamikarubi\", false, \"\", 0], [\"mirwana\", false, \"\", 0]]"
  },
  "clips": [
   {
