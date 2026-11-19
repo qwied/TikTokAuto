@@ -88,6 +88,18 @@ CHECK_LOOP_MIN = 55     # длина одной задачи --check-loop (по�
 VOD_MAX_WINDOWS = 100   # максимальный клипов из одного длинного видео
 VOD_MAX_JOBS = 40       # сколько окон обрабатывает один запуск --vod
 
+# --- автопоиск лучших стримов Twitch ---------------------------------------
+# Сам заходим на Twitch и берём в слежку ТОП ПО ЗРИТЕЛЯМ (публичный GQL
+# сайта, без регистрации и ключей). Список авто-каналов живёт в отдельном
+# ключе auto_channels файла subscriptions.json: каналы, добавленные
+# человеком, НИКОГДА не трогаются и не удаляются.
+TWITCH_GQL = "https://gql.twitch.tv/gql"
+TWITCH_WEB_CLIENT_ID = "kimne78kx3ncx6brgo4mv6wki5h1ko"
+DISCOVERY_COUNT = 25         # сколько топовых стримеров держать в слежке
+DISCOVERY_MIN_VIEWERS = 2000  # отсечка по зрителям (мелкие каналы не нужны)
+DISCOVERY_REFRESH_MIN = 20    # как часто обновлять топ, минут
+DISCOVERY_TOP_FETCH = 60      # сколько стримов запрашивать у Twitch
+
 
 # --- GitHub REST -------------------------------------------------------------------------
 
@@ -360,14 +372,153 @@ class GitHubPublisher:
 # --- подписки и проверка эфиров ------------------------------------------------------------
 
 def load_subscriptions(path=SUBS_JSON):
-    """Список ссылок из subscriptions.json (правится с сайта или на github.com)."""
+    """Список ссылок из subscriptions.json (правится с сайта или на github.com).
+
+    channels — каналы человека; auto_channels — топ Twitch, найденный
+    автопоиском. Оба списка следятся одинаково, человек всегда важнее.
+    """
     try:
         with open(path, "r", encoding="utf-8") as f:
             data = json.load(f)
-        return [str(x).strip() for x in (data.get("channels") or [])
+        out = [str(x).strip() for x in (data.get("channels") or [])
+               if str(x).strip()]
+        out += [str(x).strip() for x in (data.get("auto_channels") or [])
                 if str(x).strip()]
+        return out
     except (OSError, ValueError):
         return []
+
+
+# --- автопоиск топовых стримов Twitch ---------------------------------------
+
+def twitch_top_streams(limit=DISCOVERY_TOP_FETCH):
+    """Топ Twitch ПО ЗРИТЕЛЯМ (сейчас в эфире), публичный GQL сайта.
+
+    Без токенов и регистрации — тот же запрос, что делает сайт Twitch.
+    Возвращает [{login, display, viewers, title, game}]; при любой ошибке
+    [] — слежение по списку каналов продолжается как работало.
+    """
+    body = {"query": (
+        "query($n: Int!) { streams(first: $n) { edges { node { "
+        "broadcaster { login displayName } title viewersCount "
+        "game { displayName } } } } }"),
+        "variables": {"n": max(1, min(int(limit), 100))}}
+    try:
+        r = requests.post(TWITCH_GQL, json=body, timeout=30,
+                          headers={"Client-ID": TWITCH_WEB_CLIENT_ID})
+        if r.status_code != 200:
+            log.warning("Топ Twitch: HTTP %s", r.status_code)
+            return []
+        edges = ((r.json().get("data") or {}).get("streams") or {}
+                 ).get("edges") or []
+    except Exception as e:
+        log.warning("Топ Twitch недоступен: %s", e)
+        return []
+    out = []
+    for edge in edges:
+        node = (edge or {}).get("node") or {}
+        b = node.get("broadcaster") or {}
+        login = str(b.get("login") or "").strip().lower()
+        if not login:
+            continue
+        try:
+            viewers = int(node.get("viewersCount") or 0)
+        except (TypeError, ValueError):
+            viewers = 0
+        out.append({"login": login,
+                    "display": str(b.get("displayName") or login),
+                    "viewers": viewers,
+                    "title": str(node.get("title") or "")[:120],
+                    "game": str((node.get("game") or {}).get("displayName") or "")})
+    return out
+
+
+def discovery_urls(top, min_viewers=DISCOVERY_MIN_VIEWERS,
+                   count=DISCOVERY_COUNT, exclude=()):
+    """Топ-стримы -> ссылки каналов для слежки.
+
+    Отсекаем мелкие эфиры (min_viewers), пропускаем уже добавленные
+    (exclude — ники Twitch в нижнем регистре) и возвращаем максимум count
+    ссылок, от самых зрительных к менее зрительным.
+    """
+    ex = {str(x).strip().lower() for x in (exclude or ()) if str(x).strip()}
+    out = []
+    for s in top:
+        if int(s.get("viewers") or 0) < int(min_viewers):
+            continue
+        if s.get("login", "") in ex:
+            continue
+        out.append("https://www.twitch.tv/" + s["login"])
+        if len(out) >= int(count):
+            break
+    return out
+
+
+def _subs_twitch_logins(links):
+    """Ники Twitch из списка ссылок (нижний регистр) — кого НЕ трогать."""
+    logins = set()
+    for s in links or []:
+        r = parse_link(s)
+        if r and r.platform == "twitch" and not getattr(r, "kind", ""):
+            logins.add(r.id.lower())
+    return logins
+
+
+def auto_discover(gh, cfg, top_fn=None):
+    """Обновить auto_channels в subscriptions.json топом Twitch.
+
+    Читает subscriptions.json из репозитория, находит топ по зрителям,
+    кладёт его в ключ auto_channels (каналы человека в channels не
+    трогаются). Если топ не изменился — коммита нет. Возвращает СПИСОК
+    авто-ссылок (даже если не изменился), чтобы слежка подхватила их
+    сразу, не дожидаясь следующего запуска.
+    """
+    disc = (cfg or {}).get("discovery") or {}
+    if disc.get("enabled", True) is False:
+        return []
+    count = int(disc.get("count") or DISCOVERY_COUNT)
+    min_viewers = int(disc.get("min_viewers") or DISCOVERY_MIN_VIEWERS)
+    if gh is None:
+        return []
+    try:
+        raw, sha = gh.get_file(SUBS_JSON)
+    except Exception:
+        log.exception("Не прочитать %s для автопоиска", SUBS_JSON)
+        return []
+    data = {}
+    if raw:
+        try:
+            data = json.loads(raw.decode("utf-8"))
+        except ValueError:
+            data = {}
+    user_links = [str(x).strip() for x in (data.get("channels") or [])
+                  if str(x).strip()]
+    old_auto = [str(x).strip() for x in (data.get("auto_channels") or [])
+                if str(x).strip()]
+    exclude = _subs_twitch_logins(user_links)          # человек важнее топа
+    fetch = (top_fn or twitch_top_streams)(max(count + 10,
+                                                DISCOVERY_TOP_FETCH))
+    urls = discovery_urls(fetch, min_viewers=min_viewers, count=count,
+                          exclude=exclude)
+    if set(urls) == set(old_auto):
+        if urls:
+            log.info("Топ Twitch без изменений (%d каналов) — коммит не нужен",
+                     len(urls))
+        return list(old_auto or urls)
+    data["channels"] = user_links
+    data["auto_channels"] = urls
+    data["auto_updated"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+    try:
+        put_json_state(gh, SUBS_JSON, data, sha,
+                       "discovery: топ %d Twitch по зрителям (автопоиск)"
+                       % len(urls))
+    except Exception:
+        log.exception("Не записать %s — автопоиск отложен", SUBS_JSON)
+        return list(old_auto)
+    names = ", ".join(u.rsplit("/", 1)[-1] for u in urls[:8])
+    log.info("Автопоиск: взял в слежку топ Twitch (%d): %s%s",
+             len(urls), names, "…" if len(urls) > 8 else "")
+    return urls
 
 
 def merged_refs(cfg, subs):
@@ -628,9 +779,14 @@ def run_check(max_probe=PROBE_WAIT):
     setup_logging()
     cfg = load_config("config.yaml")
     cfg["_config_path"] = os.path.abspath("config.yaml")
-    subs = load_subscriptions()
-    refs = merged_refs(cfg, subs)
     gh = env_gh()
+    subs = load_subscriptions()
+    if gh:
+        try:
+            subs += auto_discover(gh, cfg)
+        except Exception:
+            log.exception("Автопоиск топ Twitch не удался — работаем без него")
+    refs = merged_refs(cfg, subs)
     if not refs:
         log.info("Каналов нет (subscriptions.json пуст) — проверять нечего")
         return 0
@@ -681,11 +837,29 @@ def run_check_loop(max_minutes=CHECK_LOOP_MIN):
     cfg["_config_path"] = os.path.abspath("config.yaml")
     yt = cfg.get("youtube", {}) or {}
 
+    auto_state = {"urls": [], "last": 0.0}
+
     def current_refs():
         # subscriptions.json перечитываем КАЖДЫЙ цикл: новый канал или
-        # ссылка на видео с сайта начинает отслеживаться за 15 секунд
-        return merged_refs(cfg, load_subscriptions(SUBS_JSON))
+        # ссылка на видео с сайта начинает отслеживаться за 15 секунд;
+        # авто-топ Twitch живёт в auto_state, пока его коммит не доедет
+        return merged_refs(cfg, load_subscriptions(SUBS_JSON)
+                           + auto_state["urls"])
 
+    def maybe_discover():
+        disc = (cfg.get("discovery") or {})
+        if disc.get("enabled", True) is False or gh is None:
+            return
+        refresh = float(disc.get("refresh_min") or DISCOVERY_REFRESH_MIN) * 60
+        if time.time() - auto_state["last"] < max(refresh, 300):
+            return
+        auto_state["last"] = time.time()
+        try:
+            auto_state["urls"] = auto_discover(gh, cfg)
+        except Exception:
+            log.exception("Автопоиск топ Twitch не удался — работаем без него")
+
+    maybe_discover()
     refs = current_refs()
     mon = StreamMonitor(channels=live_refs(refs), quality="best", poll_twitch=2,
                         poll_youtube=3, yt_workers=3,
@@ -703,6 +877,7 @@ def run_check_loop(max_minutes=CHECK_LOOP_MIN):
         started = time.time()
         try:
             n += 1
+            maybe_discover()                  # топ Twitch обновляется сам
             refs = current_refs()             # новые каналы — сразу в слежку
             mon.sync_channels(live_refs(refs))
             meta = channels_meta_from_snapshot(refs, mon.status_rows() or [])

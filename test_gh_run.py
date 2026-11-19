@@ -21,6 +21,18 @@ def test_load_subscriptions(tmp_path):
     assert gh_run.load_subscriptions(str(tmp_path / "nope.json")) == []
 
 
+def test_load_subscriptions_auto_channels(tmp_path):
+    """auto_channels (топ Twitch) следятся наравне с каналами человека."""
+    p = tmp_path / "subscriptions.json"
+    p.write_text(json.dumps({"channels": ["twitch.tv/abc"],
+                             "auto_channels": ["https://www.twitch.tv/big1",
+                                               " ", "https://www.twitch.tv/big2"]}),
+                 encoding="utf-8")
+    subs = gh_run.load_subscriptions(str(p))
+    assert subs == ["twitch.tv/abc", "https://www.twitch.tv/big1",
+                    "https://www.twitch.tv/big2"]
+
+
 def test_merged_refs_dedup():
     cfg = {"channels": ["https://www.twitch.tv/abc"]}
     subs = ["twitch.tv/ABC", "youtube.com/@chan"]
@@ -257,3 +269,123 @@ def test_monitor_in_progress_excludes_self(monkeypatch):
     R.stdout = '[{"databaseId": 333}]'
     monkeypatch.setenv("GITHUB_RUN_ID", "333")
     assert gh_run.gh_workflow_monitor_in_progress() is False  # только свой
+
+
+# --- автопоиск топовых стримов Twitch ----------------------------------------
+
+TOP = [
+    {"login": "caseoh_", "display": "caseoh_", "viewers": 86000, "title": "t", "game": "GTA"},
+    {"login": "big1", "display": "Big1", "viewers": 30000, "title": "t", "game": "GTA"},
+    {"login": "small", "display": "small", "viewers": 500, "title": "t", "game": "GTA"},
+    {"login": "big2", "display": "Big2", "viewers": 5000, "title": "t", "game": "GTA"},
+]
+
+
+def test_discovery_urls_filters_and_caps():
+    urls = gh_run.discovery_urls(TOP, min_viewers=2000, count=2,
+                                 exclude=["caseoh_"])
+    assert urls == ["https://www.twitch.tv/big1", "https://www.twitch.tv/big2"]
+    assert gh_run.discovery_urls(TOP, min_viewers=2000, count=25) \
+        == ["https://www.twitch.tv/caseoh_", "https://www.twitch.tv/big1",
+            "https://www.twitch.tv/big2"]
+    assert gh_run.discovery_urls([], min_viewers=0) == []
+    assert gh_run.discovery_urls(TOP, min_viewers=100000) == []
+
+
+def test_subs_twitch_logins_ignores_clips_and_vods():
+    got = gh_run._subs_twitch_logins(
+        ["https://www.twitch.tv/ABC", "twitch.tv/x/clip/slug",
+         "https://www.twitch.tv/videos/123", "youtube.com/@c", "", None])
+    assert got == {"abc"}
+
+
+class FakeGH:
+    repo = "o/r"
+
+    def __init__(self, subs=None):
+        raw = json.dumps(subs if subs is not None else
+                         {"channels": ["https://www.twitch.tv/honeymad"]})
+        self.store = {gh_run.SUBS_JSON: (raw.encode("utf-8"), "sha1")}
+
+    def get_file(self, path):
+        return self.store.get(path, (None, None))
+
+    def put_file(self, path, data, sha, message):
+        self.store[path] = (data, "sha2")
+
+
+def test_auto_discover_preserves_user_channels_and_dedups():
+    """Автопоиск пишет ТОЛЬКО auto_channels; каналы человека нетронуты."""
+    gh = FakeGH({"channels": ["https://www.twitch.tv/big1"],
+                 "_help": "hi"})
+    cfg = {"discovery": {"enabled": True, "count": 3, "min_viewers": 2000}}
+    urls = gh_run.auto_discover(gh, cfg, top_fn=lambda n: TOP)
+    # big1 уже у человека — в авто-список не попадает, дубли не заводятся
+    assert urls == ["https://www.twitch.tv/caseoh_",
+                    "https://www.twitch.tv/big2"]
+    data = json.loads(gh.store[gh_run.SUBS_JSON][0].decode("utf-8"))
+    assert data["channels"] == ["https://www.twitch.tv/big1"]
+    assert data["auto_channels"] == urls
+    assert data["_help"] == "hi"
+    assert data["auto_updated"].endswith("Z")
+
+
+def test_auto_discover_no_commit_when_same():
+    gh = FakeGH({"channels": ["twitch.tv/honeymad"],
+                 "auto_channels": ["https://www.twitch.tv/caseoh_",
+                                   "https://www.twitch.tv/big1"]})
+    cfg = {"discovery": {"count": 2, "min_viewers": 2000}}
+    before = gh.store[gh_run.SUBS_JSON]
+    urls = gh_run.auto_discover(gh, cfg, top_fn=lambda n: TOP)
+    assert urls == ["https://www.twitch.tv/caseoh_", "https://www.twitch.tv/big1"]
+    assert gh.store[gh_run.SUBS_JSON] is before          # коммита не было
+
+
+def test_auto_discover_disabled_and_no_gh():
+    gh = FakeGH()
+    assert gh_run.auto_discover(gh, {"discovery": {"enabled": False}},
+                                top_fn=lambda n: TOP) == []
+    assert gh_run.auto_discover(None, {}, top_fn=lambda n: TOP) == []
+    # файл не тронут
+    data = json.loads(gh.store[gh_run.SUBS_JSON][0].decode("utf-8"))
+    assert "auto_channels" not in data
+
+
+def test_twitch_top_streams_parses_gql(monkeypatch):
+    class R:
+        status_code = 200
+
+        def json(self):
+            return {"data": {"streams": {"edges": [
+                {"node": {"broadcaster": {"login": "Big1", "displayName": "Big1"},
+                          "title": "LIVE", "viewersCount": 12345,
+                          "game": {"displayName": "GTA VI"}}},
+                {"node": {"broadcaster": {"login": ""},
+                          "title": "x", "viewersCount": 10, "game": None}},
+            ]}}}
+
+    import requests as rq
+    captured = {}
+
+    def fake_post(url, json=None, timeout=0, headers=None):
+        captured["url"], captured["json"], captured["headers"] = url, json, headers
+        return R()
+
+    monkeypatch.setattr(rq, "post", fake_post)
+    top = gh_run.twitch_top_streams(10)
+    assert captured["url"] == gh_run.TWITCH_GQL
+    assert captured["headers"]["Client-ID"] == gh_run.TWITCH_WEB_CLIENT_ID
+    assert captured["json"]["variables"]["n"] == 10
+    assert len(top) == 1                      # узел без login отброшен
+    assert top[0] == {"login": "big1", "display": "Big1", "viewers": 12345,
+                      "title": "LIVE", "game": "GTA VI"}
+
+
+def test_twitch_top_streams_never_raises(monkeypatch):
+    import requests as rq
+
+    def boom(*a, **k):
+        raise OSError("net down")
+
+    monkeypatch.setattr(rq, "post", boom)
+    assert gh_run.twitch_top_streams() == []
