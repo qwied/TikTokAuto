@@ -349,6 +349,42 @@ def test_filter_by_language_keeps_only_russian():
     assert gh_run.discovery_urls(TOP, min_viewers=100000) == []
 
 
+def test_ru_probe_skips_null_users():
+    """Twitch отдаёт null для битых логинов — это НЕ роняет автопоиск.
+
+    Раньше один несуществующий ник из списка кандидатов убивал весь
+    ru_probe_streams AttributeError-ом, и автопоиск русских навсегда
+    отключался (auto_channels оставался старым).
+    """
+    import unittest.mock as mock
+
+    def fake_post(url, json=None, timeout=0, headers=None):
+        class R:
+            status_code = 200
+            text = ""
+            def json(self):
+                return {"data": {"users": [
+                    {"login": "alive1", "displayName": "Alive1",
+                     "stream": {"title": "GTA 6", "viewersCount": 5000,
+                                "language": "ru", "game": {"displayName": "GTA VI"}}},
+                    None,                       # битый ник — Twitch так отдаёт
+                    {"login": "alive2", "displayName": "Alive2", "stream": None},
+                    {"login": "alive3", "displayName": "Alive3",
+                     "stream": {"title": "цмок", "viewersCount": None,
+                                "language": "uk", "game": None}},
+                ]}}
+        return R()
+
+    with mock.patch.object(gh_run.requests, "post", fake_post):
+        out = gh_run.ru_probe_streams(["alive1", "dead", "alive2", "alive3"])
+    logins = {s["login"] for s in out}
+    assert logins == {"alive1", "alive3"}, logins
+    by = {s["login"]: s for s in out}
+    assert by["alive1"]["viewers"] == 5000
+    assert by["alive3"]["viewers"] == 0              # None -> 0, не падает
+    print("ru_probe null-guard OK")
+
+
 def test_subs_twitch_logins_ignores_clips_and_vods():
     got = gh_run._subs_twitch_logins(
         ["https://www.twitch.tv/ABC", "twitch.tv/x/clip/slug",

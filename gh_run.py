@@ -787,6 +787,10 @@ def ru_probe_streams(logins=None):
         return []
     out = []
     for u in (j.get("data") or {}).get("users") or []:
+        # Twitch отдаёт null для несуществующих/переименованных логинов:
+        # один битый ник не должен хоронить весь автопоиск
+        if not isinstance(u, dict):
+            continue
         st = u.get("stream")
         if not st or not u.get("login"):
             continue
