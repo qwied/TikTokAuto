@@ -45,6 +45,7 @@
     mixNoteEmpty: $("mix-note-empty"),
     skeleton: $("skeleton"),
     liveStrip: $("live-strip"),
+    freshLine: $("fresh-line"),
     connPill: $("conn-pill"), connText: $("conn-text"),
     dlCorner: $("dl-corner"), dlBadge: $("dl-badge"),
     sheet: $("sheet"), sheetBackdrop: $("sheet-backdrop"), sheetList: $("sheet-list"),
@@ -420,7 +421,9 @@
       setOnline(true);
       el.skeleton.hidden = true;
       state.clips = (data && data.clips) || [];
+      state.freshUpdated = (data && data.updated) || "";
       renderClips();
+      renderFreshness();
     }).catch(function () {
       state.everLoaded = true;
       el.skeleton.hidden = true;
@@ -436,6 +439,43 @@
     api("/api/status").then(function (st) {
       renderStatus(st || {});
     }).catch(function () { /* молча: лента просто не обновится */ });
+  }
+
+  // --- индикатор «живости» нарезки --------------------------------------------------
+  // Пользователь должен сразу видеть: клипы делаются прямо сейчас или пауза.
+  // Раньше лента выглядела одинаково и в работе, и в тишине — и это читалось
+  // как «нарезки не делаются». Возраст считаем от последнего клипа и от
+  // метки updated в clips.json (обновляется при каждом новом клипе).
+  function renderFreshness() {
+    if (!el.freshLine) return;
+    var now = Date.now() / 1000;
+    var lastTs = 0;
+    for (var i = 0; i < state.clips.length; i++) {
+      var c = Number(state.clips[i] && state.clips[i].created) || 0;
+      if (c > lastTs) lastTs = c;
+    }
+    if (state.freshUpdated) {
+      var up = Date.parse(state.freshUpdated) / 1000 || 0;
+      if (up > lastTs) lastTs = up;
+    }
+    if (!lastTs) { el.freshLine.hidden = true; return; }
+    var ageMin = Math.max(0, Math.round((now - lastTs) / 60));
+    var dot = "on", txt;
+    if (ageMin < 8) {
+      txt = "Нарезаю сейчас — последний клип " +
+            (ageMin < 1 ? "только что" : ageMin + " мин назад");
+    } else if (ageMin < 45) {
+      dot = "idle";
+      txt = "Слежу за эфиром — последний клип " + ageMin + " мин назад";
+    } else if (ageMin < 240) {
+      dot = "idle";
+      txt = "Тихий момент — последний клип " + ageMin + " мин назад";
+    } else {
+      dot = "off";
+      txt = "Ждём эфир — последний клип " + Math.round(ageMin / 60) + " ч назад";
+    }
+    el.freshLine.hidden = false;
+    el.freshLine.innerHTML = '<span class="dot ' + dot + '"></span>' + txt;
   }
 
   // --- отрисовка клипов ---------------------------------------------------------------
@@ -1293,14 +1333,17 @@
           updateBadge();
         }
         state.clips = (j && j.clips) || [];
+        state.freshUpdated = (j && j.updated) || "";
         setGhPill(true);
         el.skeleton.hidden = true;
         renderStatus({ channels: state.ghMeta.channels || [] });
         renderClips();
+        renderFreshness();
       })
       .catch(function () {
         if (!state.server) setGhPill(false);
         renderClips();
+        renderFreshness();
       });
   }
 
@@ -2042,19 +2085,43 @@
       navigator.serviceWorker.register("sw.js").catch(function () {
         /* например, http-адрес без secure context — сайт всё равно работает */
       });
+      // НОВЫЙ сервис-воркер взял управление (обновление сайта) — перезагружаем
+      // страницу ОДИН раз, чтобы телефон сразу показал свежий интерфейс.
+      // Раньше старая версия жила в кэше неделями, и обновления «не доезжали»
+      // (выглядело как «хэштеги не появились» / «нарезки не делаются»).
+      navigator.serviceWorker.addEventListener("controllerchange", function () {
+        try {
+          var prev = Number(sessionStorage.getItem("sc.swReload") || 0);
+          var now = Date.now();
+          if (now - prev > 20000 && performance.now() > 5000) {
+            sessionStorage.setItem("sc.swReload", String(now));
+            location.reload();
+          }
+        } catch (e) {}
+      });
     } catch (e) {}
   }
 
   var srv = detectServer();
   state.server = srv || "";
   var DEFAULT_GH_REPO = "qwied/TikTokAuto";   // этот сайт живёт в этом репозитории
-  state.gh = { repo: lsGet(LS_GH_REPO, "") || DEFAULT_GH_REPO,
+  // Миграция: в старых версиях сайта репо по умолчанию было неверным
+  // (qwied/streamclipper) — пользователь сохранил его, и раздел «Каналы»
+  // ловил ошибки. Тихо заменяем на настоящий репозиторий.
+  var savedRepo = lsGet(LS_GH_REPO, "");
+  if (String(savedRepo).toLowerCase() === "qwied/streamclipper") {
+    savedRepo = "";
+    try { lsSet(LS_GH_REPO, DEFAULT_GH_REPO); } catch (e) {}
+  }
+  state.gh = { repo: savedRepo || DEFAULT_GH_REPO,
                token: lsGet(LS_GH_TOKEN, "") };
   loadDownloaded();
   updateBadge();
   setOnline(false);
   renderClips();
+  renderFreshness();
   startPolling();
+  setInterval(renderFreshness, 30000);   // счётчик «N мин назад» тикает сам
   if (srv) {
     el.skeleton.hidden = false;
     refreshClips();
