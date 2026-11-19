@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-19T11:57:05Z",
+ "updated": "2026-11-19T11:57:20Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,57 +15,57 @@
     "name": "kato_junichi0817",
     "display": "twitch.tv/kato_junichi0817",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ハイパードラフト会議FINAL"
    },
    {
     "name": "ishowspeed",
     "display": "twitch.tv/ishowspeed",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🔴PLAYING GTA 6 EARLY ACCESS GAMEPLAY GET IN HERE!"
    },
    {
     "name": "shadowkekw",
     "display": "twitch.tv/shadowkekw",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "[DROPS] 🌴 GTA VI 🌴 МАРАФОН 🌴 @evelone2004 @mokrivskyi 🌴 👉 !тг !betboom !торнадо !РО !yota !розыгрыш"
    },
    {
     "name": "yaritaiji",
     "display": "twitch.tv/yaritaiji",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "20時のハイゲドラフト待機会場"
    },
    {
     "name": "indegnasen0706",
     "display": "twitch.tv/indegnasen0706",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ハイゲに６つの金貨があるのかどうか←文章とかじゃなく、ハイゲ濃厚ゲームの腕前を見てくれ←蟹がどこにも売ってなくてドラフトまで悲しみの雑談"
    },
    {
     "name": "zarbex",
     "display": "twitch.tv/zarbex",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "[DROPS] 🦩🌴 100+ STUNDEN GTA 6 STREAM 🦩🌴 GEILSTES SPIEL ALLER ZEITEN 🦩🌴 1. MAL LIVE AUS HALLE 🦩🌴 PS5 VERLOSUNG  !socials !esn !pmm"
    },
    {
     "name": "trymacs",
     "display": "twitch.tv/trymacs",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "5 Tage GTA 6 Stream!  | !Wolt !Emma !Loco !ESN !Nobomi !Prepmymeal"
    },
    {
     "name": "montanablack88",
@@ -223,7 +223,7 @@
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"kato_junichi0817\", false, \"\", 0], [\"ishowspeed\", false, \"\", 0], [\"shadowkekw\", false, \"\", 0], [\"yaritaiji\", false, \"\", 0], [\"indegnasen0706\", false, \"\", 0], [\"zarbex\", false, \"\", 0], [\"trymacs\", false, \"\", 0], [\"montanablack88\", false, \"\", 0], [\"leb1ga\", false, \"\", 0], [\"batora324\", false, \"\", 0], [\"eliasn97\", false, \"\", 0], [\"jerma985\", false, \"\", 0], [\"hiiragitsurugi\", false, \"\", 0], [\"kaicenat\", false, \"\", 0], [\"yourragegaming\", false, \"\", 0], [\"ravshann\", false, \"\", 0], [\"recrent\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"summit1g\", false, \"\", 0], [\"yuyuta0702\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"zerost_s\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"blusewilly_retry\", false, \"\", 0], [\"pietsmiet\", false, \"\", 0], [\"frametamer666\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"kato_junichi0817\", true, \"ハイパードラフト会議FINAL\", 0], [\"ishowspeed\", true, \"🔴PLAYING GTA 6 EARLY ACCESS GAMEPLAY GET IN HERE!\", 0], [\"shadowkekw\", true, \"[DROPS] 🌴 GTA VI 🌴 МАРАФОН 🌴 @evelone2004 @mokrivskyi 🌴 👉 !тг !betboom !торнадо !РО !yota !розыгрыш\", 0], [\"yaritaiji\", true, \"20時のハイゲドラフト待機会場\", 0], [\"indegnasen0706\", true, \"ハイゲに６つの金貨があるのかどうか←文章とかじゃなく、ハイゲ濃厚ゲームの腕前を見てくれ←蟹がどこにも売ってなくてドラフトまで悲しみの雑談\", 0], [\"zarbex\", true, \"[DROPS] 🦩🌴 100+ STUNDEN GTA 6 STREAM 🦩🌴 GEILSTES SPIEL ALLER ZEITEN 🦩🌴 1. MAL LIVE AUS HALLE 🦩🌴 PS5 VERLOSUNG  !socials !esn !pmm\", 0], [\"trymacs\", true, \"5 Tage GTA 6 Stream!  | !Wolt !Emma !Loco !ESN !Nobomi !Prepmymeal\", 0], [\"montanablack88\", false, \"\", 0], [\"leb1ga\", false, \"\", 0], [\"batora324\", false, \"\", 0], [\"eliasn97\", false, \"\", 0], [\"jerma985\", false, \"\", 0], [\"hiiragitsurugi\", false, \"\", 0], [\"kaicenat\", false, \"\", 0], [\"yourragegaming\", false, \"\", 0], [\"ravshann\", false, \"\", 0], [\"recrent\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"summit1g\", false, \"\", 0], [\"yuyuta0702\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"zerost_s\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"blusewilly_retry\", false, \"\", 0], [\"pietsmiet\", false, \"\", 0], [\"frametamer666\", false, \"\", 0]]"
  },
  "clips": [
   {
