@@ -52,12 +52,14 @@ try:                                       # дерево с пакетом clip
     from clipper.pipeline import Pipeline
     from clipper.stream_monitor import StreamMonitor
     from clipper.utils import load_config, setup_logging
+    from clipper.hype_detector import DEFAULT_KEYWORDS as HYPE_KEYWORDS
 except ImportError:                        # плоский репозиторий
     from links import dedup_key, parse_link, refs_from_config
     from notifier import Notifier
     from pipeline import Pipeline
     from stream_monitor import StreamMonitor
     from utils import load_config, setup_logging
+    from hype_detector import DEFAULT_KEYWORDS as HYPE_KEYWORDS
 
 try:                                       # нарезка готовых видео
     from clipper import banner as banner_mod
@@ -78,6 +80,8 @@ SUBS_JSON = "subscriptions.json"
 PUSH_SUBS = "push_subscriptions.json"   # подписки Web Push (пишет сайт)
 JOBS_JSON = "jobs.json"                 # очередь нарезки видео (пишет сайт/Check)
 PROCESSED_JSON = "processed.json"       # уже нарезанные видео (не повторяем)
+SETTINGS_JSON = "settings.json"         # настройки качества клипов (пишет сайт)
+FEEDBACK_JSON = "feedback.json"         # Интересно/Скучно по клипам (пишет сайт)
 MAX_CLIPS = 60          # сколько клипов держать в clips.json
 MAX_ASSETS = 60         # сколько файлов держать в релизе (старые удаляются)
 PROBE_WAIT = 15         # секунд на проверку эфиров (быстрые API платформ)
@@ -87,6 +91,23 @@ CHECK_EVERY_S = 15      # пауза чтения статуса внутри --
 CHECK_LOOP_MIN = 55     # длина одной задачи --check-loop (потом эстафета)
 VOD_MAX_WINDOWS = 100   # максимальный клипов из одного длинного видео
 VOD_MAX_JOBS = 40       # сколько окон обрабатывает один запуск --vod
+NO_SPEECH_SKIP_MAX = 8  # сколько окон без речи пропускаем за запуск (чтобы
+                        # не сжечь весь run на тихих кусках)
+
+# Настройки качества по умолчанию (их меняет сайт -> settings.json).
+# speech_language: auto — Whisper сам определяет язык (стример может быть
+# и иностранным — автопоиск берёт топ всего Twitch).
+DEFAULT_SETTINGS = {
+    "speech_language": "auto",       # auto | ru | en
+    "selection": "normal",           # loose | normal | strict
+    "skip_no_speech": True,          # окна без речи заменяются более говорливыми
+}
+SELECTION_PRESETS = {
+    # selection -> (дельта порога хайпа, max_idle_min)
+    "loose":  (-14, 7),     # клипов больше: порог ниже, ожидание короче
+    "normal": (0, 12),
+    "strict": (+12, 20),    # клипов меньше, но попадания точнее
+}
 
 # --- автопоиск лучших стримов Twitch ---------------------------------------
 # Сам заходим на Twitch и берём в слежку ТОП ПО ЗРИТЕЛЯМ (публичный GQL
@@ -267,7 +288,7 @@ def load_clips_json_bytes(raw):
 
 def clip_entry(video_path, asset_url, thumb_b64=None, dur=None, size=None,
                platform="twitch", display=None, title="", score=None,
-               hashtags=None):
+               hashtags=None, subs=None, src=None, start=None):
     name = os.path.basename(str(video_path))
     stem = os.path.splitext(name)[0]
     parts = stem.split("_")
@@ -277,6 +298,9 @@ def clip_entry(video_path, asset_url, thumb_b64=None, dur=None, size=None,
         score_val = round(float(score), 1) if score is not None else 0
     except (TypeError, ValueError):
         score_val = 0
+    sub = dict(subs or {})
+    sub.pop("chars", None)
+    sub.pop("speech_sec", None)
     return {
         "id": stem,
         "file": name,
@@ -290,6 +314,9 @@ def clip_entry(video_path, asset_url, thumb_b64=None, dur=None, size=None,
         "title": title or "",
         "score": score_val,          # «насколько сочный момент» (для карточки)
         "hashtags": list(hashtags or []),   # рекомендации для TikTok до скачивания
+        "subs": sub,                 # субтитры: {lang, words, speech_pct, ok}
+        "src": src or "",            # источник (для клипов из видео) — для
+        "start": int(start or 0),    # кнопки «Ещё отсюда» и фидбека
         "created": int(os.path.getmtime(str(video_path))),
         "gh": True,
     }
@@ -353,10 +380,11 @@ class GitHubPublisher:
         self.last_tags = []
 
     def notify_clip(self, video_path, caption="", platform="twitch",
-                    display=None, title="", score=None):
+                    display=None, title="", score=None, subs=None):
         try:
             self._publish(video_path, caption, platform=platform,
-                          display=display, title=title, score=score)
+                          display=display, title=title, score=score,
+                          subs=subs)
             self.posted += 1
             cap = str(caption or "Клип готов")
             if self.last_tags:
@@ -383,7 +411,7 @@ class GitHubPublisher:
             return False
 
     def _publish(self, video_path, caption="", platform="twitch",
-                 display=None, title="", score=None):
+                 display=None, title="", score=None, subs=None):
         rel = self.gh.release_id()
         log.info("Заливаю клип в Releases: %s", os.path.basename(video_path))
         asset = self.gh.upload_asset(rel, video_path)
@@ -399,7 +427,7 @@ class GitHubPublisher:
                            thumb_b64=compact_thumb(video_path, self.workdir),
                            size=os.path.getsize(str(video_path)),
                            platform=platform, display=display, title=title,
-                           score=score,
+                           score=score, subs=subs,
                            hashtags=make_hashtags(platform=platform,
                                                   channel=entry_chan or display or "",
                                                   title=title))
@@ -461,6 +489,123 @@ def load_subscriptions(path=SUBS_JSON):
         return out
     except (OSError, ValueError):
         return []
+
+
+# --- настройки качества клипов (settings.json) и фидбек (feedback.json) ------
+# Настройки и оценки «Интересно/Скучно» редактируются НА САЙТЕ и приезжают
+# сюда экспорт-кодом. Все режимы (Check/Monitor/Clip video) читают их сами.
+
+def load_site_settings(gh):
+    """settings.json из репозитория -> dict (недостающее — из DEFAULT_SETTINGS)."""
+    s = dict(DEFAULT_SETTINGS)
+    if gh is None:
+        return s
+    try:
+        raw, _sha = gh.get_file(SETTINGS_JSON)
+    except Exception:
+        log.warning("Не прочитать %s — настройки по умолчанию", SETTINGS_JSON)
+        return s
+    if raw:
+        try:
+            data = json.loads(raw.decode("utf-8"))
+            if isinstance(data, dict):
+                for k in DEFAULT_SETTINGS:
+                    if k in data and data[k] is not None:
+                        s[k] = data[k]
+        except ValueError:
+            log.warning("%s не читается — настройки по умолчанию", SETTINGS_JSON)
+    return s
+
+
+def apply_settings(cfg, s):
+    """Настройки сайта -> config.yaml-объект.
+
+    * язык речи: auto — Whisper сам определит (клипы у зарубежных стримеров
+      больше не теряются из-за жёсткого «ru»);
+    * отбор (selection): loose/normal/strict меняет порог хайпа и «скучную»
+      паузу max_idle — с сайта регулируется ЧАСТОТА и ТОЧНОСТЬ нарезки.
+    """
+    cfg["speech_language"] = str(s.get("speech_language") or "auto").lower()
+    sel = str(s.get("selection") or "normal").lower()
+    if sel not in SELECTION_PRESETS:
+        sel = "normal"
+    delta, idle = SELECTION_PRESETS[sel]
+    hyp = cfg.setdefault("hype", {})
+    if "_base_threshold" not in hyp:
+        hyp["_base_threshold"] = float(hyp.get("threshold", 52))
+    hyp["threshold"] = float(hyp["_base_threshold"]) + delta
+    clip = cfg.setdefault("clip", {})
+    if "_base_idle" not in clip:
+        clip["_base_idle"] = float(clip.get("max_idle_min", 12))
+    clip["max_idle_min"] = float(clip["_base_idle"]) if delta == 0 else idle
+    cfg["_settings"] = s
+    log.info("Настройки: язык=%s, отбор=%s (порог %.0f, пауза %.0f мин), "
+             "пропуск без речи=%s", cfg["speech_language"], sel,
+             hyp["threshold"], clip["max_idle_min"],
+             "да" if s.get("skip_no_speech") else "нет")
+    return cfg
+
+
+def load_feedback(gh):
+    """feedback.json -> список оценок [{id, file, v, channel, src, start}]."""
+    if gh is None:
+        return []
+    try:
+        raw, _sha = gh.get_file(FEEDBACK_JSON)
+    except Exception:
+        return []
+    if not raw:
+        return []
+    try:
+        data = json.loads(raw.decode("utf-8"))
+        items = [x for x in (data.get("items") or []) if isinstance(x, dict)]
+    except ValueError:
+        return []
+    return items
+
+
+def feedback_exclude_ranges(items, url):
+    """Оценки «Скучно» -> интервалы [(a, b)] этого источника для пропуска."""
+    u = str(url or "")
+    out = []
+    for it in items:
+        if int(it.get("v") or 0) >= 0:          # пропускаем только «скучно»
+            continue
+        src = str(it.get("src") or "")
+        if src and src.split("?")[0] == u.split("?")[0]:
+            a = int(it.get("start") or 0)
+            out.append((max(0, a - 20), a + 80))
+    return out
+
+
+def feedback_channel_bias(items, channel):
+    """Оценки клипов КАНАЛА -> поправка порога хайпа.
+
+    «Скучно» поднимает порог (меньше клипов, точнее моменты), «Интересно»
+    опускает. Итог в диапазоне [-15, +15].
+    """
+    bias = 0.0
+    ch = str(channel or "").lower()
+    if not ch:
+        return 0.0
+    for it in items:
+        if str(it.get("channel") or "").lower() != ch:
+            continue
+        v = int(it.get("v") or 0)
+        if v < 0:
+            bias += 4.0                          # скучно -> строже
+        elif v > 0:
+            bias -= 2.0                          # интересно -> свободнее
+    return max(-15.0, min(15.0, bias))
+
+
+def subs_caption(subs):
+    """Мета субтитров -> строка для уведомления."""
+    s = dict(subs or {})
+    if s.get("ok"):
+        return (f"Субтитры: {s.get('lang') or '?'} · {s.get('words', 0)} слов · "
+                f"речи {s.get('speech_pct', 0)}%")
+    return "Субтитров нет — в моменте не было различимой речи"
 
 
 # --- автопоиск топовых стримов Twitch ---------------------------------------
@@ -931,6 +1076,20 @@ def run_check_loop(max_minutes=CHECK_LOOP_MIN):
     yt = cfg.get("youtube", {}) or {}
 
     auto_state = {"urls": [], "last": 0.0}
+    set_state = {"s": None, "last": 0.0}
+
+    def refresh_settings():
+        """Настройки качества с сайта (раз в ~2 минуты): язык, строгость отбора."""
+        if gh is None:
+            return
+        if time.time() - set_state["last"] < 120:
+            return
+        set_state["last"] = time.time()
+        try:
+            set_state["s"] = load_site_settings(gh)
+            apply_settings(cfg, set_state["s"])
+        except Exception:
+            log.exception("Настройки сайта не применились — работаем прежними")
 
     def current_refs():
         # subscriptions.json перечитываем КАЖДЫЙ цикл: новый канал или
@@ -970,6 +1129,7 @@ def run_check_loop(max_minutes=CHECK_LOOP_MIN):
         started = time.time()
         try:
             n += 1
+            refresh_settings()                # язык субтитров / строгость отбора
             maybe_discover()                  # топ Twitch обновляется сам
             refs = current_refs()             # новые каналы — сразу в слежку
             mon.sync_channels(live_refs(refs))
@@ -1150,6 +1310,11 @@ def run_monitor(channel="", max_minutes=280):
         log.error("Нет GITHUB_REPOSITORY/GH_TOKEN — это режим GitHub Actions. "
                   "На компьютере запускайте main.py.")
         return 2
+    # Настройки качества с сайта (язык субтитров, строгость отбора):
+    # применяем в начале сессии и ОБНОВЛЯЕМ раз в минуту — смена на сайте
+    # доезжает до работающего монитора за минуту, без перезапуска.
+    apply_settings(cfg, load_site_settings(gh))
+    fb_state = {"items": load_feedback(gh), "last": 0.0}
     # Уже идёт другая сессия слежения (например, резервный крон запустил
     # вторую) — не пишем эфир ДВАЖДЫ: выходим сразу.
     if gh_workflow_monitor_in_progress():
@@ -1192,6 +1357,39 @@ def run_monitor(channel="", max_minutes=280):
                     f"{RELEASE_TAG}/{name}")
 
     pl = Pipeline(cfg, _Notifier())
+
+    def refresh_quality():
+        """Настройки и фидбек с сайта -> работающие детекторы (раз в минуту)."""
+        try:
+            if time.time() - fb_state["last"] < 60:
+                return
+            fb_state["last"] = time.time()
+            s = load_site_settings(gh)
+            apply_settings(cfg, s)
+            pl.speech_language = cfg["speech_language"]
+            items = load_feedback(gh)
+            if items:
+                fb_state["items"] = items
+            sel_delta = SELECTION_PRESETS.get(
+                str(s.get("selection") or "normal").lower(), (0, 12))[0]
+            for key, st in list((getattr(pl, "active", {}) or {}).items()):
+                det = getattr(st, "detector", None)
+                if det is None:
+                    continue
+                ch_bias = feedback_channel_bias(fb_state["items"],
+                                                key.split(":")[-1])
+                det.bias = sel_delta + ch_bias
+                det.max_idle = max(0.0, float(
+                    (cfg.get("clip") or {}).get("max_idle_min", 12))) * 60.0
+                det.keywords = [str(k) for k in
+                                ((cfg.get("hype") or {}).get("keywords")
+                                 or HYPE_KEYWORDS)]
+            log.info("Качество: язык=%s, отбор=%s, фидбек-оценок %d",
+                     cfg["speech_language"], s.get("selection"),
+                     len(fb_state["items"]))
+        except Exception:
+            log.exception("Обновление настроек не удалось — работаем прежними")
+
     started = time.time()
     pl.start()
     deadline = started + max(15, int(max_minutes)) * 60
@@ -1199,6 +1397,7 @@ def run_monitor(channel="", max_minutes=280):
     try:
         while time.time() < deadline:
             time.sleep(60)
+            refresh_quality()          # настройки/фидбек с сайта — без перезапуска
             # Живой статус сессии раз в минуту: видно в логе Actions,
             # кто в записи и сколько клипов сделано. Заодно выходим сразу,
             # как только все каналы оффлайн 3 проверки подряд (не жжём
@@ -1262,6 +1461,12 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
         log.info("Уведомления включены: %s", ", ".join(providers))
     push = Notifier(cfg.get("notify") or {}) if providers else None
     pub = GitHubPublisher(gh, workdir=base, push=push)
+    # Настройки качества + фидбек сайта: язык субтитров, пропуск окон без
+    # речи, исключение «скучных» мест видео из фидбека.
+    settings = apply_settings(cfg, load_site_settings(gh))
+    fb_items = load_feedback(gh)
+    if fb_items:
+        log.info("Фидбек с сайта: %d оценок — учитываю при отборе", len(fb_items))
 
     enc_name, vcodec_args = detect_h264_encoder(str((cfg.get("processing") or {}).get("encoder", "auto")))
     log.info("Кодировщик финальной обработки: %s", enc_name)
@@ -1304,6 +1509,7 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
 
     deadline = time.time() + max(10, int(max_minutes)) * 60
     made = 0
+    skips = 0
     while jobs and made < max_jobs and time.time() < deadline - 12 * 60:
         job = jobs[0]
         key = vod_key(job)
@@ -1312,11 +1518,14 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
             display = str(job.get("display") or _vod_display(url))
             platform = "twitch" if "twitch." in url else "youtube"
             if job.get("kind") == "video" and not job.get("windows"):
-                # ещё не размечено: ищем интересные моменты по звуку;
-                # окна приходят УЖЕ отсортированными по интересности
+                # ещё не размечено: ищем интересные моменты (звук + чат-реплей
+                # Twitch); окна приходят УЖЕ отсортированными по интересности;
+                # места, отмеченные «Скучно» на сайте, исключаются
+                excl = feedback_exclude_ranges(fb_items, url)
                 title, wins = vod_mod.expand_video(
                     url, workdir, cookies_file=cookies,
-                    max_windows=int(os.environ.get("VOD_MAX_WINDOWS", VOD_MAX_WINDOWS)))
+                    max_windows=int(os.environ.get("VOD_MAX_WINDOWS", VOD_MAX_WINDOWS)),
+                    exclude_ranges=excl)
                 job["display"] = title or display
                 job["windows"] = [[int(a), int(b)] for a, b, _s in wins]
                 job["scores"] = [float(s) for _a, _b, s in wins]
@@ -1332,20 +1541,50 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
                                                "vod_part.mp4", workdir,
                                                cookies_file=cookies)
             else:                                       # готовый клип Twitch
+                start = 0
                 src = vod_mod.download_clip_full(url, "vod_clip.mp4", workdir,
                                                  cookies_file=cookies)
-            out = vod_mod.process_clip(src, clips_dir, workdir, cfg,
-                                       display, platform,
-                                       vcodec_args=vcodec_args,
-                                       banner_path=banner_path)
+            out, smeta = vod_mod.process_clip(src, clips_dir, workdir, cfg,
+                                              display, platform,
+                                              vcodec_args=vcodec_args,
+                                              banner_path=banner_path)
+            # Настройка «пропускать клипы без речи»: в окне не распознано ни
+            # слова — выбрасываем и берём следующее, чтобы вместо тихого
+            # скучного клипа был говорящий (лимит на запуск — не сжечь run).
+            if (settings.get("skip_no_speech")
+                    and not smeta.get("ok")
+                    and int(smeta.get("words") or 0) < 3
+                    and skips < NO_SPEECH_SKIP_MAX):
+                skips += 1
+                try:
+                    os.remove(out)
+                except OSError:
+                    pass
+                log.info("Окно без речи (%d/%d) — пропускаю, беру следующее",
+                         skips, NO_SPEECH_SKIP_MAX)
+                if job.get("kind") == "video":
+                    job["windows"].pop(0)
+                    if job.get("scores"):
+                        job["scores"].pop(0)
+                    if not job["windows"]:
+                        jobs.pop(0)
+                        done.add(key)
+                else:
+                    jobs.pop(0)
+                    done.add(key)
+                save(JOBS_JSON, jobs_list=jobs, msg="vod: окно без речи пропущено")
+                continue
             size_mb = os.path.getsize(out) / 1e6
             win_score = None
             if job.get("kind") == "video" and job.get("scores"):
                 win_score = job["scores"][0]
-            caption = f"Клип готов: {display} ({platform}, нарезка видео) — {size_mb:.1f} МБ"
+            caption = (f"Клип готов: {display} ({platform}, нарезка видео) — "
+                       f"{size_mb:.1f} МБ\n" + subs_caption(smeta))
             if pub.notify_clip(out, caption, platform=platform,
                                display=display, title=display,
-                               score=win_score):
+                               score=win_score, subs=smeta,
+                               src=url if job.get("kind") == "video" else "",
+                               start=int(start or 0)):
                 made += 1
             # кусок обработан: сдвигаем очередь
             for f in (src, os.path.join(workdir, "vod_9x16.mp4"),

@@ -226,13 +226,42 @@
   <p id="add-channel-status" class="check-result"></p>
   <div id="channel-list" class="channel-list"></div>
   <div class="howto">
-    <div class="howto-title">Синхронизация каналов с GitHub</div>
+    <div class="howto-title">Качество клипов (субтитры и интересные моменты)</div>
+    <label class="field">
+      <span>Язык субтитров</span>
+      <select id="q-lang" class="q-select">
+        <option value="auto">Авто — бот сам определяет язык</option>
+        <option value="ru">Русский</option>
+        <option value="en">English</option>
+      </select>
+    </label>
+    <label class="field">
+      <span>Отбор моментов</span>
+      <select id="q-sel" class="q-select">
+        <option value="strict">Точнее — меньше клипов, но сочнее</option>
+        <option value="normal">Стандарт</option>
+        <option value="loose">Чаще — больше клипов</option>
+      </select>
+    </label>
+    <label class="field q-check">
+      <input id="q-skip" type="checkbox">
+      <span>Пропускать клипы без речи (вместо тихого момента бот берёт более говорящий)</span>
+    </label>
+    <p class="field-help">
+      Под каждого клипа на карточке есть кнопки <b>Интересно</b> / <b>Скучно</b>:
+      «Скучно» делает отбор канала строже, «Интересно» — свободнее. На карточках
+      клипов из видео есть кнопка <b>Ещё отсюда</b> — заказ следующей минуты.
+    </p>
+  </div>
+  <div class="howto">
+    <div class="howto-title">Синхронизация с GitHub</div>
     <p class="install-hint">
-      Канал добавлен, а в монитор его ещё нет? Нажмите кнопку — получите КОД,
-      скопируйте и пришлите его в чат Z.ai: каналы попадут в монитор за минуту.
+      Канал добавлен, настройки изменены, поставили оценки «Интересно/Скучно»?
+      Нажмите кнопку — получите КОД со всем этим, скопируйте и пришлите его в чат
+      Z.ai: всё попадёт в монитор за минуту.
     </p>
     <div class="row">
-      <button id="btn-sync" class="btn primary">Синхронизировать каналы</button>
+      <button id="btn-sync" class="btn primary">Синхронизировать</button>
     </div>
     <p id="sync-code" class="check-result sync-code"></p>
   </div>

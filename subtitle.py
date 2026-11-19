@@ -76,13 +76,33 @@ def transcribe(wav_path, language="ru", model_size="small", beam_size=1):
     beam_size=1 — самый быстрый режим распознавания (точность small-модели
     при этом остаётся высокой); можно поднять в config.yaml (subtitle.beam_size).
     """
+    segs, words, _meta = transcribe_full(wav_path, language, model_size, beam_size)
+    return segs, words
+
+
+def transcribe_full(wav_path, language="ru", model_size="small", beam_size=1,
+                    vad=True):
+    """Речь -> (сегменты, слова, мета {язык, слов, символов, секунд речи}).
+
+    Мягкий VAD: стандартный агрессивно вырезает речь на фоне шума игры и
+    музыки — из-за этого «стример говорит, а субтитров нет». Здесь пороги
+    смягчены (длинные паузы разрешены, речь с запасом по краям).
+    """
     if not whisper_available():
         raise SubtitleUnavailable("faster-whisper не установлен")
     model = _get_model(model_size)
     lang = None if (not language or str(language).lower() == "auto") else str(language)
-    gen, info = model.transcribe(str(wav_path), language=lang, word_timestamps=True,
-                                 vad_filter=True,
-                                 beam_size=max(1, int(beam_size or 1)))
+    kw = {"language": lang, "word_timestamps": True,
+          "beam_size": max(1, int(beam_size or 1)),
+          "condition_on_previous_text": False}
+    if vad:
+        kw["vad_filter"] = True
+        kw["vad_parameters"] = {"min_silence_duration_ms": 700,
+                                "speech_pad_ms": 250,
+                                "threshold": 0.30}
+    else:
+        kw["vad_filter"] = False
+    gen, info = model.transcribe(str(wav_path), **kw)
     segs, words = [], []
     for s in gen:
         segs.append({"start": s.start, "end": s.end, "text": (s.text or "").strip()})
@@ -91,8 +111,84 @@ def transcribe(wav_path, language="ru", model_size="small", beam_size=1):
             if word:
                 words.append({"start": w.start, "end": w.end, "word": word})
     lang_seen = getattr(info, "language", None)
-    log.info("Whisper: язык=%s, слов=%d", lang_seen or "?", len(words))
-    return segs, words
+    speech_s = 0.0
+    for s in segs:
+        if s["text"]:
+            speech_s += max(0.0, s["end"] - s["start"])
+    meta = {"lang": lang_seen or "?", "words": len(words),
+            "chars": sum(len(w["word"]) for w in words),
+            "speech_sec": round(speech_s, 1)}
+    log.info("Whisper: язык=%s, слов=%d, речи %.1f c", meta["lang"],
+             meta["words"], meta["speech_sec"])
+    return segs, words, meta
+
+
+MIN_CHARS = 25          # меньше символов за клип = «распознавание не удалось»
+
+
+def transcribe_smart(wav_path, language="ru", model_size="small", beam_size=1,
+                     workdir=None):
+    """Надёжное распознавание с ЛЕСТНИЦЕЙ ПОПЫТОК.
+
+    Субтитры пропадали в трёх случаях: 1) мягкий VAD сглатывал тихую речь
+    на фоне шума игры; 2) язык был жёстко «ru», а стример говорил по-английски
+    (автопоиск берёт и топ-зарубежные эфиры) — Whisper выдавал пустоту или
+    кашу; 3) звук был тихий/грязный. Теперь:
+
+      попытка 1 — заданный язык, beam 1, мягкий VAD (быстрый путь);
+      попытка 2 — beam 5 (медленнее и точнее) тем же языком;
+      попытка 3 — громкость нормализуется (loudnorm) и язык АВТО:
+                  Whisper сам определяет язык по голосу.
+
+    Возвращает (сегменты, слова, мета). Мета -> сайт и уведомление показывают,
+    какие субтитры получились (язык, слов, % речи), а «нет речи» теперь
+    отличается от «распознать не удалось».
+    """
+    attempts = []
+    wav = str(wav_path)
+    try:
+        attempts.append(("язык=%s, beam 1" % (language or "авто"),
+                         transcribe_full(wav, language, model_size, beam_size, vad=True)))
+        if attempts[-1][1][2]["chars"] >= MIN_CHARS:
+            return attempts[-1][1]
+        attempts.append(("язык=%s, beam 5" % (language or "авто"),
+                         transcribe_full(wav, language, model_size, 5, vad=True)))
+        if attempts[-1][1][2]["chars"] >= MIN_CHARS:
+            return attempts[-1][1]
+        if workdir:
+            norm = normalize_audio(wav, str(workdir))
+            if norm:
+                attempts.append(("нормализованный звук, язык=авто, beam 5",
+                                 transcribe_full(norm, None, model_size, 5, vad=True)))
+                if attempts[-1][1][2]["chars"] >= MIN_CHARS:
+                    return attempts[-1][1]
+                # совсем тихо: пробуем БЕЗ VAD — вдруг фильтр съел всю речь
+                attempts.append(("нормализованный звук, язык=авто, без VAD",
+                                 transcribe_full(norm, None, model_size, 5, vad=False)))
+                if attempts[-1][1][2]["chars"] > 0:
+                    return attempts[-1][1]
+        return attempts[-1][1]
+    except SubtitleUnavailable:
+        raise
+    except Exception:
+        log.exception("Распознавание не удалось, пробую последнюю попытку без VAD")
+        return transcribe_full(wav, None, model_size, 5, vad=False)
+
+
+def normalize_audio(wav_path, workdir):
+    """Громкость -> единый уровень (loudnorm): тихие и шумные клипы
+    распознаются одинаково хорошо. Возвращает путь к wav или None."""
+    out = os.path.join(str(workdir), "clip_audio_norm.wav")
+    rc, _o, err = run_cmd(
+        ["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-nostdin",
+         "-i", os.path.basename(str(wav_path)),
+         "-af", "loudnorm=I=-16:TP=-1.5:LRA=11",
+         "-ac", "1", "-ar", "16000", os.path.basename(out)],
+        timeout=300, cwd=str(workdir))
+    if rc != 0 or not os.path.exists(out):
+        log.warning("Нормализация звука не удалась: %s", err[-200:])
+        return None
+    return out
 
 
 def _words_from_segments(segs):
@@ -310,20 +406,35 @@ def make_subtitles(video_path, workdir, sub_cfg, language, chat_messages,
                    duration=60.0, skip_intervals=None):
     """Полный конвейер субтитров для клипа. Возвращает путь к .ass или None.
 
-    СУБТИТРЫ ТОЛЬКО ИЗ РЕЧИ ЧЕЛОВЕКА: Whisper с VAD-фильтром выписывает
+    СУБТИТРЫ ТОЛЬКО ИЗ РЕЧИ ЧЕЛОВЕКА: Whisper с мягким VAD выписывает
     только отрезки, где человек реально говорит; чат по умолчанию НЕ
     используется (fallback_chat: false в config.yaml).
 
     skip_intervals — интервалы показа рекламного баннера: нарезка в это
     время «на паузе», звук стрима молчит — субтитры там не нужны.
     """
+    ass, _meta = make_subtitles_meta(video_path, workdir, sub_cfg, language,
+                                     chat_messages, duration=duration,
+                                     skip_intervals=skip_intervals)
+    return ass
+
+
+def make_subtitles_meta(video_path, workdir, sub_cfg, language, chat_messages,
+                        duration=60.0, skip_intervals=None):
+    """То же, что make_subtitles, но возвращает (путь_к_.ass, мета_речи).
+
+    мета = {"lang": "ru", "words": 56, "speech_pct": 62, "ok": True|False} —
+    идёт на сайт (бейдж на карточке клипа) и в уведомление: сразу видно,
+    что субтитры реально получились, а не «в моменте просто не говорили».
+    """
     sub_cfg = sub_cfg or {}
+    smeta = {"lang": "", "words": 0, "speech_pct": 0, "ok": False}
     if not sub_cfg.get("enabled", True):
-        return None
+        return None, smeta
     width, height = 1280, 720
-    meta = ffprobe_meta(video_path)
-    if meta.get("width") and meta.get("height"):
-        width, height = meta["width"], meta["height"]
+    meta_ff = ffprobe_meta(video_path)
+    if meta_ff.get("width") and meta_ff.get("height"):
+        width, height = meta_ff["width"], meta_ff["height"]
     ass_path = os.path.join(str(workdir), "subs.ass")
     style = str(sub_cfg.get("style", "tiktok")).lower()
     font = sub_cfg.get("font") or ("Arial Black" if style == "tiktok" else "Arial")
@@ -332,12 +443,14 @@ def make_subtitles(video_path, workdir, sub_cfg, language, chat_messages,
     if sub_cfg.get("use_asr", True):
         try:
             wav = extract_audio(video_path, workdir)
-            segs, words = transcribe(wav, language, sub_cfg.get("model", "small"),
-                                     beam_size=sub_cfg.get("beam_size", 1))
-            try:
-                os.remove(wav)
-            except OSError:
-                pass
+            segs, words, smeta = transcribe_smart(
+                wav, language, sub_cfg.get("model", "small"),
+                beam_size=sub_cfg.get("beam_size", 1), workdir=str(workdir))
+            for f in (wav, os.path.join(str(workdir), "clip_audio_norm.wav")):
+                try:
+                    os.remove(f)
+                except OSError:
+                    pass
         except Exception as e:
             log.warning("Распознавание речи недоступно: %s", e)
             segs, words = None, None
@@ -354,21 +467,33 @@ def make_subtitles(video_path, workdir, sub_cfg, language, chat_messages,
         segs = [s for s in segs if (s.get("text") or "").strip()]
         words = _words_from_segments(segs)
 
+    dur_s = max(float(duration or 60.0), 1.0)
+    smeta["words"] = max(smeta.get("words") or 0, len(words or []))
+    smeta["speech_pct"] = min(100, round(100.0 * float(smeta.get("speech_sec") or 0.0)
+                                         / dur_s))
+    smeta["ok"] = bool(words)
+    if smeta.get("lang"):
+        smeta["lang"] = str(smeta["lang"]).lower()[:2]
+
     if words:
         if style == "classic":
             build_classic_ass(segs or [], ass_path, width=width, height=height, font=font)
         else:
             build_tiktok_ass(words, ass_path, width=width, height=height, font=font,
                              skip_intervals=skip_intervals)
-        log.info("Субтитры из речи: %d слов, стиль %s", len(words), style)
-        return ass_path
+        log.info("Субтитры из речи: %d слов (язык %s, речи %d%%), стиль %s",
+                 len(words), smeta.get("lang") or "?", smeta["speech_pct"], style)
+        return ass_path, smeta
 
     if sub_cfg.get("fallback_chat", False) and chat_messages:
         built = build_chat_ass(chat_messages, duration, ass_path,
                                width=width, height=height, font=font)
         if built:
             log.info("Субтитры собраны из сообщений чата (%d шт.)", len(chat_messages))
-            return ass_path
+            smeta["ok"] = True
+            smeta["lang"] = smeta["lang"] or "chat"
+            return ass_path, smeta
 
-    log.info("Субтитры пропущены: человек не говорил в этом клипе (чат не отслеживается)")
-    return None
+    log.info("Субтитров нет: речь в этом клипе не распознана "
+             "(язык %s, слов %d)", smeta.get("lang") or "?", smeta["words"])
+    return None, smeta

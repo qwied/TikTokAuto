@@ -14,6 +14,9 @@
   var LS_GH_REPO = "sc.ghrepo";          // репозиторий GitHub (owner/name)
   var LS_GH_TOKEN = "sc.ghtoken";        // fine-grained токен (Contents: Read and write)
   var LS_PENDING = "sc.pending";         // каналы, добавленные с телефона, до синхронизации
+  var LS_QUALITY = "sc.quality";         // качество клипов: язык субтитров, строгость отбора
+  var LS_FEEDBACK = "sc.feedback";       // оценки «Интересно/Скучно» до синхронизации
+  var LS_REQUESTS = "sc.requests";       // «Ещё отсюда» — запросы нарезки соседних минут
   var OFFLINE_CAP = 150 * 1024 * 1024;   // офлайн-копия: не сохраняем файлы больше 150 МБ
 
   var state = {
@@ -64,6 +67,7 @@
     inpChannel: $("inp-channel"), btnAddChannel: $("btn-add-channel"),
     addChStatus: $("add-channel-status"), channelList: $("channel-list"),
     btnSync: $("btn-sync"), syncCode: $("sync-code"),
+    qLang: $("q-lang"), qSel: $("q-sel"), qSkip: $("q-skip"),
     tkStatus: $("tk-status"),
     toast: $("toast")
   };
@@ -230,6 +234,46 @@
     return list;
   }
 
+  // --- качество клипов: настройки + фидбек (до синхронизации с GitHub) ------------
+
+  var DEFAULT_QUALITY = { speech_language: "auto", selection: "normal",
+                          skip_no_speech: true };
+
+  function loadQuality() {
+    var q = lsGet(LS_QUALITY, {});
+    var out = {};
+    for (var k in DEFAULT_QUALITY) {
+      out[k] = (q && q[k] !== undefined && q[k] !== null) ? q[k] : DEFAULT_QUALITY[k];
+    }
+    return out;
+  }
+
+  function saveQuality(q) { lsSet(LS_QUALITY, q); }
+
+  function loadFb() {
+    return lsGet(LS_FEEDBACK, {});     // { clipId: {v, file, src, start, channel, ts} }
+  }
+
+  function saveFb(o) { lsSet(LS_FEEDBACK, o); }
+
+  function fbItems(o) {
+    return Object.keys(o || {}).map(function (id) {
+      return Object.assign({ id: id }, o[id]);
+    });
+  }
+
+  function loadRequests() {
+    return lsGet(LS_REQUESTS, []);     // [{url, start, end, display, ts}]
+  }
+
+  function saveRequests(list) { lsSet(LS_REQUESTS, list); }
+
+  function qualityIsDefault() {
+    var q = loadQuality(), d = DEFAULT_QUALITY, same = true;
+    for (var k in d) { if (String(q[k]) !== String(d[k])) same = false; }
+    return same;
+  }
+
   function updateBadge() {
     var n = downloadedIds().length;
     el.dlBadge.textContent = n;
@@ -393,6 +437,22 @@
       hyp.innerHTML = ICON_FLAME + " хайп " + Math.round(clip.score);
       left.appendChild(hyp);
     }
+    // Бейдж субтитров: видно ДО скачивания, что речь распознана
+    var sb = clip.subs || null;
+    if (sb && sb.ok) {
+      var subOk = document.createElement("span");
+      subOk.className = "tag sub-ok";
+      subOk.textContent = "СУБ " + String(sb.lang || "").toUpperCase()
+        + (sb.speech_pct ? " " + sb.speech_pct + "%" : "");
+      subOk.title = "Субтитры распознаны из речи";
+      left.appendChild(subOk);
+    } else if (sb && !sb.ok) {
+      var subNo = document.createElement("span");
+      subNo.className = "tag sub-no";
+      subNo.textContent = "без речи";
+      subNo.title = "В этом моменте не было различимой речи";
+      left.appendChild(subNo);
+    }
     chips.appendChild(left);
 
     var right = document.createElement("div");
@@ -495,6 +555,61 @@
     btn.innerHTML = '<span class="prog"></span>' + ICON_DL + "<span>Скачать</span>";
     btn.addEventListener("click", function () { downloadClip(clip, btn); });
     body.appendChild(btn);
+
+    // --- обратная связь: помогаем боту отбирать интересные моменты ---------
+    var fb = loadFb()[clip.id] || null;
+    var fbRow = document.createElement("div");
+    fbRow.className = "fb-row";
+    var bLike = document.createElement("button");
+    bLike.type = "button";
+    bLike.className = "fb-btn like" + (fb && fb.v > 0 ? " on" : "");
+    bLike.textContent = "Интересно";
+    var bDis = document.createElement("button");
+    bDis.type = "button";
+    bDis.className = "fb-btn dislike" + (fb && fb.v < 0 ? " on" : "");
+    bDis.textContent = "Скучно";
+    function vote(v, btnSelf, other) {
+      var all = loadFb();
+      if (all[clip.id] && all[clip.id].v === v) return;   // уже так оценено
+      all[clip.id] = { v: v, file: clip.file || "",
+                       src: clip.src || "", start: clip.start || 0,
+                       channel: clip.channel || clip.display || "", ts: Date.now() };
+      saveFb(all);
+      btnSelf.classList.add("on");
+      other.classList.remove("on");
+      toast(v > 0 ? "Отметил — таких моментов будет больше"
+                  : "Понял — бот станет строже к таким моментам", "ok");
+    }
+    bLike.addEventListener("click", function (ev) {
+      ev.stopPropagation();
+      vote(1, bLike, bDis);
+    });
+    bDis.addEventListener("click", function (ev) {
+      ev.stopPropagation();
+      vote(-1, bDis, bLike);
+    });
+    fbRow.appendChild(bLike);
+    fbRow.appendChild(bDis);
+    // «Ещё отсюда» — запрос нарезки следующей минуты того же видео
+    if (clip.src && clip.start) {
+      var bMore = document.createElement("button");
+      bMore.type = "button";
+      bMore.className = "fb-btn more";
+      bMore.textContent = "Ещё отсюда";
+      bMore.addEventListener("click", function (ev) {
+        ev.stopPropagation();
+        var reqs = loadRequests();
+        var s = Number(clip.start) || 0;
+        reqs.push({ url: clip.src, start: s + 60, end: s + 120,
+                    display: clip.display || clip.channel || "", ts: Date.now() });
+        saveRequests(reqs);
+        bMore.classList.add("on");
+        bMore.textContent = "Заказал";
+        toast("Заказал следующую минуту — синхронизируйте в «Каналах»", "ok");
+      });
+      fbRow.appendChild(bMore);
+    }
+    body.appendChild(fbRow);
 
     card.appendChild(body);
     return card;
@@ -1084,23 +1199,30 @@
   }
 
   function syncCode() {
-    // Код синхронизации: base64(JSON со списком каналов с телефона).
-    // Пользователь пришлёт его в чат — и каналы окажутся в subscriptions.json
-    // (публичный сайт не может писать в GitHub сам: токен в JS не положишь).
+    // Код синхронизации: base64(JSON {каналы, настройки качества, фидбек,
+    // заказы «Ещё отсюда»}). Пользователь пришлёт его в чат — и всё это
+    // окажется в репозитории (публичный сайт не может писать в GitHub сам:
+    // токен в JS не положишь).
     var list = loadPending();
-    if (!list.length) {
-      el.syncCode.textContent = "Нет новых каналов — всё уже в GitHub (или добавьте ссылку выше)";
+    var fb = fbItems(loadFb());
+    var reqs = loadRequests();
+    var q = loadQuality();
+    var qDirty = !qualityIsDefault();
+    if (!list.length && !fb.length && !reqs.length && !qDirty) {
+      el.syncCode.textContent = "Нет новых данных — всё уже в GitHub " +
+        "(каналы добавьте выше, а настройки и оценки станут кодом, когда измените)";
       el.syncCode.className = "check-result sync-code";
       return;
     }
-    var json = JSON.stringify({ channels: list });
+    var json = JSON.stringify({ v: 2, channels: list, settings: q,
+                                feedback: fb, requests: reqs });
     var code = btoa(unescape(encodeURIComponent(json)));
     el.syncCode.textContent = code;
     el.syncCode.className = "check-result sync-code show";
     var done = function () {
       toast("Код скопирован — пришлите его в чат Z.ai", "ok");
-      el.addChStatus.textContent = "Код готов. Пришлите его в чат Z.ai — я залью каналы " +
-        "в монитор за минуту. Код также виден ниже, можно скопировать вручную.";
+      el.addChStatus.textContent = "Код готов: каналы + настройки качества + " +
+        "оценки «Интересно/Скучно» + заказы. Пришлите его в чат Z.ai — залью за минуту.";
       el.addChStatus.className = "check-result ok";
     };
     if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -1509,6 +1631,30 @@
   el.btnGhCheck.addEventListener("click", ghCheck);
   el.btnGhSave.addEventListener("click", ghSave);
   el.btnSync.addEventListener("click", syncCode);
+
+  // --- панель «Качество клипов»: подставляем сохранённое, ловим изменения ---------
+
+  function applyQualityUi() {
+    var q = loadQuality();
+    if (el.qLang) el.qLang.value = String(q.speech_language || "auto");
+    if (el.qSel) el.qSel.value = String(q.selection || "normal");
+    if (el.qSkip) el.qSkip.checked = q.skip_no_speech !== false;
+  }
+
+  function onQualityChange() {
+    var q = {
+      speech_language: el.qLang ? el.qLang.value : "auto",
+      selection: el.qSel ? el.qSel.value : "normal",
+      skip_no_speech: el.qSkip ? el.qSkip.checked : true
+    };
+    saveQuality(q);
+    toast("Сохранено — синхронизируйте в «Каналах», чтобы бот применил", "ok");
+  }
+
+  applyQualityUi();
+  if (el.qLang) el.qLang.addEventListener("change", onQualityChange);
+  if (el.qSel) el.qSel.addEventListener("change", onQualityChange);
+  if (el.qSkip) el.qSkip.addEventListener("change", onQualityChange);
 
   // --- Web Push: уведомления прямо от иконки сайта ----------------------------------
   // Публичный VAPID-ключ (не секрет): приватный — в секретах репозитория.

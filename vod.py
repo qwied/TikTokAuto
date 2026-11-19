@@ -22,6 +22,7 @@
 """
 
 import os
+import re
 import subprocess
 import time
 
@@ -29,11 +30,13 @@ try:
     import banner
     import subtitle
     import vertical as vertical_mod
+    from hype_detector import DEFAULT_KEYWORDS, _is_excited
     from utils import ensure_dir, ffprobe_meta, run_cmd, sanitize
 except ImportError:                                    # плоский репозиторий
     import banner
     import subtitle
     import vertical as vertical_mod
+    from hype_detector import DEFAULT_KEYWORDS, _is_excited
     from utils import ensure_dir, ffprobe_meta, run_cmd, sanitize
 
 log = __import__("logging").getLogger("vod")
@@ -120,7 +123,8 @@ def loudness_curve(audio_path, sr=4000):
     return np.asarray(rms_out, dtype=np.float64)
 
 
-def pick_windows(rms, duration, max_windows=100, win=WIN_SECONDS):
+def pick_windows(rms, duration, max_windows=100, win=WIN_SECONDS,
+                 chat=None, chat_exc=None, exclude=None):
     """Окна самых интересных минут: [(start, end, score), ...] по времени.
 
     «Интересное» — это взрыв смеха, крик, накал момента. В децибелах
@@ -134,6 +138,13 @@ def pick_windows(rms, duration, max_windows=100, win=WIN_SECONDS):
       * доля ЯРКИХ секунд — окно целиком в накале ценится выше, чем
         минута с одним пиком и 50 секундами тишины;
       * ШТРАФ за тишину: доля секунд ниже «тихого» уровня этого видео.
+
+    ЕСЛИ ЕСТЬ ЧАТ-РЕПЛЕЙ (записи Twitch), к аудио добавляется чат —
+    он показывает то, чего звук не слышит: где было СМЕШНО. Итоговая
+    оценка = аудио (динамика/пики) + активность чата + доля восторженных
+    сообщений. Чат весит примерно наравне со звуком.
+
+    exclude — интервалы «скучно» из фидбека сайта: такие окна не выбираются.
 
     Гарантируем непересечение: между окнами минимум max(240 с, длина/100) —
     так 9-часовое видео даёт ~100 клипов, а часовой — ~15, и все «лучшие».
@@ -170,6 +181,29 @@ def pick_windows(rms, duration, max_windows=100, win=WIN_SECONDS):
     score = (0.42 * _z(mean_db) + 0.20 * _z(peak_db) + 0.28 * _z(std_db)
              + 0.55 * _z(loud) - 1.10 * silent)
 
+    # --- чат-реплей: где было СМЕШНО по ощущениям ЧАТА ----------------------
+    if chat is not None:
+        try:
+            chat = np.asarray(chat, dtype=np.float64)
+            exc = (np.asarray(chat_exc, dtype=np.float64)
+                   if chat_exc is not None else np.zeros_like(chat))
+            # выравниваем длину с rms (метаданные бывают чуть короче)
+            if chat.size < n:
+                chat = np.pad(chat, (0, n - chat.size))
+                exc = np.pad(exc, (0, n - exc.size))
+            elif chat.size > n:
+                chat, exc = chat[:n], exc[:n]
+            cw = np.lib.stride_tricks.sliding_window_view(chat, w)
+            ew = np.lib.stride_tricks.sliding_window_view(exc, w)
+            rate_w = cw.sum(axis=1) / float(w)              # сообщ/сек в окне
+            hot_w = np.divide(ew.sum(axis=1), np.maximum(cw.sum(axis=1), 1.0))
+            chat_score = 1.05 * _z(rate_w) + 0.75 * _z(hot_w)
+            score = score + chat_score
+            log.info("Чат учитан в оценке окон (среднее сообщ/сек: %.2f)",
+                     float(rate_w.mean()))
+        except Exception:
+            log.exception("Чат-оценка не удалась — беру только громкость")
+
     head = int(min(TRIM_HEAD, duration * 0.02))
     tail = int(min(TRIM_TAIL, duration * 0.02))
     lo, hi = head, max(head + 1, n - w - tail)
@@ -181,6 +215,8 @@ def pick_windows(rms, duration, max_windows=100, win=WIN_SECONDS):
     chosen = []
     for i in cand:
         t = i  # окно [i, i+win)
+        if _exclude_hit(t, w, exclude):
+            continue
         if any(abs(t - c) < min_gap for c in chosen):
             continue
         chosen.append(t)
@@ -191,8 +227,18 @@ def pick_windows(rms, duration, max_windows=100, win=WIN_SECONDS):
     return [(int(t), int(t + win), round(float(score[t]), 3)) for t in chosen]
 
 
-def expand_video(url, workdir, cookies_file="", max_windows=100):
-    """(title, [(start, end, score), ...]) — разметка на интересные окна."""
+def expand_video(url, workdir, cookies_file="", max_windows=100,
+                 exclude_ranges=None):
+    """(title, [(start, end, score), ...]) — разметка на интересные окна.
+
+    Для записей Twitch (VOD) СКАЧИВАЕТСЯ ЧАТ-РЕПЛЕЙ: по чату момент видно
+    лучше, чем по громкости — взрыв смеха и спама почти всегда интереснее
+    просто громкого звука. Оценка окна = громкость (динамика, всплески)
+    + активность чата + доля восторженных сообщений.
+
+    exclude_ranges — интервалы [(начало, конец)] из фидбека сайта (кнопка
+    «Скучно»): эти места видео при выборе окон ПРОПУСКАЮТСЯ.
+    """
     ensure_dir(str(workdir))
     title, dur = probe_video(url, cookies_file)
     log.info("Видео: %s (%.0f c) — ищу интересные моменты", title, dur)
@@ -204,13 +250,116 @@ def expand_video(url, workdir, cookies_file="", max_windows=100):
             os.remove(audio)
         except OSError:
             pass
-    wins = pick_windows(rms, dur, max_windows=max_windows)
+    is_twitch_vod = "twitch." in url and ("/videos/" in url or "/v/" in url)
+    chat = chat_exc = None
+    if is_twitch_vod:
+        try:
+            chat_path = fetch_chat_replay(url, str(workdir), cookies_file)
+            if chat_path:
+                chat, chat_exc = parse_chat_vtt(chat_path, dur)
+                total = int(chat.sum()) if chat is not None else 0
+                log.info("Чат-реплей: %d сообщений — отбора по чату включён", total)
+        except Exception as e:
+            log.warning("Чат-реплей недоступен (%s) — отбираю по громкости", e)
+    wins = pick_windows(rms, dur, max_windows=max_windows,
+                        chat=chat, chat_exc=chat_exc,
+                        exclude=exclude_ranges)
     if wins:
         log.info("Выбрано окон: %d; лучшая минута на %d с (оценка %.2f)",
                  len(wins), wins[0][0], wins[0][2])
     else:
         log.info("Выбрано окон: 0")
     return title, wins
+
+
+# --- чат-реплей Twitch: сообщения как главный сигнал «интересного» -------------------
+
+def fetch_chat_replay(url, workdir, cookies_file=""):
+    """Скачать чат-реплей записи Twitch (без регистрации и ключей).
+
+    yt-dlp умеет качать чат как субтитры (язык "chat"): каждое сообщение
+    с точным временем. Возвращает путь к .vtt или None (для клипов Twitch
+    и YouTube чат-реплея нет — там отбор по громкости).
+    """
+    out = "chat_replay"
+    cmd = ytdlp_base(cookies_file) + [
+        "--skip-download", "--write-subs", "--sub-langs", "chat",
+        "--sub-format", "vtt/srt", "-o", out, url]
+    rc, _o, _e = run_cmd(cmd, timeout=600, cwd=str(workdir))
+    if rc != 0:
+        return None
+    for cand in (os.path.join(str(workdir), out + ".chat.vtt"),
+                 os.path.join(str(workdir), out + ".vtt")):
+        if os.path.exists(cand):
+            return cand
+    return None
+
+
+_VTT_TS_RE = re.compile(
+    r"(\d+):(\d+):(\d+)\.(\d+)\s*-->\s*(\d+):(\d+):(\d+)\.(\d+)")
+_TAG_RE = re.compile(r"<[^>]+>")
+
+
+def parse_chat_vtt(path, duration):
+    """Чат-реплей .vtt -> (counts, excited) — сообщения по секундам.
+
+    counts — сколько сообщений пришлось на каждую секунду видео,
+    excited — сколько из них «восторженных» (смех, КАПС, эмоуты, ключевые
+    слова — тот же детектор, что и в эфире). Это даёт отбору то, чего
+    громкость не видит: смешно ли там было ЧАТУ.
+    """
+    import numpy as np
+    n = int(max(float(duration or 0), 1.0)) + 1
+    counts = np.zeros(n, dtype=np.float64)
+    excited = np.zeros(n, dtype=np.float64)
+    with open(str(path), "r", encoding="utf-8", errors="replace") as f:
+        block_ts = None
+        block_text = []
+
+        def flush():
+            nonlocal block_ts, block_text
+            if block_ts is not None and block_text:
+                sec = min(int(block_ts), n - 1)
+                text = " ".join(block_text)
+                user = ""
+                body = text
+                if ":" in text and text.index(":") < 40:
+                    user, _, body = text.partition(":")
+                counts[sec] += 1
+                if _is_excited(body, DEFAULT_KEYWORDS) or \
+                        _is_excited(user, DEFAULT_KEYWORDS):
+                    excited[sec] += 1
+            block_ts = None
+            block_text = []
+
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            m = _VTT_TS_RE.search(line)
+            if m:
+                flush()
+                block_ts = int(m.group(1)) * 3600 + int(m.group(2)) * 60 \
+                    + int(m.group(3))
+                continue
+            if line.startswith(("WEBVTT", "Kind:", "Language:", "NOTE", "STYLE", " cue")):
+                continue
+            clean = _TAG_RE.sub("", line).strip()
+            if clean and block_ts is not None:
+                block_text.append(clean)
+        flush()
+    if counts.sum() < 1:
+        return None, None
+    return counts, excited
+
+
+def _exclude_hit(t, w, exclude):
+    """Окно [t, t+w) сильно перекрывается с «скучным» диапазоном?"""
+    for a, b in exclude or []:
+        ov = min(t + w, float(b)) - max(t, float(a))
+        if ov > w * 0.35:
+            return True
+    return False
 
 
 def download_section(url, start, end, out_path, workdir, cookies_file=""):
@@ -251,7 +400,9 @@ def process_clip(src_video, clips_dir, workdir, cfg, display, platform,
     """Кусок видео -> вертикальный клип 60 с с субтитрами и баннером.
 
     Те же шаги, что у клипов из эфира (pipeline): 9:16 -> субтитры Whisper ->
-    баннер по центру. Возвращает путь к готовому mp4 в clips/.
+    баннер по центру. Возвращает (путь к готовому mp4, мета субтитров):
+    мета идёт в clips.json (бейдж «Субтитры» на карточке) и в уведомление,
+    а gh_run по ней умеет ПРОПУСКАТЬ окна без речи (настройка на сайте).
     """
     ensure_dir(str(workdir))
     ensure_dir(str(clips_dir))
@@ -286,10 +437,12 @@ def process_clip(src_video, clips_dir, workdir, cfg, display, platform,
             intervals = None
 
     ass = None
+    smeta = {"lang": "", "words": 0, "speech_pct": 0, "ok": False}
     try:
-        ass = subtitle.make_subtitles(cur, str(workdir), cfg.get("subtitle") or {},
-                                      str(cfg.get("speech_language", "ru")), [],
-                                      duration=dur, skip_intervals=intervals)
+        ass, smeta = subtitle.make_subtitles_meta(
+            cur, str(workdir), cfg.get("subtitle") or {},
+            str(cfg.get("speech_language", "ru")), [],
+            duration=dur, skip_intervals=intervals)
     except Exception:
         log.exception("Субтитры не собрались — клип будет без них")
 
@@ -328,4 +481,4 @@ def process_clip(src_video, clips_dir, workdir, cfg, display, platform,
     out_name = "%s_%s.mp4" % (stamp, sanitize(str(display) or "video"))
     out_path = os.path.join(str(clips_dir), out_name)
     os.replace(out_tmp, out_path)
-    return out_path
+    return out_path, smeta

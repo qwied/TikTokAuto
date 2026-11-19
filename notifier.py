@@ -54,7 +54,13 @@ class Notifier:
             out.append("webhook")
         return out
 
-    def notify_clip(self, path, caption):
+    def notify_clip(self, path, caption, **_extra):
+        """Уведомление о готовом клипе.
+
+        _extra (score, title, platform, display, subs) — для режима GitHub:
+        там эти данные попадают в clips.json (карточка на сайте). Здесь
+        они не нужны, но принимаются, чтобы вызывающий код был единый.
+        """
         provider = str(self.cfg.get("provider") or "telegram").lower()
         if provider in ("all", "every", "все", "любое"):
             targets = self.configured_providers()

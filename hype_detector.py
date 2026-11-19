@@ -15,10 +15,20 @@ from models import HypeEvent
 log = logging.getLogger("hype")
 
 DEFAULT_KEYWORDS = [
-    "ахах", "хахах", "кек", "лол", "пгг", "рофл", "гоол", "клип", "аааа",
-    "kekw", "lul", "lol", "lmao", "pog", "poggers", "rofl", "clip", "hype", "wtf",
-    "жесть", "шок", "ойбой", "огонь", "боже", "вот это", "no way", "insane",
+    "ахах", "хахах", "кек", "лол", "пгг", "рофл", "гоол", "гол", "клип", "аааа",
+    "ооо", "вооо", "жесть", "шок", "ойбой", "огонь", "боже", "вот это",
+    "ничоси", "капец", "ужас", "красава", "красиво", "нереально", "невероятно",
+    "изи", "мув", "имба", "жёстко", "жестко", "душно", "топ",
+    "kekw", "lul", "lol", "lmao", "pog", "poggers", "pogchamp", "rofl",
+    "clip", "clip it", "clipped", "hype", "wtf", "no way", "insane", "crazy",
+    "what the", "lets go", "letsgo", "omg", "jesus", "bro what", "gg",
 ]
+
+# чистые эмоуты/смех одним словом — тоже восторг (KEKW, PogChamp, ахаха, ЛОЛ)
+EMOTE_ONLY_RE = re.compile(
+    r"^(?:kekw|lul|lol|lmao|pog|poggers|pogchamp|rofl|kappa|monkas|pepega|"
+    r"омг|жесть|шок|кек|лол|ах[ах]*|х[ах]{2,}|о[оо]{2,}|а[аа]{2,}|го+л+|gg|wtf)+[!?0-9]*$",
+    re.IGNORECASE)
 
 # «Гарантированный» клип берёт лучший момент за последние 4 минуты:
 # дальше кольцевой буфер записи (buffer_keep 300 с) уже не хранит.
@@ -43,6 +53,8 @@ def _is_excited(text, keywords):
     t = _norm(raw)
     if not t:
         return False
+    if EMOTE_ONLY_RE.match(t):
+        return True
     for kw in keywords:
         if not kw:
             continue
@@ -77,6 +89,7 @@ class HypeDetector(threading.Thread):
         self.keywords = [str(k) for k in hype_cfg.get("keywords", DEFAULT_KEYWORDS)]
         self.cooldown = float(clip_cfg.get("cooldown", 180))
         self.max_per_hour = int(clip_cfg.get("max_per_hour", 6))
+        self.bias = 0.0            # поправка порога от фидбека сайта (+ скучно / - интересно)
         # Гарантированная нарезка: если хайпа нет дольше N минут, клип всё
         # равно снимается (0 = выключено). Чтобы за любой стрим у пользователя
         # точно были клипы и уведомления, даже когда чат спокойный.
@@ -111,6 +124,20 @@ class HypeDetector(threading.Thread):
 
     # --- оценка ----------------------------------------------------------------
 
+    def effective_threshold(self):
+        """Порог с учётом ТИХОСТИ чата и обратной связи от сайта.
+
+        У маленьких/спокойных чатов всплеск редко дотягивает до порога,
+        рассчитанного на большие эфиры — из-за этого клипы выходят только
+        «гарантированные» (раз в 12 минут) и часто скучные. Если фоновая
+        скорость чата низкая, порог мягко опускается (до -15).
+        bias — поправка от кнопок «Интересно/Скучно» на сайте: channel_bias
+        (gh_run) поднимает порог каналу, чьи клипы отмечали скучными, и
+        опускает тому, чьи клипы понравились.
+        """
+        quiet = max(0.0, 0.5 - min(self.baseline, 0.5))    # 0..0.5
+        return max(30.0, self.threshold - quiet * 30.0 + float(self.bias))
+
     def evaluate(self, now=None):
         """Один «тик» оценки. now передаётся явно в тестах."""
         now = time.time() if now is None else now
@@ -136,20 +163,28 @@ class HypeDetector(threading.Thread):
                          + 0.10 * dup_n + 0.15 * user_n)
         self.smooth = 0.5 * self.smooth + 0.5 * score
 
-        if self.smooth >= self.threshold:
+        threshold = self.effective_threshold()
+        if self.smooth >= threshold:
             self.hot_streak += 1
         else:
             self.hot_streak = 0
+
+        # Быстрый канал: РЕЗКИЙ взрыв (многократный всплеск + явный восторг
+        # в большинстве сообщений) не ждёт устойчивости sustain секунд —
+        # «клип» лучше снять сразу на пике, чем полминуты спустя.
+        fast_lane = (spike_n >= 0.62 and kw_n >= 0.30 and len(users) >= self.min_users)
 
         hour_ago = now - 3600
         while self.trigger_times and self.trigger_times[0] < hour_ago:
             self.trigger_times.popleft()
 
-        if (self.hot_streak >= self.sustain
+        if ((self.hot_streak >= self.sustain or fast_lane)
                 and len(users) >= self.min_users
                 and now - self.last_trigger >= self.cooldown
                 and len(self.trigger_times) < self.max_per_hour):
-            self._trigger(now, self.smooth, win, users)
+            score_out = self.smooth if self.hot_streak >= self.sustain \
+                else max(self.smooth, 72.0)     # явный взрыв — высокий балл сразу
+            self._trigger(now, score_out, win, users)
             return
 
         # Гарантированный клип: давно ни хайпа, ни клипов — снимаем ВСЁ РАВНО,
@@ -208,7 +243,9 @@ class HypeDetector(threading.Thread):
             rate = min(len(bm) / bucket_s / base, 6.0) / 6.0
             hot = sum(1 for m in bm if _is_excited(m.text, self.keywords)) / len(bm)
             users_n = min(len({m.user for m in bm}) / 15.0, 1.0)
-            s = 0.40 * rate + 0.35 * hot + 0.25 * users_n
+            # восторженные сообщения весомее скорости: спокойный поток из
+            # «ок» даёт меньший балл, чем пара «АХАХА КЛИП КЕКВ» от своих
+            s = 0.30 * rate + 0.45 * hot + 0.25 * users_n
             if s > best_s:
                 best_s, best_ts = s, min(b, now)
         if best_s <= 0.05:

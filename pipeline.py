@@ -560,13 +560,12 @@ class Pipeline:
                 log.warning("Не удалось рассчитать показы баннера — без пауз")
                 intervals = None
         try:
-            ass = subtitle.make_subtitles(raw_ts, workdir, self.sub_cfg,
-                                          self.speech_language,
-                                          chat_msgs, duration=dur_est,
-                                          skip_intervals=intervals)
+            ass, smeta = subtitle.make_subtitles_meta(
+                raw_ts, workdir, self.sub_cfg, self.speech_language,
+                chat_msgs, duration=dur_est, skip_intervals=intervals)
         except Exception:
             log.exception("Ошибка построения субтитров — клип будет без них")
-            ass = None
+            ass, smeta = None, {}
 
         try:
             self._finalize(raw_ts, out_path, workdir, ass, intervals)
@@ -575,11 +574,20 @@ class Pipeline:
             return
 
         dur_real = ffprobe_meta(out_path).get("duration") or dur_est
-        self._write_meta(out_path, ch, ev, dur_real)
+        self._write_meta(out_path, ch, ev, dur_real, subs=smeta)
         self._make_thumb(out_path)
 
         caption = self._caption(st, ev, out_path, dur_real)
-        ok = self.notifier.notify_clip(out_path, caption)
+        if smeta.get("ok"):
+            caption += (f"\nСубтитры: {smeta.get('lang') or '?'} · "
+                        f"{smeta.get('words', 0)} слов · речи {smeta.get('speech_pct', 0)}%")
+        else:
+            caption += "\nСубтитров нет — в этом моменте не было распознаваемой речи"
+        ok = self.notifier.notify_clip(out_path, caption,
+                                       platform=st.ch.platform,
+                                       display=st.ch.display(),
+                                       title=st.ch.title or "",
+                                       score=ev.score, subs=smeta)
         if self.tiktok:
             tk_caption = tiktok_mod.build_caption(
                 {"title": st.ch.title or "", "channel": st.ch.display(),
@@ -676,7 +684,7 @@ class Pipeline:
             shutil.move(out_tmp, out_path)
         return out_path
 
-    def _write_meta(self, out_path, ch, ev, dur_s):
+    def _write_meta(self, out_path, ch, ev, dur_s, subs=None):
         """JSON-метаданные рядом с клипом — их читает веб-интерфейс (/api/clips)."""
         meta = {
             "file": os.path.basename(str(out_path)),
@@ -687,6 +695,7 @@ class Pipeline:
             "score": round(float(ev.score), 1),
             "duration": round(float(dur_s or 0), 1),
             "created": int(os.path.getmtime(str(out_path))),
+            "subs": dict(subs or {}),
         }
         try:
             with open(str(out_path) + ".json", "w", encoding="utf-8") as f:
