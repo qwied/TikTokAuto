@@ -25,11 +25,45 @@ def test_pick_windows_prefers_loud_peaks():
     # оба громких пика накрыты окнами
     assert any(s <= 1000 < s + 60 for s in starts), starts
     assert any(s <= 2500 < s + 60 for s in starts), starts
+    # каждое окно несёт оценку интересности
+    assert all(len(w) == 3 and isinstance(w[2], float) for w in wins)
+
+
+def test_pick_windows_best_first():
+    """Самое сочное окно — ПЕРВОЕ: нарезка длинного видео начинается с лучших минут."""
+    dur = 7200
+    rms = np.full(dur, 0.05)
+    rms[3000:3060] = 0.95                      # САМЫЙ громкий и плотный момент
+    rms[6000:6060] = 0.4                       # момент послабее
+    wins = vod.pick_windows(rms, dur, max_windows=10, win=60)
+    starts = [w[0] for w in wins]
+    scores = [w[2] for w in wins]
+    assert starts[0] <= 3000 < starts[0] + 60, starts       # лучший — первым
+    assert scores == sorted(scores, reverse=True), scores   # по убыванию оценки
+
+
+def test_pick_windows_silence_penalty():
+    """Минута с паузами проигрывает минуте сплошного накала при том же среднем."""
+    dur = 3600
+    base = np.full(dur, 0.05)
+    # окно A: постоянный громкий гомон (без пауз)
+    base[1000:1060] = 0.6
+    # окно B: тот же средний уровень, но с тишиной и одним криком
+    seg = np.full(60, 0.05)
+    seg[10:20] = 1.0                            # 10 c крика + 50 c тишины
+    base[2000:2060] = seg
+    wins = vod.pick_windows(base, dur, max_windows=10, win=60)
+    starts = [w[0] for w in wins]
+    score_a = next(w[2] for w in wins if w[0] <= 1000 < w[0] + 60)
+    score_b = next(w[2] for w in wins if w[0] <= 2000 < w[0] + 60)
+    assert any(s <= 1000 < s + 60 for s in starts)
+    assert any(s <= 2000 < s + 60 for s in starts)
+    assert score_a > score_b, (score_a, score_b)   # сплошной накал ценнее
 
 
 def test_pick_windows_short_video_single_window():
     rms = np.full(45, 0.2)
-    assert vod.pick_windows(rms, 45, win=60) == [(0, 45)]
+    assert vod.pick_windows(rms, 45, win=60) == [(0, 45, 0.0)]
 
 
 def test_pick_windows_spacing():
@@ -40,8 +74,7 @@ def test_pick_windows_spacing():
     rms[idx] = 0.95                            # много равных пиков
     wins = vod.pick_windows(rms, dur, max_windows=100, win=60)
     starts = [w[0] for w in wins]
-    assert starts == sorted(starts)
-    for a, b in zip(starts, starts[1:]):
+    for a, b in zip(sorted(starts), sorted(starts)[1:]):
         assert b - a >= 240, (a, b)
     assert len(wins) <= 100
 

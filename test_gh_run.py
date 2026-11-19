@@ -41,6 +41,12 @@ def test_clip_entry_shape(tmp_path):
     assert e["gh"] is True
     assert e["url"].startswith("https://github.com/o/r/releases/")
     assert e["thumb"].startswith("data:image/jpeg")
+    assert e["score"] == 0                     # без оценки — ноль, карточка молчит
+    e2 = gh_run.clip_entry(str(v), "https://github.com/o/r/releases/download/auto/x.mp4",
+                           score=3.87)
+    assert e2["score"] == 3.9                  # «насколько сочный момент» для сайта
+    e3 = gh_run.clip_entry(str(v), "u", score="мусор")
+    assert e3["score"] == 0                    # мусор не ломает публикацию
 
 
 def test_load_clips_json_bytes():

@@ -6,9 +6,14 @@
 Как выбираются интересные моменты:
   1) yt-dlp скачивает ЗВУК всего видео в самом низком качестве (быстро);
   2) ffmpeg декодирует его в моно, считаем громкость по секундам (RMS);
-  3) окно 60 с с самым громким «живым» пиком = самый интересный момент.
-     Всплески громкости почти всегда совпадают со смехом, криками и
-     яркими моментами — это и есть «интересное».
+  3) для каждой минуты считаем СКОЛЬКО признаков «накала» в ней:
+       - средняя громкость выше обычного для этого видео;
+       - ДИНАМИКА (всплески на фоне среднего), а не монотонный шум;
+       - доля ЯРКИХ секунд (громкость в верхнем регистре видео);
+       - ШТРАФ за тишину: минута с паузами почти всегда скучнее.
+     Оценка в децибелах — тихие и громкие видео сравнимы между собой.
+  4) окна сортируются по оценке: ПЕРВЫМ нарезается самое сочное, а не
+     самое раннее — сотня клипов из 9-часовой записи начинается с лучших.
 
 Дальше каждое окно: yt-dlp качает ТОЛЬКО этот кусок (--download-sections) ->
 9:16 -> субтитры Whisper -> баннер -> готовый mp4 (публикует gh_run.py).
@@ -116,26 +121,54 @@ def loudness_curve(audio_path, sr=4000):
 
 
 def pick_windows(rms, duration, max_windows=100, win=WIN_SECONDS):
-    """Окна самых интересных минут: [(start_sec, end_sec), ...] по времени.
+    """Окна самых интересных минут: [(start, end, score), ...] по времени.
+
+    «Интересное» — это взрыв смеха, крик, накал момента. В децибелах
+    (dBFS) оцениваем каждую минуту видео:
+
+      * средняя громкость окна выше медианы видео (z-оценка);
+      * ДИНАМИКА std: громкие всплески на фоне среднего, а не ровный шум
+        (музыка/двигатель/вентилятор дают высокий RMS без событий);
+      * устойчивый пик (95-й перцентиль вместо максимума: один щелчок
+        или звонок не должен решать);
+      * доля ЯРКИХ секунд — окно целиком в накале ценится выше, чем
+        минута с одним пиком и 50 секундами тишины;
+      * ШТРАФ за тишину: доля секунд ниже «тихого» уровня этого видео.
 
     Гарантируем непересечение: между окнами минимум max(240 с, длина/100) —
     так 9-часовое видео даёт ~100 клипов, а часовой — ~15, и все «лучшие».
+    Возврат отсортирован ПО ОЦЕНКЕ (самое интересное — первым): нарезка
+    длинного видео начинается с лучших минут, а остаток цепочкой продолжит
+    следующий запуск.
     """
     import numpy as np
     n = len(rms)
     if duration <= 0:
         duration = float(n)
     if duration <= win + 30:
-        return [(0, int(duration))]
+        return [(0, int(duration), 0.0)]
     w = int(win)
     if n < w * 2:
-        return [(0, int(duration))]
+        return [(0, int(duration), 0.0)]
 
-    # скользящее окно: средняя громкость + доля пиков (всплесков) сверху
-    windows = np.lib.stride_tricks.sliding_window_view(rms, w)
-    mean = windows.mean(axis=1)
-    peak = windows.max(axis=1)
-    score = mean + 0.5 * peak
+    db = 20.0 * np.log10(np.maximum(np.asarray(rms, dtype=np.float64), 1e-6))
+    windows = np.lib.stride_tricks.sliding_window_view(db, w)
+    mean_db = windows.mean(axis=1)
+    std_db = windows.std(axis=1)
+    peak_db = np.percentile(windows, 95, axis=1)
+
+    # глобальные ориентиры ЭТОГО видео (тишина и накал у всех разные)
+    floor_db = float(np.percentile(db, 10))
+    loud_thr = float(np.percentile(db, 80))
+    silent = (windows <= floor_db + 3.0).mean(axis=1)
+    loud = (windows >= loud_thr).mean(axis=1)
+
+    def _z(x):
+        s = float(np.std(x))
+        return (x - float(np.median(x))) / (s + 1e-9)
+
+    score = (0.42 * _z(mean_db) + 0.20 * _z(peak_db) + 0.28 * _z(std_db)
+             + 0.55 * _z(loud) - 1.10 * silent)
 
     head = int(min(TRIM_HEAD, duration * 0.02))
     tail = int(min(TRIM_TAIL, duration * 0.02))
@@ -153,11 +186,13 @@ def pick_windows(rms, duration, max_windows=100, win=WIN_SECONDS):
         chosen.append(t)
         if len(chosen) >= max_windows:
             break
-    return [(int(t), int(t + win)) for t in sorted(chosen)]
+    # самое интересное — первым: длинное видео начинается с лучших минут
+    chosen.sort(key=lambda t: -float(score[t]))
+    return [(int(t), int(t + win), round(float(score[t]), 3)) for t in chosen]
 
 
 def expand_video(url, workdir, cookies_file="", max_windows=100):
-    """(title, [(start, end), ...]) — разметка видео на интересные окна."""
+    """(title, [(start, end, score), ...]) — разметка на интересные окна."""
     ensure_dir(str(workdir))
     title, dur = probe_video(url, cookies_file)
     log.info("Видео: %s (%.0f c) — ищу интересные моменты", title, dur)
@@ -170,7 +205,11 @@ def expand_video(url, workdir, cookies_file="", max_windows=100):
         except OSError:
             pass
     wins = pick_windows(rms, dur, max_windows=max_windows)
-    log.info("Выбрано окон: %d (первое на %d с)", len(wins), wins[0][0] if wins else 0)
+    if wins:
+        log.info("Выбрано окон: %d; лучшая минута на %d с (оценка %.2f)",
+                 len(wins), wins[0][0], wins[0][2])
+    else:
+        log.info("Выбрано окон: 0")
     return title, wins
 
 

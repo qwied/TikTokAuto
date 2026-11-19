@@ -3,11 +3,13 @@
 Режимы (запускаются workflow-ами из .github/workflows):
 
   python gh_run.py --check-loop [--max-minutes 55]
-      ПОСТОЯННОЕ слежение: задача живёт до ~55 минут и каждые ~25 секунд
-      проверяет по subscriptions.json, кто в эфире (внутри неё же видит новые
-      видео/клипы и ставит их в очередь нарезки). Кто-то стримит — запускает
-      Monitor. В конце задача-эстафета запускает следующую — слежение идёт
-      без пауз, а выход в эфир замечается за считанные секунды.
+      ПОСТОЯННОЕ слежение: задача живёт до ~55 минут, внутри неё работает
+      один постоянный монитор: платформенные API опрашиваются каждые ~2-3
+      секунды, а раз в ~15 секунд мы читаем готовый статус, обновляем сайт
+      и подхватываем новые видео/клипы из subscriptions.json (там же видит
+      новые видео/клипы и ставит их в очередь нарезки). Кто-то стримит —
+      запускает Monitor. В конце задача-эстафета запускает следующую —
+      слежение идёт без пауз, а выход в эфир замечается за считанные секунды.
 
   python gh_run.py --check
       Разовая проверка (резервный вход и финальная проверка Monitor).
@@ -79,7 +81,9 @@ PROCESSED_JSON = "processed.json"       # уже нарезанные видео
 MAX_CLIPS = 60          # сколько клипов держать в clips.json
 MAX_ASSETS = 60         # сколько файлов держать в релизе (старые удаляются)
 PROBE_WAIT = 15         # секунд на проверку эфиров (быстрые API платформ)
-CHECK_EVERY_S = 25      # пауза проверки эфиров внутри --check-loop
+CHECK_EVERY_S = 15      # пауза чтения статуса внутри --check-loop (сам монитор
+                        # опрашивает платформы каждые ~2-3 с — быстрее некуда:
+                        # cron GitHub сам по себе не бывает чаще 5 минут)
 CHECK_LOOP_MIN = 55     # длина одной задачи --check-loop (потом эстафета)
 VOD_MAX_WINDOWS = 100   # максимальный клипов из одного длинного видео
 VOD_MAX_JOBS = 40       # сколько окон обрабатывает один запуск --vod
@@ -191,12 +195,16 @@ def load_clips_json_bytes(raw):
 
 
 def clip_entry(video_path, asset_url, thumb_b64=None, dur=None, size=None,
-               platform="twitch", display=None, title=""):
+               platform="twitch", display=None, title="", score=None):
     name = os.path.basename(str(video_path))
     stem = os.path.splitext(name)[0]
     parts = stem.split("_")
     # 2026-11-19_12-15-00_nick -> канал после даты и времени
     chan = parts[2] if len(parts) > 2 else ""
+    try:
+        score_val = round(float(score), 1) if score is not None else 0
+    except (TypeError, ValueError):
+        score_val = 0
     return {
         "id": stem,
         "file": name,
@@ -208,6 +216,7 @@ def clip_entry(video_path, asset_url, thumb_b64=None, dur=None, size=None,
         "display": display or chan,
         "platform": platform,
         "title": title or "",
+        "score": score_val,          # «насколько сочный момент» (для карточки)
         "created": int(os.path.getmtime(str(video_path))),
         "gh": True,
     }
@@ -270,10 +279,10 @@ class GitHubPublisher:
         self.last_url = ""
 
     def notify_clip(self, video_path, caption="", platform="twitch",
-                    display=None, title=""):
+                    display=None, title="", score=None):
         try:
             self._publish(video_path, caption, platform=platform,
-                          display=display, title=title)
+                          display=display, title=title, score=score)
             self.posted += 1
             cap = str(caption or "Клип готов")
             if self.last_url:
@@ -297,7 +306,7 @@ class GitHubPublisher:
             return False
 
     def _publish(self, video_path, caption="", platform="twitch",
-                 display=None, title=""):
+                 display=None, title="", score=None):
         rel = self.gh.release_id()
         log.info("Заливаю клип в Releases: %s", os.path.basename(video_path))
         asset = self.gh.upload_asset(rel, video_path)
@@ -307,7 +316,8 @@ class GitHubPublisher:
         entry = clip_entry(video_path, url,
                            thumb_b64=compact_thumb(video_path, self.workdir),
                            size=os.path.getsize(str(video_path)),
-                           platform=platform, display=display, title=title)
+                           platform=platform, display=display, title=title,
+                           score=score)
         raw, sha = self.gh.get_file(CLIPS_JSON)
         data = load_clips_json_bytes(raw)
         ids = {c.get("id") for c in data["clips"]}
@@ -653,22 +663,72 @@ def run_check(max_probe=PROBE_WAIT):
 
 
 def run_check_loop(max_minutes=CHECK_LOOP_MIN):
-    """ПОСТОЯННОЕ слежение: проверка каждые ~CHECK_EVERY_S секунд до дедлайна.
+    """ПОСТОЯННОЕ слежение: статус каждые ~CHECK_EVERY_S секунд до дедлайна.
 
-    Одна задача Actions живёт до ~55 минут, затем эстафета запускает
-    следующую. Так выход стримера в эфир замечается за секунды, а не через
-    «каждые 5-20 минут» (cron GitHub сам по себе не бывает чаще 5 минут).
+    Одна задача Actions живёт до ~55 минут. Внутри неё работает ОДИН
+    постоянный StreamMonitor: платформенные API (Twitch GQL, YouTube
+    youtubei) опрашиваются каждые ~2-3 секунды, а мы раз в 15 секунд
+    читаем готовый статус (без прогрева 15 c на каждой итерации),
+    обновляем clips.json, подхватываем новые каналы/видео из
+    subscriptions.json и запускаем Monitor на эфир. В конце задача
+    эстафетой запускает следующую. Так выход стримера в эфир замечается
+    за считанные секунды, а не «каждые 5-20 минут» (cron GitHub сам по
+    себе не бывает чаще 5 минут).
     """
     setup_logging()
+    gh = env_gh()
+    cfg = load_config("config.yaml")
+    cfg["_config_path"] = os.path.abspath("config.yaml")
+    yt = cfg.get("youtube", {}) or {}
+
+    def current_refs():
+        # subscriptions.json перечитываем КАЖДЫЙ цикл: новый канал или
+        # ссылка на видео с сайта начинает отслеживаться за 15 секунд
+        return merged_refs(cfg, load_subscriptions(SUBS_JSON))
+
+    refs = current_refs()
+    mon = StreamMonitor(channels=live_refs(refs), quality="best", poll_twitch=2,
+                        poll_youtube=3, yt_workers=3,
+                        cookies_file=str(yt.get("cookies_file") or ""),
+                        cookies_from_browser=str(yt.get("cookies_from_browser") or ""),
+                        links_file=None,
+                        refresh_refs=lambda: live_refs(current_refs()),
+                        on_live=lambda ch: None, on_offline=lambda ch: None)
+    mon.start()
     deadline = time.time() + max(1, int(max_minutes)) * 60
     n = 0
-    log.info("Постоянное слежение: проверка каждые %d c, %d мин, потом эстафета",
+    log.info("Постоянное слежение: статус каждые %d c, %d мин, потом эстафета",
              CHECK_EVERY_S, max_minutes)
     while time.time() < deadline:
         started = time.time()
         try:
-            run_check()
             n += 1
+            refs = current_refs()             # новые каналы — сразу в слежку
+            mon.sync_channels(live_refs(refs))
+            meta = channels_meta_from_snapshot(refs, mon.status_rows() or [])
+            live = [m for m in meta if m["live"]]
+            names = ", ".join(m["display"] for m in meta) or "—"
+            log.info("Каналы (%d): %s", len(meta), names)
+            for m in live:
+                log.info("В ЭФИРЕ: %s — запускаю слежение", m["display"])
+            if gh:
+                try:
+                    pub = GitHubPublisher(gh, workdir=".")
+                    pub.update_channels_meta(meta)
+                except Exception:
+                    log.exception("Не удалось обновить clips.json")
+                try:
+                    # готовые видео/клипы из subscriptions.json -> очередь;
+                    # прямые ссылки на эфир не ставим в очередь (их пишет Monitor)
+                    keys = {f"{m['platform']}:{m['name']}" for m in live}
+                    enqueue_vod_jobs(gh, refs, keys)
+                except Exception:
+                    log.exception("Очередь нарезки: не удалось обновить")
+            if live:
+                if gh_workflow_monitor_in_progress():
+                    log.info("Monitor уже работает — не запускаю второй")
+                else:
+                    gh_trigger_monitor(live[0]["name"])
         except Exception:
             log.exception("Проверка не удалась — повторю после паузы")
         rest = CHECK_EVERY_S - (time.time() - started)
@@ -676,6 +736,7 @@ def run_check_loop(max_minutes=CHECK_LOOP_MIN):
             time.sleep(rest)
     log.info("Смена: %d проверок за %d мин — запускаю следующую задачу",
              n, max_minutes)
+    mon.stop()
     return 0
 
 
@@ -983,12 +1044,14 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
             display = str(job.get("display") or _vod_display(url))
             platform = "twitch" if "twitch." in url else "youtube"
             if job.get("kind") == "video" and not job.get("windows"):
-                # ещё не размечено: ищем интересные моменты по громкости звука
+                # ещё не размечено: ищем интересные моменты по звуку;
+                # окна приходят УЖЕ отсортированными по интересности
                 title, wins = vod_mod.expand_video(
                     url, workdir, cookies_file=cookies,
                     max_windows=int(os.environ.get("VOD_MAX_WINDOWS", VOD_MAX_WINDOWS)))
                 job["display"] = title or display
-                job["windows"] = [[int(a), int(b)] for a, b in wins]
+                job["windows"] = [[int(a), int(b)] for a, b, _s in wins]
+                job["scores"] = [float(s) for _a, _b, s in wins]
                 log.info("%s: %d интересных моментов", job["display"], len(job["windows"]))
                 if not job["windows"]:
                     jobs.pop(0)
@@ -1008,9 +1071,13 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
                                        vcodec_args=vcodec_args,
                                        banner_path=banner_path)
             size_mb = os.path.getsize(out) / 1e6
+            win_score = None
+            if job.get("kind") == "video" and job.get("scores"):
+                win_score = job["scores"][0]
             caption = f"Клип готов: {display} ({platform}, нарезка видео) — {size_mb:.1f} МБ"
             if pub.notify_clip(out, caption, platform=platform,
-                               display=display, title=display):
+                               display=display, title=display,
+                               score=win_score):
                 made += 1
             # кусок обработан: сдвигаем очередь
             for f in (src, os.path.join(workdir, "vod_9x16.mp4"),
@@ -1023,6 +1090,8 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
                     pass
             if job.get("kind") == "video":
                 job["windows"].pop(0)
+                if job.get("scores"):
+                    job["scores"].pop(0)
                 if not job["windows"]:
                     jobs.pop(0)
                     done.add(key)
