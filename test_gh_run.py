@@ -389,3 +389,46 @@ def test_twitch_top_streams_never_raises(monkeypatch):
 
     monkeypatch.setattr(rq, "post", boom)
     assert gh_run.twitch_top_streams() == []
+
+
+def test_twitch_top_streams_limit_capped_at_30(monkeypatch):
+    """Twitch отдаёт максимум 30 стримов за запрос (first <= 30)."""
+    import requests as rq
+
+    class R:
+        status_code = 200
+
+        def json(self):
+            return {"data": {"streams": {"edges": []}}}
+
+    ns = []
+
+    def fake_post(url, json=None, timeout=0, headers=None):
+        ns.append(json["variables"]["n"])
+        return R()
+
+    monkeypatch.setattr(rq, "post", fake_post)
+    assert gh_run.twitch_top_streams(60) == []
+    assert ns == [30]                        # 60 -> порезано до 30
+    ns.clear()
+    gh_run.twitch_top_streams(10)
+    assert ns == [10]
+    ns.clear()
+    gh_run.twitch_top_streams()
+    assert ns == [gh_run.DISCOVERY_TOP_FETCH]
+
+
+def test_twitch_top_streams_gql_errors(monkeypatch):
+    """Ошибки GQL (integrity и т.п.) -> [] и предупреждение, не падение."""
+    import requests as rq
+
+    class R:
+        status_code = 200
+
+        def json(self):
+            return {"errors": [{"message": "failed integrity check"}],
+                    "data": {"streams": None}}
+
+    monkeypatch.setattr(rq, "post",
+                        lambda *a, **k: R())
+    assert gh_run.twitch_top_streams(30) == []

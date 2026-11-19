@@ -98,7 +98,7 @@ TWITCH_WEB_CLIENT_ID = "kimne78kx3ncx6brgo4mv6wki5h1ko"
 DISCOVERY_COUNT = 25         # сколько топовых стримеров держать в слежке
 DISCOVERY_MIN_VIEWERS = 2000  # отсечка по зрителям (мелкие каналы не нужны)
 DISCOVERY_REFRESH_MIN = 20    # как часто обновлять топ, минут
-DISCOVERY_TOP_FETCH = 60      # сколько стримов запрашивать у Twitch
+DISCOVERY_TOP_FETCH = 30      # сколько стримов запрашивать (лимит Twitch: 30)
 
 
 # --- GitHub REST -------------------------------------------------------------------------
@@ -391,45 +391,59 @@ def load_subscriptions(path=SUBS_JSON):
 
 # --- автопоиск топовых стримов Twitch ---------------------------------------
 
+def _parse_stream_node(node):
+    """Узел GQL-стрима -> {login, display, viewers, title, game} или None."""
+    b = node.get("broadcaster") or {}
+    login = str(b.get("login") or "").strip().lower()
+    if not login:
+        return None
+    try:
+        viewers = int(node.get("viewersCount") or 0)
+    except (TypeError, ValueError):
+        viewers = 0
+    return {"login": login,
+            "display": str(b.get("displayName") or login),
+            "viewers": viewers,
+            "title": str(node.get("title") or "")[:120],
+            "game": str((node.get("game") or {}).get("displayName") or "")}
+
+
 def twitch_top_streams(limit=DISCOVERY_TOP_FETCH):
     """Топ Twitch ПО ЗРИТЕЛЯМ (сейчас в эфире), публичный GQL сайта.
 
     Без токенов и регистрации — тот же запрос, что делает сайт Twitch.
-    Возвращает [{login, display, viewers, title, game}]; при любой ошибке
-    [] — слежение по списку каналов продолжается как работало.
+    За один запрос Twitch отдаёт НЕ БОЛЬШЕ 30 стримов (больше — уже
+    «failed integrity check»: страницам нужен браузерный токен), поэтому
+    лимит режется до 30. Возвращает [{login, display, viewers, title,
+    game}]; при любой ошибке [] — слежение по списку каналов продолжается
+    как работало.
     """
+    limit = max(1, min(int(limit), 30))          # Twitch: first <= 30
     body = {"query": (
         "query($n: Int!) { streams(first: $n) { edges { node { "
         "broadcaster { login displayName } title viewersCount "
         "game { displayName } } } } }"),
-        "variables": {"n": max(1, min(int(limit), 100))}}
+        "variables": {"n": limit}}
     try:
         r = requests.post(TWITCH_GQL, json=body, timeout=30,
                           headers={"Client-ID": TWITCH_WEB_CLIENT_ID})
         if r.status_code != 200:
             log.warning("Топ Twitch: HTTP %s", r.status_code)
             return []
-        edges = ((r.json().get("data") or {}).get("streams") or {}
-                 ).get("edges") or []
+        j = r.json()
+        if j.get("errors"):
+            log.warning("Топ Twitch: %s",
+                        str(j["errors"][0].get("message") or "")[:200])
+            return []
+        edges = ((j.get("data") or {}).get("streams") or {}).get("edges") or []
     except Exception as e:
         log.warning("Топ Twitch недоступен: %s", e)
         return []
     out = []
     for edge in edges:
-        node = (edge or {}).get("node") or {}
-        b = node.get("broadcaster") or {}
-        login = str(b.get("login") or "").strip().lower()
-        if not login:
-            continue
-        try:
-            viewers = int(node.get("viewersCount") or 0)
-        except (TypeError, ValueError):
-            viewers = 0
-        out.append({"login": login,
-                    "display": str(b.get("displayName") or login),
-                    "viewers": viewers,
-                    "title": str(node.get("title") or "")[:120],
-                    "game": str((node.get("game") or {}).get("displayName") or "")})
+        s = _parse_stream_node((edge or {}).get("node") or {})
+        if s:
+            out.append(s)
     return out
 
 
@@ -496,7 +510,7 @@ def auto_discover(gh, cfg, top_fn=None):
     old_auto = [str(x).strip() for x in (data.get("auto_channels") or [])
                 if str(x).strip()]
     exclude = _subs_twitch_logins(user_links)          # человек важнее топа
-    fetch = (top_fn or twitch_top_streams)(max(count + 10,
+    fetch = (top_fn or twitch_top_streams)(max(count + 5,
                                                 DISCOVERY_TOP_FETCH))
     urls = discovery_urls(fetch, min_viewers=min_viewers, count=count,
                           exclude=exclude)
