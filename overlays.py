@@ -27,8 +27,6 @@ import logging
 import os
 from collections import deque
 
-import numpy as np
-
 try:
     from utils import ffprobe_meta, run_cmd
 except ImportError:                                    # плоский репозиторий
@@ -53,6 +51,7 @@ MAX_BOXES = 6
 
 def _extract_frames(video_path, workdir):
     """~SAMPLES кадров через равные интервалы -> numpy (N, H, W) uint8."""
+    import numpy as np
     meta = ffprobe_meta(video_path)
     w_src = int(meta.get("width") or 0)
     h_src = int(meta.get("height") or 0)
@@ -165,9 +164,10 @@ def _merge_boxes(boxes):
 
 
 def _texture(img, box):
-    """Средняя «резкость» зоны в усреднённом кадре: у банера/виджета всегда
+    """Средняя «резкость» зоны в усреднённом кадре: у банера всегда
     есть текст, рамка или логотип (градиент высокий); у просто статичной
     травы/неба/градиента — низкий. Отсекает замазывание живых сцен."""
+    import numpy as np
     x0, y0, x1, y1 = box
     reg = img[max(0, y0):max(1, y1), max(0, x0):max(1, x1)].astype(np.float32)
     if reg.size == 0:
@@ -182,6 +182,7 @@ def _texture(img, box):
 
 def detect_overlay_boxes(video_path, workdir="."):
     """[(x, y, w, h)] в координатах ИСХОДНОГО видео — зоны чужих оверлеев."""
+    import numpy as np
     frames, (w_src, h_src) = _extract_frames(video_path, workdir)
     if frames is None:
         return []

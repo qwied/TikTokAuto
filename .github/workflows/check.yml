@@ -40,7 +40,7 @@ jobs:
           python-version: "3.11"
 
       - name: Зависимости
-        run: pip install streamlink yt-dlp requests PyYAML
+        run: pip install streamlink yt-dlp requests PyYAML numpy
 
       - name: Постоянное слежение (55 мин, монитор каждые ~2-3 c, статус ~15 c)
         env:
