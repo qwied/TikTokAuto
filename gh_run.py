@@ -765,29 +765,34 @@ def channels_meta_from_snapshot(refs, snap):
 
 
 def gh_workflow_monitor_in_progress():
-    """True, если задача Monitor сейчас работает (через gh CLI).
+    """True, если задача Monitor РАБОТ или ЖДЁТ в очереди (через gh CLI).
 
     Свой собственный запуск (GITHUB_RUN_ID) НЕ считается: финальная проверка
     внутри monitor.yml идёт, пока её же задача ещё «in_progress», — и должна
     уметь запустить следующую сессию, если эфир продолжается.
+    Считаются и queued-запуски: иначе, пока сессия ждёт свободный раннер,
+    каждая проверка (раз в ~15 c) заводила бы ЛИШНИЙ dispatch Monitor.
     """
     repo = os.environ.get("GITHUB_REPOSITORY", "")
     if not repo:
         return False
-    try:
-        out = subprocess.run(
-            ["gh", "run", "list", "--repo", repo, "--workflow", "monitor.yml",
-             "--status", "in_progress", "--limit", "10", "--json", "databaseId"],
-            capture_output=True, text=True, timeout=60)
-        if out.returncode != 0:
-            log.warning("gh run list: %s", (out.stderr or "")[:200])
-            return False
-        runs = json.loads(out.stdout or "[]")
-        my_id = str(os.environ.get("GITHUB_RUN_ID") or "")
-        return any(str(r.get("databaseId")) != my_id for r in runs)
-    except Exception as e:
-        log.warning("gh run list не удался: %s", e)
-        return False
+    my_id = str(os.environ.get("GITHUB_RUN_ID") or "")
+    for status in ("in_progress", "queued"):
+        try:
+            out = subprocess.run(
+                ["gh", "run", "list", "--repo", repo, "--workflow",
+                 "monitor.yml", "--status", status,
+                 "--limit", "10", "--json", "databaseId"],
+                capture_output=True, text=True, timeout=60)
+            if out.returncode != 0:
+                log.warning("gh run list: %s", (out.stderr or "")[:200])
+                continue
+            runs = json.loads(out.stdout or "[]")
+            if any(str(r.get("databaseId")) != my_id for r in runs):
+                return True
+        except Exception as e:
+            log.warning("gh run list не удался: %s", e)
+    return False
 
 
 def gh_workflow_dispatch(workflow):
