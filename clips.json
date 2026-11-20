@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T08:45:33Z",
+ "updated": "2026-11-20T08:45:48Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -66,12 +66,36 @@
     "live": true,
     "viewers": 3049,
     "title": "ИГРА ОЧЕНЬ НРАВИТСЯ. СДЕЛАЛ !60фпс СЕБЕ И КАЙФУЮ СИЖУ"
+   },
+   {
+    "name": "stariy_bog",
+    "display": "twitch.tv/stariy_bog",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "enzzai",
+    "display": "twitch.tv/enzzai",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "zloyn",
+    "display": "twitch.tv/zloyn",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"shadowkekw\", true, \"[DROPS] 🌴 GTA VI 🌴 МАРАФОН 🌴 @evelone2004 @mokrivskyi 🌴 👉 !тг !betboom !торнадо !РО !yota !розыгрыш\", 14250], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ФИНАЛ ГТА | !tg !winline !ЯО !ВТБ !avan\", 7650], [\"stray228\", true, \"Полное погружение !tg !bb !wow !воппер\", 4525], [\"whoplohoyparen\", true, \"GTA 6 60fps DLSS5 ПОЛНОЕ ПРОХОЖДЕНИЕ ДЕНЬ 3\", 4750], [\"welovegames\", true, \"[ДЕНЬ 18] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 2050], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2\", 1775], [\"melharucos\", true, \"ИГРА ОЧЕНЬ НРАВИТСЯ. СДЕЛАЛ !60фпс СЕБЕ И КАЙФУЮ СИЖУ\", 3050]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"shadowkekw\", true, \"[DROPS] 🌴 GTA VI 🌴 МАРАФОН 🌴 @evelone2004 @mokrivskyi 🌴 👉 !тг !betboom !торнадо !РО !yota !розыгрыш\", 14250], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ФИНАЛ ГТА | !tg !winline !ЯО !ВТБ !avan\", 7650], [\"stray228\", true, \"Полное погружение !tg !bb !wow !воппер\", 4525], [\"whoplohoyparen\", true, \"GTA 6 60fps DLSS5 ПОЛНОЕ ПРОХОЖДЕНИЕ ДЕНЬ 3\", 4750], [\"welovegames\", true, \"[ДЕНЬ 18] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 2050], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2\", 1775], [\"melharucos\", true, \"ИГРА ОЧЕНЬ НРАВИТСЯ. СДЕЛАЛ !60фпс СЕБЕ И КАЙФУЮ СИЖУ\", 3050], [\"stariy_bog\", false, \"\", 0], [\"enzzai\", false, \"\", 0], [\"zloyn\", false, \"\", 0]]"
  },
  "clips": [
   {
