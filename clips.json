@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T23:52:15Z",
+ "updated": "2026-11-20T23:52:26Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,17 +15,17 @@
     "name": "mokrivskyi",
     "display": "twitch.tv/mokrivskyi",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 23749,
+    "title": "[DROPS]  🌆 GTA VI  ☀️ МАРАФОН 🦩 91% 💯 @evelone2004 @shadowkekw 💰 !tg"
    },
    {
     "name": "leb1ga",
     "display": "twitch.tv/leb1ga",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 15029,
+    "title": "⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 3"
    },
    {
     "name": "bratishkinoff",
@@ -39,71 +39,71 @@
     "name": "egorkreed",
     "display": "twitch.tv/egorkreed",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 10350,
+    "title": "ОНА СО МНОЙ - ЭТО ГТА 6 ! 🕹️ марафон ДЕНЬ 3"
    },
    {
     "name": "frametamer666",
     "display": "twitch.tv/frametamer666",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 5944,
+    "title": "GTA 6 ДОНАТОФОН 24/7 [DAY 3]"
    },
    {
     "name": "stray228",
     "display": "twitch.tv/stray228",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 3560,
+    "title": "GTA6 RP, отыгрываем на совесть !tg !bb !wow !воппер"
    },
    {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 2873,
+    "title": "ИЗОЛЯЦИЯ ДЕНЬ 6 | !tg !donate !winline !ggsel"
    },
    {
     "name": "kopsteep",
     "display": "twitch.tv/kopsteep",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 1934,
+    "title": "добрейший кот в сапогах (я вырезал 4 деревни) !tg !bot"
    },
    {
     "name": "welovegames",
     "display": "twitch.tv/welovegames",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 1340,
+    "title": "[День 19] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo"
    },
    {
     "name": "zloyn",
     "display": "twitch.tv/zloyn",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 1321,
+    "title": "МАРАФОН | GTA VI 🤯 | ДЕНЬ 4 | !tg !прогресс"
    },
    {
     "name": "rejiboi",
     "display": "twitch.tv/rejiboi",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 1145,
+    "title": "давай воровать машинки 6, 3 серия (300 fps, 4k, на клаве и мышке, не лагает, 99% пройдено, ищем тот самый пляж) !tg"
    }
   ],
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"mokrivskyi\", false, \"\", 0], [\"leb1ga\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"egorkreed\", false, \"\", 0], [\"frametamer666\", false, \"\", 0], [\"stray228\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"kopsteep\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"zloyn\", false, \"\", 0], [\"rejiboi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"mokrivskyi\", true, \"[DROPS]  🌆 GTA VI  ☀️ МАРАФОН 🦩 91% 💯 @evelone2004 @shadowkekw 💰 !tg\", 23750], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 3\", 15025], [\"bratishkinoff\", false, \"\", 0], [\"egorkreed\", true, \"ОНА СО МНОЙ - ЭТО ГТА 6 ! 🕹️ марафон ДЕНЬ 3\", 10350], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 3]\", 5950], [\"stray228\", true, \"GTA6 RP, отыгрываем на совесть !tg !bb !wow !воппер\", 3550], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 6 | !tg !donate !winline !ggsel\", 2875], [\"kopsteep\", true, \"добрейший кот в сапогах (я вырезал 4 деревни) !tg !bot\", 1925], [\"welovegames\", true, \"[День 19] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 1350], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 4 | !tg !прогресс\", 1325], [\"rejiboi\", true, \"давай воровать машинки 6, 3 серия (300 fps, 4k, на клаве и мышке, не лагает, 99% пройдено, ищем тот самый пляж) !tg\", 1150]]"
  },
  "clips": [
   {
