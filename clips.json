@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T21:03:47Z",
+ "updated": "2026-11-20T21:05:04Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,63 +15,143 @@
     "name": "mokrivskyi",
     "display": "twitch.tv/mokrivskyi",
     "platform": "twitch",
-    "live": true,
-    "viewers": 29375,
-    "title": "[DROPS]  🌆 GTA VI  ☀️ МАРАФОН 🦩 90% 💯 @evelone2004 @shadowkekw 💰 !tg"
-   },
-   {
-    "name": "welovegames",
-    "display": "twitch.tv/welovegames",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 2345,
-    "title": "[День 18] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "leb1ga",
     "display": "twitch.tv/leb1ga",
     "platform": "twitch",
-    "live": true,
-    "viewers": 17993,
-    "title": "⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "bratishkinoff",
     "display": "twitch.tv/bratishkinoff",
     "platform": "twitch",
-    "live": true,
-    "viewers": 14676,
-    "title": "2K 60FPS • FIRST POV • GTA 6 • DAY 3"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "buster",
     "display": "twitch.tv/buster",
     "platform": "twitch",
-    "live": true,
-    "viewers": 13079,
-    "title": "GTA 6 с Дариночкой 🤍 День 3 🔫 Пройдено ~ 45% 🔍 Донаты ВКЛ 🎮"
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "welovegames",
+    "display": "twitch.tv/welovegames",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "egorkreed",
     "display": "twitch.tv/egorkreed",
     "platform": "twitch",
-    "live": true,
-    "viewers": 11269,
-    "title": "ОНА СО МНОЙ - ЭТО ГТА 6 ! 🕹️ марафон ДЕНЬ 3"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
-    "name": "recrent",
-    "display": "twitch.tv/recrent",
+    "name": "skywhywalker",
+    "display": "twitch.tv/skywhywalker",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "[1440p] GTA VI. День 3 | !pari !ggsel !tg !мерч"
+    "title": ""
+   },
+   {
+    "name": "sasavot",
+    "display": "twitch.tv/sasavot",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "frametamer666",
+    "display": "twitch.tv/frametamer666",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "avice",
+    "display": "twitch.tv/avice",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "stray228",
+    "display": "twitch.tv/stray228",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "leva2k",
+    "display": "twitch.tv/leva2k",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "rejiboi",
+    "display": "twitch.tv/rejiboi",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "chopperinho",
+    "display": "twitch.tv/chopperinho",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "dmitry_lixxx",
+    "display": "twitch.tv/dmitry_lixxx",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "znat51",
+    "display": "twitch.tv/znat51",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "zer0truel0ve",
+    "display": "twitch.tv/zer0truel0ve",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"mokrivskyi\", true, \"[DROPS]  🌆 GTA VI  ☀️ МАРАФОН 🦩 90% 💯 @evelone2004 @shadowkekw 💰 !tg\", 29375], [\"welovegames\", true, \"[День 18] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 2350], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2\", 18000], [\"bratishkinoff\", true, \"2K 60FPS • FIRST POV • GTA 6 • DAY 3\", 14675], [\"buster\", true, \"GTA 6 с Дариночкой 🤍 День 3 🔫 Пройдено ~ 45% 🔍 Донаты ВКЛ 🎮\", 13075], [\"egorkreed\", true, \"ОНА СО МНОЙ - ЭТО ГТА 6 ! 🕹️ марафон ДЕНЬ 3\", 11275], [\"recrent\", false, \"[1440p] GTA VI. День 3 | !pari !ggsel !tg !мерч\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"mokrivskyi\", false, \"\", 0], [\"leb1ga\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"buster\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"egorkreed\", false, \"\", 0], [\"skywhywalker\", false, \"\", 0], [\"sasavot\", false, \"\", 0], [\"frametamer666\", false, \"\", 0], [\"avice\", false, \"\", 0], [\"stray228\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"chopperinho\", false, \"\", 0], [\"dmitry_lixxx\", false, \"\", 0], [\"znat51\", false, \"\", 0], [\"zer0truel0ve\", false, \"\", 0]]"
  },
  "clips": [
   {
