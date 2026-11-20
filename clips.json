@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T22:00:42Z",
+ "updated": "2026-11-20T22:00:46Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,57 +15,49 @@
     "name": "mokrivskyi",
     "display": "twitch.tv/mokrivskyi",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "[DROPS]  🌆 GTA VI  ☀️ МАРАФОН 🦩 90% 💯 @evelone2004 @shadowkekw 💰 !tg"
+    "title": ""
    },
    {
     "name": "leb1ga",
     "display": "twitch.tv/leb1ga",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 3"
+    "title": ""
    },
    {
     "name": "bratishkinoff",
     "display": "twitch.tv/bratishkinoff",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "2K 60FPS • FIRST POV • GTA 6 • DAY 3"
+    "title": ""
    },
    {
     "name": "buster",
     "display": "twitch.tv/buster",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "GTA 6 с Дариночкой 🤍 День 3 🔫 Пройдено ~ 47% 🔍 Донаты ВКЛ 🎮"
-   },
-   {
-    "name": "welovegames",
-    "display": "twitch.tv/welovegames",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "[День 19] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo"
+    "title": ""
    },
    {
     "name": "egorkreed",
     "display": "twitch.tv/egorkreed",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "ОНА СО МНОЙ - ЭТО ГТА 6 ! 🕹️ марафон ДЕНЬ 3"
+    "title": ""
    },
    {
     "name": "skywhywalker",
     "display": "twitch.tv/skywhywalker",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑"
+    "title": ""
    },
    {
     "name": "sasavot",
@@ -73,77 +65,85 @@
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "ПЯТНИЦА/ТРЕЗВАЯ"
+    "title": ""
    },
    {
     "name": "frametamer666",
     "display": "twitch.tv/frametamer666",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "GTA 6 ДОНАТОФОН 24/7 [DAY 3]"
+    "title": ""
    },
    {
     "name": "avice",
     "display": "twitch.tv/avice",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "road to top 100 eu ladder no jokes only tryhard !тимспиритжди !tg !BETBOOM !мерч !плеерок"
-   },
-   {
-    "name": "stray228",
-    "display": "twitch.tv/stray228",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "GTA6 RP, отыгрываем на совесть !tg !bb !wow !воппер"
-   },
-   {
-    "name": "leva2k",
-    "display": "twitch.tv/leva2k",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "ИЗОЛЯЦИЯ ДЕНЬ 6 | !tg !donate !winline !ggsel"
-   },
-   {
-    "name": "rejiboi",
-    "display": "twitch.tv/rejiboi",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "давай воровать машинки 6, 3 серия (300 fps) !tg"
-   },
-   {
-    "name": "znat51",
-    "display": "twitch.tv/znat51",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "пока все хайпят на гта , мы играем на фасике - !тг !vip !дс !донат !музыка"
-   },
-   {
-    "name": "zer0truel0ve",
-    "display": "twitch.tv/zer0truel0ve",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "[GTA6  3 день] марафон 24/7"
+    "title": ""
    },
    {
     "name": "kopsteep",
     "display": "twitch.tv/kopsteep",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "добрейший кот в сапогах (я вырезал 4 деревни) !tg !bot"
+    "title": ""
+   },
+   {
+    "name": "leva2k",
+    "display": "twitch.tv/leva2k",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "stray228",
+    "display": "twitch.tv/stray228",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "welovegames",
+    "display": "twitch.tv/welovegames",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "rejiboi",
+    "display": "twitch.tv/rejiboi",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "znat51",
+    "display": "twitch.tv/znat51",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "zer0truel0ve",
+    "display": "twitch.tv/zer0truel0ve",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"mokrivskyi\", true, \"[DROPS]  🌆 GTA VI  ☀️ МАРАФОН 🦩 90% 💯 @evelone2004 @shadowkekw 💰 !tg\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 3\", 0], [\"bratishkinoff\", true, \"2K 60FPS • FIRST POV • GTA 6 • DAY 3\", 0], [\"buster\", true, \"GTA 6 с Дариночкой 🤍 День 3 🔫 Пройдено ~ 47% 🔍 Донаты ВКЛ 🎮\", 0], [\"welovegames\", true, \"[День 19] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 0], [\"egorkreed\", true, \"ОНА СО МНОЙ - ЭТО ГТА 6 ! 🕹️ марафон ДЕНЬ 3\", 0], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 0], [\"sasavot\", false, \"ПЯТНИЦА/ТРЕЗВАЯ\", 0], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 3]\", 0], [\"avice\", true, \"road to top 100 eu ladder no jokes only tryhard !тимспиритжди !tg !BETBOOM !мерч !плеерок\", 0], [\"stray228\", true, \"GTA6 RP, отыгрываем на совесть !tg !bb !wow !воппер\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 6 | !tg !donate !winline !ggsel\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 3 серия (300 fps) !tg\", 0], [\"znat51\", true, \"пока все хайпят на гта , мы играем на фасике - !тг !vip !дс !донат !музыка\", 0], [\"zer0truel0ve\", true, \"[GTA6  3 день] марафон 24/7\", 0], [\"kopsteep\", true, \"добрейший кот в сапогах (я вырезал 4 деревни) !tg !bot\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"mokrivskyi\", false, \"\", 0], [\"leb1ga\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"buster\", false, \"\", 0], [\"egorkreed\", false, \"\", 0], [\"skywhywalker\", false, \"\", 0], [\"sasavot\", false, \"\", 0], [\"frametamer666\", false, \"\", 0], [\"avice\", false, \"\", 0], [\"kopsteep\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"stray228\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"znat51\", false, \"\", 0], [\"zer0truel0ve\", false, \"\", 0]]"
  },
  "clips": [
   {
