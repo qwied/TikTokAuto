@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T07:50:10Z",
+ "updated": "2026-11-20T07:50:24Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -63,15 +63,15 @@
     "name": "whoplohoyparen",
     "display": "twitch.tv/whoplohoyparen",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 4559,
+    "title": "GTA 6 60fps DLSS5 ПОЛНОЕ ПРОХОЖДЕНИЕ ДЕНЬ 3"
    }
   ],
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"shadowkekw\", true, \"[DROPS] 🌴 GTA VI 🌴 МАРАФОН 🌴 @evelone2004 @mokrivskyi 🌴 👉 !тг !betboom !торнадо !РО !yota !розыгрыш\", 9950], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ФИНАЛ ГТА | !tg !winline !ЯО !ВТБ !avan\", 7925], [\"cozart_2s1\", false, \"6000Elo 😈 @m0nesyof w @donk1437/!Пати!elo!донат !роспись\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2\", 1575], [\"welovegames\", true, \"[ДЕНЬ 18] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 1975], [\"stray228\", true, \"Полное погружение !tg !bb !wow !воппер\", 4575], [\"whoplohoyparen\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"shadowkekw\", true, \"[DROPS] 🌴 GTA VI 🌴 МАРАФОН 🌴 @evelone2004 @mokrivskyi 🌴 👉 !тг !betboom !торнадо !РО !yota !розыгрыш\", 9950], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ФИНАЛ ГТА | !tg !winline !ЯО !ВТБ !avan\", 7925], [\"cozart_2s1\", false, \"6000Elo 😈 @m0nesyof w @donk1437/!Пати!elo!донат !роспись\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2\", 1575], [\"welovegames\", true, \"[ДЕНЬ 18] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 1975], [\"stray228\", true, \"Полное погружение !tg !bb !wow !воппер\", 4575], [\"whoplohoyparen\", true, \"GTA 6 60fps DLSS5 ПОЛНОЕ ПРОХОЖДЕНИЕ ДЕНЬ 3\", 4550]]"
  },
  "clips": [
   {
