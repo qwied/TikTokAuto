@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T04:24:26Z",
+ "updated": "2026-11-20T04:24:39Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -28,14 +28,6 @@
     "title": "⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2"
    },
    {
-    "name": "bratishkinoff",
-    "display": "twitch.tv/bratishkinoff",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
     "name": "welovegames",
     "display": "twitch.tv/welovegames",
     "platform": "twitch",
@@ -47,7 +39,7 @@
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"shadowkekw\", true, \"[DROPS] 🌴 GTA VI 🌴 МАРАФОН 🌴 @evelone2004 @mokrivskyi 🌴 👉 !тг !betboom !торнадо !РО !yota !розыгрыш\", 10825], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2\", 4075], [\"bratishkinoff\", false, \"\", 0], [\"welovegames\", true, \"[ДЕНЬ 18] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 1175]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"shadowkekw\", true, \"[DROPS] 🌴 GTA VI 🌴 МАРАФОН 🌴 @evelone2004 @mokrivskyi 🌴 👉 !тг !betboom !торнадо !РО !yota !розыгрыш\", 10825], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2\", 4075], [\"welovegames\", true, \"[ДЕНЬ 18] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 1175]]"
  },
  "clips": [
   {
