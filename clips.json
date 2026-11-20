@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T17:21:20Z",
+ "updated": "2026-11-20T17:22:16Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -12,122 +12,122 @@
     "title": ""
    },
    {
-    "name": "nix",
-    "display": "twitch.tv/nix",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 27378,
-    "title": "Liquid vs DO KONCA bo3 0:0 BLAST SLAM IX (Group Stage) w/ Alagon"
-   },
-   {
     "name": "mokrivskyi",
     "display": "twitch.tv/mokrivskyi",
     "platform": "twitch",
-    "live": true,
-    "viewers": 24346,
-    "title": "[DROPS]  🌆 GTA VI  ☀️ МАРАФОН 🦩 83% 💯 @evelone2004 @shadowkekw @gwinglade @skillz0r1337 💰 !tg"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
-    "name": "leb1ga",
-    "display": "twitch.tv/leb1ga",
+    "name": "nix",
+    "display": "twitch.tv/nix",
     "platform": "twitch",
-    "live": true,
-    "viewers": 15571,
-    "title": "⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2"
-   },
-   {
-    "name": "t2x2",
-    "display": "twitch.tv/t2x2",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 13775,
-    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch (донаты и мемы офф)"
-   },
-   {
-    "name": "solo",
-    "display": "twitch.tv/solo",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 12304,
-    "title": "🔴Team Liquid [0:0] DO KONCA, Bo3 | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto | !tg !BETBOOM !розыгрыш"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "anarabdullaev",
     "display": "twitch.tv/anarabdullaev",
     "platform": "twitch",
-    "live": true,
-    "viewers": 21248,
-    "title": "Заброшки Таиланда /w Огр Эксити Вика Лера Жека Бабулик"
-   },
-   {
-    "name": "recrent",
-    "display": "twitch.tv/recrent",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 12733,
-    "title": "[1440p] GTA VI. День 3 | !pari !ggsel !tg !мерч"
-   },
-   {
-    "name": "bratishkinoff",
-    "display": "twitch.tv/bratishkinoff",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 12219,
-    "title": "2K 60FPS • FIRST POV • GTA 6 • DAY 3"
-   },
-   {
-    "name": "buster",
-    "display": "twitch.tv/buster",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 10955,
-    "title": "GTA 6 с Дариночкой 🤍 День 3 🔫 Пройдено ~ 36% 🔍 Донаты ВКЛ 🎮"
-   },
-   {
-    "name": "skywhywalker",
-    "display": "twitch.tv/skywhywalker",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 10593,
-    "title": "САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑"
-   },
-   {
-    "name": "5opka",
-    "display": "twitch.tv/5opka",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 5043,
-    "title": "КАЙФУЮ В ГТА 6 // !донат !приватка !правила !funpay !тг"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "welovegames",
     "display": "twitch.tv/welovegames",
     "platform": "twitch",
-    "live": true,
-    "viewers": 17260,
-    "title": "[VHS] Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
-    "name": "melharucos",
-    "display": "twitch.tv/melharucos",
+    "name": "leb1ga",
+    "display": "twitch.tv/leb1ga",
     "platform": "twitch",
-    "live": true,
-    "viewers": 3484,
-    "title": "Я ПОТЕРЯЛ 8 ЧАСОВ ПРОГРЕССА АХАХАХАХА"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "zubarefff",
     "display": "twitch.tv/zubarefff",
     "platform": "twitch",
-    "live": true,
-    "viewers": 15001,
-    "title": "Они сражались за «Оскар»! 🏆 Смотрим «Солдаты неудачи» 🎬"
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "t2x2",
+    "display": "twitch.tv/t2x2",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "recrent",
+    "display": "twitch.tv/recrent",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "bratishkinoff",
+    "display": "twitch.tv/bratishkinoff",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "buster",
+    "display": "twitch.tv/buster",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "solo",
+    "display": "twitch.tv/solo",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "skywhywalker",
+    "display": "twitch.tv/skywhywalker",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "melharucos",
+    "display": "twitch.tv/melharucos",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "egorkreed",
+    "display": "twitch.tv/egorkreed",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"Liquid vs DO KONCA bo3 0:0 BLAST SLAM IX (Group Stage) w/ Alagon\", 27375], [\"mokrivskyi\", true, \"[DROPS]  🌆 GTA VI  ☀️ МАРАФОН 🦩 83% 💯 @evelone2004 @shadowkekw @gwinglade @skillz0r1337 💰 !tg\", 24350], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2\", 15575], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch (донаты и мемы офф)\", 13775], [\"solo\", true, \"🔴Team Liquid [0:0] DO KONCA, Bo3 | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto | !tg !BETBOOM !розыгрыш\", 12300], [\"anarabdullaev\", true, \"Заброшки Таиланда /w Огр Эксити Вика Лера Жека Бабулик\", 21250], [\"recrent\", true, \"[1440p] GTA VI. День 3 | !pari !ggsel !tg !мерч\", 12725], [\"bratishkinoff\", true, \"2K 60FPS • FIRST POV • GTA 6 • DAY 3\", 12225], [\"buster\", true, \"GTA 6 с Дариночкой 🤍 День 3 🔫 Пройдено ~ 36% 🔍 Донаты ВКЛ 🎮\", 10950], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 10600], [\"5opka\", true, \"КАЙФУЮ В ГТА 6 // !донат !приватка !правила !funpay !тг\", 5050], [\"welovegames\", true, \"[VHS] Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 17250], [\"melharucos\", true, \"Я ПОТЕРЯЛ 8 ЧАСОВ ПРОГРЕССА АХАХАХАХА\", 3475], [\"zubarefff\", true, \"Они сражались за «Оскар»! 🏆 Смотрим «Солдаты неудачи» 🎬\", 15000]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"mokrivskyi\", false, \"\", 0], [\"nix\", false, \"\", 0], [\"anarabdullaev\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"leb1ga\", false, \"\", 0], [\"zubarefff\", false, \"\", 0], [\"t2x2\", false, \"\", 0], [\"recrent\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"buster\", false, \"\", 0], [\"solo\", false, \"\", 0], [\"skywhywalker\", false, \"\", 0], [\"melharucos\", false, \"\", 0], [\"egorkreed\", false, \"\", 0]]"
  },
  "clips": [
   {
