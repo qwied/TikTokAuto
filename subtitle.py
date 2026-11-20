@@ -441,6 +441,30 @@ def _overlaps(a0, a1, intervals, pad=0.15):
     return False
 
 
+def _lip_gate(words, segs, lip_intervals):
+    """Гейт по губам: оставить только слова, где стример реально говорит.
+
+    lip_intervals — [(start, end)] от lipsync.speaking_intervals (движение
+    рта). Слово сохраняется при пересечении с любым интервалом (поле 0.35 c).
+    Возвращает (слова, сегменты) или (None, None), если гейт вырезал бы
+    слишком много честной речи (лицо детектировалось рывками) — тогда
+    субтитры остаются без гейта, лучше лишняя строка, чем потерянная.
+    """
+    pad = 0.35
+    keep_w = [w for w in (words or [])
+              if _overlaps(w["start"], w["end"], lip_intervals, pad=pad)]
+    keep_s = [s for s in (segs or [])
+              if _overlaps(s["start"], s["end"], lip_intervals, pad=pad)]
+    n0, n1 = len(words or []), len(keep_w)
+    if n0 and n1 < max(3, int(0.30 * n0)):
+        log.warning("Лип-синк вырезал бы %d из %d слов — лицо видно рывками, "
+                    "гейт не применяю", n0 - n1, n0)
+        return None, None
+    log.info("Лип-синк: оставлено %d/%d слов (стример молчал в остальное время)",
+             n1, n0)
+    return keep_w, keep_s
+
+
 def build_tiktok_ass(words, path, width=1280, height=720, font="Arial Black",
                      skip_intervals=None):
     """Стиль «как на образце»: жирный капс ВНИЗУ ПО ЦЕНТРУ, максимум две
@@ -598,7 +622,7 @@ def burn_subtitles(video_in, ass_path, video_out, workdir, vcodec_args=None):
 
 
 def make_subtitles(video_path, workdir, sub_cfg, language, chat_messages,
-                   duration=60.0, skip_intervals=None):
+                   duration=60.0, skip_intervals=None, lip_intervals=None):
     """Полный конвейер субтитров для клипа. Возвращает путь к .ass или None.
 
     СУБТИТРЫ ТОЛЬКО ИЗ РЕЧИ ЧЕЛОВЕКА: Whisper с мягким VAD выписывает
@@ -607,20 +631,26 @@ def make_subtitles(video_path, workdir, sub_cfg, language, chat_messages,
 
     skip_intervals — интервалы показа рекламного баннера: нарезка в это
     время «на паузе», звук стрима молчит — субтитры там не нужны.
+
+    lip_intervals — интервалы говорения СТРИМЕРА по движению губ
+    (clipper/lipsync.py): строки, где рот стримера неподвижен (речь из
+    игры/войсчата/галлюцинация на паузе), в субтитры не попадают.
     """
     ass, _meta = make_subtitles_meta(video_path, workdir, sub_cfg, language,
                                      chat_messages, duration=duration,
-                                     skip_intervals=skip_intervals)
+                                     skip_intervals=skip_intervals,
+                                     lip_intervals=lip_intervals)
     return ass
 
 
 def make_subtitles_meta(video_path, workdir, sub_cfg, language, chat_messages,
-                        duration=60.0, skip_intervals=None):
+                        duration=60.0, skip_intervals=None, lip_intervals=None):
     """То же, что make_subtitles, но возвращает (путь_к_.ass, мета_речи).
 
     мета = {"lang": "ru", "words": 56, "speech_pct": 62, "ok": True|False} —
     идёт на сайт (бейдж на карточке клипа) и в уведомление: сразу видно,
     что субтитры реально получились, а не «в моменте просто не говорили».
+    lip_intervals — интервалы говорения по губам (см. lipsync.py).
     """
     sub_cfg = sub_cfg or {}
     smeta = {"lang": "", "words": 0, "speech_pct": 0, "ok": False}
@@ -661,6 +691,22 @@ def make_subtitles_meta(video_path, workdir, sub_cfg, language, chat_messages,
     if not words and segs:
         segs = [s for s in segs if (s.get("text") or "").strip()]
         words = _words_from_segments(segs)
+
+    # --- ЛИП-СИНК: субтитры только там, где стример говорит по губам ----------
+    # Жалоба пользователя: «субтитры произносятся, когда стример молчит» —
+    # Whisper тянет речь из игры/войсчата. Гейт по движению рта
+    # (clipper/lipsync.py); если лицо видно рывками — гейт не применяем.
+    if lip_intervals and words:
+        try:
+            gated_w, gated_s = _lip_gate(words, segs, lip_intervals)
+        except Exception:
+            log.exception("Лип-гейт упал — субтитры без него")
+            gated_w, gated_s = None, None
+        if gated_w is not None:
+            words, segs = gated_w, gated_s
+            smeta["lip_gate"] = True
+        else:
+            smeta["lip_gate"] = False
 
     dur_s = max(float(duration or 60.0), 1.0)
     smeta["words"] = max(smeta.get("words") or 0, len(words or []))

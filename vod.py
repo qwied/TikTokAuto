@@ -28,16 +28,20 @@ import time
 
 try:
     import banner
+    import lipsync as lipsync_mod
     import subtitle
     import vertical as vertical_mod
     import overlays as overlays_mod
+    import webcam as webcam_mod
     from hype_detector import DEFAULT_KEYWORDS, _is_excited
     from utils import ensure_dir, ffprobe_meta, run_cmd, sanitize
 except ImportError:                                    # плоский репозиторий
     import banner
+    import lipsync as lipsync_mod
     import subtitle
     import vertical as vertical_mod
     import overlays as overlays_mod
+    import webcam as webcam_mod
     from hype_detector import DEFAULT_KEYWORDS, _is_excited
     from utils import ensure_dir, ffprobe_meta, run_cmd, sanitize
 
@@ -427,9 +431,19 @@ def process_clip(src_video, clips_dir, workdir, cfg, display, platform,
     # RubUp рисуется ПОСЛЕ — его замазка не трогает.
     clip_cfg = cfg.get("clip") or {}
     raw_boxes = None
+    cam_box = None
     if bool(clip_cfg.get("hide_overlays", True)) and bool(clip_cfg.get("vertical", True)):
         try:
-            raw_boxes = overlays_mod.detect_overlay_boxes(src_video, workdir)
+            # Окно камеры ищем ОДИН раз: исключаем его из детекта оверлеев
+            # (вебкамера статична и выглядит «баннером» — прод 2026-11-20:
+            # dmitry_lixxx, маска на лице) и передаём в make_vertical.
+            try:
+                cam_box = webcam_mod.detect_cam_box(src_video, workdir)
+            except Exception:
+                log.exception("Детект камеры упал — замазка без исключения")
+                cam_box = None
+            raw_boxes = overlays_mod.detect_overlay_boxes(
+                src_video, workdir, exclude_boxes=[cam_box] if cam_box else [])
             if bool(clip_cfg.get("mask_corners", True)):
                 raw_boxes = raw_boxes + overlays_mod.corner_boxes(
                     int(meta.get("width") or 0), int(meta.get("height") or 0))
@@ -443,7 +457,9 @@ def process_clip(src_video, clips_dir, workdir, cfg, display, platform,
             cur = vertical_mod.make_vertical(
                 src_video, vertical_mp4, workdir,
                 mode=str((cfg.get("clip") or {}).get("vertical_mode", "blur")),
-                vcodec_args=vcodec_args, raw_boxes=raw_boxes)
+                vcodec_args=vcodec_args, raw_boxes=raw_boxes, cam_box=cam_box,
+                fallback=str(clip_cfg.get("vertical_fallback",
+                                          vertical_mod.FALLBACK_DEFAULT)))
         except Exception:
             log.exception("9:16 не удался — клип останется горизонтальным")
             cur = src_video
@@ -461,11 +477,27 @@ def process_clip(src_video, clips_dir, workdir, cfg, display, platform,
 
     ass = None
     smeta = {"lang": "", "words": 0, "speech_pct": 0, "ok": False}
+    # Лип-синк: субтитры только когда стример говорит (по движению губ).
+    # В split полоса камеры известна из макета — без повторного детекта;
+    # в crop без камеры лица в кадре нет — гейт невозможен.
+    lip_iv = None
+    vmode = str((cfg.get("clip") or {}).get("vertical_mode", "blur"))
+    if bool((cfg.get("subtitle") or {}).get("lip_sync", True)):
+        try:
+            if cam_box and vmode == "split" and cur == vertical_mp4:
+                strip_h = vertical_mod.split_cam_h()
+                lip_iv = lipsync_mod.speaking_intervals(
+                    cur, str(workdir), cam_box=(0, 0, 1080, strip_h))
+            elif cam_box or str(clip_cfg.get("vertical_fallback", "crop")) == "blur":
+                lip_iv = lipsync_mod.speaking_intervals(cur, str(workdir))
+        except Exception:
+            log.exception("Лип-синк не удался — субтитры без гейта по губам")
+            lip_iv = None
     try:
         ass, smeta = subtitle.make_subtitles_meta(
             cur, str(workdir), cfg.get("subtitle") or {},
             str(cfg.get("speech_language", "ru")), [],
-            duration=dur, skip_intervals=intervals)
+            duration=dur, skip_intervals=intervals, lip_intervals=lip_iv)
     except Exception:
         log.exception("Субтитры не собрались — клип будет без них")
 

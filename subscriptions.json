@@ -1,15 +1,15 @@
 {
- "_help": "Ссылки на стримеров: Twitch и YouTube. Добавляйте с сайта (кнопка «Каналы») или правьте прямо здесь — по одной ссылке. Программа следит за ними постоянно.",
- "channels": [
-  "twitch.tv/honeymad"
- ],
- "auto_channels": [
-  "https://www.twitch.tv/mokrivskyi",
-  "https://www.twitch.tv/welovegames",
-  "https://www.twitch.tv/leb1ga",
-  "https://www.twitch.tv/bratishkinoff",
-  "https://www.twitch.tv/buster",
-  "https://www.twitch.tv/egorkreed"
- ],
- "auto_updated": "2026-11-20T20:29:18Z"
+  "_help": "Ссылки на стримеров: Twitch и YouTube. Добавляйте с сайта (кнопка «Каналы») или правьте прямо здесь — по одной ссылке. Программа следит за ними постоянно.",
+  "channels": [
+    "twitch.tv/honeymad"
+  ],
+  "auto_channels": [
+    "https://www.twitch.tv/mokrivskyi",
+    "https://www.twitch.tv/welovegames",
+    "https://www.twitch.tv/leb1ga",
+    "https://www.twitch.tv/bratishkinoff",
+    "https://www.twitch.tv/buster",
+    "https://www.twitch.tv/egorkreed"
+  ],
+  "auto_updated": "2026-11-20T20:29:18Z"
 }

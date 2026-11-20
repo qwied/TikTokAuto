@@ -413,9 +413,12 @@ def test_auto_discover_preserves_user_channels_and_dedups():
                  "_help": "hi"})
     cfg = {"discovery": {"enabled": True, "count": 3, "min_viewers": 2000}}
     urls = gh_run.auto_discover(gh, cfg, top_fn=lambda n: TOP, probe_fn=lambda: [])
-    # big1 уже у человека — в авто-список не попадает, дубли не заводятся
+    # big1 уже у человека — в авто-список не попадает, дубли не заводятся.
+    # Фолбэк зрителей теперь 500 (запрос «каналов как можно больше»):
+    # "small" (500 зрителей) попадает в список, когда больших не хватает.
     assert urls == ["https://www.twitch.tv/caseoh_",
-                    "https://www.twitch.tv/big2"]
+                    "https://www.twitch.tv/big2",
+                    "https://www.twitch.tv/small"]
     data = json.loads(gh.store[gh_run.SUBS_JSON][0].decode("utf-8"))
     assert data["channels"] == ["https://www.twitch.tv/big1"]
     assert data["auto_channels"] == urls
@@ -525,3 +528,58 @@ def test_twitch_top_streams_gql_errors(monkeypatch):
     monkeypatch.setattr(rq, "post",
                         lambda *a, **k: R())
     assert gh_run.twitch_top_streams(30) == []
+
+
+def test_wipe_old_clips_once_deletes_assets_and_resets_json():
+    """Маркер wipe_clips.now: все ассеты релиза стираются, clips.json пуст,
+    маркер удаляется. Без маркера — ничего не происходит."""
+    import json as _json
+
+    class FakeGHWipe:
+        repo = "o/r"
+
+        def __init__(self, with_marker):
+            self.with_marker = with_marker
+            self.deleted_assets = []
+            self.deleted_files = []
+            self.clips = {"clips": [{"id": "a"}, {"id": "b"}]}
+            self.store = {}
+
+        def get_file(self, path):
+            if path == gh_run.WIPE_MARKER:
+                return (b"1", "sha-marker") if self.with_marker else (None, None)
+            if path == gh_run.CLIPS_JSON:
+                return (_json.dumps(self.clips).encode("utf-8"), "sha-clips")
+            return (None, None)
+
+        def put_file(self, path, data, sha, message):
+            self.store[path] = (data, sha)
+
+        def delete_file(self, path, sha, message):
+            self.deleted_files.append(path)
+
+        def release_id(self):
+            return 77
+
+        def list_assets(self, rel_id):
+            return [{"id": 1, "name": "clip_1.mp4"}, {"id": 2, "name": "clip_2.mp4"}]
+
+        def delete_asset(self, asset_id):
+            self.deleted_assets.append(asset_id)
+
+    # без маркера — ничего не делаем
+    gh0 = FakeGHWipe(with_marker=False)
+    assert gh_run.wipe_old_clips_once(gh0) is False
+    assert gh0.deleted_assets == [] and gh0.deleted_files == []
+
+    # с маркером — чистка: 2 ассета, пустой clips.json, маркер снят
+    gh1 = FakeGHWipe(with_marker=True)
+    assert gh_run.wipe_old_clips_once(gh1) is True
+    assert gh1.deleted_assets == [1, 2]
+    assert gh1.deleted_files == [gh_run.WIPE_MARKER]
+    data = _json.loads(gh1.store[gh_run.CLIPS_JSON][0].decode("utf-8"))
+    assert data["clips"] == []
+    assert data["updated"].endswith("Z")
+
+    # gh=None безопасен
+    assert gh_run.wipe_old_clips_once(None) is False

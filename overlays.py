@@ -196,8 +196,14 @@ def _texture(img, box):
     return g / 2.0
 
 
-def detect_overlay_boxes(video_path, workdir="."):
-    """[(x, y, w, h)] в координатах ИСХОДНОГО видео — зоны чужих оверлеев."""
+def detect_overlay_boxes(video_path, workdir=".", exclude_boxes=()):
+    """[(x, y, w, h)] в координатах ИСХОДНОГО видео — зоны чужих оверлеев.
+
+    exclude_boxes — зоны-исключения [(x, y, w, h)] (окно камеры стримера):
+    вебкамера СТАТИЧНА, поэтому детектор «неподвижности» видит в ней чужой
+    баннер и замазывал стримера (прод 2026-11-20: dmitry_lixxx — маска
+    накрыла нижнюю половину лица). Зоны-исключения передаёт pipeline.
+    """
     import numpy as np
     frames, (w_src, h_src) = _extract_frames(video_path, workdir)
     if frames is None:
@@ -233,6 +239,11 @@ def detect_overlay_boxes(video_path, workdir="."):
             continue                     # полоса выше трети кадра — не виджет
         if _texture(mean_img, (x0, y0, x1, y1)) < MIN_TEXTURE:
             continue                     # статично, но гладко (небо/трава) — не банер
+        box_src = (x0, y0, x1 - x0, y1 - y0)
+        if _inside_excluded(box_src, exclude_boxes, w_src, h_src, w, h):
+            log.info("Замазка: зона %s — это окно камеры стримера, не трогаю",
+                     box_src)
+            continue
         boxes.append((x0, y0, x1, y1))
     if not boxes:
         return []
@@ -254,6 +265,25 @@ def detect_overlay_boxes(video_path, workdir="."):
         log.info("Замазка: найдено зон %d: %s", len(out),
                  "; ".join("%dx%d@%d,%d" % b for b in out))
     return out
+
+
+def _inside_excluded(box, exclude_boxes, w_src, h_src, w_an, h_an):
+    """True, если зона (в координатах анализа) по большей части внутри
+    одной из зон-исключений (в координатах ИСХОДНИКА) — это камера."""
+    sx = w_src / float(w_an or 1)
+    sy = h_src / float(h_an or 1)
+    x, y, bw, bh = [float(v) for v in box]
+    for ex in exclude_boxes or ():
+        try:
+            exx, exy, exw, exh = [float(v) for v in ex]
+        except (TypeError, ValueError):
+            continue
+        # пересечение площади зоны с исключением, в долях площади зоны
+        ix = max(0.0, min(x + bw, (exx + exw) / sx) - max(x, exx / sx))
+        iy = max(0.0, min(y + bh, (exy + exh) / sy) - max(y, exy / sy))
+        if bw * bh > 0 and (ix * iy) / (bw * bh) > 0.10:
+            return True
+    return False
 
 
 def map_boxes(boxes, src_w, src_h, mode="blur", out_w=1080, out_h=1920):

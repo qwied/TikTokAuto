@@ -30,11 +30,22 @@ HEIGHT = 1920
 SPLIT_CAM_FRAC = 0.36   # доля высоты экрана под камеру стримера (верх);
                         # по референсу пользователя: ~36% кадра, лицо крупное
 
+# Если камеру найти не удалось: клип собирается КАК 9:16-КРОП (весь экран
+# занят, без размытых полос) — жалоба пользователя на «кривые соотношения
+# сторон» была именно про letterbox-полосы blur-фолбэка (dmitry_lixxx,
+# прод 2026-11-20). blur остаётся доступным через config
+# clip.vertical_fallback: blur.
+FALLBACK_DEFAULT = "crop"
+
 # Замазка чужих оверлеев никогда не накрывает стримера: зона лица (окно
 # камеры) защищена — маска отбрасывается, если перекрывает её сильнее
 # PROTECT_MAX_OVERLAP доли площади самой маски (прод-инцидент 2026-11-20:
 # AFK-камера детектилась как «виджет» и верхние углы били прямо по лицу).
 PROTECT_MAX_OVERLAP = 0.08
+# В split полоса камеры — ЦЕЛИКОМ зона стримера: даже 2% заезда на окно
+# камеры после масштабирования в широкую полосу ложатся на лицо/плечи
+# (прод 2026-11-20: zloyn — замазка виджета рядом с камерой размыла полкамеры).
+PROTECT_MAX_OVERLAP_SPLIT = 0.02
 
 
 def _overlap(a, b):
@@ -97,6 +108,17 @@ def split_windows(src_w, src_h, cam_box, cam_frac=SPLIT_CAM_FRAC,
     return (cx, cy, cw, ch), (max(0, (src_w - gw) // 2), 0, gw, src_h), cam_h
 
 
+def split_cam_h(h=HEIGHT, cam_frac=SPLIT_CAM_FRAC):
+    """ЧЁТНАЯ высота полосы камеры в готовом кадре (см. split_windows).
+
+    Единая точка правды для lipsync/pipeline: без повторного детекта лица
+    на вертикальном клипе — полоса известна из геометрии макета.
+    """
+    cam_h = int(round(h * float(cam_frac)))
+    cam_h += cam_h % 2
+    return cam_h
+
+
 def split_graph(src_w, src_h, cam_box, cam_frac=SPLIT_CAM_FRAC,
                 w=WIDTH, h=HEIGHT):
     """ffmpeg-граф макета «камера сверху, игра снизу».
@@ -127,8 +149,9 @@ def split_graph(src_w, src_h, cam_box, cam_frac=SPLIT_CAM_FRAC,
         f"scale={w}:{game_h}:force_original_aspect_ratio=increase:flags=lanczos,"
         f"crop={w}:{game_h},setsar=1[game];"
         f"[cam][game]vstack=inputs=2[vs];"
-        # тонкий разделитель между секциями
-        f"[vs]drawbox=x=0:y={max(0, cam_h - 3)}:w={w}:h=3:color=black@0.6:t=fill[vsep]"
+        # тонкий БЕЛЫЙ разделитель между секциями (как на референсе
+        # пользователя IMG_3624: камера сверху, белая полоска, игра снизу)
+        f"[vs]drawbox=x=0:y={max(0, cam_h - 5)}:w={w}:h=5:color=white@0.92:t=fill[vsep]"
     )
     return graph, "vsep", cam_h
 
@@ -150,7 +173,8 @@ def crop_graph(w=WIDTH, h=HEIGHT):
 
 def make_vertical(video_in, video_out, workdir, width=WIDTH, height=HEIGHT,
                   mode="blur", blur=26, vcodec_args=None, mask_boxes=None,
-                  raw_boxes=None, cam_frac=SPLIT_CAM_FRAC):
+                  raw_boxes=None, cam_frac=SPLIT_CAM_FRAC, cam_box=None,
+                  fallback=FALLBACK_DEFAULT):
     """Перевести клип в вертикальный формат 9:16.
 
     Принимает собранный сырой клип (ts/mp4), возвращает путь к вертикальному
@@ -158,7 +182,11 @@ def make_vertical(video_in, video_out, workdir, width=WIDTH, height=HEIGHT,
     (совместимо с TikTok). Выход: h264 + yuv420p + faststart.
 
     Режим split: авто-детект вебкамеры (webcam.py) -> камера сверху,
-    игра снизу. Камеру не нашли / cv2 нет -> клип собирается как blur.
+    игра снизу. Камеру не нашли / cv2 нет -> клип собирается как
+    9:16-КРОП (fallback, весь экран без полос; blur — по config).
+
+    cam_box — уже найденное окно камеры (передаёт pipeline, чтобы не
+    детектить дважды); None — детектим сами.
 
     ЗАЩИТА ЛИЦА: зоны замазки (raw_boxes) никогда не накрывают окно камеры
     (в split) / слабое окно лица (в blur/crop) — прод 2026-11-20: AFK-камера
@@ -187,29 +215,36 @@ def make_vertical(video_in, video_out, workdir, width=WIDTH, height=HEIGHT,
 
     cam = None
     mode_low = str(mode or "blur").lower()
+    fallback_low = str(fallback or FALLBACK_DEFAULT).lower()
     full_in = os.path.join(str(workdir), video_in)
     if mode_low == "split" and src_w > 0 and src_h > 0:
-        try:
+        if cam_box:
+            cam = tuple(float(v) for v in cam_box)   # найдено заранее (pipeline)
+            log.info("9:16 split: окно камеры передано пайплайном")
+        else:
             try:
-                from webcam import detect_cam_box
-            except ImportError:                       # плоский репозиторий
-                from webcam import detect_cam_box
-            cam = detect_cam_box(full_in, str(workdir))
-        except Exception:
-            log.exception("Детект камеры упал — клип собирается как blur")
-            cam = None
+                try:
+                    from webcam import detect_cam_box
+                except ImportError:                       # плоский репозиторий
+                    from webcam import detect_cam_box
+                cam = detect_cam_box(full_in, str(workdir))
+            except Exception:
+                log.exception("Детект камеры упал — клип собирается как %s",
+                              fallback_low)
+                cam = None
         if cam:
             try:
                 graph, base_label, _cam_h = split_graph(
                     src_w, src_h, cam, cam_frac=cam_frac, w=width, h=height)
                 log.info("9:16 макет split: камера сверху, игра снизу")
             except Exception:
-                log.exception("split-граф не собрался — макет blur")
+                log.exception("split-граф не собрался — макет %s", fallback_low)
                 cam = None
         else:
-            log.info("Камеру не нашли — макет blur (стрим по центру)")
+            log.info("Камеру не нашли — макет %s (весь экран без полос)",
+                     fallback_low)
         if cam is None:
-            mode_low = "blur"
+            mode_low = fallback_low
     if cam is None:
         graph = blur_graph(width, height, blur=blur) \
             if mode_low != "crop" else crop_graph(width, height)
@@ -243,15 +278,24 @@ def make_vertical(video_in, video_out, workdir, width=WIDTH, height=HEIGHT,
     boxes = mask_boxes
     if boxes is None and raw_boxes and src_w > 0:
         if face_box:
+            # В split полоса камеры — зона стримера ЦЕЛИКОМ: порог жёстче (2%),
+            # плюс любое пересечение центром зоны маски с окном камеры = отказ.
+            # В blur/crop лицо ищем слабым детектом — порог мягче (8%).
+            thr = PROTECT_MAX_OVERLAP_SPLIT if cam is not None \
+                else PROTECT_MAX_OVERLAP
+            fx, fy, fw2, fh2 = [float(v) for v in face_box]
             kept = []
             for b in raw_boxes:
                 try:
                     hit = box_overlap_frac(b, face_box)
                 except Exception:
                     hit = 0.0
-                if hit > PROTECT_MAX_OVERLAP:
-                    log.info("Замазка пропускает зону лица %s (перекрытие %.0f%%)",
-                             b, hit * 100)
+                bcx = float(b[0]) + float(b[2]) / 2.0
+                bcy = float(b[1]) + float(b[3]) / 2.0
+                center_inside = (fx <= bcx <= fx + fw2 and fy <= bcy <= fy + fh2)
+                if hit > thr or center_inside:
+                    log.info("Замазка пропускает зону лица %s (перекрытие %.0f%%, "
+                             "центр в камере: %s)", b, hit * 100, center_inside)
                     continue
                 kept.append(b)
             raw_boxes = kept
@@ -266,6 +310,13 @@ def make_vertical(video_in, video_out, workdir, width=WIDTH, height=HEIGHT,
                 boxes = map_boxes_split(raw_boxes, src_w, src_h,
                                         cam_win, game_win, cam_h,
                                         out_w=width, out_h=height)
+                # страховка: всё, что легло в ПОЛОСУ КАМЕРЫ (выше разделителя),
+                # замазывать нельзя — там стример (прод 2026-11-20: zloyn)
+                before_strip = len(boxes)
+                boxes = [b for b in boxes if b[1] + b[3] > cam_h]
+                if len(boxes) != before_strip:
+                    log.info("Замазка: %d зон убраны из полосы камеры",
+                             before_strip - len(boxes))
             else:
                 boxes = map_boxes(raw_boxes, src_w, src_h, mode_low,
                                   out_w=width, out_h=height)

@@ -17,10 +17,12 @@ import threading
 import time
 
 import banner
+import lipsync as lipsync_mod
 import overlays as overlays_mod
 import subtitle
 import vod as vod_mod
 import vertical as vertical_mod
+import webcam as webcam_mod
 from ad_guard import AdGuard
 from bot import TelegramBot
 from chat_watcher import TwitchChatWatcher, YouTubeChatWatcher
@@ -692,11 +694,24 @@ class Pipeline:
         # RubUp рисуется ПОСЛЕ замазки — остаётся чётким.
         if self.vertical:
             raw_boxes = None
+            cam_box = None
             clip_cfg = self.cfg.get("clip") or {}
             if bool(clip_cfg.get("hide_overlays", True)):
                 try:
                     raw_meta = ffprobe_meta(orig_ts)
-                    raw_boxes = overlays_mod.detect_overlay_boxes(orig_ts, workdir)
+                    # Окно камеры ищем ОДИН раз: (а) исключаем его из детекта
+                    # чужих оверлеев — вебкамера статична и выглядит детектору
+                    # «баннером», из-за этого замазка накрывала лицо стримера
+                    # (прод 2026-11-20: dmitry_lixxx); (б) передаём в
+                    # make_vertical, чтобы не детектить второй раз.
+                    try:
+                        cam_box = webcam_mod.detect_cam_box(orig_ts, workdir)
+                    except Exception:
+                        log.exception("Детект камеры упал — замазка без исключения")
+                        cam_box = None
+                    excl = [cam_box] if cam_box else []
+                    raw_boxes = overlays_mod.detect_overlay_boxes(
+                        orig_ts, workdir, exclude_boxes=excl)
                     if bool(clip_cfg.get("mask_corners", True)):
                         raw_boxes = raw_boxes + overlays_mod.corner_boxes(
                             int(raw_meta.get("width") or 0),
@@ -711,7 +726,10 @@ class Pipeline:
                 raw_ts = vertical_mod.make_vertical(
                     orig_ts, os.path.join(workdir, f"clip_{stamp}_9x16.mp4"),
                     workdir, mode=self.vertical_mode,
-                    vcodec_args=self._vcodec_args, raw_boxes=raw_boxes)
+                    vcodec_args=self._vcodec_args, raw_boxes=raw_boxes,
+                    cam_box=cam_box,
+                    fallback=str(clip_cfg.get("vertical_fallback",
+                                              vertical_mod.FALLBACK_DEFAULT)))
             except Exception:
                 log.exception("9:16 не удался — клип останется горизонтальным")
                 raw_ts = orig_ts
@@ -756,10 +774,36 @@ class Pipeline:
             except Exception:
                 log.warning("Не удалось рассчитать показы баннера — без пауз")
                 intervals = None
+        # --- ЛИП-СИНК: когда стример РЕАЛЬНО говорит (по движению губ) -----------
+        # Считаем ПОСЛЕ логической обрезки (raw_ts уже финальной длины) и
+        # на вертикальном клипе (субтитры строятся по нему же — тайминги
+        # сходятся). Жалоба пользователя: субтитры «проносятся», когда
+        # стример молчит — Whisper тянет речь из игры/войсчата.
+        # Геометрия: в split полоса камеры известна из макета (0..cam_h) —
+        # повторный детект лица не нужен; в crop-фолбэке лицо за кадром —
+        # гейт невозможен; в blur лицо по центру — lipsync детектит сам.
+        lip_iv = None
+        sub_lip_on = bool((self.sub_cfg or {}).get("lip_sync", True))
+        if sub_lip_on and os.path.exists(raw_ts):
+            try:
+                if (cam_box and self.vertical_mode == "split"
+                        and str(raw_ts).endswith("_9x16.mp4")):
+                    strip_h = vertical_mod.split_cam_h()
+                    lip_iv = lipsync_mod.speaking_intervals(
+                        raw_ts, workdir, cam_box=(0, 0, 1080, strip_h))
+                elif cam_box or str(clip_cfg.get("vertical_fallback",
+                                                 "crop")) == "blur":
+                    lip_iv = lipsync_mod.speaking_intervals(raw_ts, workdir)
+                # иначе (crop без камеры): лица в кадре нет — гейт не нужен
+            except Exception:
+                log.exception("Лип-синк не удался — субтитры без гейта по губам")
+                lip_iv = None
+
         try:
             ass, smeta = subtitle.make_subtitles_meta(
                 raw_ts, workdir, self.sub_cfg, self.speech_language,
-                chat_msgs, duration=dur_est, skip_intervals=intervals)
+                chat_msgs, duration=dur_est, skip_intervals=intervals,
+                lip_intervals=lip_iv)
         except Exception:
             log.exception("Ошибка построения субтитров — клип будет без них")
             ass, smeta = None, {}

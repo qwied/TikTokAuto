@@ -85,6 +85,9 @@ SETTINGS_JSON = "settings.json"         # настройки качества к
 FEEDBACK_JSON = "feedback.json"         # Интересно/Скучно по клипам (пишет сайт)
 MAX_CLIPS = 60          # сколько клипов держать в clips.json
 MAX_ASSETS = 60         # сколько файлов держать в релизе (старые удаляются)
+WIPE_MARKER = "wipe_clips.now"   # маркер-файл в репо: стереть ВСЕ старые клипы
+                         # (разовая операция: ассеты релиза + clips.json; файл
+                         # удаляется после очистки, повтора не будет)
 PROBE_WAIT = 15         # секунд на проверку эфиров (быстрые API платформ)
 CHECK_EVERY_S = 15      # пауза чтения статуса внутри --check-loop (сам монитор
                         # опрашивает платформы каждые ~2-3 с — быстрее некуда:
@@ -129,13 +132,15 @@ MIN_PUBLISH_PRESETS = {
 # человеком, НИКОГДА не трогаются и не удаляются.
 TWITCH_GQL = "https://gql.twitch.tv/gql"
 TWITCH_WEB_CLIENT_ID = "kimne78kx3ncx6brgo4mv6wki5h1ko"
-DISCOVERY_COUNT = 25         # сколько топовых стримеров держать в слежке
+DISCOVERY_COUNT = 60         # сколько русскоязычных стримеров держать в слежке
+                             # (запрос: «каналов как можно больше»)
 DISCOVERY_MIN_VIEWERS = 2000  # отсечка по зрителям (мелкие каналы не нужны)
 DISCOVERY_REFRESH_MIN = 20    # как часто обновлять топ, минут
 DISCOVERY_TOP_FETCH = 30      # сколько стримов запрашивать (лимит Twitch: 30)
 DISCOVERY_LANGUAGE = "ru"     # ТОЛЬКО русскоязычные эфиры (запрос пользователя);
                               # "" — все языки. Мелких русских не набралось —
-                              # планка зрителей временно опускается до 800.
+                              # планка зрителей временно опускается до 500.
+DISCOVERY_FALLBACK_VIEWERS = 500  # низкая планка, если русских с 2000+ мало
 
 
 # --- хэштеги для TikTok (видны на сайте ДО скачивания клипа) -------------------
@@ -294,6 +299,11 @@ class GitHub:
         self.req("PUT", f"/repos/{self.repo}/contents/{quote(path)}",
                  json=body)
 
+    def delete_file(self, path, sha, message):
+        """Удалить файл из репозитория (нужен sha файла)."""
+        self.req("DELETE", f"/repos/{self.repo}/contents/{quote(path)}",
+                 json={"message": message, "sha": sha})
+
 
 # --- clips.json ---------------------------------------------------------------------------
 
@@ -378,6 +388,57 @@ def compact_thumb(video_path, workdir):
                 os.remove(out)
         except OSError:
             pass
+
+
+def wipe_old_clips_once(gh):
+    """Разовая чистка ВСЕХ старых клипов (запрос пользователя 2026-11-20).
+
+    Маркер-файл wipe_clips.now в корне репо (коммитится деплоем):
+      1) удаляются ВСЕ файлы релиза auto (все старые клипы);
+      2) clips.json сбрасывается в пустой;
+      3) маркер удаляется — повторов не будет.
+    Идемпотентно: если процесс упал посреди, на следующей смене недоделанное
+    доработается (список ассетов уже пуст — удалять нечего). Любая ошибка не
+    ломает смену — чистка повторится позже.
+    """
+    if gh is None:
+        return False
+    try:
+        raw, sha = gh.get_file(WIPE_MARKER)
+    except Exception:
+        log.exception("Не прочитать маркер чистки %s", WIPE_MARKER)
+        return False
+    if raw is None:
+        return False
+    log.info("Маркер %s найден — стираю ВСЕ старые клипы (релиз + clips.json)",
+             WIPE_MARKER)
+    try:
+        rel = gh.release_id()
+        assets = gh.list_assets(rel) or []
+        for a in assets:
+            try:
+                gh.delete_asset(a["id"])
+                log.info("Релиз: стёрт %s", a.get("name"))
+            except Exception as e:
+                log.warning("Не стереть ассет %s: %s", a.get("name"), e)
+        raw_clips, clips_sha = gh.get_file(CLIPS_JSON)
+        data = load_clips_json_bytes(raw_clips)
+        data["clips"] = []
+        data["updated"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+        gh.put_file(CLIPS_JSON, json.dumps(data, ensure_ascii=False,
+                                           indent=1).encode("utf-8"),
+                    clips_sha, "wipe: старые клипы удалены (все), clips.json пуст")
+        try:
+            gh.delete_file(WIPE_MARKER, sha,
+                           "wipe: маркер чистки снят — старых клипов больше нет")
+        except Exception:
+            log.exception("Маркер не удалить — чистка повторится на следующей смене")
+        log.info("Чистка старых клипов завершена: %d файлов релиза стёрто",
+                 len(assets))
+        return True
+    except Exception:
+        log.exception("Чистка старых клипов не удалась — повторю позже")
+        return False
 
 
 def prune_assets(gh, rel_id, max_assets=MAX_ASSETS):
@@ -753,14 +814,61 @@ def twitch_top_streams(limit=DISCOVERY_TOP_FETCH):
 # игры) — русских там не будет вовсе. Поэтому русскоязычных ищем ДВУМЯ
 # путями: фильтр глобального топа + прямая проверка живых эфиров у
 # известных русских стримеров (публичный GQL, без ключей).
+# Список 2026-11-20 (запрос «добавь как можно больше русскоязычных каналов»):
+# ~113 ЛОГИНОВ, каждый проверен запросом users(logins:) в GQL (битые отброшены
+# автоматически: mileenagordeeva, chpu_official, jdanoffffffff и др. уже не
+# существуют). Источники: twitchmetrics.net (топ русскоязычных по подписчикам
+# и просмотрам, 4 страницы) + прежний ручной список. Кто из них в эфире,
+# решает filter_by_language в auto_discover — язык должен быть ru/русский тайтл.
 RU_CANDIDATE_LOGINS = [
-    "recrent", "evelone200", "leb1ga", "shadowkekw", "t2x2",
-    "bratishkinoff", "melharucos", "sparkling_water", "nuuuur", "buster",
-    "ppperry", "hoshigami", "welovegames", "mileenagordeeva",
-    "chpu_official", "jdanoffffffff", "yogrouz", "4er4el", "nanopro",
-    "ks1lva", "baten_show", "morojennaya", "onepegger", "weaksac",
-    "goodwin4k", "feelleepetrov", "iskat", "daria_kit", "slindvind",
-    "pionggg", "kyshapn", "icdbreak", "dmitrylaxov", "anthonyyygo",
+    "1win_dota_ru", "4er4el", "5opka", "afoninje", "ahmpy",
+    "alanzoka", "aldo_geo", "alfrea", "aminematue", "anarabdullaev",
+    "angryginge13", "anyme023", "archiedos", "arrowwoods", "arteezysboy",
+    "asmongold247", "audio__rw", "auronplay", "aussieantics", "avice",
+    "barbarousking", "bastighg", "batora324", "betboom_cs_ru", "blastpremier",
+    "bonjwa", "bratishkinoff", "breeezzx", "buster", "busteroid1337",
+    "bysl4m", "caedrel", "caedrel247", "caseoh_", "castcrafter",
+    "cdawg", "charmy_games", "chopperinho", "clemquicourt", "clix",
+    "coachlim", "cohhcarnage", "d1pro4", "d1sstric", "dakillzor",
+    "dangerlyoha", "danila_gorilla", "dansgaming", "daria_kit", "dawgonosik",
+    "deepins02", "deko", "dirkaes", "djmariio", "dkincc",
+    "dmitry_lixxx", "domingo", "edison", "egorkreed", "elajjaz",
+    "eliasn97", "elmariana", "elxokas", "emiru", "erokez61",
+    "esfandtv", "eslcs", "evelone200", "evelone2004", "evelynomadera",
+    "ewroon", "filshtein", "fissure_dota_ru", "fps_shaka", "frametamer666",
+    "fubgun", "fumimochi", "gadjiev57", "gen1usat", "goodwin4k",
+    "gorgc", "gotaga", "gronkh", "gtasty", "guacamolemolly",
+    "gwap69", "handofblood", "hasanabi", "honeymad", "hoshigami",
+    "hutchmf", "ibai", "illojuan", "ilrossopiubelloditwitch", "imblancos",
+    "imdankar", "indegnasen0706", "ishowspeed", "iskat", "japabigodin",
+    "jasontheween", "jerry256cs2", "jltomy", "joe_bartolozzi", "jokerdtv",
+    "jolygames", "jynxzi", "k4sen", "kaicenat", "kamet0",
+    "kanonxo", "kato_junichi0817", "knekro", "kopsteep", "koreshzy",
+    "krokoboss", "ks1lva", "lacy", "lacyoffline_", "leb1ga",
+    "leemodopi", "lenagol0vach", "letshugotv", "leva2k", "lirik",
+    "liz0n", "lolesportstw", "m0nesyof", "m3wsu", "mafanyaking",
+    "magamedtv05", "malr1ne_dota", "markjoviic", "mastu", "melharucos",
+    "mellstroy981", "mertabimula", "metashi12", "missmikkaa", "mistafaker",
+    "mitchjones", "mokrivskyi", "montanablack88", "moonmoon", "morphe_ya",
+    "murzofix", "n_masteroff", "nanopro", "nicewigg", "nix",
+    "nooreax", "noway4u_sir", "nuuuur", "ohnepixel", "on_rus",
+    "otplol_", "ow_esports", "papaplatte", "paradeev1ch", "pathofexile",
+    "payo", "peereira7", "pgl", "pikabooirl", "pionggg",
+    "ppperry", "primevideo", "pustyshkaa", "qtcinderella", "quin69",
+    "rad0s66", "rainbow6", "ravshann", "raze_iam", "realkatieb",
+    "recrent", "rejiboi", "renatko", "riotgames", "roman_banann",
+    "rostikfacekid", "rostislav_999", "rubius", "sasatikk", "sasavot",
+    "senator__se", "shadowkekw", "shevchik666", "shirooutsider", "shosha_433",
+    "shur4", "silvername", "skywhywalker", "skyyart", "sodapoppin",
+    "sondergaardlol", "sparkling_water", "squeezie", "stableronaldo", "stariy_bog",
+    "steel", "stintik", "stray228", "strogo", "stylishnoob4",
+    "summit1g", "supertf", "swagg", "syslov171", "t2x2",
+    "tfue", "thebausffs", "theburntpeanut", "theburntpeanut_247", "therealknossi",
+    "tolkin", "tpabomah", "traytonlol", "trymacs", "tumblurr",
+    "typicalgamer", "vlad_derevyashka", "welovegames", "wendolynortizz", "xaryu",
+    "xqc", "xrohat", "yukiofps14", "yutapongo", "yuyuta0702",
+    "zackrawrr", "zarbex", "zer0truel0ve", "zerator", "zloyn",
+    "znat51", "zombie_doctorr", "zxcpulsedx", "zxcursed", "zxjem"
 ]
 
 
@@ -772,9 +880,19 @@ def ru_probe_streams(logins=None):
     остальным каналам продолжается.
     """
     logins = [str(x).strip().lower() for x in (logins or RU_CANDIDATE_LOGINS)
-              if str(x).strip()][:100]          # лимит GQL users
+              if str(x).strip()]
     if not logins:
         return []
+    # GQL users принимает НЕ БОЛЬШЕ 100 логинов за запрос: список вырос до
+    # ~113 — режем на пачки и объединяем (одна пачка молча теряла бы хвост).
+    out = []
+    for start in range(0, len(logins), 100):
+        out.extend(_probe_streams_batch(logins[start:start + 100]))
+    return out
+
+
+def _probe_streams_batch(logins):
+    """Одна пачка (до 100) пробы живых эфиров — тело старой ru_probe_streams."""
     body = {"query": ("query($logins:[String!]) { users(logins:$logins) "
                       "{ login displayName stream { title viewersCount "
                       "language game { displayName } } } }")}
@@ -897,14 +1015,14 @@ def auto_discover(gh, cfg, top_fn=None, probe_fn=None):
     log.info("Автопоиск: %d живых русскоязычных (топ+проба)", len(fetch))
     urls = discovery_urls(fetch, min_viewers=min_viewers, count=count,
                           exclude=exclude)
-    if len(urls) < min(8, count) and min_viewers > 800:
+    if len(urls) < min(8, count) and min_viewers > DISCOVERY_FALLBACK_VIEWERS:
         # Русских топов с 2000+ зрителями сейчас не набралось — опускаем
         # планку, чтобы слежка не осталась полупустой (качество моментов
         # всё равно отсекает скучные клипы после нарезки).
-        log.info("Русскоязычных с %d+ зрителями мало (%d) — опускаю планку до 800",
-                 min_viewers, len(urls))
-        urls = discovery_urls(fetch, min_viewers=800, count=count,
-                              exclude=exclude)
+        log.info("Русскоязычных с %d+ зрителями мало (%d) — опускаю планку до %d",
+                 min_viewers, len(urls), DISCOVERY_FALLBACK_VIEWERS)
+        urls = discovery_urls(fetch, min_viewers=DISCOVERY_FALLBACK_VIEWERS,
+                              count=count, exclude=exclude)
     if set(urls) == set(old_auto):
         if urls:
             log.info("Топ Twitch без изменений (%d каналов) — коммит не нужен",
@@ -1246,6 +1364,12 @@ def run_check_loop(max_minutes=CHECK_LOOP_MIN):
     cfg = load_config("config.yaml")
     cfg["_config_path"] = os.path.abspath("config.yaml")
     yt = cfg.get("youtube", {}) or {}
+    # Разовая чистка ВСЕХ старых клипов — маркер wipe_clips.now в репо.
+    # Чистим ДО слежки: релиз опустошается, клипы на сайте обновятся сами.
+    try:
+        wipe_old_clips_once(gh)
+    except Exception:
+        log.exception("Разовая чистка клипов упала — продолжаю смену")
 
     auto_state = {"urls": [], "last": 0.0}
     set_state = {"s": None, "last": 0.0}
@@ -1632,6 +1756,12 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
         return 2
     cfg.setdefault("server", {})["enabled"] = False
     cfg.setdefault("notify", {})["provider"] = "none"
+    # Разовая чистка ВСЕХ старых клипов (маркер wipe_clips.now в репо) —
+    # до нарезки новых: старые не должны смешиваться с новыми.
+    try:
+        wipe_old_clips_once(gh)
+    except Exception:
+        log.exception("Разовая чистка клипов упала — продолжаю нарезку")
     providers = notify_cfg_from_env(cfg)
     if providers:
         log.info("Уведомления включены: %s", ", ".join(providers))
