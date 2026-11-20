@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T09:52:10Z",
+ "updated": "2026-11-20T09:52:27Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -106,6 +106,47 @@
   "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"shadowkekw\", false, \"[DROPS] 🌴 GTA VI 🌴 МАРАФОН 🌴 @evelone2004 @mokrivskyi 🌴 👉 !тг !betboom !торнадо !РО !yota !розыгрыш\", 0], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ФИНАЛ ГТА | !tg !winline !ЯО !ВТБ !avan\", 6350], [\"whoplohoyparen\", true, \"GTA 6 60fps DLSS5 ПОЛНОЕ ПРОХОЖДЕНИЕ ДЕНЬ 3\", 4525], [\"stray228\", false, \"\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 7750], [\"enzzai\", true, \"🏝️ПХУКЕТ | НА ПЛЯЖЕ | ДЕНЬ 17 W/ @WHYLOLLYCRY | !GGSEL !SLAY\", 4775], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 3 | !tg !прогресс\", 5575], [\"melharucos\", true, \"ИГРА ОЧЕНЬ НРАВИТСЯ. СДЕЛАЛ !60фпс СЕБЕ И КАЙФУЮ СИЖУ\", 4475], [\"welovegames\", true, \"[DROPS] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 2450], [\"mokrivskyi\", true, \"[DROPS] 🌆 GTA VI ☀️ МАРАФОН 🦩72% 💯 @evelone2004 @shadowkekw 💰!tg\", 20925], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2\", 2550]]"
  },
  "clips": [
+  {
+   "id": "2026-11-20_09-49-56_dmitry_lixxx",
+   "file": "2026-11-20_09-49-56_dmitry_lixxx.mp4",
+   "url": "https://github.com/qwied/TikTokAuto/releases/download/auto/2026-11-20_09-49-56_dmitry_lixxx.mp4",
+   "thumb": "data:image/jpeg;base64,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",
+   "size": 20305556,
+   "duration": 36.1,
+   "channel": "dmitry",
+   "display": "twitch.tv/dmitry_lixxx",
+   "platform": "twitch",
+   "title": "[DROPS/120 FPS] ФИНАЛ ГТА | !tg !winline !ЯО !ВТБ !avan",
+   "score": 72.8,
+   "hashtags": [
+    "#gta",
+    "#гта5",
+    "#gtarp",
+    "#dmitry",
+    "#twitch",
+    "#рек",
+    "#рекомендации",
+    "#fyp",
+    "#foryou",
+    "#viral",
+    "#прикол",
+    "#смешно",
+    "#хайп",
+    "#стрим"
+   ],
+   "caption": "«Ох блять, а то отпусти меня гля -гля -гля -зарухать, *** Отпусти меня мусор,» — twitch.tv/dmitry_lixxx",
+   "subs": {
+    "lang": "ru",
+    "words": 53,
+    "speech_pct": 46,
+    "ok": true,
+    "hook": "Ох блять, а то отпусти меня гля -гля -гля -зарухать, *** Отпусти меня мусор,"
+   },
+   "src": "",
+   "start": 0,
+   "created": 1795168344,
+   "gh": true
+  },
   {
    "id": "2026-11-20_09-40-45_welovegames",
    "file": "2026-11-20_09-40-45_welovegames.mp4",
@@ -2509,47 +2550,6 @@
    "src": "",
    "start": 0,
    "created": 1795146271,
-   "gh": true
-  },
-  {
-   "id": "2026-11-20_03-32-37_shadowkekw",
-   "file": "2026-11-20_03-32-37_shadowkekw.mp4",
-   "url": "https://github.com/qwied/TikTokAuto/releases/download/auto/2026-11-20_03-32-37_shadowkekw.mp4",
-   "thumb": "data:image/jpeg;base64,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",
-   "size": 11490325,
-   "duration": 60.0,
-   "channel": "shadowkekw",
-   "display": "twitch.tv/shadowkekw",
-   "platform": "twitch",
-   "title": "[DROPS] 🌴 GTA VI 🌴 МАРАФОН 🌴 @evelone2004 @mokrivskyi 🌴 👉 !тг !betboom !торнадо !РО !yota !розыгрыш",
-   "score": 52.0,
-   "hashtags": [
-    "#gta",
-    "#гта5",
-    "#gtarp",
-    "#shadowkekw",
-    "#twitch",
-    "#рек",
-    "#рекомендации",
-    "#fyp",
-    "#foryou",
-    "#viral",
-    "#прикол",
-    "#смешно",
-    "#хайп",
-    "#стрим"
-   ],
-   "caption": "«По другой линии. Алло! Алло! Я просто не умею радоваться. Нет, это не радует.» — twitch.tv/shadowkekw",
-   "subs": {
-    "lang": "ru",
-    "words": 49,
-    "speech_pct": 50,
-    "ok": true,
-    "hook": "По другой линии. Алло! Алло! Я просто не умею радоваться. Нет, это не радует."
-   },
-   "src": "",
-   "start": 0,
-   "created": 1795145738,
    "gh": true
   }
  ]
