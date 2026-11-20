@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T12:43:05Z",
+ "updated": "2026-11-20T12:43:56Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -12,122 +12,114 @@
     "title": ""
    },
    {
-    "name": "nix",
-    "display": "twitch.tv/nix",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 29646,
-    "title": "Spirit vs Nemesis bo3 0:1 BLAST SLAM IX (Group Stage)"
-   },
-   {
     "name": "mokrivskyi",
     "display": "twitch.tv/mokrivskyi",
     "platform": "twitch",
-    "live": true,
-    "viewers": 27129,
-    "title": "[DROPS]  🌆 GTA VI  ☀️ МАРАФОН 🦩 77% 💯 @evelone2004 @shadowkekw 💰 !tg"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
-    "name": "betboom_dota_ru",
-    "display": "twitch.tv/betboom_dota_ru",
+    "name": "nix",
+    "display": "twitch.tv/nix",
     "platform": "twitch",
-    "live": true,
-    "viewers": 9698,
-    "title": "Team Spirit [0] vs [1] Team Nemesis | Bo3 | Group Stage Day 1 | BLAST SLAM IX | cast: @pivovar_cast & @autodestruction"
-   },
-   {
-    "name": "filshtein",
-    "display": "twitch.tv/filshtein",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 3993,
-    "title": "Вход GTA 6! Полное прохождение!"
-   },
-   {
-    "name": "dadyasashalydik",
-    "display": "twitch.tv/dadyasashalydik",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 9953,
-    "title": "СТАРЫЙ И МАЛОЙ ИГРАЮТ В GTA6 / ГТА6 СТРИМ / ГТА6 ОНЛАЙН"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "leb1ga",
     "display": "twitch.tv/leb1ga",
     "platform": "twitch",
-    "live": true,
-    "viewers": 11703,
-    "title": "⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
-    "name": "skywhywalker",
-    "display": "twitch.tv/skywhywalker",
+    "name": "dadyasashalydik",
+    "display": "twitch.tv/dadyasashalydik",
     "platform": "twitch",
-    "live": true,
-    "viewers": 10825,
-    "title": "САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑"
-   },
-   {
-    "name": "bratishkinoff",
-    "display": "twitch.tv/bratishkinoff",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 9876,
-    "title": "2K 60FPS • FIRST POV • GTA 6 • DAY 3"
-   },
-   {
-    "name": "welovegames",
-    "display": "twitch.tv/welovegames",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 5665,
-    "title": "[VHS] Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo"
-   },
-   {
-    "name": "melharucos",
-    "display": "twitch.tv/melharucos",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 4788,
-    "title": "ИГРА ОЧЕНЬ НРАВИТСЯ. СДЕЛАЛ !60фпс СЕБЕ И КАЙФУЮ СИЖУ"
-   },
-   {
-    "name": "solo",
-    "display": "twitch.tv/solo",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 9919,
-    "title": "🔴Team Spirit [0:1] Team Nemesis, Bo3 | BLAST SLAM IX: Group Stage w/ @геннадий @Rodjer | !tg !BETBOOM !розыгрыш"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "recrent",
     "display": "twitch.tv/recrent",
     "platform": "twitch",
-    "live": true,
-    "viewers": 12697,
-    "title": "[1440p] GTA VI. День 3 | !pari !ggsel !tg !мерч"
-   },
-   {
-    "name": "frametamer666",
-    "display": "twitch.tv/frametamer666",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 5678,
-    "title": "GTA 6 ДОНАТОФОН 24/7 [DAY 3]"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "t2x2",
     "display": "twitch.tv/t2x2",
     "platform": "twitch",
-    "live": true,
-    "viewers": 11963,
-    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch (донаты и мемы офф)"
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "skywhywalker",
+    "display": "twitch.tv/skywhywalker",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "bratishkinoff",
+    "display": "twitch.tv/bratishkinoff",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "betboom_dota_ru",
+    "display": "twitch.tv/betboom_dota_ru",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "solo",
+    "display": "twitch.tv/solo",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "frametamer666",
+    "display": "twitch.tv/frametamer666",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "welovegames",
+    "display": "twitch.tv/welovegames",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "melharucos",
+    "display": "twitch.tv/melharucos",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"Spirit vs Nemesis bo3 0:1 BLAST SLAM IX (Group Stage)\", 29650], [\"mokrivskyi\", true, \"[DROPS]  🌆 GTA VI  ☀️ МАРАФОН 🦩 77% 💯 @evelone2004 @shadowkekw 💰 !tg\", 27125], [\"betboom_dota_ru\", true, \"Team Spirit [0] vs [1] Team Nemesis | Bo3 | Group Stage Day 1 | BLAST SLAM IX | cast: @pivovar_cast & @autodestruction\", 9700], [\"filshtein\", true, \"Вход GTA 6! Полное прохождение!\", 4000], [\"dadyasashalydik\", true, \"СТАРЫЙ И МАЛОЙ ИГРАЮТ В GTA6 / ГТА6 СТРИМ / ГТА6 ОНЛАЙН\", 9950], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2\", 11700], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 10825], [\"bratishkinoff\", true, \"2K 60FPS • FIRST POV • GTA 6 • DAY 3\", 9875], [\"welovegames\", true, \"[VHS] Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 5675], [\"melharucos\", true, \"ИГРА ОЧЕНЬ НРАВИТСЯ. СДЕЛАЛ !60фпс СЕБЕ И КАЙФУЮ СИЖУ\", 4800], [\"solo\", true, \"🔴Team Spirit [0:1] Team Nemesis, Bo3 | BLAST SLAM IX: Group Stage w/ @геннадий @Rodjer | !tg !BETBOOM !розыгрыш\", 9925], [\"recrent\", true, \"[1440p] GTA VI. День 3 | !pari !ggsel !tg !мерч\", 12700], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 3]\", 5675], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch (донаты и мемы офф)\", 11975]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"mokrivskyi\", false, \"\", 0], [\"nix\", false, \"\", 0], [\"leb1ga\", false, \"\", 0], [\"dadyasashalydik\", false, \"\", 0], [\"recrent\", false, \"\", 0], [\"t2x2\", false, \"\", 0], [\"skywhywalker\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"solo\", false, \"\", 0], [\"frametamer666\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"melharucos\", false, \"\", 0]]"
  },
  "clips": [
   {
