@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T09:40:10Z",
+ "updated": "2026-11-20T09:41:12Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -24,7 +24,7 @@
     "display": "twitch.tv/dmitry_lixxx",
     "platform": "twitch",
     "live": true,
-    "viewers": 7091,
+    "viewers": 6960,
     "title": "[DROPS/120 FPS] ФИНАЛ ГТА | !tg !winline !ЯО !ВТБ !avan"
    },
    {
@@ -32,7 +32,7 @@
     "display": "twitch.tv/whoplohoyparen",
     "platform": "twitch",
     "live": true,
-    "viewers": 4560,
+    "viewers": 4451,
     "title": "GTA 6 60fps DLSS5 ПОЛНОЕ ПРОХОЖДЕНИЕ ДЕНЬ 3"
    },
    {
@@ -56,7 +56,7 @@
     "display": "twitch.tv/enzzai",
     "platform": "twitch",
     "live": true,
-    "viewers": 4836,
+    "viewers": 4771,
     "title": "🏝️ПХУКЕТ | НА ПЛЯЖЕ | ДЕНЬ 17 W/ @WHYLOLLYCRY | !GGSEL !SLAY"
    },
    {
@@ -84,14 +84,6 @@
     "title": "[ДЕНЬ 18] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo"
    },
    {
-    "name": "leva2k",
-    "display": "twitch.tv/leva2k",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 4436,
-    "title": "GTA Vl | ИЗОЛЯЦИЯ ДЕНЬ 5 | !tg !donate !winline !ggsel"
-   },
-   {
     "name": "mokrivskyi",
     "display": "twitch.tv/mokrivskyi",
     "platform": "twitch",
@@ -111,7 +103,7 @@
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"shadowkekw\", false, \"[DROPS] 🌴 GTA VI 🌴 МАРАФОН 🌴 @evelone2004 @mokrivskyi 🌴 👉 !тг !betboom !торнадо !РО !yota !розыгрыш\", 0], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ФИНАЛ ГТА | !tg !winline !ЯО !ВТБ !avan\", 7100], [\"whoplohoyparen\", true, \"GTA 6 60fps DLSS5 ПОЛНОЕ ПРОХОЖДЕНИЕ ДЕНЬ 3\", 4550], [\"stray228\", false, \"\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 7425], [\"enzzai\", true, \"🏝️ПХУКЕТ | НА ПЛЯЖЕ | ДЕНЬ 17 W/ @WHYLOLLYCRY | !GGSEL !SLAY\", 4825], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 3 | !tg !прогресс\", 5525], [\"melharucos\", true, \"ИГРА ОЧЕНЬ НРАВИТСЯ. СДЕЛАЛ !60фпс СЕБЕ И КАЙФУЮ СИЖУ\", 4625], [\"welovegames\", true, \"[ДЕНЬ 18] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 2250], [\"leva2k\", true, \"GTA Vl | ИЗОЛЯЦИЯ ДЕНЬ 5 | !tg !donate !winline !ggsel\", 4425], [\"mokrivskyi\", true, \"[DROPS] 🌆 GTA VI ☀️ МАРАФОН 🦩72% 💯 @evelone2004 @shadowkekw 💰!tg\", 19725], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2\", 2400]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"shadowkekw\", false, \"[DROPS] 🌴 GTA VI 🌴 МАРАФОН 🌴 @evelone2004 @mokrivskyi 🌴 👉 !тг !betboom !торнадо !РО !yota !розыгрыш\", 0], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ФИНАЛ ГТА | !tg !winline !ЯО !ВТБ !avan\", 6950], [\"whoplohoyparen\", true, \"GTA 6 60fps DLSS5 ПОЛНОЕ ПРОХОЖДЕНИЕ ДЕНЬ 3\", 4450], [\"stray228\", false, \"\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 7425], [\"enzzai\", true, \"🏝️ПХУКЕТ | НА ПЛЯЖЕ | ДЕНЬ 17 W/ @WHYLOLLYCRY | !GGSEL !SLAY\", 4775], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 3 | !tg !прогресс\", 5525], [\"melharucos\", true, \"ИГРА ОЧЕНЬ НРАВИТСЯ. СДЕЛАЛ !60фпс СЕБЕ И КАЙФУЮ СИЖУ\", 4625], [\"welovegames\", true, \"[ДЕНЬ 18] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 2250], [\"mokrivskyi\", true, \"[DROPS] 🌆 GTA VI ☀️ МАРАФОН 🦩72% 💯 @evelone2004 @shadowkekw 💰!tg\", 19725], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2\", 2400]]"
  },
  "clips": [
   {
