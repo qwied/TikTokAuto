@@ -52,14 +52,14 @@ try:                                       # дерево с пакетом clip
     from clipper.notifier import Notifier
     from clipper.pipeline import Pipeline
     from clipper.stream_monitor import StreamMonitor
-    from clipper.utils import load_config, setup_logging
+    from clipper.utils import ffprobe_meta, load_config, setup_logging
     from clipper.hype_detector import DEFAULT_KEYWORDS as HYPE_KEYWORDS
 except ImportError:                        # плоский репозиторий
     from links import dedup_key, parse_link, refs_from_config
     from notifier import Notifier
     from pipeline import Pipeline
     from stream_monitor import StreamMonitor
-    from utils import load_config, setup_logging
+    from utils import ffprobe_meta, load_config, setup_logging
     from hype_detector import DEFAULT_KEYWORDS as HYPE_KEYWORDS
 
 try:                                       # нарезка готовых видео
@@ -458,9 +458,16 @@ class GitHubPublisher:
         _parts = _stem.split("_")
         if len(_parts) > 2:
             entry_chan = _parts[2]
+        try:
+            # РЕАЛЬНАЯ длительность финального файла: переменная длина клипов
+            # (35-48 с) раньше писалась в clips.json как константные 60.0
+            dur_real = (ffprobe_meta(video_path) or {}).get("duration") or None
+        except Exception:
+            dur_real = None
         entry = clip_entry(video_path, url,
                            thumb_b64=compact_thumb(video_path, self.workdir),
                            size=os.path.getsize(str(video_path)),
+                           dur=dur_real,
                            platform=platform, display=display, title=title,
                            score=score, subs=subs,
                            hashtags=make_hashtags(platform=platform,

@@ -26,6 +26,24 @@ def _is_placeholder(value):
     return (not v) or any(mark in v for mark in PLACEHOLDER_MARKS)
 
 
+def _http_header(value):
+    """Значение HTTP-заголовка, безопасное для requests/HTTP.
+
+    HTTP-заголовки передаются в latin-1: кириллица («Клип готов») падала с
+    UnicodeEncodeError и ВСЕ push-уведомления ntfy молча терялись
+    (прод-инцидент 2026-11-20). Не-latin-1 кодируем как RFC 2047 encoded-word
+    (=?UTF-8?B?...?=) — ntfy официально умеет такие заголовки читать.
+    """
+    s = str(value or "")
+    try:
+        s.encode("latin-1")
+        return s
+    except UnicodeEncodeError:
+        from base64 import b64encode
+        enc = b64encode(s.encode("utf-8")).decode("ascii")
+        return "=?UTF-8?B?" + enc + "?="
+
+
 class Notifier:
     """Отправка уведомления о готовом клипе на любое устройство."""
 
@@ -134,8 +152,8 @@ class Notifier:
             log.error("ntfy не настроен: укажите уникальный topic в config.yaml")
             return False
         size = os.path.getsize(path)
-        headers = {"Title": "Клип готов", "Priority": "high",
-                   "Filename": os.path.basename(path)}
+        headers = {"Title": _http_header("Клип готов"), "Priority": "high",
+                   "Filename": _http_header(os.path.basename(path))}
         if size <= 14 * 1024 * 1024:
             with open(path, "rb") as fh:
                 r = requests.put(f"{server}/{topic}", data=fh, headers=headers, timeout=600)

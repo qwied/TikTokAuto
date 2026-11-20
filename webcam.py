@@ -96,10 +96,20 @@ def detect_cam_box(video_path, workdir="."):
         log.info("cv2 недоступен — клип собирается по макету blur (без split)")
         return None
 
+    # OpenCV 5.x убрал CascadeClassifier из python-биндингов (прод-инцидент
+    # 2026-11-20: requirements тянули 5.x и split молча отключался на всех
+    # клипах). Требование закреплено как >=4.9,<5, но на всякий случай
+    # выходим тихо, без трейсбэки на каждый клип.
+    cascade_cls = getattr(cv2, "CascadeClassifier", None)
+    if cascade_cls is None:
+        log.warning("cv2 без CascadeClassifier (OpenCV 5.x?) — split выключен, "
+                    "клип соберётся как blur. Поставьте opencv-python-headless<5")
+        return None
+
     frames, (w_src, h_src) = _extract_frames_gray(video_path, workdir)
     if frames is None or not w_src or not h_src:
         return None
-    cascade = cv2.CascadeClassifier(
+    cascade = cascade_cls(
         cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
     if cascade.empty():
         log.warning("haar cascade не загрузился — детект камеры выключен")
@@ -108,7 +118,7 @@ def detect_cam_box(video_path, workdir="."):
     h_f, w_f = frames.shape[1], frames.shape[2]
     scale = w_src / float(w_f)
     min_face = max(2, int(w_f * MIN_FACE_W_FRAC))
-    cascade_alt2 = cv2.CascadeClassifier(
+    cascade_alt2 = cascade_cls(
         cv2.data.haarcascades + "haarcascade_frontalface_alt2.xml")
     cascades = [cascade] + ([] if cascade_alt2.empty() else [cascade_alt2])
     votes = []
