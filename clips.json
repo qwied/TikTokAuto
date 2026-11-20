@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T08:38:17Z",
+ "updated": "2026-11-20T08:40:17Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -16,7 +16,7 @@
     "display": "twitch.tv/shadowkekw",
     "platform": "twitch",
     "live": true,
-    "viewers": 12501,
+    "viewers": 13106,
     "title": "[DROPS] 🌴 GTA VI 🌴 МАРАФОН 🌴 @evelone2004 @mokrivskyi 🌴 👉 !тг !betboom !торнадо !РО !yota !розыгрыш"
    },
    {
@@ -64,14 +64,14 @@
     "display": "twitch.tv/melharucos",
     "platform": "twitch",
     "live": true,
-    "viewers": 2413,
+    "viewers": 2700,
     "title": "ИГРА ОЧЕНЬ НРАВИТСЯ. СДЕЛАЛ !60фпс СЕБЕ И КАЙФУЮ СИЖУ"
    }
   ],
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"shadowkekw\", true, \"[DROPS] 🌴 GTA VI 🌴 МАРАФОН 🌴 @evelone2004 @mokrivskyi 🌴 👉 !тг !betboom !торнадо !РО !yota !розыгрыш\", 12500], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ФИНАЛ ГТА | !tg !winline !ЯО !ВТБ !avan\", 7775], [\"stray228\", true, \"Полное погружение !tg !bb !wow !воппер\", 4600], [\"whoplohoyparen\", true, \"GTA 6 60fps DLSS5 ПОЛНОЕ ПРОХОЖДЕНИЕ ДЕНЬ 3\", 4550], [\"welovegames\", true, \"[ДЕНЬ 18] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 2125], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2\", 1850], [\"melharucos\", true, \"ИГРА ОЧЕНЬ НРАВИТСЯ. СДЕЛАЛ !60фпс СЕБЕ И КАЙФУЮ СИЖУ\", 2425]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"shadowkekw\", true, \"[DROPS] 🌴 GTA VI 🌴 МАРАФОН 🌴 @evelone2004 @mokrivskyi 🌴 👉 !тг !betboom !торнадо !РО !yota !розыгрыш\", 13100], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ФИНАЛ ГТА | !tg !winline !ЯО !ВТБ !avan\", 7775], [\"stray228\", true, \"Полное погружение !tg !bb !wow !воппер\", 4600], [\"whoplohoyparen\", true, \"GTA 6 60fps DLSS5 ПОЛНОЕ ПРОХОЖДЕНИЕ ДЕНЬ 3\", 4550], [\"welovegames\", true, \"[ДЕНЬ 18] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 2125], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2\", 1850], [\"melharucos\", true, \"ИГРА ОЧЕНЬ НРАВИТСЯ. СДЕЛАЛ !60фпс СЕБЕ И КАЙФУЮ СИЖУ\", 2700]]"
  },
  "clips": [
   {
