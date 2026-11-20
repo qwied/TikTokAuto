@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T13:38:11Z",
+ "updated": "2026-11-20T13:39:39Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -12,122 +12,114 @@
     "title": ""
    },
    {
-    "name": "mokrivskyi",
-    "display": "twitch.tv/mokrivskyi",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 27168,
-    "title": "[DROPS]  🌆 GTA VI  ☀️ МАРАФОН 🦩 79% 💯 @evelone2004 @shadowkekw 💰 !tg"
-   },
-   {
     "name": "nix",
     "display": "twitch.tv/nix",
     "platform": "twitch",
-    "live": true,
-    "viewers": 21961,
-    "title": "Spirit vs Nemesis bo3 0:2 BLAST SLAM IX (Group Stage) w/ Alagon"
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "mokrivskyi",
+    "display": "twitch.tv/mokrivskyi",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "leb1ga",
     "display": "twitch.tv/leb1ga",
     "platform": "twitch",
-    "live": true,
-    "viewers": 13970,
-    "title": "⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2"
-   },
-   {
-    "name": "dadyasashalydik",
-    "display": "twitch.tv/dadyasashalydik",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 7007,
-    "title": "СТАРЫЙ И МАЛОЙ ИГРАЮТ В GTA6 / ГТА6 СТРИМ / ГТА6 ОНЛАЙН"
-   },
-   {
-    "name": "recrent",
-    "display": "twitch.tv/recrent",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 11346,
-    "title": "[1440p] GTA VI. День 3 | !pari !ggsel !tg !мерч"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "t2x2",
     "display": "twitch.tv/t2x2",
     "platform": "twitch",
-    "live": true,
-    "viewers": 13448,
-    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch (донаты и мемы офф)"
-   },
-   {
-    "name": "skywhywalker",
-    "display": "twitch.tv/skywhywalker",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 10776,
-    "title": "САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑"
-   },
-   {
-    "name": "bratishkinoff",
-    "display": "twitch.tv/bratishkinoff",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 11107,
-    "title": "2K 60FPS • FIRST POV • GTA 6 • DAY 3"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": true,
-    "viewers": 5243,
-    "title": "GamerLegion [0] vs [0] Xtreme Gaming | Bo3 | Group Stage Day 1 | BLAST SLAM IX | cast: @pivovar_cast & @autodestruction"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "solo",
     "display": "twitch.tv/solo",
     "platform": "twitch",
-    "live": true,
-    "viewers": 13355,
-    "title": "🔴NAVI [0:0] Team OG, Bo3 | BLAST SLAM IX: Group Stage w/ @геннадий @Rodjer | !tg !BETBOOM !розыгрыш"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
-    "name": "frametamer666",
-    "display": "twitch.tv/frametamer666",
+    "name": "dadyasashalydik",
+    "display": "twitch.tv/dadyasashalydik",
     "platform": "twitch",
-    "live": true,
-    "viewers": 6380,
-    "title": "GTA 6 ДОНАТОФОН 24/7 [DAY 3]"
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "skywhywalker",
+    "display": "twitch.tv/skywhywalker",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "recrent",
+    "display": "twitch.tv/recrent",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "bratishkinoff",
+    "display": "twitch.tv/bratishkinoff",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "welovegames",
     "display": "twitch.tv/welovegames",
     "platform": "twitch",
-    "live": true,
-    "viewers": 5536,
-    "title": "[VHS] Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "melharucos",
     "display": "twitch.tv/melharucos",
     "platform": "twitch",
-    "live": true,
-    "viewers": 4646,
-    "title": "ИГРА ОЧЕНЬ НРАВИТСЯ. СДЕЛАЛ !60фпс СЕБЕ И КАЙФУЮ СИЖУ"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "buster",
     "display": "twitch.tv/buster",
     "platform": "twitch",
-    "live": true,
-    "viewers": 8073,
-    "title": "GTA 6 с Дариночкой 🤍 День 3 🔫 Пройдено ~ 31% 🔍 Донаты ВКЛ 🎮"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"mokrivskyi\", true, \"[DROPS]  🌆 GTA VI  ☀️ МАРАФОН 🦩 79% 💯 @evelone2004 @shadowkekw 💰 !tg\", 27175], [\"nix\", true, \"Spirit vs Nemesis bo3 0:2 BLAST SLAM IX (Group Stage) w/ Alagon\", 21950], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2\", 13975], [\"dadyasashalydik\", true, \"СТАРЫЙ И МАЛОЙ ИГРАЮТ В GTA6 / ГТА6 СТРИМ / ГТА6 ОНЛАЙН\", 7000], [\"recrent\", true, \"[1440p] GTA VI. День 3 | !pari !ggsel !tg !мерч\", 11350], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch (донаты и мемы офф)\", 13450], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 10775], [\"bratishkinoff\", true, \"2K 60FPS • FIRST POV • GTA 6 • DAY 3\", 11100], [\"betboom_dota_ru\", true, \"GamerLegion [0] vs [0] Xtreme Gaming | Bo3 | Group Stage Day 1 | BLAST SLAM IX | cast: @pivovar_cast & @autodestruction\", 5250], [\"solo\", true, \"🔴NAVI [0:0] Team OG, Bo3 | BLAST SLAM IX: Group Stage w/ @геннадий @Rodjer | !tg !BETBOOM !розыгрыш\", 13350], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 3]\", 6375], [\"welovegames\", true, \"[VHS] Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 5525], [\"melharucos\", true, \"ИГРА ОЧЕНЬ НРАВИТСЯ. СДЕЛАЛ !60фпс СЕБЕ И КАЙФУЮ СИЖУ\", 4650], [\"buster\", true, \"GTA 6 с Дариночкой 🤍 День 3 🔫 Пройдено ~ 31% 🔍 Донаты ВКЛ 🎮\", 8075]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", false, \"\", 0], [\"mokrivskyi\", false, \"\", 0], [\"leb1ga\", false, \"\", 0], [\"t2x2\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"solo\", false, \"\", 0], [\"dadyasashalydik\", false, \"\", 0], [\"skywhywalker\", false, \"\", 0], [\"recrent\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"melharucos\", false, \"\", 0], [\"buster\", false, \"\", 0]]"
  },
  "clips": [
   {
