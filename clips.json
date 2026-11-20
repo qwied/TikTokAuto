@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T11:32:55Z",
+ "updated": "2026-11-20T11:33:09Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -24,7 +24,7 @@
     "display": "twitch.tv/nix",
     "platform": "twitch",
     "live": true,
-    "viewers": 29923,
+    "viewers": 32018,
     "title": "Spirit vs Nemesis bo3 0:0 BLAST SLAM IX (Group Stage)"
    },
    {
@@ -64,7 +64,7 @@
     "display": "twitch.tv/melharucos",
     "platform": "twitch",
     "live": true,
-    "viewers": 4728,
+    "viewers": 4656,
     "title": "ИГРА ОЧЕНЬ НРАВИТСЯ. СДЕЛАЛ !60фпс СЕБЕ И КАЙФУЮ СИЖУ"
    },
    {
@@ -103,23 +103,23 @@
     "name": "skywhywalker",
     "display": "twitch.tv/skywhywalker",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 7769,
+    "title": "САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑"
    },
    {
     "name": "bratishkinoff",
     "display": "twitch.tv/bratishkinoff",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 7282,
+    "title": "GTA 6  [2K 60fps dlss 5]"
    }
   ],
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"mokrivskyi\", true, \"[DROPS] 🌆 GTA VI ☀️ МАРАФОН 🦩74% 💯 @evelone2004 @shadowkekw 💰!tg\", 27325], [\"nix\", true, \"Spirit vs Nemesis bo3 0:0 BLAST SLAM IX (Group Stage)\", 29925], [\"filshtein\", true, \"Вход GTA 6! Полное прохождение!\", 10025], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 5775], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 3]\", 5800], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ФИНАЛ ГТА | !tg !winline !ЯО !ВТБ !avan\", 4600], [\"melharucos\", true, \"ИГРА ОЧЕНЬ НРАВИТСЯ. СДЕЛАЛ !60фпс СЕБЕ И КАЙФУЮ СИЖУ\", 4725], [\"welovegames\", true, \"[VHS] Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 5400], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2\", 7925], [\"dadyasashalydik\", true, \"СТАРЫЙ И МАЛОЙ ИГРАЮТ В GTA6 / ГТА6 СТРИМ / ГТА6 ОНЛАЙН\", 9850], [\"betboom_dota_ru\", true, \"Team Spirit [0] vs [0] Team Nemesis | Bo3 | Group Stage Day 1 | BLAST SLAM IX | cast: @pivovar_cast & @autodestruction\", 11700], [\"skywhywalker\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"mokrivskyi\", true, \"[DROPS] 🌆 GTA VI ☀️ МАРАФОН 🦩74% 💯 @evelone2004 @shadowkekw 💰!tg\", 27325], [\"nix\", true, \"Spirit vs Nemesis bo3 0:0 BLAST SLAM IX (Group Stage)\", 32025], [\"filshtein\", true, \"Вход GTA 6! Полное прохождение!\", 10025], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 5775], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 3]\", 5800], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ФИНАЛ ГТА | !tg !winline !ЯО !ВТБ !avan\", 4600], [\"melharucos\", true, \"ИГРА ОЧЕНЬ НРАВИТСЯ. СДЕЛАЛ !60фпс СЕБЕ И КАЙФУЮ СИЖУ\", 4650], [\"welovegames\", true, \"[VHS] Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 5400], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2\", 7925], [\"dadyasashalydik\", true, \"СТАРЫЙ И МАЛОЙ ИГРАЮТ В GTA6 / ГТА6 СТРИМ / ГТА6 ОНЛАЙН\", 9850], [\"betboom_dota_ru\", true, \"Team Spirit [0] vs [0] Team Nemesis | Bo3 | Group Stage Day 1 | BLAST SLAM IX | cast: @pivovar_cast & @autodestruction\", 11700], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 7775], [\"bratishkinoff\", true, \"GTA 6  [2K 60fps dlss 5]\", 7275]]"
  },
  "clips": [
   {
