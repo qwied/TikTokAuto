@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T00:43:27Z",
+ "updated": "2026-11-20T00:47:12Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -31,8 +31,8 @@
     "name": "bratishkinoff",
     "display": "twitch.tv/bratishkinoff",
     "platform": "twitch",
-    "live": true,
-    "viewers": 12683,
+    "live": false,
+    "viewers": 0,
     "title": "ЗАНИМАЮСЬ ЧУШЬЮ В GTA 6"
    },
    {
@@ -47,7 +47,7 @@
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"shadowkekw\", true, \"[DROPS] 🌴 GTA VI 🌴 МАРАФОН 🌴 @evelone2004 @mokrivskyi 🌴 👉 !тг !betboom !торнадо !РО !yota !розыгрыш\", 24700], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2\", 17600], [\"bratishkinoff\", true, \"ЗАНИМАЮСЬ ЧУШЬЮ В GTA 6\", 12675], [\"welovegames\", true, \"[ДЕНЬ 18] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 1375]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"shadowkekw\", true, \"[DROPS] 🌴 GTA VI 🌴 МАРАФОН 🌴 @evelone2004 @mokrivskyi 🌴 👉 !тг !betboom !торнадо !РО !yota !розыгрыш\", 24700], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2\", 17600], [\"bratishkinoff\", false, \"ЗАНИМАЮСЬ ЧУШЬЮ В GTA 6\", 0], [\"welovegames\", true, \"[ДЕНЬ 18] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 1375]]"
  },
  "clips": [
   {
