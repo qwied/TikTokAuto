@@ -27,7 +27,14 @@ log = __import__("logging").getLogger("vertical")
 
 WIDTH = 1080
 HEIGHT = 1920
-SPLIT_CAM_FRAC = 0.32   # доля высоты экрана под камеру стримера (верх)
+SPLIT_CAM_FRAC = 0.36   # доля высоты экрана под камеру стримера (верх);
+                        # по референсу пользователя: ~36% кадра, лицо крупное
+
+# Замазка чужих оверлеев никогда не накрывает стримера: зона лица (окно
+# камеры) защищена — маска отбрасывается, если перекрывает её сильнее
+# PROTECT_MAX_OVERLAP доли площади самой маски (прод-инцидент 2026-11-20:
+# AFK-камера детектилась как «виджет» и верхние углы били прямо по лицу).
+PROTECT_MAX_OVERLAP = 0.08
 
 
 def _overlap(a, b):
@@ -36,6 +43,16 @@ def _overlap(a, b):
     bx, by, bw, bh = b
     return not (ax + aw <= bx or bx + bw <= ax or
                 ay + ah <= by or by + bh <= ay)
+
+
+def box_overlap_frac(box, win):
+    """Доля площади box, попадающая внутрь win (оба (x, y, w, h))."""
+    bx, by, bw, bh = [float(v) for v in box]
+    wx, wy, ww, wh = [float(v) for v in win]
+    ix = max(0.0, min(bx + bw, wx + ww) - max(bx, wx))
+    iy = max(0.0, min(by + bh, wy + wh) - max(by, wy))
+    area = bw * bh
+    return (ix * iy) / area if area > 0 else 0.0
 
 
 def split_windows(src_w, src_h, cam_box, cam_frac=SPLIT_CAM_FRAC,
@@ -50,6 +67,9 @@ def split_windows(src_w, src_h, cam_box, cam_frac=SPLIT_CAM_FRAC,
     (overlays.map_boxes_split) — единая точка правды по геометрии.
     """
     cam_h = int(round(h * float(cam_frac)))
+    cam_h += cam_h % 2          # ЧЁТНАЯ высота секции: yuv420p округляет
+                                # нечётные размеры вниз и vstack теряет пиксели
+                                # (прод 2026-11-20: 691+1229 -> 1918 вместо 1920)
     game_h = h - cam_h
     ar = w / float(game_h)                    # соотношение окна игры
     cx, cy, cw, ch = [float(v) for v in cam_box]
@@ -140,6 +160,10 @@ def make_vertical(video_in, video_out, workdir, width=WIDTH, height=HEIGHT,
     Режим split: авто-детект вебкамеры (webcam.py) -> камера сверху,
     игра снизу. Камеру не нашли / cv2 нет -> клип собирается как blur.
 
+    ЗАЩИТА ЛИЦА: зоны замазки (raw_boxes) никогда не накрывают окно камеры
+    (в split) / слабое окно лица (в blur/crop) — прод 2026-11-20: AFK-камера
+    детектилась как «чужой виджет» и размывала стримера.
+
     Замазка чужих банеров (кроме RubUp, который рисуется ПОСЛЕ):
       raw_boxes — прямоугольники [(x, y, w, h)] в координатах ИСХОДНИКА
       (детект overlays.py + верхние углы); маппинг в координаты готового
@@ -163,14 +187,14 @@ def make_vertical(video_in, video_out, workdir, width=WIDTH, height=HEIGHT,
 
     cam = None
     mode_low = str(mode or "blur").lower()
+    full_in = os.path.join(str(workdir), video_in)
     if mode_low == "split" and src_w > 0 and src_h > 0:
         try:
             try:
                 from webcam import detect_cam_box
             except ImportError:                       # плоский репозиторий
                 from webcam import detect_cam_box
-            cam = detect_cam_box(os.path.join(str(workdir), video_in),
-                                 str(workdir))
+            cam = detect_cam_box(full_in, str(workdir))
         except Exception:
             log.exception("Детект камеры упал — клип собирается как blur")
             cam = None
@@ -191,9 +215,46 @@ def make_vertical(video_in, video_out, workdir, width=WIDTH, height=HEIGHT,
             if mode_low != "crop" else crop_graph(width, height)
         base_label = "v"
 
+    # --- ЗОНА ЛИЦА (защита от замазки) ------------------------------------------
+    # В split это окно камеры; в blur/crop камеру ищем СЛАБЫМ детектом
+    # (достаточно 2 голосов и кожи): замазка чужих оверлеев не должна
+    # накрывать стримера ни в одном макете.
+    face_box = None
+    if src_w > 0 and src_h > 0:
+        if cam is not None:
+            try:
+                face_box = split_windows(src_w, src_h, cam, cam_frac=cam_frac,
+                                         w=width, h=height)[0]
+            except Exception:
+                face_box = cam
+        elif mode_low in ("blur", "crop"):
+            try:
+                try:
+                    from webcam import detect_cam_box
+                except ImportError:                   # плоский репозиторий
+                    from webcam import detect_cam_box
+                face_box = detect_cam_box(full_in, str(workdir), weak=True)
+            except Exception:
+                log.exception("Слабый детект камеры не удался — "
+                              "защита лица без него")
+                face_box = None
+
     # --- замазка чужих оверлеев: маппим ИСХОДНИК -> готовый кадр сами ---
     boxes = mask_boxes
     if boxes is None and raw_boxes and src_w > 0:
+        if face_box:
+            kept = []
+            for b in raw_boxes:
+                try:
+                    hit = box_overlap_frac(b, face_box)
+                except Exception:
+                    hit = 0.0
+                if hit > PROTECT_MAX_OVERLAP:
+                    log.info("Замазка пропускает зону лица %s (перекрытие %.0f%%)",
+                             b, hit * 100)
+                    continue
+                kept.append(b)
+            raw_boxes = kept
         try:
             try:
                 from overlays import map_boxes, map_boxes_split
