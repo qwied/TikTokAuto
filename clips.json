@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T12:08:02Z",
+ "updated": "2026-11-20T12:08:18Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -24,7 +24,7 @@
     "display": "twitch.tv/mokrivskyi",
     "platform": "twitch",
     "live": true,
-    "viewers": 27199,
+    "viewers": 26408,
     "title": "[DROPS]  🌆 GTA VI  ☀️ МАРАФОН 🦩 76% 💯 @evelone2004 @shadowkekw 💰 !tg"
    },
    {
@@ -72,7 +72,7 @@
     "display": "twitch.tv/bratishkinoff",
     "platform": "twitch",
     "live": true,
-    "viewers": 9004,
+    "viewers": 9120,
     "title": "FIRST POV • 2K 60FPS • GTA 6"
    },
    {
@@ -100,26 +100,26 @@
     "title": "🔴Team Spirit [0:0] Team Nemesis, Bo3 | BLAST SLAM IX: Group Stage w/ @геннадий @Rodjer | !tg !BETBOOM !розыгрыш"
    },
    {
-    "name": "t2x2",
-    "display": "twitch.tv/t2x2",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch"
-   },
-   {
     "name": "recrent",
     "display": "twitch.tv/recrent",
     "platform": "twitch",
     "live": true,
     "viewers": 8109,
     "title": "[1440p] GTA VI. День 3 | !pari !ggsel !tg !мерч"
+   },
+   {
+    "name": "frametamer666",
+    "display": "twitch.tv/frametamer666",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"Spirit vs Nemesis bo3 0:0 BLAST SLAM IX (Group Stage)\", 42450], [\"mokrivskyi\", true, \"[DROPS]  🌆 GTA VI  ☀️ МАРАФОН 🦩 76% 💯 @evelone2004 @shadowkekw 💰 !tg\", 27200], [\"betboom_dota_ru\", true, \"Team Spirit [0] vs [0] Team Nemesis | Bo3 | Group Stage Day 1 | BLAST SLAM IX | cast: @pivovar_cast & @autodestruction\", 13600], [\"filshtein\", true, \"Вход GTA 6! Полное прохождение!\", 5575], [\"dadyasashalydik\", true, \"СТАРЫЙ И МАЛОЙ ИГРАЮТ В GTA6 / ГТА6 СТРИМ / ГТА6 ОНЛАЙН\", 12300], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2\", 11525], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 9700], [\"bratishkinoff\", true, \"FIRST POV • 2K 60FPS • GTA 6\", 9000], [\"welovegames\", true, \"[VHS] Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 5550], [\"melharucos\", true, \"ИГРА ОЧЕНЬ НРАВИТСЯ. СДЕЛАЛ !60фпс СЕБЕ И КАЙФУЮ СИЖУ\", 4750], [\"solo\", true, \"🔴Team Spirit [0:0] Team Nemesis, Bo3 | BLAST SLAM IX: Group Stage w/ @геннадий @Rodjer | !tg !BETBOOM !розыгрыш\", 6250], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch\", 0], [\"recrent\", true, \"[1440p] GTA VI. День 3 | !pari !ggsel !tg !мерч\", 8100]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"Spirit vs Nemesis bo3 0:0 BLAST SLAM IX (Group Stage)\", 42450], [\"mokrivskyi\", true, \"[DROPS]  🌆 GTA VI  ☀️ МАРАФОН 🦩 76% 💯 @evelone2004 @shadowkekw 💰 !tg\", 26400], [\"betboom_dota_ru\", true, \"Team Spirit [0] vs [0] Team Nemesis | Bo3 | Group Stage Day 1 | BLAST SLAM IX | cast: @pivovar_cast & @autodestruction\", 13600], [\"filshtein\", true, \"Вход GTA 6! Полное прохождение!\", 5575], [\"dadyasashalydik\", true, \"СТАРЫЙ И МАЛОЙ ИГРАЮТ В GTA6 / ГТА6 СТРИМ / ГТА6 ОНЛАЙН\", 12300], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2\", 11525], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 9700], [\"bratishkinoff\", true, \"FIRST POV • 2K 60FPS • GTA 6\", 9125], [\"welovegames\", true, \"[VHS] Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 5550], [\"melharucos\", true, \"ИГРА ОЧЕНЬ НРАВИТСЯ. СДЕЛАЛ !60фпс СЕБЕ И КАЙФУЮ СИЖУ\", 4750], [\"solo\", true, \"🔴Team Spirit [0:0] Team Nemesis, Bo3 | BLAST SLAM IX: Group Stage w/ @геннадий @Rodjer | !tg !BETBOOM !розыгрыш\", 6250], [\"recrent\", true, \"[1440p] GTA VI. День 3 | !pari !ggsel !tg !мерч\", 8100], [\"frametamer666\", false, \"\", 0]]"
  },
  "clips": [
   {
