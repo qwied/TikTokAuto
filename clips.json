@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T14:35:18Z",
+ "updated": "2026-11-20T14:35:32Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,103 +15,103 @@
     "name": "mokrivskyi",
     "display": "twitch.tv/mokrivskyi",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 25897,
+    "title": "[DROPS]  🌆 GTA VI  ☀️ МАРАФОН 🦩 81% 💯 @evelone2004 @shadowkekw 💰 !tg"
    },
    {
     "name": "nix",
     "display": "twitch.tv/nix",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 24447,
+    "title": "Spirit vs Nemesis bo3 0:2 BLAST SLAM IX (Group Stage) w/ Alagon"
    },
    {
     "name": "solo",
     "display": "twitch.tv/solo",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 12969,
+    "title": "🔴NAVI [1:0] Team OG, Bo3 | BLAST SLAM IX: Group Stage w/ @геннадий @kyzko_doto | !tg !BETBOOM !розыгрыш"
    },
    {
     "name": "leb1ga",
     "display": "twitch.tv/leb1ga",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 15250,
+    "title": "⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2"
    },
    {
     "name": "t2x2",
     "display": "twitch.tv/t2x2",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 14468,
+    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch (донаты и мемы офф)"
    },
    {
     "name": "recrent",
     "display": "twitch.tv/recrent",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 12330,
+    "title": "[1440p] GTA VI. День 3 | !pari !ggsel !tg !мерч"
    },
    {
     "name": "bratishkinoff",
     "display": "twitch.tv/bratishkinoff",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 11129,
+    "title": "2K 60FPS • FIRST POV • GTA 6 • DAY 3"
    },
    {
     "name": "skywhywalker",
     "display": "twitch.tv/skywhywalker",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 11105,
+    "title": "САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑"
    },
    {
     "name": "buster",
     "display": "twitch.tv/buster",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 11847,
+    "title": "GTA 6 с Дариночкой 🤍 День 3 🔫 Пройдено ~ 31% 🔍 Донаты ВКЛ 🎮"
    },
    {
     "name": "welovegames",
     "display": "twitch.tv/welovegames",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 5673,
+    "title": "[VHS] Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo"
    },
    {
     "name": "melharucos",
     "display": "twitch.tv/melharucos",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 4361,
+    "title": "ИГРА ОЧЕНЬ НРАВИТСЯ. СДЕЛАЛ !60фпс СЕБЕ И КАЙФУЮ СИЖУ"
    },
    {
     "name": "sasavot",
     "display": "twitch.tv/sasavot",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 8811,
+    "title": "ПЯТНИЦА/ТРЕЗВАЯ"
    }
   ],
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"mokrivskyi\", false, \"\", 0], [\"nix\", false, \"\", 0], [\"solo\", false, \"\", 0], [\"leb1ga\", false, \"\", 0], [\"t2x2\", false, \"\", 0], [\"recrent\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"skywhywalker\", false, \"\", 0], [\"buster\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"melharucos\", false, \"\", 0], [\"sasavot\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"mokrivskyi\", true, \"[DROPS]  🌆 GTA VI  ☀️ МАРАФОН 🦩 81% 💯 @evelone2004 @shadowkekw 💰 !tg\", 25900], [\"nix\", true, \"Spirit vs Nemesis bo3 0:2 BLAST SLAM IX (Group Stage) w/ Alagon\", 24450], [\"solo\", true, \"🔴NAVI [1:0] Team OG, Bo3 | BLAST SLAM IX: Group Stage w/ @геннадий @kyzko_doto | !tg !BETBOOM !розыгрыш\", 12975], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2\", 15250], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch (донаты и мемы офф)\", 14475], [\"recrent\", true, \"[1440p] GTA VI. День 3 | !pari !ggsel !tg !мерч\", 12325], [\"bratishkinoff\", true, \"2K 60FPS • FIRST POV • GTA 6 • DAY 3\", 11125], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 11100], [\"buster\", true, \"GTA 6 с Дариночкой 🤍 День 3 🔫 Пройдено ~ 31% 🔍 Донаты ВКЛ 🎮\", 11850], [\"welovegames\", true, \"[VHS] Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 5675], [\"melharucos\", true, \"ИГРА ОЧЕНЬ НРАВИТСЯ. СДЕЛАЛ !60фпс СЕБЕ И КАЙФУЮ СИЖУ\", 4350], [\"sasavot\", true, \"ПЯТНИЦА/ТРЕЗВАЯ\", 8800]]"
  },
  "clips": [
   {
