@@ -134,7 +134,9 @@ TWITCH_GQL = "https://gql.twitch.tv/gql"
 TWITCH_WEB_CLIENT_ID = "kimne78kx3ncx6brgo4mv6wki5h1ko"
 DISCOVERY_COUNT = 60         # сколько русскоязычных стримеров держать в слежке
                              # (запрос: «каналов как можно больше»)
-DISCOVERY_MIN_VIEWERS = 2000  # отсечка по зрителям (мелкие каналы не нужны)
+DISCOVERY_MIN_VIEWERS = 800   # отсечка по зрителям. Запрос «каналов как можно
+                              # больше»: 800 вместо 2000 — берём и средние
+                              # эфиры (скучные всё равно отсеет min_publish)
 DISCOVERY_REFRESH_MIN = 20    # как часто обновлять топ, минут
 DISCOVERY_TOP_FETCH = 30      # сколько стримов запрашивать (лимит Twitch: 30)
 DISCOVERY_LANGUAGE = "ru"     # ТОЛЬКО русскоязычные эфиры (запрос пользователя);
