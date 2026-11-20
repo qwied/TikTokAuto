@@ -195,6 +195,52 @@ def detect_cam_box(video_path, workdir="."):
     x0 = max(0.0, min(cx - cam_w / 2.0, w_src - cam_w))
     y0 = max(0.0, min(cy - cam_h * 0.45, h_src - cam_h))
     box = (int(round(x0)), int(round(y0)), int(round(cam_w)), int(round(cam_h)))
+
+    # --- ПРОВЕРКА КОЖИ: отсекаем мультяшные/игровые «лица» ----------------
+    # Хаар-каскад ловит и лица В ИГРЕ (мультяшное ТВ, портреты NPC). Прод
+    # 2026-11-20: у shadowkekw split построился на Сквидварде из GTA VI —
+    # сверху оказался мультфильм. Настоящая вебкамера — это КОЖА (лицо,
+    # руки, тёплая комната); мультик — сине-зелёный/жёлтый, без телесных
+    # тонов. Классическая RGB-эвристика на numpy, порог мягкий: тёмные
+    # комнаты с LED-подсветкой тоже дают 10-25% кожных пикселей, а если
+    # реальная камера всё же не пройдёт — клип честно соберётся как blur
+    # (старое поведение, ничего не ломаем).
+    if not _skin_ok(video_path, box, workdir):
+        log.info("В «камере» нет кожи — похоже, это лицо из игры/мультика; "
+                 "split не строю, клип соберётся как blur")
+        return None
     log.info("Вебкамера найдена: %dx%d@%d,%d (лицо в %d/%d кадрах)",
              box[2], box[3], box[0], box[1], len(best[1][2]), n_frames)
     return box
+
+
+def _skin_ok(video_path, box, workdir):
+    """True, если в окне камеры есть телесные тона (реальная вебкамера).
+
+    ~6 цветных кадров из окна -> доля пикселей по классическому RGB-правилу
+    (R>95, G>40, B>20, R>G, R>B, R-max(G,B)>15). Любая ошибка чтения = True
+    (проверка только улучшает, никогда не блокирует сборку).
+    """
+    import numpy as np
+    try:
+        x, y, w, h = box
+        cmd = (["ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin",
+                "-i", os.path.basename(str(video_path)),
+                "-vf", "fps=0.15,crop=%d:%d:%d:%d,scale=160:90" % (w, h, x, y),
+                "-frames:v", "6", "-f", "rawvideo", "-pix_fmt", "rgb24", "pipe:1"])
+        rc, out, _err = run_cmd(cmd, timeout=120, cwd=str(workdir), binary=True)
+        if rc != 0 or len(out) < 160 * 90 * 3:
+            return True                    # не удалось прочитать — не мешаем
+        n = len(out) // (160 * 90 * 3)
+        arr = np.frombuffer(out[:n * 160 * 90 * 3], dtype=np.uint8)
+        arr = arr.reshape(n, 90, 160, 3).astype(np.int16)
+        r, g, b = arr[..., 0], arr[..., 1], arr[..., 2]
+        mx = np.maximum(g, b)
+        skin = (r > 95) & (g > 40) & (b > 20) & (r > g) & (r >= b) & \
+               ((r - mx) > 15)
+        ratio = float(skin.mean())
+        log.info("Проверка кожи в окне камеры: %.0f%% телесных пикселей", ratio * 100)
+        return ratio >= 0.10
+    except Exception:
+        log.exception("Проверка кожи не удалась — пропускаю (не блокирую)")
+        return True
