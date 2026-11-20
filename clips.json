@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T10:16:18Z",
+ "updated": "2026-11-20T10:16:57Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -82,12 +82,28 @@
     "live": true,
     "viewers": 18129,
     "title": "Обзор патча 7.42"
+   },
+   {
+    "name": "filshtein",
+    "display": "twitch.tv/filshtein",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "frametamer666",
+    "display": "twitch.tv/frametamer666",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"mokrivskyi\", true, \"[DROPS] 🌆 GTA VI ☀️ МАРАФОН 🦩72% 💯 @evelone2004 @shadowkekw 💰!tg\", 22650], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 7125], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ФИНАЛ ГТА | !tg !winline !ЯО !ВТБ !avan\", 5800], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 3 | !tg !прогресс\", 5850], [\"enzzai\", true, \"🏝️ПХУКЕТ | НА ПЛЯЖЕ | ДЕНЬ 17 W/ @WHYLOLLYCRY | !GGSEL !SLAY\", 4825], [\"melharucos\", true, \"ИГРА ОЧЕНЬ НРАВИТСЯ. СДЕЛАЛ !60фпс СЕБЕ И КАЙФУЮ СИЖУ\", 4575], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2\", 2825], [\"welovegames\", true, \"[DROPS] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 4200], [\"nix\", true, \"Обзор патча 7.42\", 18125]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"mokrivskyi\", true, \"[DROPS] 🌆 GTA VI ☀️ МАРАФОН 🦩72% 💯 @evelone2004 @shadowkekw 💰!tg\", 22650], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 7125], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ФИНАЛ ГТА | !tg !winline !ЯО !ВТБ !avan\", 5800], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 3 | !tg !прогресс\", 5850], [\"enzzai\", true, \"🏝️ПХУКЕТ | НА ПЛЯЖЕ | ДЕНЬ 17 W/ @WHYLOLLYCRY | !GGSEL !SLAY\", 4825], [\"melharucos\", true, \"ИГРА ОЧЕНЬ НРАВИТСЯ. СДЕЛАЛ !60фпс СЕБЕ И КАЙФУЮ СИЖУ\", 4575], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2\", 2825], [\"welovegames\", true, \"[DROPS] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 4200], [\"nix\", true, \"Обзор патча 7.42\", 18125], [\"filshtein\", false, \"\", 0], [\"frametamer666\", false, \"\", 0]]"
  },
  "clips": [
   {
