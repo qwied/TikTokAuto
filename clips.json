@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T18:20:28Z",
+ "updated": "2026-11-20T18:20:58Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -31,8 +31,8 @@
     "name": "anarabdullaev",
     "display": "twitch.tv/anarabdullaev",
     "platform": "twitch",
-    "live": true,
-    "viewers": 17584,
+    "live": false,
+    "viewers": 0,
     "title": "Исследуем заброшки Таиланда /w Огр Эксити Вика Лера Жека Бабулик"
    },
    {
@@ -111,7 +111,7 @@
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"Liquid vs DO KONCA bo3 1:0 BLAST SLAM IX (Group Stage) w/ Alagon\", 25700], [\"mokrivskyi\", true, \"[DROPS]  🌆 GTA VI  ☀️ МАРАФОН 🦩 84% 💯 @evelone2004 @shadowkekw @gwinglade @skillz0r1337 💰 !tg\", 24475], [\"anarabdullaev\", true, \"Исследуем заброшки Таиланда /w Огр Эксити Вика Лера Жека Бабулик\", 17575], [\"welovegames\", true, \"[VHS] Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 18050], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2\", 16025], [\"recrent\", true, \"[1440p] GTA VI. День 3 | !pari !ggsel !tg !мерч\", 12150], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch (донаты и мемы офф)\", 11275], [\"zubarefff\", true, \"Они сражались за «Оскар»! 🏆 Смотрим «Солдаты неудачи» 🎬\", 12775], [\"solo\", true, \"🔴PV [1:0] LEGION, Bo3 | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto | !tg !BETBOOM !розыгрыш\", 11600], [\"bratishkinoff\", true, \"2K 60FPS • FIRST POV • GTA 6 • DAY 3\", 12825], [\"buster\", true, \"GTA 6 с Дариночкой 🤍 День 3 🔫 Пройдено ~ 38% 🔍 Донаты ВКЛ 🎮\", 11300], [\"melharucos\", true, \"Я ПОТЕРЯЛ 8 ЧАСОВ ПРОГРЕССА АХАХАХАХА\", 3075]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"Liquid vs DO KONCA bo3 1:0 BLAST SLAM IX (Group Stage) w/ Alagon\", 25700], [\"mokrivskyi\", true, \"[DROPS]  🌆 GTA VI  ☀️ МАРАФОН 🦩 84% 💯 @evelone2004 @shadowkekw @gwinglade @skillz0r1337 💰 !tg\", 24475], [\"anarabdullaev\", false, \"Исследуем заброшки Таиланда /w Огр Эксити Вика Лера Жека Бабулик\", 0], [\"welovegames\", true, \"[VHS] Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 18050], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 2\", 16025], [\"recrent\", true, \"[1440p] GTA VI. День 3 | !pari !ggsel !tg !мерч\", 12150], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch (донаты и мемы офф)\", 11275], [\"zubarefff\", true, \"Они сражались за «Оскар»! 🏆 Смотрим «Солдаты неудачи» 🎬\", 12775], [\"solo\", true, \"🔴PV [1:0] LEGION, Bo3 | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto | !tg !BETBOOM !розыгрыш\", 11600], [\"bratishkinoff\", true, \"2K 60FPS • FIRST POV • GTA 6 • DAY 3\", 12825], [\"buster\", true, \"GTA 6 с Дариночкой 🤍 День 3 🔫 Пройдено ~ 38% 🔍 Донаты ВКЛ 🎮\", 11300], [\"melharucos\", true, \"Я ПОТЕРЯЛ 8 ЧАСОВ ПРОГРЕССА АХАХАХАХА\", 3075]]"
  },
  "clips": [
   {
