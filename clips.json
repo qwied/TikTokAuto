@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T12:16:04Z",
+ "updated": "2026-11-21T12:17:02Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -167,23 +167,23 @@
     "name": "betboom_dota_ru2",
     "display": "twitch.tv/betboom_dota_ru2",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "LGD Gaming [0] vs [0] 1win | Bo3 | Group Stage Day 2 | BLAST SLAM IX | cast: @BLACKARHANGEL & @sheyl311 !предикты"
    },
    {
     "name": "avice",
     "display": "twitch.tv/avice",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "top 100 eu ladder/tryhard !tg !BETBOOM !мерч !плеерок"
    }
   ],
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"evelone2004\", true, \"[DROPS]🌴GTA VI🌴ФИНАЛ🔥 МАРАФОН w/ @shadowkekw @mokrivskyi\", 0], [\"nix\", true, \"Aurora vs Astra Invicta bo3 1:0 BLAST SLAM IX (Group Stage)\", 0], [\"solo\", true, \"🔴 LGD Gaming [0:0] 1W | BLAST SLAM IX: Group Stage w/ @геннадий @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 3\", 0], [\"sasavot\", true, \"ПЛОТНАЯ/СУББОТА\", 0], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 0], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 4]\", 0], [\"betboom_dota_ru\", true, \"Aurora Gaming [1] vs [0] Astra Invicta | Bo3 | Group Stage Day 2 | BLAST SLAM IX | cast: @PIVOVAR_cast & @Autodestruction\", 0], [\"gadjiev57\", true, \"Мы В ТАЙЛАНДЕ РОЗА И КОСТЯ ?где чивиля?\", 0], [\"tpabomah\", true, \"С НУЛЯ ДО МИФИКА за 18 ДНЕЙ 🔥 !розыгрыш !сборки !руинер !тг\", 0], [\"welovegames\", true, \"[День 19] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 0], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan\", 0], [\"melharucos\", true, \"ИГРА НРАВИТСЯ, ГРАБЛЮ ПРОФЕССИОНАЛЬНО\", 0], [\"leva2k\", true, \"АУК НА ЕДУ | ИЗОЛЯЦИЯ | !tg !donate !winline !ggsel\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 4 | !tg !прогресс\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"rostikfacekid\", true, \"🐳GTA VI🐳120 FPS/2K день 1. Ну проснулся, случайно удалил гта, пришлось скачивать заново...опоздал на стрим\", 0], [\"zer0truel0ve\", true, \"[GTA6  3 день] марафон 24/7\", 0], [\"bratishkinoff\", true, \"2K 60 FPS • ИЩУ ПАСХАЛКИ • GTA 6 • DAY 4\", 0], [\"betboom_dota_ru2\", false, \"\", 0], [\"avice\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"evelone2004\", true, \"[DROPS]🌴GTA VI🌴ФИНАЛ🔥 МАРАФОН w/ @shadowkekw @mokrivskyi\", 0], [\"nix\", true, \"Aurora vs Astra Invicta bo3 1:0 BLAST SLAM IX (Group Stage)\", 0], [\"solo\", true, \"🔴 LGD Gaming [0:0] 1W | BLAST SLAM IX: Group Stage w/ @геннадий @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 3\", 0], [\"sasavot\", true, \"ПЛОТНАЯ/СУББОТА\", 0], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 0], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 4]\", 0], [\"betboom_dota_ru\", true, \"Aurora Gaming [1] vs [0] Astra Invicta | Bo3 | Group Stage Day 2 | BLAST SLAM IX | cast: @PIVOVAR_cast & @Autodestruction\", 0], [\"gadjiev57\", true, \"Мы В ТАЙЛАНДЕ РОЗА И КОСТЯ ?где чивиля?\", 0], [\"tpabomah\", true, \"С НУЛЯ ДО МИФИКА за 18 ДНЕЙ 🔥 !розыгрыш !сборки !руинер !тг\", 0], [\"welovegames\", true, \"[День 19] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 0], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan\", 0], [\"melharucos\", true, \"ИГРА НРАВИТСЯ, ГРАБЛЮ ПРОФЕССИОНАЛЬНО\", 0], [\"leva2k\", true, \"АУК НА ЕДУ | ИЗОЛЯЦИЯ | !tg !donate !winline !ggsel\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 4 | !tg !прогресс\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"rostikfacekid\", true, \"🐳GTA VI🐳120 FPS/2K день 1. Ну проснулся, случайно удалил гта, пришлось скачивать заново...опоздал на стрим\", 0], [\"zer0truel0ve\", true, \"[GTA6  3 день] марафон 24/7\", 0], [\"bratishkinoff\", true, \"2K 60 FPS • ИЩУ ПАСХАЛКИ • GTA 6 • DAY 4\", 0], [\"betboom_dota_ru2\", true, \"LGD Gaming [0] vs [0] 1win | Bo3 | Group Stage Day 2 | BLAST SLAM IX | cast: @BLACKARHANGEL & @sheyl311 !предикты\", 0], [\"avice\", true, \"top 100 eu ladder/tryhard !tg !BETBOOM !мерч !плеерок\", 0]]"
  },
  "clips": [
   {
