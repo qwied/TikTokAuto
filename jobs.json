@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T17:05:08Z",
+ "updated": "2026-11-21T17:05:25Z",
  "jobs": [
   {
    "url": "https://www.twitch.tv/videos/2935901611",
@@ -331,6 +331,24 @@
     -0.462,
     -0.538
    ]
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=RNttSQoaIZQ",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Я спрятался НА СТРИМАХ у Популярных СТРИМЕРОВ",
+   "views": 2342404,
+   "added": "2026-11-21T17:05:21Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=UTbzUAkuRls",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "МИСТЕР БИЗНЕС И ЗЕЛЕНСКИЙ НА ШОУ ЭВЕЛОНА 🤣 | РАССМЕШИ СТРИМЕРА (Zloy, Shadowkek, PlohoyParen)",
+   "views": 945993,
+   "added": "2026-11-21T17:05:21Z"
   }
  ]
 }
