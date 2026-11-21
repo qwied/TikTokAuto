@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T07:19:51Z",
+ "updated": "2026-11-21T07:20:13Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -16,7 +16,7 @@
     "display": "twitch.tv/dmitry_lixxx",
     "platform": "twitch",
     "live": true,
-    "viewers": 6432,
+    "viewers": 6500,
     "title": "[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan"
    },
    {
@@ -32,7 +32,7 @@
     "display": "twitch.tv/stray228",
     "platform": "twitch",
     "live": true,
-    "viewers": 4657,
+    "viewers": 4472,
     "title": "GTA6 RP, отыгрываем на совесть !tg !bb !wow !воппер"
    },
    {
@@ -79,7 +79,7 @@
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan\", 6425], [\"whoplohoyparen\", false, \"\", 0], [\"stray228\", true, \"GTA6 RP, отыгрываем на совесть !tg !bb !wow !воппер\", 4650], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 3\", 2350], [\"welovegames\", true, \"[День 19] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 1600], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 3]\", 1550], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 6 | !tg !donate !winline !ggsel\", 1400], [\"zloyn\", true, \"СПЛЮ | МАРАФОН | GTA VI 🤯 | ДЕНЬ 4 | !tg !прогресс\", 550]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan\", 6500], [\"whoplohoyparen\", false, \"\", 0], [\"stray228\", true, \"GTA6 RP, отыгрываем на совесть !tg !bb !wow !воппер\", 4475], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 3\", 2350], [\"welovegames\", true, \"[День 19] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 1600], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 3]\", 1550], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 6 | !tg !donate !winline !ggsel\", 1400], [\"zloyn\", true, \"СПЛЮ | МАРАФОН | GTA VI 🤯 | ДЕНЬ 4 | !tg !прогресс\", 550]]"
  },
  "clips": [
   {
