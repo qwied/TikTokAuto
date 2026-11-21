@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-21T11:01:40Z",
- "jobs": []
+ "updated": "2026-11-21T11:30:41Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=DE8fz0JAV9w",
+   "kind": "video",
+   "fails": 0,
+   "tag": "gta6",
+   "display": "ВЫТАЩИЛИ ДРУГА ИЗ ГТА 6! УГАР И БЕЗУМИЕ В Garry`s Mod",
+   "views": 277269,
+   "added": "2026-11-21T11:30:38Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=VE1lLbw8FjU",
+   "kind": "video",
+   "fails": 0,
+   "tag": "gta6",
+   "display": "ЭТО ПРОВАЛ и ПЕРВЫЕ ЭМОЦИИ от ЗАПУСКА GTA 6 - ПОЙМАЛ БАГ (4k 60fps) (прохождение ГТА 6 #1)",
+   "views": 170124,
+   "added": "2026-11-21T11:30:38Z"
+  }
+ ]
 }
