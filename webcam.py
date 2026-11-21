@@ -72,10 +72,10 @@ CAM_MAX_PAIR_DIFF = 13.0  # разницы, 40 с по 1 кадру/с): нас�
                           # тайлы welovegames 22-40); тайл между сменами картинок
                           # стоячий -> низкая медиана. Прод 2026-11-20: без гейта
                           # split строился на NPC из GTA и аниме-тайле.
-SKIN_MIN_RATIO = 0.05     # кожа в окне камеры: порог снижен с 0.10 — LED-подсветка
-                          # русских стримов красит лицо в синий, классическое
-                          # правило кожи (R>G, R>B) на нём не срабатывает и
-                          # настоящие камеры отбрасывались (прод: dmitry_lixxx)
+SKIN_MIN_RATIO = 0.02     # кожа в окне камеры: 0.10 -> 0.05 (LED) -> 0.02 —
+                          # прод 2026-11-21: exigent_wires при текущем свете
+                          # даёт 4% и 0% — настоящая камера отбрасывалась,
+                          # клипы уходили в кроп «без лица»/гейт лица резал их
 
 
 def cv2_available():
@@ -375,11 +375,16 @@ def detect_cam_box(video_path, workdir=".", weak=False):
         cand = (int(round(x0)), int(round(y0)), int(round(cam_w)), int(round(cam_h)))
 
         # --- ГЕЙТЫ: отсекаем игровые UI, панорамирующий геймплей, мультики ----
+        # В слабом режиме (защита лица/гейт «нет стримера — клип не собираем»)
+        # проверка кожи ПРОПУСКАЕТСЯ: классическое RGB-правило не работает на
+        # LED-подсветке (прод 2026-11-21: exigent_wires — 4% и 0% телесных
+        # пикселей при реальной камере), из-за неё клипы со стримером
+        # отбраковывались целиком. Живость и движение остаются.
         if not _temporal_std_ok(video_path, cand, workdir):
             continue
         if not _motion_ok(video_path, cand, workdir):
             continue
-        if not _skin_ok(video_path, cand, workdir):
+        if not weak and not _skin_ok(video_path, cand, workdir):
             continue
         box = cand
         votes_n = len(cl[2])
