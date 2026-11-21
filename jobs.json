@@ -1,4 +1,23 @@
 {
- "updated": "",
- "jobs": []
+ "updated": "2026-11-21T11:00:25Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=CsAZkhfz7Zk",
+   "kind": "video",
+   "fails": 0,
+   "tag": "gta6",
+   "display": "GTA 6 - Крутые мелкие детали",
+   "views": 1379750,
+   "added": "2026-11-21T11:00:22Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=mAf3OUs9XUk",
+   "kind": "video",
+   "fails": 0,
+   "tag": "gta6",
+   "display": "КОРОЧЕ ГОВОРЯ, ПЕРВЫЙ В МИРЕ СЫГРАЛ В GTA 6",
+   "views": 802928,
+   "added": "2026-11-21T11:00:23Z"
+  }
+ ]
 }
