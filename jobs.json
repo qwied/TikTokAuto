@@ -1,11 +1,29 @@
 {
- "updated": "2026-11-21T13:03:41Z",
+ "updated": "2026-11-21T13:22:00Z",
  "jobs": [
   {
    "url": "https://www.twitch.tv/videos/2935934475",
    "kind": "video",
    "fails": 0,
    "added": "2026-11-21T13:03:41Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=miaN1_CYaXs",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "ЭВЕЛОН ШОУ РАССМЕШИ СТРИМЕРА ft. DANGERLYOHA, SHADOWKEKW / ЭВЕЛОН ПЛАТИТ ТОМУ КТО РАССМЕШИТ ЕГО",
+   "views": 1989415,
+   "added": "2026-11-21T13:21:56Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=Q32IqNWx-a0",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "УГАР ДО СЛЁЗ В САМОМ ДОРОГОМ РЕСТОРАНЕ МОСКВЫ С ВАСИЛИЧЕМ🤣",
+   "views": 1349408,
+   "added": "2026-11-21T13:21:57Z"
   }
  ]
 }
