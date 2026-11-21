@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T10:45:06Z",
+ "updated": "2026-11-21T10:45:13Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -32,7 +32,7 @@
     "display": "twitch.tv/tpabomah",
     "platform": "twitch",
     "live": true,
-    "viewers": 6017,
+    "viewers": 5950,
     "title": "Проверяем героев (5к заказ) 🔥 !тирлист !сборки !руинер !тг"
    },
    {
@@ -111,7 +111,7 @@
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan\", 7225], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 11150], [\"tpabomah\", true, \"Проверяем героев (5к заказ) 🔥 !тирлист !сборки !руинер !тг\", 6025], [\"gadjiev57\", true, \"Мы В ТАЙЛАНДЕ РОЗА И КОСТЯ ?где чивиля?\", 6850], [\"melharucos\", true, \"ИГРА НРАВИТСЯ, ГРАБЛЮ ПРОФЕССИОНАЛЬНО\", 4675], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 3\", 5225], [\"welovegames\", true, \"[День 19] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 2350], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 4]\", 4900], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 6 | !tg !donate !winline !ggsel\", 6775], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 4 | !tg !прогресс\", 3875], [\"sasavot\", true, \"ПЛОТНАЯ/СУББОТА\", 9050], [\"evelone2004\", true, \"[DROPS]🌴GTA VI🌴ФИНАЛ🔥 МАРАФОН w/ @shadowkekw @mokrivskyi\", 25250]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan\", 7225], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 11150], [\"tpabomah\", true, \"Проверяем героев (5к заказ) 🔥 !тирлист !сборки !руинер !тг\", 5950], [\"gadjiev57\", true, \"Мы В ТАЙЛАНДЕ РОЗА И КОСТЯ ?где чивиля?\", 6850], [\"melharucos\", true, \"ИГРА НРАВИТСЯ, ГРАБЛЮ ПРОФЕССИОНАЛЬНО\", 4675], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 3\", 5225], [\"welovegames\", true, \"[День 19] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 2350], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 4]\", 4900], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 6 | !tg !donate !winline !ggsel\", 6775], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 4 | !tg !прогресс\", 3875], [\"sasavot\", true, \"ПЛОТНАЯ/СУББОТА\", 9050], [\"evelone2004\", true, \"[DROPS]🌴GTA VI🌴ФИНАЛ🔥 МАРАФОН w/ @shadowkekw @mokrivskyi\", 25250]]"
  },
  "clips": [
   {
