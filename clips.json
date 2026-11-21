@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T11:56:11Z",
+ "updated": "2026-11-21T11:56:17Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -31,33 +31,33 @@
     "name": "solo",
     "display": "twitch.tv/solo",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🔴 LGD Gaming [0:0] 1W | BLAST SLAM IX: Group Stage w/ @геннадий @kyzko_doto !tg !BETBOOM !розыгрыш"
    },
    {
     "name": "leb1ga",
     "display": "twitch.tv/leb1ga",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 3"
    },
    {
     "name": "sasavot",
     "display": "twitch.tv/sasavot",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ПЛОТНАЯ/СУББОТА"
    },
    {
     "name": "skywhywalker",
     "display": "twitch.tv/skywhywalker",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑"
    },
    {
     "name": "frametamer666",
@@ -167,7 +167,7 @@
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"evelone2004\", true, \"[DROPS]🌴GTA VI🌴ФИНАЛ🔥 МАРАФОН w/ @shadowkekw @mokrivskyi\", 0], [\"nix\", true, \"Aurora vs Astra Invicta bo3 0:0 BLAST SLAM IX (Group Stage)\", 0], [\"solo\", false, \"\", 0], [\"leb1ga\", false, \"\", 0], [\"sasavot\", false, \"\", 0], [\"skywhywalker\", false, \"\", 0], [\"frametamer666\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"gadjiev57\", false, \"\", 0], [\"tpabomah\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"dmitry_lixxx\", false, \"\", 0], [\"melharucos\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"zloyn\", false, \"\", 0], [\"silvername\", false, \"\", 0], [\"rostikfacekid\", false, \"\", 0], [\"zer0truel0ve\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"evelone2004\", true, \"[DROPS]🌴GTA VI🌴ФИНАЛ🔥 МАРАФОН w/ @shadowkekw @mokrivskyi\", 0], [\"nix\", true, \"Aurora vs Astra Invicta bo3 0:0 BLAST SLAM IX (Group Stage)\", 0], [\"solo\", true, \"🔴 LGD Gaming [0:0] 1W | BLAST SLAM IX: Group Stage w/ @геннадий @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 3\", 0], [\"sasavot\", true, \"ПЛОТНАЯ/СУББОТА\", 0], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 0], [\"frametamer666\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"gadjiev57\", false, \"\", 0], [\"tpabomah\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"dmitry_lixxx\", false, \"\", 0], [\"melharucos\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"zloyn\", false, \"\", 0], [\"silvername\", false, \"\", 0], [\"rostikfacekid\", false, \"\", 0], [\"zer0truel0ve\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0]]"
  },
  "clips": [
   {
