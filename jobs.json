@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-21T14:44:56Z",
+ "updated": "2026-11-21T14:44:58Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=miaN1_CYaXs",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "ЭВЕЛОН ШОУ РАССМЕШИ СТРИМЕРА ft. DANGERLYOHA, SHADOWKEKW / ЭВЕЛОН ПЛАТИТ ТОМУ КТО РАССМЕШИТ ЕГО",
    "views": 1989580,
