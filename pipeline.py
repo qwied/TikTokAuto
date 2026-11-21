@@ -857,10 +857,16 @@ class Pipeline:
                                        title=st.ch.title or "",
                                        score=q_score, subs=smeta)
         if self.tiktok:
-            tk_caption = tiktok_mod.build_caption(
-                {"title": st.ch.title or "", "channel": st.ch.display(),
-                 "platform": st.ch.platform}, self.tiktok.hashtags)
-            self.tiktok.enqueue(out_path, tk_caption)
+            if q_score >= self.tiktok.min_score:
+                tk_caption = tiktok_mod.build_caption(
+                    {"title": st.ch.title or "", "channel": st.ch.display(),
+                     "platform": st.ch.platform}, self.tiktok.hashtags)
+                self.tiktok.enqueue(out_path, tk_caption)
+            else:
+                log.info("TikTok: пропустил %s — оценка %.0f < порога %d "
+                         "(в TikTok уходят только хайповые)",
+                         os.path.basename(out_path), q_score,
+                         self.tiktok.min_score)
         with self._lock:
             st.clips += 1
             self._clips_made += 1

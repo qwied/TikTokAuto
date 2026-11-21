@@ -431,6 +431,39 @@ def _chunks(words, max_words=4, max_chars=22):
 
 
 YELLOW = "&H00FFFF&"    # нижняя строка, как на образце заказчика
+ACCENT_FLASH = "&HFA8BA7&"   # вспышка активного слова (розовый неон)
+
+
+def _pop_in(t0=0):
+    """«Пружинка» при появлении строки: 82% -> 107% -> 100% (мс)."""
+    t0 = max(0, int(t0))
+    return ("\\fad(50,50)\\fscx82\\fscy82"
+            "\\t(%d,%d,\\fscx107\\fscy107)"
+            "\\t(%d,%d,\\fscx100\\fscy100)" % (t0, t0 + 110, t0 + 110, t0 + 180))
+
+
+def _flash_tags(t_rel_ms, base):
+    """Блок анимации слова: статичный цвет базы ПЕРВЫМ, потом вспышка.
+
+    В ASS статичный тег перебивает анимацию, если стоит ПОСЛЕ неё, поэтому
+    порядок строго: \\cBASE, затем \\t-вспышка ACCENT в момент речи и возврат.
+    """
+    t1 = max(0, int(t_rel_ms))
+    t2 = t1 + 140
+    t3 = t2 + 220
+    return ("\\c" + base + "\\t(%d,%d,\\c%s)\\t(%d,%d,\\c%s)"
+            % (t1, t2, ACCENT_FLASH, t2, t3, base))
+
+
+def _balanced_split(caps):
+    """Делим chunk на две строки ПО ДЛИНЕ СИМВОЛОВ — строки выходят ровными,
+    без «кривых» переносов (раньше делили пополам по словам)."""
+    best, bestdiff = 1, None
+    for k in range(1, len(caps)):
+        diff = abs(len(" ".join(caps[:k])) - len(" ".join(caps[k:])))
+        if bestdiff is None or diff < bestdiff:
+            best, bestdiff = k, diff
+    return best
 
 
 def _overlaps(a0, a1, intervals, pad=0.15):
@@ -470,6 +503,13 @@ def build_tiktok_ass(words, path, width=1280, height=720, font="Arial Black",
     """Стиль «как на образце»: жирный капс ВНИЗУ ПО ЦЕНТРУ, максимум две
     строки — верхняя БЕЛАЯ, нижняя ЖЁЛТАЯ (современный viral-стиль).
 
+    АНИМАЦИИ (TikTok-стиль):
+      * строка «выпрыгивает» (масштаб 82% -> 107% -> 100%) с мягким fade;
+      * каждое слово вспыхивает розовым неоном РОВНО В МОМЕНТ, когда его
+        произносят (по таймингам слов от Whisper), и плавно гаснет;
+      * деление на верх/низ — по длине символов, поэтому строки ровные,
+        без «кривых» переносов.
+
     Вертикальный клип (9:16) — субтитры крупнее и выше от низа, чтобы не
     перекрывались интерфейсом TikTok.
 
@@ -497,16 +537,18 @@ def build_tiktok_ass(words, path, width=1280, height=720, font="Arial Black",
         if _overlaps(start, end, skip_intervals):
             continue
         caps = [_esc(w["word"].upper()) for w in chunk]
+        rel = [max(0.0, (w["start"] - start) * 1000.0) for w in chunk]
         if len(caps) == 1:
-            text = "{\\c" + YELLOW + "}" + caps[0]
+            text = ("{" + _flash_tags(rel[0], YELLOW) + _pop_in() + "}"
+                    + caps[0])
         else:
-            k = (len(caps) + 1) // 2          # верхняя строка — чуть больше слов
-            top = " ".join(caps[:k])
-            bottom = " ".join(caps[k:])
-            text = ("{\\c" + WHITE + "}" + top
-                    + "{\\c" + YELLOW + "}\\N" + bottom)
-        lead = "{\\fad(70,70)}"
-        events.append(f"Dialogue: 0,{_ass_time(start)},{_ass_time(end)},TikTok,,0,0,0,,{lead}{text}")
+            k = _balanced_split(caps)          # верх/низ — ровно по длине
+            top = " ".join("{" + _flash_tags(r, WHITE) + "}" + c
+                           for r, c in zip(rel[:k], caps[:k]))
+            bot = " ".join("{" + _flash_tags(r, YELLOW) + "}" + c
+                           for r, c in zip(rel[k:], caps[k:]))
+            text = "{" + _pop_in() + "}" + top + "\\N" + bot
+        events.append(f"Dialogue: 0,{_ass_time(start)},{_ass_time(end)},TikTok,,0,0,0,,{text}")
     with open(path, "w", encoding="utf-8") as f:
         f.write(header)
         f.write("\n".join(events))

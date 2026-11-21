@@ -66,10 +66,14 @@ try:                                       # нарезка готовых ви�
     from clipper import banner as banner_mod
     from clipper.utils import detect_h264_encoder, ensure_dir
     from clipper import vod as vod_mod
+    from clipper.tiktok import TikTokPoster
+    from clipper import tiktok as tiktok_mod
 except ImportError:
     import banner as banner_mod
     from utils import detect_h264_encoder, ensure_dir
     import vod as vod_mod
+    from tiktok import TikTokPoster
+    import tiktok as tiktok_mod
 
 log = logging.getLogger("gh_run")
 
@@ -95,6 +99,109 @@ CHECK_EVERY_S = 15      # пауза чтения статуса внутри --
 CHECK_LOOP_MIN = 55     # длина одной задачи --check-loop (потом эстафета)
 VOD_MAX_WINDOWS = 100   # максимальный клипов из одного длинного видео
 VOD_MAX_JOBS = 40       # сколько окон обрабатывает один запуск --vod
+YT_DISCOVER_EVERY = 1800   # YouTube-дискавери не чаще, чем раз в 30 минут
+
+# --- авто-поиск хайповых YouTube-видео по GTA 6 (RU) ----------------------------------------
+
+GTA6_RE = re.compile(r"gta\s*6|gta\s*vi|гта\s*6|гта\s*vi|gta6", re.IGNORECASE)
+CYRILLIC_RE = re.compile(r"[а-яё]", re.IGNORECASE)
+
+
+def discover_youtube_hype(gh, cfg):
+    """Самые просматриваемые РУССКОЯЗЫЧНЫЕ видео по GTA 6 -> очередь нарезки.
+
+    Ищем через yt-dlp (без API-ключей): несколько запросов раз в ~30 минут,
+    фильтр — по просмотрам, длине (не Shorts, не двухчасовые марафоны),
+    заголовку (GTA 6/VI + кириллица). Повторы отсеиваются processed.json.
+    Очередь не переполняем: докидываем не больше max_per_check за раз и
+    только если в ней меньше queue_max задач. Найденные окна всё равно
+    анализируются посекундно (громкость + чат), в TikTok идут только
+    хайповые (порог tiktok.min_score).
+    """
+    if gh is None:
+        return 0
+    disc = (cfg.get("youtube_discover") or {})
+    if disc.get("enabled", True) is False:
+        return 0
+    queries = [str(q).strip() for q in (disc.get("queries") or []) if str(q).strip()]
+    if not queries:
+        queries = ["GTA 6 смешные моменты", "GTA 6 приколы",
+                   "гта 6 угар", "GTA VI обзор русский"]
+    min_views = int(disc.get("min_views") or 50000)
+    min_dur = int(disc.get("min_minutes") or 8) * 60
+    max_dur = int(disc.get("max_minutes") or 180) * 60
+    max_add = int(disc.get("max_per_check") or 2)
+    per_query = int(disc.get("results_per_query") or 10)
+    queue_max = int(disc.get("queue_max") or 10)
+
+    jobs_data, jsha = load_json_state(gh, JOBS_JSON)
+    proc_data, _psha = load_json_state(gh, PROCESSED_JSON)
+    jobs = [j for j in (jobs_data.get("jobs") or []) if isinstance(j, dict)]
+    done = set(proc_data.get("done") or [])
+    queued = {vod_key(j) for j in jobs}
+    room = min(max_add, queue_max - len(jobs))
+    if room <= 0:
+        return 0
+
+    found = {}
+    for q in queries:
+        try:
+            p = subprocess.run(
+                ["yt-dlp", "--flat-playlist", "--dump-single-json",
+                 "--no-warnings", "--ignore-config",
+                 "ytsearch%d:%s" % (per_query, q)],
+                capture_output=True, text=True, timeout=180)
+            if p.returncode != 0 or not (p.stdout or "").strip():
+                log.warning("YouTube-поиск «%s»: пусто (rc=%d)", q, p.returncode)
+                continue
+            data = json.loads(p.stdout)
+        except Exception as e:
+            log.warning("YouTube-поиск «%s» не удался: %s", q, e)
+            continue
+        for e in (data.get("entries") or []):
+            vid = str(e.get("id") or "")
+            title = str(e.get("title") or "")
+            if not vid or not title:
+                continue
+            try:
+                dur = float(e.get("duration") or 0)
+                views = int(e.get("view_count") or 0)
+            except (TypeError, ValueError):
+                continue
+            if not (min_dur <= dur <= max_dur):
+                continue                      # Shorts и марафоны мимо
+            if views < min_views:
+                continue
+            if not (GTA6_RE.search(title) and CYRILLIC_RE.search(title)):
+                continue                      # только RU-видео именно про GTA 6
+            url = "https://www.youtube.com/watch?v=" + vid
+            if url in done or url in queued or url in found:
+                continue
+            found[url] = {"url": url, "kind": "video", "fails": 0,
+                          "tag": "gta6", "display": title[:120],
+                          "views": views,
+                          "added": time.strftime("%Y-%m-%dT%H:%M:%SZ",
+                                                 time.gmtime())}
+    if not found:
+        return 0
+    best = sorted(found.values(), key=lambda j: -j["views"])[:room]
+    for j in best:
+        jobs.append(j)
+        queued.add(vod_key(j))
+        log.info("YouTube-дискавери: %s (%s просм.) — в очередь нарезки",
+                 j["display"][:70], j["views"])
+    jobs_data["jobs"] = jobs
+    jobs_data["updated"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+    try:
+        put_json_state(gh, JOBS_JSON, jobs_data, jsha,
+                       "vod: +хайповые GTA6-видео с YouTube")
+    except Exception:
+        log.exception("Не записать jobs.json — дискавери пропущен")
+        return 0
+    gh_workflow_dispatch("clip.yml")          # нарезка стартует сразу
+    return len(best)
+
+
 NO_SPEECH_SKIP_MAX = 8  # сколько окон без речи пропускаем за запуск (чтобы
                         # не сжечь весь run на тихих кусках)
 BORED_SKIP_MAX = 6      # сколько «скучных» окон (низкая оценка качества)
@@ -1340,6 +1447,10 @@ def run_check(max_probe=PROBE_WAIT):
             enqueue_vod_jobs(gh, refs, keys)
         except Exception:
             log.exception("Очередь нарезки: не удалось обновить")
+        try:
+            discover_youtube_hype(gh, cfg)    # хайповые RU GTA6 -> очередь
+        except Exception:
+            log.exception("YouTube-дискавери не удался")
     if live:
         if gh_workflow_monitor_in_progress():
             log.info("Monitor уже работает — не запускаю второй")
@@ -1375,6 +1486,7 @@ def run_check_loop(max_minutes=CHECK_LOOP_MIN):
 
     auto_state = {"urls": [], "last": 0.0}
     set_state = {"s": None, "last": 0.0}
+    yt_disc_state = {"last": 0.0}          # YouTube-дискавери (раз в ~30 мин)
 
     def refresh_settings():
         """Настройки качества с сайта (раз в ~2 минуты): язык, строгость отбора."""
@@ -1409,6 +1521,18 @@ def run_check_loop(max_minutes=CHECK_LOOP_MIN):
         except Exception:
             log.exception("Автопоиск топ Twitch не удался — работаем без него")
 
+    def maybe_youtube_discover():
+        """Хайповые RU GTA6-видео — раз в ~30 минут, чтобы не жечь время раннера."""
+        if gh is None:
+            return
+        if time.time() - yt_disc_state["last"] < YT_DISCOVER_EVERY:
+            return
+        yt_disc_state["last"] = time.time()
+        try:
+            discover_youtube_hype(gh, cfg)
+        except Exception:
+            log.exception("YouTube-дискавери не удался")
+
     maybe_discover()
     refs = current_refs()
     mon = StreamMonitor(channels=live_refs(refs), quality="best", poll_twitch=2,
@@ -1429,6 +1553,7 @@ def run_check_loop(max_minutes=CHECK_LOOP_MIN):
             n += 1
             refresh_settings()                # язык субтитров / строгость отбора
             maybe_discover()                  # топ Twitch обновляется сам
+            maybe_youtube_discover()          # хайповые RU GTA6 -> очередь
             refs = current_refs()             # новые каналы — сразу в слежку
             mon.sync_channels(live_refs(refs))
             meta = channels_meta_from_snapshot(refs, mon.status_rows() or [])
@@ -1769,6 +1894,28 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
         log.info("Уведомления включены: %s", ", ".join(providers))
     push = Notifier(cfg.get("notify") or {}) if providers else None
     pub = GitHubPublisher(gh, workdir=base, push=push)
+    # TikTok-автопостинг из секретов Actions: VOD-клипы тоже постятся, но
+    # ТОЛЬКО хайповые (порог tiktok.min_score) и не больше max_per_run за запуск.
+    apply_tiktok_secrets(cfg)
+    tk_cfg = cfg.get("tiktok") or {}
+    tk = None
+    tk_posts = 0
+    tk_cap = max(1, int(tk_cfg.get("max_per_run") or 4))
+    if tk_cfg.get("enabled") and not tk_cfg.get("dry_run"):
+        # антибан-паузы в CI короче: очередь должна успеть разгрузиться за запуск
+        tk_cfg["delay_min"] = min(int(tk_cfg.get("delay_min") or 60), 60)
+        tk_cfg["delay_max"] = min(int(tk_cfg.get("delay_max") or 300), 180)
+        try:
+            cand = TikTokPoster(tk_cfg, base)
+            if cand.ready():
+                cand.start()
+                tk = cand
+                log.info("TikTok: постинг включён (мин. оценка %d, до %d постов "
+                         "за запуск)", tk.min_score, tk_cap)
+            else:
+                log.warning("TikTok: постер не готов — VOD-клипы не постятся")
+        except Exception:
+            log.exception("TikTok-постер не поднялся — VOD-клипы не постятся")
     # Настройки качества + фидбек сайта: язык субтитров, пропуск окон без
     # речи, исключение «скучных» мест видео из фидбека.
     settings = apply_settings(cfg, load_site_settings(gh))
@@ -1948,6 +2095,17 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
                                src=url if job.get("kind") == "video" else "",
                                start=int(start or 0)):
                 made += 1
+            if tk and tk_posts < tk_cap:
+                if final_score >= tk.min_score:
+                    tk_posts += 1
+                    tk.enqueue(out, tiktok_mod.build_caption(
+                        {"title": display, "channel": display,
+                         "platform": platform}, tk.hashtags))
+                    log.info("TikTok: в очередь (%d/%d за запуск, оценка %.0f)",
+                             tk_posts, tk_cap, final_score)
+                else:
+                    log.info("TikTok: пропустил — оценка %.0f < %d "
+                             "(только хайповые)", final_score, tk.min_score)
             # кусок обработан: сдвигаем очередь
             for f in (src, os.path.join(workdir, "vod_9x16.mp4"),
                       os.path.join(workdir, "vod_final.mp4"),
@@ -2003,6 +2161,16 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
             os.remove(item[0])
         except OSError:
             pass
+    if tk:
+        # дожидаемся публикации всех queued-клипов (до ~25 мин): пока постинг
+        # идёт, ротированный refresh-токен сохраняется в секреты репозитория
+        drain = time.time() + 25 * 60
+        while tk.status()["queued"] and time.time() < drain:
+            time.sleep(5)
+        st_tk = tk.status()
+        log.info("TikTok за запуск: опубликовано %d, осталось в очереди %d",
+                 st_tk["posted"], st_tk["queued"])
+        tk.stop()
     flag = "1" if remaining else "0"
     try:
         with open(os.path.join(base, "vod_remaining.txt"), "w") as f:

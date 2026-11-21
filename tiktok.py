@@ -97,6 +97,8 @@ class TikTokPoster:
         self.hashtags = list(self.cfg.get("hashtags") or DEFAULT_HASHTAGS)
         self.delay_min = max(0, int(self.cfg.get("delay_min", 60)))
         self.delay_max = max(self.delay_min, int(self.cfg.get("delay_max", 300)))
+        # в TikTok уходят только хайповые: клипы с оценкой ниже порога не постим
+        self.min_score = max(0, int(self.cfg.get("min_score", 65)))
         self.q = queue.Queue()
         self._stop = threading.Event()
         self._lock = threading.Lock()
@@ -167,6 +169,7 @@ class TikTokPoster:
                 "queued": self.q.qsize(),
                 "posted": self.posted,
                 "failed": self.failed,
+                "min_score": self.min_score,
             }
 
     # --- воркер ----------------------------------------------------------------
