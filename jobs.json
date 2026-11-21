@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T17:30:04Z",
+ "updated": "2026-11-21T17:31:10Z",
  "jobs": [
   {
    "url": "https://www.twitch.tv/videos/2935901611",
@@ -236,6 +236,24 @@
     -0.462,
     -0.538
    ]
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=zGbe8JgOEp4",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "ЛЮТЫЙ УГАР С ПЬЯ*ЫМ ДРУГОМ😂| КОНФЛИКТ ФРЕЙМ ТАЙМЕРА С НЕЗНАКОМЦЕМ",
+   "views": 1178177,
+   "added": "2026-11-21T17:31:07Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=UTbzUAkuRls",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "МИСТЕР БИЗНЕС И ЗЕЛЕНСКИЙ НА ШОУ ЭВЕЛОНА 🤣 | РАССМЕШИ СТРИМЕРА (Zloy, Shadowkek, PlohoyParen)",
+   "views": 946042,
+   "added": "2026-11-21T17:31:06Z"
   }
  ]
 }
