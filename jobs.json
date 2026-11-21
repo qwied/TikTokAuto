@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-21T19:53:54Z",
- "jobs": []
+ "updated": "2026-11-21T20:18:38Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=UTbzUAkuRls",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "МИСТЕР БИЗНЕС И ЗЕЛЕНСКИЙ НА ШОУ ЭВЕЛОНА 🤣 | РАССМЕШИ СТРИМЕРА (Zloy, Shadowkek, PlohoyParen)",
+   "views": 946329,
+   "added": "2026-11-21T20:18:33Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=kwJTbzISo4s",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "САМЫЙ СМЕШНОЙ СТРИМ ХАЗЯЕВ! КОРЕШ ДЕРЖАЛСЯ ДО ПОСЛЕДНЕГО | ПАРАДЕЕВИЧ, ФРАМЕТАМЕР, ГОРИЛЫЧ СТРИМХАТА",
+   "views": 483886,
+   "added": "2026-11-21T20:18:34Z"
+  }
+ ]
 }
