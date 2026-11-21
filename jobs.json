@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-21T11:31:53Z",
- "jobs": []
+ "updated": "2026-11-21T11:56:08Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=GkYB2tNCBLI",
+   "kind": "video",
+   "fails": 0,
+   "tag": "gta6",
+   "display": "GTA 6 - ВСЕ ДЕТАЛИ ГЕЙМПЛЕЯ",
+   "views": 274206,
+   "added": "2026-11-21T11:56:07Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=4ggwTEKq9MA",
+   "kind": "video",
+   "fails": 0,
+   "tag": "gta6",
+   "display": "GTA 6 ФЕЙЛЫ — №3 (Смешные моменты GTA 6)",
+   "views": 158929,
+   "added": "2026-11-21T11:56:04Z"
+  }
+ ]
 }
