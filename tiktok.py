@@ -22,6 +22,7 @@ import logging
 import os
 import queue
 import random
+import subprocess
 import threading
 import time
 
@@ -332,6 +333,36 @@ def _save_token(token_file, data):
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 
+def _persist_refresh_token(new_rt):
+    """GitHub Actions: ротированный refresh_token обратно в секрет репозитория.
+
+    TikTok выдаёт НОВЫЙ refresh_token при каждом обновлении, а раннер
+    эфемерный — если не перезаписать секрет TIKTOK_REFRESH_TOKEN, следующий
+    запуск не сможет обновить доступ. PAT берём из GH_TOKEN/SC_PAT (в наших
+    workflow это один и тот же PAT с правами repo). Ошибки не роняем —
+    постинг в этом запуске уже состоялся.
+    """
+    repo = os.environ.get("GITHUB_REPOSITORY") or ""
+    pat = os.environ.get("SC_PAT") or os.environ.get("GH_TOKEN") or ""
+    if not (repo and pat and new_rt):
+        return False
+    try:
+        env = dict(os.environ)
+        env["GH_TOKEN"] = pat
+        p = subprocess.run(
+            ["gh", "secret", "set", "TIKTOK_REFRESH_TOKEN",
+             "--repo", repo, "--body", new_rt],
+            env=env, capture_output=True, text=True, timeout=90)
+        if p.returncode == 0:
+            log.info("TikTok: новый refresh_token сохранён в секреты репозитория")
+            return True
+        log.warning("TikTok: gh secret set вернулся с ошибкой: %s",
+                    (p.stderr or "").strip()[:200])
+    except Exception as e:
+        log.warning("TikTok: не удалось сохранить refresh_token в секреты: %s", e)
+    return False
+
+
 def _ensure_access_token(cfg, token_file):
     tok = _load_token(token_file)
     if float(tok.get("expires_at", 0)) > time.time() + 60:
@@ -349,6 +380,7 @@ def _ensure_access_token(cfg, token_file):
     tok["refresh_token"] = j.get("refresh_token", tok.get("refresh_token"))
     tok["expires_at"] = time.time() + int(j.get("expires_in", 86400))
     _save_token(token_file, tok)
+    _persist_refresh_token(tok.get("refresh_token", ""))
     return tok["access_token"]
 
 
