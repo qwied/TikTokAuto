@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T12:43:17Z",
+ "updated": "2026-11-21T12:52:31Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -28,14 +28,6 @@
     "title": "Aurora vs Astra Invicta bo3 1:0 BLAST SLAM IX (Group Stage)"
    },
    {
-    "name": "solo",
-    "display": "twitch.tv/solo",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "🔴 Aurora [1:0] Astra Invicta | BLAST SLAM IX: Group Stage w/ @геннадий @kyzko_doto @icebergdoto !tg !BETBOOM !розыгрыш"
-   },
-   {
     "name": "leb1ga",
     "display": "twitch.tv/leb1ga",
     "platform": "twitch",
@@ -44,12 +36,20 @@
     "title": "⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 3"
    },
    {
-    "name": "sasavot",
-    "display": "twitch.tv/sasavot",
+    "name": "solo",
+    "display": "twitch.tv/solo",
     "platform": "twitch",
     "live": true,
     "viewers": 0,
-    "title": "ПЛОТНАЯ/СУББОТА"
+    "title": "🔴 Aurora [1:0] Astra Invicta | BLAST SLAM IX: Group Stage w/ @геннадий @kyzko_doto @icebergdoto !tg !BETBOOM !розыгрыш"
+   },
+   {
+    "name": "bratishkinoff",
+    "display": "twitch.tv/bratishkinoff",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "🔴 2K 60 FPS 🔴 ИЩУ ПАСХАЛКИ 🔴 GTA 6 🔴 DAY 4 🔴 !планы"
    },
    {
     "name": "skywhywalker",
@@ -60,60 +60,28 @@
     "title": "САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑"
    },
    {
+    "name": "t2x2",
+    "display": "twitch.tv/t2x2",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch (донаты и мемы офф)"
+   },
+   {
+    "name": "sasavot",
+    "display": "twitch.tv/sasavot",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "ПЛОТНАЯ/СУББОТА"
+   },
+   {
     "name": "frametamer666",
     "display": "twitch.tv/frametamer666",
     "platform": "twitch",
     "live": true,
     "viewers": 0,
     "title": "GTA 6 ДОНАТОФОН 24/7 [DAY 4]"
-   },
-   {
-    "name": "betboom_dota_ru",
-    "display": "twitch.tv/betboom_dota_ru",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Aurora Gaming [1] vs [0] Astra Invicta | Bo3 | Group Stage Day 2 | BLAST SLAM IX | cast: @PIVOVAR_cast & @Autodestruction"
-   },
-   {
-    "name": "gadjiev57",
-    "display": "twitch.tv/gadjiev57",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": "Мы В ТАЙЛАНДЕ РОЗА И КОСТЯ ?где чивиля?"
-   },
-   {
-    "name": "tpabomah",
-    "display": "twitch.tv/tpabomah",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "С НУЛЯ ДО МИФИКА за 18 ДНЕЙ 🔥 !розыгрыш !сборки !руинер !тг"
-   },
-   {
-    "name": "welovegames",
-    "display": "twitch.tv/welovegames",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "[День 19] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo"
-   },
-   {
-    "name": "dmitry_lixxx",
-    "display": "twitch.tv/dmitry_lixxx",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan"
-   },
-   {
-    "name": "melharucos",
-    "display": "twitch.tv/melharucos",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "ИГРА НРАВИТСЯ, ГРАБЛЮ ПРОФЕССИОНАЛЬНО"
    },
    {
     "name": "leva2k",
@@ -124,12 +92,60 @@
     "title": "АУК НА ПРЕДМЕТ | ИЗОЛЯЦИЯ | !tg !donate !winline !ggsel"
    },
    {
+    "name": "welovegames",
+    "display": "twitch.tv/welovegames",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "[День 19] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo"
+   },
+   {
+    "name": "melharucos",
+    "display": "twitch.tv/melharucos",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "ИГРА НРАВИТСЯ, ГРАБЛЮ ПРОФЕССИОНАЛЬНО"
+   },
+   {
+    "name": "gadjiev57",
+    "display": "twitch.tv/gadjiev57",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "dmitry_lixxx",
+    "display": "twitch.tv/dmitry_lixxx",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan"
+   },
+   {
+    "name": "tpabomah",
+    "display": "twitch.tv/tpabomah",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "С НУЛЯ ДО МИФИКА за 18 ДНЕЙ 🔥 !розыгрыш !сборки !руинер !тг"
+   },
+   {
     "name": "zloyn",
     "display": "twitch.tv/zloyn",
     "platform": "twitch",
     "live": true,
     "viewers": 0,
     "title": "МАРАФОН | GTA VI 🤯 | ДЕНЬ 4 | !tg !прогресс"
+   },
+   {
+    "name": "avice",
+    "display": "twitch.tv/avice",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "top 100 eu ladder/tryhard !tg !BETBOOM !мерч !плеерок"
    },
    {
     "name": "silvername",
@@ -143,9 +159,9 @@
     "name": "rostikfacekid",
     "display": "twitch.tv/rostikfacekid",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "🐳GTA VI🐳120 FPS/2K день 1. Ну проснулся, случайно удалил гта, пришлось скачивать заново...опоздал на стрим"
+    "title": ""
    },
    {
     "name": "zer0truel0ve",
@@ -156,34 +172,178 @@
     "title": "[GTA6  3 день] марафон 24/7"
    },
    {
+    "name": "betboom_dota_ru",
+    "display": "twitch.tv/betboom_dota_ru",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "Aurora Gaming [1] vs [0] Astra Invicta | Bo3 | Group Stage Day 2 | BLAST SLAM IX | cast: @PIVOVAR_cast & @Autodestruction"
+   },
+   {
+    "name": "blackufa",
+    "display": "twitch.tv/blackufa",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "[DROPS] GTA 6 [PS5Pro] игра миллиардолетия и игра галактики"
+   },
+   {
+    "name": "daxak",
+    "display": "twitch.tv/daxak",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "жесткий буст в прямом эфире в дискорде с молодым    !фонбет !бусти !заказ!розыгрыш"
+   },
+   {
+    "name": "betboom_dota_ru2",
+    "display": "twitch.tv/betboom_dota_ru2",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "LGD Gaming [0] vs [1] 1win | Bo3 | Group Stage Day 2 | BLAST SLAM IX | cast: @BLACKARHANGEL & @sheyl311 !предикты"
+   },
+   {
+    "name": "kerimch1k",
+    "display": "twitch.tv/kerimch1k",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "СБОР МАМЕ, ПРОСМОТР БЕРЕМЕННА В 16  !tg"
+   },
+   {
+    "name": "dyrachyo",
+    "display": "twitch.tv/dyrachyo",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "LGD Gaming [0:1] 1w Team bo3 BLAST SLAM IX Group Stage | !bb !tg"
+   },
+   {
+    "name": "dunduk",
+    "display": "twitch.tv/dunduk",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "тест балийского инета 4"
+   },
+   {
+    "name": "exigent_wires",
+    "display": "twitch.tv/exigent_wires",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "ДРОПСЫ !ивент !дропс"
+   },
+   {
+    "name": "blindzonexgod",
+    "display": "twitch.tv/blindzonexgod",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "Astra Invicta [0:1] Aurora w/ @Reinseele | Bo3 | Group Stage Day 2 | BLAST SLAM IX | !tg !мерч !bb"
+   },
+   {
+    "name": "praden",
+    "display": "twitch.tv/praden",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "Жизнь с утра, ДВГ"
+   },
+   {
+    "name": "ghostik",
+    "display": "twitch.tv/ghostik",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "🔥 Тестуємо НОВИХ ІМБОВИХ героїв в патчі 7.42 (3-0)🔥NAVI vs шляндекс о 16:00"
+   },
+   {
+    "name": "blackrabbit342",
+    "display": "twitch.tv/blackrabbit342",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "raythis",
+    "display": "twitch.tv/raythis",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "ezpvp_lover",
+    "display": "twitch.tv/ezpvp_lover",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "welovegames",
+    "display": "youtube.com/@welovegames",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
     "name": "bratishkinoff",
-    "display": "twitch.tv/bratishkinoff",
-    "platform": "twitch",
-    "live": true,
+    "display": "youtube.com/@bratishkinoff",
+    "platform": "youtube",
+    "live": false,
     "viewers": 0,
-    "title": "🔴 2K 60 FPS 🔴 ИЩУ ПАСХАЛКИ 🔴 GTA 6 🔴 DAY 4 🔴 !планы"
+    "title": ""
    },
    {
-    "name": "avice",
-    "display": "twitch.tv/avice",
-    "platform": "twitch",
-    "live": true,
+    "name": "KuplinovPlay",
+    "display": "youtube.com/@KuplinovPlay",
+    "platform": "youtube",
+    "live": false,
     "viewers": 0,
-    "title": "top 100 eu ladder/tryhard !tg !BETBOOM !мерч !плеерок"
+    "title": ""
    },
    {
-    "name": "t2x2",
-    "display": "twitch.tv/t2x2",
-    "platform": "twitch",
-    "live": true,
+    "name": "5opka",
+    "display": "youtube.com/@5opka",
+    "platform": "youtube",
+    "live": false,
     "viewers": 0,
-    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch (донаты и мемы офф)"
+    "title": ""
+   },
+   {
+    "name": "stariy_bog",
+    "display": "youtube.com/@stariy_bog",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "AlinaRin",
+    "display": "youtube.com/@AlinaRin",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "Okisebi",
+    "display": "youtube.com/@Okisebi",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"evelone2004\", true, \"[DROPS]🌴GTA VI🌴ФИНАЛ🔥 МАРАФОН w/ @shadowkekw @mokrivskyi\", 0], [\"nix\", true, \"Aurora vs Astra Invicta bo3 1:0 BLAST SLAM IX (Group Stage)\", 0], [\"solo\", true, \"🔴 Aurora [1:0] Astra Invicta | BLAST SLAM IX: Group Stage w/ @геннадий @kyzko_doto @icebergdoto !tg !BETBOOM !розыгрыш\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 3\", 0], [\"sasavot\", true, \"ПЛОТНАЯ/СУББОТА\", 0], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 0], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 4]\", 0], [\"betboom_dota_ru\", true, \"Aurora Gaming [1] vs [0] Astra Invicta | Bo3 | Group Stage Day 2 | BLAST SLAM IX | cast: @PIVOVAR_cast & @Autodestruction\", 0], [\"gadjiev57\", false, \"Мы В ТАЙЛАНДЕ РОЗА И КОСТЯ ?где чивиля?\", 0], [\"tpabomah\", true, \"С НУЛЯ ДО МИФИКА за 18 ДНЕЙ 🔥 !розыгрыш !сборки !руинер !тг\", 0], [\"welovegames\", true, \"[День 19] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 0], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan\", 0], [\"melharucos\", true, \"ИГРА НРАВИТСЯ, ГРАБЛЮ ПРОФЕССИОНАЛЬНО\", 0], [\"leva2k\", true, \"АУК НА ПРЕДМЕТ | ИЗОЛЯЦИЯ | !tg !donate !winline !ggsel\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 4 | !tg !прогресс\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"rostikfacekid\", true, \"🐳GTA VI🐳120 FPS/2K день 1. Ну проснулся, случайно удалил гта, пришлось скачивать заново...опоздал на стрим\", 0], [\"zer0truel0ve\", true, \"[GTA6  3 день] марафон 24/7\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 ИЩУ ПАСХАЛКИ 🔴 GTA 6 🔴 DAY 4 🔴 !планы\", 0], [\"avice\", true, \"top 100 eu ladder/tryhard !tg !BETBOOM !мерч !плеерок\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch (донаты и мемы офф)\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"evelone2004\", true, \"[DROPS]🌴GTA VI🌴ФИНАЛ🔥 МАРАФОН w/ @shadowkekw @mokrivskyi\", 0], [\"nix\", true, \"Aurora vs Astra Invicta bo3 1:0 BLAST SLAM IX (Group Stage)\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 3\", 0], [\"solo\", true, \"🔴 Aurora [1:0] Astra Invicta | BLAST SLAM IX: Group Stage w/ @геннадий @kyzko_doto @icebergdoto !tg !BETBOOM !розыгрыш\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 ИЩУ ПАСХАЛКИ 🔴 GTA 6 🔴 DAY 4 🔴 !планы\", 0], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch (донаты и мемы офф)\", 0], [\"sasavot\", true, \"ПЛОТНАЯ/СУББОТА\", 0], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 4]\", 0], [\"leva2k\", true, \"АУК НА ПРЕДМЕТ | ИЗОЛЯЦИЯ | !tg !donate !winline !ggsel\", 0], [\"welovegames\", true, \"[День 19] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 0], [\"melharucos\", true, \"ИГРА НРАВИТСЯ, ГРАБЛЮ ПРОФЕССИОНАЛЬНО\", 0], [\"gadjiev57\", false, \"\", 0], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan\", 0], [\"tpabomah\", true, \"С НУЛЯ ДО МИФИКА за 18 ДНЕЙ 🔥 !розыгрыш !сборки !руинер !тг\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 4 | !tg !прогресс\", 0], [\"avice\", true, \"top 100 eu ladder/tryhard !tg !BETBOOM !мерч !плеерок\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"rostikfacekid\", false, \"\", 0], [\"zer0truel0ve\", true, \"[GTA6  3 день] марафон 24/7\", 0], [\"betboom_dota_ru\", true, \"Aurora Gaming [1] vs [0] Astra Invicta | Bo3 | Group Stage Day 2 | BLAST SLAM IX | cast: @PIVOVAR_cast & @Autodestruction\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] игра миллиардолетия и игра галактики\", 0], [\"daxak\", true, \"жесткий буст в прямом эфире в дискорде с молодым    !фонбет !бусти !заказ!розыгрыш\", 0], [\"betboom_dota_ru2\", true, \"LGD Gaming [0] vs [1] 1win | Bo3 | Group Stage Day 2 | BLAST SLAM IX | cast: @BLACKARHANGEL & @sheyl311 !предикты\", 0], [\"kerimch1k\", true, \"СБОР МАМЕ, ПРОСМОТР БЕРЕМЕННА В 16  !tg\", 0], [\"dyrachyo\", true, \"LGD Gaming [0:1] 1w Team bo3 BLAST SLAM IX Group Stage | !bb !tg\", 0], [\"dunduk\", true, \"тест балийского инета 4\", 0], [\"exigent_wires\", true, \"ДРОПСЫ !ивент !дропс\", 0], [\"blindzonexgod\", true, \"Astra Invicta [0:1] Aurora w/ @Reinseele | Bo3 | Group Stage Day 2 | BLAST SLAM IX | !tg !мерч !bb\", 0], [\"praden\", true, \"Жизнь с утра, ДВГ\", 0], [\"ghostik\", true, \"🔥 Тестуємо НОВИХ ІМБОВИХ героїв в патчі 7.42 (3-0)🔥NAVI vs шляндекс о 16:00\", 0], [\"blackrabbit342\", false, \"\", 0], [\"raythis\", false, \"\", 0], [\"ezpvp_lover\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
