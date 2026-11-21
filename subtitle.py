@@ -3,8 +3,10 @@
 СУБТИТРЫ — ТОЛЬКО ИЗ РЕЧИ ЧЕЛОВЕКА (Whisper слышит голос и игнорирует чат).
 
 Стили:
-  tiktok  — как на образце заказчика: ЖИРНЫЙ КАПС двумя строками ВНИЗУ ЭКРАНА,
-            верхняя строка белая, нижняя — жёлтая (современный «viral»-стиль);
+  tiktok  — караоке БЕЗ анимаций: ЖИРНЫЙ КАПС двумя строками ВНИЗУ ЭКРАНА.
+            Ещё НЕ произнесённые слова — БЕЛЫЕ, текущее и уже сказанное —
+            ЖЁЛТЫЕ; подсветка строго по таймингам слов (субтитры «следуют»
+            за говорящим, без вспышек и пружинок);
   classic — аккуратные строки с полупрозрачной плашкой;
   чат     — опциональный fallback (по умолчанию ВЫКЛЮЧЕН: чат не отслеживается).
 """
@@ -182,7 +184,11 @@ def transcribe_full(wav_path, language="ru", model_size="small", beam_size=1,
     if vad:
         kw["vad_filter"] = True
         kw["vad_parameters"] = {"min_silence_duration_ms": 700,
-                                "speech_pad_ms": 250,
+                                # подушка речи 250 мс сдвигала начало строк:
+                                # субтитры появлялись РАНЬШЕ, чем стример
+                                # заговорил. 100 мс — слово начинается ровно
+                                # в момент речи (запрос пользователя)
+                                "speech_pad_ms": 100,
                                 "threshold": 0.30}
     else:
         kw["vad_filter"] = False
@@ -440,40 +446,31 @@ def _chunks(words, max_words=4, max_chars=22):
 TIKTOK_FONT = "Montserrat ExtraBold"
 FONT_FILENAMES = ("Montserrat-ExtraBold.ttf",)
 
-YELLOW = "&H00FFFF&"    # нижняя строка, как на образце заказчика
-# палитра строго БЕЛО-ЖЁЛТАЯ (как договорились): вспышка активного слова —
-# инверсия цвета строки: белый сверху вспыхивает жёлтым, жёлтый низ — белым
-FLASH_BY_BASE = {WHITE: YELLOW, YELLOW: WHITE}
+YELLOW = "&H00FFFF&"    # подсветка сказанного (караоке «бело-жёлтые»)
+
+# Строка держится ~1 c после последнего слова — субтитры не «мигают» на
+# паузах между фразами; но не висят дольше начала следующей строки и не
+# мелькают короче 0.4 c.
+CHUNK_TAIL = 1.0
+MIN_LINE_SEC = 0.4
 
 
-def _pop_in(t0=0):
-    """«Пружинка» при появлении строки: 82% -> 107% -> 100% (мс)."""
-    t0 = max(0, int(t0))
-    return ("\\fad(50,50)\\fscx82\\fscy82"
-            "\\t(%d,%d,\\fscx107\\fscy107)"
-            "\\t(%d,%d,\\fscx100\\fscy100)" % (t0, t0 + 110, t0 + 110, t0 + 180))
+def _karaoke_line(durs, caps, idxs):
+    """Строка с караоке-подсветкой \\k — БЕЗ каких-либо анимаций.
 
+    В ASS подсветка \\k накапливается от начала строки, поэтому длительность
+    слота слова i = w_i.start - w_(i-1).start: слово i «желтеет» РОВНО в
+    момент, когда его произносят (тайминги слов от Whisper). Пробел остаётся
+    в слоте ПРЕДЫДУЩЕГО слова — пробел не рисуется, подсветка не смещается.
 
-def _flash_tags(t0_ms, t1_ms, base):
-    """Блок анимации слова — ЧЁТКИЙ «караоке»-эффект:
-
-      * слово РОВНО в момент произнесения мгновенно меняет цвет на
-        инверсный (белый <-> жёлтый) — виден каждый кадр вспышки;
-      * держится до конца слова (до 220 мс), затем ПЛАВНО гаснет обратно
-        (150 мс) — без мигания и «кривых» цветов (только белый/жёлтый).
-
-    В ASS статичный тег перебивает анимацию, если стоит ПОСЛЕ неё, поэтому
-    порядок строго: \\cBASE, затем \\t-вспышка и возврат.
+    До подсветки слово рисуется SecondaryColour (белый), после —
+    PrimaryColour (жёлтый): несказанное — белое, сказанное — жёлтое.
     """
-    flash = FLASH_BY_BASE.get(base, YELLOW)
-    t0 = max(0, int(t0_ms))
-    t1 = max(0, int(t1_ms))
-    hold = min(max(t1 - t0, 90), 220)     # держим вспышку до конца слова
-    t2 = t0 + hold
-    t3 = t2 + 150
-    return ("\\c" + base
-            + "\\t(%d,%d,\\c%s)" % (t0, t0, flash)
-            + "\\t(%d,%d,\\c%s)" % (t2, t3, base))
+    parts = []
+    for j, idx in enumerate(idxs):
+        lead = "" if j == 0 else " "
+        parts.append("%s{\\k%d}%s" % (lead, durs[idx], caps[idx]))
+    return "".join(parts)
 
 
 def _balanced_split(caps):
@@ -521,16 +518,17 @@ def _lip_gate(words, segs, lip_intervals):
 
 def build_tiktok_ass(words, path, width=1280, height=720, font="Arial Black",
                      skip_intervals=None):
-    """Стиль «как на образце»: жирный капс ВНИЗУ ПО ЦЕНТРУ, максимум две
-    строки — верхняя БЕЛАЯ, нижняя ЖЁЛТАЯ (современный viral-стиль).
+    """Караоке-субтитры БЕЗ анимаций: жирный капс ВНИЗУ ПО ЦЕНТРУ, максимум
+    две строки, палитра строго бело-жёлтая.
 
-    АНИМАЦИИ (TikTok-стиль, палитра строго бело-жёлтая):
-      * строка «выпрыгивает» (масштаб 82% -> 107% -> 100%) с мягким fade;
-      * каждое слово вспыхивает инверсным цветом РОВНО В МОМЕНТ, когда его
-        произносят (по таймингам слов от Whisper): белый верх — жёлтой
-        вспышкой, жёлтый низ — белой — и плавно гаснет обратно;
-      * деление на верх/низ — по длине символов, поэтому строки ровные,
-        без «кривых» переносов.
+    СЛЕДУЕТ ЗА ГОВОРЯЩИМ (запрос пользователя):
+      * строка появляется РОВНО в момент первого слова и держится ~1 c после
+        последнего (не дольше начала следующей строки — без наложений);
+      * подсветка через караоке-теги \\k по таймингам слов Whisper: слово
+        «желтеет» ровно в момент произнесения и остаётся жёлтым; ещё НЕ
+        произнесённые слова — белые. Никаких пружинок/вспышек (\\t, \\fad,
+        \\fscx) — только чистая смена цвета, в том числе на паузах;
+      * деление на верх/низ — по длине символов, строки ровные.
 
     Вертикальный клип (9:16) — субтитры крупнее и выше от низа, чтобы не
     перекрывались интерфейсом TikTok.
@@ -544,33 +542,47 @@ def build_tiktok_ass(words, path, width=1280, height=720, font="Arial Black",
     header = ASS_HEADER.format(
         width=width, height=height, name="TikTok", font=font,
         fontsize=int((64 if vertical else 58) * scale),
-        primary=WHITE, secondary=WHITE,
+        primary=YELLOW, secondary=WHITE,
         outline="&H00141414", back="&H80000000", bold=-1,
         border_style=1, outline_w=3, shadow=0,
         marginv=int((330 if vertical else 88)
                     * ((height / 1920.0) if vertical else scale)),
     )
+    chunks = _chunks(words)
     events = []
-    for chunk in _chunks(words):
+    for i, chunk in enumerate(chunks):
         start = max(chunk[0]["start"], 0.0)
-        end = max(chunk[-1]["end"], start + 0.7)
-        if end - start < 0.7:
-            end = start + 0.7
+        last_end = max(chunk[-1]["end"], start + 0.2)
+        end = last_end + CHUNK_TAIL
+        if i + 1 < len(chunks):
+            nxt = chunks[i + 1][0]["start"]
+            if nxt > last_end:
+                # держим строку до самой следующей — субтитры без «миганий»
+                end = min(end, nxt - 0.05)
+            else:
+                end = last_end + 0.1      # тайминги пересеклись — не висеть
+        if end - start < MIN_LINE_SEC:
+            end = start + MIN_LINE_SEC
         if _overlaps(start, end, skip_intervals):
             continue
         caps = [_esc(w["word"].upper()) for w in chunk]
-        rel = [max(0.0, (w["start"] - start) * 1000.0) for w in chunk]
-        rel_end = [max(0.0, (w["end"] - start) * 1000.0) for w in chunk]
+        # караоке-длительности: слово i желтеет в момент w_i.start
+        durs = []
+        prev = start
+        for w in chunk:
+            t = max(w["start"], start)
+            durs.append(max(0, int(round((t - prev) * 100.0))))
+            prev = t
+        if durs:
+            # строка появляется ровно на первом слове — оно сразу «текущее»
+            durs[0] = max(durs[0], 1)
         if len(caps) == 1:
-            text = ("{" + _flash_tags(rel[0], rel_end[0], YELLOW)
-                    + _pop_in() + "}" + caps[0])
+            text = "{\\k%d}%s" % (durs[0], caps[0])
         else:
-            k = _balanced_split(caps)          # верх/низ — ровно по длине
-            top = " ".join("{" + _flash_tags(r0, r1, WHITE) + "}" + c
-                           for r0, r1, c in zip(rel[:k], rel_end[:k], caps[:k]))
-            bot = " ".join("{" + _flash_tags(r0, r1, YELLOW) + "}" + c
-                           for r0, r1, c in zip(rel[k:], rel_end[k:], caps[k:]))
-            text = "{" + _pop_in() + "}" + top + "\\N" + bot
+            k = _balanced_split(caps)      # верх/низ — ровно по длине
+            text = (_karaoke_line(durs, caps, range(0, k))
+                    + "\\N"
+                    + _karaoke_line(durs, caps, range(k, len(caps))))
         events.append(f"Dialogue: 0,{_ass_time(start)},{_ass_time(end)},TikTok,,0,0,0,,{text}")
     with open(path, "w", encoding="utf-8") as f:
         f.write(header)

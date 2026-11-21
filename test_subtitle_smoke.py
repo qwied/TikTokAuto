@@ -8,7 +8,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from models import ChatMessage                      # noqa: E402
-from subtitle import (_chunks, _flash_tags, _stage_fonts,           # noqa: E402
+from subtitle import (_chunks, _stage_fonts,                       # noqa: E402
                               _bundled_fonts_dir, build_chat_ass,
                               build_tiktok_ass, burn_subtitles, TIKTOK_FONT)
 from utils import ffprobe_meta, run_cmd             # noqa: E402
@@ -92,21 +92,6 @@ def test_chat_overlay_burn():
     print(f"ok: субтитры из чата вшиты -> {out}")
 
 
-def test_flash_tags_snap_karaoke():
-    """Вспышка слова — МГНОВЕННАЯ в момент речи, возврат плавный, только
-    бело-жёлтая палитра (караоке-эффект, запрос пользователя)."""
-    tags = _flash_tags(600, 900, "&HFFFFFF&")
-    # мгновенное включение инверсного цвета в момент слова (t1==t2):
-    assert r"\t(600,600,\c&H00FFFF&)" in tags
-    # держим до конца слова (220 мс) и плавный возврат к белому:
-    assert r"\t(820,970,\c&HFFFFFF&)" in tags
-    # жёлтая строка вспыхивает белым:
-    tags2 = _flash_tags(0, 300, "&H00FFFF&")
-    assert r"\t(0,0,\c&HFFFFFF&)" in tags2
-    assert r"\t(220,370,\c&H00FFFF&)" in tags2
-    print("ok: караоке-вспышка (мгновенно + плавный возврат)")
-
-
 def test_bundled_font():
     """Шрифт Montserrat ExtraBold лежит в паке и копируется в workdir
     (fontsdir для libass — одинаковый жирный вид на Windows и Actions)."""
@@ -126,7 +111,6 @@ def main():
     test_style_two_tone_and_skip()
     test_tiktok_burn()
     test_chat_overlay_burn()
-    test_flash_tags_snap_karaoke()
     test_bundled_font()
     print("ВСЕ ТЕСТЫ СУБТИТРОВ ПРОШЛИ")
 
