@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-21T20:49:55Z",
- "jobs": []
+ "updated": "2026-11-21T21:14:29Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=ymCHX_Dcc-U",
+   "kind": "video",
+   "fails": 0,
+   "tag": "gta6",
+   "display": "Я Продержался 100 Часов В GTA 6",
+   "views": 46832965,
+   "added": "2026-11-21T21:14:19Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=Vrdcf0neC8Q",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "САМАЯ СТРАШНАЯ НОЧЬ НА СТРИМХАТЕ! В НАШ ДОМ КТО-ТО ПРОНИК... //Ft. Парадеевич, Кореш, Данила Горилла",
+   "views": 986060,
+   "added": "2026-11-21T21:14:26Z"
+  }
+ ]
 }
