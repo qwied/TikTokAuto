@@ -12,6 +12,7 @@
 import logging
 import os
 import re
+import shutil
 import threading
 import zlib
 
@@ -430,8 +431,19 @@ def _chunks(words, max_words=4, max_chars=22):
     return out
 
 
+# Шрифт субтитров: Montserrat ExtraBold — жирный «TikTok»-шрифт с полной
+# кириллицей. Файл Montserrat-ExtraBold.ttf лежит рядом с программой и
+# КОПИРУЕТСЯ в рабочую папку при вшивании (fontsdir в ffmpeg ass-фильтре):
+# надпись выглядит ОДИНАКОВО везде — на Windows и на GitHub Actions (раньше
+# Actions брали «Arial Black» из config, шрифта там нет, libass подставлял
+# тонкий дефолтный — субтитры выглядели «кривыми»).
+TIKTOK_FONT = "Montserrat ExtraBold"
+FONT_FILENAMES = ("Montserrat-ExtraBold.ttf",)
+
 YELLOW = "&H00FFFF&"    # нижняя строка, как на образце заказчика
-ACCENT_FLASH = "&HFA8BA7&"   # вспышка активного слова (розовый неон)
+# палитра строго БЕЛО-ЖЁЛТАЯ (как договорились): вспышка активного слова —
+# инверсия цвета строки: белый сверху вспыхивает жёлтым, жёлтый низ — белым
+FLASH_BY_BASE = {WHITE: YELLOW, YELLOW: WHITE}
 
 
 def _pop_in(t0=0):
@@ -442,17 +454,26 @@ def _pop_in(t0=0):
             "\\t(%d,%d,\\fscx100\\fscy100)" % (t0, t0 + 110, t0 + 110, t0 + 180))
 
 
-def _flash_tags(t_rel_ms, base):
-    """Блок анимации слова: статичный цвет базы ПЕРВЫМ, потом вспышка.
+def _flash_tags(t0_ms, t1_ms, base):
+    """Блок анимации слова — ЧЁТКИЙ «караоке»-эффект:
+
+      * слово РОВНО в момент произнесения мгновенно меняет цвет на
+        инверсный (белый <-> жёлтый) — виден каждый кадр вспышки;
+      * держится до конца слова (до 220 мс), затем ПЛАВНО гаснет обратно
+        (150 мс) — без мигания и «кривых» цветов (только белый/жёлтый).
 
     В ASS статичный тег перебивает анимацию, если стоит ПОСЛЕ неё, поэтому
-    порядок строго: \\cBASE, затем \\t-вспышка ACCENT в момент речи и возврат.
+    порядок строго: \\cBASE, затем \\t-вспышка и возврат.
     """
-    t1 = max(0, int(t_rel_ms))
-    t2 = t1 + 140
-    t3 = t2 + 220
-    return ("\\c" + base + "\\t(%d,%d,\\c%s)\\t(%d,%d,\\c%s)"
-            % (t1, t2, ACCENT_FLASH, t2, t3, base))
+    flash = FLASH_BY_BASE.get(base, YELLOW)
+    t0 = max(0, int(t0_ms))
+    t1 = max(0, int(t1_ms))
+    hold = min(max(t1 - t0, 90), 220)     # держим вспышку до конца слова
+    t2 = t0 + hold
+    t3 = t2 + 150
+    return ("\\c" + base
+            + "\\t(%d,%d,\\c%s)" % (t0, t0, flash)
+            + "\\t(%d,%d,\\c%s)" % (t2, t3, base))
 
 
 def _balanced_split(caps):
@@ -503,10 +524,11 @@ def build_tiktok_ass(words, path, width=1280, height=720, font="Arial Black",
     """Стиль «как на образце»: жирный капс ВНИЗУ ПО ЦЕНТРУ, максимум две
     строки — верхняя БЕЛАЯ, нижняя ЖЁЛТАЯ (современный viral-стиль).
 
-    АНИМАЦИИ (TikTok-стиль):
+    АНИМАЦИИ (TikTok-стиль, палитра строго бело-жёлтая):
       * строка «выпрыгивает» (масштаб 82% -> 107% -> 100%) с мягким fade;
-      * каждое слово вспыхивает розовым неоном РОВНО В МОМЕНТ, когда его
-        произносят (по таймингам слов от Whisper), и плавно гаснет;
+      * каждое слово вспыхивает инверсным цветом РОВНО В МОМЕНТ, когда его
+        произносят (по таймингам слов от Whisper): белый верх — жёлтой
+        вспышкой, жёлтый низ — белой — и плавно гаснет обратно;
       * деление на верх/низ — по длине символов, поэтому строки ровные,
         без «кривых» переносов.
 
@@ -538,15 +560,16 @@ def build_tiktok_ass(words, path, width=1280, height=720, font="Arial Black",
             continue
         caps = [_esc(w["word"].upper()) for w in chunk]
         rel = [max(0.0, (w["start"] - start) * 1000.0) for w in chunk]
+        rel_end = [max(0.0, (w["end"] - start) * 1000.0) for w in chunk]
         if len(caps) == 1:
-            text = ("{" + _flash_tags(rel[0], YELLOW) + _pop_in() + "}"
-                    + caps[0])
+            text = ("{" + _flash_tags(rel[0], rel_end[0], YELLOW)
+                    + _pop_in() + "}" + caps[0])
         else:
             k = _balanced_split(caps)          # верх/низ — ровно по длине
-            top = " ".join("{" + _flash_tags(r, WHITE) + "}" + c
-                           for r, c in zip(rel[:k], caps[:k]))
-            bot = " ".join("{" + _flash_tags(r, YELLOW) + "}" + c
-                           for r, c in zip(rel[k:], caps[k:]))
+            top = " ".join("{" + _flash_tags(r0, r1, WHITE) + "}" + c
+                           for r0, r1, c in zip(rel[:k], rel_end[:k], caps[:k]))
+            bot = " ".join("{" + _flash_tags(r0, r1, YELLOW) + "}" + c
+                           for r0, r1, c in zip(rel[k:], rel_end[k:], caps[k:]))
             text = "{" + _pop_in() + "}" + top + "\\N" + bot
         events.append(f"Dialogue: 0,{_ass_time(start)},{_ass_time(end)},TikTok,,0,0,0,,{text}")
     with open(path, "w", encoding="utf-8") as f:
@@ -638,17 +661,69 @@ def extract_audio(video, workdir):
     return wav
 
 
+def _bundled_fonts_dir():
+    """Где лежит вшитый шрифт: рядом с модулем (прод-раскладка, плоский
+    репо — Montserrat-ExtraBold.ttf в корне), в fonts/ рядом или на уровень
+    выше (раскладка пакета clipper/), либо в корне проекта (исходник,
+    модуль в clipper/). None — шрифта рядом нет (не ошибка)."""
+    here = os.path.dirname(os.path.abspath(__file__))
+    for cand in (here, os.path.join(here, "fonts"),
+                 os.path.join(os.path.dirname(here), "fonts"),
+                 os.path.dirname(here),
+                 os.path.dirname(os.path.dirname(here))):
+        if any(os.path.isfile(os.path.join(cand, n)) for n in FONT_FILENAMES):
+            return cand
+    return None
+
+
+def _stage_fonts(workdir):
+    """Скопировать вшитые шрифты в workdir/fonts -> fontsdir для libass.
+
+    Возвращает 'fonts' (относительное имя папки, ffmpeg запускается с
+    cwd=workdir) или None. Копирование — чтобы не зависеть от того, где
+    лежит проект и как экранировать абсолютные пути в фильтре ffmpeg.
+    """
+    src_dir = _bundled_fonts_dir()
+    if not src_dir:
+        return None
+    dst_dir = os.path.join(str(workdir), "fonts")
+    try:
+        os.makedirs(dst_dir, exist_ok=True)
+        copied = 0
+        for name in FONT_FILENAMES:
+            src = os.path.join(src_dir, name)
+            dst = os.path.join(dst_dir, name)
+            if os.path.exists(src) and (not os.path.exists(dst)
+                                        or os.path.getsize(dst)
+                                        != os.path.getsize(src)):
+                shutil.copyfile(src, dst)
+            copied += 1 if os.path.exists(dst) else 0
+        if copied:
+            return "fonts"
+    except Exception:
+        log.debug("Шрифты не скопировались", exc_info=True)
+    return None
+
+
 def burn_subtitles(video_in, ass_path, video_out, workdir, vcodec_args=None):
     """Вшить ASS-субтитры в видео (libass) — финальный mp4.
 
     vcodec_args — аргументы видеокодировщика (авто-детект NVENC/QSV/x264 из
     utils.detect_h264_encoder). Звук копируется без перекодирования (быстро
     и без потери качества); при несовместимом кодеке — перекодирование в AAC.
+
+    Вшитый шрифт (fonts/, Montserrat ExtraBold): копируется в workdir и
+    подключается через fontsdir — одинаковый жирный вид субтитров на любой
+    машине (Windows/GitHub Actions), без подмены системным шрифтом.
     """
     va = list(vcodec_args) if vcodec_args else ["-c:v", "libx264", "-preset", "veryfast", "-crf", "18"]
+    vf = f"ass={os.path.basename(str(ass_path))}"
+    fonts_rel = _stage_fonts(workdir)
+    if fonts_rel:
+        vf += f":fontsdir={fonts_rel}"
     head = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-nostdin",
             "-i", os.path.basename(str(video_in)),
-            "-vf", f"ass={os.path.basename(str(ass_path))}"]
+            "-vf", vf]
     tail = ["-pix_fmt", "yuv420p", "-movflags", "+faststart",
             os.path.basename(str(video_out))]
     last_err = ""
@@ -704,7 +779,11 @@ def make_subtitles_meta(video_path, workdir, sub_cfg, language, chat_messages,
         width, height = meta_ff["width"], meta_ff["height"]
     ass_path = os.path.join(str(workdir), "subs.ass")
     style = str(sub_cfg.get("style", "tiktok")).lower()
-    font = sub_cfg.get("font") or ("Arial Black" if style == "tiktok" else "Arial")
+    font = str(sub_cfg.get("font") or "").strip()
+    if not font or font.lower() in ("arial black", "default"):
+        # «Arial Black» остался в старых конфигах: на GitHub Actions его нет,
+        # поэтому заменяем на вшитый жирный шрифт с кириллицей.
+        font = TIKTOK_FONT if style == "tiktok" else "Arial"
 
     segs, words = None, None
     if sub_cfg.get("use_asr", True):

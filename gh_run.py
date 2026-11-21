@@ -125,8 +125,18 @@ def discover_youtube_hype(gh, cfg):
         return 0
     queries = [str(q).strip() for q in (disc.get("queries") or []) if str(q).strip()]
     if not queries:
-        queries = ["GTA 6 смешные моменты", "GTA 6 приколы",
-                   "гта 6 угар", "GTA VI обзор русский"]
+        queries = ["gta6:GTA 6 смешные моменты", "gta6:GTA 6 приколы",
+                   "gta6:гта 6 угар", "ru:смешные моменты стрима"]
+    # ТЕМА запроса через префикс "тема:запрос" (см. config.yaml):
+    #   gta6 — только видео именно про GTA 6/VI (обязателен GTA в заголовке);
+    #   ru   — любая русскоязычная хайп-нарезка (стрим-угар, приколы).
+    tagged = []
+    for q in queries:
+        tag, _, rest = q.partition(":")
+        if tag not in ("gta6", "ru") or not rest:
+            tag, rest = "gta6", q          # без префикса — как раньше, GTA6
+        tagged.append((tag, rest.strip()))
+    queries = [(tag, rest) for tag, rest in tagged if rest]
     min_views = int(disc.get("min_views") or 50000)
     min_dur = int(disc.get("min_minutes") or 8) * 60
     max_dur = int(disc.get("max_minutes") or 180) * 60
@@ -144,7 +154,7 @@ def discover_youtube_hype(gh, cfg):
         return 0
 
     found = {}
-    for q in queries:
+    for tag, q in queries:
         try:
             p = subprocess.run(
                 ["yt-dlp", "--flat-playlist", "--dump-single-json",
@@ -172,13 +182,17 @@ def discover_youtube_hype(gh, cfg):
                 continue                      # Shorts и марафоны мимо
             if views < min_views:
                 continue
-            if not (GTA6_RE.search(title) and CYRILLIC_RE.search(title)):
-                continue                      # только RU-видео именно про GTA 6
+            if tag == "gta6":
+                # тема GTA 6: заголовок обязан содержать GTA 6/VI + быть русским
+                if not (GTA6_RE.search(title) and CYRILLIC_RE.search(title)):
+                    continue
+            elif not CYRILLIC_RE.search(title):
+                continue                      # тема ru: русскоязычное — обязательно
             url = "https://www.youtube.com/watch?v=" + vid
             if url in done or url in queued or url in found:
                 continue
             found[url] = {"url": url, "kind": "video", "fails": 0,
-                          "tag": "gta6", "display": title[:120],
+                          "tag": tag, "display": title[:120],
                           "views": views,
                           "added": time.strftime("%Y-%m-%dT%H:%M:%SZ",
                                                  time.gmtime())}
@@ -194,7 +208,7 @@ def discover_youtube_hype(gh, cfg):
     jobs_data["updated"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
     try:
         put_json_state(gh, JOBS_JSON, jobs_data, jsha,
-                       "vod: +хайповые GTA6-видео с YouTube")
+                       "vod: +хайповые RU-видео с YouTube (GTA6/общие)")
     except Exception:
         log.exception("Не записать jobs.json — дискавери пропущен")
         return 0
@@ -202,11 +216,19 @@ def discover_youtube_hype(gh, cfg):
     return len(best)
 
 
-NO_SPEECH_SKIP_MAX = 8  # сколько окон без речи пропускаем за запуск (чтобы
-                        # не сжечь весь run на тихих кусках)
+NO_SPEECH_SKIP_MAX = 10  # сколько окон без РЕЧИ пропускаем за запуск (чтобы
+                         # не сжечь весь run на тихих кусках)
 BORED_SKIP_MAX = 6      # сколько «скучных» окон (низкая оценка качества)
                         # откладываем за запуск; лучший из отложенных всё же
                         # публикуем, если за весь run не вышел ни один клип
+
+# Гейт РЕЧИ (запрос: «не делай клипы, где вообще не говорят»): окно считается
+# пустым не только при нулевых словах, но и когда речи почти нет —
+# меньше 12 слов или речь занимает меньше 12% длины клипа (это и есть
+# «клипы, где вообще никто ничего не говорит»: пара слов-галлюцинаций
+# Whisper уже не считается речью).
+MIN_WORDS_CLIP = 12
+MIN_SPEECH_PCT = 12
 
 # Настройки качества по умолчанию (их меняет сайт -> settings.json).
 # speech_language: auto — Whisper сам определяет язык (стример может быть
@@ -923,62 +945,58 @@ def twitch_top_streams(limit=DISCOVERY_TOP_FETCH):
 # игры) — русских там не будет вовсе. Поэтому русскоязычных ищем ДВУМЯ
 # путями: фильтр глобального топа + прямая проверка живых эфиров у
 # известных русских стримеров (публичный GQL, без ключей).
-# Список 2026-11-20 (запрос «добавь как можно больше русскоязычных каналов»):
-# ~113 ЛОГИНОВ, каждый проверен запросом users(logins:) в GQL (битые отброшены
-# автоматически: mileenagordeeva, chpu_official, jdanoffffffff и др. уже не
-# существуют). Источники: twitchmetrics.net (топ русскоязычных по подписчикам
-# и просмотрам, 4 страницы) + прежний ручной список. Кто из них в эфире,
-# решает filter_by_language в auto_discover — язык должен быть ru/русский тайтл.
+# Список 2026-11-21 (запрос «добавь КАК МОЖНО БОЛЬШЕ РУССКИХ СТРИМЕРОВ»):
+# 189 ЛОГИНОВ, все проверены запросом users(logins:) в GQL и подписчиками
+# (собран скриптом scripts/discover_ru_twitch.py: живые RU-эфиры по 45
+# популярным категориям + широкий пул кандидатов; иностранцы и битые ники
+# отброшены). Кто из них в эфире, решает filter_by_language в
+# auto_discover — язык должен быть ru/русский тайтл.
 RU_CANDIDATE_LOGINS = [
-    "1win_dota_ru", "4er4el", "5opka", "afoninje", "ahmpy",
-    "alanzoka", "aldo_geo", "alfrea", "aminematue", "anarabdullaev",
-    "angryginge13", "anyme023", "archiedos", "arrowwoods", "arteezysboy",
-    "asmongold247", "audio__rw", "auronplay", "aussieantics", "avice",
-    "barbarousking", "bastighg", "batora324", "betboom_cs_ru", "blastpremier",
-    "bonjwa", "bratishkinoff", "breeezzx", "buster", "busteroid1337",
-    "bysl4m", "caedrel", "caedrel247", "caseoh_", "castcrafter",
-    "cdawg", "charmy_games", "chopperinho", "clemquicourt", "clix",
-    "coachlim", "cohhcarnage", "d1pro4", "d1sstric", "dakillzor",
-    "dangerlyoha", "danila_gorilla", "dansgaming", "daria_kit", "dawgonosik",
-    "deepins02", "deko", "dirkaes", "djmariio", "dkincc",
-    "dmitry_lixxx", "domingo", "edison", "egorkreed", "elajjaz",
-    "eliasn97", "elmariana", "elxokas", "emiru", "erokez61",
-    "esfandtv", "eslcs", "evelone200", "evelone2004", "evelynomadera",
-    "ewroon", "filshtein", "fissure_dota_ru", "fps_shaka", "frametamer666",
-    "fubgun", "fumimochi", "gadjiev57", "gen1usat", "goodwin4k",
-    "gorgc", "gotaga", "gronkh", "gtasty", "guacamolemolly",
-    "gwap69", "handofblood", "hasanabi", "honeymad", "hoshigami",
-    "hutchmf", "ibai", "illojuan", "ilrossopiubelloditwitch", "imblancos",
-    "imdankar", "indegnasen0706", "ishowspeed", "iskat", "japabigodin",
-    "jasontheween", "jerry256cs2", "jltomy", "joe_bartolozzi", "jokerdtv",
-    "jolygames", "jynxzi", "k4sen", "kaicenat", "kamet0",
-    "kanonxo", "kato_junichi0817", "knekro", "kopsteep", "koreshzy",
-    "krokoboss", "ks1lva", "lacy", "lacyoffline_", "leb1ga",
-    "leemodopi", "lenagol0vach", "letshugotv", "leva2k", "lirik",
-    "liz0n", "lolesportstw", "m0nesyof", "m3wsu", "mafanyaking",
-    "magamedtv05", "malr1ne_dota", "markjoviic", "mastu", "melharucos",
-    "mellstroy981", "mertabimula", "metashi12", "missmikkaa", "mistafaker",
-    "mitchjones", "mokrivskyi", "montanablack88", "moonmoon", "morphe_ya",
-    "murzofix", "n_masteroff", "nanopro", "nicewigg", "nix",
-    "nooreax", "noway4u_sir", "nuuuur", "ohnepixel", "on_rus",
-    "otplol_", "ow_esports", "papaplatte", "paradeev1ch", "pathofexile",
-    "payo", "peereira7", "pgl", "pikabooirl", "pionggg",
-    "ppperry", "primevideo", "pustyshkaa", "qtcinderella", "quin69",
-    "rad0s66", "rainbow6", "ravshann", "raze_iam", "realkatieb",
-    "recrent", "rejiboi", "renatko", "riotgames", "roman_banann",
-    "rostikfacekid", "rostislav_999", "rubius", "sasatikk", "sasavot",
-    "senator__se", "shadowkekw", "shevchik666", "shirooutsider", "shosha_433",
-    "shur4", "silvername", "skywhywalker", "skyyart", "sodapoppin",
-    "sondergaardlol", "sparkling_water", "squeezie", "stableronaldo", "stariy_bog",
-    "steel", "stintik", "stray228", "strogo", "stylishnoob4",
-    "summit1g", "supertf", "swagg", "syslov171", "t2x2",
-    "tfue", "thebausffs", "theburntpeanut", "theburntpeanut_247", "therealknossi",
-    "tolkin", "tpabomah", "traytonlol", "trymacs", "tumblurr",
-    "typicalgamer", "vlad_derevyashka", "welovegames", "wendolynortizz", "xaryu",
-    "xqc", "xrohat", "yukiofps14", "yutapongo", "yuyuta0702",
-    "zackrawrr", "zarbex", "zer0truel0ve", "zerator", "zloyn",
-    "znat51", "zombie_doctorr", "zxcpulsedx", "zxcursed", "zxjem"
+    "s1mple bratishkinoff deepins02 evelone2004 paradeev1ch t2x2 koreshzy "
+    "strogo kamet0 recrent dmitry_lixxx sasavot stray228 frametamer666 "
+    "dangerlyoha stintik xrohat rostislav_999 zarbex skywhywalker jltomy "
+    "zloyn shadowkekw ravshann mokrivskyi nix danila_gorilla stylishnoob4 "
+    "rostikfacekid ewroon 5opka morphe_ya skyyart alohadancetv silvername "
+    "xaryu stariy_bog tpabomah gtasty lenagol0vach otplol_ deko nooreax "
+    "leb1ga leemodopi mafanyaking zxcursed metashi12 welovegames leva2k "
+    "renatko krokoboss dyrachyo murzofix chopperinho melharucos sasatikk "
+    "blackufa znat51 tolkin senator__se jokerdtv solo m3wsu daxak vovapain "
+    "followkudes yukiofps14 rejiboi on_rus batora324 kopsteep dunduk imdankar "
+    "kanonxo mistafaker dawgonosik adekvat happasc2 velyalive keliencs "
+    "ghostik jerry256cs2 hibako tixerok kiryuhaa betboom_dota_ru d1pro4 "
+    "shirooutsider rad0s66 syslov171 dirkaes kerimch1k shur4 samiyka d1sstric "
+    "uniquee blindzonexgod sinedd92 amor_ed fc_dynamo rasty_airsoft "
+    "blackrabbit342 zxjem gadjiev57 n_masteroff shosha_433 bublikxxl raythis "
+    "shevchik666 mozol6ka shiishak zer0truel0ve exigent_wires firiondhistory "
+    "betboom_dota_ru2 mainfinitytv praden vlad_derevyashka markjoviic "
+    "mag4shkaaa breeezzx raze_iam gen1usat ezpvp_lover dobra_divka sh0kerix "
+    "filshtein mr_blo mantaq wildanimalhs mrsplinter_tv impatiya zxcpulsedx "
+    "pustyshkaa extreme4ik_play phenybut nymphayia mrrojer akson7777 riokka11 "
+    "magamedtv05 finfuryfast369 dandepuzo elfejan unsella oleg_insec "
+    "liveforsurf nagibml mellonty_wtf sirfugaaa magiik777 l1wenyt 6rusko12 "
+    "petrosuyn effectikkkkk drugcat33 kebastr shezhinka isawyourunaway "
+    "tyanli_ buzzzzzzzzzzzzzzzzzz vadimdanerian myafych etojeyulya bezp "
+    "vladaholod zaychik_off untouchable_me artlasoff iicoyote quzm1ch "
+    "roha_wot vyacheslavlivee mcpleh cardiomlbb sabellya oden_337 mlmlka "
+    "awsdayy londyy_gg skifler_wot verona_forma rinaruin twist666g0d "
+    "stanranli sakres_stream remanga despot1ck "
 ]
+
+# РУССКОЯЗЫЧНЫЕ YouTube-КАНАЛЫ для слежки (запрос «добавь как можно больше …
+# и ютубов»): 7 каналов, каждый проверен yt-dlp (вкладка /streams существует,
+# контент русский, стримят). Куплинов и Bratishkin стримят в основном тут.
+# Вливаются в auto_channels при каждом автопоиске (см. auto_discover) —
+# опрашиваются youtubei-API, дёшево.
+RU_YOUTUBE_CHANNELS = [
+    "https://www.youtube.com/@welovegames",      # WELOVEGAMES
+    "https://www.youtube.com/@bratishkinoff",    # Bratishkin
+    "https://www.youtube.com/@KuplinovPlay",     # Куплинов
+    "https://www.youtube.com/@5opka",            # ФУГА TV
+    "https://www.youtube.com/@stariy_bog",       # Артём Ка (Старый Бог)
+    "https://www.youtube.com/@AlinaRin",         # Alina Rin (стримит GTA VI)
+    "https://www.youtube.com/@Okisebi",          # Okisebi (GTA VI, RU)
+]
+
 
 
 def ru_probe_streams(logins=None):
@@ -988,12 +1006,21 @@ def ru_probe_streams(logins=None):
     viewers, title, game, language}]. Ошибка сети -> [] — слежка по
     остальным каналам продолжается.
     """
-    logins = [str(x).strip().lower() for x in (logins or RU_CANDIDATE_LOGINS)
-              if str(x).strip()]
+    # Список может быть и «один ник — один элемент», и длинными строками с
+    # несколькими никами через пробел: режем по пробелам и убираем дубли.
+    raw = logins or RU_CANDIDATE_LOGINS
+    seen = set()
+    logins = []
+    for x in raw:
+        for tok in str(x).split():
+            tok = tok.strip().strip(',').lower()
+            if tok and tok not in seen:
+                seen.add(tok)
+                logins.append(tok)
     if not logins:
         return []
     # GQL users принимает НЕ БОЛЬШЕ 100 логинов за запрос: список вырос до
-    # ~113 — режем на пачки и объединяем (одна пачка молча теряла бы хвост).
+    # 189 — режем на пачки и объединяем (одна пачка молча теряла бы хвост).
     out = []
     for start in range(0, len(logins), 100):
         out.extend(_probe_streams_batch(logins[start:start + 100]))
@@ -1132,6 +1159,13 @@ def auto_discover(gh, cfg, top_fn=None, probe_fn=None):
                  min_viewers, len(urls), DISCOVERY_FALLBACK_VIEWERS)
         urls = discovery_urls(fetch, min_viewers=DISCOVERY_FALLBACK_VIEWERS,
                               count=count, exclude=exclude)
+    # + русскоязычные YouTube-каналы (КУПЛИНОВ, Bratishkin и др.): их
+    # проверяет тот же цикл слежки — youtubei-опрос дешёвый, а стримят
+    # они часто именно на YouTube.
+    yt_have = {str(x).strip().rstrip("/").lower() for x in old_auto}
+    for yu in RU_YOUTUBE_CHANNELS:
+        if str(yu).strip().rstrip("/").lower() not in yt_have:
+            urls.append(yu)
     if set(urls) == set(old_auto):
         if urls:
             log.info("Топ Twitch без изменений (%d каналов) — коммит не нужен",
@@ -2006,19 +2040,24 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
                                               vcodec_args=vcodec_args,
                                               banner_path=banner_path)
             # Настройка «пропускать клипы без речи»: в окне не распознано ни
-            # слова — выбрасываем и берём следующее, чтобы вместо тихого
-            # скучного клипа был говорящий (лимит на запуск — не сжечь run).
+            # слова (или речи почти нет — см. MIN_WORDS_CLIP/MIN_SPEECH_PCT) —
+            # выбрасываем и берём следующее, чтобы вместо тихого скучного
+            # клипа был говорящий (лимит на запуск — не сжечь run).
+            words_n = int(smeta.get("words") or 0)
+            speech_pct = int(smeta.get("speech_pct") or 0)
+            low_speech = (words_n < MIN_WORDS_CLIP
+                          or speech_pct < MIN_SPEECH_PCT)
             if (settings.get("skip_no_speech")
-                    and not smeta.get("ok")
-                    and int(smeta.get("words") or 0) < 3
+                    and (not smeta.get("ok") or low_speech)
                     and skips < NO_SPEECH_SKIP_MAX):
                 skips += 1
                 try:
                     os.remove(out)
                 except OSError:
                     pass
-                log.info("Окно без речи (%d/%d) — пропускаю, беру следующее",
-                         skips, NO_SPEECH_SKIP_MAX)
+                log.info("Окно без речи (слов %d, речи %d%%) (%d/%d) — "
+                         "пропускаю, беру следующее",
+                         words_n, speech_pct, skips, NO_SPEECH_SKIP_MAX)
                 if job.get("kind") == "video":
                     job["windows"].pop(0)
                     if job.get("scores"):
@@ -2096,7 +2135,16 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
                                start=int(start or 0)):
                 made += 1
             if tk and tk_posts < tk_cap:
-                if final_score >= tk.min_score:
+                # В TikTok — ТОЛЬКО говорящие хайповые: нет связной речи — не
+                # постим вовсе (тихие клипы никогда не залетают в рекомендации)
+                speech_ok = (bool(smeta.get("ok"))
+                             and words_n >= 10
+                             and speech_pct >= 10)
+                if not speech_ok:
+                    log.info("TikTok: пропустил — нет связной речи (слов %d, "
+                             "речи %d%%), тихие клипы не постим", words_n,
+                             speech_pct)
+                elif final_score >= tk.min_score:
                     tk_posts += 1
                     tk.enqueue(out, tiktok_mod.build_caption(
                         {"title": display, "channel": display,
@@ -2139,23 +2187,33 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
 
     remaining = len(jobs)
     # Спасательный круг: если гейт отбраковал ВСЁ и за запуск не published ни
-    # одного клипа — публикуем лучший из отложенных, чтобы лента не пустовала.
+    # одного клипа — публикуем лучший ГОВОРЯЩИЙ из отложенных, чтобы лента не
+    # пустовала. Клипы без речи не публикуем даже тут (требование: «не делать
+    # клипы, где вообще не говорят»).
     if made == 0 and holdout:
-        best = max(holdout, key=lambda x: x[1])
-        _p, bscore, bdisp, bplat, bsmeta, burl, bstart = best
-        try:
-            size_mb = os.path.getsize(_p) / 1e6
-            caption = (f"Клип готов: {bdisp} ({bplat}, нарезка видео) — "
-                       f"{size_mb:.1f} МБ\n" + subs_caption(bsmeta))
-            if pub.notify_clip(_p, caption, platform=bplat, display=bdisp,
-                               title=bdisp, score=bscore, subs=bsmeta,
-                               src=burl, start=bstart):
-                made += 1
-                holdout.remove(best)
-                log.info("За запуск всё было скучным — опубликовал лучший из "
-                         "отложенных (оценка %.0f), чтобы лента не пустовала", bscore)
-        except Exception:
-            log.exception("Не удалось опубликовать лучший из отложенных")
+        spoken = [x for x in holdout
+                  if int((x[4] or {}).get("words") or 0) >= 8]
+        if not spoken:
+            log.info("Спасательный круг не нужен: говорящих клипов среди "
+                     "отложенных нет — безречевые не публикуем")
+        else:
+            best = max(spoken, key=lambda x: x[1])
+            _p, bscore, bdisp, bplat, bsmeta, burl, bstart = best
+            try:
+                size_mb = os.path.getsize(_p) / 1e6
+                caption = (f"Клип готов: {bdisp} ({bplat}, нарезка видео) — "
+                           f"{size_mb:.1f} МБ\n" + subs_caption(bsmeta))
+                if pub.notify_clip(_p, caption, platform=bplat, display=bdisp,
+                                   title=bdisp, score=bscore, subs=bsmeta,
+                                   src=burl, start=bstart):
+                    made += 1
+                    holdout.remove(best)
+                    log.info("За запуск всё было скучным — опубликовал лучший "
+                             "из ГОВОРЯЩИХ отложенных (оценка %.0f, слов %d), "
+                             "чтобы лента не пустовала", bscore,
+                             int(bsmeta.get("words") or 0))
+            except Exception:
+                log.exception("Не удалось опубликовать лучший из отложенных")
     for item in holdout:
         try:
             os.remove(item[0])

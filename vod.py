@@ -230,7 +230,22 @@ def pick_windows(rms, duration, max_windows=100, win=WIN_SECONDS,
             break
     # самое интересное — первым: длинное видео начинается с лучших минут
     chosen.sort(key=lambda t: -float(score[t]))
-    return [(int(t), int(t + win), round(float(score[t]), 3)) for t in chosen]
+
+    # Адаптивная длина окна (как у живых клипов): жирный момент -> длиннее.
+    # Одинаковые «минутные» клипы наскучивают, а короткий досматривают
+    # до конца чаще (главный сигнал алгоритма TikTok).
+    def _win_len(s):
+        if s >= 1.2:
+            return int(win)          # 60 с — реально жирный момент
+        if s >= 0.4:
+            return 45                # средний момент
+        return 35                    # обычный момент
+
+    out = []
+    for t in chosen:
+        end = int(min(t + _win_len(float(score[t])), max(t + 1, duration)))
+        out.append((int(t), end, round(float(score[t]), 3)))
+    return out
 
 
 def expand_video(url, workdir, cookies_file="", max_windows=100,

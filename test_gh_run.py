@@ -416,9 +416,10 @@ def test_auto_discover_preserves_user_channels_and_dedups():
     # big1 уже у человека — в авто-список не попадает, дубли не заводятся.
     # Фолбэк зрителей теперь 500 (запрос «каналов как можно больше»):
     # "small" (500 зрителей) попадает в список, когда больших не хватает.
+    # + RU_YOUTUBE_CHANNELS: русские YouTube-каналы всегда в слежке.
     assert urls == ["https://www.twitch.tv/caseoh_",
                     "https://www.twitch.tv/big2",
-                    "https://www.twitch.tv/small"]
+                    "https://www.twitch.tv/small"] + gh_run.RU_YOUTUBE_CHANNELS
     data = json.loads(gh.store[gh_run.SUBS_JSON][0].decode("utf-8"))
     assert data["channels"] == ["https://www.twitch.tv/big1"]
     assert data["auto_channels"] == urls
@@ -433,8 +434,11 @@ def test_auto_discover_no_commit_when_same():
     cfg = {"discovery": {"count": 2, "min_viewers": 2000}}
     before = gh.store[gh_run.SUBS_JSON]
     urls = gh_run.auto_discover(gh, cfg, top_fn=lambda n: TOP, probe_fn=lambda: [])
-    assert urls == ["https://www.twitch.tv/caseoh_", "https://www.twitch.tv/big1"]
-    assert gh.store[gh_run.SUBS_JSON] is before          # коммита не было
+    # Twitch-топ совпал со старым auto_channels, но к нему всегда добавлены
+    # RU_YOUTUBE_CHANNELS — список изменился, коммит БЫЛ.
+    assert urls == (["https://www.twitch.tv/caseoh_",
+                     "https://www.twitch.tv/big1"] + gh_run.RU_YOUTUBE_CHANNELS)
+    assert gh.store[gh_run.SUBS_JSON] is not before      # коммит нужен
 
 
 def test_auto_discover_disabled_and_no_gh():

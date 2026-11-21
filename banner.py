@@ -230,7 +230,18 @@ def compose(raw_ts, banner_path, ass_path, video_out, workdir,
     parts.append(vid + f"concat=n={2 * n + 1}:v=1:a=0[cv]")
     vsrc = "cv"
     if ass_path:
-        parts.append(f"[cv]ass={os.path.basename(str(ass_path))}[vout]")
+        # Субтитры вшиваются тем же проходом: вшитый шрифт (fonts/) должен
+        # лежать в workdir до запуска ffmpeg (fontsdir, см. subtitle.py).
+        vf_ass = f"ass={os.path.basename(str(ass_path))}"
+        try:
+            from subtitle import _stage_fonts  # noqa: PLC0415
+
+            fonts_rel = _stage_fonts(workdir)
+            if fonts_rel:
+                vf_ass += f":fontsdir={fonts_rel}"
+        except Exception:
+            pass
+        parts.append(f"[cv]{vf_ass}[vout]")
         vsrc = "vout"
 
     # --- звук: куски эфира целиком, на паузе — только звук баннера ------------
