@@ -78,6 +78,19 @@ SKIN_MIN_RATIO = 0.05     # кожа в окне камеры: порог сни
                           # настоящие камеры отбрасывались (прод: dmitry_lixxx)
 
 
+def cv2_available():
+    """True, если OpenCV с каскадами установлен (детект лица возможен).
+
+    Используется гейтом «клип без лица не публикуется»: без cv2 детект
+    невозможен в принципе — гейт отключается, чтобы не потерять все клипы.
+    """
+    try:
+        import cv2  # noqa: F401
+    except ImportError:
+        return False
+    return getattr(cv2, "CascadeClassifier", None) is not None
+
+
 def _extract_frames_gray(video_path, workdir):
     """~SAMPLES кадров через равные интервалы -> numpy (N, H, W) uint8."""
     import numpy as np

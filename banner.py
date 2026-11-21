@@ -19,7 +19,10 @@ import logging
 import math
 import os
 
-from utils import ffprobe_meta, run_cmd
+try:
+    from utils import ffprobe_meta, run_cmd
+except ImportError:                                    # плоский репозиторий
+    from utils import ffprobe_meta, run_cmd
 
 log = logging.getLogger("banner")
 
@@ -27,7 +30,6 @@ AREA_RULE = 0.25    # требование правил: не меньше 25% �
 PERIOD = 60.0       # длинные клипы: показ раз в минуту
 
 MIDDLE_WORDS = ("", "middle", "mid", "center", "auto", "середина")
-
 
 def _fnum(x):
     """Число для выражений ffmpeg: точка-разделитель, без хвостовых нулей."""
@@ -232,6 +234,9 @@ def compose(raw_ts, banner_path, ass_path, video_out, workdir,
     if ass_path:
         # Субтитры вшиваются тем же проходом: вшитый шрифт (fonts/) должен
         # лежать в workdir до запуска ffmpeg (fontsdir, см. subtitle.py).
+        # СДВИГ НЕ НУЖЕН: compose сохраняет таймлайн (пауза замещает контент
+        # [s, e] стоп-кадром той же длины — 12 + 6.1 + 11.9 = 30 c), события
+        # внутри паузы вырезаются при сборке субтитров (skip_intervals).
         vf_ass = f"ass={os.path.basename(str(ass_path))}"
         try:
             from subtitle import _stage_fonts  # noqa: PLC0415

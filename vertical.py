@@ -165,8 +165,27 @@ def blur_graph(w=WIDTH, h=HEIGHT, blur=26):
             "[bg][fgs]overlay=x=(W-w)/2:y=(H-h)/2[v]")
 
 
-def crop_graph(w=WIDTH, h=HEIGHT):
-    """Без фона: центральная часть 9:16 растягивается на весь экран."""
+def crop_graph(w=WIDTH, h=HEIGHT, src_w=0, src_h=0, face_box=None):
+    """Без фона: вертикальная полоса 9:16 растягивается на весь экран.
+
+    Если найдено лицо (окно камеры / слабое окно лица) — полоса кропа
+    центрируется ТАК, чтобы стример гарантированно попал в кадр:
+    слепой центр-кроп резал камеру в углу (жалоба пользователя
+    «опять без лица», прод 2026-11-21). Без лица — центр, как раньше.
+    """
+    if src_w > 0 and src_h > 0:
+        cw = min(src_w, int(round(src_h * float(w) / float(h))))
+        ch = src_h
+        x = max(0, min((src_w - cw) // 2, src_w - cw))
+        if face_box:
+            fx, fy, fw2, fh2 = [float(v) for v in face_box]
+            cx = fx + fw2 / 2.0
+            x = int(round(max(0.0, min(cx - cw / 2.0, src_w - cw))))
+            log = __import__("logging").getLogger("vertical")
+            log.info("9:16 кроп с лицом: окно x=%d (ширина %d, лицо в %.0f/%.0f)",
+                     x, cw, fx + fw2 / 2, fy + fh2 / 2)
+        return (f"[0:v]crop={cw}:{ch}:{x}:0,"
+                f"scale={w}:{h},setsar=1[v]")
     return (f"[0:v]crop='min(iw,ih*{w}/{h})':'min(ih,iw*{h}/{w})',"
             f"scale={w}:{h},setsar=1[v]")
 
@@ -217,6 +236,8 @@ def make_vertical(video_in, video_out, workdir, width=WIDTH, height=HEIGHT,
     mode_low = str(mode or "blur").lower()
     fallback_low = str(fallback or FALLBACK_DEFAULT).lower()
     full_in = os.path.join(str(workdir), video_in)
+    graph = None
+    base_label = "v"
     if mode_low == "split" and src_w > 0 and src_h > 0:
         if cam_box:
             cam = tuple(float(v) for v in cam_box)   # найдено заранее (pipeline)
@@ -245,15 +266,11 @@ def make_vertical(video_in, video_out, workdir, width=WIDTH, height=HEIGHT,
                      fallback_low)
         if cam is None:
             mode_low = fallback_low
-    if cam is None:
-        graph = blur_graph(width, height, blur=blur) \
-            if mode_low != "crop" else crop_graph(width, height)
-        base_label = "v"
 
-    # --- ЗОНА ЛИЦА (защита от замазки) ------------------------------------------
+    # --- ЗОНА ЛИЦА (защита от замазки + кроп по лицу) ---------------------------
     # В split это окно камеры; в blur/crop камеру ищем СЛАБЫМ детектом
     # (достаточно 2 голосов и кожи): замазка чужих оверлеев не должна
-    # накрывать стримера ни в одном макете.
+    # накрывать стримера ни в одном макете, а кроп обязан показать лицо.
     face_box = None
     if src_w > 0 and src_h > 0:
         if cam is not None:
@@ -262,7 +279,7 @@ def make_vertical(video_in, video_out, workdir, width=WIDTH, height=HEIGHT,
                                          w=width, h=height)[0]
             except Exception:
                 face_box = cam
-        elif mode_low in ("blur", "crop"):
+        elif graph is None and mode_low in ("blur", "crop"):
             try:
                 try:
                     from webcam import detect_cam_box
@@ -273,6 +290,14 @@ def make_vertical(video_in, video_out, workdir, width=WIDTH, height=HEIGHT,
                 log.exception("Слабый детект камеры не удался — "
                               "защита лица без него")
                 face_box = None
+
+    if graph is None:
+        # split не собрался: фолбэк. В кропе окно смещаем К ЛИЦУ, если оно
+        # найдено — иначе стример остаётся за кадром («без лица»).
+        graph = blur_graph(width, height, blur=blur) \
+            if mode_low != "crop" \
+            else crop_graph(width, height, src_w, src_h, face_box=face_box)
+        base_label = "v"
 
     # --- замазка чужих оверлеев: маппим ИСХОДНИК -> готовый кадр сами ---
     boxes = mask_boxes

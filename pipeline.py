@@ -734,6 +734,32 @@ class Pipeline:
                 log.exception("9:16 не удался — клип останется горизонтальным")
                 raw_ts = orig_ts
 
+        # --- ГЕЙТ ЛИЦА: клипы без стримера в кадре не публикуем -------------------
+        # Жалоба пользователя «опять без лица»: если вебкамера не найдена и
+        # слабый детект лица тоже молчит — стримера в кадре нет (турниры,
+        # стримы сайтов), такой клип TikTok не нужен. Гейт активен только
+        # при рабочем OpenCV и для вертикальных клипов.
+        if self.vertical and webcam_mod.cv2_available() \
+                and str(raw_ts).endswith("_9x16.mp4"):
+            face_seen = cam_box is not None
+            if not face_seen:
+                try:
+                    face_seen = webcam_mod.detect_cam_box(
+                        orig_ts, workdir, weak=True) is not None
+                except Exception:
+                    log.exception("Слабый детект лица не удался — не блокирую клип")
+                    face_seen = True
+            if not face_seen:
+                log.info("Лица в кадре нет (вебкамера не найдена) — "
+                         "клип %s не публикую", stamp)
+                for f in (orig_ts, raw_ts):
+                    try:
+                        if os.path.exists(f):
+                            os.remove(f)
+                    except OSError:
+                        pass
+                return
+
         # --- ЛОГИЧЕСКИЙ КОНЕЦ: хвост режется на паузе речи, не посреди слова --
         # Расчётная длина (пик + post). Буфер запасён с хвостом +tail: если
         # после пика стример договаривает фразу — клип тянется до первой
@@ -783,7 +809,11 @@ class Pipeline:
         # повторный детект лица не нужен; в crop-фолбэке лицо за кадром —
         # гейт невозможен; в blur лицо по центру — lipsync детектит сам.
         lip_iv = None
-        sub_lip_on = bool((self.sub_cfg or {}).get("lip_sync", True))
+        # Лип-гейт по умолчанию ВЫКЛ (прод 2026-11-21: exigent_wires — на тёмном
+        # лице рот не детектится, гейт вырезал ПОЛОВИНУ честной речи,
+        # субтитры «редко появляются»). Включается осознанно:
+        # subtitle.lip_sync: true в config.yaml.
+        sub_lip_on = bool((self.sub_cfg or {}).get("lip_sync", False))
         if sub_lip_on and os.path.exists(raw_ts):
             try:
                 if (cam_box and self.vertical_mode == "split"

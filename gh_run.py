@@ -2035,10 +2035,31 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
                 start = 0
                 src = vod_mod.download_clip_full(url, "vod_clip.mp4", workdir,
                                                  cookies_file=cookies)
-            out, smeta = vod_mod.process_clip(src, clips_dir, workdir, cfg,
-                                              display, platform,
-                                              vcodec_args=vcodec_args,
-                                              banner_path=banner_path)
+            try:
+                out, smeta = vod_mod.process_clip(src, clips_dir, workdir, cfg,
+                                                  display, platform,
+                                                  vcodec_args=vcodec_args,
+                                                  banner_path=banner_path)
+            except vod_mod.NoFaceClip:
+                # Жалоба пользователя «опять без лица»: клипы с эфиров без
+                # вебкамеры (турниры, стримы сайтов) не публикуются вовсе.
+                # Окно выбрасывается, берём следующее (лимит — не сжечь run).
+                log.info("%s: в окне нет стримера (вебкамера не найдена) — "
+                         "клип не собирается", display)
+                skips += 1
+                if job.get("kind") == "video":
+                    job["windows"].pop(0)
+                    if job.get("scores"):
+                        job["scores"].pop(0)
+                    if not job["windows"]:
+                        jobs.pop(0)
+                        done.add(key)
+                else:
+                    jobs.pop(0)
+                    done.add(key)
+                save(JOBS_JSON, jobs_list=jobs,
+                     msg="vod: окно без лица пропущено")
+                continue
             # Настройка «пропускать клипы без речи»: в окне не распознано ни
             # слова (или речи почти нет — см. MIN_WORDS_CLIP/MIN_SPEECH_PCT) —
             # выбрасываем и берём следующее, чтобы вместо тихого скучного

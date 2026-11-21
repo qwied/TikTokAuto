@@ -50,10 +50,12 @@ def test_style_two_tone_and_skip():
     assert "СДЕЛАЙ" in body and "СУБТИТРЫ" in body  # верх 2 слова / низ 2 слова
 
     build_tiktok_ass(words, ass, width=1280, height=720, font="DejaVu Sans",
-                     skip_intervals=[(3.5, 4.2)])   # вторая группа целиком в паузе
+                     skip_intervals=[(3.5, 4.2)])   # пауза: «момент» и «ахахах» внутри
     with open(ass, "r", encoding="utf-8") as fh:
         body2 = fh.read()
-    assert "КЕК" not in body2, "слова из паузы баннера не выброшены"
+    assert "МОМЕНТ" not in body2, "слова из паузы баннера не выброшены"
+    assert "АХАХАХ" not in body2, "слова из паузы баннера не выброшены"
+    assert "КЕК" in body2, "слово ПОСЛЕ паузы должно остаться (речь продолжается)"
     assert "СДЕЛАЙ" in body2, "слова до паузы должны остаться"
     print("ok: стиль белый/жёлтый + пропуск паузы баннера")
 

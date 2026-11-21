@@ -549,13 +549,29 @@ def build_tiktok_ass(words, path, width=1280, height=720, font="Arial Black",
                     * ((height / 1920.0) if vertical else scale)),
     )
     chunks = _chunks(words)
+    # Чанки, попавшие на паузу баннера, делим на ПОКАЗЫ: слова до паузы и
+    # после показываются отдельными строками (раньше строка, задевшая паузу,
+    # выбрасывалась ЦЕЛИКОМ — субтитры «редко появлялись»). Слова, звучащие
+    # внутри паузы (звук стрима там молчит), выбрасываются совсем.
+    runs = []
+    for chunk in chunks:
+        cur = []
+        for w in chunk:
+            if _overlaps(w["start"], w["end"], skip_intervals, pad=0.0):
+                if cur:
+                    runs.append(cur)
+                cur = []
+            else:
+                cur.append(w)
+        if cur:
+            runs.append(cur)
     events = []
-    for i, chunk in enumerate(chunks):
+    for i, chunk in enumerate(runs):
         start = max(chunk[0]["start"], 0.0)
         last_end = max(chunk[-1]["end"], start + 0.2)
         end = last_end + CHUNK_TAIL
-        if i + 1 < len(chunks):
-            nxt = chunks[i + 1][0]["start"]
+        if i + 1 < len(runs):
+            nxt = runs[i + 1][0]["start"]
             if nxt > last_end:
                 # держим строку до самой следующей — субтитры без «миганий»
                 end = min(end, nxt - 0.05)
@@ -563,7 +579,12 @@ def build_tiktok_ass(words, path, width=1280, height=720, font="Arial Black",
                 end = last_end + 0.1      # тайминги пересеклись — не висеть
         if end - start < MIN_LINE_SEC:
             end = start + MIN_LINE_SEC
-        if _overlaps(start, end, skip_intervals):
+        # Хвост строки не должен залезать в паузу баннера: обрезаем по её
+        # началу (строка началась до паузы — её слова сказаны, показываем).
+        for s0, e0 in (skip_intervals or []):
+            if s0 > start and end > s0:
+                end = min(end, s0 - 0.05)
+        if end <= start:
             continue
         caps = [_esc(w["word"].upper()) for w in chunk]
         # караоке-длительности: слово i желтеет в момент w_i.start

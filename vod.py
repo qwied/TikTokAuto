@@ -52,6 +52,15 @@ TRIM_HEAD = 120.0           # пропустить интро (не больше
 TRIM_TAIL = 60.0            # и последние секунды (там обычно концовка/титры)
 
 
+class NoFaceClip(Exception):
+    """Стримера в кадре нет (вебкамера не найдена) — клип не собирается.
+
+    Жалоба пользователя «опять без лица»: клипы с турнирных трансляций и
+    стримов без камеры для TikTok не годятся — их не публикуем вовсе,
+    а не выкладываем «кривые». Гейт активен только при рабочем OpenCV.
+    """
+
+
 def _cookies_args(cookies_file):
     return ["--cookies", str(cookies_file)] if cookies_file else []
 
@@ -466,6 +475,24 @@ def process_clip(src_video, clips_dir, workdir, cfg, display, platform,
             log.exception("Замазка оверлеев не удалась — клип пойдёт без неё")
             raw_boxes = None
 
+    # --- ГЕЙТ ЛИЦА: клипы без стримера в кадре не собираем ---------------------
+    # Турниры (betboom_dota_ru2), стримы сайтов (solo) и прочие эфиры без
+    # вебкамеры дают вертикальные клипы «без лица» — пользователь просил
+    # такие не делать. Слабый детект (2 голоса) ловит тёмные/мелкие камеры;
+    # гейт отключается сам, если на машине нет OpenCV.
+    if bool(clip_cfg.get("vertical", True)) and webcam_mod.cv2_available():
+        face_seen = cam_box is not None
+        if not face_seen:
+            try:
+                face_seen = webcam_mod.detect_cam_box(
+                    src_video, workdir, weak=True) is not None
+            except Exception:
+                log.exception("Слабый детект лица не удался — не блокирую клип")
+                face_seen = True
+        if not face_seen:
+            log.info("Лица в кадре нет (вебкамера не найдена) — клип не собираю")
+            raise NoFaceClip("вебкамера/лицо в исходнике не найдено")
+
     cur = src_video
     if bool((cfg.get("clip") or {}).get("vertical", True)):
         try:
@@ -497,7 +524,8 @@ def process_clip(src_video, clips_dir, workdir, cfg, display, platform,
     # в crop без камеры лица в кадре нет — гейт невозможен.
     lip_iv = None
     vmode = str((cfg.get("clip") or {}).get("vertical_mode", "blur"))
-    if bool((cfg.get("subtitle") or {}).get("lip_sync", True)):
+    # Лип-гейт ВЫКЛ по умолчанию (см. pipeline.py — прод 2026-11-21).
+    if bool((cfg.get("subtitle") or {}).get("lip_sync", False)):
         try:
             if cam_box and vmode == "split" and cur == vertical_mp4:
                 strip_h = vertical_mod.split_cam_h()
