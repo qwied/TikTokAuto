@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T04:30:44Z",
+ "updated": "2026-11-21T04:30:59Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,71 +15,71 @@
     "name": "leb1ga",
     "display": "twitch.tv/leb1ga",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 3603,
+    "title": "⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 3"
    },
    {
     "name": "frametamer666",
     "display": "twitch.tv/frametamer666",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 2006,
+    "title": "GTA 6 ДОНАТОФОН 24/7 [DAY 3]"
    },
    {
     "name": "stray228",
     "display": "twitch.tv/stray228",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 3606,
+    "title": "GTA6 RP, отыгрываем на совесть !tg !bb !wow !воппер"
    },
    {
     "name": "zloyn",
     "display": "twitch.tv/zloyn",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 524,
+    "title": "СПЛЮ | МАРАФОН | GTA VI 🤯 | ДЕНЬ 4 | !tg !прогресс"
    },
    {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 1254,
+    "title": "ИЗОЛЯЦИЯ ДЕНЬ 6 | !tg !donate !winline !ggsel"
    },
    {
     "name": "welovegames",
     "display": "twitch.tv/welovegames",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 1198,
+    "title": "[День 19] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo"
    },
    {
     "name": "afoninje",
     "display": "twitch.tv/afoninje",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 607,
+    "title": "Играем в GTA VI !tg !pari"
    },
    {
     "name": "d1pro4",
     "display": "twitch.tv/d1pro4",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 575,
+    "title": "Я снова один в этом Ламбо"
    }
   ],
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leb1ga\", false, \"\", 0], [\"frametamer666\", false, \"\", 0], [\"stray228\", false, \"\", 0], [\"zloyn\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"afoninje\", false, \"\", 0], [\"d1pro4\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 3\", 3600], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 3]\", 2000], [\"stray228\", true, \"GTA6 RP, отыгрываем на совесть !tg !bb !wow !воппер\", 3600], [\"zloyn\", true, \"СПЛЮ | МАРАФОН | GTA VI 🤯 | ДЕНЬ 4 | !tg !прогресс\", 525], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 6 | !tg !donate !winline !ggsel\", 1250], [\"welovegames\", true, \"[День 19] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 1200], [\"afoninje\", true, \"Играем в GTA VI !tg !pari\", 600], [\"d1pro4\", true, \"Я снова один в этом Ламбо\", 575]]"
  },
  "clips": [
   {
