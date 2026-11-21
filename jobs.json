@@ -1,11 +1,29 @@
 {
- "updated": "2026-11-21T14:04:29Z",
+ "updated": "2026-11-21T14:17:52Z",
  "jobs": [
   {
    "url": "https://www.twitch.tv/videos/2935934475",
    "kind": "video",
    "fails": 2,
    "added": "2026-11-21T13:03:41Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=Q32IqNWx-a0",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "УГАР ДО СЛЁЗ В САМОМ ДОРОГОМ РЕСТОРАНЕ МОСКВЫ С ВАСИЛИЧЕМ🤣",
+   "views": 1349427,
+   "added": "2026-11-21T14:17:48Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=Vrdcf0neC8Q",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "САМАЯ СТРАШНАЯ НОЧЬ НА СТРИМХАТЕ! В НАШ ДОМ КТО-ТО ПРОНИК... //Ft. Парадеевич, Кореш, Данила Горилла",
+   "views": 985612,
+   "added": "2026-11-21T14:17:48Z"
   }
  ]
 }
