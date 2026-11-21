@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T01:01:57Z",
+ "updated": "2026-11-21T01:03:35Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -48,7 +48,7 @@
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
     "live": true,
-    "viewers": 1843,
+    "viewers": 1934,
     "title": "ИЗОЛЯЦИЯ ДЕНЬ 6 | !tg !donate !winline !ggsel"
    },
    {
@@ -64,7 +64,7 @@
     "display": "twitch.tv/welovegames",
     "platform": "twitch",
     "live": true,
-    "viewers": 1144,
+    "viewers": 1080,
     "title": "[День 19] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo"
    },
    {
@@ -72,14 +72,14 @@
     "display": "twitch.tv/afoninje",
     "platform": "twitch",
     "live": true,
-    "viewers": 684,
+    "viewers": 627,
     "title": "Играем в GTA VI !tg !pari"
    }
   ],
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 3\", 14675], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 3]\", 4600], [\"stray228\", true, \"GTA6 RP, отыгрываем на совесть !tg !bb !wow !воппер\", 3675], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 4 | !tg !прогресс\", 3100], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 6 | !tg !donate !winline !ggsel\", 1850], [\"kopsteep\", false, \"добрейший кот в сапогах (я вырезал 4 деревни) !tg !bot\", 0], [\"welovegames\", true, \"[День 19] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 1150], [\"afoninje\", true, \"Играем в GTA VI !tg !pari\", 675]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 3\", 14675], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 3]\", 4600], [\"stray228\", true, \"GTA6 RP, отыгрываем на совесть !tg !bb !wow !воппер\", 3675], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 4 | !tg !прогресс\", 3100], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 6 | !tg !donate !winline !ggsel\", 1925], [\"kopsteep\", false, \"добрейший кот в сапогах (я вырезал 4 деревни) !tg !bot\", 0], [\"welovegames\", true, \"[День 19] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 1075], [\"afoninje\", true, \"Играем в GTA VI !tg !pari\", 625]]"
  },
  "clips": [
   {
