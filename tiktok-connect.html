@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StreamClipper — подключение TikTok</title>
+<style>
+  :root { --bg:#05060a; --text:#f5f5f7; --muted:#9b9ba7; --ok:#34d399; --err:#fb7185;
+          --grad:linear-gradient(135deg,#8b5cf6 0%,#ec4899 55%,#f43f5e 100%); }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text);
+         font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+         min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px; }
+  .card { width:100%; max-width:520px; }
+  h1 { font-size:22px; margin:0 0 6px; }
+  .grad { background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .box { margin-top:18px; padding:16px; border-radius:14px; background:#0d1017;
+         border:1px solid #1c2030; }
+  .ok  { border-color:rgba(52,211,153,.4); }
+  .err { border-color:rgba(251,113,133,.4); }
+  .muted { color:var(--muted); font-size:14px; }
+  .code { margin:12px 0; padding:12px; border-radius:10px; background:#000;
+          border:1px dashed #2a2f40; word-break:break-all; font-family:ui-monospace,Menlo,Consolas,monospace;
+          font-size:14px; color:#e5e7eb; min-height:44px; }
+  button { width:100%; padding:14px; border-radius:12px; border:0; font-size:16px; font-weight:600;
+           background:var(--grad); color:#fff; cursor:pointer; }
+  .done { color:var(--ok); font-weight:600; }
+  .bad  { color:var(--err); font-weight:600; }
+  ol { margin:10px 0 0; padding-left:20px; color:var(--muted); font-size:14px; }
+  ol li { margin:4px 0; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1><span class="grad">StreamClipper</span> · TikTok</h1>
+  <div id="st" class="box muted">Читаю ответ TikTok…</div>
+</div>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  var code = q.get("code") || "";
+  var err = q.get("error_description") || q.get("error") || "";
+  var st = document.getElementById("st");
+
+  if (!code && !err) {
+    st.className = "box";
+    st.innerHTML = "Это страница-приёмник для входа в TikTok: после входа TikTok возвращает " +
+      "сюда одноразовый код, который завершает подключение автопостинга. " +
+      "Если ты попал сюда случайно — просто закрой вкладку.";
+    return;
+  }
+
+  if (err) {
+    st.className = "box err";
+    st.innerHTML = "<div class='bad'>TikTok вернул ошибку</div>" +
+      "<div class='muted' style='margin-top:6px'>" + err.replace(/[<>&]/g, "") + "</div>" +
+      "<div class='muted' style='margin-top:8px'>Вернись назад и попробуй войти ещё раз.</div>";
+    return;
+  }
+
+  st.className = "box ok";
+  st.innerHTML = "<div class='done'>Код получен — почти готово</div>" +
+    "<div class='code' id='cd'></div>" +
+    "<button id='cp'>Скопировать код</button>" +
+    "<div class='muted' style='margin-top:12px'>Осталось два шага:</div>" +
+    "<ol><li>Нажми «Скопировать код»</li>" +
+    "<li>Пришли скопированную строку ассистенту в чат — он завершит подключение за минуту</li></ol>";
+  document.getElementById("cd").textContent = code;
+
+  function finish() {
+    document.getElementById("cp").textContent = "Скопировано";
+  }
+  function legacy() {
+    var ta = document.createElement("textarea");
+    ta.value = code;
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); finish(); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+  document.getElementById("cp").addEventListener("click", function () {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(finish, legacy);
+    } else { legacy(); }
+  });
+})();
+</script>
+</body>
+</html>
