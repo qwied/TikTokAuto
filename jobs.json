@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T18:26:59Z",
+ "updated": "2026-11-21T18:27:40Z",
  "jobs": [
   {
    "url": "https://www.twitch.tv/videos/2935901611",
@@ -9,36 +9,13 @@
    "display": "ДРОПСЫ !ивент !дропс",
    "windows": [
     [
-     3490,
-     3525
-    ],
-    [
      20461,
      20496
     ]
    ],
    "scores": [
-    -0.462,
     -0.538
    ]
-  },
-  {
-   "url": "https://www.youtube.com/watch?v=zGbe8JgOEp4",
-   "kind": "video",
-   "fails": 0,
-   "tag": "ru",
-   "display": "ЛЮТЫЙ УГАР С ПЬЯ*ЫМ ДРУГОМ😂| КОНФЛИКТ ФРЕЙМ ТАЙМЕРА С НЕЗНАКОМЦЕМ",
-   "views": 1178177,
-   "added": "2026-11-21T18:26:56Z"
-  },
-  {
-   "url": "https://www.youtube.com/watch?v=N7ERbjvA5Nw",
-   "kind": "video",
-   "fails": 0,
-   "tag": "ru",
-   "display": "ЛЮТЫЙ УГАР ВО ВКУСНО И ТОЧКА | ХАЗЯЕВА ВСТРЕТИЛИ СУМАСШЕДШУЮ ДЕВУШКУ",
-   "views": 829384,
-   "added": "2026-11-21T18:26:56Z"
   }
  ]
 }
