@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T18:27:20Z",
+ "updated": "2026-11-21T18:27:35Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -159,57 +159,57 @@
     "name": "betboom_dota_ru2",
     "display": "twitch.tv/betboom_dota_ru2",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "PlayTime [0] vs [1] OG | Bo3 | Group Stage Day 2 | BLAST SLAM IX | cast: @lasthero_dota2 & @grayne !предикты"
    },
    {
     "name": "dmitry_lixxx",
     "display": "twitch.tv/dmitry_lixxx",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan"
    },
    {
     "name": "silvername",
     "display": "twitch.tv/silvername",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг"
    },
    {
     "name": "rostislav_999",
     "display": "twitch.tv/rostislav_999",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ПРОХОДИМ ГТА 6😎 В БУНКЕРЕ!!! ДЕНЬ 2 🍌🔫🔫🔫"
    },
    {
     "name": "rejiboi",
     "display": "twitch.tv/rejiboi",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "давай воровать машинки 6, 4 серия (стрипуха? - был, пляж? - был, лагает? - нет, сюжетка? - 25%, фпс? - 60+, рокстар? - 13 лет)  !tg"
    },
    {
     "name": "morphe_ya",
     "display": "twitch.tv/morphe_ya",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "казявки(боссы) у ног. ФИНАЛ БЛИЗОК | !tg !winline !мышки !wb"
    },
    {
     "name": "kopsteep",
     "display": "twitch.tv/kopsteep",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "навоз года на ваших экранах !tg !bot"
    },
    {
     "name": "ghostik",
@@ -300,7 +300,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"egorkreed\", true, \"ласт КОНЦЕРТ в 2026 ! IRL БАЛАШИХА\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 3\", 0], [\"solo\", true, \"🔴 Xtreme [0:0] Team Spirit | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto @DreadzTV !tg !BETBOOM !розыгрыш\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 ИЩУ ПАСХАЛКИ 🔴 GTA 6 🔴 DAY 4 🔴 !планы\", 0], [\"deepins02\", true, \"[заграниче 4лиsа ] | !winline !авито !флаувау !tg\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch (донаты и мемы офф)\", 0], [\"recrent\", true, \"[1440p] GTA VI. День 4. Тест 60 FPS | !pari !ggsel !tg !мерч\", 0], [\"buster\", true, \"GTA 6 🤍 День 4 🔫 Пройдено ~ 49% 🔍 Донаты ВКЛ 🎮\", 0], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 0], [\"sasavot\", true, \"ПЛОТНАЯ/СУББОТА\", 0], [\"zxcursed\", true, \"deadinside✓emo✓drain✓epileptic✓paranoid✓toxic✓bipolar✓depressed✓tilted✓antisocial w/ @Uniquee @mary_day @akumaqqe @avice\", 0], [\"strogo\", true, \"🔴 ЗАВТРА КВАЛА КАЧАЮ СКИЛЫ\", 0], [\"imdankar\", true, \"КРИЛЛИОН + ВЕРИТИ МАЕКРАФТ)\", 0], [\"betboom_dota_ru\", true, \"Team Spirit [0] vs [0] Xtreme Gaming | Bo3 | Group Stage Day 2 | BLAST SLAM IX | cast: @artem1daaa & @ArsZeqq !предикты\", 0], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 4]\", 0], [\"leva2k\", true, \"АУК НА ЕДУ | ИЗОЛЯЦИЯ | !tg !donate !winline !ggsel\", 0], [\"lenagol0vach\", true, \"🏆 НОВЫЙ ПАТЧ 7.42 🏆 ПУТЬ В ТОП 100 🏆  ЖЕСТКИЙ АП ММР 🍔 БЫЛО 15к ММР 🍆 ТЕСТИМ НОВЫЙ ПАТЧ ⭐ НАШЕЛ ИМБУ ПАТЧА ⭐🧀🏆⭐\", 0], [\"melharucos\", true, \"ИГРА НРАВИТСЯ, ГРАБЛЮ ПРОФЕССИОНАЛЬНО\", 0], [\"betboom_dota_ru2\", false, \"\", 0], [\"dmitry_lixxx\", false, \"\", 0], [\"silvername\", false, \"\", 0], [\"rostislav_999\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"morphe_ya\", false, \"\", 0], [\"kopsteep\", false, \"\", 0], [\"ghostik\", false, \"\", 0], [\"zer0truel0ve\", false, \"\", 0], [\"nix\", false, \"\", 0], [\"stray228\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", true, \"GTA VI ★★★★★★ РЕЛИЗ (2026) 【#4】\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"egorkreed\", true, \"ласт КОНЦЕРТ в 2026 ! IRL БАЛАШИХА\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 3\", 0], [\"solo\", true, \"🔴 Xtreme [0:0] Team Spirit | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto @DreadzTV !tg !BETBOOM !розыгрыш\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 ИЩУ ПАСХАЛКИ 🔴 GTA 6 🔴 DAY 4 🔴 !планы\", 0], [\"deepins02\", true, \"[заграниче 4лиsа ] | !winline !авито !флаувау !tg\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch (донаты и мемы офф)\", 0], [\"recrent\", true, \"[1440p] GTA VI. День 4. Тест 60 FPS | !pari !ggsel !tg !мерч\", 0], [\"buster\", true, \"GTA 6 🤍 День 4 🔫 Пройдено ~ 49% 🔍 Донаты ВКЛ 🎮\", 0], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 0], [\"sasavot\", true, \"ПЛОТНАЯ/СУББОТА\", 0], [\"zxcursed\", true, \"deadinside✓emo✓drain✓epileptic✓paranoid✓toxic✓bipolar✓depressed✓tilted✓antisocial w/ @Uniquee @mary_day @akumaqqe @avice\", 0], [\"strogo\", true, \"🔴 ЗАВТРА КВАЛА КАЧАЮ СКИЛЫ\", 0], [\"imdankar\", true, \"КРИЛЛИОН + ВЕРИТИ МАЕКРАФТ)\", 0], [\"betboom_dota_ru\", true, \"Team Spirit [0] vs [0] Xtreme Gaming | Bo3 | Group Stage Day 2 | BLAST SLAM IX | cast: @artem1daaa & @ArsZeqq !предикты\", 0], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 4]\", 0], [\"leva2k\", true, \"АУК НА ЕДУ | ИЗОЛЯЦИЯ | !tg !donate !winline !ggsel\", 0], [\"lenagol0vach\", true, \"🏆 НОВЫЙ ПАТЧ 7.42 🏆 ПУТЬ В ТОП 100 🏆  ЖЕСТКИЙ АП ММР 🍔 БЫЛО 15к ММР 🍆 ТЕСТИМ НОВЫЙ ПАТЧ ⭐ НАШЕЛ ИМБУ ПАТЧА ⭐🧀🏆⭐\", 0], [\"melharucos\", true, \"ИГРА НРАВИТСЯ, ГРАБЛЮ ПРОФЕССИОНАЛЬНО\", 0], [\"betboom_dota_ru2\", true, \"PlayTime [0] vs [1] OG | Bo3 | Group Stage Day 2 | BLAST SLAM IX | cast: @lasthero_dota2 & @grayne !предикты\", 0], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"rostislav_999\", true, \"ПРОХОДИМ ГТА 6😎 В БУНКЕРЕ!!! ДЕНЬ 2 🍌🔫🔫🔫\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 4 серия (стрипуха? - был, пляж? - был, лагает? - нет, сюжетка? - 25%, фпс? - 60+, рокстар? - 13 лет)  !tg\", 0], [\"morphe_ya\", true, \"казявки(боссы) у ног. ФИНАЛ БЛИЗОК | !tg !winline !мышки !wb\", 0], [\"kopsteep\", true, \"навоз года на ваших экранах !tg !bot\", 0], [\"ghostik\", false, \"\", 0], [\"zer0truel0ve\", false, \"\", 0], [\"nix\", false, \"\", 0], [\"stray228\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", true, \"GTA VI ★★★★★★ РЕЛИЗ (2026) 【#4】\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
