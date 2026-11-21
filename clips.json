@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T03:12:35Z",
+ "updated": "2026-11-21T03:13:29Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -32,7 +32,7 @@
     "display": "twitch.tv/stray228",
     "platform": "twitch",
     "live": true,
-    "viewers": 3220,
+    "viewers": 3324,
     "title": "GTA6 RP, отыгрываем на совесть !tg !bb !wow !воппер"
    },
    {
@@ -48,7 +48,7 @@
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
     "live": true,
-    "viewers": 1413,
+    "viewers": 1370,
     "title": "ИЗОЛЯЦИЯ ДЕНЬ 6 | !tg !donate !winline !ggsel"
    },
    {
@@ -79,7 +79,7 @@
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 3\", 5200], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 3]\", 2325], [\"stray228\", true, \"GTA6 RP, отыгрываем на совесть !tg !bb !wow !воппер\", 3225], [\"zloyn\", true, \"СПЛЮ | МАРАФОН | GTA VI 🤯 | ДЕНЬ 4 | !tg !прогресс\", 825], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 6 | !tg !donate !winline !ggsel\", 1425], [\"welovegames\", true, \"[День 19] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 1150], [\"afoninje\", true, \"Играем в GTA VI !tg !pari\", 575], [\"d1pro4\", true, \"Я снова один в этом Ламбо\", 600]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 3\", 5200], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 3]\", 2325], [\"stray228\", true, \"GTA6 RP, отыгрываем на совесть !tg !bb !wow !воппер\", 3325], [\"zloyn\", true, \"СПЛЮ | МАРАФОН | GTA VI 🤯 | ДЕНЬ 4 | !tg !прогресс\", 825], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 6 | !tg !donate !winline !ggsel\", 1375], [\"welovegames\", true, \"[День 19] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 1150], [\"afoninje\", true, \"Играем в GTA VI !tg !pari\", 575], [\"d1pro4\", true, \"Я снова один в этом Ламбо\", 600]]"
  },
  "clips": [
   {
