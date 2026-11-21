@@ -604,11 +604,12 @@ class GitHubPublisher:
         self.last_caption = ""
 
     def notify_clip(self, video_path, caption="", platform="twitch",
-                    display=None, title="", score=None, subs=None):
+                    display=None, title="", score=None, subs=None,
+                    src=None, start=None):
         try:
             self._publish(video_path, caption, platform=platform,
                           display=display, title=title, score=score,
-                          subs=subs)
+                          subs=subs, src=src, start=start)
             self.posted += 1
             cap = str(caption or "Клип готов")
             if self.last_tags:
@@ -638,7 +639,8 @@ class GitHubPublisher:
             return False
 
     def _publish(self, video_path, caption="", platform="twitch",
-                 display=None, title="", score=None, subs=None):
+                 display=None, title="", score=None, subs=None,
+                 src=None, start=None):
         rel = self.gh.release_id()
         log.info("Заливаю клип в Releases: %s", os.path.basename(video_path))
         asset = self.gh.upload_asset(rel, video_path)
@@ -661,7 +663,7 @@ class GitHubPublisher:
                            size=os.path.getsize(str(video_path)),
                            dur=dur_real,
                            platform=platform, display=display, title=title,
-                           score=score, subs=subs,
+                           score=score, subs=subs, src=src, start=start,
                            hashtags=make_hashtags(platform=platform,
                                                   channel=entry_chan or display or "",
                                                   title=title),
@@ -2094,19 +2096,21 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
             size_mb = os.path.getsize(out) / 1e6
             # --- КОНТРОЛЬ КАЧЕСТВА ПОСЛЕ НАРЕЗКИ ---------------------------------
             # база: оценка окна (z-единицы -> 0..100); у готовых клипов Twitch
-            # база 50 (они уже отобраны людьми)
-            base = 50.0
+            # база 50 (они уже отобраны людьми). НЕ трогаем имя base — оно
+            # занято рабочей папкой run_vod (os.path.join(base, ...) в конце;
+            # прод 2026-11-21: base = 50.0 ломало vod_remaining.txt).
+            qbase = 50.0
             if job.get("kind") == "video" and job.get("scores"):
                 try:
-                    base = max(5.0, min(95.0, 50.0 + 12.0 * float(job["scores"][0])))
+                    qbase = max(5.0, min(95.0, 50.0 + 12.0 * float(job["scores"][0])))
                 except (TypeError, ValueError):
-                    base = 50.0
+                    qbase = 50.0
             min_score = float(cfg.get("_min_publish") or 40.0)
             try:
-                final_score, qparts = vod_mod.clip_quality(out, smeta, base=base)
+                final_score, qparts = vod_mod.clip_quality(out, smeta, base=qbase)
             except Exception:
                 log.exception("Оценка качества не удалась — публикую как есть")
-                final_score, qparts = base, {}
+                final_score, qparts = qbase, {}
             # ЖЁСТКИЙ БРАК (статичный кадр ~2 МБ / обрезок < 45 с) выбрасывается
             # совсем — он не попадает даже в спасательный круг публикации.
             hard_reject = bool(qparts.get("hard"))
