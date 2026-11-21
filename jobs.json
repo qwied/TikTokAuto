@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-21T21:46:06Z",
- "jobs": []
+ "updated": "2026-11-21T22:10:13Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=XEvJLB67jHo",
+   "kind": "video",
+   "fails": 0,
+   "tag": "gta6",
+   "display": "ПЕРВЫЙ ДЕНЬ ФЛЕЙЗИНА В GTA 6!",
+   "views": 1124832,
+   "added": "2026-11-21T22:10:03Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=KBb9FRwO6sM",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "ПОПУЛЯРНЫЙ БЛОГЕР КОТОРИЙ ХАЙПУЕТЬСЯ НА СМЕРТИ КОТА",
+   "views": 250973,
+   "added": "2026-11-21T22:10:13Z"
+  }
+ ]
 }
