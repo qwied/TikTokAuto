@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T18:00:14Z",
+ "updated": "2026-11-21T18:01:16Z",
  "jobs": [
   {
    "url": "https://www.twitch.tv/videos/2935901611",
@@ -121,6 +121,24 @@
     -0.462,
     -0.538
    ]
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=N7ERbjvA5Nw",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "ЛЮТЫЙ УГАР ВО ВКУСНО И ТОЧКА | ХАЗЯЕВА ВСТРЕТИЛИ СУМАСШЕДШУЮ ДЕВУШКУ",
+   "views": 829303,
+   "added": "2026-11-21T18:01:13Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=K30DiWJPO6U",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "🔥НАРЕЗКА САТИР УГАР😂 САМЫЕ СМЕШНЫЕ МОМЕНТЫ САТИРА❗️",
+   "views": 694516,
+   "added": "2026-11-21T18:01:10Z"
   }
  ]
 }
