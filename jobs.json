@@ -1,1 +1,29 @@
-{"updated": "2026-11-21T14:50:00Z", "jobs": [{"url": "https://www.twitch.tv/videos/2935901611", "kind": "video", "fails": 0, "added": "2026-11-21T14:50:00Z"}]}
+{
+ "updated": "2026-11-21T15:13:42Z",
+ "jobs": [
+  {
+   "url": "https://www.twitch.tv/videos/2935901611",
+   "kind": "video",
+   "fails": 0,
+   "added": "2026-11-21T14:50:00Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=Q32IqNWx-a0",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "УГАР ДО СЛЁЗ В САМОМ ДОРОГОМ РЕСТОРАНЕ МОСКВЫ С ВАСИЛИЧЕМ🤣",
+   "views": 1349450,
+   "added": "2026-11-21T15:13:39Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=cayt5FUtEYM",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "ДОКОПАЛИСЬ СОЛEВЫE 🤣 ХАЗЯЕВА И БУСТЕР - ДИКИЙ УГАР | Кореш, Парадеич, Фрейм Теймер, Эксайл",
+   "views": 1192316,
+   "added": "2026-11-21T15:13:39Z"
+  }
+ ]
+}
