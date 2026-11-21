@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T16:35:41Z",
+ "updated": "2026-11-21T16:35:56Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -183,65 +183,65 @@
     "name": "zloyn",
     "display": "twitch.tv/zloyn",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "МАРАФОН | GTA VI 🤯 | ДЕНЬ 4 | !tg !прогресс"
    },
    {
     "name": "rostislav_999",
     "display": "twitch.tv/rostislav_999",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ПРОХОДИМ ГТА 6😎 В БУНКЕРЕ!!! ДЕНЬ 2 🍌🔫🔫🔫"
    },
    {
     "name": "ghostik",
     "display": "twitch.tv/ghostik",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "NAVI vs тім шляндекс (0-0) bo3 на Blast Slam 9"
    },
    {
     "name": "dunduk",
     "display": "twitch.tv/dunduk",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "осталась последняя лига, ачивка на отрицательные перки, батлпасс"
    },
    {
     "name": "dyrachyo",
     "display": "twitch.tv/dyrachyo",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Yandex Team [1:0] Navi bo3 BLAST SLAM IX Group Stage | !bb !tg"
    },
    {
     "name": "praden",
     "display": "twitch.tv/praden",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Жизнь с утра, ДБД"
    },
    {
     "name": "blackrabbit342",
     "display": "twitch.tv/blackrabbit342",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "NAVI YANDEX 0 0 BLAST БЕЗ ЗАДЕРЖКИ!  !bb"
    },
    {
     "name": "betboom_dota_ru2",
     "display": "twitch.tv/betboom_dota_ru2",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "PlayTime [0] vs [0] OG | Bo3 | Group Stage Day 2 | BLAST SLAM IX | cast: @lasthero_dota2 & @grayne !предикты"
    },
    {
     "name": "imdankar",
@@ -327,7 +327,7 @@
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"Yandex vs Natus Vincere bo3 1:0 BLAST SLAM IX (Group Stage) w/ Bratan\", 0], [\"mokrivskyi\", true, \"ВСЕ СЕКРЕТЫ ПОСЛЕ ПРОХОЖДЕНИЯ GTA 6 @evelone2004 @shadowkekw !tg\", 0], [\"solo\", true, \"🔴 Team Yandex [0:0] NAVI | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto @DreadzTV !tg !BETBOOM !розыгрыш\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch (донаты и мемы офф)\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 3\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 ИЩУ ПАСХАЛКИ 🔴 GTA 6 🔴 DAY 4 🔴 !планы\", 0], [\"betboom_dota_ru\", true, \"Team Yandex [1] vs [0] Natus Vincere | Bo3 | Group Stage Day 2 | BLAST SLAM IX | cast: @PIVOVAR_cast & @Autodestruction !предикты\", 0], [\"recrent\", true, \"[1440p] GTA VI. День 4. Тест 60 FPS | !pari !ggsel !tg !мерч\", 0], [\"buster\", true, \"GTA 6 🤍 День 4 🔫 Пройдено ~ 49% 🔍 Донаты ВКЛ 🎮\", 0], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 0], [\"sasavot\", true, \"ПЛОТНАЯ/СУББОТА\", 0], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 4]\", 0], [\"welovegames\", true, \"[День 19] !Донатофон по Grand Theft Auto VI | !сити !ggsel !втб !dodo\", 0], [\"strogo\", true, \"🔴 ЗАВТРА КВАЛА КАЧАЮ СКИЛЫ\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ /w @bondarenk01 | !tg !donate !winline !ggsel\", 0], [\"melharucos\", true, \"ИГРА НРАВИТСЯ, ГРАБЛЮ ПРОФЕССИОНАЛЬНО\", 0], [\"blackufa\", false, \"\", 0], [\"renatko\", true, \"ИНТЕРВЬЮ ХИЛМИ ПОСЛЕ ТЮРЬМЫ !бб !тг\", 0], [\"morphe_ya\", true, \"казявки(боссы) у ног. ФИНАЛ БЛИЗОК | !tg !winline !мышки !wb\", 0], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"zloyn\", false, \"\", 0], [\"rostislav_999\", false, \"\", 0], [\"ghostik\", false, \"\", 0], [\"dunduk\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"praden\", false, \"\", 0], [\"blackrabbit342\", false, \"\", 0], [\"betboom_dota_ru2\", false, \"\", 0], [\"imdankar\", false, \"\", 0], [\"kopsteep\", false, \"\", 0], [\"zer0truel0ve\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", true, \"GTA VI ★★★★★★ РЕЛИЗ (2026) 【#4】\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"Yandex vs Natus Vincere bo3 1:0 BLAST SLAM IX (Group Stage) w/ Bratan\", 0], [\"mokrivskyi\", true, \"ВСЕ СЕКРЕТЫ ПОСЛЕ ПРОХОЖДЕНИЯ GTA 6 @evelone2004 @shadowkekw !tg\", 0], [\"solo\", true, \"🔴 Team Yandex [0:0] NAVI | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto @DreadzTV !tg !BETBOOM !розыгрыш\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch (донаты и мемы офф)\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 3\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 ИЩУ ПАСХАЛКИ 🔴 GTA 6 🔴 DAY 4 🔴 !планы\", 0], [\"betboom_dota_ru\", true, \"Team Yandex [1] vs [0] Natus Vincere | Bo3 | Group Stage Day 2 | BLAST SLAM IX | cast: @PIVOVAR_cast & @Autodestruction !предикты\", 0], [\"recrent\", true, \"[1440p] GTA VI. День 4. Тест 60 FPS | !pari !ggsel !tg !мерч\", 0], [\"buster\", true, \"GTA 6 🤍 День 4 🔫 Пройдено ~ 49% 🔍 Донаты ВКЛ 🎮\", 0], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 0], [\"sasavot\", true, \"ПЛОТНАЯ/СУББОТА\", 0], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 4]\", 0], [\"welovegames\", true, \"[День 19] !Донатофон по Grand Theft Auto VI | !сити !ggsel !втб !dodo\", 0], [\"strogo\", true, \"🔴 ЗАВТРА КВАЛА КАЧАЮ СКИЛЫ\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ /w @bondarenk01 | !tg !donate !winline !ggsel\", 0], [\"melharucos\", true, \"ИГРА НРАВИТСЯ, ГРАБЛЮ ПРОФЕССИОНАЛЬНО\", 0], [\"blackufa\", false, \"\", 0], [\"renatko\", true, \"ИНТЕРВЬЮ ХИЛМИ ПОСЛЕ ТЮРЬМЫ !бб !тг\", 0], [\"morphe_ya\", true, \"казявки(боссы) у ног. ФИНАЛ БЛИЗОК | !tg !winline !мышки !wb\", 0], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 4 | !tg !прогресс\", 0], [\"rostislav_999\", true, \"ПРОХОДИМ ГТА 6😎 В БУНКЕРЕ!!! ДЕНЬ 2 🍌🔫🔫🔫\", 0], [\"ghostik\", true, \"NAVI vs тім шляндекс (0-0) bo3 на Blast Slam 9\", 0], [\"dunduk\", true, \"осталась последняя лига, ачивка на отрицательные перки, батлпасс\", 0], [\"dyrachyo\", true, \"Yandex Team [1:0] Navi bo3 BLAST SLAM IX Group Stage | !bb !tg\", 0], [\"praden\", true, \"Жизнь с утра, ДБД\", 0], [\"blackrabbit342\", true, \"NAVI YANDEX 0 0 BLAST БЕЗ ЗАДЕРЖКИ!  !bb\", 0], [\"betboom_dota_ru2\", true, \"PlayTime [0] vs [0] OG | Bo3 | Group Stage Day 2 | BLAST SLAM IX | cast: @lasthero_dota2 & @grayne !предикты\", 0], [\"imdankar\", false, \"\", 0], [\"kopsteep\", false, \"\", 0], [\"zer0truel0ve\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", true, \"GTA VI ★★★★★★ РЕЛИЗ (2026) 【#4】\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
