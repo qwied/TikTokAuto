@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T07:48:13Z",
+ "updated": "2026-11-21T07:50:13Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -16,7 +16,7 @@
     "display": "twitch.tv/dmitry_lixxx",
     "platform": "twitch",
     "live": true,
-    "viewers": 7315,
+    "viewers": 7391,
     "title": "[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan"
    },
    {
@@ -32,7 +32,7 @@
     "display": "twitch.tv/stray228",
     "platform": "twitch",
     "live": true,
-    "viewers": 4543,
+    "viewers": 4479,
     "title": "GTA6 RP, отыгрываем на совесть !tg !bb !wow !воппер"
    },
    {
@@ -80,14 +80,14 @@
     "display": "twitch.tv/tpabomah",
     "platform": "twitch",
     "live": true,
-    "viewers": 4986,
+    "viewers": 5099,
     "title": "Проверяем героев (5к заказ) 🔥 !тирлист !сборки !руинер !тг"
    }
   ],
   "tiktok": {
    "enabled": false
   },
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan\", 7325], [\"whoplohoyparen\", false, \"\", 0], [\"stray228\", true, \"GTA6 RP, отыгрываем на совесть !tg !bb !wow !воппер\", 4550], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 3\", 2250], [\"welovegames\", true, \"[День 19] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 1300], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 3]\", 1650], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 6 | !tg !donate !winline !ggsel\", 1575], [\"zloyn\", true, \"СПЛЮ | МАРАФОН | GTA VI 🤯 | ДЕНЬ 4 | !tg !прогресс\", 600], [\"tpabomah\", true, \"Проверяем героев (5к заказ) 🔥 !тирлист !сборки !руинер !тг\", 4975]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan\", 7400], [\"whoplohoyparen\", false, \"\", 0], [\"stray228\", true, \"GTA6 RP, отыгрываем на совесть !tg !bb !wow !воппер\", 4475], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 3\", 2250], [\"welovegames\", true, \"[День 19] !Донатофон по Grand Theft Auto VI | !карта !gta !ggsel !втб !dodo\", 1300], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 3]\", 1650], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 6 | !tg !donate !winline !ggsel\", 1575], [\"zloyn\", true, \"СПЛЮ | МАРАФОН | GTA VI 🤯 | ДЕНЬ 4 | !tg !прогресс\", 600], [\"tpabomah\", true, \"Проверяем героев (5к заказ) 🔥 !тирлист !сборки !руинер !тг\", 5100]]"
  },
  "clips": [
   {
