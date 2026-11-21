@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-21T12:58:25Z",
+ "updated": "2026-11-21T12:58:28Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=pArE26rHjSU",
    "kind": "video",
-   "fails": 1,
+   "fails": 2,
    "added": "2026-11-21T12:57:23Z"
   },
   {
