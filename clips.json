@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22T23:28:21Z",
+ "updated": "2026-11-22T23:28:36Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -79,8 +79,8 @@
     "name": "shiishak",
     "display": "twitch.tv/shiishak",
     "platform": "twitch",
-    "live": true,
-    "viewers": 805,
+    "live": false,
+    "viewers": 0,
     "title": "Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB"
    },
    {
@@ -140,7 +140,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 НЕКЛАВАМЫШЬ 🔴 ИЩУ НЕИЩИМОЕ 🔴 ГЛАВА II 🔴 DAY 5 🔴\", 16450], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 12325], [\"recrent\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel\", 4375], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 3600], [\"zer0truel0ve\", true, \"[GTA 6 120fps DLSS - 3 день] марафон 24/7 [DROPS Включены]\", 1225], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 3\", 1000], [\"rejiboi\", true, \"давай воровать машинки 6, 5 серия | 43% !tg\", 1000], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB\", 800], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 НЕКЛАВАМЫШЬ 🔴 ИЩУ НЕИЩИМОЕ 🔴 ГЛАВА II 🔴 DAY 5 🔴\", 16450], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 12325], [\"recrent\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel\", 4375], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 3600], [\"zer0truel0ve\", true, \"[GTA 6 120fps DLSS - 3 день] марафон 24/7 [DROPS Включены]\", 1225], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 3\", 1000], [\"rejiboi\", true, \"давай воровать машинки 6, 5 серия | 43% !tg\", 1000], [\"shiishak\", false, \"Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
