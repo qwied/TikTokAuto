@@ -33,6 +33,8 @@ FPS = 6.0            # кадров/с на анализ рта: темп реч
 ROIS_W = 160         # ширина области рта для анализа (быстро и достаточно)
 FACE_PROBE_W = 320   # ширина кадра для поиска лица внутри окна камеры
 FACE_MIN_VOTES = 3   # из скольких кадров достаточно, чтобы поверить лицу
+YUNET_FILE = "face_detection_yunet_2023mar.onnx"   # 232 КБ, вшит в репо
+YUNET_SCORE = 0.6    # порог уверенности детекции YuNet
 MOUTH_H_FRAC = 0.32  # рот — зона 50-82% высоты лица (губы + челюсть)
 MOUTH_Y0_FRAC = 0.50 # начало зоны рта (прод-баг: ROI на 55% высоты попадал
                      # на подбородок/воротник — энергия речи занижалась)
@@ -69,77 +71,136 @@ def _extract_roi_stream(video_path, workdir, roi, dur):
     return np.frombuffer(out[:n * frame], dtype=np.uint8).reshape(n, hh, ROIS_W)
 
 
+def _yunet_model():
+    """cv2.FaceDetectorYN или None (модель вшита в репо рядом с модулем)."""
+    import cv2
+    here = os.path.dirname(os.path.abspath(__file__))
+    for cand in (here, os.path.join(os.path.dirname(here)),
+                 os.path.join(os.path.dirname(here), "clipper")):
+        p = os.path.join(cand, YUNET_FILE)
+        if os.path.isfile(p):
+            return cv2.FaceDetectorYN.create(p, "", (0, 0), YUNET_SCORE)
+    return None
+
+
+def _probe_frames(video_path, workdir, cam_box, n_frames=10, fps=0.5):
+    """Пробные кадры окна камеры: (массив N x H x W gray, (hh, cw))."""
+    import numpy as np
+    cx, cy, cw, ch = [int(round(float(v))) for v in cam_box]
+    cw = max(8, min(cw, 1920))
+    ch = max(8, min(ch, 1080))
+    hh = max(8, int(round(FACE_PROBE_W * ch / float(cw) / 2.0)) * 2)
+    cmd = (["ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin",
+            "-i", os.path.basename(str(video_path)),
+            "-vf", "fps=%.2f,crop=%d:%d:%d:%d,scale=%d:%d" %
+                   (fps, cw, ch, cx, cy, FACE_PROBE_W, hh),
+            "-frames:v", str(n_frames), "-f", "rawvideo", "-pix_fmt", "gray",
+            "pipe:1"])
+    rc, out, _err = run_cmd(cmd, timeout=120, cwd=str(workdir), binary=True)
+    frame = FACE_PROBE_W * hh
+    n = len(out) // frame if rc == 0 else 0
+    if n < 3:
+        return None
+    return (np.frombuffer(out[:n * frame], dtype=np.uint8).reshape(n, hh, FACE_PROBE_W),
+            (hh, cw))
+
+
+def _median_face(faces_px):
+    """Медианный bbox списка (x, y, w, h) в координатах пробного кадра."""
+    import numpy as np
+    fx = float(np.median([f[0] for f in faces_px]))
+    fy = float(np.median([f[1] for f in faces_px]))
+    fw = float(np.median([f[2] for f in faces_px]))
+    fh = float(np.median([f[3] for f in faces_px]))
+    return fx, fy, fw, fh
+
+
 def _find_mouth_roi(video_path, workdir, cam_box, dur):
     """(x, y, w, h) области рта в координатах клипа или None.
 
-    Лицо ищем Хааром внутри окна камеры (медианный bbox по кадрам); если
-    каскад молчит — геометрический фолбэк: рот в нижней части окна камеры
-    (лицо по построению webcam.py сидит в его верхней трети).
+    Лицо ищем YuNet (cv2.FaceDetectorYN, ONNX вшит в репо — находит лицо в
+    2-3 раза надёжнее старого Хаара: прод-кейс daxak 2026-11-22 — Хаар молчал,
+    YuNet дал лицо с score 0.95); если YuNet недоступен — Хаар; если и он
+    молчит — геометрический фолбэк: рот в нижней части окна камеры (лицо по
+    построению webcam.py сидит в его верхней трети).
     """
     import numpy as np
+    probe = None
+    try:
+        probe = _probe_frames(video_path, workdir, cam_box)
+    except Exception:
+        log.debug("Пробные кадры окна камеры не читаются", exc_info=True)
+    if probe is None:
+        return None
+    frames, (hh, cw) = probe
+    k = cw / float(FACE_PROBE_W)   # координаты пробного кадра -> окно камеры
+    faces_px = []
     try:
         import cv2
+        # --- 1) YuNet: главный детектор (модель вшита, оффлайн) --------------
+        try:
+            det = _yunet_model()
+            if det is not None:
+                for img in frames:
+                    big = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
+                    det.setInputSize((big.shape[1], big.shape[0]))
+                    _n, fnd = det.detect(big)
+                    if fnd is None:
+                        continue
+                    # строки: x, y, w, h, landmarks..., score
+                    best = max(fnd, key=lambda f: float(f[14]))
+                    if float(best[14]) < YUNET_SCORE:
+                        continue
+                    faces_px.append((float(best[0]), float(best[1]),
+                                     float(best[2]), float(best[3])))
+                if len(faces_px) >= FACE_MIN_VOTES:
+                    fx, fy, fw, fh = _median_face(faces_px)
+                    fx, fy, fw, fh = fx * k, fy * k, fw * k, fh * k
+                    if fw >= 12 and fh >= 12:
+                        mx = fx + fw * (1.0 - MOUTH_W_FRAC) / 2.0
+                        my = fy + fh * MOUTH_Y0_FRAC
+                        cx0, cy0 = int(round(float(cam_box[0]))), int(round(float(cam_box[1])))
+                        roi = (cx0 + mx, cy0 + my, fw * MOUTH_W_FRAC, fh * MOUTH_H_FRAC)
+                        log.info("Лип-синк: лицо найдено YuNet (%d/%d кадров, "
+                                 "ROI рта %.0fx%.0f)", len(faces_px), len(frames),
+                                 roi[2], roi[3])
+                        return roi
+        except Exception:
+            log.debug("YuNet недоступен — фолбэк на Хаар", exc_info=True)
+        # --- 2) Хаар: старый фолбэк ------------------------------------------
+        faces_px = []
         cascade_cls = getattr(cv2, "CascadeClassifier", None)
         if cascade_cls is not None:
             cascade = cascade_cls(
                 cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
             if not cascade.empty():
-                cx, cy, cw, ch = [int(round(float(v))) for v in cam_box]
-                cw = max(8, min(cw, 1920))
-                ch = max(8, min(ch, 1080))
-                hh = max(8, int(round(FACE_PROBE_W * ch / float(cw) / 2.0)) * 2)
-                cmd = (["ffmpeg", "-hide_banner", "-loglevel", "error",
-                        "-nostdin", "-i", os.path.basename(str(video_path)),
-                        "-vf", "fps=0.5,crop=%d:%d:%d:%d,scale=%d:%d" %
-                               (cw, ch, cx, cy, FACE_PROBE_W, hh),
-                        "-frames:v", "10", "-f", "rawvideo", "-pix_fmt",
-                        "gray", "pipe:1"])
-                rc, out, _err = run_cmd(cmd, timeout=120, cwd=str(workdir),
-                                        binary=True)
-                frame = FACE_PROBE_W * hh
-                n = len(out) // frame if rc == 0 else 0
-                if n >= 3:
-                    arr = np.frombuffer(out[:n * frame], dtype=np.uint8)
-                    faces = []
-                    for i in range(n):
-                        img = arr[i * frame:(i + 1) * frame].reshape(hh, FACE_PROBE_W)
-                        f2 = cv2.resize(img, (img.shape[1] * 2, img.shape[0] * 2),
-                                        interpolation=cv2.INTER_CUBIC)
-                        found = cascade.detectMultiScale(f2, scaleFactor=1.1,
-                                                         minNeighbors=4,
-                                                         minSize=(24, 24))
-                        try:
-                            fl = [(int(a), int(b), int(c), int(d))
-                                  for (a, b, c, d) in found]
-                        except TypeError:
-                            fl = []
-                        if fl:
-                            fl.sort(key=lambda r: r[2] * r[3], reverse=True)
-                            x, y, fw, fh = fl[0]
-                            faces.append((x / 2.0, y / 2.0, fw / 2.0, fh / 2.0))
-                    if len(faces) >= FACE_MIN_VOTES:
-                        fx = float(np.median([f[0] for f in faces]))
-                        fy = float(np.median([f[1] for f in faces]))
-                        fw = float(np.median([f[2] for f in faces]))
-                        fh = float(np.median([f[3] for f in faces]))
-                        if fw >= 12 and fh >= 12:
-                            # координаты лица — в ПРОБНОМ кадре (FACE_PROBE_W):
-                            # пересчёт в координаты окна/видео, иначе ROI
-                            # попадает в угол окна (прод-баг: рот на лбу,
-                            # гейт резал честную речь)
-                            k = cw / float(FACE_PROBE_W)
-                            fx, fy, fw, fh = fx * k, fy * k, fw * k, fh * k
-                            # рот: зона 50-82% высоты лица (губы + челюсть),
-                            # центральные 60% ширины
-                            mx = fx + fw * (1.0 - MOUTH_W_FRAC) / 2.0
-                            my = fy + fh * MOUTH_Y0_FRAC
-                            mw = fw * MOUTH_W_FRAC
-                            mh = fh * MOUTH_H_FRAC
-                            roi = (cx + mx, cy + my, mw, mh)
-                            log.info("Лип-синк: рот найден Хааром (%d/%d кадров): "
-                                     "%.0fx%.0f в окне камеры", len(faces), n,
-                                     roi[2], roi[3])
-                            return roi
+                for img in frames:
+                    f2 = cv2.resize(img, (img.shape[1] * 2, img.shape[0] * 2),
+                                    interpolation=cv2.INTER_CUBIC)
+                    found = cascade.detectMultiScale(f2, scaleFactor=1.1,
+                                                     minNeighbors=4,
+                                                     minSize=(24, 24))
+                    try:
+                        fl = [(int(a), int(b), int(c), int(d))
+                              for (a, b, c, d) in found]
+                    except TypeError:
+                        fl = []
+                    if fl:
+                        fl.sort(key=lambda r: r[2] * r[3], reverse=True)
+                        x, y, fw2, fh2 = fl[0]
+                        faces_px.append((x / 2.0, y / 2.0, fw2 / 2.0, fh2 / 2.0))
+                if len(faces_px) >= FACE_MIN_VOTES:
+                    fx, fy, fw, fh = _median_face(faces_px)
+                    fx, fy, fw, fh = fx * k, fy * k, fw * k, fh * k
+                    if fw >= 12 and fh >= 12:
+                        mx = fx + fw * (1.0 - MOUTH_W_FRAC) / 2.0
+                        my = fy + fh * MOUTH_Y0_FRAC
+                        cx0, cy0 = int(round(float(cam_box[0]))), int(round(float(cam_box[1])))
+                        roi = (cx0 + mx, cy0 + my, fw * MOUTH_W_FRAC, fh * MOUTH_H_FRAC)
+                        log.info("Лип-синк: рот найден Хааром (%d/%d кадров): "
+                                 "%.0fx%.0f в окне камеры", len(faces_px), len(frames),
+                                 roi[2], roi[3])
+                        return roi
     except Exception:
         log.debug("Поиск лица для лип-синка не удался", exc_info=True)
     # геометрический фолбэк: лицо — в верхней трети окна камеры

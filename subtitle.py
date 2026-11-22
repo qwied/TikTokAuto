@@ -437,12 +437,12 @@ ALIGN_MIN_WORD_COVER = 0.35  # слово вырезается, если реч�
                              # явные галлюцинации, висящие в полной тишине)
 
 
-def _silero_intervals(wav_path, workdir=None):
-    """Фактические интервалы РЕЧИ клипа по Silero VAD.
+def _silero_intervals(wav_path, workdir=None, threshold=None):
+    """Фактические интервалы РЕЧИ клипа по Silero VAD (репо snakers4/silero-vad).
 
-    Возвращает [(start, end)] в секундах или None (не получилось — субтитры
-    остаются с таймингами Whisper как есть). Веса Silero вшиты в пакет
-    faster-whisper (get_assets_path) — работает оффлайн и на Actions.
+    Возвращает [(start, end)] в секундах или None (не получилось).
+    Веса Silero вшиты в пакет faster-whisper (get_assets_path) — работает
+    оффлайн и на Actions.
     """
     try:
         import numpy as np
@@ -455,17 +455,19 @@ def _silero_intervals(wav_path, workdir=None):
                                 cwd=str(workdir) if workdir else None,
                                 binary=True)
         if rc != 0 or len(out) < 32000:
+            log.warning("Silero VAD: аудио не прочиталось (rc=%s, %d байт)",
+                        rc, len(out) if rc == 0 else 0)
             return None
         audio = np.frombuffer(out[:len(out) // 4 * 4], dtype=np.float32)
         model = get_vad_model()
-        opts = VadOptions(threshold=ALIGN_VAD_THRESHOLD,
+        opts = VadOptions(threshold=float(threshold or ALIGN_VAD_THRESHOLD),
                           min_silence_duration_ms=250, speech_pad_ms=0)
         ts = get_speech_timestamps(audio, opts, sampling_rate=16000)
         iv = sorted((x["start"] / 16000.0, x["end"] / 16000.0) for x in ts)
         iv = [(s, e) for s, e in iv if e - s >= 0.08]
         return iv or None
     except Exception:
-        log.debug("Silero VAD не удался", exc_info=True)
+        log.warning("Silero VAD не удался", exc_info=True)
         return None
 
 
@@ -473,8 +475,19 @@ def refine_word_timings(wav_path, segs, words, workdir=None):
     """Стянуть тайминги Whisper к фактическим границам речи (Silero VAD).
 
     Возвращает (сегменты, слова, статистика). Любая ошибка -> вход как есть.
+    В stats["speech"] лежат интервалы речи — на них опирается fail-closed
+    гейт в make_subtitles_meta: без подтверждённой речи субтитров нет.
     """
     iv = _silero_intervals(wav_path, workdir)
+    if not iv:
+        # перебор порогов: шумный стрим может «топить» мягкий порог —
+        # пробуем строже (подход silero-vad README: threshold 0.35..0.7)
+        for thr in (0.55, 0.7):
+            iv = _silero_intervals(wav_path, workdir, threshold=thr)
+            if iv:
+                log.info("Silero VAD: интервалы найдены на строгом пороге %.2f",
+                         thr)
+                break
     if not iv:
         return segs, words, {}
 
@@ -539,7 +552,7 @@ def refine_word_timings(wav_path, segs, words, workdir=None):
                 break
     new_words.sort(key=lambda w: float(w.get("start") or 0.0))
     stats = {"intervals": len(iv), "dropped": len(words or []) - len(new_words),
-             "snapped": snapped}
+             "snapped": snapped, "speech": iv}
     log.info("Алигнмент по речи (Silero): интервалов %d, вырезано слов %d, "
              "привязано к онсету %d", len(iv), stats["dropped"], snapped)
     return new_segs, new_words, stats
@@ -657,16 +670,43 @@ def _overlaps(a0, a1, intervals, pad=0.15):
     return False
 
 
-def _lip_gate(words, segs, lip_intervals):
+def _lip_gate(words, segs, lip_intervals, speech_iv=None):
     """Гейт по губам: оставить только слова, где стример реально говорит.
 
     lip_intervals — [(start, end)] от lipsync.speaking_intervals (движение
-    рта). Слово сохраняется при пересечении с любым интервалом (поле 0.35 c).
+    рта, детектор лица YuNet). speech_iv — интервалы речи по Silero (аудио).
+    ДВА независимых детектора речи сверяются между собой (арбитраж):
+      * если губы «говорят» меньше половины аудио-речи — детект рта сломан
+        (тёмное лицо, рывки камеры; прод-инцидент exigent_wires) — гейт НЕ
+        применяется, субтитры остаются по аудио;
+      * иначе гейт ЖЁСТКИЙ: слово сохраняется только при пересечении с
+        интервалом движения рта (поле 0.35 c) — субтитры следят ИМЕННО за
+        губами стримера, реплики из игры/войсчата вырезаются.
     Возвращает (слова, сегменты) или (None, None), если гейт вырезал бы
-    слишком много честной речи (лицо детектировалось рывками) — тогда
-    субтитры остаются без гейта, лучше лишняя строка, чем потерянная.
+    слишком много честной речи — тогда субтитры остаются без гейта.
     """
     pad = 0.35
+    if speech_iv:
+        lip_s = sum(e - s for s, e in lip_intervals)
+        aud_s = sum(e - s for s, e in speech_iv)
+        inter = sum(min(e, ve) - max(s, vs)
+                    for s, e in lip_intervals for vs, ve in speech_iv
+                    if min(e, ve) > max(s, vs))
+        cover = inter / max(lip_s, 0.01)      # губы подтверждены аудио
+        recall = inter / max(aud_s, 0.01)     # аудио-речь покрыта губами
+        log.info("Лип-синк vs аудио (арбитраж): губы %.1f c, аудио %.1f c, "
+                 "пересечение %.1f c (точность %.0f%%, полнота %.0f%%)",
+                 lip_s, aud_s, inter, 100 * cover, 100 * recall)
+        # губы молчат там, где аудио явно речь (>= половина) — детект сломан
+        if recall < 0.50:
+            log.warning("Лип-детект покрывает только %.0f%% аудио-речи — рот "
+                        "не виден, гейт по губам НЕ применяю", 100 * recall)
+            return None, None
+        # губы «говорят» втрое больше аудио — ROI рта ловит не то движение
+        if lip_s > 3.0 * aud_s and cover < 0.45:
+            log.warning("Лип-детект дал %.1f c «говорения» при %.1f c речи по "
+                        "аудио — ROI рта неверный, гейт НЕ применяю", lip_s, aud_s)
+            return None, None
     keep_w = [w for w in (words or [])
               if _overlaps(w["start"], w["end"], lip_intervals, pad=pad)]
     keep_s = [s for s in (segs or [])
@@ -681,8 +721,26 @@ def _lip_gate(words, segs, lip_intervals):
     return keep_w, keep_s
 
 
+def _speech_cap(t, speech_intervals, tail=0.35):
+    """Предел хвоста события: конец речевого интервала, содержащего t, +tail.
+
+    Гарантирует «субтитры исчезают сразу после речи» (жалоба «появлялись
+    заранее/висели в тишине»): строка не может висеть дольше конца речи,
+    где бы Whisper ни поставил свои тайминги.
+    """
+    if not speech_intervals:
+        return None
+    best = None
+    for s, e in speech_intervals:
+        if s - 0.15 <= t <= e + 0.15:
+            best = e if best is None else max(best, e)
+    if best is None:
+        return t
+    return best + tail
+
+
 def build_tiktok_ass(words, path, width=1280, height=720, font="Arial Black",
-                     skip_intervals=None):
+                     skip_intervals=None, speech_intervals=None):
     """Караоке-субтитры БЕЗ анимаций: жирный капс ВНИЗУ ПО ЦЕНТРУ, максимум
     две строки, палитра строго бело-жёлтая.
 
@@ -698,6 +756,9 @@ def build_tiktok_ass(words, path, width=1280, height=720, font="Arial Black",
         после последнего (короткий хвост 0.35 c на читаемость);
       * строки рвутся на паузах >0.6 c и по концу фразы — субтитры не висят
         в тишине;
+      * хвост строки, кроме прочего, обрезается по концу речевого интервала
+        (Silero VAD, speech_intervals): субтитры не могут висеть в паузе
+        дольше 0.35 c после речи, даже если тайминги Whisper ошиблись;
       * никаких \\k / \\t / \\fad / \\fscx — чистая смена цвета, ноль анимаций;
       * деление на верх/низ — по длине символов, строки ровные.
 
@@ -751,6 +812,11 @@ def build_tiktok_ass(words, path, width=1280, height=720, font="Arial Black",
                 # события на экране одновременно, libass расталкивал их
                 # «стопкой» (двойные субтитры в кадре).
                 e = max(last_end + CHUNK_TAIL, start + MIN_LINE_SEC)
+                # Хвост обрезается и по КОНЦУ РЕЧИ (Silero): строка не висит
+                # в тишине дольше 0.35 c после последнего слова.
+                cap = _speech_cap(last_end, speech_intervals)
+                if cap is not None and cap > s + MIN_LINE_SEC:
+                    e = min(e, cap)
                 caps_e = []
                 if i + 1 < len(runs):
                     caps_e.append(max(float(runs[i + 1][0]["start"]), 0.0))
@@ -1011,10 +1077,12 @@ def make_subtitles_meta(video_path, workdir, sub_cfg, language, chat_messages,
     # Whisper ставит слова на ~0.3 c позже реального звука (замер прод-2026-11-
     # 22) — субтитры «залагали». Привязываем сегменты/слова к фактическим
     # интервалам речи; слова в тишине (галлюцинации) вырезаются.
+    speech_iv = None
     if wav and words:
         try:
-            segs, words, _al = refine_word_timings(wav, segs or [],
-                                                   words, workdir=str(workdir))
+            segs, words, al = refine_word_timings(wav, segs or [],
+                                                  words, workdir=str(workdir))
+            speech_iv = al.get("speech")
             speech_s = 0.0
             for s in segs or []:
                 if s.get("text"):
@@ -1025,6 +1093,16 @@ def make_subtitles_meta(video_path, workdir, sub_cfg, language, chat_messages,
             smeta["aligned"] = True
         except Exception:
             log.exception("Алигнмент по звуку не удался — тайминги Whisper как есть")
+
+    # --- FAIL-CLOSED: без подтверждённой речи субтитров НЕТ ------------------
+    # Жалоба пользователя: «либо убери субтитры, либо сделай реально
+    # нормальные». Если Silero не смог подтвердить интервалы речи, Whisper-
+    # тайминги непроверяемы — строки могут висеть в тишине. Лучше клип без
+    # субтитров, чем кривые: они и не строятся вовсе.
+    if not speech_iv and words:
+        log.warning("Речь не подтверждена VAD — субтитры УБРАНЫ "
+                    "(fail-closed: лучше без субтитров, чем кривые)")
+        words, segs = [], []
 
     if wav:
         for f in (wav, os.path.join(str(workdir), "clip_audio_norm.wav")):
@@ -1046,23 +1124,27 @@ def make_subtitles_meta(video_path, workdir, sub_cfg, language, chat_messages,
         words = _words_from_segments(segs)
 
     # --- ЛИП-СИНК: субтитры только там, где стример говорит по губам ----------
-    # Жалоба пользователя: «субтитры произносятся, когда стример молчит» —
-    # Whisper тянет речь из игры/войсчата. Гейт по движению рта
-    # (clipper/lipsync.py); если лицо видно рывками — гейт не применяем.
+    dur_s = max(float(duration or 60.0), 1.0)
+    # Требование пользователя: «субтитры следят ИМЕННО за губами». Whisper
+    # тянет речь из игры/войсчата — гейт по движению рта (clipper/lipsync.py,
+    # детектор лица YuNet) с арбитражем против аудио-VAD: если детект рта
+    # сломан (тёмное лицо, рывки) — гейт сам выключается.
     if lip_intervals and words:
         try:
-            gated_w, gated_s = _lip_gate(words, segs, lip_intervals)
+            gated_w, gated_s = _lip_gate(words, segs, lip_intervals,
+                                         speech_iv=speech_iv)
         except Exception:
             log.exception("Лип-гейт упал — субтитры без него")
             gated_w, gated_s = None, None
         if gated_w is not None:
             words, segs = gated_w, gated_s
             smeta["lip_gate"] = True
+            lip_s = sum(e - s for s, e in lip_intervals)
+            smeta["lip_speech_pct"] = min(100, round(100.0 * lip_s / dur_s))
         else:
             smeta["lip_gate"] = False
 
-    dur_s = max(float(duration or 60.0), 1.0)
-    smeta["words"] = max(smeta.get("words") or 0, len(words or []))
+    smeta["words"] = len(words or [])   # слова, реально попавшие в субтитры
     smeta["speech_pct"] = min(100, round(100.0 * float(smeta.get("speech_sec") or 0.0)
                                          / dur_s))
     smeta["ok"] = bool(words)
@@ -1080,7 +1162,8 @@ def make_subtitles_meta(video_path, workdir, sub_cfg, language, chat_messages,
             build_classic_ass(segs or [], ass_path, width=width, height=height, font=font)
         else:
             build_tiktok_ass(words, ass_path, width=width, height=height, font=font,
-                             skip_intervals=skip_intervals)
+                             skip_intervals=skip_intervals,
+                             speech_intervals=speech_iv)
         log.info("Субтитры из речи: %d слов (язык %s, речи %d%%), стиль %s",
                  len(words), smeta.get("lang") or "?", smeta["speech_pct"], style)
         return ass_path, smeta

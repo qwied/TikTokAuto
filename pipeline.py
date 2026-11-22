@@ -809,11 +809,13 @@ class Pipeline:
         # повторный детект лица не нужен; в crop-фолбэке лицо за кадром —
         # гейт невозможен; в blur лицо по центру — lipsync детектит сам.
         lip_iv = None
-        # Лип-гейт по умолчанию ВЫКЛ (прод 2026-11-21: exigent_wires — на тёмном
-        # лице рот не детектится, гейт вырезал ПОЛОВИНУ честной речи,
-        # субтитры «редко появляются»). Включается осознанно:
-        # subtitle.lip_sync: true в config.yaml.
-        sub_lip_on = bool((self.sub_cfg or {}).get("lip_sync", False))
+        # Лип-гейт ВКЛЮЧЁН по умолчанию (требование пользователя: «субтитры
+        # следят ИМЕННО за губами стримера»). Старый прод-инцидент exigent_wires
+        # (гейт резал половину честной речи на тёмном лице) лечится YuNet-детектом
+        # лица (lipsync.py) и арбитражем «губы vs аудио-VAD» в subtitle._lip_gate:
+        # детект рта сломан — гейт сам выключается, субтитры остаются по аудио.
+        # Отключается осознанно: subtitle.lip_sync: false в config.yaml.
+        sub_lip_on = bool((self.sub_cfg or {}).get("lip_sync", True))
         if sub_lip_on and os.path.exists(raw_ts):
             try:
                 if (cam_box and self.vertical_mode == "split"

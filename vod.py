@@ -654,8 +654,21 @@ def clip_quality(mp4_path, smeta=None, base=None, duration=None):
     else:
         d_sub = 0.0
 
+    # --- говор СТРИМЕРА (лип-гейт): сколько клипа он реально говорил
+    # Жалоба «скучные моменты»: окно может совпасть с паузой стримера
+    # (хайп чата без речи). lip_speech_pct — доля клипа, где стример
+    # реально говорит (движение рта, lipsync.py). Считается только когда
+    # лип-гейт применился — иначе не наказываем (не знаем).
+    lip_pct = int((smeta or {}).get("lip_speech_pct") or 0)
+    if lip_pct and lip_pct < 18:
+        d_lip = -12.0               # стример молчал почти весь клип
+    elif lip_pct and lip_pct < 35:
+        d_lip = -5.0
+    else:
+        d_lip = 0.0
+
     b = 50.0 if base is None else max(0.0, min(100.0, float(base)))
-    score = max(0.0, min(100.0, b + d_bit + d_snd + d_sub))
+    score = max(0.0, min(100.0, b + d_bit + d_snd + d_sub + d_lip))
 
     # --- ЖЁСТКИЙ ФЛОР: практика показала, что скучные клипы — это почти
     # всегда либо статичная картинка (~0.3 Мбит/с, файл ~2 МБ), либо обрезок.
@@ -676,7 +689,8 @@ def clip_quality(mp4_path, smeta=None, base=None, duration=None):
              "mbps": round(mbps, 2), "mean_db": round(mean_db, 1),
              "std_db": round(std_db, 1), "silent": round(silent_r, 2),
              "words": words, "d_bit": d_bit, "d_snd": round(d_snd, 1),
-             "d_sub": d_sub, "hard": hard}
+             "d_sub": d_sub, "d_lip": d_lip, "lip_pct": lip_pct,
+             "hard": hard}
     if hard:
         log.info("Качество клипа: %.0f/100 — ЖЁСТКИЙ ФЛОР (%s): бракуем", score, hard)
         return score, parts
