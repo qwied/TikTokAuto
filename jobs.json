@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-22T18:12:53Z",
+ "updated": "2026-11-22T18:13:48Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=xzTeWTKUEZw",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Самые смешные и лучшие моменты Top Gear #1",
    "views": 3116660,
