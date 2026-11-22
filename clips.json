@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22T14:52:45Z",
+ "updated": "2026-11-22T14:55:22Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -12,12 +12,28 @@
     "title": ""
    },
    {
+    "name": "nix",
+    "display": "twitch.tv/nix",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "PARIVISION vs Liquid bo3 0:0 BLAST SLAM IX (Group Stage) w/ Alagon"
+   },
+   {
     "name": "strogo",
     "display": "twitch.tv/strogo",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "🔴 WW vs ENEMY | bo1 | BLAST Bounty 2027 Season 1 | @m3wsu @keliencs  @hypetried @ryujincs1"
+    "title": ""
+   },
+   {
+    "name": "solo",
+    "display": "twitch.tv/solo",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "🔴 PV [0:0] Team Liquid | BLAST SLAM IX: Group Stage w/ @геннадий !tg !BETBOOM !розыгрыш"
    },
    {
     "name": "recrent",
@@ -28,6 +44,14 @@
     "title": "[1440p] GTA VI в 60 fps. День 5 | !pari !ggsel !tg !мерч"
    },
    {
+    "name": "bratishkinoff",
+    "display": "twitch.tv/bratishkinoff",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "🔴 2K 60 FPS 🔴 НЕКЛАВАМЫШЬ 🔴 ИЩУ НЕИЩИМОЕ 🔴 GTA 6 🔴 DAY 5 🔴"
+   },
+   {
     "name": "t2x2",
     "display": "twitch.tv/t2x2",
     "platform": "twitch",
@@ -36,12 +60,12 @@
     "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch (донаты и мемы офф)"
    },
    {
-    "name": "bratishkinoff",
-    "display": "twitch.tv/bratishkinoff",
+    "name": "ravshann",
+    "display": "twitch.tv/ravshann",
     "platform": "twitch",
     "live": true,
     "viewers": 0,
-    "title": "🔴 2K 60 FPS 🔴 НЕКЛАВАМЫШЬ 🔴 ИЩУ НЕИЩИМОЕ 🔴 GTA 6 🔴 DAY 5 🔴"
+    "title": "🔴 ПОКУПАЮ НИВУ w/ @steel !тг !бб !yota"
    },
    {
     "name": "leb1ga",
@@ -52,12 +76,12 @@
     "title": "⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 4"
    },
    {
-    "name": "ravshann",
-    "display": "twitch.tv/ravshann",
+    "name": "murzofix",
+    "display": "twitch.tv/murzofix",
     "platform": "twitch",
     "live": true,
     "viewers": 0,
-    "title": "🔴 ПОКУПАЮ НИВУ w/ @steel !тг !бб !yota"
+    "title": "Озвучиваем мультики и приколи @dangerlyoha @morphe_ya @kopsteep !tg"
    },
    {
     "name": "skywhywalker",
@@ -71,153 +95,121 @@
     "name": "sasavot",
     "display": "twitch.tv/sasavot",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "ВЫХОДНОЙ/ВОТ ТАКОЙ"
-   },
-   {
-    "name": "chopperinho",
-    "display": "twitch.tv/chopperinho",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "WhiteBIT [0:0] GAMBLERbl | BO1 | BLAST Open Qualifier | !bb !tg !yt"
-   },
-   {
-    "name": "dmitry_lixxx",
-    "display": "twitch.tv/dmitry_lixxx",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan"
-   },
-   {
-    "name": "melharucos",
-    "display": "twitch.tv/melharucos",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "ИГРА НРАВИТСЯ, ГРАБЛЮ ПРОФЕССИОНАЛЬНО"
-   },
-   {
-    "name": "blackufa",
-    "display": "twitch.tv/blackufa",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "[DROPS] GTA 6 [PS5Pro] последний день нашего обширного отпуска"
-   },
-   {
-    "name": "leva2k",
-    "display": "twitch.tv/leva2k",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "ИЗОЛЯЦИЯ ДЕНЬ 7 | !tg !donate !winline !ggsel"
-   },
-   {
-    "name": "zloyn",
-    "display": "twitch.tv/zloyn",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "МАРАФОН | GTA VI 🤯 | ДЕНЬ 5 | !tg !прогресс"
+    "title": ""
    },
    {
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "PARIVISION [0] vs [0] Team Liquid | Bo3 | Group Stage Day 3 | BLAST SLAM IX | cast: @PIVOVAR_cast & @BLACKARHANGEL"
+    "title": ""
    },
    {
-    "name": "silvername",
-    "display": "twitch.tv/silvername",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг"
-   },
-   {
-    "name": "shiishak",
-    "display": "twitch.tv/shiishak",
+    "name": "chopperinho",
+    "display": "twitch.tv/chopperinho",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB"
+    "title": ""
    },
    {
-    "name": "zer0truel0ve",
-    "display": "twitch.tv/zer0truel0ve",
+    "name": "dmitry_lixxx",
+    "display": "twitch.tv/dmitry_lixxx",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "[GTA 6 120fps DLSS - 3 день] марафон 24/7 [DROPS Включены]"
+    "title": ""
    },
    {
-    "name": "dunduk",
-    "display": "twitch.tv/dunduk",
+    "name": "melharucos",
+    "display": "twitch.tv/melharucos",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "сталзонерским хай"
+    "title": ""
    },
    {
-    "name": "ghostik",
-    "display": "twitch.tv/ghostik",
+    "name": "blackufa",
+    "display": "twitch.tv/blackufa",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "🔥Тестуємо НОВИХ героїв в НОВОМУ патчі 7.42 (5-1) 🔥"
+    "title": ""
    },
    {
-    "name": "nix",
-    "display": "twitch.tv/nix",
+    "name": "zloyn",
+    "display": "twitch.tv/zloyn",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "PARIVISION vs Liquid bo3 0:0 BLAST SLAM IX (Group Stage) w/ Alagon"
+    "title": ""
    },
    {
-    "name": "solo",
-    "display": "twitch.tv/solo",
+    "name": "leva2k",
+    "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "🔴 PV [0:0] Team Liquid | BLAST SLAM IX: Group Stage w/ @геннадий !tg !BETBOOM !розыгрыш"
-   },
-   {
-    "name": "murzofix",
-    "display": "twitch.tv/murzofix",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Озвучиваем мультики и приколи @dangerlyoha @morphe_ya @kopsteep !tg"
+    "title": ""
    },
    {
     "name": "betboom_dota_ru2",
     "display": "twitch.tv/betboom_dota_ru2",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "LEGION [0] vs [0] DO KONCA | Bo3 | Group Stage Day 3 | BLAST SLAM IX | cast: @inmateoo & @grayne !предикты"
+    "title": ""
+   },
+   {
+    "name": "silvername",
+    "display": "twitch.tv/silvername",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "rostislav_999",
     "display": "twitch.tv/rostislav_999",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "ПРОХОДИМ ГТА 6😎 В БУНКЕРЕ!!! ДЕНЬ 3 🍌🔫🔫🔫"
+    "title": ""
    },
    {
     "name": "dyrachyo",
     "display": "twitch.tv/dyrachyo",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "PVISION vs Team Liquid bo3 BLAST SLAM IX Group Stage | !bb !tg"
+    "title": ""
+   },
+   {
+    "name": "zer0truel0ve",
+    "display": "twitch.tv/zer0truel0ve",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "ghostik",
+    "display": "twitch.tv/ghostik",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "dunduk",
+    "display": "twitch.tv/dunduk",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "welovegames",
@@ -276,7 +268,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", false, \"🔴 WW vs ENEMY | bo1 | BLAST Bounty 2027 Season 1 | @m3wsu @keliencs  @hypetried @ryujincs1\", 0], [\"recrent\", true, \"[1440p] GTA VI в 60 fps. День 5 | !pari !ggsel !tg !мерч\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch (донаты и мемы офф)\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 НЕКЛАВАМЫШЬ 🔴 ИЩУ НЕИЩИМОЕ 🔴 GTA 6 🔴 DAY 5 🔴\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 4\", 0], [\"ravshann\", true, \"🔴 ПОКУПАЮ НИВУ w/ @steel !тг !бб !yota\", 0], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 0], [\"sasavot\", true, \"ВЫХОДНОЙ/ВОТ ТАКОЙ\", 0], [\"chopperinho\", true, \"WhiteBIT [0:0] GAMBLERbl | BO1 | BLAST Open Qualifier | !bb !tg !yt\", 0], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan\", 0], [\"melharucos\", true, \"ИГРА НРАВИТСЯ, ГРАБЛЮ ПРОФЕССИОНАЛЬНО\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] последний день нашего обширного отпуска\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 7 | !tg !donate !winline !ggsel\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 5 | !tg !прогресс\", 0], [\"betboom_dota_ru\", true, \"PARIVISION [0] vs [0] Team Liquid | Bo3 | Group Stage Day 3 | BLAST SLAM IX | cast: @PIVOVAR_cast & @BLACKARHANGEL\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"shiishak\", false, \"Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB\", 0], [\"zer0truel0ve\", true, \"[GTA 6 120fps DLSS - 3 день] марафон 24/7 [DROPS Включены]\", 0], [\"dunduk\", true, \"сталзонерским хай\", 0], [\"ghostik\", true, \"🔥Тестуємо НОВИХ героїв в НОВОМУ патчі 7.42 (5-1) 🔥\", 0], [\"nix\", true, \"PARIVISION vs Liquid bo3 0:0 BLAST SLAM IX (Group Stage) w/ Alagon\", 0], [\"solo\", true, \"🔴 PV [0:0] Team Liquid | BLAST SLAM IX: Group Stage w/ @геннадий !tg !BETBOOM !розыгрыш\", 0], [\"murzofix\", true, \"Озвучиваем мультики и приколи @dangerlyoha @morphe_ya @kopsteep !tg\", 0], [\"betboom_dota_ru2\", true, \"LEGION [0] vs [0] DO KONCA | Bo3 | Group Stage Day 3 | BLAST SLAM IX | cast: @inmateoo & @grayne !предикты\", 0], [\"rostislav_999\", true, \"ПРОХОДИМ ГТА 6😎 В БУНКЕРЕ!!! ДЕНЬ 3 🍌🔫🔫🔫\", 0], [\"dyrachyo\", true, \"PVISION vs Team Liquid bo3 BLAST SLAM IX Group Stage | !bb !tg\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"PARIVISION vs Liquid bo3 0:0 BLAST SLAM IX (Group Stage) w/ Alagon\", 0], [\"strogo\", false, \"\", 0], [\"solo\", true, \"🔴 PV [0:0] Team Liquid | BLAST SLAM IX: Group Stage w/ @геннадий !tg !BETBOOM !розыгрыш\", 0], [\"recrent\", true, \"[1440p] GTA VI в 60 fps. День 5 | !pari !ggsel !tg !мерч\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 НЕКЛАВАМЫШЬ 🔴 ИЩУ НЕИЩИМОЕ 🔴 GTA 6 🔴 DAY 5 🔴\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch (донаты и мемы офф)\", 0], [\"ravshann\", true, \"🔴 ПОКУПАЮ НИВУ w/ @steel !тг !бб !yota\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 4\", 0], [\"murzofix\", true, \"Озвучиваем мультики и приколи @dangerlyoha @morphe_ya @kopsteep !tg\", 0], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 0], [\"sasavot\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"chopperinho\", false, \"\", 0], [\"dmitry_lixxx\", false, \"\", 0], [\"melharucos\", false, \"\", 0], [\"blackufa\", false, \"\", 0], [\"zloyn\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"betboom_dota_ru2\", false, \"\", 0], [\"silvername\", false, \"\", 0], [\"rostislav_999\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"zer0truel0ve\", false, \"\", 0], [\"ghostik\", false, \"\", 0], [\"dunduk\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
