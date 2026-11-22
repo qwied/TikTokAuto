@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-21T23:37:13Z",
- "jobs": []
+ "updated": "2026-11-22T00:01:53Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=GJmsOgmK5oQ",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Сможет ли Стример ВЗБЕСИТЬ ЗРИТЕЛЕЙ в Прямом Эфире? - Майнкрафт Челлендж",
+   "views": 456063,
+   "added": "2026-11-22T00:01:52Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=XNx2TXHyWjM",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "АЛК*ШИ СНОВА ДОКОПАЛИСЬ ДО ХАЗЯЕВ ВО ВКУСНО И ТОЧКА! | КОРЕШ, ГОРИЛЛЫЧ, ФРАМЕ ТАМЕР ИРЛ",
+   "views": 442262,
+   "added": "2026-11-22T00:01:50Z"
+  }
+ ]
 }
