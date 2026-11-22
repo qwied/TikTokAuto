@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22T00:57:40Z",
+ "updated": "2026-11-22T00:57:47Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -20,14 +20,6 @@
     "title": "⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 4"
    },
    {
-    "name": "t2x2",
-    "display": "twitch.tv/t2x2",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф"
-   },
-   {
     "name": "frametamer666",
     "display": "twitch.tv/frametamer666",
     "platform": "twitch",
@@ -36,12 +28,12 @@
     "title": "GTA 6 ДОНАТОФОН 24/7 [DAY 4]"
    },
    {
-    "name": "bratishkinoff",
-    "display": "twitch.tv/bratishkinoff",
+    "name": "stray228",
+    "display": "twitch.tv/stray228",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 3033,
+    "title": "GTA6 RP, отыгрываем на совесть !tg !bb !wow !воппер"
    },
    {
     "name": "leva2k",
@@ -50,14 +42,6 @@
     "live": true,
     "viewers": 2628,
     "title": "ИЗОЛЯЦИЯ ДЕНЬ 7 | !tg !donate !winline !ggsel"
-   },
-   {
-    "name": "stray228",
-    "display": "twitch.tv/stray228",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 3033,
-    "title": "GTA6 RP, отыгрываем на совесть !tg !bb !wow !воппер"
    },
    {
     "name": "betboom_dota_ru",
@@ -132,7 +116,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 4\", 9700], [\"t2x2\", false, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф\", 0], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 4]\", 4450], [\"bratishkinoff\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 7 | !tg !donate !winline !ggsel\", 2625], [\"stray228\", true, \"GTA6 RP, отыгрываем на совесть !tg !bb !wow !воппер\", 3025], [\"betboom_dota_ru\", true, \"ПОВТОР | Bo3 | Group Stage Day 2 | BLAST SLAM IX\", 1350], [\"rejiboi\", true, \"давай воровать машинки 6, 4 серия (строго 13+)  !tg\", 825], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 4\", 9700], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 4]\", 4450], [\"stray228\", true, \"GTA6 RP, отыгрываем на совесть !tg !bb !wow !воппер\", 3025], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 7 | !tg !donate !winline !ggsel\", 2625], [\"betboom_dota_ru\", true, \"ПОВТОР | Bo3 | Group Stage Day 2 | BLAST SLAM IX\", 1350], [\"rejiboi\", true, \"давай воровать машинки 6, 4 серия (строго 13+)  !tg\", 825], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
