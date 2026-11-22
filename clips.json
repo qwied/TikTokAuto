@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22T20:35:27Z",
+ "updated": "2026-11-22T20:38:12Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -127,7 +127,7 @@
     "name": "dyrachyo",
     "display": "twitch.tv/dyrachyo",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
     "title": "Astra [1:1] LGD bo3 BLAST SLAM IX Group Stage w/ @dkfogas1 | !bb !tg"
    },
@@ -220,7 +220,7 @@
     "title": "🚨LIVE JETZT! ALLE MILITÄR FAHRZEUGE KLAUEN IN GTA VI🚨"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 4\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 НЕКЛАВАМЫШЬ 🔴 ИЩУ НЕИЩИМОЕ 🔴 ГЛАВА II 🔴 DAY 5 🔴\", 0], [\"recrent\", true, \"[1440p] GTA VI в 60 fps. День 5 | !pari !ggsel !tg !мерч\", 0], [\"solo\", true, \"🔴 Astra Invicta [1:1] LGD | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto @vtunedota !tg !BETBOOM !розыгрыш\", 0], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 0], [\"sasavot\", true, \"ВЫХОДНОЙ/ВОТ ТАКОЙ\", 0], [\"lenagol0vach\", true, \"🏆 НОВЫЙ ПАТЧ 7.42 🏆 ПУТЬ В ТОП 100 🏆  ЖЕСТКИЙ АП ММР 🍔 БЫЛО 15к ММР 🍆 ТЕСТИМ НОВЫЙ ПАТЧ ⭐ НАШЕЛ ИМБУ ПАТЧА ⭐🧀🏆⭐\", 0], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 3\", 0], [\"welovegames\", true, \"Никуда не спешим и аккуратно проходим | !сити !ggsel !втб !dodo\", 0], [\"leva2k\", true, \"Аук на вещь | ГТА ДЕНЬ7 | !tg !donate !winline !ggsel\", 0], [\"betboom_dota_ru2\", true, \"Astra Invicta [1] vs [1] LGD | Bo3 | Group Stage Day 3 | BLAST SLAM IX | cast: @inmateoo & @grayne !предикты\", 0], [\"mafanyaking\", true, \"здарова / !тг !донат !предложка\", 0], [\"danila_gorilla\", true, \"СМОТРИМ НОВЫЙ ВИДОС КОКОШКИ / начало - 23:33\", 0], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 0], [\"dyrachyo\", true, \"Astra [1:1] LGD bo3 BLAST SLAM IX Group Stage w/ @dkfogas1 | !bb !tg\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 5 серия (потом гта) !tg\", 0], [\"chopperinho\", true, \"ТРЕНИРОВКА В КС --> DS3 | !bb !tg !yt\", 0], [\"zer0truel0ve\", true, \"[GTA 6 120fps DLSS - 3 день] марафон 24/7 [DROPS Включены]\", 0], [\"blackrabbit342\", true, \"lgd astra invicta 0 0 BLAST БЕЗ ЗАДЕРЖКИ!  !bb\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", true, \"GTA VI ★★★★★★ РЕЛИЗ (2026) 【#5】\", 0], [\"Okisebi\", true, \"🚨LIVE JETZT! ALLE MILITÄR FAHRZEUGE KLAUEN IN GTA VI🚨\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 4\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 НЕКЛАВАМЫШЬ 🔴 ИЩУ НЕИЩИМОЕ 🔴 ГЛАВА II 🔴 DAY 5 🔴\", 0], [\"recrent\", true, \"[1440p] GTA VI в 60 fps. День 5 | !pari !ggsel !tg !мерч\", 0], [\"solo\", true, \"🔴 Astra Invicta [1:1] LGD | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto @vtunedota !tg !BETBOOM !розыгрыш\", 0], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 0], [\"sasavot\", true, \"ВЫХОДНОЙ/ВОТ ТАКОЙ\", 0], [\"lenagol0vach\", true, \"🏆 НОВЫЙ ПАТЧ 7.42 🏆 ПУТЬ В ТОП 100 🏆  ЖЕСТКИЙ АП ММР 🍔 БЫЛО 15к ММР 🍆 ТЕСТИМ НОВЫЙ ПАТЧ ⭐ НАШЕЛ ИМБУ ПАТЧА ⭐🧀🏆⭐\", 0], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 3\", 0], [\"welovegames\", true, \"Никуда не спешим и аккуратно проходим | !сити !ggsel !втб !dodo\", 0], [\"leva2k\", true, \"Аук на вещь | ГТА ДЕНЬ7 | !tg !donate !winline !ggsel\", 0], [\"betboom_dota_ru2\", true, \"Astra Invicta [1] vs [1] LGD | Bo3 | Group Stage Day 3 | BLAST SLAM IX | cast: @inmateoo & @grayne !предикты\", 0], [\"mafanyaking\", true, \"здарова / !тг !донат !предложка\", 0], [\"danila_gorilla\", true, \"СМОТРИМ НОВЫЙ ВИДОС КОКОШКИ / начало - 23:33\", 0], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 0], [\"dyrachyo\", false, \"Astra [1:1] LGD bo3 BLAST SLAM IX Group Stage w/ @dkfogas1 | !bb !tg\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 5 серия (потом гта) !tg\", 0], [\"chopperinho\", true, \"ТРЕНИРОВКА В КС --> DS3 | !bb !tg !yt\", 0], [\"zer0truel0ve\", true, \"[GTA 6 120fps DLSS - 3 день] марафон 24/7 [DROPS Включены]\", 0], [\"blackrabbit342\", true, \"lgd astra invicta 0 0 BLAST БЕЗ ЗАДЕРЖКИ!  !bb\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", true, \"GTA VI ★★★★★★ РЕЛИЗ (2026) 【#5】\", 0], [\"Okisebi\", true, \"🚨LIVE JETZT! ALLE MILITÄR FAHRZEUGE KLAUEN IN GTA VI🚨\", 0]]"
  },
  "clips": [
   {
