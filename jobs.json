@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-22T18:14:02Z",
- "jobs": []
+ "updated": "2026-11-22T18:38:42Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=hRCSwyNBQ1o",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Пранки, на которые не жалко 30 минут 💀 Подборка 2026",
+   "views": 2250539,
+   "added": "2026-11-22T18:38:34Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=7wOEIhGU9uI",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "1 VS 100 Уровень - Научные ЭКСПЕРИМЕНТЫ !)",
+   "views": 1420673,
+   "added": "2026-11-22T18:38:42Z"
+  }
+ ]
 }
