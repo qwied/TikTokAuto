@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-22T00:02:56Z",
- "jobs": []
+ "updated": "2026-11-22T00:31:56Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=nZMMcY67GoI",
+   "kind": "video",
+   "fails": 0,
+   "tag": "gta6",
+   "display": "GTA 6 ВСЕ ОСНОВНЫЕ КОНЦОВКИ на Русском [4K PS5 PRO] | ГТА 6 Все Концовки (Хорошая, Плохая, Лучшая)",
+   "views": 203393,
+   "added": "2026-11-22T00:31:51Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=vYkj4Rd6aLo",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Топ Моменты с Twitch | Потерял 30 Миллионов за Секунду",
+   "views": 183790,
+   "added": "2026-11-22T00:31:53Z"
+  }
+ ]
 }
