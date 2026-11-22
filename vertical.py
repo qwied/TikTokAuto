@@ -66,6 +66,49 @@ def box_overlap_frac(box, win):
     return (ix * iy) / area if area > 0 else 0.0
 
 
+def strip_cam_window(src_w, src_h, cam_box, cam_h, w=WIDTH):
+    """Окно камеры с АСПЕКТОМ ПОЛОСЫ (w:cam_h) — лицо не режется по краям.
+
+    detect_cam_box возвращает вертикальное окно ~9:16, а полоса камеры в
+    макете широкая (1080:691 ≈ 1.56). Прежний путь «crop узкого окна ->
+    scale=increase -> центр-кроп» срезал БОКА: лицо у края окна оказывалось
+    за кадром (прод 2026-11-22 frametamer666: в полосе остался только край
+    головы — «опять без лица»). Теперь окно строим сразу широким, с тем же
+    аспектом, что и полоса: масштабирование без обрезки, лицо внутри.
+    """
+    cx = float(cam_box[0]) + float(cam_box[2]) / 2.0
+    cy = float(cam_box[1]) + float(cam_box[3]) / 2.0
+    ar = float(w) / float(max(1, cam_h))          # аспект полосы камеры
+    win_h = float(cam_box[3])
+    win_w = win_h * ar
+    if win_w > src_w:                             # окно шире исходника
+        win_w = float(src_w)
+        win_h = win_w / ar
+    if win_h > src_h:                             # и не выше исходника
+        win_h = float(src_h)
+        win_w = min(win_h * ar, float(src_w))
+    x0 = max(0.0, min(cx - win_w / 2.0, src_w - win_w))
+    # лицо в ВЕРХНЕЙ ТРЕТИ окна (голова и плечи целиком)
+    y0 = max(0.0, min(cy - win_h * 0.45, src_h - win_h))
+    return (x0, y0, win_w, win_h)
+
+
+def looks_fullframe_cam(src_w, src_h, cam_box):
+    """True — «камера» в ЦЕНТРЕ кадра и крупная: похоже на IRL-стрим.
+
+    У IRL-стримов (frametamer666, прод 2026-11-22) весь кадр — вебкамера:
+    split не имеет смысла (нижняя секция = та же комната), правильный макет
+    — 9:16-кроп по лицу. У игровых стримеров камера почти всегда у края
+    (webcam.py даёт краевой бонус), поэтому центр+крупно = фуллфрейм-камера.
+    """
+    w = max(1.0, float(src_w))
+    h = max(1.0, float(src_h))
+    cx = (float(cam_box[0]) + float(cam_box[2]) / 2.0) / w
+    cy = (float(cam_box[1]) + float(cam_box[3]) / 2.0) / h
+    big = float(cam_box[2]) >= 0.30 * w
+    return (0.32 <= cx <= 0.68) and (0.24 <= cy <= 0.76) and big
+
+
 def split_windows(src_w, src_h, cam_box, cam_frac=SPLIT_CAM_FRAC,
                   w=WIDTH, h=HEIGHT):
     """Геометрия макета split.
@@ -128,8 +171,13 @@ def split_graph(src_w, src_h, cam_box, cam_frac=SPLIT_CAM_FRAC,
     размытых фонов. Между секциями — тонкий разделитель (drawbox).
     Замазка чужих оверлеев накладывается ПОВЕРХ (blur_fragment), баннер
     RubUP рисуется ещё позже — его замазка не трогает.
+
+    ОКНО КАМЕРЫ: перед геометрией окно расширяется до аспекта полосы
+    (strip_cam_window) — scale=increase+crop больше не срезает лицо по краям.
     """
-    cam_win, game_win, cam_h = split_windows(src_w, src_h, cam_box,
+    cam_h0 = split_cam_h(h, cam_frac)
+    wide = strip_cam_window(src_w, src_h, cam_box, cam_h0, w=w)
+    cam_win, game_win, cam_h = split_windows(src_w, src_h, wide,
                                              cam_frac=cam_frac, w=w, h=h)
     cx, cy, cw, ch = [int(round(v)) for v in cam_win]
     gx, gy, gw, gh = [int(round(v)) for v in game_win]
@@ -238,6 +286,7 @@ def make_vertical(video_in, video_out, workdir, width=WIDTH, height=HEIGHT,
     full_in = os.path.join(str(workdir), video_in)
     graph = None
     base_label = "v"
+    face_override = None
     if mode_low == "split" and src_w > 0 and src_h > 0:
         if cam_box:
             cam = tuple(float(v) for v in cam_box)   # найдено заранее (pipeline)
@@ -253,6 +302,14 @@ def make_vertical(video_in, video_out, workdir, width=WIDTH, height=HEIGHT,
                 log.exception("Детект камеры упал — клип собирается как %s",
                               fallback_low)
                 cam = None
+        if cam and looks_fullframe_cam(src_w, src_h, cam):
+            # IRL-стрим: весь кадр — вебкамера. split бессмысленен (внизу
+            # окажется ТА ЖЕ комната, прод 2026-11-22 frametamer666), лицом
+            # остаётся весь найденный кластер — макет 9:16-КРОП ПО ЛИЦУ.
+            log.info("IRL: камера занимает центр всего кадра — макет %s "
+                     "(9:16-кроп по лицу) вместо split", fallback_low)
+            face_override = cam
+            cam = None
         if cam:
             try:
                 graph, base_label, _cam_h = split_graph(
@@ -273,7 +330,9 @@ def make_vertical(video_in, video_out, workdir, width=WIDTH, height=HEIGHT,
     # накрывать стримера ни в одном макете, а кроп обязан показать лицо.
     face_box = None
     if src_w > 0 and src_h > 0:
-        if cam is not None:
+        if face_override is not None:
+            face_box = face_override             # IRL-детект уже сделан выше
+        elif cam is not None:
             try:
                 face_box = split_windows(src_w, src_h, cam, cam_frac=cam_frac,
                                          w=width, h=height)[0]

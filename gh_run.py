@@ -101,18 +101,33 @@ VOD_MAX_WINDOWS = 100   # максимальный клипов из одног�
 VOD_MAX_JOBS = 40       # сколько окон обрабатывает один запуск --vod
 YT_DISCOVER_EVERY = 1800   # YouTube-дискавери не чаще, чем раз в 30 минут
 
-# --- авто-поиск хайповых YouTube-видео по GTA 6 (RU) ----------------------------------------
-
+# --- автопоиск хайповых YouTube-видео (RU) --------------------------------------------------
+# 2026-11-22: тематика снята (запрос: «не обязательно придерживаться тематики,
+# ПРОСТО БЕРИ ВИДЕО КОТОРЫЕ САМЫЕ ПОПУЛЯРНЫЕ ИМЕННО РУССКИЕ»). Префикс "gta6:"
+# остался поддерживаемым (кто-то может вернуть тему через config), но дефолтные
+# запросы — только общие русскоязычные хайп-видео.
 GTA6_RE = re.compile(r"gta\s*6|gta\s*vi|гта\s*6|гта\s*vi|gta6", re.IGNORECASE)
 CYRILLIC_RE = re.compile(r"[а-яё]", re.IGNORECASE)
 
+# Дефолтные поисковые запросы: самые популярные русскоязычные видео (стримы,
+# приколы, шоу, подкасты) — сортировка всё равно по ПРОСМОТРАМ, тема любая.
+DEFAULT_YT_QUERIES = [
+    "ru:смешные моменты стрима", "ru:приколы стримеров",
+    "ru:лучшие моменты", "ru:стрим угар", "ru:стример взбесился",
+    "ru:русские стримы", "ru:пранк", "ru:хайп",
+    "ru:подкаст", "ru:шоу", "ru:стендап", "ru:интервью",
+    "ru:обзор", "ru:эксперимент",
+]
+
 
 def discover_youtube_hype(gh, cfg):
-    """Самые просматриваемые РУССКОЯЗЫЧНЫЕ видео по GTA 6 -> очередь нарезки.
+    """Самые просматриваемые РУССКОЯЗЫЧНЫЕ видео -> очередь нарезки.
 
     Ищем через yt-dlp (без API-ключей): несколько запросов раз в ~30 минут,
-    фильтр — по просмотрам, длине (не Shorts, не двухчасовые марафоны),
-    заголовку (GTA 6/VI + кириллица). Повторы отсеиваются processed.json.
+    фильтр — по просмотрам, длине (не Shorts, не двухчасовые марафоны) и
+    кириллице в заголовке. ТЕМА ЛЮБАЯ (2026-11-22: «теперь просто бери видео
+    которые самые популярные именно русские») — сортировка по просмотрам
+    берёт самые хайповые. Повторы отсеиваются processed.json.
     Очередь не переполняем: докидываем не больше max_per_check за раз и
     только если в ней меньше queue_max задач. Найденные окна всё равно
     анализируются посекундно (громкость + чат), в TikTok идут только
@@ -125,8 +140,7 @@ def discover_youtube_hype(gh, cfg):
         return 0
     queries = [str(q).strip() for q in (disc.get("queries") or []) if str(q).strip()]
     if not queries:
-        queries = ["gta6:GTA 6 смешные моменты", "gta6:GTA 6 приколы",
-                   "gta6:гта 6 угар", "ru:смешные моменты стрима"]
+        queries = list(DEFAULT_YT_QUERIES)
     # ТЕМА запроса через префикс "тема:запрос" (см. config.yaml):
     #   gta6 — только видео именно про GTA 6/VI (обязателен GTA в заголовке);
     #   ru   — любая русскоязычная хайп-нарезка (стрим-угар, приколы).
@@ -208,7 +222,7 @@ def discover_youtube_hype(gh, cfg):
     jobs_data["updated"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
     try:
         put_json_state(gh, JOBS_JSON, jobs_data, jsha,
-                       "vod: +хайповые RU-видео с YouTube (GTA6/общие)")
+                       "vod: +хайповые RU-видео с YouTube (популярные, любая тема)")
     except Exception:
         log.exception("Не записать jobs.json — дискавери пропущен")
         return 0
@@ -272,6 +286,11 @@ DISCOVERY_LANGUAGE = "ru"     # ТОЛЬКО русскоязычные эфир
                               # "" — все языки. Мелких русских не набралось —
                               # планка зрителей временно опускается до 500.
 DISCOVERY_FALLBACK_VIEWERS = 500  # низкая планка, если русских с 2000+ мало
+
+# Каналы-ИСКЛЮЧЕНИЯ (запрос 2026-11-22: «всех кроме frametamer нарезай»):
+# frametamer666 (донатофон 24/7) вырезается из автопоиска, из слежки и из
+# очереди нарезки — его клипы больше не делаем и на сайт не попадают.
+CHANNEL_BLACKLIST = {"frametamer666"}
 
 
 # --- хэштеги для TikTok (видны на сайте ДО скачивания клипа) -------------------
@@ -955,7 +974,7 @@ def twitch_top_streams(limit=DISCOVERY_TOP_FETCH):
 # auto_discover — язык должен быть ru/русский тайтл.
 RU_CANDIDATE_LOGINS = [
     "s1mple bratishkinoff deepins02 evelone2004 paradeev1ch t2x2 koreshzy "
-    "strogo kamet0 recrent dmitry_lixxx sasavot stray228 frametamer666 "
+    "strogo kamet0 recrent dmitry_lixxx sasavot stray228 "
     "dangerlyoha stintik xrohat rostislav_999 zarbex skywhywalker jltomy "
     "zloyn shadowkekw ravshann mokrivskyi nix danila_gorilla stylishnoob4 "
     "rostikfacekid ewroon 5opka morphe_ya skyyart alohadancetv silvername "
@@ -1134,7 +1153,8 @@ def auto_discover(gh, cfg, top_fn=None, probe_fn=None):
                   if str(x).strip()]
     old_auto = [str(x).strip() for x in (data.get("auto_channels") or [])
                 if str(x).strip()]
-    exclude = _subs_twitch_logins(user_links)          # человек важнее топа
+    # человек важнее топа + каналы-исключения (frametamer666 и др.)
+    exclude = _subs_twitch_logins(user_links) | CHANNEL_BLACKLIST
     fetch = (top_fn or twitch_top_streams)(max(count + 5,
                                                 DISCOVERY_TOP_FETCH))
     # ТОЛЬКО РУССКОЯЗЫЧНЫЕ: глобальный топ + прямая проба известных русских
@@ -1190,11 +1210,17 @@ def auto_discover(gh, cfg, top_fn=None, probe_fn=None):
 
 
 def merged_refs(cfg, subs):
-    """subscriptions.json + channels из config.yaml -> без дублей."""
+    """subscriptions.json + channels из config.yaml -> без дублей и без
+    каналов-исключений (frametamer666 — запрос «всех кроме frametamer»)."""
     refs, seen = [], set()
     for s in list(subs):
         r = parse_link(s, source="subs")
-        if r and dedup_key(r) not in seen:
+        if not r:
+            continue
+        if r.platform == "twitch" and str(r.id or "").lower() in CHANNEL_BLACKLIST:
+            log.info("Канал в стоп-листе — не слежу: %s", r.id)
+            continue
+        if dedup_key(r) not in seen:
             seen.add(dedup_key(r))
             refs.append(r)
     for r in refs_from_config(cfg):
@@ -1251,6 +1277,20 @@ def vod_refs(refs):
     return [r for r in refs if getattr(r, "kind", "") in ("clip", "vod")]
 
 
+def _blacklisted_twitch_login(url):
+    """Логин Twitch из URL записи/клипа (None — не определить).
+
+    twitch.tv/<login>/video/<id>, twitch.tv/<login>/clip/<slug>,
+    clips.twitch.tv/<login>/<slug>. Голые clips.twitch.tv/<uuid> без логина
+    не фильтруются (логин там не фигурирует).
+    """
+    m = re.search(r"(?:www\.)?twitch\.tv/([A-Za-z0-9_]{3,25})/(?:video|clip)/",
+                  str(url or ""))
+    if not m:
+        m = re.search(r"clips\.twitch\.tv/([A-Za-z0-9_]{3,25})/", str(url or ""))
+    return m.group(1).lower() if m else None
+
+
 def enqueue_vod_jobs(gh, refs, live_keys):
     """Новые видео/клипы -> jobs.json. Возвращает число добавленных.
 
@@ -1276,6 +1316,9 @@ def enqueue_vod_jobs(gh, refs, live_keys):
             url, jkind = r.vod_url(), "video"
         else:
             url, jkind = r.video_url or r.raw, "video"
+        if _blacklisted_twitch_login(url) in CHANNEL_BLACKLIST:
+            log.info("В стоп-листе — в очередь нарезки не берём: %s", url)
+            continue                          # frametamer666 и другие исключения
         if f"{r.platform}:{r.short_id()}" in (live_keys or set()):
             continue                          # эфир идёт — записываем, не режем
         job = {"url": url, "kind": jkind, "fails": 0,

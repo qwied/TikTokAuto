@@ -409,6 +409,139 @@ def _words_from_segments(segs):
     return words
 
 
+# --- АЛИГНМЕНТ ПО РЕЧИ (Silero VAD): тайминги Whisper -> фактическая речь -----
+# Исследование прод-клипов 2026-11-22 (dmitry_lixxx 08:12). Простой
+# энергетический порог «доказывает» систематический лаг ~0.3 c, но он ловит
+# звуки ИГРЫ/музыки, а не речь. Против специализированного детектора речи
+# Silero (вшит в faster-whisper — веса в пакете, никаких загрузок и новых
+# зависимостей) старты строк Whisper сходятся с медианой −10 мс и MAE ~150 мс.
+# Поэтому правка ТОЧЕЧНАЯ (подход whisperX — github.com/m-bain/whisperX —
+# без его 3 ГБ зависимостей):
+#   * границы сегментов, ошибшиеся на ±0.2-0.6 c, стягиваются к ФАКТИЧЕСКИМ
+#     границам речевых интервалов (слова сегмента сдвигаются той же дельтой —
+#     внутренний ритм Whisper сохраняется);
+#   * слова, попавшие в тишину (галлюцинации на паузах), вырезаются;
+#   * слово после настоящей паузы привязывается к началу нового интервала речи.
+# Ошибка любого шага не фатальна: субтитры остаются с таймингами Whisper.
+
+ALIGN_MAX_SHIFT = 0.65      # максимум сдвига границы сегмента, сек
+ALIGN_NEAR = 0.65           # старт сегмента «рядом» с границей речи — правим
+ALIGN_MIN_GAP_WORD = 0.22   # пауза перед словом, с которой слово привязывается к онсету
+ALIGN_VAD_THRESHOLD = 0.35  # мягкий порог Silero (стримеры говорят тихо на фоне игры)
+ALIGN_MIN_WORD_COVER = 0.35  # слово вырезается, если речью покрыто <35% его длины
+                             # (реальные слова на границах интервалов могут
+                             # наполовину лежать в тишине — вырезаем только
+                             # явные галлюцинации, висящие в полной тишине)
+
+
+def _silero_intervals(wav_path, workdir=None):
+    """Фактические интервалы РЕЧИ клипа по Silero VAD.
+
+    Возвращает [(start, end)] в секундах или None (не получилось — субтитры
+    остаются с таймингами Whisper как есть). Веса Silero вшиты в пакет
+    faster-whisper (get_assets_path) — работает оффлайн и на Actions.
+    """
+    try:
+        import numpy as np
+        from faster_whisper.vad import (get_speech_timestamps, get_vad_model,
+                                        VadOptions)
+        cmd = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin",
+               "-i", os.path.basename(str(wav_path)),
+               "-f", "f32le", "-ac", "1", "-ar", "16000", "pipe:1"]
+        rc, out, _err = run_cmd(cmd, timeout=180,
+                                cwd=str(workdir) if workdir else None,
+                                binary=True)
+        if rc != 0 or len(out) < 32000:
+            return None
+        audio = np.frombuffer(out[:len(out) // 4 * 4], dtype=np.float32)
+        model = get_vad_model()
+        opts = VadOptions(threshold=ALIGN_VAD_THRESHOLD,
+                          min_silence_duration_ms=250, speech_pad_ms=0)
+        ts = get_speech_timestamps(audio, opts, sampling_rate=16000)
+        iv = sorted((x["start"] / 16000.0, x["end"] / 16000.0) for x in ts)
+        iv = [(s, e) for s, e in iv if e - s >= 0.08]
+        return iv or None
+    except Exception:
+        log.debug("Silero VAD не удался", exc_info=True)
+        return None
+
+
+def refine_word_timings(wav_path, segs, words, workdir=None):
+    """Стянуть тайминги Whisper к фактическим границам речи (Silero VAD).
+
+    Возвращает (сегменты, слова, статистика). Любая ошибка -> вход как есть.
+    """
+    iv = _silero_intervals(wav_path, workdir)
+    if not iv:
+        return segs, words, {}
+
+    def speech_cover(t0, t1):
+        """Доля отрезка [t0, t1], покрытая интервалами речи."""
+        if t1 <= t0:
+            return 0.0
+        c = 0.0
+        for s, e in iv:
+            c += max(0.0, min(e, t1) - max(s, t0))
+        return c / (t1 - t0)
+
+    # --- 1) сегменты: старт -> старт ближайшего интервала речи ---------------
+    new_segs = []
+    for seg in segs or []:
+        s0 = float(seg.get("start") or 0.0)
+        best = None
+        for s, e in iv:
+            d = abs(s - s0)
+            # правим только ошибку на границе фразы (<=ALIGN_NEAR): глубоко
+            # внутри длинного интервала сегмент не трогаем — это продолжение
+            if d <= ALIGN_NEAR:
+                # при почти равной дистанции берём РАННЮЮ границу: начало
+                # речи почти всегда раньше/на месте, Whisper опаздывает чаще
+                rank = d - (0.02 if s <= s0 else 0.0)
+                if best is None or rank < best[1]:
+                    best = (s, rank)
+        n0 = best[0] if best else s0
+        n0 = max(0.0, n0)
+        new_segs.append(dict(seg, start=n0))
+    deltas = [ns["start"] - float(os.get("start") or 0.0)
+              for ns, os in zip(new_segs, segs or [])]
+    # --- 2) слова: сдвиг с сегментом; в тишине — вырезать --------------------
+    new_words = []
+    for w in (words or []):
+        w0 = float(w.get("start") or 0.0)
+        w1 = float(w.get("end") or w0 + 0.05)
+        bj, bov = None, None
+        for j, seg in enumerate(new_segs):
+            ov = min(seg["end"], w1) - max(seg["start"], w0)
+            if bov is None or ov > bov:
+                bj, bov = j, ov
+        d = deltas[bj] if bj is not None and bov and bov > 0 else 0.0
+        n0, n1 = max(0.0, w0 + d), w1 + d
+        if speech_cover(n0, n1) < ALIGN_MIN_WORD_COVER:
+            continue                      # галлюцинация в тишине — мусор
+        new_words.append(dict(w, start=n0, end=max(n0 + 0.04, n1)))
+    # --- 3) слово после настоящей паузы -> к началу нового интервала речи ----
+    snapped = 0
+    prev_end = 0.0
+    for w in new_words:
+        gap = w["start"] - prev_end
+        prev_end = max(prev_end, float(w.get("end") or w["start"]))
+        if gap < ALIGN_MIN_GAP_WORD:
+            continue
+        for s, e in iv:
+            w_end = float(w.get("end") or w["start"] + 0.2)
+            if (abs(s - w["start"]) <= 0.35 and s >= prev_end - 0.05
+                    and s <= w_end - 0.04):
+                w["start"] = s
+                snapped += 1
+                break
+    new_words.sort(key=lambda w: float(w.get("start") or 0.0))
+    stats = {"intervals": len(iv), "dropped": len(words or []) - len(new_words),
+             "snapped": snapped}
+    log.info("Алигнмент по речи (Silero): интервалов %d, вырезано слов %d, "
+             "привязано к онсету %d", len(iv), stats["dropped"], snapped)
+    return new_segs, new_words, stats
+
+
 # --- ASS ---------------------------------------------------------------------
 
 def _ass_time(t):
@@ -825,14 +958,36 @@ def make_subtitles_meta(video_path, workdir, sub_cfg, language, chat_messages,
             segs, words, smeta = transcribe_smart(
                 wav, language, sub_cfg.get("model", "small"),
                 beam_size=sub_cfg.get("beam_size", 1), workdir=str(workdir))
-            for f in (wav, os.path.join(str(workdir), "clip_audio_norm.wav")):
-                try:
-                    os.remove(f)
-                except OSError:
-                    pass
         except Exception as e:
             log.warning("Распознавание речи недоступно: %s", e)
             segs, words = None, None
+            wav = None
+
+    # --- АЛИГНМЕНТ ПО ЗВУКУ: правка таймингов Whisper по огибающей -----------
+    # Whisper ставит слова на ~0.3 c позже реального звука (замер прод-2026-11-
+    # 22) — субтитры «залагали». Привязываем сегменты/слова к фактическим
+    # интервалам речи; слова в тишине (галлюцинации) вырезаются.
+    if wav and words:
+        try:
+            segs, words, _al = refine_word_timings(wav, segs or [],
+                                                   words, workdir=str(workdir))
+            speech_s = 0.0
+            for s in segs or []:
+                if s.get("text"):
+                    speech_s += max(0.0, float(s["end"]) - float(s["start"]))
+            if speech_s > 0:
+                smeta["speech_sec"] = round(speech_s, 1)
+            smeta["words"] = len(words)
+            smeta["aligned"] = True
+        except Exception:
+            log.exception("Алигнмент по звуку не удался — тайминги Whisper как есть")
+
+    if wav:
+        for f in (wav, os.path.join(str(workdir), "clip_audio_norm.wav")):
+            try:
+                os.remove(f)
+            except OSError:
+                pass
 
     if skip_intervals:
         if words:
