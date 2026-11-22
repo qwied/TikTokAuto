@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-22T20:05:40Z",
+ "updated": "2026-11-22T20:05:43Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=PIom3m8qnR0",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Сергей Орлов: хватит жалеть себя (Kuji Podcast 225)",
    "views": 885912,
