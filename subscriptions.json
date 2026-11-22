@@ -1,37 +1,29 @@
 {
-  "_help": "Ссылки на стримеров: Twitch и YouTube. Добавляйте с сайта (кнопка «Каналы») или правьте прямо здесь — по одной ссылке. Программа следит за ними постоянно.",
-  "channels": [
-    "https://www.twitch.tv/honeymad"
-  ],
-  "auto_channels": [
-    "https://www.twitch.tv/strogo",
-    "https://www.twitch.tv/recrent",
-    "https://www.twitch.tv/t2x2",
-    "https://www.twitch.tv/bratishkinoff",
-    "https://www.twitch.tv/leb1ga",
-    "https://www.twitch.tv/skywhywalker",
-    "https://www.twitch.tv/ravshann",
-    "https://www.twitch.tv/sasavot",
-    "https://www.twitch.tv/blackufa",
-    "https://www.twitch.tv/dmitry_lixxx",
-    "https://www.twitch.tv/chopperinho",
-    "https://www.twitch.tv/melharucos",
-    "https://www.twitch.tv/leva2k",
-    "https://www.twitch.tv/zloyn",
-    "https://www.twitch.tv/silvername",
-    "https://www.twitch.tv/dunduk",
-    "https://www.twitch.tv/shiishak",
-    "https://www.twitch.tv/alohadancetv",
-    "https://www.twitch.tv/zer0truel0ve",
-    "https://www.twitch.tv/betboom_dota_ru",
-    "https://www.twitch.tv/ghostik",
-    "https://www.youtube.com/@welovegames",
-    "https://www.youtube.com/@bratishkinoff",
-    "https://www.youtube.com/@KuplinovPlay",
-    "https://www.youtube.com/@5opka",
-    "https://www.youtube.com/@stariy_bog",
-    "https://www.youtube.com/@AlinaRin",
-    "https://www.youtube.com/@Okisebi"
-  ],
-  "auto_updated": "2026-11-22T13:23:28Z"
+ "_help": "Ссылки на стримеров: Twitch и YouTube. Добавляйте с сайта (кнопка «Каналы») или правьте прямо здесь — по одной ссылке. Программа следит за ними постоянно.",
+ "channels": [
+  "https://www.twitch.tv/honeymad"
+ ],
+ "auto_channels": [
+  "https://www.twitch.tv/strogo",
+  "https://www.twitch.tv/recrent",
+  "https://www.twitch.tv/t2x2",
+  "https://www.twitch.tv/bratishkinoff",
+  "https://www.twitch.tv/leb1ga",
+  "https://www.twitch.tv/ravshann",
+  "https://www.twitch.tv/skywhywalker",
+  "https://www.twitch.tv/sasavot",
+  "https://www.twitch.tv/chopperinho",
+  "https://www.twitch.tv/dmitry_lixxx",
+  "https://www.twitch.tv/melharucos",
+  "https://www.twitch.tv/blackufa",
+  "https://www.twitch.tv/leva2k",
+  "https://www.twitch.tv/zloyn",
+  "https://www.twitch.tv/betboom_dota_ru",
+  "https://www.twitch.tv/silvername",
+  "https://www.twitch.tv/shiishak",
+  "https://www.twitch.tv/zer0truel0ve",
+  "https://www.twitch.tv/dunduk",
+  "https://www.twitch.tv/ghostik"
+ ],
+ "auto_updated": "2026-11-22T13:43:31Z"
 }
