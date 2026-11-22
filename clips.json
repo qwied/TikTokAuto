@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22T23:29:36Z",
+ "updated": "2026-11-22T23:29:53Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -79,68 +79,20 @@
     "name": "shiishak",
     "display": "twitch.tv/shiishak",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
     "title": "Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB"
    },
    {
-    "name": "welovegames",
-    "display": "youtube.com/@welovegames",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "bratishkinoff",
-    "display": "youtube.com/@bratishkinoff",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "KuplinovPlay",
-    "display": "youtube.com/@KuplinovPlay",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "5opka",
-    "display": "youtube.com/@5opka",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "stariy_bog",
-    "display": "youtube.com/@stariy_bog",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "AlinaRin",
-    "display": "youtube.com/@AlinaRin",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "Okisebi",
-    "display": "youtube.com/@Okisebi",
-    "platform": "youtube",
+    "name": "chopperinho",
+    "display": "twitch.tv/chopperinho",
+    "platform": "twitch",
     "live": false,
     "viewers": 0,
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 НЕКЛАВАМЫШЬ 🔴 ИЩУ НЕИЩИМОЕ 🔴 ГЛАВА II 🔴 DAY 5 🔴\", 16450], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 12325], [\"recrent\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel\", 4050], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 3425], [\"zer0truel0ve\", true, \"[GTA 6 120fps DLSS - 3 день] марафон 24/7 [DROPS Включены]\", 1225], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 3\", 1000], [\"rejiboi\", true, \"давай воровать машинки 6, 5 серия | 43% !tg\", 1000], [\"shiishak\", false, \"Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 НЕКЛАВАМЫШЬ 🔴 ИЩУ НЕИЩИМОЕ 🔴 ГЛАВА II 🔴 DAY 5 🔴\", 16450], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 12325], [\"recrent\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel\", 4050], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 3425], [\"zer0truel0ve\", true, \"[GTA 6 120fps DLSS - 3 день] марафон 24/7 [DROPS Включены]\", 1225], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 3\", 1000], [\"rejiboi\", true, \"давай воровать машинки 6, 5 серия | 43% !tg\", 1000], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB\", 0], [\"chopperinho\", false, \"\", 0]]"
  },
  "clips": [
   {
