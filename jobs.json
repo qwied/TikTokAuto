@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-22T14:00:31Z",
+ "updated": "2026-11-22T14:00:34Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=Inc_m5aA6ik",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Евгений Чебатков - стендап-концерт «Лава»",
    "views": 3528984,
