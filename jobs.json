@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-22T07:59:31Z",
- "jobs": []
+ "updated": "2026-11-22T08:24:24Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=HyQWf3RxoMw",
+   "kind": "video",
+   "fails": 0,
+   "tag": "gta6",
+   "display": "GTA 6 ИССЛЕДУЮ ОТКРЫТЫЙ МИР И ВОЙНА С КОПАМИ ГТА 6!",
+   "views": 333386,
+   "added": "2026-11-22T08:24:15Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=pYvGmTr6EGo",
+   "kind": "video",
+   "fails": 0,
+   "tag": "gta6",
+   "display": "20 БЕЗУМНЫХ СЕКРЕТОВ GTA 6, которые нашли за ПЕРВЫЙ ДЕНЬ!",
+   "views": 189836,
+   "added": "2026-11-22T08:24:15Z"
+  }
+ ]
 }
