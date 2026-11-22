@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-22T23:11:36Z",
- "jobs": []
+ "updated": "2026-11-22T23:40:08Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=u2o8XVAfVAY",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "ПСИХОЛОГИЧЕСКИЙ ТРИЛЛЕР! ФИЛЬМ ПО СОБЫТИЯМ ЭКСПЕРИМЕНА! ЭКСПЕРИМЕНТ “ОФИС”.",
+   "views": 4539830,
+   "added": "2026-11-22T23:40:08Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=9_LNKeBiGRY",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "СНОВА ЩЁЛКАЕМ БРАТКОВ В ГЕТТО (ПРАНК)",
+   "views": 1189545,
+   "added": "2026-11-22T23:39:59Z"
+  }
+ ]
 }
