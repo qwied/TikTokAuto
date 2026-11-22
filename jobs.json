@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-22T14:00:25Z",
+ "updated": "2026-11-22T14:00:28Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=N3-HSJ6fdsE",
    "kind": "video",
-   "fails": 1,
+   "fails": 2,
    "tag": "ru",
    "display": "FRAME TAMER ПОДКАСТ ‒ ИЛЬЯ САТИР",
    "views": 4019476,
