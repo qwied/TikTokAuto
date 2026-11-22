@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-22T21:09:51Z",
+ "updated": "2026-11-22T21:10:43Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=XUe5SSSAP_Q",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Интервью Владимира Путина кинорежиссёру Эмиру Кустурице. ПОЛНАЯ ВЕРСИЯ",
    "views": 750418,
