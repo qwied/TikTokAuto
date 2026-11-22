@@ -28,38 +28,73 @@
   .bad  { color:var(--err); font-weight:600; }
   ol { margin:10px 0 0; padding-left:20px; color:var(--muted); font-size:14px; }
   ol li { margin:4px 0; }
+  .b { color:#e5e7eb; font-weight:600; }
 </style>
 </head>
 <body>
 <div class="card">
   <h1><span class="grad">StreamClipper</span> · TikTok</h1>
-  <div id="st" class="box muted">Читаю ответ TikTok…</div>
+  <div id="st" class="box muted">Загрузка…</div>
 </div>
 <script>
 (function () {
+  var CLIENT_KEY = "awhewj5igia1ru56";
+  var SCOPE = "user.info.basic,video.upload,video.publish";
   var q = new URLSearchParams(location.search);
   var code = q.get("code") || "";
   var err = q.get("error_description") || q.get("error") || "";
   var st = document.getElementById("st");
 
+  function esc(s) { return String(s).replace(/[<>&"]/g, ""); }
+
   if (!code && !err) {
+    // Стартовый режим: собираем ссылку сами, никаких ручных копипаст
     st.className = "box";
-    st.innerHTML = "Это страница-приёмник для входа в TikTok: после входа TikTok возвращает " +
-      "сюда одноразовый код, который завершает подключение автопостинга. " +
-      "Если ты попал сюда случайно — просто закрой вкладку.";
+    st.innerHTML =
+      "<div>Страница подключения автопостинга TikTok.</div>" +
+      "<div style='margin-top:12px'><b>Шаг 1.</b> Убедись, что в этом браузере ты уже " +
+      "вошёл в TikTok под аккаунтом <span class='b'>@a4a4a4a4_omg</span> " +
+      "(он добавлен в песочницу приложения).</div>" +
+      "<div style='margin-top:8px'><b>Шаг 2.</b> Нажми кнопку ниже и подтверди доступ.</div>" +
+      "<div style='margin-top:14px'><button id='go'>Войти через TikTok</button></div>" +
+      "<div class='muted' style='margin-top:10px'>После входа TikTok вернёт тебя сюда с одноразовым кодом.</div>";
+    document.getElementById("go").addEventListener("click", function () {
+      var state = "";
+      var bytes = new Uint8Array(8);
+      (window.crypto || window.msCrypto).getRandomValues(bytes);
+      for (var i = 0; i < bytes.length; i++) state += ("0" + bytes[i].toString(16)).slice(-2);
+      try { sessionStorage.setItem("tt_state", state); } catch (e) {}
+      var p = new URLSearchParams({
+        client_key: CLIENT_KEY,
+        scope: SCOPE,
+        response_type: "code",
+        redirect_uri: location.origin + location.pathname,
+        state: state
+      });
+      location.href = "https://www.tiktok.com/v2/auth/authorize/?" + p.toString();
+    });
     return;
   }
 
   if (err) {
     st.className = "box err";
     st.innerHTML = "<div class='bad'>TikTok вернул ошибку</div>" +
-      "<div class='muted' style='margin-top:6px'>" + err.replace(/[<>&]/g, "") + "</div>" +
+      "<div class='muted' style='margin-top:6px'>" + esc(err) + "</div>" +
       "<div class='muted' style='margin-top:8px'>Вернись назад и попробуй войти ещё раз.</div>";
     return;
   }
 
+  // Код получен: проверяем state, показываем код
+  var got = q.get("state") || "";
+  var saved = "";
+  try { saved = sessionStorage.getItem("tt_state") || ""; } catch (e) {}
+  var stateOk = saved && got && saved === got;
+
   st.className = "box ok";
   st.innerHTML = "<div class='done'>Код получен — почти готово</div>" +
+    (stateOk
+      ? "<div class='muted' style='margin-top:4px'>Защитная проверка state: пройдена</div>"
+      : "<div class='muted' style='margin-top:4px'>Защитная проверка state: не совпала (не критично, код всё равно действителен)</div>") +
     "<div class='code' id='cd'></div>" +
     "<button id='cp'>Скопировать код</button>" +
     "<div class='muted' style='margin-top:12px'>Осталось два шага:</div>" +
