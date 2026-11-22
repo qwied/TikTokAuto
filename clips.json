@@ -1813,33 +1813,33 @@
     "name": "stariy_bog",
     "display": "twitch.tv/stariy_bog",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ"
    },
    {
     "name": "melharucos",
     "display": "twitch.tv/melharucos",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ИГРА НРАВИТСЯ, ГРАБЛЮ ПРОФЕССИОНАЛЬНО"
    },
    {
     "name": "vovapain",
     "display": "twitch.tv/vovapain",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🔴 НЮХАО 👃 | !tg !bb !бк !лига"
    },
    {
     "name": "alohadancetv",
     "display": "twitch.tv/alohadancetv",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "вечный ученик. !tg"
    },
    {
     "name": "welovegames",
@@ -1898,7 +1898,7 @@
     "title": "🚨LIVE JETZT! ALLE MILITÄR FAHRZEUGE KLAUEN IN GTA VI🚨"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan\", 10775], [\"cu6ickk\", false, \"\", 0], [\"gadjiev57\", true, \"Мы В ТАЙЛАНДЕ РОЗА И КОСТЯ ?где чивиля? смотрим ВИЛЛЫ\", 4500], [\"whoplohoyparen\", true, \"GTA 6 80% 2K 60fps DLSS5 ПОЛНОЕ ПРОХОЖДЕНИЕ ДЕНЬ 5\", 5550], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 4\", 2225], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 7 | !tg !donate !winline !ggsel\", 2500], [\"betboom_dota_ru\", true, \"ПОВТОР | Bo3 | Group Stage Day 2 | BLAST SLAM IX\", 1800], [\"keliencs\", true, \"РАЗМИНАЮСЬ ПЕРЕД ВАЖНОЙ КВАЛОЙ НА БЛАСТ(14:00) | !tg !fonbet\", 1825], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 4]\", 1900], [\"daxak\", true, \"жесткий буст в прямом эфире в дискорде с молодым    !фонбет !бусти !заказ!розыгрыш\", 3700], [\"followkudes\", true, \"🔴Показываю на ком апать PTS в этом попущенном патче  !TG !WINLINE\", 875], [\"alekzz03\", true, \"🔴FUT vs NAVI |  Brawl Stars Championship 2026 | World Finals | День - 3 | w/ @cu6ickk @arthur2ggwp\", 11250], [\"blindzonexgod\", true, \"grind winter season 100% импрува 100% скилла 100% мотивации| !tg !мерч !bb\", 1275], [\"exigent_wires\", true, \"ДРОПСЫ !ивент !дропс\", 975], [\"stariy_bog\", false, \"\", 0], [\"melharucos\", false, \"\", 0], [\"vovapain\", false, \"\", 0], [\"alohadancetv\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🚨LIVE JETZT! ALLE MILITÄR FAHRZEUGE KLAUEN IN GTA VI🚨\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan\", 10775], [\"cu6ickk\", false, \"\", 0], [\"gadjiev57\", true, \"Мы В ТАЙЛАНДЕ РОЗА И КОСТЯ ?где чивиля? смотрим ВИЛЛЫ\", 4500], [\"whoplohoyparen\", true, \"GTA 6 80% 2K 60fps DLSS5 ПОЛНОЕ ПРОХОЖДЕНИЕ ДЕНЬ 5\", 5550], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 4\", 2225], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 7 | !tg !donate !winline !ggsel\", 2500], [\"betboom_dota_ru\", true, \"ПОВТОР | Bo3 | Group Stage Day 2 | BLAST SLAM IX\", 1800], [\"keliencs\", true, \"РАЗМИНАЮСЬ ПЕРЕД ВАЖНОЙ КВАЛОЙ НА БЛАСТ(14:00) | !tg !fonbet\", 1825], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 4]\", 1900], [\"daxak\", true, \"жесткий буст в прямом эфире в дискорде с молодым    !фонбет !бусти !заказ!розыгрыш\", 3700], [\"followkudes\", true, \"🔴Показываю на ком апать PTS в этом попущенном патче  !TG !WINLINE\", 875], [\"alekzz03\", true, \"🔴FUT vs NAVI |  Brawl Stars Championship 2026 | World Finals | День - 3 | w/ @cu6ickk @arthur2ggwp\", 11250], [\"blindzonexgod\", true, \"grind winter season 100% импрува 100% скилла 100% мотивации| !tg !мерч !bb\", 1275], [\"exigent_wires\", true, \"ДРОПСЫ !ивент !дропс\", 975], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"melharucos\", true, \"ИГРА НРАВИТСЯ, ГРАБЛЮ ПРОФЕССИОНАЛЬНО\", 0], [\"vovapain\", true, \"🔴 НЮХАО 👃 | !tg !bb !бк !лига\", 0], [\"alohadancetv\", true, \"вечный ученик. !tg\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🚨LIVE JETZT! ALLE MILITÄR FAHRZEUGE KLAUEN IN GTA VI🚨\", 0]]"
  },
- "updated": "2026-11-22T09:04:30Z"
+ "updated": "2026-11-22T09:04:45Z"
 }
