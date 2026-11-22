@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-22T12:37:56Z",
+ "updated": "2026-11-22T12:38:51Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=vOlSHdRc9Wo",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Евгений Чебатков - стендап-концерт «Человек-слепень»",
    "views": 3459164,
