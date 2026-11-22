@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-22T06:33:45Z",
- "jobs": []
+ "updated": "2026-11-22T07:02:48Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=6wgCo6skacs",
+   "kind": "video",
+   "fails": 0,
+   "tag": "gta6",
+   "display": "ЗАЛЕТЕЛ В СТРИПУХУ и НА ВОЕННУЮ БАЗУ в GTA 6 - УГНАЛ ИСТРИБИТЕЛЬ на 6 звёзд (прохождение ГТА 6 #2)",
+   "views": 113305,
+   "added": "2026-11-22T07:02:38Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=H1D_2JLCbjk",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "ЛУЧШИЕ МОМЕНТЫ С ЖОЖО ЗА ВСЁ ВРЕМЯ | JojoHF STREAM",
+   "views": 50920,
+   "added": "2026-11-22T07:02:46Z"
+  }
+ ]
 }
