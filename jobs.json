@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-22T21:01:45Z",
- "jobs": []
+ "updated": "2026-11-22T21:09:51Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=XUe5SSSAP_Q",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Интервью Владимира Путина кинорежиссёру Эмиру Кустурице. ПОЛНАЯ ВЕРСИЯ",
+   "views": 750418,
+   "added": "2026-11-22T21:09:49Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=Rwa1zcDgtVE",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Три острова | Сезон 1 | Выпуск 2",
+   "views": 618118,
+   "added": "2026-11-22T21:09:46Z"
+  }
+ ]
 }
