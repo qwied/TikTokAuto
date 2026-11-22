@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-22T22:14:08Z",
+ "updated": "2026-11-22T22:14:57Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=qg3h6S0DhU4",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "ЭКСПЕРИМЕНТЫ С ЭЛЕКТРИЧЕСТВОМ - КОТОРЫЕ ВАМ НЕЛЬЗЯ ПОВТОРЯТЬ",
    "views": 2562342,
