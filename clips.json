@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22T07:48:39Z",
+ "updated": "2026-11-22T07:48:54Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -151,6 +151,46 @@
   "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"cu6ickk\", true, \"🔴FUT vs NaVi | Brawl Stars Championship 2026 | World Finals | День - 3 | w/ @alekzz03 @arthur2ggwp !тг !днс\", 4850], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan\", 8400], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 4\", 1925], [\"keliencs\", true, \"РАЗМИНАЮСЬ ПЕРЕД ВАЖНОЙ КВАЛОЙ НА БЛАСТ(14:00) | !tg !fonbet\", 1975], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 4]\", 1600], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 7 | !tg !donate !winline !ggsel\", 1725], [\"betboom_dota_ru\", true, \"ПОВТОР | Bo3 | Group Stage Day 2 | BLAST SLAM IX\", 1600], [\"followkudes\", true, \"🔴Показываю на ком апать PTS в этом попущенном патче  !TG !WINLINE\", 900], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"gadjiev57\", true, \"Мы В ТАЙЛАНДЕ РОЗА И КОСТЯ ?где чивиля? смотрим ВИЛЛЫ\", 5600], [\"whoplohoyparen\", true, \"GTA 6 80% 2K 60fps DLSS5 ПОЛНОЕ ПРОХОЖДЕНИЕ ДЕНЬ 5\", 5000]]"
  },
  "clips": [
+  {
+   "id": "2026-11-22_07-42-12_cu6ickk",
+   "file": "2026-11-22_07-42-12_cu6ickk.mp4",
+   "url": "https://github.com/qwied/TikTokAuto/releases/download/auto/2026-11-22_07-42-12_cu6ickk.mp4",
+   "thumb": "data:image/jpeg;base64,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",
+   "size": 26214464,
+   "duration": 46.5,
+   "channel": "cu6ickk",
+   "display": "twitch.tv/cu6ickk",
+   "platform": "twitch",
+   "title": "🔴FUT vs ZETA Division | Brawl Stars Championship 2026 | World Finals | День - 3 | w/ @alekzz03 @arthur2ggwp !тг !днс",
+   "score": 64.0,
+   "hashtags": [
+    "#cu6ickk",
+    "#twitch",
+    "#рек",
+    "#рекомендации",
+    "#fyp",
+    "#foryou",
+    "#viral",
+    "#прикол",
+    "#смешно",
+    "#хайп",
+    "#стрим",
+    "#клипы",
+    "#стример"
+   ],
+   "caption": "«А сколько минут ты здесь, если я ухудаю? Пожов, как был тишином Хочешь? А» — twitch.tv/cu6ickk",
+   "subs": {
+    "lang": "ru",
+    "words": 89,
+    "speech_pct": 61,
+    "ok": true,
+    "hook": "А сколько минут ты здесь, если я ухудаю? Пожов, как был тишином Хочешь? А"
+   },
+   "src": "",
+   "start": 0,
+   "created": 1795333731,
+   "gh": true
+  },
   {
    "id": "2026-11-22_07-36-20_betboom_dota_ru",
    "file": "2026-11-22_07-36-20_betboom_dota_ru.mp4",
