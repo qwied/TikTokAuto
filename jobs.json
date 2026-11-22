@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-22T19:10:06Z",
+ "updated": "2026-11-22T19:10:09Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=aFOXbE3P8HM",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Теория большого взрыва 6 сезон / лучшие моменты",
    "views": 1334728,
