@@ -53,20 +53,28 @@ def test_burst_triggers_clip():
 
 
 def test_idle_fallback():
-    """Гарантированная нарезка: 25 минут без хайпа -> клип всё равно снимается."""
+    """Гарантированная нарезка: клип с лучшего момента — но ТОЛЬКО если чат
+    хоть немного живой (жалоба «скучные моменты»: клип при мёртвом чате
+    почти всегда скучный, лучше подождать оживления)."""
     cfg = {"window": 5.0, "threshold": 90, "sustain": 2, "min_users": 3}
     clip_cfg = {"cooldown": 0, "max_per_hour": 10, "max_idle_min": 20}
     events = []
     d = HypeDetector("test:twitch", cfg, clip_cfg, on_hype=events.append)
     now = time.time()
-    # тихий чат 25 минут назад (порог 90 недостижим)
+    # мёртвый чат: 8 сообщений 25 минут назад, последние 4 минуты — тишина
     for i in range(8):
         d.feed(ChatMessage(ts=now - 1500 + i, user=f"c{i}", text="тихое сообщение",
                            platform="twitch"))
     d.evaluate(now)
-    assert events, "после 20 минут без хайпа должен быть принудительный клип"
+    assert not events, "при мёртвом чате принудительный клип НЕ снимается"
+    # чат ожил: лёгкая реакция в последних 4 минутах -> клип с лучшего момента
+    for i in range(10):
+        d.feed(ChatMessage(ts=now - 30 + (i % 10) * 0.5, user=f"u{i}",
+                           text=f"хахах ну и момент {i}", platform="twitch"))
+    d.evaluate(now + 5)
+    assert events, "после оживления чата принудительный клип снимается"
     # сразу второй раз не стреляет: last_trigger обновился
-    d.evaluate(now + 1)
+    d.evaluate(now + 6)
     assert len(events) == 1, "принудительные клипы не должны идти подряд"
     # а с выключенной настройкой — не стреляет вовсе
     events.clear()
@@ -77,7 +85,48 @@ def test_idle_fallback():
                             platform="twitch"))
     d2.evaluate(now)
     assert not events, "max_idle_min: 0 должен отключать принудительную нарезку"
-    print("ok: гарантированный клип после 20 минут тишины")
+    print("ok: гарантированный клип — только при живом чате")
+
+
+def test_clip_requests_fast_lane():
+    """Чат ПРЯМО просит клип («КЛИП», «клипни его») от 2+ авторов —
+    самый жирный сигнал: снимаем немедленно, без ожидания sustain."""
+    d, events = make_detector()
+    now = time.time()
+    for i in range(10):
+        d.feed(ChatMessage(ts=now - 100 + i, user=f"bg{i}",
+                           text="спокойно всё", platform="twitch"))
+    d.evaluate(now - 60)
+    for i in range(8):
+        d.feed(ChatMessage(ts=now - 2 + (i % 4) * 0.5, user=f"r{i % 3}",
+                           text="КЛИП ЭТОТ МОМЕНТ" if i % 2 else "клипни его",
+                           platform="twitch"))
+    for t in range(3):
+        d.evaluate(now - 1 + t)
+    assert events, "просьбы «клип» от >=2 авторов должны сразу давать клип"
+    print(f"ok: просьбы чата «клип» -> мгновенный клип (score={events[0].score})")
+
+
+def test_peak_anchor():
+    """Клип привязывается к ИСТИННОМУ пику чата, а не к моменту обнаружения:
+    ранний маленький всплеск не должен утащить якорь на 40 секунд назад."""
+    d, events = make_detector()
+    now = time.time()
+    # ранний малый всплеск — в историю, но слабее большого
+    for i in range(6):
+        d.feed(ChatMessage(ts=now - 40 + i * 0.5, user=f"p{i}",
+                           text="хахах", platform="twitch"))
+    d.evaluate(now - 30)
+    # большой всплеск -> триггер
+    for i in range(30):
+        d.feed(ChatMessage(ts=now - 3 + (i % 12) * 0.25, user=f"u{i % 12}",
+                           text="АХАХАХ КЛИП", platform="twitch"))
+    for t in range(4):
+        d.evaluate(now - 2 + t)
+    assert events, "большой всплеск должен дать клип"
+    assert now - 20 <= events[0].ts <= now, (
+        "якорь должен стоять у большого пика, а не у раннего всплеска")
+    print(f"ok: якорь на истинном пике чата (ts отстал на {now - events[0].ts:.1f} с)")
 
 
 def test_no_false_alarm():
@@ -105,7 +154,10 @@ def test_recent_messages_window():
 def main():
     test_excited_words()
     test_burst_triggers_clip()
+    test_clip_requests_fast_lane()
+    test_peak_anchor()
     test_no_false_alarm()
+    test_idle_fallback()
     test_recent_messages_window()
     print("ВСЕ ТЕСТЫ ДЕТЕКТОРА ПРОШЛИ")
 

@@ -2029,15 +2029,27 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
     clips_dir = ensure_dir(os.path.join(base, "clips"))
 
     def save(path, jobs_list=None, done_set=None, msg="vod: очередь"):
-        """Читаем-меняем-пишем: кто-то мог коммитнуть файл параллельно."""
-        data, sha = load_json_state(gh, path)
-        if jobs_list is not None:
-            data["jobs"] = jobs_list
-            data["updated"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
-        if done_set is not None:
-            data["done"] = sorted(done_set)[-5000:]
-            data["updated"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
-        put_json_state(gh, path, data, sha, msg)
+        """Читаем-меняем-пишем: параллельный коммит (Check live кладёт новые
+        задачи в jobs.json, пока идёт нарезка) даёт HTTP 409. После конфликта
+        перечитываем свежий sha и пробуем снова — раньше это падало в цикл
+        «очередь после ошибки» и валило весь запуск Clip video."""
+        for attempt in range(5):
+            data, sha = load_json_state(gh, path)
+            if jobs_list is not None:
+                data["jobs"] = jobs_list
+                data["updated"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+            if done_set is not None:
+                data["done"] = sorted(done_set)[-5000:]
+                data["updated"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+            try:
+                put_json_state(gh, path, data, sha, msg)
+                return
+            except RuntimeError as e:
+                if "409" not in str(e) or attempt == 4:
+                    raise
+                log.warning("Конфликт записи %s (попытка %d) — перечитываю sha",
+                            path, attempt + 1)
+                time.sleep(2 + attempt * 3)
 
     jobs_data, _ = load_json_state(gh, JOBS_JSON)
     proc_data, _ = load_json_state(gh, PROCESSED_JSON)

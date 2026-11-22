@@ -21,6 +21,7 @@
 Работает и в пакете clipper/, и в плоском репозитории (GitHub-режим).
 """
 
+import json
 import os
 import re
 import subprocess
@@ -70,20 +71,35 @@ def ytdlp_base(cookies_file=""):
             "--retries", "5", "--force-ipv4"] + _cookies_args(cookies_file)
 
 
+def _is_youtube(url):
+    u = str(url or "")
+    return "youtube.com/watch" in u or "youtu.be/" in u or "youtube.com/live/" in u
+
+
 def probe_video(url, cookies_file=""):
-    """(title, duration_seconds) без скачивания видео."""
+    """(title, duration_seconds, live_status) без скачивания видео.
+
+    live_status нужен чат-реплею: архивный чат YouTube есть только у видео,
+    которые БЫЛИ трансляциями (was_live/post_live). У обычных загрузок чата
+    нет — отбор пойдёт по громкости.
+    """
     cmd = ytdlp_base(cookies_file) + [
-        "--skip-download", "--print", "%(title)s|||%(duration)s", url]
+        "--skip-download", "--print",
+        "%(title)s|||%(duration)s|||%(live_status)s", url]
     p = subprocess.run(cmd, capture_output=True, text=True, timeout=180)
     if p.returncode != 0:
         raise RuntimeError("yt-dlp (инфо): " + (p.stderr or "")[-400:])
     line = (p.stdout or "").strip().splitlines()[-1] if p.stdout.strip() else ""
-    title, _, dur = line.partition("|||")
+    parts = line.split("|||")
+    title = parts[0] if parts else ""
     try:
-        dur = float(dur)
+        dur = float(parts[1]) if len(parts) > 1 else 0.0
     except ValueError:
         dur = 0.0
-    return (title or os.path.basename(url)).strip(), dur
+    live_status = (parts[2].strip() if len(parts) > 2 else "")
+    if live_status.lower() in ("", "none", "na", "null"):
+        live_status = ""
+    return (title or os.path.basename(url)).strip(), dur, live_status
 
 
 def download_audio(url, out_path, workdir, cookies_file=""):
@@ -197,6 +213,9 @@ def pick_windows(rms, duration, max_windows=100, win=WIN_SECONDS,
              + 0.55 * _z(loud) - 1.10 * silent)
 
     # --- чат-реплей: где было СМЕШНО по ощущениям ЧАТА ----------------------
+    # Жалоба «скучные моменты»: когда чат известен, ОН ГЛАВНЫЙ сигнал,
+    # а громкость — вторична (чат весит ~60% итога). Мёртвый реплей
+    # (< 0.02 сообщ/сек в среднем) игнорируется как шум.
     if chat is not None:
         try:
             chat = np.asarray(chat, dtype=np.float64)
@@ -208,14 +227,19 @@ def pick_windows(rms, duration, max_windows=100, win=WIN_SECONDS,
                 exc = np.pad(exc, (0, n - exc.size))
             elif chat.size > n:
                 chat, exc = chat[:n], exc[:n]
-            cw = np.lib.stride_tricks.sliding_window_view(chat, w)
-            ew = np.lib.stride_tricks.sliding_window_view(exc, w)
-            rate_w = cw.sum(axis=1) / float(w)              # сообщ/сек в окне
-            hot_w = np.divide(ew.sum(axis=1), np.maximum(cw.sum(axis=1), 1.0))
-            chat_score = 1.05 * _z(rate_w) + 0.75 * _z(hot_w)
-            score = score + chat_score
-            log.info("Чат учитан в оценке окон (среднее сообщ/сек: %.2f)",
-                     float(rate_w.mean()))
+            if float(chat.mean()) >= 0.02:
+                cw = np.lib.stride_tricks.sliding_window_view(chat, w)
+                ew = np.lib.stride_tricks.sliding_window_view(exc, w)
+                rate_w = cw.sum(axis=1) / float(w)              # сообщ/сек в окне
+                hot_w = np.divide(ew.sum(axis=1), np.maximum(cw.sum(axis=1), 1.0))
+                audio_score = (0.42 * _z(mean_db) + 0.20 * _z(peak_db)
+                               + 0.28 * _z(std_db) + 0.55 * _z(loud) - 1.10 * silent)
+                chat_score = 1.30 * _z(rate_w) + 1.00 * _z(hot_w)
+                score = 0.70 * audio_score + 1.60 * chat_score
+                log.info("Чат — ГЛАВНЫЙ сигнал отбора (среднее сообщ/сек: %.2f); "
+                         "окна с пиком чата идут первыми", float(rate_w.mean()))
+            else:
+                log.info("Чат-реплей мёртвый (< 0.02 сообщ/сек) — отбор по громкости")
         except Exception:
             log.exception("Чат-оценка не удалась — беру только громкость")
 
@@ -261,17 +285,21 @@ def expand_video(url, workdir, cookies_file="", max_windows=100,
                  exclude_ranges=None):
     """(title, [(start, end, score), ...]) — разметка на интересные окна.
 
-    Для записей Twitch (VOD) СКАЧИВАЕТСЯ ЧАТ-РЕПЛЕЙ: по чату момент видно
-    лучше, чем по громкости — взрыв смеха и спама почти всегда интереснее
-    просто громкого звука. Оценка окна = громкость (динамика, всплески)
-    + активность чата + доля восторженных сообщений.
+    ЧАТ-РЕПЛЕЙ — главный сигнал «интересного» (жалоба «скучные моменты»):
+      * записи Twitch: yt-dlp качает чат как субтитры (язык "chat");
+      * YouTube-записи трансляций (was_live/post_live): yt-dlp качает
+        АРХИВНЫЙ live-чат (язык "live_chat", каждая строка — action с
+        videoOffsetTimeMsec); по чату видно, где было СМЕШНО.
+    Оценка окна = активность чата + восторженные сообщения (вес больше)
+    + громкость (динамика, всплески). Если чата нет — только громкость.
 
     exclude_ranges — интервалы [(начало, конец)] из фидбека сайта (кнопка
     «Скучно»): эти места видео при выборе окон ПРОПУСКАЮТСЯ.
     """
     ensure_dir(str(workdir))
-    title, dur = probe_video(url, cookies_file)
-    log.info("Видео: %s (%.0f c) — ищу интересные моменты", title, dur)
+    title, dur, live_status = probe_video(url, cookies_file)
+    log.info("Видео: %s (%.0f c, эфир: %s) — ищу интересные моменты",
+             title, dur, live_status or "нет")
     audio = download_audio(url, "vod_audio.bin", workdir, cookies_file)
     try:
         rms = loudness_curve(audio)
@@ -281,14 +309,20 @@ def expand_video(url, workdir, cookies_file="", max_windows=100,
         except OSError:
             pass
     is_twitch_vod = "twitch." in url and ("/videos/" in url or "/v/" in url)
+    yt_archived = _is_youtube(url) and live_status in ("was_live", "post_live")
     chat = chat_exc = None
-    if is_twitch_vod:
+    if is_twitch_vod or yt_archived:
         try:
             chat_path = fetch_chat_replay(url, str(workdir), cookies_file)
             if chat_path:
-                chat, chat_exc = parse_chat_vtt(chat_path, dur)
+                if yt_archived:
+                    chat, chat_exc = parse_chat_jsonl(chat_path, dur)
+                else:
+                    chat, chat_exc = parse_chat_vtt(chat_path, dur)
                 total = int(chat.sum()) if chat is not None else 0
-                log.info("Чат-реплей: %d сообщений — отбора по чату включён", total)
+                log.info("Чат-реплей: %d сообщений — отбор идёт ПО ЧАТУ", total)
+            else:
+                log.info("Чат-реплей пуст — отбираю по громкости")
         except Exception as e:
             log.warning("Чат-реплей недоступен (%s) — отбираю по громкости", e)
     wins = pick_windows(rms, dur, max_windows=max_windows,
@@ -305,13 +339,27 @@ def expand_video(url, workdir, cookies_file="", max_windows=100,
 # --- чат-реплей Twitch: сообщения как главный сигнал «интересного» -------------------
 
 def fetch_chat_replay(url, workdir, cookies_file=""):
-    """Скачать чат-реплей записи Twitch (без регистрации и ключей).
+    """Скачать чат-реплей записи (без регистрации и ключей).
 
-    yt-dlp умеет качать чат как субтитры (язык "chat"): каждое сообщение
-    с точным временем. Возвращает путь к .vtt или None (для клипов Twitch
-    и YouTube чат-реплея нет — там отбор по громкости).
+    Twitch (VOD): yt-dlp качает чат как субтитры (язык "chat"), формат .vtt.
+    YouTube (запись трансляции): yt-dlp качает АРХИВНЫЙ live-чат как субтитры
+    (язык "live_chat", формат json3) — каждая строка JSON с позицией в видео.
+    Возвращает путь к файлу чата или None (чат-реплея нет — отбор по громкости).
     """
     out = "chat_replay"
+    if _is_youtube(url):
+        cmd = ytdlp_base(cookies_file) + [
+            "--skip-download", "--write-subs", "--sub-langs", "live_chat",
+            "--sub-format", "json3", "-o", out, url]
+        rc, _o, _e = run_cmd(cmd, timeout=900, cwd=str(workdir))
+        if rc != 0:
+            return None
+        for cand in (os.path.join(str(workdir), out + ".live_chat.json"),
+                     os.path.join(str(workdir), out + ".live_chat.json3"),
+                     os.path.join(str(workdir), out + ".live_chat.vtt")):
+            if os.path.exists(cand):
+                return cand
+        return None
     cmd = ytdlp_base(cookies_file) + [
         "--skip-download", "--write-subs", "--sub-langs", "chat",
         "--sub-format", "vtt/srt", "-o", out, url]
@@ -378,6 +426,58 @@ def parse_chat_vtt(path, duration):
             if clean and block_ts is not None:
                 block_text.append(clean)
         flush()
+    if counts.sum() < 1:
+        return None, None
+    return counts, excited
+
+
+def parse_chat_jsonl(path, duration):
+    """Архивный чат YouTube (yt-dlp live_chat json3) -> (counts, excited).
+
+    Каждая строка файла — action реплея чата: replayChatItemAction содержит
+    videoOffsetTimeMsec (позиция в видео, мс) и вложенные действия чата
+    (addChatItemAction.item.liveChat*MessageRenderer): автор, текст,
+    суперчат-донат. counts — сообщений по секундам видео, excited — сколько
+    из них восторженных/донатов (тот же детектор, что и в эфире).
+    """
+    import numpy as np
+    n = int(max(float(duration or 0), 1.0)) + 1
+    counts = np.zeros(n, dtype=np.float64)
+    excited = np.zeros(n, dtype=np.float64)
+    with open(str(path), "r", encoding="utf-8", errors="replace") as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                act = json.loads(line)
+            except ValueError:
+                continue
+            rp = act.get("replayChatItemAction") or {}
+            off_ms = rp.get("videoOffsetTimeMsec")
+            if off_ms in (None, ""):
+                continue
+            try:
+                sec = min(int(int(off_ms) / 1000), n - 1)
+            except (TypeError, ValueError):
+                continue
+            if sec < 0:
+                continue
+            for sub in rp.get("actions") or []:
+                item = (sub.get("addChatItemAction") or {}).get("item") or {}
+                r = (item.get("liveChatTextMessageRenderer")
+                     or item.get("liveChatPaidMessageRenderer")
+                     or item.get("liveChatMembershipItemRenderer"))
+                if not r:
+                    continue
+                text = "".join(run.get("text", "")
+                               for run in (r.get("message") or {}).get("runs", []))
+                user = (r.get("authorName") or {}).get("simpleText") or ""
+                counts[sec] += 1
+                paid = bool(item.get("liveChatPaidMessageRenderer"))
+                if paid or _is_excited(text, DEFAULT_KEYWORDS) or \
+                        _is_excited(user, DEFAULT_KEYWORDS):
+                    excited[sec] += 1
     if counts.sum() < 1:
         return None, None
     return counts, excited

@@ -271,7 +271,7 @@ storage:
 server:
   enabled: true
   port: 8765
-  docs_dir: "docs"      # папка веб-приложения (её же загружаете на GitHub Pages)
+  docs_dir: "."         # файлы сайта лежат рядом с программой (в корне)
   public_base_url: ""   # если настроен https-туннель (cloudflared) — укажите адрес
 
 # --- Автопостинг в TikTok (само выкладывается) ------------------

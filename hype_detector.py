@@ -34,6 +34,25 @@ EMOTE_ONLY_RE = re.compile(
 # дальше кольцевой буфер записи (buffer_keep 300 с) уже не хранит.
 IDLE_LOOKBACK_S = 240.0
 
+# Гарантированный клип снимается ТОЛЬКО если в лучшем окне есть хотя бы
+# лёгкая жизнь: оценка окна >= IDLE_MIN_SCORE, >= IDLE_MIN_MSGS сообщений
+# и >= IDLE_MIN_USERS разных авторов. Жалоба «скучные моменты»: клип,
+# снятый при МЁРТВОМ чате (0 сообщ/сек, авторов 0), почти всегда скучный —
+# лучше подождать, пока чат хоть немного оживёт.
+IDLE_MIN_SCORE = 0.34
+IDLE_MIN_MSGS = 6
+IDLE_MIN_USERS = 3
+
+# Детектор срабатывает с лагом (sustain + сглаживание), а сам всплеск чата
+# часто случается на несколько секунд раньше. Клип привязывается не к
+# моменту обнаружения, а к ИСТИННОМУ пику за последние 90 секунд.
+PEAK_ANCHOR_LOOKBACK = 90.0
+
+# Пользователи ПРЯМО просят клип («клип», «clip it») — самый жирный сигнал:
+# >= 2 разных авторов за окно -> снимаем немедленно, без ожидания sustain.
+CLIP_REQ_RE = re.compile(
+    r"\b(?:клип(?:ы|е|у|ни|ец|ать)?|clip(?:ped| it|ping| that)?)\b", re.IGNORECASE)
+
 # смех и восторженные повторы: ахахах, хахаха, оооо, ааааа ...
 LAUGH_RE = re.compile(r"(?:ах|ха|хо|ох|оф|кек){2,}|([аоыиуе])\1{2,}", re.IGNORECASE)
 
@@ -95,6 +114,7 @@ class HypeDetector(threading.Thread):
         # точно были клипы и уведомления, даже когда чат спокойный.
         self.max_idle = max(0.0, float(clip_cfg.get("max_idle_min", 20))) * 60.0
         self.started_at = 0.0          # момент первого сообщения чата
+        self._last_idle_skip_log = 0.0  # чтобы не спамить лог мёртвого чата
         self.on_hype = on_hype
 
         self.msgs = deque(maxlen=6000)
@@ -175,6 +195,11 @@ class HypeDetector(threading.Thread):
         # в большинстве сообщений) не ждёт устойчивости sustain секунд —
         # «клип» лучше снять сразу на пике, чем полминуты спустя.
         fast_lane = (spike_n >= 0.62 and kw_n >= 0.30 and len(users) >= self.min_users)
+        # Супер-сигнал: чат САМ просит клип («КЛИП», «clip it») от >= 2 авторов
+        # — это почти гарантированно лучший момент эфира.
+        clip_req_users = {m.user for m in win if CLIP_REQ_RE.search(str(m.text))}
+        if len(clip_req_users) >= 2 and len(users) >= self.min_users and spike_n >= 0.2:
+            fast_lane = True
 
         hour_ago = now - 3600
         while self.trigger_times and self.trigger_times[0] < hour_ago:
@@ -189,19 +214,29 @@ class HypeDetector(threading.Thread):
             self._trigger(now, score_out, win, users)
             return
 
-        # Гарантированный клип: давно ни хайпа, ни клипов — снимаем ВСЁ РАВНО,
-        # но не «сейчас», а ЛУЧШИЙ момент за последние 4 минуты: ищем окно
-        # чата с максимальной «горячестью» (скорость + восторг + авторы).
-        # Так даже при спокойном чате в клип попадает самый живой момент,
-        # а не случайная минута.
+        # Гарантированный клип: давно ни хайпа, ни клипов. НО: при МЁРТВОМ
+        # чате (жалоба «скучные моменты») клип не снимаем вовсе — ждём, пока
+        # в последних 4 минутах появится хотя бы лёгкая реакция чата.
         anchor = max(self.last_trigger, self.started_at)
         if (self.max_idle > 0 and self.msgs and anchor > 0
                 and now - anchor >= self.max_idle
                 and len(self.trigger_times) < self.max_per_hour):
-            ts = self._best_window_ts(now)
+            ts, best_s, best_msgs, best_users = self._best_window_ts(now)
+            weak = (best_s < IDLE_MIN_SCORE or best_msgs < IDLE_MIN_MSGS
+                    or best_users < IDLE_MIN_USERS)
+            if weak:
+                if now - self._last_idle_skip_log >= 180:
+                    self._last_idle_skip_log = now
+                    log.info("Клип отложен: чат мёртв уже %.0f мин (лучшее окно: "
+                             "%.2f/%.2f балла, %d сообщ, %d авторов) — скучные "
+                             "клипы не снимаю, жду оживления",
+                             (now - anchor) / 60, best_s, IDLE_MIN_SCORE,
+                             best_msgs, best_users)
+                return
             log.info("Хайпа нет уже %.0f мин — снимаю клип с лучшего момента "
-                     "за последние %.0f мин (гарантированная нарезка)",
-                     (now - anchor) / 60, IDLE_LOOKBACK_S / 60)
+                     "за последние %.0f мин (%.2f балла, %d сообщ, %d авторов)",
+                     (now - anchor) / 60, IDLE_LOOKBACK_S / 60, best_s,
+                     best_msgs, best_users)
             self._trigger(now, max(self.smooth, 55.0), win, users, ts=ts)
 
     def _trigger(self, now, score, win, users, ts=None):
@@ -214,7 +249,12 @@ class HypeDetector(threading.Thread):
             "msgs": len(win),
             "rate": round(len(win) / self.window, 2),
         }
-        ev = HypeEvent(ts=ts if ts else now, score=round(float(score), 1),
+        # Привязка к ИСТИННОМУ пику: детектор стреляет с лагом в пару секунд,
+        # а чат-взрыв обычно случился чуть раньше. Ищем самый горячий бакет
+        # последних 90 секунд — клип поедет от него, а не от «обнаружения».
+        if ts is None:
+            ts = self._peak_anchor(now)
+        ev = HypeEvent(ts=ts, score=round(float(score), 1),
                        top_messages=top, stats=stats)
         log.info("ХАЙП %.0f/100 на %s (%.1f сообщ/сек, авторов %d) — снимаю клип",
                  ev.score, self.channel_key, stats["rate"], stats["users"])
@@ -223,19 +263,19 @@ class HypeDetector(threading.Thread):
     def _best_window_ts(self, now, bucket_s=5.0):
         """Лучший момент чата за последние IDLE_LOOKBACK_S секунд.
 
-        Разбиваем сообщения на бакеты по bucket_s, каждый оцениваем теми же
-        сигналами, что и основной хайп (всплеск скорости, восторженные
-        сообщения, разные авторы), и берём конец самого горячего бакета.
-        Pipeline от него отложит 30 с ДО и 30 с ПОСЛЕ — получится ровно 60 с
-        с пиком внутри. Если чат совсем мёртвый — берём текущий момент.
+        Возвращает (ts, score, msgs, authors): ts — конец самого горячего
+        бакета, score — его «жар» (0-1), msgs/authors — объём реакций в нём.
+        Pipeline от ts отложит 30 с ДО и 30 с ПОСЛЕ — получится ровно 60 с
+        с пиком внутри. score/msgs/authors нужны гейту скучности: если даже
+        ЛУЧШЕЕ окно за 4 минуты почти пустое — клип не снимаем вообще.
         """
         t0 = max(self.last_trigger, now - IDLE_LOOKBACK_S)
         msgs = [m for m in self.msgs if t0 <= m.ts <= now]
         if not msgs:
-            return now
+            return now, 0.0, 0, 0
         n_buckets = max(2, int((now - t0) // bucket_s))
         base = max(self.baseline, 0.1)
-        best_s, best_ts = 0.0, now
+        best_s, best_ts, best_m, best_u = 0.0, now, 0, 0
         for i in range(n_buckets):
             a = t0 + i * bucket_s
             b = a + bucket_s
@@ -250,9 +290,40 @@ class HypeDetector(threading.Thread):
             s = 0.30 * rate + 0.45 * hot + 0.25 * users_n
             if s > best_s:
                 best_s, best_ts = s, min(b, now)
-        if best_s <= 0.05:
+                best_m, best_u = len(bm), len({m.user for m in bm})
+        return best_ts, best_s, best_m, best_u
+
+    def _peak_anchor(self, now, lookback=PEAK_ANCHOR_LOOKBACK):
+        """Истинный пик чата за последние lookback секунд.
+
+        Сигнатура всплеска та же, что у гарантированной нарезки (скорость,
+        восторги, авторы). Возвращаем КОНЕЦ самого горячего бакета: окно
+        клипа [пик - pre, пик + post] накроет момент, когда чат реально
+        взорвался, а не когда алгоритм его заметил.
+        """
+        t0 = now - lookback
+        msgs = [m for m in self.msgs if t0 <= m.ts <= now]
+        if len(msgs) < 4:
             return now
-        return best_ts
+        bucket = 5.0
+        base = max(self.baseline, 0.1)
+        n_buckets = max(1, int((now - t0) // bucket))
+        best_s, best_ts = 0.0, now
+        for i in range(n_buckets):
+            a = t0 + i * bucket
+            b = a + bucket
+            bm = [m for m in msgs if a <= m.ts < b]
+            if not bm:
+                continue
+            rate = min(len(bm) / bucket / base, 6.0) / 6.0
+            hot = sum(1 for m in bm if _is_excited(m.text, self.keywords)) / len(bm)
+            users_n = min(len({m.user for m in bm}) / 15.0, 1.0)
+            s = 0.30 * rate + 0.45 * hot + 0.25 * users_n
+            if s > best_s:
+                best_s, best_ts = s, min(b, now)
+        # пик засчитан, только если он заметный: иначе (разрозненная болтовня)
+        # якоримся на текущий момент
+        return best_ts if best_s >= 0.30 else now
 
     def manual_trigger(self, reason=""):
         """Клип по нажатию Enter — без проверок порога."""
