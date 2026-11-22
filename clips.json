@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22T03:21:23Z",
+ "updated": "2026-11-22T03:21:41Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -111,6 +111,47 @@
   "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 4\", 4500], [\"stray228\", true, \"GTA6 RP, отыгрываем на совесть !tg !bb !wow !воппер\", 3100], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 4]\", 2175], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 7 | !tg !donate !winline !ggsel\", 1525], [\"betboom_dota_ru\", true, \"ПОВТОР | Bo3 | Group Stage Day 2 | BLAST SLAM IX\", 1000], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
+  {
+   "id": "2026-11-22_03-18-00_frametamer666",
+   "file": "2026-11-22_03-18-00_frametamer666.mp4",
+   "url": "https://github.com/qwied/TikTokAuto/releases/download/auto/2026-11-22_03-18-00_frametamer666.mp4",
+   "thumb": "data:image/jpeg;base64,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",
+   "size": 25685575,
+   "duration": 48.7,
+   "channel": "frametamer666",
+   "display": "twitch.tv/frametamer666",
+   "platform": "twitch",
+   "title": "GTA 6 ДОНАТОФОН 24/7 [DAY 4]",
+   "score": 58.0,
+   "hashtags": [
+    "#gta",
+    "#гта5",
+    "#gtarp",
+    "#frametamer666",
+    "#twitch",
+    "#рек",
+    "#рекомендации",
+    "#fyp",
+    "#foryou",
+    "#viral",
+    "#прикол",
+    "#смешно",
+    "#хайп",
+    "#стрим"
+   ],
+   "caption": "«от той комнаты. Аааа, это матыга, конечно. Деревянная матыга, как же без нее. Кстати,» — twitch.tv/frametamer666",
+   "subs": {
+    "lang": "ru",
+    "words": 74,
+    "speech_pct": 98,
+    "ok": true,
+    "hook": "от той комнаты. Аааа, это матыга, конечно. Деревянная матыга, как же без нее. Кстати,"
+   },
+   "src": "",
+   "start": 0,
+   "created": 1795317698,
+   "gh": true
+  },
   {
    "id": "2026-11-22_03-10-00_stray228",
    "file": "2026-11-22_03-10-00_stray228.mp4",
