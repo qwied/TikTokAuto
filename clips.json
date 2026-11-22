@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22T04:22:27Z",
+ "updated": "2026-11-22T04:23:27Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -40,7 +40,7 @@
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
     "live": true,
-    "viewers": 1412,
+    "viewers": 1503,
     "title": "ИЗОЛЯЦИЯ ДЕНЬ 7 | !tg !donate !winline !ggsel"
    },
    {
@@ -48,11 +48,11 @@
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
     "live": true,
-    "viewers": 1085,
+    "viewers": 1063,
     "title": "ПОВТОР | Bo3 | Group Stage Day 2 | BLAST SLAM IX"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 4\", 3025], [\"stray228\", true, \"GTA6 RP, отыгрываем на совесть !tg !bb !wow !воппер\", 3350], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 4]\", 1825], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 7 | !tg !donate !winline !ggsel\", 1400], [\"betboom_dota_ru\", true, \"ПОВТОР | Bo3 | Group Stage Day 2 | BLAST SLAM IX\", 1075]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 4\", 3025], [\"stray228\", true, \"GTA6 RP, отыгрываем на совесть !tg !bb !wow !воппер\", 3350], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 4]\", 1825], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 7 | !tg !donate !winline !ggsel\", 1500], [\"betboom_dota_ru\", true, \"ПОВТОР | Bo3 | Group Stage Day 2 | BLAST SLAM IX\", 1075]]"
  },
  "clips": [
   {
