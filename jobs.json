@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-22T21:00:28Z",
+ "updated": "2026-11-22T21:01:31Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=TVqFgBv_Lmo",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "3 ★ Шматко и Данилюк (смешные моменты) ★ 3",
    "views": 931169,
