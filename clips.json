@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22T21:05:27Z",
+ "updated": "2026-11-22T21:09:32Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -12,12 +12,20 @@
     "title": ""
    },
    {
-    "name": "leb1ga",
-    "display": "twitch.tv/leb1ga",
+    "name": "nix",
+    "display": "twitch.tv/nix",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "solo",
+    "display": "twitch.tv/solo",
     "platform": "twitch",
     "live": true,
     "viewers": 0,
-    "title": "⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 4"
+    "title": "🔴 Astra Invicta [1:1] LGD | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto @vtunedota !tg !BETBOOM !розыгрыш"
    },
    {
     "name": "bratishkinoff",
@@ -36,20 +44,44 @@
     "title": "[1440p] GTA VI в 60 fps. День 5 | !pari !ggsel !tg !мерч"
    },
    {
-    "name": "solo",
-    "display": "twitch.tv/solo",
+    "name": "leb1ga",
+    "display": "twitch.tv/leb1ga",
     "platform": "twitch",
     "live": true,
     "viewers": 0,
-    "title": "🔴 Astra Invicta [1:1] LGD | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto @vtunedota !tg !BETBOOM !розыгрыш"
+    "title": "⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 4"
+   },
+   {
+    "name": "t2x2",
+    "display": "twitch.tv/t2x2",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "murzofix",
+    "display": "twitch.tv/murzofix",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "skywhywalker",
     "display": "twitch.tv/skywhywalker",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑"
+    "title": ""
+   },
+   {
+    "name": "betboom_dota_ru",
+    "display": "twitch.tv/betboom_dota_ru",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "sasavot",
@@ -57,71 +89,87 @@
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "ВЫХОДНОЙ/ВОТ ТАКОЙ"
-   },
-   {
-    "name": "lenagol0vach",
-    "display": "twitch.tv/lenagol0vach",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "🏆 НОВЫЙ ПАТЧ 7.42 🏆 ПУТЬ В ТОП 100 🏆  ЖЕСТКИЙ АП ММР 🍔 БЫЛО 15к ММР 🍆 ТЕСТИМ НОВЫЙ ПАТЧ ⭐ НАШЕЛ ИМБУ ПАТЧА ⭐🧀🏆⭐"
-   },
-   {
-    "name": "betboom_dota_ru",
-    "display": "twitch.tv/betboom_dota_ru",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "ПОВТОР | BLAST SLAM IX | Group Stage Day 3"
-   },
-   {
-    "name": "welovegames",
-    "display": "twitch.tv/welovegames",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Никуда не спешим и аккуратно проходим | !сити !ggsel !втб !dodo"
-   },
-   {
-    "name": "leva2k",
-    "display": "twitch.tv/leva2k",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Аук на еду  | ГТА ДЕНЬ8 | !tg !donate !winline !ggsel"
+    "title": ""
    },
    {
     "name": "betboom_dota_ru2",
     "display": "twitch.tv/betboom_dota_ru2",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Astra Invicta [1] vs [1] LGD | Bo3 | Group Stage Day 3 | BLAST SLAM IX | cast: @inmateoo & @grayne !предикты"
+    "title": ""
    },
    {
-    "name": "mafanyaking",
-    "display": "twitch.tv/mafanyaking",
+    "name": "dmitry_lixxx",
+    "display": "twitch.tv/dmitry_lixxx",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "здарова / !тг !донат !предложка"
+    "title": ""
    },
    {
-    "name": "danila_gorilla",
-    "display": "twitch.tv/danila_gorilla",
+    "name": "blackufa",
+    "display": "twitch.tv/blackufa",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "СМОТРИМ НОВЫЙ ВИДОС КОКОШКИ / начало - 23:33"
+    "title": ""
    },
    {
-    "name": "stray228",
-    "display": "twitch.tv/stray228",
+    "name": "melharucos",
+    "display": "twitch.tv/melharucos",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер"
+    "title": ""
+   },
+   {
+    "name": "zloyn",
+    "display": "twitch.tv/zloyn",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "leva2k",
+    "display": "twitch.tv/leva2k",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "chopperinho",
+    "display": "twitch.tv/chopperinho",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "rostislav_999",
+    "display": "twitch.tv/rostislav_999",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "welovegames",
+    "display": "twitch.tv/welovegames",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "zer0truel0ve",
+    "display": "twitch.tv/zer0truel0ve",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "dyrachyo",
@@ -129,50 +177,130 @@
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "Astra [1:1] LGD bo3 BLAST SLAM IX Group Stage w/ @dkfogas1 | !bb !tg"
+    "title": ""
+   },
+   {
+    "name": "welovegames",
+    "display": "youtube.com/@welovegames",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "bratishkinoff",
+    "display": "youtube.com/@bratishkinoff",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "KuplinovPlay",
+    "display": "youtube.com/@KuplinovPlay",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "5opka",
+    "display": "youtube.com/@5opka",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "stariy_bog",
+    "display": "youtube.com/@stariy_bog",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "AlinaRin",
+    "display": "youtube.com/@AlinaRin",
+    "platform": "youtube",
+    "live": true,
+    "viewers": 0,
+    "title": "GTA VI ★★★★★★ РЕЛИЗ (2026) 【#5】"
+   },
+   {
+    "name": "Okisebi",
+    "display": "youtube.com/@Okisebi",
+    "platform": "youtube",
+    "live": true,
+    "viewers": 0,
+    "title": "🚨LIVE JETZT! ALLE MILITÄR FAHRZEUGE KLAUEN IN GTA VI🚨"
+   },
+   {
+    "name": "lenagol0vach",
+    "display": "twitch.tv/lenagol0vach",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "stray228",
+    "display": "twitch.tv/stray228",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "mafanyaking",
+    "display": "twitch.tv/mafanyaking",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "danila_gorilla",
+    "display": "twitch.tv/danila_gorilla",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "rejiboi",
     "display": "twitch.tv/rejiboi",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "давай воровать машинки 6, 5 серия (потом гта) !tg"
+    "title": ""
    },
    {
-    "name": "chopperinho",
-    "display": "twitch.tv/chopperinho",
+    "name": "znat51",
+    "display": "twitch.tv/znat51",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "SOLO FACEIT PREM | ROAD TO 4K ELO | !bb !tg !yt !challenge"
-   },
-   {
-    "name": "zer0truel0ve",
-    "display": "twitch.tv/zer0truel0ve",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "[GTA 6 120fps DLSS - 3 день] марафон 24/7 [DROPS Включены]"
+    "title": ""
    },
    {
     "name": "blackrabbit342",
     "display": "twitch.tv/blackrabbit342",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "lgd astra invicta 0 0 BLAST БЕЗ ЗАДЕРЖКИ!  !bb"
+    "title": ""
    },
    {
     "name": "shiishak",
     "display": "twitch.tv/shiishak",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB"
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 4\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 НЕКЛАВАМЫШЬ 🔴 ИЩУ НЕИЩИМОЕ 🔴 ГЛАВА II 🔴 DAY 5 🔴\", 0], [\"recrent\", true, \"[1440p] GTA VI в 60 fps. День 5 | !pari !ggsel !tg !мерч\", 0], [\"solo\", true, \"🔴 Astra Invicta [1:1] LGD | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto @vtunedota !tg !BETBOOM !розыгрыш\", 0], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 0], [\"sasavot\", false, \"ВЫХОДНОЙ/ВОТ ТАКОЙ\", 0], [\"lenagol0vach\", true, \"🏆 НОВЫЙ ПАТЧ 7.42 🏆 ПУТЬ В ТОП 100 🏆  ЖЕСТКИЙ АП ММР 🍔 БЫЛО 15к ММР 🍆 ТЕСТИМ НОВЫЙ ПАТЧ ⭐ НАШЕЛ ИМБУ ПАТЧА ⭐🧀🏆⭐\", 0], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 3\", 0], [\"welovegames\", true, \"Никуда не спешим и аккуратно проходим | !сити !ggsel !втб !dodo\", 0], [\"leva2k\", true, \"Аук на еду  | ГТА ДЕНЬ8 | !tg !donate !winline !ggsel\", 0], [\"betboom_dota_ru2\", true, \"Astra Invicta [1] vs [1] LGD | Bo3 | Group Stage Day 3 | BLAST SLAM IX | cast: @inmateoo & @grayne !предикты\", 0], [\"mafanyaking\", true, \"здарова / !тг !донат !предложка\", 0], [\"danila_gorilla\", true, \"СМОТРИМ НОВЫЙ ВИДОС КОКОШКИ / начало - 23:33\", 0], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 0], [\"dyrachyo\", false, \"Astra [1:1] LGD bo3 BLAST SLAM IX Group Stage w/ @dkfogas1 | !bb !tg\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 5 серия (потом гта) !tg\", 0], [\"chopperinho\", true, \"SOLO FACEIT PREM | ROAD TO 4K ELO | !bb !tg !yt !challenge\", 0], [\"zer0truel0ve\", true, \"[GTA 6 120fps DLSS - 3 день] марафон 24/7 [DROPS Включены]\", 0], [\"blackrabbit342\", true, \"lgd astra invicta 0 0 BLAST БЕЗ ЗАДЕРЖКИ!  !bb\", 0], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", false, \"\", 0], [\"solo\", true, \"🔴 Astra Invicta [1:1] LGD | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto @vtunedota !tg !BETBOOM !розыгрыш\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 НЕКЛАВАМЫШЬ 🔴 ИЩУ НЕИЩИМОЕ 🔴 ГЛАВА II 🔴 DAY 5 🔴\", 0], [\"recrent\", true, \"[1440p] GTA VI в 60 fps. День 5 | !pari !ggsel !tg !мерч\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 4\", 0], [\"t2x2\", false, \"\", 0], [\"murzofix\", false, \"\", 0], [\"skywhywalker\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"sasavot\", false, \"\", 0], [\"betboom_dota_ru2\", false, \"\", 0], [\"dmitry_lixxx\", false, \"\", 0], [\"blackufa\", false, \"\", 0], [\"melharucos\", false, \"\", 0], [\"zloyn\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"chopperinho\", false, \"\", 0], [\"rostislav_999\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"zer0truel0ve\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", true, \"GTA VI ★★★★★★ РЕЛИЗ (2026) 【#5】\", 0], [\"Okisebi\", true, \"🚨LIVE JETZT! ALLE MILITÄR FAHRZEUGE KLAUEN IN GTA VI🚨\", 0], [\"lenagol0vach\", false, \"\", 0], [\"stray228\", false, \"\", 0], [\"mafanyaking\", false, \"\", 0], [\"danila_gorilla\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"znat51\", false, \"\", 0], [\"blackrabbit342\", false, \"\", 0], [\"shiishak\", false, \"\", 0]]"
  },
  "clips": [
   {
