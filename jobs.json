@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-22T22:15:03Z",
+ "updated": "2026-11-22T22:15:06Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=Tm3G8amu0JA",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "ОВР Шоу: Неловкий ужин @ovrshow_tnt ​",
    "views": 1422150,
