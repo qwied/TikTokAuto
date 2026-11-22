@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-22T13:04:44Z",
+ "updated": "2026-11-22T13:04:47Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=ozvKB4JvaXM",
    "kind": "video",
-   "fails": 1,
+   "fails": 2,
    "tag": "ru",
    "display": "Самые смешные моменты из интервью Плюшек",
    "views": 11005986,
