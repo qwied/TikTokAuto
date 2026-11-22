@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-22T23:11:20Z",
+ "updated": "2026-11-22T23:11:23Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=ekUbBot8tDA",
    "kind": "video",
-   "fails": 1,
+   "fails": 2,
    "tag": "ru",
    "display": "5 простых домашних научных экспериментов с Марком Робером",
    "views": 19286287,
