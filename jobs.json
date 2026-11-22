@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-22T01:28:53Z",
- "jobs": []
+ "updated": "2026-11-22T01:53:43Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=CuOCUSa3Gvo",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Стример ВЗБЕСИЛСЯ из-за РАЗДРАЖАЮЩЕГО МОДА в Майнкрафт..",
+   "views": 154708,
+   "added": "2026-11-22T01:53:42Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=1WTTuwZ9YJg",
+   "kind": "video",
+   "fails": 0,
+   "tag": "gta6",
+   "display": "GTA 6 - ПОЗОР ГОДА",
+   "views": 151689,
+   "added": "2026-11-22T01:53:34Z"
+  }
+ ]
 }
