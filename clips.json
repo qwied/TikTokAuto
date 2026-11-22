@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22T11:12:30Z",
+ "updated": "2026-11-22T11:12:38Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -527,25 +527,25 @@
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ПОВТОР | Bo3 | Group Stage Day 2 | BLAST SLAM IX"
    },
    {
     "name": "blindzonexgod",
     "display": "twitch.tv/blindzonexgod",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "grind winter season 100% импрува 100% скилла 100% мотивации| !tg !мерч !bb"
    },
    {
     "name": "exigent_wires",
     "display": "twitch.tv/exigent_wires",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ДРОПСЫ !ивент !дропс"
    },
    {
     "name": "vovapain",
@@ -655,44 +655,44 @@
     "name": "shiishak",
     "display": "twitch.tv/shiishak",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB"
    },
    {
     "name": "dunduk",
     "display": "twitch.tv/dunduk",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "осталась последняя лига, ачивка на отрицательные перки, батлпасс"
    },
    {
     "name": "ghostik",
     "display": "twitch.tv/ghostik",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🔥Тестуємо НОВИХ героїв в НОВОМУ патчі 7.42 (0-1) 🔥"
    },
    {
     "name": "kerimch1k",
     "display": "twitch.tv/kerimch1k",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "МАМА ТРАТИТ ТО ЧТО ВЫ ДОНАТИТЕ !tg !donate"
    },
    {
     "name": "mainfinitytv",
     "display": "twitch.tv/mainfinitytv",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Фармим PVP сет и ищем open world фарм голды, болтаем про WOW."
    }
   ],
-  "_live_sig": "[[\"s1mple\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"deepins02\", false, \"\", 0], [\"evelone2004\", false, \"\", 0], [\"paradeev1ch\", false, \"\", 0], [\"bastighg\", true, \"XXL CHARITY STREAM🔹1€ = +10 BLÖCKE ZIEL🔹NO CRAFTING TABLE🔹24 STUNDEN+?🔹!donate\", 0], [\"t2x2\", false, \"\", 0], [\"koreshzy\", false, \"\", 0], [\"strogo\", true, \"🔴 WW vs ENEMY | bo1 | BLAST Bounty 2027 Season 1 | @m3wsu @keliencs  @hypetried @ryujincs1\", 0], [\"kamet0\", false, \"\", 0], [\"recrent\", false, \"\", 0], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan\", 0], [\"sasavot\", true, \"ВЫХОДНОЙ/ВОТ ТАКОЙ\", 0], [\"stray228\", false, \"\", 0], [\"dangerlyoha\", false, \"\", 0], [\"stintik\", false, \"\", 0], [\"xrohat\", true, \"[Die Kluft] 30 TAGE CHARITY STREAM - TAG 22 | NACHTSCHICHT: @halid_arsajev | !spenden !spendenziel !giveaway !wolt !revolut\", 0], [\"rostislav_999\", false, \"\", 0], [\"zarbex\", true, \"[DROPS] 🦩🌴 100+ STUNDEN GTA 6 STREAM 🦩🌴 TAG 5 🦩🌴 ALLES ERKUNDEN UND 100% DURCHZOCKEN 🦩🌴  !socials !esn !pmm\", 0], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 0], [\"jltomy\", true, \"[SUBATHON MIAMI] Crêpes party w/ @Wati, @Fakemonster & Hak0 | !subathon !holy !free !submiami\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 5 | !tg !прогресс\", 0], [\"shadowkekw\", false, \"\", 0], [\"ravshann\", false, \"\", 0], [\"mokrivskyi\", false, \"\", 0], [\"nix\", false, \"\", 0], [\"danila_gorilla\", false, \"\", 0], [\"kato_junichi0817\", false, \"\", 0], [\"stylishnoob4\", true, \"魂のプロレスラーを見つける。\", 0], [\"rostikfacekid\", false, \"\", 0], [\"ewroon\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"morphe_ya\", false, \"\", 0], [\"skyyart\", false, \"\", 0], [\"alohadancetv\", true, \"вечный ученик. !tg\", 0], [\"silvername\", false, \"\", 0], [\"xaryu\", false, \"\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"tpabomah\", false, \"\", 0], [\"gtasty\", false, \"\", 0], [\"lenagol0vach\", false, \"\", 0], [\"otplol_\", true, \"WORLDS - L'INTÉGRALITÉ\", 0], [\"deko\", false, \"\", 0], [\"nooreax\", true, \"🚨 GTA ZOCKEN 🚨 LOW CORTISOL NACHTSCHICHT 🚨 2,5 MONATE 24/7 LIVE 🚨 TAG 43 🚨 NOTY GmbH WG mit @DIMEAX @NORMAN @URUTOX !pmm | Werbung\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 4\", 0], [\"leemodopi\", true, \"SweatieFox играю Minecraft летсплей по майнкрафту!!! СТРИМ МАРАФОН 365 ДНЕЙ 1 ГОД БЕЗ ОСТАНОВКИ. !тг\", 0], [\"mafanyaking\", false, \"\", 0], [\"zxcursed\", false, \"\", 0], [\"metashi12\", true, \"WOW > GTA - BIG GIVEAWAYS | !Shakes | !Holy | !rested | !LiberNovo | !Grover |  !More | !prepmymeal | !TB | #Werbung\", 0], [\"welovegames\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 7 | !tg !donate !winline !ggsel\", 0], [\"renatko\", false, \"\", 0], [\"krokoboss\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"murzofix\", false, \"\", 0], [\"chopperinho\", false, \"\", 0], [\"melharucos\", true, \"ИГРА НРАВИТСЯ, ГРАБЛЮ ПРОФЕССИОНАЛЬНО\", 0], [\"sasatikk\", true, \"GTA6 そろそろデカい山に関わらせてください ネタバレ禁\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] последний день нашего обширного отпуска\", 0], [\"znat51\", false, \"\", 0], [\"alekzz03\", false, \"\", 0], [\"whoplohoyparen\", true, \"GTA 6 84% 2K 60fps DLSS5 ПОЛНОЕ ПРОХОЖДЕНИЕ ДЕНЬ 5\", 0], [\"gadjiev57\", false, \"\", 0], [\"daxak\", true, \"жесткий буст в прямом эфире в дискорде с молодым    !фонбет !бусти !заказ!розыгрыш\", 0], [\"keliencs\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"blindzonexgod\", false, \"\", 0], [\"exigent_wires\", false, \"\", 0], [\"vovapain\", false, \"\", 0], [\"followkudes\", false, \"\", 0], [\"honeymad\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"xaryu\", false, \"\", 0], [\"jokerdtv\", false, \"\", 0], [\"leemodopi\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🚨LIVE JETZT! ALLE MILITÄR FAHRZEUGE KLAUEN IN GTA VI🚨\", 0], [\"shiishak\", false, \"\", 0], [\"dunduk\", false, \"\", 0], [\"ghostik\", false, \"\", 0], [\"kerimch1k\", false, \"\", 0], [\"mainfinitytv\", false, \"\", 0]]"
+  "_live_sig": "[[\"s1mple\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"deepins02\", false, \"\", 0], [\"evelone2004\", false, \"\", 0], [\"paradeev1ch\", false, \"\", 0], [\"bastighg\", true, \"XXL CHARITY STREAM🔹1€ = +10 BLÖCKE ZIEL🔹NO CRAFTING TABLE🔹24 STUNDEN+?🔹!donate\", 0], [\"t2x2\", false, \"\", 0], [\"koreshzy\", false, \"\", 0], [\"strogo\", true, \"🔴 WW vs ENEMY | bo1 | BLAST Bounty 2027 Season 1 | @m3wsu @keliencs  @hypetried @ryujincs1\", 0], [\"kamet0\", false, \"\", 0], [\"recrent\", false, \"\", 0], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan\", 0], [\"sasavot\", true, \"ВЫХОДНОЙ/ВОТ ТАКОЙ\", 0], [\"stray228\", false, \"\", 0], [\"dangerlyoha\", false, \"\", 0], [\"stintik\", false, \"\", 0], [\"xrohat\", true, \"[Die Kluft] 30 TAGE CHARITY STREAM - TAG 22 | NACHTSCHICHT: @halid_arsajev | !spenden !spendenziel !giveaway !wolt !revolut\", 0], [\"rostislav_999\", false, \"\", 0], [\"zarbex\", true, \"[DROPS] 🦩🌴 100+ STUNDEN GTA 6 STREAM 🦩🌴 TAG 5 🦩🌴 ALLES ERKUNDEN UND 100% DURCHZOCKEN 🦩🌴  !socials !esn !pmm\", 0], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 0], [\"jltomy\", true, \"[SUBATHON MIAMI] Crêpes party w/ @Wati, @Fakemonster & Hak0 | !subathon !holy !free !submiami\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 5 | !tg !прогресс\", 0], [\"shadowkekw\", false, \"\", 0], [\"ravshann\", false, \"\", 0], [\"mokrivskyi\", false, \"\", 0], [\"nix\", false, \"\", 0], [\"danila_gorilla\", false, \"\", 0], [\"kato_junichi0817\", false, \"\", 0], [\"stylishnoob4\", true, \"魂のプロレスラーを見つける。\", 0], [\"rostikfacekid\", false, \"\", 0], [\"ewroon\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"morphe_ya\", false, \"\", 0], [\"skyyart\", false, \"\", 0], [\"alohadancetv\", true, \"вечный ученик. !tg\", 0], [\"silvername\", false, \"\", 0], [\"xaryu\", false, \"\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"tpabomah\", false, \"\", 0], [\"gtasty\", false, \"\", 0], [\"lenagol0vach\", false, \"\", 0], [\"otplol_\", true, \"WORLDS - L'INTÉGRALITÉ\", 0], [\"deko\", false, \"\", 0], [\"nooreax\", true, \"🚨 GTA ZOCKEN 🚨 LOW CORTISOL NACHTSCHICHT 🚨 2,5 MONATE 24/7 LIVE 🚨 TAG 43 🚨 NOTY GmbH WG mit @DIMEAX @NORMAN @URUTOX !pmm | Werbung\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 4\", 0], [\"leemodopi\", true, \"SweatieFox играю Minecraft летсплей по майнкрафту!!! СТРИМ МАРАФОН 365 ДНЕЙ 1 ГОД БЕЗ ОСТАНОВКИ. !тг\", 0], [\"mafanyaking\", false, \"\", 0], [\"zxcursed\", false, \"\", 0], [\"metashi12\", true, \"WOW > GTA - BIG GIVEAWAYS | !Shakes | !Holy | !rested | !LiberNovo | !Grover |  !More | !prepmymeal | !TB | #Werbung\", 0], [\"welovegames\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 7 | !tg !donate !winline !ggsel\", 0], [\"renatko\", false, \"\", 0], [\"krokoboss\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"murzofix\", false, \"\", 0], [\"chopperinho\", false, \"\", 0], [\"melharucos\", true, \"ИГРА НРАВИТСЯ, ГРАБЛЮ ПРОФЕССИОНАЛЬНО\", 0], [\"sasatikk\", true, \"GTA6 そろそろデカい山に関わらせてください ネタバレ禁\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] последний день нашего обширного отпуска\", 0], [\"znat51\", false, \"\", 0], [\"alekzz03\", false, \"\", 0], [\"whoplohoyparen\", true, \"GTA 6 84% 2K 60fps DLSS5 ПОЛНОЕ ПРОХОЖДЕНИЕ ДЕНЬ 5\", 0], [\"gadjiev57\", false, \"\", 0], [\"daxak\", true, \"жесткий буст в прямом эфире в дискорде с молодым    !фонбет !бусти !заказ!розыгрыш\", 0], [\"keliencs\", false, \"\", 0], [\"betboom_dota_ru\", true, \"ПОВТОР | Bo3 | Group Stage Day 2 | BLAST SLAM IX\", 0], [\"blindzonexgod\", true, \"grind winter season 100% импрува 100% скилла 100% мотивации| !tg !мерч !bb\", 0], [\"exigent_wires\", true, \"ДРОПСЫ !ивент !дропс\", 0], [\"vovapain\", false, \"\", 0], [\"followkudes\", false, \"\", 0], [\"honeymad\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"xaryu\", false, \"\", 0], [\"jokerdtv\", false, \"\", 0], [\"leemodopi\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🚨LIVE JETZT! ALLE MILITÄR FAHRZEUGE KLAUEN IN GTA VI🚨\", 0], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB\", 0], [\"dunduk\", true, \"осталась последняя лига, ачивка на отрицательные перки, батлпасс\", 0], [\"ghostik\", true, \"🔥Тестуємо НОВИХ героїв в НОВОМУ патчі 7.42 (0-1) 🔥\", 0], [\"kerimch1k\", true, \"МАМА ТРАТИТ ТО ЧТО ВЫ ДОНАТИТЕ !tg !donate\", 0], [\"mainfinitytv\", true, \"Фармим PVP сет и ищем open world фарм голды, болтаем про WOW.\", 0]]"
  },
  "clips": [
   {
