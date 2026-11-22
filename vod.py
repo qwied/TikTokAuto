@@ -26,6 +26,7 @@ import os
 import re
 import subprocess
 import time
+from collections import Counter, defaultdict
 
 try:
     import banner
@@ -34,7 +35,7 @@ try:
     import vertical as vertical_mod
     import overlays as overlays_mod
     import webcam as webcam_mod
-    from hype_detector import DEFAULT_KEYWORDS, _is_excited
+    from hype_detector import CLIP_REQ_RE, DEFAULT_KEYWORDS, _is_excited, _norm
     from utils import ensure_dir, ffprobe_meta, run_cmd, sanitize
 except ImportError:                                    # плоский репозиторий
     import banner
@@ -43,7 +44,7 @@ except ImportError:                                    # плоский репо
     import vertical as vertical_mod
     import overlays as overlays_mod
     import webcam as webcam_mod
-    from hype_detector import DEFAULT_KEYWORDS, _is_excited
+    from hype_detector import CLIP_REQ_RE, DEFAULT_KEYWORDS, _is_excited, _norm
     from utils import ensure_dir, ffprobe_meta, run_cmd, sanitize
 
 log = __import__("logging").getLogger("vod")
@@ -155,7 +156,8 @@ def loudness_curve(audio_path, sr=4000):
 
 
 def pick_windows(rms, duration, max_windows=100, win=WIN_SECONDS,
-                 chat=None, chat_exc=None, exclude=None):
+                 chat=None, chat_exc=None, exclude=None,
+                 chat_users=None, chat_clip=None, chat_echo=None):
     """Окна самых интересных минут: [(start, end, score), ...] по времени.
 
     «Интересное» — это взрыв смеха, крик, накал момента. В децибелах
@@ -170,10 +172,21 @@ def pick_windows(rms, duration, max_windows=100, win=WIN_SECONDS,
         минута с одним пиком и 50 секундами тишины;
       * ШТРАФ за тишину: доля секунд ниже «тихого» уровня этого видео.
 
-    ЕСЛИ ЕСТЬ ЧАТ-РЕПЛЕЙ (записи Twitch), к аудио добавляется чат —
-    он показывает то, чего звук не слышит: где было СМЕШНО. Итоговая
-    оценка = аудио (динамика/пики) + активность чата + доля восторженных
-    сообщений. Чат весит примерно наравне со звуком.
+    ЕСЛИ ЕСТЬ ЧАТ-РЕПЛЕЙ — ЧАТ РЕШАЕТ ПРАКТИЧЕСКИ ВСЁ (жалоба «скучные
+    моменты»: смешно не там, где громко, а где РЕАГИРУЕТ чат). Сигналы
+    чата по окну:
+
+      * скорость сообщений (z) и всплеск против локального фона ±90 с;
+      * доля ВОСТОРЖЕННЫХ сообщений (смех/КАПС/эмоуты/донаты);
+      * число УНИКАЛЬНЫХ авторов (взрыв ловят все, а не два бота);
+      * КАСКАДНЫЕ ПОВТОРЫ — спам одной фразой ("КЕКВ" x50) — чистый хайп;
+      * ПРОСЬБЫ «КЛИП» — чат сам просит нарезать момент (жирнее всех).
+    Итог: 0.45 * громкость + 2.4 * чат-микс, а окна с МЁРТВЫМ локальным
+    чатом дополнительно глушатся (множитель до 0.55): громкое место при
+    молчащем чате почти всегда скучное.
+
+    Старт окна СДВИГАЕТСЯ к пику чата: пик встаёт на ~15-ю секунду клипа,
+    чтобы момент наступал быстро, а не прятался в хвосте минуты.
 
     exclude — интервалы «скучно» из фидбека сайта: такие окна не выбираются.
 
@@ -212,35 +225,80 @@ def pick_windows(rms, duration, max_windows=100, win=WIN_SECONDS,
     score = (0.42 * _z(mean_db) + 0.20 * _z(peak_db) + 0.28 * _z(std_db)
              + 0.55 * _z(loud) - 1.10 * silent)
 
-    # --- чат-реплей: где было СМЕШНО по ощущениям ЧАТА ----------------------
-    # Жалоба «скучные моменты»: когда чат известен, ОН ГЛАВНЫЙ сигнал,
-    # а громкость — вторична (чат весит ~60% итога). Мёртвый реплей
-    # (< 0.02 сообщ/сек в среднем) игнорируется как шум.
+    # --- чат-реплей: ЧАТ РЕШАЕТ ПРАКТИЧЕСКИ ВСЁ ------------------------------
+    # Жалоба «скучные моменты»: смешно не там, где громко, а там, где
+    # РЕАГИРУЕТ чат. Шесть сигналов (см. докстринг), чат-микс весит в 5+ раз
+    # больше громкости; окна с мёртвым локальным чатом глушатся множителем.
+    # Мёртвый реплей целиком (< 0.02 сообщ/сек в среднем) игнорируется как шум.
+    chat_mode = False
+    heat = None
+    tie_break = None                       # фактическая скорость чата для ничьих
     if chat is not None:
         try:
             chat = np.asarray(chat, dtype=np.float64)
-            exc = (np.asarray(chat_exc, dtype=np.float64)
-                   if chat_exc is not None else np.zeros_like(chat))
-            # выравниваем длину с rms (метаданные бывают чуть короче)
-            if chat.size < n:
-                chat = np.pad(chat, (0, n - chat.size))
-                exc = np.pad(exc, (0, n - exc.size))
-            elif chat.size > n:
-                chat, exc = chat[:n], exc[:n]
+
+            def _pad(a):
+                a = np.asarray(a, dtype=np.float64) if a is not None else np.zeros(n)
+                if a.size < n:
+                    a = np.pad(a, (0, n - a.size))
+                elif a.size > n:
+                    a = a[:n]
+                return a
+
+            exc = _pad(chat_exc)
+            users_a = _pad(chat_users)
+            clip_a = _pad(chat_clip)
+            echo_a = _pad(chat_echo)
             if float(chat.mean()) >= 0.02:
+                chat_mode = True
                 cw = np.lib.stride_tricks.sliding_window_view(chat, w)
                 ew = np.lib.stride_tricks.sliding_window_view(exc, w)
-                rate_w = cw.sum(axis=1) / float(w)              # сообщ/сек в окне
-                hot_w = np.divide(ew.sum(axis=1), np.maximum(cw.sum(axis=1), 1.0))
-                audio_score = (0.42 * _z(mean_db) + 0.20 * _z(peak_db)
-                               + 0.28 * _z(std_db) + 0.55 * _z(loud) - 1.10 * silent)
-                chat_score = 1.30 * _z(rate_w) + 1.00 * _z(hot_w)
-                score = 0.70 * audio_score + 1.60 * chat_score
-                log.info("Чат — ГЛАВНЫЙ сигнал отбора (среднее сообщ/сек: %.2f); "
-                         "окна с пиком чата идут первыми", float(rate_w.mean()))
+                uw = np.lib.stride_tricks.sliding_window_view(users_a, w)
+                kw = np.lib.stride_tricks.sliding_window_view(clip_a, w)
+                ec = np.lib.stride_tricks.sliding_window_view(echo_a, w)
+                csum = cw.sum(axis=1)
+                rate_w = csum / float(w)                              # сообщ/сек в окне
+                hot_w = np.divide(ew.sum(axis=1), np.maximum(csum, 1.0))   # доля восторгов
+                users_w = uw.sum(axis=1) / float(w)                   # уник. авторов в сек
+                clip_w = kw.sum(axis=1) / float(w)                    # просьб «клип» в сек
+                echo_w = np.divide(ec.sum(axis=1), np.maximum(csum, 1.0))  # доля повторов
+                # всплеск против ЛОКАЛЬНОГО фона ±90 с (у стрима свой ритм:
+                # ночью чат вялый, днём живой — глобальный z этого не видит)
+                local = np.convolve(chat, np.ones(181) / 181.0, mode="same")
+                local_w = np.lib.stride_tricks.sliding_window_view(local, w).mean(axis=1)
+                spike_w = np.divide(rate_w, local_w + 0.03)
+
+                def _zc(x):
+                    s = float(np.std(x))
+                    z = (np.asarray(x, dtype=np.float64) - float(np.median(x))) / (s + 1e-9)
+                    return np.clip(z, -3.0, 4.0)
+
+                chat_mix = (1.4 * _zc(rate_w) + 1.1 * _zc(hot_w)
+                            + 0.9 * _zc(users_w) + 0.7 * _zc(spike_w)
+                            + 0.6 * _zc(echo_w) + 2.6 * _zc(clip_w)) / 7.3
+                tie_break = rate_w
+                audio_score = score                                   # z-смесь громкости выше
+                score = 0.45 * audio_score + 2.4 * chat_mix
+                # мёртвый ЛОКАЛЬНЫЙ чат даже при громком звуке -> глушим:
+                # множитель 0.55 при 0 сообщ/сек -> 1.0 при >= 0.15 сообщ/сек
+                damp = 0.55 + 0.45 * np.minimum(rate_w / 0.15, 1.0)
+                score = score * damp
+                # «тепло» секунды для привязки пика: пик чата встаёт на ~15-ю
+                # секунду клипа — момент наступает быстро, не в хвосте минуты
+                heat = chat + 2.0 * exc + 0.8 * users_a + 3.0 * clip_a
+                heat = np.convolve(heat, np.ones(21) / 21.0, mode="same")
+                log.info("Чат — ГЛАВНЫЙ сигнал отбора (6 сигналов; среднее %.2f сообщ/сек, "
+                         "уникальных авторов/сек %.2f, восторгов %.0f%%, просьб клип %d, "
+                         "каскадных повторов %.0f%%); окна с пиком чата идут первыми",
+                         float(rate_w.mean()), float(users_w.mean()),
+                         100.0 * float(np.divide(ew.sum(), np.maximum(cw.sum(), 1.0))),
+                         int(clip_a.sum()),
+                         100.0 * float(np.divide(ec.sum(), np.maximum(cw.sum(), 1.0))))
             else:
                 log.info("Чат-реплей мёртвый (< 0.02 сообщ/сек) — отбор по громкости")
         except Exception:
+            chat_mode = False
+            heat = None
             log.exception("Чат-оценка не удалась — беру только громкость")
 
     head = int(min(TRIM_HEAD, duration * 0.02))
@@ -249,35 +307,64 @@ def pick_windows(rms, duration, max_windows=100, win=WIN_SECONDS,
     if hi <= lo:
         lo, hi = 0, n - w
 
-    cand = sorted(range(lo, hi), key=lambda i: -float(score[i]))
+    # Ничьи от клампинга z: среди окон с одинаковой оценкой берём то, где
+    # чат ПИКОВАЛ сильнее фактически (центр взрыва, а не край плато).
+    if chat_mode and tie_break is not None:
+        cand = sorted(range(lo, hi), key=lambda i: (-float(score[i]),
+                                                    -float(tie_break[i])))
+    else:
+        cand = sorted(range(lo, hi), key=lambda i: -float(score[i]))
     min_gap = max(240.0, duration / max(1, max_windows))
-    chosen = []
+
+    def _align_to_peak(t):
+        """Сдвинуть старт окна к пику чата: пик встаёт на ~15-ю секунду.
+
+        Клип [пик-15, пик+45] даёт короткую подачу ДО момента и сам момент
+        в первых трети — так клип не выглядит «скучным началом».
+        """
+        if heat is None:
+            return t
+        seg = heat[t: min(t + w, heat.size)]
+        if seg.size < 10:
+            return t
+        p = t + int(np.argmax(seg))
+        s = p - 15
+        return int(min(max(s, max(0, t - 25)), max(0, t + w - 35)))
+
+    chosen = []                            # (оценка окна, старт)
     for i in cand:
-        t = i  # окно [i, i+win)
+        s_i = float(score[i])
+        t = _align_to_peak(i) if chat_mode else i
         if _exclude_hit(t, w, exclude):
             continue
-        if any(abs(t - c) < min_gap for c in chosen):
+        if any(abs(t - c) < min_gap for _s2, c in chosen):
             continue
-        chosen.append(t)
+        chosen.append((s_i, t))
         if len(chosen) >= max_windows:
             break
     # самое интересное — первым: длинное видео начинается с лучших минут
-    chosen.sort(key=lambda t: -float(score[t]))
+    chosen.sort(key=lambda st: -st[0])
 
     # Адаптивная длина окна (как у живых клипов): жирный момент -> длиннее.
     # Одинаковые «минутные» клипы наскучивают, а короткий досматривают
     # до конца чаще (главный сигнал алгоритма TikTok).
     def _win_len(s):
+        if chat_mode:
+            if s >= 2.6:
+                return int(win)          # 60 с — жирный чат-взрыв
+            if s >= 1.2:
+                return 45
+            return 35
         if s >= 1.2:
-            return int(win)          # 60 с — реально жирный момент
+            return int(win)              # 60 с — реально жирный момент
         if s >= 0.4:
-            return 45                # средний момент
-        return 35                    # обычный момент
+            return 45                    # средний момент
+        return 35                        # обычный момент
 
     out = []
-    for t in chosen:
-        end = int(min(t + _win_len(float(score[t])), max(t + 1, duration)))
-        out.append((int(t), end, round(float(score[t]), 3)))
+    for s_i, t in chosen:
+        end = int(min(t + _win_len(s_i), max(t + 1, duration)))
+        out.append((int(t), end, round(s_i, 3)))
     return out
 
 
@@ -310,23 +397,30 @@ def expand_video(url, workdir, cookies_file="", max_windows=100,
             pass
     is_twitch_vod = "twitch." in url and ("/videos/" in url or "/v/" in url)
     yt_archived = _is_youtube(url) and live_status in ("was_live", "post_live")
-    chat = chat_exc = None
+    chat = chat_exc = chat_extra = None
     if is_twitch_vod or yt_archived:
         try:
             chat_path = fetch_chat_replay(url, str(workdir), cookies_file)
             if chat_path:
                 if yt_archived:
-                    chat, chat_exc = parse_chat_jsonl(chat_path, dur)
+                    chat, chat_exc, chat_extra = parse_chat_jsonl(chat_path, dur)
                 else:
-                    chat, chat_exc = parse_chat_vtt(chat_path, dur)
+                    chat, chat_exc, chat_extra = parse_chat_vtt(chat_path, dur)
                 total = int(chat.sum()) if chat is not None else 0
-                log.info("Чат-реплей: %d сообщений — отбор идёт ПО ЧАТУ", total)
+                creq = int(chat_extra["clipreq"].sum()) if chat_extra else 0
+                log.info("Чат-реплей: %d сообщений (%d просьб «клип») — отбор идёт ПО ЧАТУ",
+                         total, creq)
             else:
                 log.info("Чат-реплей пуст — отбираю по громкости")
         except Exception as e:
+            chat_extra = None
             log.warning("Чат-реплей недоступен (%s) — отбираю по громкости", e)
+    extra = chat_extra or {}
     wins = pick_windows(rms, dur, max_windows=max_windows,
                         chat=chat, chat_exc=chat_exc,
+                        chat_users=extra.get("users"),
+                        chat_clip=extra.get("clipreq"),
+                        chat_echo=extra.get("echo"),
                         exclude=exclude_ranges)
     if wins:
         log.info("Выбрано окон: %d; лучшая минута на %d с (оценка %.2f)",
@@ -376,20 +470,32 @@ def fetch_chat_replay(url, workdir, cookies_file=""):
 _VTT_TS_RE = re.compile(
     r"(\d+):(\d+):(\d+)\.(\d+)\s*-->\s*(\d+):(\d+):(\d+)\.(\d+)")
 _TAG_RE = re.compile(r"<[^>]+>")
+# автор в теге реплея: <v user1>текст</v> или <c.user1>текст</c>
+_VTT_VOICE_RE = re.compile(r"<v\s+([^>]+?)\s*/?>|<c\.([^>\s]+)")
 
 
 def parse_chat_vtt(path, duration):
-    """Чат-реплей .vtt -> (counts, excited) — сообщения по секундам.
+    """Чат-реплей .vtt -> (counts, excited, extra) — сигналы по секундам.
 
     counts — сколько сообщений пришлось на каждую секунду видео,
     excited — сколько из них «восторженных» (смех, КАПС, эмоуты, ключевые
-    слова — тот же детектор, что и в эфире). Это даёт отбору то, чего
-    громкость не видит: смешно ли там было ЧАТУ.
+    слова — тот же детектор, что и в эфире). extra — словарь с ДВУМЯ
+    дополнительными картами:
+
+      * users  — сколько УНИКАЛЬНЫХ авторов писали в секунду (взрыв ловит
+        весь чат, а не два бота);
+      * clipreq — просьбы «клип»/"clip" — чат сам указывает лучший момент;
+      * echo   — каскадные повторы: одна и та же фраза >= 3 раз за видео
+        (спам "КЕКВ" x50 — чистый хайп).
     """
     import numpy as np
     n = int(max(float(duration or 0), 1.0)) + 1
     counts = np.zeros(n, dtype=np.float64)
     excited = np.zeros(n, dtype=np.float64)
+    users = np.zeros(n, dtype=np.float64)
+    clipreq = np.zeros(n, dtype=np.float64)
+    echo = np.zeros(n, dtype=np.float64)
+    rows = []                              # (sec, user, body)
     with open(str(path), "r", encoding="utf-8", errors="replace") as f:
         block_ts = None
         block_text = []
@@ -397,16 +503,17 @@ def parse_chat_vtt(path, duration):
         def flush():
             nonlocal block_ts, block_text
             if block_ts is not None and block_text:
-                sec = min(int(block_ts), n - 1)
-                text = " ".join(block_text)
+                raw = " ".join(block_text)
+                body = _TAG_RE.sub("", raw).strip()
                 user = ""
-                body = text
-                if ":" in text and text.index(":") < 40:
-                    user, _, body = text.partition(":")
-                counts[sec] += 1
-                if _is_excited(body, DEFAULT_KEYWORDS) or \
-                        _is_excited(user, DEFAULT_KEYWORDS):
-                    excited[sec] += 1
+                mv = _VTT_VOICE_RE.search(raw)
+                if mv:
+                    user = (mv.group(1) or mv.group(2) or "").strip()
+                elif ":" in body and body.index(":") < 40:
+                    user, _, body = body.partition(":")
+                    body = body.strip()
+                if body:
+                    rows.append((min(int(block_ts), n - 1), user.strip(), body))
             block_ts = None
             block_text = []
 
@@ -424,26 +531,48 @@ def parse_chat_vtt(path, duration):
                 continue
             clean = _TAG_RE.sub("", line).strip()
             if clean and block_ts is not None:
-                block_text.append(clean)
+                block_text.append(line)          # сырая строка: тег несёт автора
         flush()
+
+    repeats = Counter(_norm(b) for _s, _u, b in rows)
+    per_sec_users = defaultdict(set)
+    for sec, user, body in rows:
+        counts[sec] += 1
+        if _is_excited(body, DEFAULT_KEYWORDS) or _is_excited(user, DEFAULT_KEYWORDS):
+            excited[sec] += 1
+        nb = _norm(body)
+        if nb and repeats.get(nb, 0) >= 3:
+            echo[sec] += 1
+        if CLIP_REQ_RE.search(body):
+            clipreq[sec] += 1
+        if user:
+            per_sec_users[sec].add(user.lower())
+    for sec, us in per_sec_users.items():
+        users[sec] = len(us)
     if counts.sum() < 1:
-        return None, None
-    return counts, excited
+        return None, None, None
+    return counts, excited, {"users": users, "clipreq": clipreq, "echo": echo}
 
 
 def parse_chat_jsonl(path, duration):
-    """Архивный чат YouTube (yt-dlp live_chat json3) -> (counts, excited).
+    """Архивный чат YouTube (yt-dlp live_chat json3) -> (counts, excited, extra).
 
     Каждая строка файла — action реплея чата: replayChatItemAction содержит
     videoOffsetTimeMsec (позиция в видео, мс) и вложенные действия чата
     (addChatItemAction.item.liveChat*MessageRenderer): автор, текст,
     суперчат-донат. counts — сообщений по секундам видео, excited — сколько
     из них восторженных/донатов (тот же детектор, что и в эфире).
+    extra — карты users (уникальные авторы/сек), clipreq (просьбы «клип»)
+    и echo (каскадные повторы одной фразы >= 3 раз).
     """
     import numpy as np
     n = int(max(float(duration or 0), 1.0)) + 1
     counts = np.zeros(n, dtype=np.float64)
     excited = np.zeros(n, dtype=np.float64)
+    users = np.zeros(n, dtype=np.float64)
+    clipreq = np.zeros(n, dtype=np.float64)
+    echo = np.zeros(n, dtype=np.float64)
+    rows = []                              # (sec, user, text, paid)
     with open(str(path), "r", encoding="utf-8", errors="replace") as f:
         for line in f:
             line = line.strip()
@@ -473,14 +602,28 @@ def parse_chat_jsonl(path, duration):
                 text = "".join(run.get("text", "")
                                for run in (r.get("message") or {}).get("runs", []))
                 user = (r.get("authorName") or {}).get("simpleText") or ""
-                counts[sec] += 1
                 paid = bool(item.get("liveChatPaidMessageRenderer"))
-                if paid or _is_excited(text, DEFAULT_KEYWORDS) or \
-                        _is_excited(user, DEFAULT_KEYWORDS):
-                    excited[sec] += 1
+                rows.append((sec, user, text, paid))
+
+    repeats = Counter(_norm(t) for _s, _u, t, _p in rows)
+    per_sec_users = defaultdict(set)
+    for sec, user, text, paid in rows:
+        counts[sec] += 1
+        if paid or _is_excited(text, DEFAULT_KEYWORDS) or \
+                _is_excited(user, DEFAULT_KEYWORDS):
+            excited[sec] += 1
+        nt = _norm(text)
+        if nt and not paid and repeats.get(nt, 0) >= 3:
+            echo[sec] += 1
+        if CLIP_REQ_RE.search(text):
+            clipreq[sec] += 1
+        if user:
+            per_sec_users[sec].add(user.lower())
+    for sec, us in per_sec_users.items():
+        users[sec] = len(us)
     if counts.sum() < 1:
-        return None, None
-    return counts, excited
+        return None, None, None
+    return counts, excited, {"users": users, "clipreq": clipreq, "echo": echo}
 
 
 def _exclude_hit(t, w, exclude):
