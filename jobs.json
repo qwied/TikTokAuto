@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-22T15:52:15Z",
- "jobs": []
+ "updated": "2026-11-22T16:21:07Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=fOCWBhuDdDo",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Эксклюзив: Такер Карлсон берет интервью у Владимира Путина.",
+   "views": 24457499,
+   "added": "2026-11-22T16:21:05Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=0lvOXNhtfOc",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Теория большого взрыва 3 сезон / лучшие моменты",
+   "views": 2090332,
+   "added": "2026-11-22T16:20:55Z"
+  }
+ ]
 }
