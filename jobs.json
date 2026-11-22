@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-22T00:57:44Z",
+ "updated": "2026-11-22T00:58:36Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=aPpZMvPcgAQ",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "gta6",
    "display": "Все официальные видео GTA 6, выпущенные на данный момент (полная подборка)",
    "views": 221744,
