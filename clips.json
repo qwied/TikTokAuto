@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22T04:49:24Z",
+ "updated": "2026-11-22T04:49:48Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -111,6 +111,47 @@
   "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"stray228\", true, \"GTA6 RP, отыгрываем на совесть !tg !bb !wow !воппер\", 3200], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 4\", 2675], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 4]\", 1775], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 7 | !tg !donate !winline !ggsel\", 1525], [\"betboom_dota_ru\", true, \"ПОВТОР | Bo3 | Group Stage Day 2 | BLAST SLAM IX\", 1050], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
+  {
+   "id": "2026-11-22_04-46-15_stray228",
+   "file": "2026-11-22_04-46-15_stray228.mp4",
+   "url": "https://github.com/qwied/TikTokAuto/releases/download/auto/2026-11-22_04-46-15_stray228.mp4",
+   "thumb": "data:image/jpeg;base64,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",
+   "size": 20022160,
+   "duration": 48.6,
+   "channel": "stray228",
+   "display": "twitch.tv/stray228",
+   "platform": "twitch",
+   "title": "GTA6 RP, отыгрываем на совесть !tg !bb !wow !воппер",
+   "score": 51.0,
+   "hashtags": [
+    "#gta",
+    "#гта5",
+    "#gtarp",
+    "#stray228",
+    "#twitch",
+    "#рек",
+    "#рекомендации",
+    "#fyp",
+    "#foryou",
+    "#viral",
+    "#прикол",
+    "#смешно",
+    "#хайп",
+    "#стрим"
+   ],
+   "caption": "«Подождите. Подождём. Сейчас приду. Сейчас приду. Быстренько. Так, я пока го. Игру» — twitch.tv/stray228",
+   "subs": {
+    "lang": "ru",
+    "words": 29,
+    "speech_pct": 32,
+    "ok": true,
+    "hook": "Подождите. Подождём. Сейчас приду. Сейчас приду. Быстренько. Так, я пока го. Игру"
+   },
+   "src": "",
+   "start": 0,
+   "created": 1795322985,
+   "gh": true
+  },
   {
    "id": "2026-11-22_04-34-09_stray228",
    "file": "2026-11-22_04-34-09_stray228.mp4",
