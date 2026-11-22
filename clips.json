@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22T04:11:23Z",
+ "updated": "2026-11-22T04:12:22Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -55,6 +55,47 @@
   "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 4\", 3275], [\"stray228\", true, \"GTA6 RP, отыгрываем на совесть !tg !bb !wow !воппер\", 3300], [\"frametamer666\", true, \"GTA 6 ДОНАТОФОН 24/7 [DAY 4]\", 1825], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 7 | !tg !donate !winline !ggsel\", 1475], [\"betboom_dota_ru\", true, \"ПОВТОР | Bo3 | Group Stage Day 2 | BLAST SLAM IX\", 1025]]"
  },
  "clips": [
+  {
+   "id": "2026-11-22_04-06-24_frametamer666",
+   "file": "2026-11-22_04-06-24_frametamer666.mp4",
+   "url": "https://github.com/qwied/TikTokAuto/releases/download/auto/2026-11-22_04-06-24_frametamer666.mp4",
+   "thumb": "data:image/jpeg;base64,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",
+   "size": 20837098,
+   "duration": 35.3,
+   "channel": "frametamer666",
+   "display": "twitch.tv/frametamer666",
+   "platform": "twitch",
+   "title": "GTA 6 ДОНАТОФОН 24/7 [DAY 4]",
+   "score": 61.0,
+   "hashtags": [
+    "#gta",
+    "#гта5",
+    "#gtarp",
+    "#frametamer666",
+    "#twitch",
+    "#рек",
+    "#рекомендации",
+    "#fyp",
+    "#foryou",
+    "#viral",
+    "#прикол",
+    "#смешно",
+    "#хайп",
+    "#стрим"
+   ],
+   "caption": "«жители заразят, тогда мне точно придется всё делать по -новой. Так, в чьи глаза,» — twitch.tv/frametamer666",
+   "subs": {
+    "lang": "ru",
+    "words": 58,
+    "speech_pct": 76,
+    "ok": true,
+    "hook": "жители заразят, тогда мне точно придется всё делать по -новой. Так, в чьи глаза,"
+   },
+   "src": "",
+   "start": 0,
+   "created": 1795320738,
+   "gh": true
+  },
   {
    "id": "2026-11-22_03-56-58_betboom_dota_ru",
    "file": "2026-11-22_03-56-58_betboom_dota_ru.mp4",
