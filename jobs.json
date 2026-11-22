@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-22T02:50:28Z",
+ "updated": "2026-11-22T02:50:31Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=UPLn7y6iE3U",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Топ Моменты с Twitch | Гениальный Контентмейкер",
    "views": 109041,
