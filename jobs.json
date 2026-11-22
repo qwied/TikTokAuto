@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-22T19:10:15Z",
- "jobs": []
+ "updated": "2026-11-22T19:34:33Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=_HCRxoPW_Xo",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Киев не готов к морозам? | Интервью с местными про последствия ударов России по энергетике Украины",
+   "views": 1184338,
+   "added": "2026-11-22T19:34:31Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=a1uj9flqlWY",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "5 психологических экспериментов, которые потрясли мир",
+   "views": 1158337,
+   "added": "2026-11-22T19:34:33Z"
+  }
+ ]
 }
