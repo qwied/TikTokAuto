@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-22T14:00:16Z",
+ "updated": "2026-11-22T14:00:19Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=YqrJQlCApRw",
    "kind": "video",
-   "fails": 1,
+   "fails": 2,
    "tag": "ru",
    "display": "Три острова | Первый выпуск | Смотри на Иви",
    "views": 2374382,
