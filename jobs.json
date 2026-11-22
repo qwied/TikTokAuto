@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-22T21:50:22Z",
+ "updated": "2026-11-22T21:50:35Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=ZZ2EbIdGyhE",
    "kind": "video",
-   "fails": 1,
+   "fails": 2,
    "tag": "ru",
    "display": "Венедиктов: справедливого мира не будет | Интервью про Путина, Зеленского, Трампа и Донбасс",
    "views": 2509220,
