@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-22T11:13:04Z",
+ "updated": "2026-11-22T11:13:14Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=hZOf2W27ujk",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "БАССЕЙН С СОЛЬЮ В КОТОРОМ НЕВОЗМОЖНО УТОНУТЬ",
    "views": 26811948,
