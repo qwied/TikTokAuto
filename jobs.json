@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-22T22:44:13Z",
+ "updated": "2026-11-22T22:45:06Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=kcvSPNQUT1s",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "ЭВЕЛОН ШОУ РАССМЕШИ СТРИМЕРА ft. SASAVOT, SHADOWKEKW / ЭВЕЛОН ПЛАТИТ ТОМУ КТО РАССМЕШИТ ЕГО",
    "views": 953338,
