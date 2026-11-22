@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22T13:01:45Z",
+ "updated": "2026-11-22T13:03:40Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -20,20 +20,20 @@
     "title": "🔴 WW vs ENEMY | bo1 | BLAST Bounty 2027 Season 1 | @m3wsu @keliencs  @hypetried @ryujincs1"
    },
    {
-    "name": "skywhywalker",
-    "display": "twitch.tv/skywhywalker",
+    "name": "recrent",
+    "display": "twitch.tv/recrent",
     "platform": "twitch",
     "live": true,
     "viewers": 0,
-    "title": "САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑"
+    "title": "[1440p] GTA VI в 60 fps. День 5 | !pari !ggsel !tg !мерч"
    },
    {
-    "name": "dmitry_lixxx",
-    "display": "twitch.tv/dmitry_lixxx",
+    "name": "t2x2",
+    "display": "twitch.tv/t2x2",
     "platform": "twitch",
     "live": true,
     "viewers": 0,
-    "title": "[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan"
+    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch (донаты и мемы офф)"
    },
    {
     "name": "bratishkinoff",
@@ -44,12 +44,12 @@
     "title": "🔴 2K 60 FPS 🔴 НЕКЛАВАМЫШЬ 🔴 ИЩУ НЕИЩИМОЕ 🔴 GTA 6 🔴 DAY 5 🔴"
    },
    {
-    "name": "sasavot",
-    "display": "twitch.tv/sasavot",
+    "name": "skywhywalker",
+    "display": "twitch.tv/skywhywalker",
     "platform": "twitch",
     "live": true,
     "viewers": 0,
-    "title": "ВЫХОДНОЙ/ВОТ ТАКОЙ"
+    "title": "САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑"
    },
    {
     "name": "leb1ga",
@@ -60,12 +60,28 @@
     "title": "⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 4"
    },
    {
-    "name": "recrent",
-    "display": "twitch.tv/recrent",
+    "name": "sasavot",
+    "display": "twitch.tv/sasavot",
     "platform": "twitch",
     "live": true,
     "viewers": 0,
-    "title": "[1440p] GTA VI в 60 fps. День 5 | !pari !ggsel !tg !мерч"
+    "title": "ВЫХОДНОЙ/ВОТ ТАКОЙ"
+   },
+   {
+    "name": "dmitry_lixxx",
+    "display": "twitch.tv/dmitry_lixxx",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan"
+   },
+   {
+    "name": "blackufa",
+    "display": "twitch.tv/blackufa",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "[DROPS] GTA 6 [PS5Pro] последний день нашего обширного отпуска"
    },
    {
     "name": "leva2k",
@@ -79,37 +95,29 @@
     "name": "melharucos",
     "display": "twitch.tv/melharucos",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "ИГРА НРАВИТСЯ, ГРАБЛЮ ПРОФЕССИОНАЛЬНО"
+    "title": ""
    },
    {
     "name": "zloyn",
     "display": "twitch.tv/zloyn",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "МАРАФОН | GTA VI 🤯 | ДЕНЬ 5 | !tg !прогресс"
+    "title": ""
    },
    {
-    "name": "blackufa",
-    "display": "twitch.tv/blackufa",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "[DROPS] GTA 6 [PS5Pro] последний день нашего обширного отпуска"
-   },
-   {
-    "name": "daxak",
-    "display": "twitch.tv/daxak",
+    "name": "chopperinho",
+    "display": "twitch.tv/chopperinho",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "жесткий буст в прямом эфире в дискорде с молодым    !фонбет !бусти !заказ!розыгрыш"
+    "title": ""
    },
    {
-    "name": "betboom_dota_ru",
-    "display": "twitch.tv/betboom_dota_ru",
+    "name": "dunduk",
+    "display": "twitch.tv/dunduk",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
@@ -119,73 +127,25 @@
     "name": "alohadancetv",
     "display": "twitch.tv/alohadancetv",
     "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "вечный ученик. !tg"
-   },
-   {
-    "name": "blindzonexgod",
-    "display": "twitch.tv/blindzonexgod",
-    "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "grind winter season 100% импрува 100% скилла 100% мотивации| !tg !мерч !bb"
-   },
-   {
-    "name": "dunduk",
-    "display": "twitch.tv/dunduk",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "осталась последняя лига, ачивка на отрицательные перки, батлпасс"
-   },
-   {
-    "name": "kerimch1k",
-    "display": "twitch.tv/kerimch1k",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": "МАМА ТРАТИТ ТО ЧТО ВЫ ДОНАТИТЕ !tg !donate"
+    "title": ""
    },
    {
     "name": "shiishak",
     "display": "twitch.tv/shiishak",
     "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB"
-   },
-   {
-    "name": "exigent_wires",
-    "display": "twitch.tv/exigent_wires",
-    "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "ДРОПСЫ !ивент !дропс"
+    "title": ""
    },
    {
     "name": "ghostik",
     "display": "twitch.tv/ghostik",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "🔥Тестуємо НОВИХ героїв в НОВОМУ патчі 7.42 (3-1) 🔥"
-   },
-   {
-    "name": "t2x2",
-    "display": "twitch.tv/t2x2",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch (донаты и мемы офф)"
-   },
-   {
-    "name": "chopperinho",
-    "display": "twitch.tv/chopperinho",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "WW [0:0] 9INE | BO1 | BLAST Open Qualifier | !bb !tg !yt"
+    "title": ""
    },
    {
     "name": "welovegames",
@@ -242,9 +202,17 @@
     "live": false,
     "viewers": 0,
     "title": ""
+   },
+   {
+    "name": "silvername",
+    "display": "twitch.tv/silvername",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 WW vs ENEMY | bo1 | BLAST Bounty 2027 Season 1 | @m3wsu @keliencs  @hypetried @ryujincs1\", 0], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 0], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 НЕКЛАВАМЫШЬ 🔴 ИЩУ НЕИЩИМОЕ 🔴 GTA 6 🔴 DAY 5 🔴\", 0], [\"sasavot\", true, \"ВЫХОДНОЙ/ВОТ ТАКОЙ\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 4\", 0], [\"recrent\", true, \"[1440p] GTA VI в 60 fps. День 5 | !pari !ggsel !tg !мерч\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 7 | !tg !donate !winline !ggsel\", 0], [\"melharucos\", true, \"ИГРА НРАВИТСЯ, ГРАБЛЮ ПРОФЕССИОНАЛЬНО\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 5 | !tg !прогресс\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] последний день нашего обширного отпуска\", 0], [\"daxak\", false, \"жесткий буст в прямом эфире в дискорде с молодым    !фонбет !бусти !заказ!розыгрыш\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"alohadancetv\", true, \"вечный ученик. !tg\", 0], [\"blindzonexgod\", false, \"grind winter season 100% импрува 100% скилла 100% мотивации| !tg !мерч !bb\", 0], [\"dunduk\", true, \"осталась последняя лига, ачивка на отрицательные перки, батлпасс\", 0], [\"kerimch1k\", false, \"МАМА ТРАТИТ ТО ЧТО ВЫ ДОНАТИТЕ !tg !donate\", 0], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB\", 0], [\"exigent_wires\", false, \"ДРОПСЫ !ивент !дропс\", 0], [\"ghostik\", true, \"🔥Тестуємо НОВИХ героїв в НОВОМУ патчі 7.42 (3-1) 🔥\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch (донаты и мемы офф)\", 0], [\"chopperinho\", true, \"WW [0:0] 9INE | BO1 | BLAST Open Qualifier | !bb !tg !yt\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 WW vs ENEMY | bo1 | BLAST Bounty 2027 Season 1 | @m3wsu @keliencs  @hypetried @ryujincs1\", 0], [\"recrent\", true, \"[1440p] GTA VI в 60 fps. День 5 | !pari !ggsel !tg !мерч\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch (донаты и мемы офф)\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 НЕКЛАВАМЫШЬ 🔴 ИЩУ НЕИЩИМОЕ 🔴 GTA 6 🔴 DAY 5 🔴\", 0], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 4\", 0], [\"sasavot\", true, \"ВЫХОДНОЙ/ВОТ ТАКОЙ\", 0], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ПЛОХАЯ КОНЦОВКА | !tg !winline !ЯО !ВТБ !avan\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] последний день нашего обширного отпуска\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 7 | !tg !donate !winline !ggsel\", 0], [\"melharucos\", false, \"\", 0], [\"zloyn\", false, \"\", 0], [\"chopperinho\", false, \"\", 0], [\"dunduk\", false, \"\", 0], [\"alohadancetv\", false, \"\", 0], [\"shiishak\", false, \"\", 0], [\"ghostik\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"silvername\", false, \"\", 0]]"
  },
  "clips": [
   {
