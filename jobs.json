@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-22T16:47:48Z",
+ "updated": "2026-11-22T16:47:50Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=2RKd1Qw0BKc",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "ПОЧЕМУ САМАЯ УМНАЯ НАЦИЯ ВЫМИРАЕТ? | Андрей Ланьков",
    "views": 1718036,
