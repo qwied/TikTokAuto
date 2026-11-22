@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-22T11:41:52Z",
+ "updated": "2026-11-22T11:42:37Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=Tk58ZuCaYoc",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Побег от настоящих копов с помощью магии",
    "views": 8502983,
