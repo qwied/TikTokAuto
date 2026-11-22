@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-22T10:47:06Z",
+ "updated": "2026-11-22T10:47:09Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=riLvi22FbzY",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Брат-2 | Сухоруков | Лучшие моменты",
    "views": 3813162,
