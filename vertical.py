@@ -310,6 +310,48 @@ def make_vertical(video_in, video_out, workdir, width=WIDTH, height=HEIGHT,
                      "(9:16-кроп по лицу) вместо split", fallback_low)
             face_override = cam
             cam = None
+            # Уточнение лица слабым детектом: кластер «камеры» может занимать
+            # полкадра, а человек стоять у края — кроп по центру кластера
+            # снова режет лицо. Если слабый детект нашёл лицо ВНУТРИ
+            # кластера — центрируемся по НАСТОЯЩЕМУ лицу, не по кластеру.
+            try:
+                try:
+                    from webcam import detect_cam_box as _dcbox
+                except ImportError:                       # плоский репозиторий
+                    from webcam import detect_cam_box as _dcbox
+                _fw = _dcbox(full_in, str(workdir), weak=True)
+            except Exception:
+                log.exception("Слабый детект лица (IRL) не удался — кроп по кластеру")
+                _fw = None
+            if _fw and box_overlap_frac(_fw, face_override) > 0.3:
+                log.info("IRL: лицо уточнено слабым детектом %s — кроп по нему",
+                         [round(v) for v in _fw])
+                face_override = _fw
+        if cam:
+            # ПРОВЕРКА ЛИЦА В ОКНЕ КАМЕРЫ (жалоба «опять без лица»): окно
+            # «камеры» может оказаться чужим виджетом — тогда split кладёт
+            # виджет наверх, а лицо режется в игровой секции. Слабый детект
+            # лица: если лицо нашлось и оно ВНЕ окна камеры — доверяем ЛИЦУ,
+            # а не окну: макет меняется на 9:16-кроп по лицу. Если слабый
+            # детект ничего не нашёл — верим камере (не наказываем split
+            # за каприз детектора).
+            _fw = None
+            try:
+                try:
+                    from webcam import detect_cam_box as _dcbox
+                except ImportError:                       # плоский репозиторий
+                    from webcam import detect_cam_box as _dcbox
+                _fw = _dcbox(full_in, str(workdir), weak=True)
+            except Exception:
+                log.exception("Слабая проверка лица не удалась — верю окну камеры")
+                _fw = None
+            if _fw and box_overlap_frac(_fw, cam) < 0.25:
+                log.info("Лицо %s вне окна камеры %s (пересечение %.0f%%) — "
+                         "макет 9:16-кроп по лицу вместо split",
+                         [round(v) for v in _fw], [round(v) for v in cam],
+                         box_overlap_frac(_fw, cam) * 100)
+                face_override = _fw
+                cam = None
         if cam:
             try:
                 graph, base_label, _cam_h = split_graph(

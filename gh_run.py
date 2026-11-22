@@ -736,6 +736,9 @@ def load_subscriptions(path=SUBS_JSON):
 
     channels — каналы человека; auto_channels — топ Twitch, найденный
     автопоиском. Оба списка следятся одинаково, человек всегда важнее.
+    Каналы-исключения (CHANNEL_BLACKLIST, frametamer666) вырезаются и из
+    ручного списка, и из авто — иначе они нарезались бы до следующего
+    автопоиска (жалоба 2026-11-22: «всех кроме frametamer»).
     """
     try:
         with open(path, "r", encoding="utf-8") as f:
@@ -744,7 +747,12 @@ def load_subscriptions(path=SUBS_JSON):
                if str(x).strip()]
         out += [str(x).strip() for x in (data.get("auto_channels") or [])
                 if str(x).strip()]
-        return out
+
+        def _bl(url):
+            low = str(url).rsplit("/", 1)[-1].lower()
+            return low not in CHANNEL_BLACKLIST
+
+        return [u for u in out if _bl(u)]
     except (OSError, ValueError):
         return []
 
