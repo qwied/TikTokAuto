@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-22T03:45:17Z",
+ "updated": "2026-11-22T03:46:14Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=0ytU12e0vVE",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "gta6",
    "display": "ЗАПУСТИЛ GTA 6 в 60 FPS и DLSS 5 и ОФИГЕЛ! (прохождение ГТА 6 #3)",
    "views": 71077,
