@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-22T07:03:57Z",
- "jobs": []
+ "updated": "2026-11-22T07:28:33Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=Dbu25BlrxR4",
+   "kind": "video",
+   "fails": 0,
+   "tag": "gta6",
+   "display": "GTA 6: Топ 100 WTF и смешных моментов #2",
+   "views": 645714,
+   "added": "2026-11-22T07:28:28Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=4nYr8hF_GS0",
+   "kind": "video",
+   "fails": 0,
+   "tag": "gta6",
+   "display": "GTA 6: Топ-100 угарных и странных моментов #3",
+   "views": 143759,
+   "added": "2026-11-22T07:28:28Z"
+  }
+ ]
 }
