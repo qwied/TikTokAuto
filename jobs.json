@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22T10:47:09Z",
+ "updated": "2026-11-22T11:11:47Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=riLvi22FbzY",
@@ -9,6 +9,24 @@
    "display": "Брат-2 | Сухоруков | Лучшие моменты",
    "views": 3813162,
    "added": "2026-11-22T10:45:52Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=hZOf2W27ujk",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "БАССЕЙН С СОЛЬЮ В КОТОРОМ НЕВОЗМОЖНО УТОНУТЬ",
+   "views": 26811948,
+   "added": "2026-11-22T11:11:47Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=7Ky_xzwnTiQ",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Розыгрыш с футболками с лицами незнакомцев",
+   "views": 7534515,
+   "added": "2026-11-22T11:11:39Z"
   }
  ]
 }
