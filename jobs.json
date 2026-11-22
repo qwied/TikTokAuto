@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-22T21:10:57Z",
- "jobs": []
+ "updated": "2026-11-22T21:18:19Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=T0SvIFRHjUo",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "АНДРЕЙ ГРИГОРЬЕВ-АППОЛОНОВ (All Right): конфликт с Grey Wiese, права на Ancora, Ангелина Голощапова",
+   "views": 8462038,
+   "added": "2026-11-22T21:18:17Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=W7insuRXETc",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "HYPE REALITY 3: Чимаев VS Царукян. Бой Раха Андийский VS Байра. ПРАНК над ВАРТАНЯНОМ! Бивол. Вахо #6",
+   "views": 2804143,
+   "added": "2026-11-22T21:18:13Z"
+  }
+ ]
 }
