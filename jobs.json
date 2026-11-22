@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-22T09:51:28Z",
+ "updated": "2026-11-22T09:51:31Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=n8fkE1tF-1g",
    "kind": "video",
-   "fails": 1,
+   "fails": 2,
    "tag": "ru",
    "display": "Что, если 1000 непотухаемых спичек поджечь под водой?",
    "views": 10249034,
