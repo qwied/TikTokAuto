@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-23T06:39:55Z",
- "jobs": []
+ "updated": "2026-11-23T07:07:08Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=urCswaXDN1s",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Интервью Эмиру Кустурице",
+   "views": 499240,
+   "added": "2026-11-23T07:07:06Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=46VDbHFFr-k",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "🔥 ПСИХОЛОГИЧЕСКИЙ ЭКСПЕРИМЕНТ, КОТОРЫЙ ПЕРЕШЁЛ ГРАНЬ! 🎬 Подозреваемый. 🏷 ТРИЛЛЕР",
+   "views": 297562,
+   "added": "2026-11-23T07:07:08Z"
+  }
+ ]
 }
