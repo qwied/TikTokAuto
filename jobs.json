@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T09:00:06Z",
+ "updated": "2026-11-23T09:00:14Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=2pbJJq6-Q8k",
    "kind": "video",
-   "fails": 1,
+   "fails": 2,
    "tag": "ru",
    "display": "Энерги гэж, энергийн цэвэрлэгээ гэж юу вэ? \"Хөх тэнгэр\" радио \"Хөтөч\" подкаст",
    "views": 173276,
