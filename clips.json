@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T05:25:30Z",
+ "updated": "2026-11-23T05:25:43Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -111,28 +111,28 @@
     "name": "voodoosh",
     "display": "twitch.tv/voodoosh",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 4421,
+    "title": "День 2. Ночное Прохождение by VooDooSh! Заходи <3"
    },
    {
     "name": "whoplohoyparen",
     "display": "twitch.tv/whoplohoyparen",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 4262,
+    "title": "GTA 6 87% 2K 60fps DLSS5 ФИНАЛ"
    },
    {
     "name": "shiishak",
     "display": "twitch.tv/shiishak",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 593,
+    "title": "Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"jaguarn1\", true, \"Люся - заказ трека !donli\", 25], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 2025], [\"leva2k\", true, \"🔇 ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel\", 2125], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 3\", 875], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"d1pro4\", true, \"Я снова один в этом Ламбо\", 1850], [\"voodoosh\", false, \"\", 0], [\"whoplohoyparen\", false, \"\", 0], [\"shiishak\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"jaguarn1\", true, \"Люся - заказ трека !donli\", 25], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 2025], [\"leva2k\", true, \"🔇 ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel\", 2125], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 3\", 875], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"d1pro4\", true, \"Я снова один в этом Ламбо\", 1850], [\"voodoosh\", true, \"День 2. Ночное Прохождение by VooDooSh! Заходи <3\", 4425], [\"whoplohoyparen\", true, \"GTA 6 87% 2K 60fps DLSS5 ФИНАЛ\", 4250], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB\", 600]]"
  },
  "clips": [
   {
