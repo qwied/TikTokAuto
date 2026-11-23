@@ -36,6 +36,15 @@ API_BASE = "https://open.tiktokapis.com"
 DEFAULT_HASHTAGS = ["fyp", "foryou", "рек", "рекомендации", "стрим",
                     "клипы", "прикол", "хайп", "twitch", "live"]
 
+# TikTok: приложение без аудита постит ТОЛЬКО в приватный аккаунт. Если
+# аккаунт публичный — init отклоняется с этим кодом; дальнейшие попытки
+# в сессии бессмысленны (клип НЕ теряется: он остаётся на сайте/в релизе).
+UNAUDITED_MARK = "unaudited_client_can_only_post_to_private_accounts"
+UNAUDITED_FIX = ("TikTok не публикует: приложение ещё без аудита, а аккаунт "
+                 "ПУБЛИЧНЫЙ. Включи в TikTok «Приватный аккаунт» "
+                 "(Профиль → Настройки → Конфиденциальность) — и автопостинг "
+                 "заработает. После аудита приложения верни публичный.")
+
 
 def build_caption(meta, hashtags=None):
     """Описание для TikTok: заголовок + канал + хэштеги, максимум 2200 символов."""
@@ -104,6 +113,8 @@ class TikTokPoster:
         self._lock = threading.Lock()
         self.posted = 0
         self.failed = 0
+        self._blocked_unaudited = False   # увидели «нужен приватный аккаунт»
+        self.notify = None                # Notifier.notify_text — тревога на телефон
         self._thread = None
 
     # --- готовность ------------------------------------------------------------
@@ -180,6 +191,13 @@ class TikTokPoster:
                 path, caption = self.q.get(timeout=2.0)
             except queue.Empty:
                 continue
+            if self._blocked_unaudited:
+                log.warning("TikTok: %s пропущен — аккаунт публичный, а без "
+                            "аудита постить можно только в приватный аккаунт "
+                            "(клип остаётся на сайте и в релизе)",
+                            os.path.basename(path))
+                self.q.task_done()
+                continue
             delay = random.randint(self.delay_min, self.delay_max) \
                 if self.delay_max > self.delay_min else self.delay_min
             if delay and not self.dry_run:
@@ -194,8 +212,19 @@ class TikTokPoster:
                 except Exception as e:
                     with self._lock:
                         self.failed += 1
-                    log.error("TikTok: не удалось опубликовать %s: %s",
-                              os.path.basename(path), e)
+                    if UNAUDITED_MARK in str(e):
+                        self._blocked_unaudited = True
+                        log.warning("TikTok: %s", UNAUDITED_FIX)
+                        if self.notify is not None:
+                            try:
+                                self.notify.notify_text(
+                                    UNAUDITED_FIX,
+                                    title="StreamClipper: нужен приватный аккаунт")
+                            except Exception:
+                                log.exception("Тревога TikTok не ушла")
+                    else:
+                        log.error("TikTok: не удалось опубликовать %s: %s",
+                                  os.path.basename(path), e)
             self.q.task_done()
 
     def _sleep(self, seconds):
