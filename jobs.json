@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T13:38:27Z",
+ "updated": "2026-11-23T13:38:35Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=cq9Ux_7H4us",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "КОНСТАНТИН БОГОМОЛОВ | Первое интервью нового худрука театра на Малой Бронной |  ОСТОРОЖНО СОБЧАК",
    "views": 3927013,
