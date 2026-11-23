@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T15:45:31Z",
+ "updated": "2026-11-23T15:45:39Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=YsUD1ioSW6g",
    "kind": "video",
-   "fails": 1,
+   "fails": 2,
    "tag": "ru",
    "display": "Российский флот несёт большие потери в Средиземном море | Военный обзор Сергея Ауслендера",
    "views": 199619,
