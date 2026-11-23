@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T14:55:44Z",
+ "updated": "2026-11-23T14:58:27Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -12,28 +12,12 @@
     "title": ""
    },
    {
-    "name": "anarabdullaev",
-    "display": "twitch.tv/anarabdullaev",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": "Диснейленд Таиланда /w Огр Эксити Вика Лера Жека Бабулик"
-   },
-   {
-    "name": "recrent",
-    "display": "twitch.tv/recrent",
+    "name": "solo",
+    "display": "twitch.tv/solo",
     "platform": "twitch",
     "live": true,
     "viewers": 0,
-    "title": "[1440p] GTA VI в 60 fps. День VI | !pari !ggsel !tg !мерч"
-   },
-   {
-    "name": "zxcursed",
-    "display": "twitch.tv/zxcursed",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "deadinside✓emo✓drain✓epileptic✓paranoid✓toxic✓bipolar✓depressed✓tilted✓antisocial✓sad✓broken✓aggressive✓psycho✓apathetic✓broken-hearted✓"
+    "title": "🔴 Nemesis [0:0] Xtreme | BLAST SLAM IX: Group Stage w/ @геннадий @rodjer !tg !BETBOOM !розыгрыш"
    },
    {
     "name": "bratishkinoff",
@@ -44,6 +28,38 @@
     "title": "🔴 2K 60 FPS 🔴 БАГУЮ, ИГРУ 🔴 ГЛАВА II 🔴 DAY 6 🔴"
    },
    {
+    "name": "t2x2",
+    "display": "twitch.tv/t2x2",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch"
+   },
+   {
+    "name": "recrent",
+    "display": "twitch.tv/recrent",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "[1440p] GTA VI в 60 fps. День VI | !pari !ggsel !tg !мерч"
+   },
+   {
+    "name": "leb1ga",
+    "display": "twitch.tv/leb1ga",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5"
+   },
+   {
+    "name": "zxcursed",
+    "display": "twitch.tv/zxcursed",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "deadinside✓emo✓drain✓epileptic✓paranoid✓toxic✓bipolar✓depressed✓tilted✓antisocial✓sad✓broken✓aggressive✓psycho✓apathetic✓broken-hearted✓"
+   },
+   {
     "name": "skywhywalker",
     "display": "twitch.tv/skywhywalker",
     "platform": "twitch",
@@ -52,12 +68,28 @@
     "title": "САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑"
    },
    {
+    "name": "betboom_dota_ru",
+    "display": "twitch.tv/betboom_dota_ru",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "Natus Vincere [0] vs [1] OG | Bo3 | Group Stage Day 4 | BLAST SLAM IX | cast: @artem1daaa & @inmateoo"
+   },
+   {
     "name": "sasavot",
     "display": "twitch.tv/sasavot",
     "platform": "twitch",
     "live": true,
     "viewers": 0,
     "title": "ВСМ/ПОНЕДЕЛЬНИК ?"
+   },
+   {
+    "name": "betboom_dota_ru2",
+    "display": "twitch.tv/betboom_dota_ru2",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "Team Nemesis [0] vs [0] Xtreme Gaming | Bo3 | Group Stage Day 4 | BLAST SLAM IX | cast: @b31kaa & @grayne !предикты"
    },
    {
     "name": "leva2k",
@@ -71,25 +103,41 @@
     "name": "melharucos",
     "display": "twitch.tv/melharucos",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА"
+    "title": ""
    },
    {
     "name": "blackufa",
     "display": "twitch.tv/blackufa",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "[DROPS] GTA 6 [PS5Pro] Супермегараспоследний день нашего обширного отпуска"
+    "title": ""
+   },
+   {
+    "name": "morphe_ya",
+    "display": "twitch.tv/morphe_ya",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "dyrachyo",
+    "display": "twitch.tv/dyrachyo",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "zloyn",
     "display": "twitch.tv/zloyn",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "МАРАФОН | GTA VI 🤯 | ДЕНЬ 6 | !tg !прогресс"
+    "title": ""
    },
    {
     "name": "tpabomah",
@@ -97,143 +145,79 @@
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "С НУЛЯ ДО МИФИКА за 18 ДНЕЙ 🔥 !ищунарезчика !угадай !тирлист !тг"
-   },
-   {
-    "name": "betboom_dota_ru",
-    "display": "twitch.tv/betboom_dota_ru",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Natus Vincere [0] vs [0] OG | Bo3 | Group Stage Day 4 | BLAST SLAM IX | cast: @artem1daaa & @inmateoo"
-   },
-   {
-    "name": "dunduk",
-    "display": "twitch.tv/dunduk",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "pve"
-   },
-   {
-    "name": "murzofix",
-    "display": "twitch.tv/murzofix",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Балуемся на FACEIT 😈😈😈 w. @synd1cat !tg"
-   },
-   {
-    "name": "zer0truel0ve",
-    "display": "twitch.tv/zer0truel0ve",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "[GTA 6 120fps DLSS - 3 день] марафон 24/7 [DROPS Включены]"
-   },
-   {
-    "name": "chopperinho",
-    "display": "twitch.tv/chopperinho",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "SOLO FACEIT PREM | СКИН ЗА ЛУЗ | ROAD TO 4K ELO | !bb !tg !yt !challenge"
-   },
-   {
-    "name": "ghostik",
-    "display": "twitch.tv/ghostik",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "NAVI vs OG (0-0) bo3 | Вирішальна гра групової стадії Blast Slam 9"
-   },
-   {
-    "name": "alohadancetv",
-    "display": "twitch.tv/alohadancetv",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": "вечный ученик. !tg"
-   },
-   {
-    "name": "syslov171",
-    "display": "twitch.tv/syslov171",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "легкий вечер"
-   },
-   {
-    "name": "leb1ga",
-    "display": "twitch.tv/leb1ga",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5"
-   },
-   {
-    "name": "solo",
-    "display": "twitch.tv/solo",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "🔴 NAVI [0:0] OG | BLAST SLAM IX: Group Stage w/ @геннадий @rodjer !tg !BETBOOM !розыгрыш"
-   },
-   {
-    "name": "t2x2",
-    "display": "twitch.tv/t2x2",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch"
-   },
-   {
-    "name": "morphe_ya",
-    "display": "twitch.tv/morphe_ya",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "гамесы игрульки игры | !tg !winline !мышки !wb"
-   },
-   {
-    "name": "betboom_dota_ru2",
-    "display": "twitch.tv/betboom_dota_ru2",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Team Nemesis [0] vs [0] Xtreme Gaming | Bo3 | Group Stage Day 4 | BLAST SLAM IX | cast: @b31kaa & @grayne !предикты"
-   },
-   {
-    "name": "dyrachyo",
-    "display": "twitch.tv/dyrachyo",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Navi [0:0] Og bo3 BLAST SLAM IX Group Stage w/ @mrAhillesko @dkfogas1 | !bb !tg"
+    "title": ""
    },
    {
     "name": "welovegames",
     "display": "twitch.tv/welovegames",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "GTA VI на 100% | !сити !ggsel !втб !dodo"
+    "title": ""
    },
    {
-    "name": "blackrabbit342",
-    "display": "twitch.tv/blackrabbit342",
+    "name": "dunduk",
+    "display": "twitch.tv/dunduk",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "extreme nemesis 0 0 BLAST БЕЗ ЗАДЕРЖКИ!  !bb"
+    "title": ""
+   },
+   {
+    "name": "chopperinho",
+    "display": "twitch.tv/chopperinho",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "ghostik",
+    "display": "twitch.tv/ghostik",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "syslov171",
+    "display": "twitch.tv/syslov171",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "silvername",
     "display": "twitch.tv/silvername",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг"
+    "title": ""
+   },
+   {
+    "name": "murzofix",
+    "display": "twitch.tv/murzofix",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "zer0truel0ve",
+    "display": "twitch.tv/zer0truel0ve",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "blackrabbit342",
+    "display": "twitch.tv/blackrabbit342",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "welovegames",
@@ -292,7 +276,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"anarabdullaev\", false, \"Диснейленд Таиланда /w Огр Эксити Вика Лера Жека Бабулик\", 0], [\"recrent\", true, \"[1440p] GTA VI в 60 fps. День VI | !pari !ggsel !tg !мерч\", 0], [\"zxcursed\", true, \"deadinside✓emo✓drain✓epileptic✓paranoid✓toxic✓bipolar✓depressed✓tilted✓antisocial✓sad✓broken✓aggressive✓psycho✓apathetic✓broken-hearted✓\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 БАГУЮ, ИГРУ 🔴 ГЛАВА II 🔴 DAY 6 🔴\", 0], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 0], [\"sasavot\", true, \"ВСМ/ПОНЕДЕЛЬНИК ?\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 8 @bondarenk01 | !tg !donate !winline !ggsel\", 0], [\"melharucos\", true, \"ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Супермегараспоследний день нашего обширного отпуска\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 6 | !tg !прогресс\", 0], [\"tpabomah\", false, \"С НУЛЯ ДО МИФИКА за 18 ДНЕЙ 🔥 !ищунарезчика !угадай !тирлист !тг\", 0], [\"betboom_dota_ru\", true, \"Natus Vincere [0] vs [0] OG | Bo3 | Group Stage Day 4 | BLAST SLAM IX | cast: @artem1daaa & @inmateoo\", 0], [\"dunduk\", true, \"pve\", 0], [\"murzofix\", true, \"Балуемся на FACEIT 😈😈😈 w. @synd1cat !tg\", 0], [\"zer0truel0ve\", true, \"[GTA 6 120fps DLSS - 3 день] марафон 24/7 [DROPS Включены]\", 0], [\"chopperinho\", true, \"SOLO FACEIT PREM | СКИН ЗА ЛУЗ | ROAD TO 4K ELO | !bb !tg !yt !challenge\", 0], [\"ghostik\", true, \"NAVI vs OG (0-0) bo3 | Вирішальна гра групової стадії Blast Slam 9\", 0], [\"alohadancetv\", false, \"вечный ученик. !tg\", 0], [\"syslov171\", true, \"легкий вечер\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 0], [\"solo\", true, \"🔴 NAVI [0:0] OG | BLAST SLAM IX: Group Stage w/ @геннадий @rodjer !tg !BETBOOM !розыгрыш\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch\", 0], [\"morphe_ya\", true, \"гамесы игрульки игры | !tg !winline !мышки !wb\", 0], [\"betboom_dota_ru2\", true, \"Team Nemesis [0] vs [0] Xtreme Gaming | Bo3 | Group Stage Day 4 | BLAST SLAM IX | cast: @b31kaa & @grayne !предикты\", 0], [\"dyrachyo\", true, \"Navi [0:0] Og bo3 BLAST SLAM IX Group Stage w/ @mrAhillesko @dkfogas1 | !bb !tg\", 0], [\"welovegames\", true, \"GTA VI на 100% | !сити !ggsel !втб !dodo\", 0], [\"blackrabbit342\", true, \"extreme nemesis 0 0 BLAST БЕЗ ЗАДЕРЖКИ!  !bb\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"solo\", true, \"🔴 Nemesis [0:0] Xtreme | BLAST SLAM IX: Group Stage w/ @геннадий @rodjer !tg !BETBOOM !розыгрыш\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 БАГУЮ, ИГРУ 🔴 ГЛАВА II 🔴 DAY 6 🔴\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch\", 0], [\"recrent\", true, \"[1440p] GTA VI в 60 fps. День VI | !pari !ggsel !tg !мерч\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 0], [\"zxcursed\", true, \"deadinside✓emo✓drain✓epileptic✓paranoid✓toxic✓bipolar✓depressed✓tilted✓antisocial✓sad✓broken✓aggressive✓psycho✓apathetic✓broken-hearted✓\", 0], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 0], [\"betboom_dota_ru\", true, \"Natus Vincere [0] vs [1] OG | Bo3 | Group Stage Day 4 | BLAST SLAM IX | cast: @artem1daaa & @inmateoo\", 0], [\"sasavot\", true, \"ВСМ/ПОНЕДЕЛЬНИК ?\", 0], [\"betboom_dota_ru2\", true, \"Team Nemesis [0] vs [0] Xtreme Gaming | Bo3 | Group Stage Day 4 | BLAST SLAM IX | cast: @b31kaa & @grayne !предикты\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 8 @bondarenk01 | !tg !donate !winline !ggsel\", 0], [\"melharucos\", false, \"\", 0], [\"blackufa\", false, \"\", 0], [\"morphe_ya\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"zloyn\", false, \"\", 0], [\"tpabomah\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"dunduk\", false, \"\", 0], [\"chopperinho\", false, \"\", 0], [\"ghostik\", false, \"\", 0], [\"syslov171\", false, \"\", 0], [\"silvername\", false, \"\", 0], [\"murzofix\", false, \"\", 0], [\"zer0truel0ve\", false, \"\", 0], [\"blackrabbit342\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
