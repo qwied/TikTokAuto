@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T23:17:38Z",
+ "updated": "2026-11-23T23:18:49Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -25,14 +25,6 @@
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "⚡️ФІНАЛ МАРАФОНУ GTA 6 | 60 FPS | ДЕНЬ 5"
-   },
-   {
-    "name": "sasavot",
-    "display": "twitch.tv/sasavot",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
     "title": ""
    },
    {
@@ -52,12 +44,12 @@
     "title": "НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер"
    },
    {
-    "name": "znat51",
-    "display": "twitch.tv/znat51",
+    "name": "zloyn",
+    "display": "twitch.tv/zloyn",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": "пока все хайпят на гта , мы играем на фасике - !тг !vip !дс !донат !музыка"
+    "live": true,
+    "viewers": 2192,
+    "title": "МАРАФОН | GTA VI 🤯 | ДЕНЬ 7 | !tg !прогресс"
    },
    {
     "name": "betboom_dota_ru",
@@ -68,20 +60,20 @@
     "title": "ПОВТОР | BLAST SLAM IX | Group Stage Day 4"
    },
    {
+    "name": "zer0truel0ve",
+    "display": "twitch.tv/zer0truel0ve",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 1142,
+    "title": "[GTA 6 120fps DLSS - 3 день] марафон 24/7 [DROPS Включены]"
+   },
+   {
     "name": "rejiboi",
     "display": "twitch.tv/rejiboi",
     "platform": "twitch",
     "live": true,
     "viewers": 888,
     "title": "давай воровать машинки 6, 6 серия | 46% !tg"
-   },
-   {
-    "name": "zloyn",
-    "display": "twitch.tv/zloyn",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 2192,
-    "title": "МАРАФОН | GTA VI 🤯 | ДЕНЬ 7 | !tg !прогресс"
    },
    {
     "name": "welovegames",
@@ -138,17 +130,9 @@
     "live": false,
     "viewers": 0,
     "title": ""
-   },
-   {
-    "name": "zer0truel0ve",
-    "display": "twitch.tv/zer0truel0ve",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 1154,
-    "title": "[GTA 6 120fps DLSS - 3 день] марафон 24/7 [DROPS Включены]"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 БАГУЮ, ИГРУ 🔴 ГЛАВА II 🔴 DAY 6 🔴\", 15625], [\"leb1ga\", false, \"⚡️ФІНАЛ МАРАФОНУ GTA 6 | 60 FPS | ДЕНЬ 5\", 0], [\"sasavot\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 4825], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 4375], [\"znat51\", false, \"пока все хайпят на гта , мы играем на фасике - !тг !vip !дс !донат !музыка\", 0], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 1200], [\"rejiboi\", true, \"давай воровать машинки 6, 6 серия | 46% !tg\", 900], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 7 | !tg !прогресс\", 2200], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"zer0truel0ve\", true, \"[GTA 6 120fps DLSS - 3 день] марафон 24/7 [DROPS Включены]\", 1150]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 БАГУЮ, ИГРУ 🔴 ГЛАВА II 🔴 DAY 6 🔴\", 15625], [\"leb1ga\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 4825], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 4375], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 7 | !tg !прогресс\", 2200], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 1200], [\"zer0truel0ve\", true, \"[GTA 6 120fps DLSS - 3 день] марафон 24/7 [DROPS Включены]\", 1150], [\"rejiboi\", true, \"давай воровать машинки 6, 6 серия | 46% !tg\", 900], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
