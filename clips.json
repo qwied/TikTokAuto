@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T11:12:36Z",
+ "updated": "2026-11-23T11:15:47Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -52,30 +52,6 @@
     "title": "GTA 6 99% 2K 60fps DLSS5 ФИНАЛ"
    },
    {
-    "name": "tpabomah",
-    "display": "twitch.tv/tpabomah",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "С НУЛЯ ДО ИНТА, 7К ММР🔥!угадай !тирлист !сборки !руинер !тг"
-   },
-   {
-    "name": "daxak",
-    "display": "twitch.tv/daxak",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": "ищу имбу победы так и прут     !фонбет !бусти !заказ!розыгрыш"
-   },
-   {
-    "name": "zloyn",
-    "display": "twitch.tv/zloyn",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "МАРАФОН | GTA VI 🤯 | ДЕНЬ 6 | !tg !прогресс"
-   },
-   {
     "name": "leb1ga",
     "display": "twitch.tv/leb1ga",
     "platform": "twitch",
@@ -84,28 +60,12 @@
     "title": "⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5"
    },
    {
-    "name": "keliencs",
-    "display": "twitch.tv/keliencs",
+    "name": "tpabomah",
+    "display": "twitch.tv/tpabomah",
     "platform": "twitch",
     "live": true,
     "viewers": 0,
-    "title": "ЕСЛИ НЕ АПНУ 4К ЭЛО, КИКАЮТ ИЗ WW... | !tg !fonbet"
-   },
-   {
-    "name": "vovapain",
-    "display": "twitch.tv/vovapain",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "betboom_dota_ru",
-    "display": "twitch.tv/betboom_dota_ru",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "ПОВТОР | BLAST SLAM IX | Group Stage Day 3"
+    "title": "С НУЛЯ ДО ИНТА, 7К ММР🔥!угадай !тирлист !сборки !руинер !тг"
    },
    {
     "name": "melharucos",
@@ -116,12 +76,52 @@
     "title": "ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА"
    },
    {
+    "name": "zloyn",
+    "display": "twitch.tv/zloyn",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "blackufa",
+    "display": "twitch.tv/blackufa",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "daxak",
+    "display": "twitch.tv/daxak",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "keliencs",
+    "display": "twitch.tv/keliencs",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "betboom_dota_ru",
+    "display": "twitch.tv/betboom_dota_ru",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
     "name": "exigent_wires",
     "display": "twitch.tv/exigent_wires",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "БОЛЕЮ. БЕЗ ВЕБКИ !ивент !дропс"
+    "title": ""
    },
    {
     "name": "welovegames",
@@ -180,15 +180,15 @@
     "title": ""
    },
    {
-    "name": "blackufa",
-    "display": "twitch.tv/blackufa",
+    "name": "skywhywalker",
+    "display": "twitch.tv/skywhywalker",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "[DROPS] GTA 6 [PS5Pro] Супермегараспоследний день нашего обширного отпуска"
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ФИНАЛ КАКАЯ КОНЦОВКА? | !tg !winline !ЯО !ВТБ !avan\", 0], [\"d1pro4\", true, \"Я снова один в этом Ламбо\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel\", 0], [\"whoplohoyparen\", true, \"GTA 6 99% 2K 60fps DLSS5 ФИНАЛ\", 0], [\"tpabomah\", true, \"С НУЛЯ ДО ИНТА, 7К ММР🔥!угадай !тирлист !сборки !руинер !тг\", 0], [\"daxak\", false, \"ищу имбу победы так и прут     !фонбет !бусти !заказ!розыгрыш\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 6 | !tg !прогресс\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 0], [\"keliencs\", true, \"ЕСЛИ НЕ АПНУ 4К ЭЛО, КИКАЮТ ИЗ WW... | !tg !fonbet\", 0], [\"vovapain\", false, \"\", 0], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 3\", 0], [\"melharucos\", true, \"ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА\", 0], [\"exigent_wires\", true, \"БОЛЕЮ. БЕЗ ВЕБКИ !ивент !дропс\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Супермегараспоследний день нашего обширного отпуска\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ФИНАЛ КАКАЯ КОНЦОВКА? | !tg !winline !ЯО !ВТБ !avan\", 0], [\"d1pro4\", true, \"Я снова один в этом Ламбо\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel\", 0], [\"whoplohoyparen\", true, \"GTA 6 99% 2K 60fps DLSS5 ФИНАЛ\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 0], [\"tpabomah\", true, \"С НУЛЯ ДО ИНТА, 7К ММР🔥!угадай !тирлист !сборки !руинер !тг\", 0], [\"melharucos\", true, \"ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА\", 0], [\"zloyn\", false, \"\", 0], [\"blackufa\", false, \"\", 0], [\"daxak\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"exigent_wires\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"skywhywalker\", false, \"\", 0]]"
  },
  "clips": [
   {
