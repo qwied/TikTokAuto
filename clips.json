@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T04:43:15Z",
+ "updated": "2026-11-23T04:45:29Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -12,12 +12,12 @@
     "title": ""
    },
    {
-    "name": "m1xerboy",
-    "display": "twitch.tv/m1xerboy",
+    "name": "jaguarn1",
+    "display": "twitch.tv/jaguarn1",
     "platform": "twitch",
     "live": true,
-    "viewers": 338,
-    "title": "ИЗОЛЯЦИЯ С ДЕВУШКОЙ ДЕНЬ 4 w/ @Actimelya | 1 мин = 88р | !сегодня !правила !колесо !наказание !tg !winline"
+    "viewers": 7586,
+    "title": "Люся - заказ трека !donli"
    },
    {
     "name": "leb1ga",
@@ -40,16 +40,8 @@
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
     "live": true,
-    "viewers": 841,
+    "viewers": 857,
     "title": "ПОВТОР | BLAST SLAM IX | Group Stage Day 3"
-   },
-   {
-    "name": "jaguarn1",
-    "display": "twitch.tv/jaguarn1",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 7586,
-    "title": "Люся - заказ трека !donli"
    },
    {
     "name": "welovegames",
@@ -106,9 +98,17 @@
     "live": false,
     "viewers": 0,
     "title": ""
+   },
+   {
+    "name": "d1pro4",
+    "display": "twitch.tv/d1pro4",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 533,
+    "title": "Я снова один в этом Ламбо"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"m1xerboy\", true, \"ИЗОЛЯЦИЯ С ДЕВУШКОЙ ДЕНЬ 4 w/ @Actimelya | 1 мин = 88р | !сегодня !правила !колесо !наказание !tg !winline\", 350], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 2575], [\"leva2k\", true, \"🔇 ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel\", 1900], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 3\", 850], [\"jaguarn1\", true, \"Люся - заказ трека !donli\", 7575], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"jaguarn1\", true, \"Люся - заказ трека !donli\", 7575], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 2575], [\"leva2k\", true, \"🔇 ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel\", 1900], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 3\", 850], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"d1pro4\", true, \"Я снова один в этом Ламбо\", 525]]"
  },
  "clips": [
   {
