@@ -1,16 +1,16 @@
 {
- "_help": "Ссылки на стримеров: Twitch и YouTube. Добавляйте с сайта (кнопка «Каналы») или правьте прямо здесь — по одной ссылке. Программа следит за ними постоянно.",
- "channels": [
-  "https://www.twitch.tv/honeymad"
- ],
- "auto_channels": [
-  "https://www.twitch.tv/d1pro4",
-  "https://www.twitch.tv/whoplohoyparen",
-  "https://www.twitch.tv/voodoosh",
-  "https://www.twitch.tv/cozart_2s1",
-  "https://www.twitch.tv/leva2k",
-  "https://www.twitch.tv/leb1ga",
-  "https://www.twitch.tv/betboom_dota_ru"
- ],
- "auto_updated": "2026-11-23T06:00:56Z"
+  "_help": "Ссылки на стримеров: Twitch и YouTube. Добавляйте с сайта (кнопка «Каналы») или правьте прямо здесь — по одной ссылке. Программа следит за ними постоянно.",
+  "channels": [
+    "https://www.twitch.tv/honeymad"
+  ],
+  "auto_channels": [
+    "https://www.twitch.tv/d1pro4",
+    "https://www.twitch.tv/whoplohoyparen",
+    "https://www.twitch.tv/voodoosh",
+    "https://www.twitch.tv/cozart_2s1",
+    "https://www.twitch.tv/leva2k",
+    "https://www.twitch.tv/leb1ga",
+    "https://www.twitch.tv/betboom_dota_ru"
+  ],
+  "auto_updated": "2026-11-23T06:00:56Z"
 }

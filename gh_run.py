@@ -690,43 +690,78 @@ class GitHubPublisher:
                                                 str((subs or {}).get("hook") or "")))
         self.last_tags = list(entry.get("hashtags") or [])
         self.last_caption = str(entry.get("caption") or "")
-        raw, sha = self.gh.get_file(CLIPS_JSON)
-        data = load_clips_json_bytes(raw)
-        ids = {c.get("id") for c in data["clips"]}
-        if entry["id"] not in ids:
-            data["clips"] = [entry] + data["clips"]
-        data["clips"] = data["clips"][:self.max_clips]
-        data["updated"] = time.strftime("%Y-%m-%dT%H:%M:%SZ",
-                                        time.gmtime())
-        self.gh.put_file(CLIPS_JSON, json.dumps(data, ensure_ascii=False,
-                                                indent=1).encode("utf-8"),
-                         sha, f"clip: {entry['file']}")
+        self._update_clips_json(entry)
         log.info("clips.json обновлён: %s", url)
         self.last_url = url
         prune_assets(self.gh, rel, max_assets=self.max_assets)
 
-    def update_channels_meta(self, channels):
+    def _update_clips_json(self, entry, tries=4):
+        """clips.json: слить клип в ФРЕШ-версию и закоммитить.
+
+        Прод-инцидент 2026-11-22: параллельные писатели (Check live обновляет
+        meta, Monitor добавляет клипы) ловили HTTP 409 на устаревший sha, и
+        КЛИП ТЕРЯЛСЯ навсегда (нарезан, залит в Release, но без записи в
+        clips.json). Теперь на 409 заново читаем файл, льём клип ПОВЕРХ
+        свежей версии и повторяем до 4 раз.
+        """
+        last_err = None
+        for attempt in range(max(1, tries)):
+            try:
+                raw, sha = self.gh.get_file(CLIPS_JSON)
+                data = load_clips_json_bytes(raw)
+                ids = {c.get("id") for c in data["clips"]}
+                if entry["id"] not in ids:
+                    data["clips"] = [entry] + data["clips"]
+                data["clips"] = data["clips"][:self.max_clips]
+                data["updated"] = time.strftime("%Y-%m-%dT%H:%M:%SZ",
+                                                time.gmtime())
+                self.gh.put_file(CLIPS_JSON,
+                                 json.dumps(data, ensure_ascii=False,
+                                            indent=1).encode("utf-8"),
+                                 sha, f"clip: {entry['file']}")
+                return
+            except RuntimeError as e:
+                last_err = e
+                log.warning("clips.json: попытка %d/%d не удалась (%s) — "
+                            "перечитываю файл и повторяю", attempt + 1, tries, e)
+                time.sleep(2 + attempt * 3)
+        raise last_err
+
+    def update_channels_meta(self, channels, tries=4):
         """Статусы каналов для сайта; коммит ТОЛЬКО при реальном изменении.
 
         sig учитывает LIVE-статус, заголовок и зрителей (округлённо до 25):
         слежение идёт каждые ~25 секунд, и без округления каждый цикл
         плодил бы коммит — GitHub такое не любит, а сайту это не нужно.
+        На 409 перечитываем файл и повторяем (та же гонка, что у клипов).
         """
         sig = json.dumps(
             [[c.get("name"), bool(c.get("live")), c.get("title") or "",
               int(round((c.get("viewers") or 0) / 25.0)) * 25]
              for c in channels], ensure_ascii=False)
-        raw, sha = self.gh.get_file(CLIPS_JSON)
-        data = load_clips_json_bytes(raw)
-        if data["meta"].get("_live_sig") == sig and data["meta"].get("channels"):
-            return                       # ничего не изменилось — без коммита
-        data["meta"]["channels"] = channels
-        data["meta"]["_live_sig"] = sig
-        data["updated"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
-        self.gh.put_file(CLIPS_JSON,
-                         json.dumps(data, ensure_ascii=False,
-                                    indent=1).encode("utf-8"),
-                         sha, "channels: live status")
+        last_err = None
+        for attempt in range(max(1, tries)):
+            try:
+                raw, sha = self.gh.get_file(CLIPS_JSON)
+                data = load_clips_json_bytes(raw)
+                if data["meta"].get("_live_sig") == sig \
+                        and data["meta"].get("channels"):
+                    return                       # ничего не изменилось — без коммита
+                data["meta"]["channels"] = channels
+                data["meta"]["_live_sig"] = sig
+                data["updated"] = time.strftime("%Y-%m-%dT%H:%M:%SZ",
+                                                time.gmtime())
+                self.gh.put_file(CLIPS_JSON,
+                                 json.dumps(data, ensure_ascii=False,
+                                            indent=1).encode("utf-8"),
+                                 sha, "channels: live status")
+                return
+            except RuntimeError as e:
+                last_err = e
+                log.warning("clips.json (meta): попытка %d/%d не удалась (%s) "
+                            "— повторяю", attempt + 1, tries, e)
+                time.sleep(2 + attempt * 3)
+        raise last_err
 
 
 # --- подписки и проверка эфиров ------------------------------------------------------------

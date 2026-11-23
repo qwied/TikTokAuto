@@ -161,7 +161,10 @@ class HypeDetector(threading.Thread):
     def evaluate(self, now=None):
         """Один «тик» оценки. now передаётся явно в тестах."""
         now = time.time() if now is None else now
-        win = [m for m in self.msgs if now - m.ts <= self.window]
+        # снапшот: чат-консьюмер дописывает в deque параллельно — итерация
+        # по живому deque падала RuntimeError «deque mutated during iteration»
+        snap = list(self.msgs)
+        win = [m for m in snap if now - m.ts <= self.window]
         rate = len(win) / self.window
         self.baseline = 0.97 * self.baseline + 0.03 * rate
 
@@ -270,7 +273,7 @@ class HypeDetector(threading.Thread):
         ЛУЧШЕЕ окно за 4 минуты почти пустое — клип не снимаем вообще.
         """
         t0 = max(self.last_trigger, now - IDLE_LOOKBACK_S)
-        msgs = [m for m in self.msgs if t0 <= m.ts <= now]
+        msgs = [m for m in list(self.msgs) if t0 <= m.ts <= now]
         if not msgs:
             return now, 0.0, 0, 0
         n_buckets = max(2, int((now - t0) // bucket_s))
@@ -302,7 +305,7 @@ class HypeDetector(threading.Thread):
         взорвался, а не когда алгоритм его заметил.
         """
         t0 = now - lookback
-        msgs = [m for m in self.msgs if t0 <= m.ts <= now]
+        msgs = [m for m in list(self.msgs) if t0 <= m.ts <= now]
         if len(msgs) < 4:
             return now
         bucket = 5.0
@@ -348,4 +351,4 @@ class HypeDetector(threading.Thread):
 
     def recent_messages(self, t0, t1):
         """Сообщения за интервал [t0, t1] — для субтитров из чата."""
-        return [m for m in self.msgs if t0 <= m.ts <= t1]
+        return [m for m in list(self.msgs) if t0 <= m.ts <= t1]
