@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-23T18:17:21Z",
- "jobs": []
+ "updated": "2026-11-23T18:40:51Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=74d1I3mPKT8",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Эксперименты, которые выглядят ПОДДЕЛЬНЫМИ, но на самом деле НАСТОЯЩИЕ!",
+   "views": 4961332,
+   "added": "2026-11-23T18:40:51Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=ef3ZnXxuV2o",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Василий Бейнарович (Фауст): пиар-роман, секреты и спермограмма (подкаст «правило 34»)",
+   "views": 220509,
+   "added": "2026-11-23T18:40:46Z"
+  }
+ ]
 }
