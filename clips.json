@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T11:20:37Z",
+ "updated": "2026-11-23T11:20:49Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -111,7 +111,7 @@
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
     "title": "ПОВТОР | BLAST SLAM IX | Group Stage Day 3"
    },
@@ -188,7 +188,7 @@
     "title": "САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ФИНАЛ КАКАЯ КОНЦОВКА? | !tg !winline !ЯО !ВТБ !avan\", 0], [\"d1pro4\", true, \"Я снова один в этом Ламбо\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel\", 0], [\"whoplohoyparen\", true, \"GTA 6 99% 2K 60fps DLSS5 ФИНАЛ\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 0], [\"tpabomah\", true, \"С НУЛЯ ДО ИНТА, 7К ММР🔥!угадай !тирлист !сборки !руинер !тг\", 0], [\"melharucos\", true, \"ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 6 | !tg !прогресс\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Супермегараспоследний день нашего обширного отпуска\", 0], [\"daxak\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 3\", 0], [\"exigent_wires\", true, \"БОЛЕЮ. БЕЗ ВЕБКИ !ивент !дропс\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ФИНАЛ КАКАЯ КОНЦОВКА? | !tg !winline !ЯО !ВТБ !avan\", 0], [\"d1pro4\", true, \"Я снова один в этом Ламбо\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel\", 0], [\"whoplohoyparen\", true, \"GTA 6 99% 2K 60fps DLSS5 ФИНАЛ\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 0], [\"tpabomah\", true, \"С НУЛЯ ДО ИНТА, 7К ММР🔥!угадай !тирлист !сборки !руинер !тг\", 0], [\"melharucos\", true, \"ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 6 | !tg !прогресс\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Супермегараспоследний день нашего обширного отпуска\", 0], [\"daxak\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"betboom_dota_ru\", false, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 3\", 0], [\"exigent_wires\", true, \"БОЛЕЮ. БЕЗ ВЕБКИ !ивент !дропс\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 0]]"
  },
  "clips": [
   {
