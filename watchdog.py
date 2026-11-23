@@ -130,38 +130,55 @@ def _repo_file(path):
 
 
 def repair_tiktok():
-    """Очередь TikTok не пуста, а попыток публикации давно не было?
+    """Публикации TikTok застряли? -> проба (TikTok selftest).
 
-    Запускаем TikTok selftest: он публикует свежий клип боем. Пока TikTok
-    запрещает (приложение без аудита) — проба быстрая и дешёвая; когда
-    TikTok снова разрешает — selftest сам запускает Clip video, отложенная
-    очередь разгружается, клипы выходят ПУБЛИЧНО."""
+    Два случая:
+      * в отложенной очереди tiktok_pending.json есть клипы — они не ушли
+        в TikTok (сеть/отказ/нет аудита): пробуем снова;
+      * очереди нет, но публикаций ещё ни разу не было (последняя проба
+        не была успешной) — «холодный старт»: как только TikTok разрешит
+        посты (например, аудит одобрен), первая же проба уйдёт ПУБЛИЧНО,
+        а selftest сам запустит Clip video для разгрузки очереди."""
     try:
         pending = json.loads(_repo_file("tiktok_pending.json") or "[]")
     except Exception:
         pending = []
     pending = [p for p in (pending or []) if isinstance(p, dict) and p.get("id")]
-    if not pending:
-        return None                       # всё опубликовано — пробовать нечего
     selftests = runs_of("tiktok-selftest.yml", limit=5)
     if _active(selftests):
         return None                       # проба уже идёт
     last = _last_started(selftests)
     if last and time.time() - last < TIKTOK_PROBE_MIN * 60:
         return None                       # недавно пробовали — не спамим
-    # если последняя проба была успешной, но очередь всё ещё не пуста —
-    # подщёлкнем Clip video (мог не успеть разгрузить за один запуск)
-    if selftests and selftests[0].get("conclusion") == "success":
+    last_ok = bool(selftests) and selftests[0].get("conclusion") == "success"
+    if last_ok and not pending:
+        return None                       # публикация работает, очередь пуста
+    if last_ok and pending:
+        # проба недавно удалась, но очередь не пуста — подщёлкнем Clip video
         clips = runs_of("clip.yml", limit=3)
         if _active(clips):
             return None
         gh("workflow", "run", "clip.yml", "--repo", os.environ["GITHUB_REPOSITORY"])
         return ("tiktok: очередь не пуста (%d клипов), последний selftest был "
                 "успешным — перезапущен Clip video для разгрузки" % len(pending))
+    # очереди нет, а публикаций ещё не было: нужен «холодный старт»?
+    if not pending:
+        try:
+            clips_raw = _repo_file("clips.json") or "{}"
+            clips_n = len(json.loads(clips_raw).get("clips") or [])
+        except Exception:
+            clips_n = 0
+        if not clips_n:
+            return None                   # клипов нет вовсе — проверять нечего
+        # последние пробы падали (обычно «приложение без аудита»): когда
+        # TikTok разрешит — эта проба опубликует свежий клип ПУБЛИЧНО
     gh("workflow", "run", "tiktok-selftest.yml", "--repo",
        os.environ["GITHUB_REPOSITORY"])
-    return ("tiktok: в отложенной очереди %d клипов — запущена проба "
-            "публикации (TikTok selftest)" % len(pending))
+    if pending:
+        return ("tiktok: в отложенной очереди %d клипов — запущена проба "
+                "публикации (TikTok selftest)" % len(pending))
+    return ("tiktok: публикации ещё не было, клипы на сайте есть — запущена "
+            "проба (TikTok selftest): после аудита выйдет ПУБЛИЧНО")
 
 
 def write_health(repairs):
