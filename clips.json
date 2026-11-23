@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T21:53:27Z",
+ "updated": "2026-11-23T21:53:42Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -63,8 +63,8 @@
     "name": "welovegames",
     "display": "twitch.tv/welovegames",
     "platform": "twitch",
-    "live": true,
-    "viewers": 2567,
+    "live": false,
+    "viewers": 0,
     "title": "Следите за новостями → t.me/welovegames | !сити !ggsel !втб !dodo"
    },
    {
@@ -108,7 +108,7 @@
     "title": "пока все хайпят на гта , мы играем на фасике - !тг !vip !дс !донат !музыка"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leb1ga\", true, \"⚡️ФІНАЛ МАРАФОНУ GTA 6 | 60 FPS | ДЕНЬ 5\", 19775], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 БАГУЮ, ИГРУ 🔴 ГЛАВА II 🔴 DAY 6 🔴\", 18475], [\"t2x2\", false, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф\", 0], [\"sasavot\", true, \"ВСМ/ПОНЕДЕЛЬНИК ?\", 6925], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 @bondarenk01 | !tg !donate !winline !ggsel\", 5175], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 5000], [\"welovegames\", true, \"Следите за новостями → t.me/welovegames | !сити !ggsel !втб !dodo\", 2575], [\"renatko\", false, \"\", 0], [\"kopsteep\", true, \"смотрим фильм \\\"Пассажир\\\" 2026 ужастик страшно, начало 23:02 !tg !bot\", 2100], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 1500], [\"rejiboi\", true, \"давай воровать машинки 6, 6 серия | 46% !tg\", 1175], [\"znat51\", true, \"пока все хайпят на гта , мы играем на фасике - !тг !vip !дс !донат !музыка\", 1625]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leb1ga\", true, \"⚡️ФІНАЛ МАРАФОНУ GTA 6 | 60 FPS | ДЕНЬ 5\", 19775], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 БАГУЮ, ИГРУ 🔴 ГЛАВА II 🔴 DAY 6 🔴\", 18475], [\"t2x2\", false, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф\", 0], [\"sasavot\", true, \"ВСМ/ПОНЕДЕЛЬНИК ?\", 6925], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 @bondarenk01 | !tg !donate !winline !ggsel\", 5175], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 5000], [\"welovegames\", false, \"Следите за новостями → t.me/welovegames | !сити !ggsel !втб !dodo\", 0], [\"renatko\", false, \"\", 0], [\"kopsteep\", true, \"смотрим фильм \\\"Пассажир\\\" 2026 ужастик страшно, начало 23:02 !tg !bot\", 2100], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 1500], [\"rejiboi\", true, \"давай воровать машинки 6, 6 серия | 46% !tg\", 1175], [\"znat51\", true, \"пока все хайпят на гта , мы играем на фасике - !тг !vip !дс !донат !музыка\", 1625]]"
  },
  "clips": [
   {
