@@ -13,7 +13,12 @@ Watchdog по cron раз в 20 минут проверяет здоровье �
      эстафета оборвана, перезапускаем check.yml.
   2. Очередь нарезки (jobs.json): задачи есть, но Clip video не запускался
      дольше CLIP_STALE_MIN минут и сейчас не идёт — перезапускаем clip.yml.
-  3. Каждая починка коммитится в health.json (когда чинили и что) — видно
+  3. Публикация TikTok: в отложенной очереди tiktok_pending.json есть
+     клипы, которые не ушли в TikTok (сеть/отказ/нет аудита). Раз в
+     TIKTOK_PROBE_MIN минут пробуем selftest — он публикует клип боем;
+     когда TikTok снова разрешает (например, аудит пройден), очередь сама
+     разгружается — клипы выходят ПУБЛИЧНО, без ручных действий.
+  4. Каждая починка коммитится в health.json (когда чинили и что) — видно
      в Actions и на сайте. Без починок коммитов НЕТ (репозиторий не пухнет).
 
 Запускается как .github/workflows/watchdog.yml (cron */20 * * * *). Токен —
@@ -32,6 +37,7 @@ from urllib.request import Request, urlopen
 API = "https://api.github.com"
 CHECK_STALE_MIN = 35      # смена слежения идёт 55 мин; тишина 35+ мин = разрыв
 CLIP_STALE_MIN = 100      # резервный cron Clip video — раз в 2 ч; тишина 100+ = стоп
+TIKTOK_PROBE_MIN = 180    # проба публикации TikTok не чаще, чем раз в 3 часа
 HEALTH_JSON = "health.json"
 
 
@@ -112,6 +118,52 @@ def repair_clip():
             "— перезапущен" % (n_jobs, silence))
 
 
+def _repo_file(path):
+    """Файл из репозитория как строка (None, если файла нет/не читается)."""
+    repo = os.environ["GITHUB_REPOSITORY"]
+    try:
+        out = gh("api", "repos/%s/contents/%s" % (repo, path),
+                 "--jq", ".content")
+        return base64.b64decode((out or "").strip()).decode("utf-8", "replace")
+    except Exception:
+        return None
+
+
+def repair_tiktok():
+    """Очередь TikTok не пуста, а попыток публикации давно не было?
+
+    Запускаем TikTok selftest: он публикует свежий клип боем. Пока TikTok
+    запрещает (приложение без аудита) — проба быстрая и дешёвая; когда
+    TikTok снова разрешает — selftest сам запускает Clip video, отложенная
+    очередь разгружается, клипы выходят ПУБЛИЧНО."""
+    try:
+        pending = json.loads(_repo_file("tiktok_pending.json") or "[]")
+    except Exception:
+        pending = []
+    pending = [p for p in (pending or []) if isinstance(p, dict) and p.get("id")]
+    if not pending:
+        return None                       # всё опубликовано — пробовать нечего
+    selftests = runs_of("tiktok-selftest.yml", limit=5)
+    if _active(selftests):
+        return None                       # проба уже идёт
+    last = _last_started(selftests)
+    if last and time.time() - last < TIKTOK_PROBE_MIN * 60:
+        return None                       # недавно пробовали — не спамим
+    # если последняя проба была успешной, но очередь всё ещё не пуста —
+    # подщёлкнем Clip video (мог не успеть разгрузить за один запуск)
+    if selftests and selftests[0].get("conclusion") == "success":
+        clips = runs_of("clip.yml", limit=3)
+        if _active(clips):
+            return None
+        gh("workflow", "run", "clip.yml", "--repo", os.environ["GITHUB_REPOSITORY"])
+        return ("tiktok: очередь не пуста (%d клипов), последний selftest был "
+                "успешным — перезапущен Clip video для разгрузки" % len(pending))
+    gh("workflow", "run", "tiktok-selftest.yml", "--repo",
+       os.environ["GITHUB_REPOSITORY"])
+    return ("tiktok: в отложенной очереди %d клипов — запущена проба "
+            "публикации (TikTok selftest)" % len(pending))
+
+
 def write_health(repairs):
     """Одна починка за сессию -> коммит health.json (история в самом файле)."""
     repo = os.environ["GITHUB_REPOSITORY"]
@@ -159,7 +211,7 @@ def main():
         print("GITHUB_REPOSITORY не задан — режим GitHub Actions")
         return 0
     repairs = []
-    for fn in (repair_check, repair_clip):
+    for fn in (repair_check, repair_clip, repair_tiktok):
         try:
             res = fn()
         except Exception as e:
