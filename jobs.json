@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T21:37:23Z",
+ "updated": "2026-11-23T21:37:26Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=3BkvvZGhlpY",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Женский стендап: 5 Сезон, Выпуск 14",
    "views": 108453,
