@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T21:03:39Z",
+ "updated": "2026-11-23T21:03:48Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=ncxqjTbFICk",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Валентин Сидоров - Огненный Концерт | Stand Up",
    "views": 649106,
