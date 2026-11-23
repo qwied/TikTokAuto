@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-23T18:42:44Z",
- "jobs": []
+ "updated": "2026-11-23T19:10:56Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=Ea3x2vsje4I",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "HYPE REALITY 3: Чимаев VS Царукян. Бой \"Перс\" VS Фартовый. МАССОВАЯ ДРАКА! Шовхал VS Вахо Бруклин #2",
+   "views": 6244584,
+   "added": "2026-11-23T19:10:50Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=JtIBxdsMpzw",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "ТЕОРИЯ БОЛЬШОГО ВЗРЫВА – Смешные Моменты | 2 сезон, 1-12 серии",
+   "views": 692910,
+   "added": "2026-11-23T19:10:45Z"
+  }
+ ]
 }
