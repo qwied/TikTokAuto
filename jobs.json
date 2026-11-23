@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T19:37:37Z",
+ "updated": "2026-11-23T19:37:45Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=Yv4G64qnpco",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Референдум и передача Донбасса: что ещё предлагает Трамп? | Александра Филиппенко на Breakfast Show",
    "views": 88103,
