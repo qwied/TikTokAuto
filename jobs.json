@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T17:21:11Z",
+ "updated": "2026-11-23T17:21:20Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=0ZnEyFOky8A",
    "kind": "video",
-   "fails": 1,
+   "fails": 2,
    "tag": "ru",
    "display": "Дмитрий Глуховский и Максим Курников | Интервью BILD",
    "views": 313039,
