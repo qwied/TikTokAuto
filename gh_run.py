@@ -85,6 +85,7 @@ SUBS_JSON = "subscriptions.json"
 PUSH_SUBS = "push_subscriptions.json"   # подписки Web Push (пишет сайт)
 JOBS_JSON = "jobs.json"                 # очередь нарезки видео (пишет сайт/Check)
 PROCESSED_JSON = "processed.json"       # уже нарезанные видео (не повторяем)
+YT_STATE = "youtube_state.json"         # состояние YouTube-дискавери (пауза при бот-чеке)
 SETTINGS_JSON = "settings.json"         # настройки качества клипов (пишет сайт)
 FEEDBACK_JSON = "feedback.json"         # Интересно/Скучно по клипам (пишет сайт)
 MAX_CLIPS = 60          # сколько клипов держать в clips.json
@@ -158,6 +159,20 @@ def discover_youtube_hype(gh, cfg):
     per_query = int(disc.get("results_per_query") or 10)
     queue_max = int(disc.get("queue_max") or 10)
 
+    # Самолечение бот-чека: если YouTube заблокировал раннер целиком, поиски
+    # бесполезны — ставим паузу дискавери на 2 часа (youtube_state.json),
+    # чтобы не жечь минуты раннера и не плодить ошибок в логе.
+    yt_state, _ysha = load_json_state(gh, YT_STATE)
+    blocked_until = 0.0
+    try:
+        blocked_until = float(yt_state.get("blocked_until") or 0)
+    except (TypeError, ValueError):
+        blocked_until = 0.0
+    if blocked_until > time.time():
+        log.info("YouTube-дискавери на паузе (бот-чек) до %s UTC — пропускаю",
+                 time.strftime("%H:%M", time.gmtime(blocked_until)))
+        return 0
+
     jobs_data, jsha = load_json_state(gh, JOBS_JSON)
     proc_data, _psha = load_json_state(gh, PROCESSED_JSON)
     jobs = [j for j in (jobs_data.get("jobs") or []) if isinstance(j, dict)]
@@ -168,20 +183,21 @@ def discover_youtube_hype(gh, cfg):
         return 0
 
     found = {}
+    bot_fails = 0          # поисков, упёршихся в бот-чек
+    ok_queries = 0         # поисков, вернувших результат
     for tag, q in queries:
         try:
-            p = subprocess.run(
-                ["yt-dlp", "--flat-playlist", "--dump-single-json",
-                 "--no-warnings", "--ignore-config",
-                 "ytsearch%d:%s" % (per_query, q)],
-                capture_output=True, text=True, timeout=180)
-            if p.returncode != 0 or not (p.stdout or "").strip():
-                log.warning("YouTube-поиск «%s»: пусто (rc=%d)", q, p.returncode)
+            rc, out, err = vod_mod.yt_search_json("ytsearch%d:%s" % (per_query, q))
+            if rc != 0 or not (out or "").strip():
+                log.warning("YouTube-поиск «%s»: пусто (rc=%d)", q, rc)
+                if vod_mod._looks_like_bot_check(err):
+                    bot_fails += 1
                 continue
-            data = json.loads(p.stdout)
+            data = json.loads(out)
         except Exception as e:
             log.warning("YouTube-поиск «%s» не удался: %s", q, e)
             continue
+        ok_queries += 1
         for e in (data.get("entries") or []):
             vid = str(e.get("id") or "")
             title = str(e.get("title") or "")
@@ -211,7 +227,31 @@ def discover_youtube_hype(gh, cfg):
                           "added": time.strftime("%Y-%m-%dT%H:%M:%SZ",
                                                  time.gmtime())}
     if not found:
+        if ok_queries == 0 and bot_fails >= 2:
+            # YouTube закрыл раннер бот-чеком по всем запросам: пауза на 2 ч,
+            # чтобы не жечь раннер впустую каждые 30 минут
+            yt_state["blocked_until"] = time.time() + 2 * 3600
+            yt_state["reason"] = "bot-check: все поисковые запросы заблокированы"
+            yt_state["updated"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+            try:
+                _raw, sha2 = load_json_state(gh, YT_STATE)
+                put_json_state(gh, YT_STATE, yt_state, sha2,
+                               "youtube: бот-чек — дискавери на паузе 2 ч (самолечение)")
+            except Exception:
+                log.exception("youtube_state.json не записан")
+            log.warning("YouTube закрыл раннер бот-чеком (%d/%d запросов) — "
+                        "дискавери на паузе 2 ч", bot_fails, len(queries))
         return 0
+    if ok_queries and yt_state.get("blocked_until"):
+        # YouTube снова отвечает — снимаем паузу дискавери
+        yt_state["blocked_until"] = 0
+        yt_state["updated"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+        try:
+            _raw, sha2 = load_json_state(gh, YT_STATE)
+            put_json_state(gh, YT_STATE, yt_state, sha2,
+                           "youtube: бот-чек снялся — дискавери снова активен")
+        except Exception:
+            log.exception("youtube_state.json не обновлён")
     best = sorted(found.values(), key=lambda j: -j["views"])[:room]
     for j in best:
         jobs.append(j)
@@ -1849,6 +1889,15 @@ def run_monitor(channel="", max_minutes=280):
     if providers:
         log.info("Уведомления включены: %s", ", ".join(providers))
     apply_tiktok_secrets(cfg)
+    # Антибан-паузы в CI ужаты (60..180 c): очередь публикаций успевает
+    # разгрузиться до конца сессии — клипы, нарезанные в последнюю минуту,
+    # тоже уходят в TikTok, а не умирают вместе с раннером.
+    tkcfg = cfg.setdefault("tiktok", {})
+    if tkcfg.get("enabled") and not tkcfg.get("dry_run"):
+        tkcfg["delay_min"] = min(int(tkcfg.get("delay_min") or 60), 60)
+        tkcfg["delay_max"] = min(int(tkcfg.get("delay_max") or 300), 180)
+        log.info("TikTok: антибан-паузы в CI %d..%d c", tkcfg["delay_min"],
+                 tkcfg["delay_max"])
 
     gh = env_gh()
     if gh is None:
