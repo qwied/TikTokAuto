@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T09:54:41Z",
+ "updated": "2026-11-23T10:00:05Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=aD6tLrBvnLg",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Ирина Приходько стендап «Только без рук» / Рига, февраль 2026",
    "views": 545981,
