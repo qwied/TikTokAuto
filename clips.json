@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T19:56:14Z",
+ "updated": "2026-11-23T19:57:43Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -215,12 +215,12 @@
     "name": "buster",
     "display": "twitch.tv/buster",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Lunacy 1:0 INFURITE 🤍 CCT 2026 Europe S15 🔫 шизим за братьев наших 🔍 Донаты ВКЛ 🎮"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", false, \"Team Liquid vs DO KONCA bo3 2:0 BLAST SLAM IX (Group Stage)\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 0], [\"solo\", false, \"\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 БАГУЮ, ИГРУ 🔴 ГЛАВА II 🔴 DAY 6 🔴\", 0], [\"deepins02\", true, \"[видео] | !winline !авито !флаувау !tg\", 0], [\"guacamolemolly\", true, \"стабильный стример 💪\", 0], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф\", 0], [\"sasavot\", true, \"ВСМ/ПОНЕДЕЛЬНИК ?\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 8 @bondarenk01 | !tg !donate !winline !ggsel\", 0], [\"welovegames\", true, \"GTA VI на 100% | !сити !ggsel !втб !dodo\", 0], [\"renatko\", true, \"ПОКОРЯЕМ ЧАТ РУЛЕТКУ 🛑 !бб !тг\", 0], [\"kopsteep\", true, \"страшное eбaлo на экранах (мы играем в хоррор, я не про себя) !tg !bot\", 0], [\"dyrachyo\", false, \"\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 6 серия | 46% !tg\", 0], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 0], [\"blackrabbit342\", false, \"\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !боты !bots !funpay\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit KINO GRAFIK!\", 0], [\"buster\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", false, \"Team Liquid vs DO KONCA bo3 2:0 BLAST SLAM IX (Group Stage)\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 0], [\"solo\", false, \"\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 БАГУЮ, ИГРУ 🔴 ГЛАВА II 🔴 DAY 6 🔴\", 0], [\"deepins02\", true, \"[видео] | !winline !авито !флаувау !tg\", 0], [\"guacamolemolly\", true, \"стабильный стример 💪\", 0], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф\", 0], [\"sasavot\", true, \"ВСМ/ПОНЕДЕЛЬНИК ?\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 8 @bondarenk01 | !tg !donate !winline !ggsel\", 0], [\"welovegames\", true, \"GTA VI на 100% | !сити !ggsel !втб !dodo\", 0], [\"renatko\", true, \"ПОКОРЯЕМ ЧАТ РУЛЕТКУ 🛑 !бб !тг\", 0], [\"kopsteep\", true, \"страшное eбaлo на экранах (мы играем в хоррор, я не про себя) !tg !bot\", 0], [\"dyrachyo\", false, \"\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 6 серия | 46% !tg\", 0], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 0], [\"blackrabbit342\", false, \"\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !боты !bots !funpay\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit KINO GRAFIK!\", 0], [\"buster\", true, \"Lunacy 1:0 INFURITE 🤍 CCT 2026 Europe S15 🔫 шизим за братьев наших 🔍 Донаты ВКЛ 🎮\", 0]]"
  },
  "clips": [
   {
