@@ -82,7 +82,17 @@ def main():
                    "expires_at": 0, "open_id": "", "scope": ""}, f)
     cfg = {"client_key": ck, "client_secret": cs,
            "privacy": "SELF_ONLY", "token_file": tf}
-    ok = post_api(video, _caption(entry), cfg, tf)
+    try:
+        ok = post_api(video, _caption(entry), cfg, tf)
+    except RuntimeError as e:
+        if "unaudited_client_can_only_post_to_private_accounts" in str(e):
+            print("selftest: TikTok отклонил публикацию: приложение ещё БЕЗ АУДИТА,")
+            print("  поэтому постить можно ТОЛЬКО в приватный аккаунт, а аккаунт публичный.")
+            print("  FIX (30 секунд): TikTok на iPhone -> Профиль -> Настройки ->")
+            print("  Конфиденциальность -> включить «Приватный аккаунт» — и перезапустить")
+            print("  selftest. После аудита приложения аккаунт можно вернуть в публичный.")
+            return 3
+        raise
     tok = json.load(open(tf, encoding="utf-8"))
     mins = int((float(tok.get("expires_at") or 0) - time.time()) / 60)
     rotated = "refresh_token РОТИРОВАН и сохранён в секреты" \
