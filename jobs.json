@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T20:08:17Z",
+ "updated": "2026-11-23T20:08:28Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=_5g6KmWqVyk",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Заедно ли сме още с Влади? | IVKA BEIBE PODCAST",
    "views": 389575,
