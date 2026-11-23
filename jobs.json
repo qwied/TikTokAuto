@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T22:24:42Z",
+ "updated": "2026-11-23T22:24:50Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=wAyk_uXsBxQ",
    "kind": "video",
-   "fails": 1,
+   "fails": 2,
    "tag": "ru",
    "display": "Юрий Сидельников — Спиной вперёд | Стендап-концерт",
    "views": 94803,
