@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T19:20:46Z",
+ "updated": "2026-11-23T19:21:00Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -231,12 +231,12 @@
     "name": "Okisebi",
     "display": "youtube.com/@Okisebi",
     "platform": "youtube",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🔴 LIVE! - GTA 6 mit KINO GRAFIK!"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"Team Liquid vs DO KONCA bo3 1:0 BLAST SLAM IX (Group Stage)\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 БАГУЮ, ИГРУ 🔴 ГЛАВА II 🔴 DAY 6 🔴\", 0], [\"deepins02\", true, \"[видео] | !winline !авито !флаувау !tg\", 0], [\"anarabdullaev\", false, \"Вечерний чил на вилле /w Огр Эксити Жека\", 0], [\"solo\", true, \"🔴 Team Liquid [1:0] DO KONCA | BLAST SLAM IX: Group Stage w/ @геннадий @rodjer !tg !BETBOOM !розыгрыш\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф\", 0], [\"sasavot\", true, \"ВСМ/ПОНЕДЕЛЬНИК ?\", 0], [\"betboom_dota_ru\", true, \"Team Liquid [1] vs [0] DO KONCA | Bo3 | Group Stage Day 4 | BLAST SLAM IX | cast: @artem1daaa & @inmateoo\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 8 @bondarenk01 | !tg !donate !winline !ggsel\", 0], [\"welovegames\", true, \"GTA VI на 100% | !сити !ggsel !втб !dodo\", 0], [\"melharucos\", false, \"ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА\", 0], [\"kopsteep\", true, \"страшное eбaлo на экранах (мы играем в хоррор, я не про себя) !tg !bot\", 0], [\"betboom_dota_ru2\", false, \"Aurora [2] vs [0] LGD | Bo3 | Group Stage Day 4 | BLAST SLAM IX | cast: @b31kaa & @grayne !предикты\", 0], [\"dyrachyo\", true, \"Liquid [1:0] Do konca bo3 BLAST SLAM IX Group Stage w/ @mrAhillesko @dkfogas1 | !bb !tg\", 0], [\"renatko\", true, \"СЛЕЙ МЛЕЙ РУФАТ  !бб !тг\", 0], [\"blackrabbit342\", true, \"liquid dk 1 0 BLAST БЕЗ ЗАДЕРЖКИ!  !bb\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !боты !bots !funpay\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 6 серия | 46% !tg\", 0], [\"guacamolemolly\", false, \"\", 0], [\"stray228\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"Team Liquid vs DO KONCA bo3 1:0 BLAST SLAM IX (Group Stage)\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 БАГУЮ, ИГРУ 🔴 ГЛАВА II 🔴 DAY 6 🔴\", 0], [\"deepins02\", true, \"[видео] | !winline !авито !флаувау !tg\", 0], [\"anarabdullaev\", false, \"Вечерний чил на вилле /w Огр Эксити Жека\", 0], [\"solo\", true, \"🔴 Team Liquid [1:0] DO KONCA | BLAST SLAM IX: Group Stage w/ @геннадий @rodjer !tg !BETBOOM !розыгрыш\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф\", 0], [\"sasavot\", true, \"ВСМ/ПОНЕДЕЛЬНИК ?\", 0], [\"betboom_dota_ru\", true, \"Team Liquid [1] vs [0] DO KONCA | Bo3 | Group Stage Day 4 | BLAST SLAM IX | cast: @artem1daaa & @inmateoo\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 8 @bondarenk01 | !tg !donate !winline !ggsel\", 0], [\"welovegames\", true, \"GTA VI на 100% | !сити !ggsel !втб !dodo\", 0], [\"melharucos\", false, \"ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА\", 0], [\"kopsteep\", true, \"страшное eбaлo на экранах (мы играем в хоррор, я не про себя) !tg !bot\", 0], [\"betboom_dota_ru2\", false, \"Aurora [2] vs [0] LGD | Bo3 | Group Stage Day 4 | BLAST SLAM IX | cast: @b31kaa & @grayne !предикты\", 0], [\"dyrachyo\", true, \"Liquid [1:0] Do konca bo3 BLAST SLAM IX Group Stage w/ @mrAhillesko @dkfogas1 | !bb !tg\", 0], [\"renatko\", true, \"СЛЕЙ МЛЕЙ РУФАТ  !бб !тг\", 0], [\"blackrabbit342\", true, \"liquid dk 1 0 BLAST БЕЗ ЗАДЕРЖКИ!  !bb\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !боты !bots !funpay\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 6 серия | 46% !tg\", 0], [\"guacamolemolly\", false, \"\", 0], [\"stray228\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit KINO GRAFIK!\", 0]]"
  },
  "clips": [
   {
