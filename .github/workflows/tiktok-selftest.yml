@@ -1,0 +1,44 @@
+# StreamClipper: разовая проверка боевого автопостинга TikTok.
+# Публикует самый свежий клип из clips.json (файл в релизе репозитория)
+# ТЕМ ЖЕ кодом, что и боевой автопостинг: refresh -> access -> init ->
+# загрузка -> статус. Ротированный refresh_token сам сохраняется в секреты.
+# Результат: видео в TikTok-аккаунте («Только я», пока приложение без аудита).
+name: TikTok selftest
+
+on:
+  workflow_dispatch:
+    inputs:
+      clip_id:
+        description: "id клипа из clips.json (пусто = самый свежий)"
+        required: false
+        default: ""
+
+permissions:
+  contents: read                   # читать clips.json и ассеты релиза
+
+concurrency:
+  group: tiktok-selftest
+  cancel-in-progress: true
+
+jobs:
+  selftest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Зависимости
+        run: pip install requests
+
+      - name: Публикация свежего клипа в TikTok (боевой путь)
+        env:
+          GH_TOKEN: ${{ secrets.SC_PAT }}
+          TIKTOK_CLIENT_KEY: ${{ secrets.TIKTOK_CLIENT_KEY }}
+          TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
+          TIKTOK_REFRESH_TOKEN: ${{ secrets.TIKTOK_REFRESH_TOKEN }}
+          TIKTOK_SELFTEST_CLIP_ID: ${{ inputs.clip_id }}
+        run: python tiktok_selftest.py
