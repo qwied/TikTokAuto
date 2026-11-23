@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T07:31:13Z",
+ "updated": "2026-11-23T07:32:58Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -16,7 +16,7 @@
     "display": "twitch.tv/d1pro4",
     "platform": "twitch",
     "live": true,
-    "viewers": 7202,
+    "viewers": 5804,
     "title": "Я снова один в этом Ламбо"
    },
    {
@@ -28,6 +28,14 @@
     "title": "GTA 6 92% 2K 60fps DLSS5 ФИНАЛ"
    },
    {
+    "name": "cozart_2s1",
+    "display": "twitch.tv/cozart_2s1",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
     "name": "voodoosh",
     "display": "twitch.tv/voodoosh",
     "platform": "twitch",
@@ -36,12 +44,20 @@
     "title": "День 2. Ночное Прохождение by VooDooSh! Заходи <3"
    },
    {
-    "name": "cozart_2s1",
-    "display": "twitch.tv/cozart_2s1",
+    "name": "dmitry_lixxx",
+    "display": "twitch.tv/dmitry_lixxx",
     "platform": "twitch",
     "live": true,
-    "viewers": 4572,
-    "title": "6000Elo 😈 @m0nesyof w @donk1437/!Пати!elo!донат !роспись"
+    "viewers": 4831,
+    "title": "[DROPS/120 FPS] ФИНАЛ КАКАЯ КОНЦОВКА? | !tg !winline !ЯО !ВТБ !avan"
+   },
+   {
+    "name": "bobito217",
+    "display": "twitch.tv/bobito217",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "leva2k",
@@ -50,6 +66,14 @@
     "live": true,
     "viewers": 2198,
     "title": "ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel"
+   },
+   {
+    "name": "keliencs",
+    "display": "twitch.tv/keliencs",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 1509,
+    "title": "ЕСЛИ НЕ АПНУ 4К ЭЛО, КИКАЮТ ИЗ WW... | !tg !fonbet"
    },
    {
     "name": "leb1ga",
@@ -68,12 +92,12 @@
     "title": "ПОВТОР | BLAST SLAM IX | Group Stage Day 3"
    },
    {
-    "name": "keliencs",
-    "display": "twitch.tv/keliencs",
+    "name": "vovapain",
+    "display": "twitch.tv/vovapain",
     "platform": "twitch",
     "live": true,
-    "viewers": 1509,
-    "title": "ЕСЛИ НЕ АПНУ 4К ЭЛО, КИКАЮТ ИЗ WW... | !tg !fonbet"
+    "viewers": 1023,
+    "title": "🔴 НЮХАО 👃 | !tg !bb !бк !лига"
    },
    {
     "name": "welovegames",
@@ -130,25 +154,9 @@
     "live": false,
     "viewers": 0,
     "title": ""
-   },
-   {
-    "name": "dmitry_lixxx",
-    "display": "twitch.tv/dmitry_lixxx",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 4831,
-    "title": "[DROPS/120 FPS] ФИНАЛ КАКАЯ КОНЦОВКА? | !tg !winline !ЯО !ВТБ !avan"
-   },
-   {
-    "name": "bobito217",
-    "display": "twitch.tv/bobito217",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": "игры с максимчиком"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"d1pro4\", true, \"Я снова один в этом Ламбо\", 7200], [\"whoplohoyparen\", true, \"GTA 6 92% 2K 60fps DLSS5 ФИНАЛ\", 5275], [\"voodoosh\", true, \"День 2. Ночное Прохождение by VooDooSh! Заходи <3\", 4400], [\"cozart_2s1\", true, \"6000Elo 😈 @m0nesyof w @donk1437/!Пати!elo!донат !роспись\", 4575], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel\", 2200], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 1450], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 3\", 1050], [\"keliencs\", true, \"ЕСЛИ НЕ АПНУ 4К ЭЛО, КИКАЮТ ИЗ WW... | !tg !fonbet\", 1500], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ФИНАЛ КАКАЯ КОНЦОВКА? | !tg !winline !ЯО !ВТБ !avan\", 4825], [\"bobito217\", false, \"игры с максимчиком\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"d1pro4\", true, \"Я снова один в этом Ламбо\", 5800], [\"whoplohoyparen\", true, \"GTA 6 92% 2K 60fps DLSS5 ФИНАЛ\", 5275], [\"cozart_2s1\", false, \"\", 0], [\"voodoosh\", true, \"День 2. Ночное Прохождение by VooDooSh! Заходи <3\", 4400], [\"dmitry_lixxx\", true, \"[DROPS/120 FPS] ФИНАЛ КАКАЯ КОНЦОВКА? | !tg !winline !ЯО !ВТБ !avan\", 4825], [\"bobito217\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel\", 2200], [\"keliencs\", true, \"ЕСЛИ НЕ АПНУ 4К ЭЛО, КИКАЮТ ИЗ WW... | !tg !fonbet\", 1500], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 1450], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 3\", 1050], [\"vovapain\", true, \"🔴 НЮХАО 👃 | !tg !bb !бк !лига\", 1025], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
