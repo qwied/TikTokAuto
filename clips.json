@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T16:49:59Z",
+ "updated": "2026-11-23T16:50:14Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -215,25 +215,25 @@
     "name": "bezp",
     "display": "twitch.tv/bezp",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "[EXCLUSIVE DROPS] Вотчпати турика !боты !bots !funpay"
    },
    {
     "name": "nix",
     "display": "twitch.tv/nix",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Team Liquid vs DO KONCA bo3 0:0 BLAST SLAM IX (Group Stage)"
    },
    {
     "name": "kopsteep",
     "display": "twitch.tv/kopsteep",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "страшное eбaлo на экранах (мы играем в хоррор, я не про себя) !tg !bot"
    },
    {
     "name": "welovegames",
@@ -292,7 +292,7 @@
     "title": "🔴 LIVE! - GTA 6 mit KINO GRAFIK!"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 БАГУЮ, ИГРУ 🔴 ГЛАВА II 🔴 DAY 6 🔴\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch\", 0], [\"zubarefff\", true, \"Без родителей, без соплей, без башни! 🥳 Смотрим «Superнянь» 📹\", 0], [\"solo\", true, \"🔴 Team Liquid [0:0] DO KONCA | BLAST SLAM IX: Group Stage w/ @геннадий @rodjer !tg !BETBOOM !розыгрыш\", 0], [\"recrent\", true, \"[1440p] GTA VI в 60 fps. День VI | !pari !ggsel !tg !мерч\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 0], [\"deepins02\", true, \"[видео] | !winline !авито !флаувау !tg\", 0], [\"sasavot\", true, \"ВСМ/ПОНЕДЕЛЬНИК ?\", 0], [\"koma\", true, \"9K & RANK 100 & CARRY & NEW PATCH !vtb !tg\", 0], [\"betboom_dota_ru2\", true, \"Aurora [0] vs [0] LGD | Bo3 | Group Stage Day 4 | BLAST SLAM IX | cast: @b31kaa & @grayne !предикты\", 0], [\"betboom_dota_ru\", true, \"Team Liquid [0] vs [0] DO KONCA | Bo3 | Group Stage Day 4 | BLAST SLAM IX | cast: @artem1daaa & @inmateoo\", 0], [\"leva2k\", true, \"АУК НА ВЕЩЬ | ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Супермегараспоследний день нашего обширного отпуска\", 0], [\"melharucos\", true, \"ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА\", 0], [\"welovegames\", true, \"GTA VI на 100% | !сити !ggsel !втб !dodo\", 0], [\"dyrachyo\", true, \"Liquid [0:0] Do konca bo3 BLAST SLAM IX Group Stage w/ @mrAhillesko | !bb !tg\", 0], [\"morphe_ya\", true, \"гамесы игрульки игры | !tg !winline !мышки !wb\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 6 | !tg !прогресс\", 0], [\"ghostik\", false, \"\", 0], [\"chopperinho\", true, \"SOLO FACEIT PREM | СКИН ЗА ЛУЗ | ROAD TO 4K ELO | !bb !tg !yt !challenge\", 0], [\"dunduk\", true, \"stalich\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"blackrabbit342\", true, \"nemesis extreme 0 1 BLAST БЕЗ ЗАДЕРЖКИ!  !bb\", 0], [\"syslov171\", true, \"легкий вечер\", 0], [\"zer0truel0ve\", true, \"[GTA 6 120fps DLSS - 3 день] марафон 24/7 [DROPS Включены]\", 0], [\"bezp\", false, \"\", 0], [\"nix\", false, \"\", 0], [\"kopsteep\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit KINO GRAFIK!\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 БАГУЮ, ИГРУ 🔴 ГЛАВА II 🔴 DAY 6 🔴\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch\", 0], [\"zubarefff\", true, \"Без родителей, без соплей, без башни! 🥳 Смотрим «Superнянь» 📹\", 0], [\"solo\", true, \"🔴 Team Liquid [0:0] DO KONCA | BLAST SLAM IX: Group Stage w/ @геннадий @rodjer !tg !BETBOOM !розыгрыш\", 0], [\"recrent\", true, \"[1440p] GTA VI в 60 fps. День VI | !pari !ggsel !tg !мерч\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 0], [\"deepins02\", true, \"[видео] | !winline !авито !флаувау !tg\", 0], [\"sasavot\", true, \"ВСМ/ПОНЕДЕЛЬНИК ?\", 0], [\"koma\", true, \"9K & RANK 100 & CARRY & NEW PATCH !vtb !tg\", 0], [\"betboom_dota_ru2\", true, \"Aurora [0] vs [0] LGD | Bo3 | Group Stage Day 4 | BLAST SLAM IX | cast: @b31kaa & @grayne !предикты\", 0], [\"betboom_dota_ru\", true, \"Team Liquid [0] vs [0] DO KONCA | Bo3 | Group Stage Day 4 | BLAST SLAM IX | cast: @artem1daaa & @inmateoo\", 0], [\"leva2k\", true, \"АУК НА ВЕЩЬ | ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Супермегараспоследний день нашего обширного отпуска\", 0], [\"melharucos\", true, \"ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА\", 0], [\"welovegames\", true, \"GTA VI на 100% | !сити !ggsel !втб !dodo\", 0], [\"dyrachyo\", true, \"Liquid [0:0] Do konca bo3 BLAST SLAM IX Group Stage w/ @mrAhillesko | !bb !tg\", 0], [\"morphe_ya\", true, \"гамесы игрульки игры | !tg !winline !мышки !wb\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 6 | !tg !прогресс\", 0], [\"ghostik\", false, \"\", 0], [\"chopperinho\", true, \"SOLO FACEIT PREM | СКИН ЗА ЛУЗ | ROAD TO 4K ELO | !bb !tg !yt !challenge\", 0], [\"dunduk\", true, \"stalich\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"blackrabbit342\", true, \"nemesis extreme 0 1 BLAST БЕЗ ЗАДЕРЖКИ!  !bb\", 0], [\"syslov171\", true, \"легкий вечер\", 0], [\"zer0truel0ve\", true, \"[GTA 6 120fps DLSS - 3 день] марафон 24/7 [DROPS Включены]\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !боты !bots !funpay\", 0], [\"nix\", true, \"Team Liquid vs DO KONCA bo3 0:0 BLAST SLAM IX (Group Stage)\", 0], [\"kopsteep\", true, \"страшное eбaлo на экранах (мы играем в хоррор, я не про себя) !tg !bot\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit KINO GRAFIK!\", 0]]"
  },
  "clips": [
   {
