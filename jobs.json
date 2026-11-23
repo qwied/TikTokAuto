@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T02:29:37Z",
+ "updated": "2026-11-23T02:29:49Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=QjntsOerUaY",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Эми мени эч ким “Динаранын кызы” деп чакырбайт | Малика Дина | Накта Подкаст",
    "views": 355457,
