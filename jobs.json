@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T06:39:05Z",
+ "updated": "2026-11-23T06:39:19Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=eOLP2mWAiXI",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Самый АБСУРДНЫЙ эксперимент NASA",
    "views": 278679,
