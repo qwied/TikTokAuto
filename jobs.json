@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T20:33:53Z",
+ "updated": "2026-11-23T20:34:01Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=NX7AyJa3BGM",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Коллекционер | Сезон 1 | Выпуск 1",
    "views": 157118,
