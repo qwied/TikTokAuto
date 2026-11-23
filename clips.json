@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T21:27:32Z",
+ "updated": "2026-11-23T21:27:40Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -16,7 +16,7 @@
     "display": "twitch.tv/leb1ga",
     "platform": "twitch",
     "live": true,
-    "viewers": 27184,
+    "viewers": 26441,
     "title": "⚡️ФІНАЛ МАРАФОНУ GTA 6 | 60 FPS | ДЕНЬ 5"
    },
    {
@@ -28,27 +28,11 @@
     "title": "🔴 2K 60 FPS 🔴 БАГУЮ, ИГРУ 🔴 ГЛАВА II 🔴 DAY 6 🔴"
    },
    {
-    "name": "deepins02",
-    "display": "twitch.tv/deepins02",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": "[видео] | !winline !авито !флаувау !tg"
-   },
-   {
-    "name": "buster",
-    "display": "twitch.tv/buster",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": "2026💀"
-   },
-   {
     "name": "t2x2",
     "display": "twitch.tv/t2x2",
     "platform": "twitch",
     "live": true,
-    "viewers": 7490,
+    "viewers": 7388,
     "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф"
    },
    {
@@ -89,7 +73,7 @@
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "ПОКОРЯЕМ ЧАТ РУЛЕТКУ 🛑 !бб !тг"
+    "title": ""
    },
    {
     "name": "kopsteep",
@@ -112,8 +96,16 @@
     "display": "twitch.tv/rejiboi",
     "platform": "twitch",
     "live": true,
-    "viewers": 1226,
+    "viewers": 1211,
     "title": "давай воровать машинки 6, 6 серия | 46% !tg"
+   },
+   {
+    "name": "znat51",
+    "display": "twitch.tv/znat51",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 1433,
+    "title": "пока все хайпят на гта , мы играем на фасике - !тг !vip !дс !донат !музыка"
    },
    {
     "name": "welovegames",
@@ -169,18 +161,10 @@
     "platform": "youtube",
     "live": false,
     "viewers": 0,
-    "title": "🔴 LIVE! - GTA 6 mit KINO GRAFIK!"
-   },
-   {
-    "name": "znat51",
-    "display": "twitch.tv/znat51",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 1433,
-    "title": "пока все хайпят на гта , мы играем на фасике - !тг !vip !дс !донат !музыка"
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leb1ga\", true, \"⚡️ФІНАЛ МАРАФОНУ GTA 6 | 60 FPS | ДЕНЬ 5\", 27175], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 БАГУЮ, ИГРУ 🔴 ГЛАВА II 🔴 DAY 6 🔴\", 18700], [\"deepins02\", false, \"[видео] | !winline !авито !флаувау !tg\", 0], [\"buster\", false, \"2026💀\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф\", 7500], [\"sasavot\", true, \"ВСМ/ПОНЕДЕЛЬНИК ?\", 7100], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 @bondarenk01 | !tg !donate !winline !ggsel\", 5400], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 5500], [\"welovegames\", true, \"GTA VI на 100% | !сити !ggsel !втб !dodo\", 4450], [\"renatko\", false, \"ПОКОРЯЕМ ЧАТ РУЛЕТКУ 🛑 !бб !тг\", 0], [\"kopsteep\", true, \"смотрим фильм \\\"Пассажир\\\" 2026 ужастик страшно, начало 23:02 !tg !bot\", 2250], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 1725], [\"rejiboi\", true, \"давай воровать машинки 6, 6 серия | 46% !tg\", 1225], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"🔴 LIVE! - GTA 6 mit KINO GRAFIK!\", 0], [\"znat51\", true, \"пока все хайпят на гта , мы играем на фасике - !тг !vip !дс !донат !музыка\", 1425]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leb1ga\", true, \"⚡️ФІНАЛ МАРАФОНУ GTA 6 | 60 FPS | ДЕНЬ 5\", 26450], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 БАГУЮ, ИГРУ 🔴 ГЛАВА II 🔴 DAY 6 🔴\", 18700], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф\", 7400], [\"sasavot\", true, \"ВСМ/ПОНЕДЕЛЬНИК ?\", 7100], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 @bondarenk01 | !tg !donate !winline !ggsel\", 5400], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 5500], [\"welovegames\", true, \"GTA VI на 100% | !сити !ggsel !втб !dodo\", 4450], [\"renatko\", false, \"\", 0], [\"kopsteep\", true, \"смотрим фильм \\\"Пассажир\\\" 2026 ужастик страшно, начало 23:02 !tg !bot\", 2250], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 1725], [\"rejiboi\", true, \"давай воровать машинки 6, 6 серия | 46% !tg\", 1200], [\"znat51\", true, \"пока все хайпят на гта , мы играем на фасике - !тг !vip !дс !донат !музыка\", 1425], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
