@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T03:23:41Z",
+ "updated": "2026-11-23T03:24:36Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=RZZzMCcwfnY",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "«Кто-то должен быть Потапом в этой жизни» // «Скажи Гордеевой»",
    "views": 1919457,
