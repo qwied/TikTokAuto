@@ -11,8 +11,9 @@ name: Clip video
 
 on:
   schedule:
-    # запасной вход (основное — цепочка от самой задачи и от Check live)
-    - cron: "11 */2 * * *"
+    # запасной вход: каждые 5 минут (максимум GitHub). Основное — цепочки:
+    # сама задача продолжает нарезку, а Check live запускает её мгновенно
+    - cron: "*/5 * * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -77,7 +78,7 @@ jobs:
           GH_TOKEN: ${{ secrets.SC_PAT }}
         run: |
           if [ -f vod_remaining.txt ] && grep -q '^1' vod_remaining.txt; then
-            sleep 20
+            sleep 5
             gh workflow run clip.yml --repo "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME"
           else
             echo "Очередь пуста — цепочка завершена"
