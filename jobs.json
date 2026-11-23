@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T16:25:19Z",
+ "updated": "2026-11-23T16:25:28Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=HDQDyLPfdOE",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "ЕЛИЗАВЕТА БАЗЫКИНА: первое большое интервью новой звезды театра и кино",
    "views": 1342657,
