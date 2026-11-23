@@ -89,6 +89,7 @@ YT_STATE = "youtube_state.json"         # состояние YouTube-диска�
 SETTINGS_JSON = "settings.json"         # настройки качества клипов (пишет сайт)
 FEEDBACK_JSON = "feedback.json"         # Интересно/Скучно по клипам (пишет сайт)
 TIKTOK_PENDING_JSON = "tiktok_pending.json"  # отложенная очередь TikTok (самолечение)
+TIKTOK_POSTED_JSON = "tiktok_posted.json"    # что уже выходило (защита от дублей)
 MAX_CLIPS = 60          # сколько клипов держать в clips.json
 MAX_ASSETS = 60         # сколько файлов держать в релизе (старые удаляются)
 WIPE_MARKER = "wipe_clips.now"   # маркер-файл в репо: стереть ВСЕ старые клипы
@@ -1589,25 +1590,39 @@ def tiktok_pending_load(gh, base):
     return []
 
 
-def tiktok_pending_commit(gh, base, msg="tiktok: очередь публикации сохранена"):
-    """Закоммитить tiktok_pending.json (самолечение: клипы не теряются).
+def _commit_repo_json(gh, path, base, msg):
+    """Закоммитить json-файл (если есть что сохранять; пусто — коммита нет)."""
+    exists = os.path.isfile(os.path.join(base, path))
+    raw_old, sha = gh.get_file(path)
+    if not exists and raw_old is None:
+        return False                    # нечего сохранять
+    data = b"[]"
+    if exists:
+        with open(os.path.join(base, path), "rb") as f:
+            data = f.read()
+    gh.put_file(path, data, sha, msg)
+    return True
 
-    Нет файла локально и в репо — пусто: коммита нет (репозиторий не пухнет)."""
+
+def tiktok_pending_commit(gh, base, msg="tiktok: очередь публикации сохранена"):
+    """Закоммитить отложенную очередь + историю публикаций TikTok (самолечение:
+    клипы не теряются, повторы не случаются)."""
     try:
-        exists = os.path.isfile(os.path.join(base, TIKTOK_PENDING_JSON))
-        raw_old, sha = gh.get_file(TIKTOK_PENDING_JSON)
-        if not exists and raw_old is None:
-            return                      # нечего сохранять
-        data = b"[]"
-        if exists:
-            with open(os.path.join(base, TIKTOK_PENDING_JSON), "rb") as f:
-                data = f.read()
-        gh.put_file(TIKTOK_PENDING_JSON, data, sha, msg)
+        ok = _commit_repo_json(gh, TIKTOK_PENDING_JSON, base, msg)
         try:
-            n = len(json.loads(data.decode("utf-8") or "[]"))
+            with open(os.path.join(base, TIKTOK_PENDING_JSON), "rb") as f:
+                n = len(json.loads(f.read().decode("utf-8") or "[]"))
         except Exception:
             n = -1
-        log.info("TikTok: очередь публикации закоммичена (ждут публикации: %s)", n)
+        if ok:
+            log.info("TikTok: очередь публикации закоммичена (ждут публикации: %s)", n)
+        try:
+            ok2 = _commit_repo_json(gh, TIKTOK_POSTED_JSON, base,
+                                    "tiktok: история публикаций обновлена")
+        except Exception:
+            ok2 = False
+        if ok2:
+            log.info("TikTok: история публикаций закоммичена")
     except Exception:
         log.exception("TikTok: не удалось закоммитить очередь публикации")
 
@@ -1625,6 +1640,15 @@ def tiktok_requeue(tk, gh, base, cap=4):
     except Exception:
         log.exception("TikTok: очередь из репозитория не читается")
         return 0
+    # Клипы, уже выходившие через selftest, в боевой пост не возвращаем:
+    # убираем их из очереди (защита от дублей между путями публикации).
+    try:
+        raw, _sha = gh.get_file(TIKTOK_POSTED_JSON)
+        posted = set(json.loads((raw or b"[]").decode("utf-8")) or [])
+        for eid in list(posted):
+            tk.discard_pending(eid)
+    except Exception:
+        pass
     probe = any(tiktok_mod.UNAUDITED_MARK in str(e.get("last_error") or "")
                 and time.time() - float(e.get("ts") or 0) < 90 * 60
                 for e in tk.pending_entries())
