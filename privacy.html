@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#05060a">
+<title>StreamClipper — Политика конфиденциальности</title>
+<link rel="icon" type="image/png" href="icon-192.png">
+<style>
+  :root{--bg:#05060a;--surface:rgba(255,255,255,.055);--border:rgba(255,255,255,.09);
+        --text:#f5f5f7;--muted:#9b9ba7;--accent:#8b5cf6;--accent2:#ec4899}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font:16px/1.65 -apple-system,BlinkMacSystemFont,
+       "Segoe UI",Roboto,"Helvetica Neue",sans-serif;padding:48px 20px 80px}
+  .bg{position:fixed;inset:0;z-index:-1;background:
+      radial-gradient(700px 400px at 15% -5%,rgba(139,92,246,.14),transparent 60%),
+      radial-gradient(700px 400px at 90% 10%,rgba(236,72,153,.12),transparent 60%)}
+  .wrap{max-width:760px;margin:0 auto}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:22px;
+        padding:32px 28px;backdrop-filter:blur(12px)}
+  h1{font-size:26px;margin-bottom:6px}
+  h1 b{background:linear-gradient(135deg,#8b5cf6,#ec4899);-webkit-background-clip:text;
+       background-clip:text;color:transparent}
+  .sub{color:var(--muted);font-size:14px;margin-bottom:24px}
+  h2{font-size:18px;margin:26px 0 10px}
+  p,li{color:var(--muted)}
+  ul{padding-left:22px;margin:8px 0}
+  li{margin:6px 0}
+  a{color:#c4b5fd;text-decoration:none}
+  .foot{margin-top:26px;color:#6e6e7a;font-size:13px}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+<div class="wrap">
+  <div class="card">
+    <h1>Stream<b>Clipper</b> — Политика конфиденциальности</h1>
+    <p class="sub">Действует с 23 ноября 2026 года</p>
+
+    <h2>1. О проекте</h2>
+    <p>StreamClipper — личный инструмент автоматизации: он нарезает интересные
+       моменты из трансляций и публикует готовые вертикальные клипы в TikTok-аккаунт
+       владельца через официальный TikTok Content Posting API. Сервис работает
+       только для учётной записи владельца проекта и не принимает загрузки от
+       третьих лиц.</p>
+
+    <h2>2. Какие данные обрабатываются</h2>
+    <ul>
+      <li>идентификатор TikTok-аккаунта (open_id), полученный через OAuth Login Kit
+          при явном разрешении владельца аккаунта;</li>
+      <li>токены доступа (access token и refresh token), необходимые для публикации;</li>
+      <li>видеофайлы клипов, создаваемые самим инструментом из публичных трансляций;</li>
+      <li>технические журналы работы (статусы публикаций, ошибки).</li>
+    </ul>
+
+    <h2>3. Как данные используются</h2>
+    <p>Данные используются исключительно для одной цели: публиковать клипы
+       в TikTok-аккаунт владельца и поддерживать работу автоматизации
+       (обновление токена, статусы загрузок). Мы не продаём данные, не передаём
+       их третьим лицам, не показываем рекламу и не собираем статистику
+       посещений.</p>
+
+    <h2>4. Хранение и защита</h2>
+    <p>Токены хранятся в защищённом хранилище секретов GitHub (Encrypted secrets)
+       и никогда не публикуются. Видеофайлы хранятся в закрытом выпуске (Releases)
+       репозитория владельца. Доступ к секретам имеет только владелец.</p>
+
+    <h2>5. Отзыв доступа</h2>
+    <p>Вы можете в любой момент отозвать доступ приложения к TikTok-аккаунту:
+       TikTok → Профиль → Настройки и конфиденциальность → Безопасность →
+       Управление доступом приложений → отозвать StreamClipper. После отзыва
+       токены перестают действовать и удаляются из хранилища секретов.</p>
+
+    <h2>6. Данные третьих сторон</h2>
+    <p>Инструмент взаимодействует с API платформ трансляций (Twitch, YouTube)
+       для определения выходящих в эфир каналов и с API TikTok для публикации.
+       Обработка подчиняется политикам соответствующих платформ.</p>
+
+    <h2>7. Контакты</h2>
+    <p>Вопросы по этой политике: <a href="https://github.com/qwied/TikTokAuto/issues">
+       github.com/qwied/TikTokAuto/issues</a>.</p>
+
+    <p class="foot">© StreamClipper. Персональный проект автоматизации.</p>
+  </div>
+</div>
+</body>
+</html>
