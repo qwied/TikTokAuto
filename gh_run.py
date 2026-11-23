@@ -1951,6 +1951,8 @@ def run_monitor(channel="", max_minutes=280):
                     f"{RELEASE_TAG}/{name}")
 
     pl = Pipeline(cfg, _Notifier())
+    if pl.tiktok is not None and push is not None:
+        pl.tiktok.notify = push            # тревога TikTok на телефон (ntfy/Telegram)
 
     def refresh_quality():
         """Настройки и фидбек с сайта -> работающие детекторы (раз в минуту)."""
@@ -2081,6 +2083,8 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
             if cand.ready():
                 cand.start()
                 tk = cand
+                if push is not None:
+                    tk.notify = push        # тревога TikTok на телефон
                 log.info("TikTok: постинг включён (мин. оценка %d, до %d постов "
                          "за запуск)", tk.min_score, tk_cap)
             else:
