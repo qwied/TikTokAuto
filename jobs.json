@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T00:37:05Z",
+ "updated": "2026-11-23T00:37:08Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=NL3Pxeqlnhk",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Нельзя смеяться | Смех с водой, истории, подбери пароль | Генич, Баженов",
    "views": 446272,
