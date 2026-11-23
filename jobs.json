@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T20:29:40Z",
+ "updated": "2026-11-23T20:30:38Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=Xo8bM216RwA",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "ВЕЖЛИВОСТЬ КАК ОРУЖИЕ. Как поставить ЛЮБОГО на место? | Александр Добровинский",
    "views": 769995,
