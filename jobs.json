@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T22:24:17Z",
+ "updated": "2026-11-23T22:24:26Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=epeTyyrYFLU",
    "kind": "video",
-   "fails": 1,
+   "fails": 2,
    "tag": "ru",
    "display": "Андрей Айрапетов — Stand-Up концерт \"Жертвоприношение\"",
    "views": 1526182,
