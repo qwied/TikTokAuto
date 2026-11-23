@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-23T23:26:45Z",
- "jobs": []
+ "updated": "2026-11-23T23:48:51Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=6VTSAs4Rsck",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Марк Кьюбан: Следующий крах рынка — вот где делаются настоящие деньги!",
+   "views": 6558102,
+   "added": "2026-11-23T23:48:46Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=Q-DFC0AnbY4",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Глава UFC: «Есть одна формула. Угадайте, у кого она!» — Дана Уайт",
+   "views": 3396697,
+   "added": "2026-11-23T23:48:46Z"
+  }
+ ]
 }
