@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T15:00:38Z",
+ "updated": "2026-11-23T15:00:46Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=FBeeTYwU97s",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Как в Калининград долетели БПЛА: самообстрел или дроны  ВСУ? Военный обзор Руслана Левиева",
    "views": 221025,
