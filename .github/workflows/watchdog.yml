@@ -1,0 +1,35 @@
+# StreamClipper: Watchdog — самолечение 24/7.
+# По cron раз в 20 минут проверяет здоровье цепочек и ремонтирует:
+#   * эстафета слежения (Check live) оборвана -> перезапуск check.yml;
+#   * очередь нарезки стоит, Clip video молчит -> перезапуск clip.yml.
+# Каждая починка коммитится в health.json; без починок коммитов нет.
+name: Watchdog
+
+on:
+  schedule:
+    - cron: "*/20 * * * *"
+  workflow_dispatch: {}            # кнопка «Run» вручную
+
+permissions:
+  contents: write                  # коммит health.json
+  actions: write                   # перезапуск check.yml / clip.yml
+
+concurrency:
+  group: watchdog
+  cancel-in-progress: true         # две проверки сразу не нужны
+
+jobs:
+  watchdog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Самолечение цепочек (check live / clip video)
+        env:
+          GH_TOKEN: ${{ secrets.SC_PAT }}
+        run: python watchdog.py
