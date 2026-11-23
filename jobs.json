@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-23T03:50:53Z",
- "jobs": []
+ "updated": "2026-11-23T04:19:42Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=C0xa1BYvBDw",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "«Я не прошусь быть понятым». Честный разговор с Шымом из «Касты» в #скажигордеевой",
+   "views": 482204,
+   "added": "2026-11-23T04:19:40Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=WKRf16svJvg",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Три острова | Сезон 1 | Выпуск 1",
+   "views": 364923,
+   "added": "2026-11-23T04:19:38Z"
+  }
+ ]
 }
