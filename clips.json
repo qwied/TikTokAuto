@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T18:40:54Z",
+ "updated": "2026-11-23T18:40:57Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -103,17 +103,17 @@
     "name": "melharucos",
     "display": "twitch.tv/melharucos",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА"
    },
    {
     "name": "kopsteep",
     "display": "twitch.tv/kopsteep",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "страшное eбaлo на экранах (мы играем в хоррор, я не про себя) !tg !bot"
    },
    {
     "name": "betboom_dota_ru2",
@@ -220,7 +220,7 @@
     "title": "🔴 LIVE! - GTA 6 mit KINO GRAFIK!"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"Team Liquid vs DO KONCA bo3 1:0 BLAST SLAM IX (Group Stage)\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 БАГУЮ, ИГРУ 🔴 ГЛАВА II 🔴 DAY 6 🔴\", 0], [\"deepins02\", true, \"[видео] | !winline !авито !флаувау !tg\", 0], [\"anarabdullaev\", true, \"Вечерний чил на вилле /w Огр Эксити Жека\", 0], [\"solo\", true, \"🔴 Team Liquid [1:0] DO KONCA | BLAST SLAM IX: Group Stage w/ @геннадий @rodjer !tg !BETBOOM !розыгрыш\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф\", 0], [\"sasavot\", true, \"ВСМ/ПОНЕДЕЛЬНИК ?\", 0], [\"betboom_dota_ru\", true, \"Team Liquid [1] vs [0] DO KONCA | Bo3 | Group Stage Day 4 | BLAST SLAM IX | cast: @artem1daaa & @inmateoo\", 0], [\"leva2k\", true, \"АУК НА ЕДУ | ИЗОЛЯЦИЯ ДЕНЬ8 | !tg !donate !winline !ggsel\", 0], [\"welovegames\", true, \"GTA VI на 100% | !сити !ggsel !втб !dodo\", 0], [\"melharucos\", false, \"\", 0], [\"kopsteep\", false, \"\", 0], [\"betboom_dota_ru2\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"renatko\", false, \"\", 0], [\"blackrabbit342\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit KINO GRAFIK!\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"Team Liquid vs DO KONCA bo3 1:0 BLAST SLAM IX (Group Stage)\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 БАГУЮ, ИГРУ 🔴 ГЛАВА II 🔴 DAY 6 🔴\", 0], [\"deepins02\", true, \"[видео] | !winline !авито !флаувау !tg\", 0], [\"anarabdullaev\", true, \"Вечерний чил на вилле /w Огр Эксити Жека\", 0], [\"solo\", true, \"🔴 Team Liquid [1:0] DO KONCA | BLAST SLAM IX: Group Stage w/ @геннадий @rodjer !tg !BETBOOM !розыгрыш\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф\", 0], [\"sasavot\", true, \"ВСМ/ПОНЕДЕЛЬНИК ?\", 0], [\"betboom_dota_ru\", true, \"Team Liquid [1] vs [0] DO KONCA | Bo3 | Group Stage Day 4 | BLAST SLAM IX | cast: @artem1daaa & @inmateoo\", 0], [\"leva2k\", true, \"АУК НА ЕДУ | ИЗОЛЯЦИЯ ДЕНЬ8 | !tg !donate !winline !ggsel\", 0], [\"welovegames\", true, \"GTA VI на 100% | !сити !ggsel !втб !dodo\", 0], [\"melharucos\", true, \"ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА\", 0], [\"kopsteep\", true, \"страшное eбaлo на экранах (мы играем в хоррор, я не про себя) !tg !bot\", 0], [\"betboom_dota_ru2\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"renatko\", false, \"\", 0], [\"blackrabbit342\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit KINO GRAFIK!\", 0]]"
  },
  "clips": [
   {
