@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T23:26:08Z",
+ "updated": "2026-11-23T23:26:15Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=4CXIHsADKmY",
    "kind": "video",
-   "fails": 1,
+   "fails": 2,
    "tag": "ru",
    "display": "Научные трюки от 1 до 100 уровня, которые кажутся \"невозможными\"",
    "views": 6050858,
