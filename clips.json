@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T06:35:13Z",
+ "updated": "2026-11-23T06:37:06Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -12,6 +12,22 @@
     "title": ""
    },
    {
+    "name": "d1pro4",
+    "display": "twitch.tv/d1pro4",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 7891,
+    "title": "Я снова один в этом Ламбо"
+   },
+   {
+    "name": "whoplohoyparen",
+    "display": "twitch.tv/whoplohoyparen",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 4878,
+    "title": "GTA 6 90% 2K 60fps DLSS5 ФИНАЛ"
+   },
+   {
     "name": "voodoosh",
     "display": "twitch.tv/voodoosh",
     "platform": "twitch",
@@ -20,12 +36,12 @@
     "title": "День 2. Ночное Прохождение by VooDooSh! Заходи <3"
    },
    {
-    "name": "whoplohoyparen",
-    "display": "twitch.tv/whoplohoyparen",
+    "name": "cozart_2s1",
+    "display": "twitch.tv/cozart_2s1",
     "platform": "twitch",
     "live": true,
-    "viewers": 5121,
-    "title": "GTA 6 90% 2K 60fps DLSS5 ФИНАЛ"
+    "viewers": 4266,
+    "title": "6000Elo 😈 @m0nesyof w @donk1437/!Пати!elo!донат !роспись"
    },
    {
     "name": "leva2k",
@@ -44,14 +60,6 @@
     "title": "⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5"
    },
    {
-    "name": "d1pro4",
-    "display": "twitch.tv/d1pro4",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 7983,
-    "title": "Я снова один в этом Ламбо"
-   },
-   {
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
@@ -60,27 +68,11 @@
     "title": "ПОВТОР | BLAST SLAM IX | Group Stage Day 3"
    },
    {
-    "name": "shiishak",
-    "display": "twitch.tv/shiishak",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": "Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB"
-   },
-   {
-    "name": "cozart_2s1",
-    "display": "twitch.tv/cozart_2s1",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 4193,
-    "title": "6000Elo 😈 @m0nesyof w @donk1437/!Пати!elo!донат !роспись"
-   },
-   {
     "name": "keliencs",
     "display": "twitch.tv/keliencs",
     "platform": "twitch",
     "live": true,
-    "viewers": 1120,
+    "viewers": 1232,
     "title": "ЕСЛИ НЕ АПНУ 4К ЭЛО, КИКАЮТ ИЗ WW... | !tg !fonbet"
    },
    {
@@ -140,7 +132,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"voodoosh\", true, \"День 2. Ночное Прохождение by VooDooSh! Заходи <3\", 4750], [\"whoplohoyparen\", true, \"GTA 6 90% 2K 60fps DLSS5 ФИНАЛ\", 5125], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel\", 2300], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 1475], [\"d1pro4\", true, \"Я снова один в этом Ламбо\", 7975], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 3\", 1125], [\"shiishak\", false, \"Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB\", 0], [\"cozart_2s1\", true, \"6000Elo 😈 @m0nesyof w @donk1437/!Пати!elo!донат !роспись\", 4200], [\"keliencs\", true, \"ЕСЛИ НЕ АПНУ 4К ЭЛО, КИКАЮТ ИЗ WW... | !tg !fonbet\", 1125], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"d1pro4\", true, \"Я снова один в этом Ламбо\", 7900], [\"whoplohoyparen\", true, \"GTA 6 90% 2K 60fps DLSS5 ФИНАЛ\", 4875], [\"voodoosh\", true, \"День 2. Ночное Прохождение by VooDooSh! Заходи <3\", 4750], [\"cozart_2s1\", true, \"6000Elo 😈 @m0nesyof w @donk1437/!Пати!elo!донат !роспись\", 4275], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel\", 2300], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 1475], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 3\", 1125], [\"keliencs\", true, \"ЕСЛИ НЕ АПНУ 4К ЭЛО, КИКАЮТ ИЗ WW... | !tg !fonbet\", 1225], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
