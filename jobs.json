@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T03:50:44Z",
+ "updated": "2026-11-23T03:50:47Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=CjjOQdbUudo",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Теория большого взрыва 9 сезон / лучшие моменты",
    "views": 1727140,
