@@ -57,12 +57,13 @@ def _parse_ts(s):
 
 
 def runs_of(workflow, limit=10):
+    # ВНИМАНИЕ: поле runStartedAt старые gh не знают — берём createdAt
     out = gh("run", "list", "--repo", os.environ["GITHUB_REPOSITORY"],
              "--workflow", workflow, "--limit", str(limit),
-             "--json", "databaseId,status,conclusion,runStartedAt,createdAt")
+             "--json", "databaseId,status,conclusion,createdAt")
     data = json.loads(out or "[]")
     for r in data:
-        r["ts"] = _parse_ts(r.get("runStartedAt") or r.get("createdAt"))
+        r["ts"] = _parse_ts(r.get("createdAt") or r.get("runStartedAt"))
     return data
 
 
