@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-23T04:20:49Z",
- "jobs": []
+ "updated": "2026-11-23T04:45:26Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=VvDTz3EwBpg",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "🔥 ШОУ «ТРИ ОСТРОВА» — ВТОРОЙ ВЫПУСК! СТРАСТИ, КОНФЛИКТЫ И НЕОЖИДАННЫЕ ПОВОРОТЫ! 🏝️",
+   "views": 1124653,
+   "added": "2026-11-23T04:45:22Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=Wdl6Z1d49_M",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "ОВР Шоу: Тренд на натуральность @ovrshow_tnt",
+   "views": 986317,
+   "added": "2026-11-23T04:45:22Z"
+  }
+ ]
 }
