@@ -1,27 +1,31 @@
-"""Разовая проверка автопостинга TikTok из Actions (workflow «TikTok selftest»).
+"""Проверка автопостинга TikTok из Actions (workflow «TikTok selftest»).
 
 Публикует готовый клип из релиза репозитория ТОЧНО тем же кодом, что и
 боевой автопостинг (tiktok.post_api): refresh-токен -> access -> init ->
-загрузка -> статус публикации. Ротированный refresh_token сохраняется в
-секреты тем же механизмом (_persist_refresh_token), что и в проде — это
-одновременно и проверка самолечения OAuth.
+загрузка -> статус. Ротированный refresh_token сохраняется в секреты тем
+же механизмом (_persist_refresh_token), что и в проде — это одновременно
+и проверка самолечения OAuth.
 
-Результат: свежий клип появляется в TikTok-аккаунте (пока приложение не
-аудировано — «Только я»), в логе — publish_id и финальный статус.
+Цель — ПУБЛИЧНАЯ публикация (PUBLIC_TO_EVERYONE). Если TikTok отвечает
+«приложение без аудита» — selftest печатает точную инструкцию аудита
+(это ЕДИНСТВЕННЫЙ официальный путь к публичным постам через API).
+Когда аудит пройдёт: selftest опубликует клип ПУБЛИЧНО и запустит
+Clip video, чтобы отложенная очередь (tiktok_pending.json) разгрузилась.
 
-Запуск: Actions -> TikTok selftest -> Run. Можно указать clip_id (пусто =
-самый свежий из clips.json).
+Запуск: Actions -> TikTok selftest -> Run (или Watchdog раз в 3 часа
+при непустой очереди). Можно указать clip_id (пусто = самый свежий).
 """
 
 import json
 import os
+import subprocess
 import sys
 import time
 
 import requests
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from tiktok import post_api                      # боевой путь публикации
+from tiktok import post_api, UnauditedClientError        # боевой путь публикации
 
 API = "https://api.github.com"
 REPO = os.environ.get("GITHUB_REPOSITORY", "")
@@ -35,6 +39,28 @@ def _pick_entry(clips):
                 return c
         raise SystemExit("selftest: клип %s не найден в clips.json" % want)
     return clips[0]                              # самый свежий
+
+
+def _dispatch_clip_video():
+    """Публикация удалась — TikTok снова разрешает посты: разгрузить очередь
+    отложенных клипов (Clip video возвращает tiktok_pending.json в постинг)."""
+    repo = os.environ.get("GITHUB_REPOSITORY", "")
+    if not repo:
+        return
+    try:
+        env = dict(os.environ)
+        env["GH_TOKEN"] = os.environ.get("GH_TOKEN") or ""
+        p = subprocess.run(
+            ["gh", "workflow", "run", "clip.yml", "--repo", repo],
+            env=env, capture_output=True, text=True, timeout=90)
+        if p.returncode == 0:
+            print("selftest: запустил Clip video — отложенная очередь "
+                  "TikTok разгрузится (клипы выйдут ПУБЛИЧНО)")
+        else:
+            print("selftest: clip.yml не запущен: %s"
+                  % (p.stderr or "").strip()[:200])
+    except Exception as e:
+        print("selftest: clip.yml не запущен: %s" % e)
 
 
 def _caption(entry):
@@ -81,16 +107,31 @@ def main():
         json.dump({"access_token": "", "refresh_token": rt,
                    "expires_at": 0, "open_id": "", "scope": ""}, f)
     cfg = {"client_key": ck, "client_secret": cs,
-           "privacy": "SELF_ONLY", "token_file": tf}
+           "privacy": "PUBLIC_TO_EVERYONE", "token_file": tf}
     try:
         ok = post_api(video, _caption(entry), cfg, tf)
+    except UnauditedClientError:
+        print("selftest: TikTok отклонил публикацию: приложение ещё БЕЗ АУДИТА, "
+              "а аккаунт публичный — так TikTok ограничивает все неаудированные "
+              "приложения.")
+        print("  ПУБЛИЧНЫЕ посты = подать приложение на аудит (единственный "
+              "официальный путь, вручную ~5 минут):")
+        print("  1) developers.tiktok.com -> My apps -> ваше приложение")
+        print("  2) Products -> Content Posting API -> Direct Post -> Apply")
+        print("  3) в форме указать:")
+        print("     - Privacy policy: https://qwied.github.io/TikTokAuto/privacy.html")
+        print("     - Terms of service: https://qwied.github.io/TikTokAuto/terms.html")
+        print("     - записать короткое видео-демо: сайт со списком клипов + "
+              "описание авто-постинга")
+        print("  4) Submit for review — TikTok отвечает за несколько дней")
+        print("  После одобрения НИЧЕГО ДЕЛАТЬ НЕ НАДО: система сама начнёт "
+              "публиковать клипы ПУБЛИЧНО с хэштегами, отложенная очередь "
+              "(tiktok_pending.json) разгрузится автоматически.")
+        return 3
     except RuntimeError as e:
         if "unaudited_client_can_only_post_to_private_accounts" in str(e):
-            print("selftest: TikTok отклонил публикацию: приложение ещё БЕЗ АУДИТА,")
-            print("  поэтому постить можно ТОЛЬКО в приватный аккаунт, а аккаунт публичный.")
-            print("  FIX (30 секунд): TikTok на iPhone -> Профиль -> Настройки ->")
-            print("  Конфиденциальность -> включить «Приватный аккаунт» — и перезапустить")
-            print("  selftest. После аудита приложения аккаунт можно вернуть в публичный.")
+            print("selftest: TikTok отклонил публикацию (приложение без аудита) "
+                  "— см. инструкцию аудита выше в документации проекта")
             return 3
         raise
     tok = json.load(open(tf, encoding="utf-8"))
@@ -99,7 +140,9 @@ def main():
         if tok.get("refresh_token") != rt else "refresh_token остался прежним"
     print("selftest: post_api вернул %s; access_token живёт ещё %d мин; %s"
           % (ok, mins, rotated))
-    print("selftest: ГОТОВО — видео в TikTok (пока «Только я», до аудита приложения)")
+    print("selftest: ГОТОВО — клип опубликован ПУБЛИЧНО (PUBLIC_TO_EVERYONE) "
+          "с хэштегами!")
+    _dispatch_clip_video()
     return 0 if ok else 1
 
 
