@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T01:59:00Z",
+ "updated": "2026-11-23T01:59:03Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=R5Cc9ZLqmP0",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Кубышка пуста, бюджет трещит, налоги взлетели. Сергей Гуриев о том, когда у Кремля кончатся деньги",
    "views": 425237,
