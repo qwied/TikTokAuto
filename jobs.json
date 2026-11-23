@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T08:58:53Z",
+ "updated": "2026-11-23T08:59:44Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=Gtrp1sJrDiQ",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Эксперимент 2010",
    "views": 203098,
