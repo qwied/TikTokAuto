@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-23T07:08:10Z",
- "jobs": []
+ "updated": "2026-11-23T07:32:55Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=lovUhpuWQ8c",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "🔥 ШОУ «ТРИ ОСТРОВА» ТРЕТИЙ ВЫПУСК — НОВЫЕ ИСПЫТАНИЯ, СКАНДАЛЫ И НЕОЖИДАННЫЕ ПОВОРОТЫ! 😱",
+   "views": 269968,
+   "added": "2026-11-23T07:32:50Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=MfnljV9QMmM",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "😳💰 Она хотела КИНУТЬ таксиста на деньги… Финал её УБИЛ!",
+   "views": 222274,
+   "added": "2026-11-23T07:32:48Z"
+  }
+ ]
 }
