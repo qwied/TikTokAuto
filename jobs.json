@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-23T14:34:51Z",
- "jobs": []
+ "updated": "2026-11-23T14:58:24Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=tKfBlgdbn40",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Пармезана не пожалели! Frantsuza Bistrot. Славный обзор.",
+   "views": 312233,
+   "added": "2026-11-23T14:58:23Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=FBeeTYwU97s",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Как в Калининград долетели БПЛА: самообстрел или дроны  ВСУ? Военный обзор Руслана Левиева",
+   "views": 221025,
+   "added": "2026-11-23T14:58:23Z"
+  }
+ ]
 }
