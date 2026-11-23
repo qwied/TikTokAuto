@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T17:46:29Z",
+ "updated": "2026-11-23T17:46:38Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=pao9IFY9Ky0",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "ЛУЧШИЕ МОМЕНТЫ за 2024 ГОД",
    "views": 149547,
