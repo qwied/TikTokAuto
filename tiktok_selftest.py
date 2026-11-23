@@ -16,6 +16,7 @@ Clip video, чтобы отложенная очередь (tiktok_pending.json)
 при непустой очереди). Можно указать clip_id (пусто = самый свежий).
 """
 
+import base64
 import json
 import os
 import subprocess
@@ -29,16 +30,65 @@ from tiktok import post_api, UnauditedClientError        # боевой путь
 
 API = "https://api.github.com"
 REPO = os.environ.get("GITHUB_REPOSITORY", "")
+POSTED_JSON = "tiktok_posted.json"   # что уже выходило (защита от дублей)
+
+
+def _gh_content(path):
+    """Файл из репозитория строкой (None, если нет)."""
+    h = {"Authorization": "Bearer %s" % (os.environ.get("GH_TOKEN") or ""),
+         "Accept": "application/vnd.github.raw",
+         "User-Agent": "StreamClipper-selftest"}
+    try:
+        r = requests.get("%s/repos/%s/contents/%s" % (API, REPO, path),
+                         headers=h, timeout=30)
+        return r.text if r.status_code == 200 else None
+    except Exception:
+        return None
+
+
+def _posted_ids():
+    try:
+        return set(json.loads(_gh_content(POSTED_JSON) or "[]") or [])
+    except Exception:
+        return set()
+
+
+def _remember_posted(clip_id):
+    """Запомнить опубликованный клип (коммит в репо) — чтобы selftest,
+    монитор и нарезка не дублировали друг друга."""
+    try:
+        ids = sorted(_posted_ids() | {str(clip_id)})[-100:]
+        h = {"Authorization": "Bearer %s" % (os.environ.get("GH_TOKEN") or ""),
+             "Accept": "application/vnd.github+json",
+             "User-Agent": "StreamClipper-selftest"}
+        r = requests.get("%s/repos/%s/contents/%s" % (API, REPO, POSTED_JSON),
+                         headers=h, timeout=30)
+        sha = r.json().get("sha") if r.status_code == 200 else None
+        body = {"message": "tiktok: selftest опубликовал %s (история дублей)" % clip_id,
+                "content": base64.b64encode(json.dumps(ids).encode()).decode("ascii"),
+                "branch": "main"}
+        if sha:
+            body["sha"] = sha
+        requests.put("%s/repos/%s/contents/%s" % (API, REPO, POSTED_JSON),
+                     headers=h, json=body, timeout=60)
+    except Exception as e:
+        print("selftest: историю публикаций не записал: %s" % e)
 
 
 def _pick_entry(clips):
     want = os.environ.get("TIKTOK_SELFTEST_CLIP_ID", "").strip()
+    posted = _posted_ids()
     if want:
         for c in clips:
             if str(c.get("id") or "") == want:
                 return c
         raise SystemExit("selftest: клип %s не найден в clips.json" % want)
-    return clips[0]                              # самый свежий
+    # самый свежий клип, который ещё НЕ выходил (без дублей)
+    for c in clips:
+        if str(c.get("id") or "") not in posted:
+            return c
+    print("selftest: все клипы из clips.json уже выходили — дублей не делаю")
+    return None
 
 
 def _dispatch_clip_video():
@@ -91,6 +141,8 @@ def main():
         print("selftest: clips.json пуст — клипов ещё нет, постить нечего")
         return 1
     entry = _pick_entry(clips)
+    if entry is None:
+        return 0
     url = entry.get("url") or ""
     print("selftest: публикую клип %s (score %s) — %s"
           % (entry.get("id"), entry.get("score"), url))
@@ -142,6 +194,7 @@ def main():
           % (ok, mins, rotated))
     print("selftest: ГОТОВО — клип опубликован ПУБЛИЧНО (PUBLIC_TO_EVERYONE) "
           "с хэштегами!")
+    _remember_posted(entry.get("id"))
     _dispatch_clip_video()
     return 0 if ok else 1
 
