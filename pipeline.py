@@ -329,8 +329,6 @@ class Pipeline:
 
     def stop(self):
         self._stop.set()
-        if self.tiktok:
-            self.tiktok.stop()
         if self.bot:
             self.bot.stop()
         self.monitor.stop()
@@ -344,6 +342,46 @@ class Pipeline:
             except Exception:
                 pass
         self.active.clear()
+        # TikTok гасим ПОСЛЕДНИМ: сначала дожидаемся публикации всех клипов,
+        # которые уже стояли в очереди (раньше ролик, нарезанный в конце
+        # сессии, выбрасывался: воркер просыпался, видел _stop и терял файл).
+        if self.tiktok:
+            self._drain_tiktok_queue()
+            self.tiktok.stop()
+
+    def _drain_tiktok_queue(self, max_wait_s=30 * 60):
+        """Дождаться разгрузки очереди TikTok-публикаций (до 30 мин).
+
+        Антибан-пауза + загрузка ролика занимают минуты, поэтому очередь
+        почти никогда не пуста в момент конца сессии. Пустая очередь
+        возвращается мгновенно — обычные остановки не задерживаются.
+        """
+        try:
+            st = self.tiktok.status()
+        except Exception:
+            return
+        if not st or not int(st.get("queued") or 0):
+            return
+        log.info("TikTok: в очереди %d клип(ов) — дожидаюсь публикации "
+                 "(до %d мин), чтобы ни один клип не потерялся",
+                 int(st.get("queued") or 0), max_wait_s // 60)
+        deadline = time.time() + max_wait_s
+        last_q = None
+        while time.time() < deadline:
+            try:
+                q = int(self.tiktok.status().get("queued") or 0)
+            except Exception:
+                break
+            if q <= 0:
+                log.info("TikTok: очередь разгружена — все клипы отправлены")
+                return
+            if q != last_q:
+                log.info("TikTok: осталось опубликовать %d", q)
+                last_q = q
+            time.sleep(5)
+        log.warning("TikTok: очередь не разгрузилась за %d мин — останавливаюсь "
+                    "(недопостившиеся клипы уйдут со следующей сессией)",
+                    max_wait_s // 60)
 
     def _start_bot(self):
         """Telegram-бот управления: кидаете ссылку — начинает следить."""
