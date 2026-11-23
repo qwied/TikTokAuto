@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T11:17:18Z",
+ "updated": "2026-11-23T11:17:26Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=4jgg-6E0f3w",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Федор Достоевский: Неудобная правда о главном писателе русской души / Личности / МИНАЕВ",
    "views": 2163763,
