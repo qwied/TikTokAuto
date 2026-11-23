@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T14:04:15Z",
+ "updated": "2026-11-23T14:04:24Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=lb5WJ-VClfA",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Михаил Гулакян - \"Почему я ушел из медицины\" | Стендап 2026",
    "views": 160001,
