@@ -72,6 +72,41 @@ class Notifier:
             out.append("webhook")
         return out
 
+    def notify_text(self, text, title="StreamClipper"):
+        """Текстовая тревога (без видео): Telegram и ntfy, если настроены.
+
+        Используется для событий, где файл прикладывать не к чему:
+        TikTok просит приватный аккаунт, цепочка оборвана и т.п.
+        """
+        providers = self.configured_providers()
+        ok_any = False
+        if "telegram" in providers:
+            tg = self.cfg.get("telegram") or {}
+            try:
+                api = f"https://api.telegram.org/bot{tg.get('bot_token')}"
+                r = requests.post(f"{api}/sendMessage",
+                                  data={"chat_id": tg.get("chat_id"),
+                                        "text": f"{title}\n\n{text}"[:4000]},
+                                  timeout=60)
+                ok_any = ok_any or r.ok
+            except Exception:
+                log.exception("Telegram: тревога не ушла")
+        if "ntfy" in providers:
+            nt = self.cfg.get("ntfy") or {}
+            try:
+                server = str(nt.get("server") or "https://ntfy.sh").rstrip("/")
+                r = requests.put(f"{server}/{nt.get('topic')}",
+                                 data=str(text)[:4000].encode("utf-8"),
+                                 headers={"Title": _http_header(title),
+                                          "Priority": "high", "Tags": "warning"},
+                                 timeout=60)
+                ok_any = ok_any or r.ok
+                if not r.ok:
+                    log.warning("ntfy: %s", r.text[:200])
+            except Exception:
+                log.exception("ntfy: тревога не ушла")
+        return ok_any
+
     def notify_clip(self, path, caption, **_extra):
         """Уведомление о готовом клипе.
 
