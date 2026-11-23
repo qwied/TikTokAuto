@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T08:04:10Z",
+ "updated": "2026-11-23T08:04:19Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=cAPz5ok_m_A",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Галым Калиакбаров | Второй сольный концерт | Стендап",
    "views": 289088,
