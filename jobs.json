@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-23T16:00:43Z",
- "jobs": []
+ "updated": "2026-11-23T16:24:05Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=bZph9GUzGgs",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Тельман Исмаилов. Первое интервью после ареста в Черногории. 22 дня тюрьмы. Отношение к Путину",
+   "views": 1966418,
+   "added": "2026-11-23T16:24:03Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=HDQDyLPfdOE",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "ЕЛИЗАВЕТА БАЗЫКИНА: первое большое интервью новой звезды театра и кино",
+   "views": 1342657,
+   "added": "2026-11-23T16:24:03Z"
+  }
+ ]
 }
