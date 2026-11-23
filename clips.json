@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T05:39:13Z",
+ "updated": "2026-11-23T05:41:08Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -12,20 +12,20 @@
     "title": ""
    },
    {
-    "name": "jaguarn1",
-    "display": "twitch.tv/jaguarn1",
+    "name": "voodoosh",
+    "display": "twitch.tv/voodoosh",
     "platform": "twitch",
     "live": true,
-    "viewers": 29,
-    "title": "Люся - заказ трека !donli"
+    "viewers": 4351,
+    "title": "День 2. Ночное Прохождение by VooDooSh! Заходи <3"
    },
    {
-    "name": "leb1ga",
-    "display": "twitch.tv/leb1ga",
+    "name": "whoplohoyparen",
+    "display": "twitch.tv/whoplohoyparen",
     "platform": "twitch",
     "live": true,
-    "viewers": 1906,
-    "title": "⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5"
+    "viewers": 4583,
+    "title": "GTA 6 87% 2K 60fps DLSS5 ФИНАЛ"
    },
    {
     "name": "leva2k",
@@ -36,12 +36,44 @@
     "title": "🔇 ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel"
    },
    {
+    "name": "leb1ga",
+    "display": "twitch.tv/leb1ga",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 1906,
+    "title": "⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5"
+   },
+   {
+    "name": "d1pro4",
+    "display": "twitch.tv/d1pro4",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 8086,
+    "title": "Я снова один в этом Ламбо"
+   },
+   {
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
     "live": true,
     "viewers": 929,
     "title": "ПОВТОР | BLAST SLAM IX | Group Stage Day 3"
+   },
+   {
+    "name": "shiishak",
+    "display": "twitch.tv/shiishak",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 719,
+    "title": "Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB"
+   },
+   {
+    "name": "cozart_2s1",
+    "display": "twitch.tv/cozart_2s1",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 4089,
+    "title": "6000Elo 😈 @m0nesyof w @donk1437/!Пати!elo!донат !роспись"
    },
    {
     "name": "welovegames",
@@ -98,41 +130,9 @@
     "live": false,
     "viewers": 0,
     "title": ""
-   },
-   {
-    "name": "d1pro4",
-    "display": "twitch.tv/d1pro4",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 8086,
-    "title": "Я снова один в этом Ламбо"
-   },
-   {
-    "name": "voodoosh",
-    "display": "twitch.tv/voodoosh",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 4351,
-    "title": "День 2. Ночное Прохождение by VooDooSh! Заходи <3"
-   },
-   {
-    "name": "whoplohoyparen",
-    "display": "twitch.tv/whoplohoyparen",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 4583,
-    "title": "GTA 6 87% 2K 60fps DLSS5 ФИНАЛ"
-   },
-   {
-    "name": "shiishak",
-    "display": "twitch.tv/shiishak",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 707,
-    "title": "Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"jaguarn1\", true, \"Люся - заказ трека !donli\", 25], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 1900], [\"leva2k\", true, \"🔇 ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel\", 2150], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 3\", 925], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"d1pro4\", true, \"Я снова один в этом Ламбо\", 8075], [\"voodoosh\", true, \"День 2. Ночное Прохождение by VooDooSh! Заходи <3\", 4350], [\"whoplohoyparen\", true, \"GTA 6 87% 2K 60fps DLSS5 ФИНАЛ\", 4575], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB\", 700]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"voodoosh\", true, \"День 2. Ночное Прохождение by VooDooSh! Заходи <3\", 4350], [\"whoplohoyparen\", true, \"GTA 6 87% 2K 60fps DLSS5 ФИНАЛ\", 4575], [\"leva2k\", true, \"🔇 ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel\", 2150], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 1900], [\"d1pro4\", true, \"Я снова один в этом Ламбо\", 8075], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 3\", 925], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB\", 725], [\"cozart_2s1\", true, \"6000Elo 😈 @m0nesyof w @donk1437/!Пати!elo!донат !роспись\", 4100], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
