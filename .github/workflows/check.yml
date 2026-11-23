@@ -14,8 +14,8 @@ name: Check live
 
 on:
   schedule:
-    # запасной вход: раз в полчаса (основное — эстафета)
-    - cron: "17,46 * * * *"
+    # запасной вход: каждые 5 минут (максимум GitHub) — основное — эстафета
+    - cron: "*/5 * * * *"
   workflow_dispatch: {}            # кнопка «Run» вручную
 
 permissions:
@@ -54,5 +54,5 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.SC_PAT }}
         run: |
-          sleep 20
+          sleep 5
           gh workflow run check.yml --repo "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME"
