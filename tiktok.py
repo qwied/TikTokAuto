@@ -174,6 +174,7 @@ def load_cookies_netscape(path):
 
 
 PENDING_FILE = "tiktok_pending.json"   # очередь неудавшихся постов (файл в репо)
+POSTED_FILE = "tiktok_posted.json"     # что уже выходило (защита от дублей)
 PENDING_TRIES_MAX = 3        # столько попыток скачать клип из релиза, потом дроп
 
 
@@ -198,6 +199,8 @@ class TikTokPoster:
         # база ссылок релиза для восстановления очереди после смерти раннера
         self.release_url_base = str(self.cfg.get("release_url_base") or "")
         self.pending_file = os.path.join(self.base_dir, PENDING_FILE)
+        self.posted_file = os.path.join(self.base_dir, POSTED_FILE)
+        self._posted = self._load_posted()
         self.q = queue.Queue()
         self._stop = threading.Event()
         self._lock = threading.Lock()
@@ -369,6 +372,28 @@ class TikTokPoster:
         except Exception:
             self._pending = {}
 
+    def _load_posted(self):
+        """id уже опубликованных клипов (защита от повторных постов)."""
+        try:
+            with open(self.posted_file, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            if isinstance(data, list):
+                return {str(x) for x in data}
+        except Exception:
+            pass
+        return set()
+
+    def _save_posted(self):
+        try:
+            with open(self.posted_file, "w", encoding="utf-8") as f:
+                json.dump(sorted(self._posted)[-100:], f, ensure_ascii=False)
+        except OSError:
+            pass
+
+    def posted_ids(self):
+        with self._pending_lock:
+            return set(self._posted)
+
     def _save_pending(self):
         """Записать файл очереди (вызывать только под _pending_lock)."""
         try:
@@ -409,6 +434,16 @@ class TikTokPoster:
         with self._pending_lock:
             if vid in self._pending:
                 del self._pending[vid]
+                self._save_pending()
+            if vid:
+                self._posted.add(vid)
+                self._save_posted()
+
+    def discard_pending(self, clip_id):
+        """Убрать клип из отложенной очереди (уже выходил — защита от дублей)."""
+        with self._pending_lock:
+            if str(clip_id) in self._pending:
+                del self._pending[str(clip_id)]
                 self._save_pending()
 
     def load_pending(self, entries):
