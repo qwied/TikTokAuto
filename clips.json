@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T04:15:14Z",
+ "updated": "2026-11-23T04:16:14Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -32,7 +32,7 @@
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
     "live": true,
-    "viewers": 2130,
+    "viewers": 2050,
     "title": "🔇 ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel"
    },
    {
@@ -40,11 +40,11 @@
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
     "live": true,
-    "viewers": 893,
+    "viewers": 841,
     "title": "ПОВТОР | BLAST SLAM IX | Group Stage Day 3"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"m1xerboy\", true, \"ИЗОЛЯЦИЯ С ДЕВУШКОЙ ДЕНЬ 4 w/ @Actimelya | 1 мин = 88р | !сегодня !правила !колесо !наказание !tg !winline\", 300], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 2950], [\"leva2k\", true, \"🔇 ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel\", 2125], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 3\", 900]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"m1xerboy\", true, \"ИЗОЛЯЦИЯ С ДЕВУШКОЙ ДЕНЬ 4 w/ @Actimelya | 1 мин = 88р | !сегодня !правила !колесо !наказание !tg !winline\", 300], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 2950], [\"leva2k\", true, \"🔇 ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel\", 2050], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 3\", 850]]"
  },
  "clips": [
   {
