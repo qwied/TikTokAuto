@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T12:42:50Z",
+ "updated": "2026-11-23T12:42:58Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=2IPW8xGxHeQ",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "ОВР ШОУ: НОВЫЙ СЕЗОН | 10 выпуск @TNT_shows",
    "views": 147453,
