@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-23T22:55:02Z",
- "jobs": []
+ "updated": "2026-11-23T23:18:46Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=4CXIHsADKmY",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Научные трюки от 1 до 100 уровня, которые кажутся \"невозможными\"",
+   "views": 6050858,
+   "added": "2026-11-23T23:18:46Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=R5qI_AXYgvI",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "СВОЯК | Коваль | Мэйби Бэйби | Оля Малащенко | Сатир",
+   "views": 4846161,
+   "added": "2026-11-23T23:18:42Z"
+  }
+ ]
 }
