@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-23T07:33:54Z",
- "jobs": []
+ "updated": "2026-11-23T08:03:02Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=beMOuiiQA00",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "⚡ ПУТИН СРАВНИЛ СЕБЯ С БОГОМ! Скандальное интервью Путина. Такого ещё не было.",
+   "views": 401624,
+   "added": "2026-11-23T08:03:00Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=cAPz5ok_m_A",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Галым Калиакбаров | Второй сольный концерт | Стендап",
+   "views": 289088,
+   "added": "2026-11-23T08:02:59Z"
+  }
+ ]
 }
