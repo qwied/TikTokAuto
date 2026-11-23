@@ -88,6 +88,7 @@ PROCESSED_JSON = "processed.json"       # уже нарезанные видео
 YT_STATE = "youtube_state.json"         # состояние YouTube-дискавери (пауза при бот-чеке)
 SETTINGS_JSON = "settings.json"         # настройки качества клипов (пишет сайт)
 FEEDBACK_JSON = "feedback.json"         # Интересно/Скучно по клипам (пишет сайт)
+TIKTOK_PENDING_JSON = "tiktok_pending.json"  # отложенная очередь TikTok (самолечение)
 MAX_CLIPS = 60          # сколько клипов держать в clips.json
 MAX_ASSETS = 60         # сколько файлов держать в релизе (старые удаляются)
 WIPE_MARKER = "wipe_clips.now"   # маркер-файл в репо: стереть ВСЕ старые клипы
@@ -1567,8 +1568,81 @@ def apply_tiktok_secrets(cfg):
                        "expires_at": 0, "open_id": "", "scope": ""},
                       f, ensure_ascii=False)
     tk.update(enabled=True, mode="api", client_key=ck, client_secret=cs,
-              token_file=os.path.basename(tf))
+              token_file=os.path.basename(tf),
+              release_url_base=(f"https://github.com/{os.environ.get('GITHUB_REPOSITORY', '')}"
+                                f"/releases/download/{RELEASE_TAG}"))
     log.info("TikTok-автопостинг включён (секреты GitHub, режим API)")
+
+
+# --- TikTok: отложенная очередь (клипы переживают смерть раннера) ------------
+
+def tiktok_pending_load(gh, base):
+    """Очередь неудачных постов из репозитория (список или пусто)."""
+    try:
+        raw, _sha = gh.get_file(TIKTOK_PENDING_JSON)
+        if raw:
+            data = json.loads(raw.decode("utf-8"))
+            if isinstance(data, list):
+                return data
+    except Exception:
+        pass
+    return []
+
+
+def tiktok_pending_commit(gh, base, msg="tiktok: очередь публикации сохранена"):
+    """Закоммитить tiktok_pending.json (самолечение: клипы не теряются).
+
+    Нет файла локально и в репо — пусто: коммита нет (репозиторий не пухнет)."""
+    try:
+        exists = os.path.isfile(os.path.join(base, TIKTOK_PENDING_JSON))
+        raw_old, sha = gh.get_file(TIKTOK_PENDING_JSON)
+        if not exists and raw_old is None:
+            return                      # нечего сохранять
+        data = b"[]"
+        if exists:
+            with open(os.path.join(base, TIKTOK_PENDING_JSON), "rb") as f:
+                data = f.read()
+        gh.put_file(TIKTOK_PENDING_JSON, data, sha, msg)
+        try:
+            n = len(json.loads(data.decode("utf-8") or "[]"))
+        except Exception:
+            n = -1
+        log.info("TikTok: очередь публикации закоммичена (ждут публикации: %s)", n)
+    except Exception:
+        log.exception("TikTok: не удалось закоммитить очередь публикации")
+
+
+def tiktok_requeue(tk, gh, base, cap=4):
+    """Вернуть неудачные клипы в постинг (самолечение 24/7).
+
+    Пока TikTok отвечает «приложение без аудита» и попытка была недавно —
+    не качаем все клипы зря: один клип-пробник проверит, разрешил ли TikTok
+    публикацию. Как только разрешит — очередь разгрузится сама."""
+    if tk is None:
+        return 0
+    try:
+        tk.load_pending(tiktok_pending_load(gh, base))
+    except Exception:
+        log.exception("TikTok: очередь из репозитория не читается")
+        return 0
+    probe = any(tiktok_mod.UNAUDITED_MARK in str(e.get("last_error") or "")
+                and time.time() - float(e.get("ts") or 0) < 90 * 60
+                for e in tk.pending_entries())
+    limit = 1 if probe else max(1, cap)
+
+    def _download(url, dest):
+        with requests.get(url, stream=True, timeout=600,
+                          headers={"User-Agent": "StreamClipper"}) as r:
+            r.raise_for_status()
+            with open(dest, "wb") as f:
+                for chunk in r.iter_content(1 << 20):
+                    f.write(chunk)
+
+    try:
+        return tk.requeue_pending(_download, limit=limit)
+    except Exception:
+        log.exception("TikTok: возврат очереди не удался")
+        return 0
 
 
 # --- режимы ---------------------------------------------------------------------------------
@@ -1953,6 +2027,12 @@ def run_monitor(channel="", max_minutes=280):
     pl = Pipeline(cfg, _Notifier())
     if pl.tiktok is not None and push is not None:
         pl.tiktok.notify = push            # тревога TikTok на телефон (ntfy/Telegram)
+    # Самолечение TikTok: клипы, которые не опубликовались в прошлый раз
+    # (сеть/отказ TikTok/нет аудита), возвращаются в очередь и уйдут сейчас.
+    try:
+        tiktok_requeue(pl.tiktok, gh, base, cap=3)
+    except Exception:
+        log.exception("TikTok: requeue очереди не удался")
 
     def refresh_quality():
         """Настройки и фидбек с сайта -> работающие детекторы (раз в минуту)."""
@@ -2026,6 +2106,9 @@ def run_monitor(channel="", max_minutes=280):
         log.info("Сессия слежения закончена (%.0f мин) — останавливаюсь",
                  (time.time() - started) / 60)
         pl.stop()
+        # клипы из очереди TikTok, не успевшие уйти, уже в pending (pl.stop
+        # сливает их); закоммитим очередь — следующий запуск её подхватит
+        tiktok_pending_commit(gh, base)
     return 0
 
 
@@ -2091,6 +2174,13 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
                 log.warning("TikTok: постер не готов — VOD-клипы не постятся")
         except Exception:
             log.exception("TikTok-постер не поднялся — VOD-клипы не постятся")
+    # Самолечение TikTok: возврат неудачных клипов в очередь (лимит входит
+    # в антибан-кап запуска). Пока без аудита — один клип-пробник.
+    try:
+        tk_requeued = tiktok_requeue(tk, gh, base, cap=tk_cap)
+        tk_posts += tk_requeued
+    except Exception:
+        log.exception("TikTok: requeue очереди не удался")
     # Настройки качества + фидбек сайта: язык субтитров, пропуск окон без
     # речи, исключение «скучных» мест видео из фидбека.
     settings = apply_settings(cfg, load_site_settings(gh))
@@ -2147,6 +2237,19 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
     if not jobs:
         log.info("Очередь пуста — нарезать нечего. Ссылки на видео кидаются на сайт "
                  "(Каналы) и попадают сюда через Check live")
+        if tk is not None and tk.status().get("queued"):
+            # вернулись отложенные TikTok-клипы: дожидаемся публикации — иначе
+            # раннер умрёт вместе с недопощенными клипами
+            log.info("TikTok: дожидаемся публикации отложенных клипов (до 20 мин)")
+            drain = time.time() + 20 * 60
+            while tk.status().get("queued") and time.time() < drain:
+                time.sleep(5)
+            st_tk = tk.status()
+            log.info("TikTok за запуск: опубликовано %d, осталось в очереди %d",
+                     st_tk["posted"], st_tk["queued"])
+        if tk is not None:
+            tk.stop()
+        tiktok_pending_commit(gh, base)
         return 0
 
     deadline = time.time() + max(10, int(max_minutes)) * 60
@@ -2405,6 +2508,8 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
         log.info("TikTok за запуск: опубликовано %d, осталось в очереди %d",
                  st_tk["posted"], st_tk["queued"])
         tk.stop()
+    # очередь TikTok (успешно опубликованные клипы из неё удалены) -> репозиторий
+    tiktok_pending_commit(gh, base)
     flag = "1" if remaining else "0"
     try:
         with open(os.path.join(base, "vod_remaining.txt"), "w") as f:
