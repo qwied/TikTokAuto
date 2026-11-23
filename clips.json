@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T04:29:15Z",
+ "updated": "2026-11-23T04:29:31Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -42,9 +42,73 @@
     "live": true,
     "viewers": 905,
     "title": "ПОВТОР | BLAST SLAM IX | Group Stage Day 3"
+   },
+   {
+    "name": "jaguarn1",
+    "display": "twitch.tv/jaguarn1",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "welovegames",
+    "display": "youtube.com/@welovegames",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "bratishkinoff",
+    "display": "youtube.com/@bratishkinoff",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "KuplinovPlay",
+    "display": "youtube.com/@KuplinovPlay",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "5opka",
+    "display": "youtube.com/@5opka",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "stariy_bog",
+    "display": "youtube.com/@stariy_bog",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "AlinaRin",
+    "display": "youtube.com/@AlinaRin",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "Okisebi",
+    "display": "youtube.com/@Okisebi",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"m1xerboy\", true, \"ИЗОЛЯЦИЯ С ДЕВУШКОЙ ДЕНЬ 4 w/ @Actimelya | 1 мин = 88р | !сегодня !правила !колесо !наказание !tg !winline\", 300], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 2800], [\"leva2k\", true, \"🔇 ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel\", 1900], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 3\", 900]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"m1xerboy\", true, \"ИЗОЛЯЦИЯ С ДЕВУШКОЙ ДЕНЬ 4 w/ @Actimelya | 1 мин = 88р | !сегодня !правила !колесо !наказание !tg !winline\", 300], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 2800], [\"leva2k\", true, \"🔇 ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel\", 1900], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 3\", 900], [\"jaguarn1\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
