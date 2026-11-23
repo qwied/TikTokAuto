@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T07:07:08Z",
+ "updated": "2026-11-23T07:07:56Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=urCswaXDN1s",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Интервью Эмиру Кустурице",
    "views": 499240,
