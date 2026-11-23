@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T12:51:31Z",
+ "updated": "2026-11-23T12:52:30Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -151,9 +151,9 @@
     "name": "murzofix",
     "display": "twitch.tv/murzofix",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Балуемся на FACEIT 😈😈😈 w. @synd1cat !tg"
    },
    {
     "name": "welovegames",
@@ -212,7 +212,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"dmitry_lixxx\", true, \"ПРОШЛИ ГТА | !tg !winline !ЯО !ВТБ !avan\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 0], [\"d1pro4\", true, \"Я снова один в этом Ламбо\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel\", 0], [\"whoplohoyparen\", false, \"GTA 6 100% 2K 60fps DLSS5 ФИНАЛ\", 0], [\"melharucos\", true, \"ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Супермегараспоследний день нашего обширного отпуска\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 6 | !tg !прогресс\", 0], [\"tpabomah\", true, \"С НУЛЯ ДО ИНТА, 7К ММР🔥!угадай !тирлист !сборки !руинер !тг\", 0], [\"exigent_wires\", false, \"БОЛЕЮ. БЕЗ ВЕБКИ !ивент !дропс\", 0], [\"alohadancetv\", true, \"вечный ученик. !tg\", 0], [\"recrent\", true, \"[1440p] GTA VI в 60 fps. День VI | !pari !ggsel !tg !мерч\", 0], [\"hypetried\", true, \"TRIED [0] vs [1] DEKO | LAN STAGE PARI GALAXY CS2 !розыгрыш\", 0], [\"sasavot\", true, \"ВСМ/ПОНЕДЕЛЬНИК ?\", 0], [\"dunduk\", true, \"dada\", 0], [\"murzofix\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"dmitry_lixxx\", true, \"ПРОШЛИ ГТА | !tg !winline !ЯО !ВТБ !avan\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕ УМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 0], [\"d1pro4\", true, \"Я снова один в этом Ламбо\", 0], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel\", 0], [\"whoplohoyparen\", false, \"GTA 6 100% 2K 60fps DLSS5 ФИНАЛ\", 0], [\"melharucos\", true, \"ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Супермегараспоследний день нашего обширного отпуска\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 6 | !tg !прогресс\", 0], [\"tpabomah\", true, \"С НУЛЯ ДО ИНТА, 7К ММР🔥!угадай !тирлист !сборки !руинер !тг\", 0], [\"exigent_wires\", false, \"БОЛЕЮ. БЕЗ ВЕБКИ !ивент !дропс\", 0], [\"alohadancetv\", true, \"вечный ученик. !tg\", 0], [\"recrent\", true, \"[1440p] GTA VI в 60 fps. День VI | !pari !ggsel !tg !мерч\", 0], [\"hypetried\", true, \"TRIED [0] vs [1] DEKO | LAN STAGE PARI GALAXY CS2 !розыгрыш\", 0], [\"sasavot\", true, \"ВСМ/ПОНЕДЕЛЬНИК ?\", 0], [\"dunduk\", true, \"dada\", 0], [\"murzofix\", true, \"Балуемся на FACEIT 😈😈😈 w. @synd1cat !tg\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
