@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T01:48:15Z",
+ "updated": "2026-11-23T01:49:15Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -32,15 +32,15 @@
     "display": "twitch.tv/m1xerboy",
     "platform": "twitch",
     "live": true,
-    "viewers": 6152,
+    "viewers": 6882,
     "title": "ИЗОЛЯЦИЯ С ДЕВУШКОЙ ДЕНЬ 4 w/ @Actimelya | 1 мин = 88р | !сегодня !правила !колесо !наказание !tg !winline"
    },
    {
     "name": "egorkreed",
     "display": "twitch.tv/egorkreed",
     "platform": "twitch",
-    "live": true,
-    "viewers": 7995,
+    "live": false,
+    "viewers": 0,
     "title": "4К , DLSS + 60 fps - Продолжаем проходить GTA6 ! Марафончик"
    },
    {
@@ -132,7 +132,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 НЕКЛАВАМЫШЬ 🔴 ИЩУ НЕИЩИМОЕ 🔴 ГЛАВА II 🔴 DAY 5 🔴\", 12175], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 8675], [\"m1xerboy\", true, \"ИЗОЛЯЦИЯ С ДЕВУШКОЙ ДЕНЬ 4 w/ @Actimelya | 1 мин = 88р | !сегодня !правила !колесо !наказание !tg !winline\", 6150], [\"egorkreed\", true, \"4К , DLSS + 60 fps - Продолжаем проходить GTA6 ! Марафончик\", 8000], [\"leva2k\", true, \"🔇 ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel\", 2350], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 3\", 975], [\"rejiboi\", false, \"\", 0], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB\", 425], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 НЕКЛАВАМЫШЬ 🔴 ИЩУ НЕИЩИМОЕ 🔴 ГЛАВА II 🔴 DAY 5 🔴\", 12175], [\"leb1ga\", true, \"⚡️МАРАФОН GTA 6 | 60 FPS | ДЕНЬ 5\", 8675], [\"m1xerboy\", true, \"ИЗОЛЯЦИЯ С ДЕВУШКОЙ ДЕНЬ 4 w/ @Actimelya | 1 мин = 88р | !сегодня !правила !колесо !наказание !tg !winline\", 6875], [\"egorkreed\", false, \"4К , DLSS + 60 fps - Продолжаем проходить GTA6 ! Марафончик\", 0], [\"leva2k\", true, \"🔇 ИЗОЛЯЦИЯ ДЕНЬ 8 | !tg !donate !winline !ggsel\", 2350], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 3\", 975], [\"rejiboi\", false, \"\", 0], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB\", 425], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
