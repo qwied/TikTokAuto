@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-23T14:04:41Z",
- "jobs": []
+ "updated": "2026-11-23T14:32:54Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=FPYRRFod9B8",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Самые смешные сцены из трилогии «Голый пистолет» ⚡ 4K",
+   "views": 1307209,
+   "added": "2026-11-23T14:32:42Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=5g_Sp5OeUW0",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "ДЕПОРТАЦИЯ ЛУЧШЕГО ДРУГА (ПРАНК)",
+   "views": 857699,
+   "added": "2026-11-23T14:32:46Z"
+  }
+ ]
 }
