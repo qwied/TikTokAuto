@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T15:28:31Z",
+ "updated": "2026-11-23T15:30:07Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=LQ0TRzIre6M",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Кэт Уильямс о своих девяти жизнях",
    "views": 5187520,
