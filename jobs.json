@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T12:12:27Z",
+ "updated": "2026-11-23T12:12:35Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=XAI2xInTVBo",
    "kind": "video",
-   "fails": 1,
+   "fails": 2,
    "tag": "ru",
    "display": "Локал Live #13 | Артур Чапарян, Идрак, Паша Кривец, Ян Липай",
    "views": 286077,
