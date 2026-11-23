@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T20:31:53Z",
+ "updated": "2026-11-23T20:33:36Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=dTgPJKzJghk",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Абсурдные ПЫТКИ ради науки [Неэтичные Эксперименты#8]",
    "views": 749204,
