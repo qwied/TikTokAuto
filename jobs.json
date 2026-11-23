@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-23T20:31:20Z",
- "jobs": []
+ "updated": "2026-11-23T20:31:53Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=dTgPJKzJghk",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Абсурдные ПЫТКИ ради науки [Неэтичные Эксперименты#8]",
+   "views": 749204,
+   "added": "2026-11-23T20:31:53Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=NX7AyJa3BGM",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Коллекционер | Сезон 1 | Выпуск 1",
+   "views": 157118,
+   "added": "2026-11-23T20:31:49Z"
+  }
+ ]
 }
