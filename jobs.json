@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T15:53:59Z",
+ "updated": "2026-11-23T16:00:26Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=BHJlRf4tqt8",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Крики в магазине. Шутка.",
    "views": 5832093,
