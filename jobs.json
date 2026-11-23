@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T19:36:22Z",
+ "updated": "2026-11-23T19:37:20Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=v3D6lUMzIgw",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Треш обзор фильма АНАКОНДА 2 | Искали эликсир молодости, а нашли путевку на тот свет",
    "views": 126477,
