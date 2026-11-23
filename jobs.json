@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-23T10:02:14Z",
+ "updated": "2026-11-23T10:03:08Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=KHWd0K3nL8c",
    "kind": "video",
-   "fails": 1,
+   "fails": 2,
    "tag": "ru",
    "display": "Вас не слушают из-за этого. Анна Валл о том, как технологии изменили нашу речь",
    "views": 246800,
