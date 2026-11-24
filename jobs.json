@@ -1,26 +1,4 @@
 {
- "updated": "2026-11-24T17:35:48Z",
- "jobs": [
-  {
-   "url": "https://www.twitch.tv/videos/2935934475/",
-   "kind": "video",
-   "fails": 0,
-   "tag": "manual",
-   "display": "AI-тест нарезки",
-   "views": 0,
-   "added": "2026-11-24T17:29:30Z",
-   "mode": "all",
-   "win": 45,
-   "force": true,
-   "windows": [
-    [
-     900,
-     945
-    ]
-   ],
-   "scores": [
-    1.0
-   ]
-  }
- ]
+ "updated": "2026-11-24T17:39:53Z",
+ "jobs": []
 }
