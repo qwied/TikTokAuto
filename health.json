@@ -1,11 +1,16 @@
 {
- "updated": "2026-11-23T20:55:45Z",
- "repairs_total": 1,
+ "updated": "2026-11-24T05:04:05Z",
+ "repairs_total": 2,
  "last_repair": {
-  "when": "2026-11-23T20:55:45Z",
+  "when": "2026-11-24T05:04:05Z",
   "actions": [
    "tiktok: в отложенной очереди 96 клипов — запущена проба публикации (TikTok selftest)"
   ]
  },
- "prev_repair": null
+ "prev_repair": {
+  "when": "2026-11-23T20:55:45Z",
+  "actions": [
+   "tiktok: в отложенной очереди 96 клипов — запущена проба публикации (TikTok selftest)"
+  ]
+ }
 }
