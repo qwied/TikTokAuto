@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-24T05:40:22Z",
- "jobs": []
+ "updated": "2026-11-24T05:47:53Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=vxDu4rZRW4c",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "27 Экспериментов на Кухне! Удаленное Видео Мамикса! Перезалив",
+   "views": 335410,
+   "added": "2026-11-24T05:47:53Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=fp9XwRNxOZw",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Как я изучаю русский язык самостоятельно? (прямой эфир с Огабеком)",
+   "views": 80290,
+   "added": "2026-11-24T05:47:44Z"
+  }
+ ]
 }
