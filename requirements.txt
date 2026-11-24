@@ -22,5 +22,9 @@ faster-whisper>=1.0.0
 # PyAV: совместимость обеспечивает subtitle._patch_av_open (PyAV 15+ убрал
 # metadata_errors, который faster-whisper передаёт в av.open)
 
+# AI-заголовки TikTok: локальная LLM (Qwen2.5-1.5B, GGUF в ~/.cache/
+# streamclipper-ai) — бесплатно, без ключей и внешних API
+llama-cpp-python>=0.3.0
+
 # Автопостинг в TikTok (mode: browser — окно Chrome; нужен установленный Chrome)
 selenium>=4.20
