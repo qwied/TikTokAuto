@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-24T01:11:52Z",
- "jobs": []
+ "updated": "2026-11-24T01:40:05Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=tbMUc9mQis0",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "О богатстве Нурлана Сабурова | Даурен Тогисов | ТАК ЖИВУТ КАЗАХИ",
+   "views": 101076,
+   "added": "2026-11-24T01:40:02Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=DWCFD2V-fvQ",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "😱 ТАКСИ ПРЕВРАТИЛОСЬ В РИНГ! Он встал на защиту девушки — НЕОЖИДАННЫЙ ФИНАЛ! 🥊",
+   "views": 94605,
+   "added": "2026-11-24T01:39:58Z"
+  }
+ ]
 }
