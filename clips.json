@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T06:42:29Z",
+ "updated": "2026-11-24T06:43:33Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -28,6 +28,22 @@
     "title": "FaZe vs Wildcard | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit"
    },
    {
+    "name": "cs2_paragon_ru",
+    "display": "twitch.tv/cs2_paragon_ru",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 4438,
+    "title": "[RU] REDZONE | PVISION [0:0] DENDELE | PGL Major Singapore 2026: Stage 1 | BO1 | @yarushkin1, @Lampaaa & @cybercracken"
+   },
+   {
+    "name": "t2x2",
+    "display": "twitch.tv/t2x2",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 4846,
+    "title": "FaZe Clan 0:0 Wildcard | PGL Major Singapore 2026 - Stage 1 | t.me/t2xtwitch"
+   },
+   {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
@@ -44,11 +60,19 @@
     "title": "[MAJOR] PARIVISION vs DENDELE | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !winline !ЯО !ВТБ !avan"
    },
    {
+    "name": "dunduk",
+    "display": "twitch.tv/dunduk",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 2384,
+    "title": "концовку делаю выживший"
+   },
+   {
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
     "live": true,
-    "viewers": 797,
+    "viewers": 909,
     "title": "ПОВТОР | BLAST SLAM IX | Group Stage Day 4"
    },
    {
@@ -60,39 +84,63 @@
     "title": "PARIVISION vs DENDELE | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !fonbet"
    },
    {
-    "name": "followkudes",
-    "display": "twitch.tv/followkudes",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 647,
-    "title": "🔴Поднимаем птс на carry в новом патче  !TG !WINLINE"
+    "name": "welovegames",
+    "display": "youtube.com/@welovegames",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
-    "name": "dunduk",
-    "display": "twitch.tv/dunduk",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 2384,
-    "title": "концовку делаю выживший"
+    "name": "bratishkinoff",
+    "display": "youtube.com/@bratishkinoff",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
-    "name": "t2x2",
-    "display": "twitch.tv/t2x2",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 4846,
-    "title": "FaZe Clan 0:0 Wildcard | PGL Major Singapore 2026 - Stage 1 | t.me/t2xtwitch"
+    "name": "KuplinovPlay",
+    "display": "youtube.com/@KuplinovPlay",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
-    "name": "cs2_paragon_ru",
-    "display": "twitch.tv/cs2_paragon_ru",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 5097,
-    "title": "[RU] REDZONE | PVISION [0:0] DENDELE | PGL Major Singapore 2026: Stage 1 | BO1 | @yarushkin1, @Lampaaa & @cybercracken"
+    "name": "5opka",
+    "display": "youtube.com/@5opka",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "stariy_bog",
+    "display": "youtube.com/@stariy_bog",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "AlinaRin",
+    "display": "youtube.com/@AlinaRin",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "Okisebi",
+    "display": "youtube.com/@Okisebi",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 FaZe vs Wildcard | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 34650], [\"bysl4m\", true, \"FaZe vs Wildcard | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 15975], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 3450], [\"dmitry_lixxx\", true, \"[MAJOR] PARIVISION vs DENDELE | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !winline !ЯО !ВТБ !avan\", 2875], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 800], [\"keliencs\", true, \"PARIVISION vs DENDELE | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 1050], [\"followkudes\", true, \"🔴Поднимаем птс на carry в новом патче  !TG !WINLINE\", 650], [\"dunduk\", true, \"концовку делаю выживший\", 2375], [\"t2x2\", true, \"FaZe Clan 0:0 Wildcard | PGL Major Singapore 2026 - Stage 1 | t.me/t2xtwitch\", 4850], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | PVISION [0:0] DENDELE | PGL Major Singapore 2026: Stage 1 | BO1 | @yarushkin1, @Lampaaa & @cybercracken\", 5100]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 FaZe vs Wildcard | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 34650], [\"bysl4m\", true, \"FaZe vs Wildcard | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 15975], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | PVISION [0:0] DENDELE | PGL Major Singapore 2026: Stage 1 | BO1 | @yarushkin1, @Lampaaa & @cybercracken\", 4450], [\"t2x2\", true, \"FaZe Clan 0:0 Wildcard | PGL Major Singapore 2026 - Stage 1 | t.me/t2xtwitch\", 4850], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 3450], [\"dmitry_lixxx\", true, \"[MAJOR] PARIVISION vs DENDELE | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !winline !ЯО !ВТБ !avan\", 2875], [\"dunduk\", true, \"концовку делаю выживший\", 2375], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 900], [\"keliencs\", true, \"PARIVISION vs DENDELE | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 1050], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
