@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T19:10:34Z",
+ "updated": "2026-11-24T19:10:47Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -199,6 +199,51 @@
   "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"Xtreme vs Liquid 1:1 BLAST SLAM IX w/ Alagon\", 0], [\"solo\", true, \"🔴 Aurora [1:0] OG | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"deepins02\", true, \"[мама в 16] | !winline !авито !флаувау !tg\", 0], [\"recrent\", true, \"[1440p] GTA VI в 60 fps. День 7 | !pari !ggsel !tg !мерч\", 0], [\"anarabdullaev\", true, \"Сижу один с вами беседую откровенно\", 0], [\"betboom_dota_ru\", true, \"OG [0] vs [1] Aurora Gaming | Bo3 | Last Chance | BLAST SLAM IX | cast: @shachlos & @adekvat !предикты\", 0], [\"mafanyaking\", false, \"здарова / !тг !донат !предложка\", 0], [\"5opka\", true, \"ЛУЧШИЙ ЗАВОЗ В МИРЕ // !донат !приватка !правила !funpay !тг\", 0], [\"lenagol0vach\", true, \"🏆 НОВЫЙ ПАТЧ 7.42 🏆 ПУТЬ В ТОП 100 🏆  ЖЕСТКИЙ АП ММР 🍔 БЫЛО 15к ММР 🍆 ТЕСТИМ НОВЫЙ ПАТЧ ⭐ НАШЕЛ ИМБУ ПАТЧА ⭐🧀🏆⭐\", 0], [\"betboom_dota_ru2\", true, \"Team Liquid [1] vs [1] Xtreme Gaming | Bo3 | Last Chance | BLAST SLAM IX | cast: @BLACKARHANGEL & @sheyl311 !предикты\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 0], [\"welovegames\", true, \"GTA VI проходим на 100% | !гилан !ситилинк !ggsel !втб !dodo\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 7 серия | 57% !tg\", 0], [\"kopsteep\", true, \"импровизационный контент !tg !bot\", 0], [\"rostikfacekid\", true, \"день 1. растян в здании детка=)\", 0], [\"dyrachyo\", true, \"Xtreme [0:0] Liquid bo3 BLAST SLAM IX Group Stage w/ @mrAhillesko | !bb !tg\", 0], [\"keliencs\", true, \"МНЕ СКАЗАЛИ ЕСЛИ Я НЕ АПНУ 4К ЭЛО, ТО КИКНУТ ИЗ WW... | !tg !fonbet\", 0], [\"melharucos\", true, \"ГТА ПРОДОЛЖИМ НА СЛЕДУЮЩЕЙ СТРИМЕ\", 0], [\"blackrabbit342\", true, \"aurora og 1 0  BLAST БЕЗ ЗАДЕРЖКИ!  !bb\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !боты !bots !funpay\", 0], [\"praden\", false, \"Большой гейминг\", 0], [\"mainfinitytv\", true, \"Смотрим \\\"Робин гуд: Принц воров\\\" начало в 21-50\", 0], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 0]]"
  },
  "clips": [
+  {
+   "id": "2026-11-24_19-05-20_mainfinitytv",
+   "file": "2026-11-24_19-05-20_mainfinitytv.mp4",
+   "url": "https://github.com/qwied/TikTokAuto/releases/download/clips-2026-11-24/2026-11-24_19-05-20_mainfinitytv.mp4",
+   "preview": "",
+   "thumb": "data:image/jpeg;base64,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",
+   "size": 35814713,
+   "duration": 72.3,
+   "channel": "mainfinitytv",
+   "display": "twitch.tv/mainfinitytv",
+   "platform": "twitch",
+   "title": "Фармим PVP+PVE на локе, болтаем о WOW Forever, чил стрим.",
+   "score": 93.0,
+   "hashtags": [
+    "#wow",
+    "#вов",
+    "#mainfinitytv",
+    "#twitch",
+    "#рек",
+    "#рекомендации",
+    "#fyp",
+    "#foryou",
+    "#viral",
+    "#прикол",
+    "#смешно",
+    "#хайп",
+    "#стрим",
+    "#клипы"
+   ],
+   "caption": "«Зачем нет? Из жалости! Я приговорю к смерти! Не слушай он, Мавр! Не слушай» — twitch.tv/mainfinitytv",
+   "subs": {
+    "lang": "ru",
+    "words": 66,
+    "aligned": true,
+    "lip_gate": true,
+    "lip_speech_pct": 61,
+    "speech_pct": 58,
+    "ok": true,
+    "hook": "Зачем нет? Из жалости! Я приговорю к смерти! Не слушай он, Мавр! Не слушай"
+   },
+   "src": "",
+   "start": 0,
+   "created": 1795547423,
+   "gh": true
+  },
   {
    "id": "2026-11-24_19-06-50_rejiboi",
    "file": "2026-11-24_19-06-50_rejiboi.mp4",
