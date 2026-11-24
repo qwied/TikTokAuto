@@ -7,6 +7,10 @@
 # цепочкой продолжает следующий запуск (gh_run.py пишет vod_remaining.txt).
 # Новый клип/видео с сайта попадает в очередь через Check live, который
 # запускает эту задачу сразу же.
+#
+# РУЧНАЯ НАРЕЗКА С САЙТА (youtube-clipper.html): коммит файла
+# requests/req-*.json сам запускает эту задачу (on: push), шаг
+# «Запросы с сайта» ставит ссылку в очередь — и нарезка идёт тут же.
 name: Clip video
 
 on:
@@ -15,6 +19,10 @@ on:
     # сама задача продолжает нарезку, а Check live запускает её мгновенно
     - cron: "*/5 * * * *"
   workflow_dispatch: {}
+  push:
+    # запрос нарезки, отправленный из окна на сайте (YouTube-ссылка)
+    paths:
+      - "requests/*.json"
 
 permissions:
   contents: write                  # релизы + коммиты jobs/processed/clips.json
@@ -51,6 +59,14 @@ jobs:
             sudo apt-get install -y --no-install-recommends ffmpeg
           fi
           ffmpeg -version | head -n 1
+
+      # Запросы из окна на сайте (requests/*.json) -> в очередь jobs.json.
+      # Файлы запросов удаляются, чтобы их не разбирали повторно.
+      - name: Запросы с сайта -> в очередь нарезки
+        env:
+          GH_TOKEN: ${{ secrets.SC_PAT }}
+          YOUTUBE_COOKIES_FILE: ${{ secrets.YOUTUBE_COOKIES_FILE }}
+        run: python process_requests.py
 
       - name: Нарезать видео на клипы
         env:
