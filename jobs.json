@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-24T06:09:02Z",
+ "updated": "2026-11-24T06:09:10Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=UU7pG0oIr_M",
    "kind": "video",
-   "fails": 1,
+   "fails": 2,
    "tag": "ru",
    "display": "Гарик Оганисян | «И там и сям» | Сольный стендап-концерт",
    "views": 538969,
