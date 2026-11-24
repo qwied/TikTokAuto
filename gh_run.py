@@ -92,6 +92,18 @@ TIKTOK_PENDING_JSON = "tiktok_pending.json"  # отложенная очеред
 TIKTOK_POSTED_JSON = "tiktok_posted.json"    # что уже выходило (защита от дублей)
 MAX_CLIPS = 60          # сколько клипов держать в clips.json
 MAX_ASSETS = 60         # сколько файлов держать в релизе (старые удаляются)
+PREVIEW_DIR = "preview"  # лёгкие 480p-копии клипов в репо: Pages отдаёт их
+                         # same-origin и iPhone играет сразу (файлы Releases
+                         # помечены Content-Disposition: attachment и без CORS
+                         # — Safari их в <video> не играет и fetch'ем не берёт)
+PREVIEW_KEEP = 12       # сколько последних превью хранить в репо (bloat git-истории ограничиваем)
+PAGES_BASE = "https://qwied.github.io/TikTokAuto"
+MONITOR_SESSION_MIN = 100  # длина одной сессии --monitor (мин): раньше 280,
+                           # но зависшая смена блокировала слежку на часы
+                           # («Monitor уже работает») — теперь зомби живёт
+                           # максимум 100 мин, дальше эстафета перезапускает
+MONITOR_STALE_MIN = 110    # запуск Monitor старше этого числа минут считаем
+                           # мёртвым (гейт «уже работает» его игнорирует)
 WIPE_MARKER = "wipe_clips.now"   # маркер-файл в репо: стереть ВСЕ старые клипы
                          # (разовая операция: ассеты релиза + clips.json; файл
                          # удаляется после очистки, повтора не будет)
@@ -137,6 +149,12 @@ def discover_youtube_hype(gh, cfg):
     хайповые (порог tiktok.min_score).
     """
     if gh is None:
+        return 0
+    if os.environ.get("GITHUB_ACTIONS"):
+        # YouTube с раннеров закрыт бот-чеком («Sign in to confirm you're
+        # not a bot» — yt-dlp перепробовал все плеер-клиенты): задачи всё
+        # равно сгорали после 3 попыток, забивая очередь нарезки. На
+        # компьютере дискавери работает как раньше.
         return 0
     disc = (cfg.get("youtube_discover") or {})
     if disc.get("enabled", True) is False:
@@ -496,6 +514,16 @@ class GitHub:
         self.req("DELETE", f"/repos/{self.repo}/contents/{quote(path)}",
                  json={"message": message, "sha": sha})
 
+    def list_dir(self, path):
+        """Содержимое каталога репо: [{name, path, sha}] или None (нет кат.)."""
+        r = self.s.get(f"{API}/repos/{self.repo}/contents/{quote(path)}",
+                       timeout=30)
+        if r.status_code == 404:
+            return None
+        if r.status_code != 200:
+            raise RuntimeError(f"list {path}: HTTP {r.status_code}")
+        return r.json()
+
 
 # --- clips.json ---------------------------------------------------------------------------
 
@@ -520,7 +548,8 @@ def load_clips_json_bytes(raw):
 
 def clip_entry(video_path, asset_url, thumb_b64=None, dur=None, size=None,
                platform="twitch", display=None, title="", score=None,
-               hashtags=None, subs=None, src=None, start=None, caption=""):
+               hashtags=None, subs=None, src=None, start=None, caption="",
+               preview=""):
     name = os.path.basename(str(video_path))
     stem = os.path.splitext(name)[0]
     parts = stem.split("_")
@@ -537,6 +566,8 @@ def clip_entry(video_path, asset_url, thumb_b64=None, dur=None, size=None,
         "id": stem,
         "file": name,
         "url": asset_url,
+        "preview": preview or "",   # 480p-копия в репо (Pages): плеер сайта
+                                     # играет её сразу, в т.ч. на iPhone
         "thumb": thumb_b64 or "",
         "size": int(size or 0),
         "duration": round(float(dur or 60), 1),
@@ -719,12 +750,19 @@ class GitHubPublisher:
             dur_real = (ffprobe_meta(video_path) or {}).get("duration") or None
         except Exception:
             dur_real = None
+        try:
+            # 480p-копия в репо — чтобы клип можно было СМОТРЕТЬ на сайте
+            # (на iPhone файлы Releases не играют: attachment + без CORS)
+            preview_url = self._make_preview(video_path)
+        except Exception:
+            preview_url = ""
         entry = clip_entry(video_path, url,
                            thumb_b64=compact_thumb(video_path, self.workdir),
                            size=os.path.getsize(str(video_path)),
                            dur=dur_real,
                            platform=platform, display=display, title=title,
                            score=score, subs=subs, src=src, start=start,
+                           preview=preview_url,
                            hashtags=make_hashtags(platform=platform,
                                                   channel=entry_chan or display or "",
                                                   title=title),
@@ -736,6 +774,82 @@ class GitHubPublisher:
         log.info("clips.json обновлён: %s", url)
         self.last_url = url
         prune_assets(self.gh, rel, max_assets=self.max_assets)
+
+    # --- лёгкие превью для плеера сайта (iPhone) ---------------------------------
+
+    def _put_file_retry(self, path, data, message, tries=4):
+        """put_file с ретраем на 409 (параллельные писатели — та же гонка,
+        что у clips.json)."""
+        last_err = None
+        for attempt in range(max(1, tries)):
+            try:
+                _raw, sha = self.gh.get_file(path)
+                self.gh.put_file(path, data, sha, message)
+                return
+            except RuntimeError as e:
+                last_err = e
+                if "409" not in str(e):
+                    raise
+                time.sleep(2 + attempt * 3)
+        raise last_err
+
+    def _make_preview(self, video_path):
+        """480p-копия клипа прямо в репо (Pages) — для плеера сайта.
+
+        iPhone/Safari не играет файлы Releases (Content-Disposition:
+        attachment, CORS нет — ни прямой <video>, ни fetch-фолбэк).
+        Same-origin Pages-URL из preview/ играет сразу. Возврат URL или "".
+        """
+        name = os.path.basename(str(video_path))
+        out = os.path.join(str(self.workdir or "."), "gh_preview.mp4")
+        try:
+            if os.path.exists(out):
+                os.remove(out)
+            p = subprocess.run(
+                ["ffmpeg", "-hide_banner", "-loglevel", "error", "-y",
+                 "-nostdin", "-i", os.path.abspath(str(video_path)),
+                 "-vf", "scale=480:-2", "-c:v", "libx264",
+                 "-preset", "veryfast", "-crf", "28",
+                 "-maxrate", "900k", "-bufsize", "1800k",
+                 "-c:a", "aac", "-b:a", "80k",
+                 "-movflags", "+faststart", out],
+                capture_output=True, timeout=300)
+            if p.returncode != 0 or not os.path.exists(out) \
+                    or os.path.getsize(out) < 100000:
+                log.warning("Превью не собралось: %s",
+                            (p.stderr or b"")[-200:])
+                return ""
+            with open(out, "rb") as f:
+                data = f.read()
+            path = f"{PREVIEW_DIR}/{name}"
+            self._put_file_retry(path, data, f"preview: {name}")
+            self._prune_previews(keep=PREVIEW_KEEP)
+            return f"{PAGES_BASE}/{path}"
+        except Exception:
+            log.exception("Превью упало — клип играет как раньше")
+            return ""
+        finally:
+            try:
+                if os.path.exists(out):
+                    os.remove(out)
+            except OSError:
+                pass
+
+    def _prune_previews(self, keep=PREVIEW_KEEP):
+        """Держим в preview/ только последние keep файлов (bloat git)."""
+        try:
+            files = self.gh.list_dir(PREVIEW_DIR) or []
+        except Exception:
+            return
+        if len(files) <= keep:
+            return
+        files.sort(key=lambda x: str(x.get("name") or ""))
+        for f in files[:-keep]:
+            try:
+                self.gh.delete_file(f["path"], f["sha"],
+                                    f"preview prune: {f.get('name')}")
+            except Exception:
+                log.warning("Превью %s не удалилось", f.get("name"))
 
     def _update_clips_json(self, entry, tries=4):
         """clips.json: слить клип в ФРЕШ-версию и закоммитить.
@@ -1086,6 +1200,12 @@ RU_CANDIDATE_LOGINS = [
     "roha_wot vyacheslavlivee mcpleh cardiomlbb sabellya oden_337 mlmlka "
     "awsdayy londyy_gg skifler_wot verona_forma rinaruin twist666g0d "
     "stanranli sakres_stream remanga despot1ck "
+    # Дополнение 2026-11-24 (запрос: «включи ещё популярных русскоязычных»):
+    # крупные каналы, которых не было в пуле; GQL-проба сама отсеет
+    # переименованных и несуществующих ники — битые ники безвредны.
+    "installment watermills fritern evelone192 lomazov jesusavgn edisonpts "
+    "evronna chipsa illidanstr boombl4 kuplinov 5opka alinarin zhekan "
+    "idisbalance sruslannder mart_vorona cybervandam "
 ]
 
 # РУССКОЯЗЫЧНЫЕ YouTube-КАНАЛЫ для слежки (запрос «добавь как можно больше …
@@ -1485,22 +1605,45 @@ def gh_workflow_monitor_in_progress():
     if not repo:
         return False
     my_id = str(os.environ.get("GITHUB_RUN_ID") or "")
+    now = time.time()
     for status in ("in_progress", "queued"):
         try:
             out = subprocess.run(
                 ["gh", "run", "list", "--repo", repo, "--workflow",
                  "monitor.yml", "--status", status,
-                 "--limit", "10", "--json", "databaseId"],
+                 "--limit", "10", "--json", "databaseId,createdAt"],
                 capture_output=True, text=True, timeout=60)
             if out.returncode != 0:
                 log.warning("gh run list: %s", (out.stderr or "")[:200])
                 continue
             runs = json.loads(out.stdout or "[]")
-            if any(str(r.get("databaseId")) != my_id for r in runs):
+            for r in runs:
+                rid = str(r.get("databaseId") or "")
+                if not rid or rid == my_id:
+                    continue
+                started = _parse_gh_time(r.get("createdAt"))
+                if started and now - started > MONITOR_STALE_MIN * 60:
+                    # ЗОМБИ: сессия висит дольше нормы и молча блокирует
+                    # слежку («Monitor уже работает» без самого Monitor).
+                    log.warning("Monitor-запуск %s висит %d мин (>%d) — "
+                                "считаю его мёртвым, слежку возобновляю",
+                                rid, int((now - started) / 60),
+                                MONITOR_STALE_MIN)
+                    continue
                 return True
         except Exception as e:
             log.warning("gh run list не удался: %s", e)
     return False
+
+
+def _parse_gh_time(s):
+    """'2026-11-24T10:50:05Z' -> epoch; None, если не распарсилось."""
+    try:
+        import calendar
+        t = time.strptime(str(s)[:19], "%Y-%m-%dT%H:%M:%S")
+        return calendar.timegm(t)
+    except (TypeError, ValueError):
+        return None
 
 
 def gh_workflow_dispatch(workflow):
@@ -2284,6 +2427,20 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
     while jobs and made < max_jobs and time.time() < deadline - 12 * 60:
         job = jobs[0]
         key = vod_key(job)
+        # YouTube с раннеров закрыт бот-чеком («Sign in to confirm…»):
+        # задача жгла 3 попытки × ~30 c и забивала очередь. Пропускаем
+        # мгновенно (на компьютере — как раньше).
+        if os.environ.get("GITHUB_ACTIONS") \
+                and "youtube." in str(job.get("url") or ""):
+            log.info("YouTube-задача пропущена (бот-чек на Actions): %s",
+                     job.get("url"))
+            jobs.pop(0)
+            done.add(key)
+            save(JOBS_JSON, jobs_list=jobs,
+                 msg="vod: youtube пропущен (бот-чек)")
+            save(PROCESSED_JSON, done_set=done,
+                 msg="vod: отмечаю пропущенное (yt)")
+            continue
         try:
             url = str(job.get("url") or "")
             display = str(job.get("display") or _vod_display(url))
