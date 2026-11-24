@@ -240,6 +240,26 @@ def transcript_of(workdir):
         return ""
 
 
+def ask(prompt, max_tokens=200, temp=0.7):
+    """Прямой вопрос к локальной LLM (Qwen 2.5 1.5B, без ключей) —
+    им пользуется PeakCut-отбор моментов (peakcut.ai_moments).
+    "" — модель недоступна: вызывающий обязан иметь fallback."""
+    llm = _load_llm()
+    if llm is None:
+        return ""
+    try:
+        out = llm.create_chat_completion(
+            messages=[{"role": "user", "content": str(prompt)}],
+            temperature=temp, top_p=0.9, max_tokens=int(max_tokens),
+            stop=["\n\n"])
+        raw = (out.get("choices") or [{}])[0].get("message",
+                                                  {}).get("content", "")
+        return _clean(raw)
+    except Exception as e:
+        log.warning("AI-ask: %s — вернул пусто", e)
+        return ""
+
+
 def ensure_model(target_dir=CACHE_DIR, timeout_s=600):
     """Скачать GGUF-модель, если её нет (вызывается из workflow-шага;
     в Python — для локальных запусков). Возвращает путь или ""."""
