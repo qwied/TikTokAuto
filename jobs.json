@@ -1,26 +1,4 @@
 {
- "updated": "2026-11-24T17:55:01Z",
- "jobs": [
-  {
-   "url": "https://www.twitch.tv/videos/2935934475/",
-   "kind": "video",
-   "fails": 0,
-   "tag": "aitest",
-   "display": "AI-тест-2",
-   "views": 0,
-   "added": "2026-11-24T17:55:01Z",
-   "mode": "all",
-   "win": 45,
-   "force": true,
-   "windows": [
-    [
-     600,
-     645
-    ]
-   ],
-   "scores": [
-    1.0
-   ]
-  }
- ]
+ "updated": "2026-11-24T18:05:43Z",
+ "jobs": []
 }
