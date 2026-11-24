@@ -1,11 +1,19 @@
 {
- "updated": "2026-11-24T01:10:19Z",
+ "updated": "2026-11-24T01:11:40Z",
  "meta": {
   "mode": "github",
   "channels": [
    {
     "name": "honeymad",
     "display": "twitch.tv/honeymad",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "leb1ga",
+    "display": "twitch.tv/leb1ga",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
@@ -20,6 +28,38 @@
     "title": "🔴 2K 60 FPS 🔴 БАГУЮ, ИГРУ 🔴 ГЛАВА II 🔴 DAY 6 🔴"
    },
    {
+    "name": "deepins02",
+    "display": "twitch.tv/deepins02",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "buster",
+    "display": "twitch.tv/buster",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "t2x2",
+    "display": "twitch.tv/t2x2",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "sasavot",
+    "display": "twitch.tv/sasavot",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
@@ -28,12 +68,52 @@
     "title": "ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel"
    },
    {
+    "name": "stray228",
+    "display": "twitch.tv/stray228",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "welovegames",
+    "display": "twitch.tv/welovegames",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "renatko",
+    "display": "twitch.tv/renatko",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "kopsteep",
+    "display": "twitch.tv/kopsteep",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
     "live": true,
     "viewers": 945,
     "title": "ПОВТОР | BLAST SLAM IX | Group Stage Day 4"
+   },
+   {
+    "name": "rejiboi",
+    "display": "twitch.tv/rejiboi",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "welovegames",
@@ -92,7 +172,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 БАГУЮ, ИГРУ 🔴 ГЛАВА II 🔴 DAY 6 🔴\", 12850], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 4350], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 950], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leb1ga\", false, \"\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 БАГУЮ, ИГРУ 🔴 ГЛАВА II 🔴 DAY 6 🔴\", 12850], [\"deepins02\", false, \"\", 0], [\"buster\", false, \"\", 0], [\"t2x2\", false, \"\", 0], [\"sasavot\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 4350], [\"stray228\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"renatko\", false, \"\", 0], [\"kopsteep\", false, \"\", 0], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 950], [\"rejiboi\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
