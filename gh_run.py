@@ -79,7 +79,10 @@ log = logging.getLogger("gh_run")
 
 API = "https://api.github.com"
 UPLOADS = "https://uploads.github.com"
-RELEASE_TAG = "auto"
+RELEASE_TAG = "clips-" + time.strftime("%Y-%m-%d", time.gmtime())
+# Релиз на каждый день: GitHub ограничивает релиз 1000 файлами (HTTP 422
+# file_count limited to 1000), общий «auto» переполнился — клипы перестали
+# заливаться и пропали из ленты. Свежая дата = свежий релиз, лимит недостижим.
 CLIPS_JSON = "clips.json"
 SUBS_JSON = "subscriptions.json"
 PUSH_SUBS = "push_subscriptions.json"   # подписки Web Push (пишет сайт)
