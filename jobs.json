@@ -1,4 +1,17 @@
 {
- "updated": "2026-11-24T20:31:33Z",
- "jobs": []
+ "updated": "2026-11-24T20:34:16Z",
+ "jobs": [
+  {
+   "url": "https://www.twitch.tv/videos/2935934475?pk2",
+   "kind": "video",
+   "fails": 0,
+   "tag": "peakcut-test",
+   "display": "PeakCut e2e test 2",
+   "views": 0,
+   "added": "2026-11-24T20:34:16Z",
+   "mode": "hype",
+   "win": 40,
+   "force": false
+  }
+ ]
 }
