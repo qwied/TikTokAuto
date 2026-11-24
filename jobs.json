@@ -1,26 +1,4 @@
 {
- "updated": "2026-11-24T20:30:37Z",
- "jobs": [
-  {
-   "url": "https://www.twitch.tv/videos/2935934475?pk1",
-   "kind": "video",
-   "fails": 0,
-   "tag": "peakcut-test",
-   "display": "ДОНАТОФОН ПО GRAND THEFT AUTO. ДЕНЬ 19. GTA VI",
-   "views": 0,
-   "added": "2026-11-24T18:54:49Z",
-   "mode": "hype",
-   "win": 40,
-   "force": false,
-   "windows": [
-    [
-     28098,
-     28133
-    ]
-   ],
-   "scores": [
-    -3.23
-   ]
-  }
- ]
+ "updated": "2026-11-24T20:31:33Z",
+ "jobs": []
 }
