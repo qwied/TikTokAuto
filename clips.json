@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T09:29:09Z",
+ "updated": "2026-11-24T09:30:10Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -16,7 +16,7 @@
     "display": "twitch.tv/strogo",
     "platform": "twitch",
     "live": true,
-    "viewers": 31771,
+    "viewers": 31264,
     "title": "🔴 NIP vs Lynn Vision | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот"
    },
    {
@@ -36,20 +36,28 @@
     "title": "[120 FPS] ОТКРЫВАЕМ СЕКРЕТНЫЙ БУНКЕР | !tg !winline !ЯО !ВТБ !avan"
    },
    {
+    "name": "cs2_paragon_ru",
+    "display": "twitch.tv/cs2_paragon_ru",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 5328,
+    "title": "[RU] REDZONE | NiP [0:0] Lynn Vision Gaming | PGL Major Singapore 2026: Stage 1 | BO1 | @little_cs, @siberiancaster & @Roma_roo"
+   },
+   {
+    "name": "gadjiev57",
+    "display": "twitch.tv/gadjiev57",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 4992,
+    "title": "Мы В ТАЙЛАНДЕ РОЗА И КОСТЯ ?где чивиля?остов обезьян"
+   },
+   {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
     "live": true,
     "viewers": 4171,
     "title": "ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel"
-   },
-   {
-    "name": "cs2_paragon_ru",
-    "display": "twitch.tv/cs2_paragon_ru",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 5403,
-    "title": "[RU] REDZONE | NiP [0:0] Lynn Vision Gaming | PGL Major Singapore 2026: Stage 1 | BO1 | @little_cs, @siberiancaster & @Roma_roo"
    },
    {
     "name": "dunduk",
@@ -60,44 +68,12 @@
     "title": "пока в таркове обнова абишечку"
    },
    {
-    "name": "betboom_dota_ru",
-    "display": "twitch.tv/betboom_dota_ru",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 1150,
-    "title": "ПОВТОР | BLAST SLAM IX | Group Stage Day 4"
-   },
-   {
-    "name": "shiishak",
-    "display": "twitch.tv/shiishak",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 911,
-    "title": "Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB"
-   },
-   {
-    "name": "gadjiev57",
-    "display": "twitch.tv/gadjiev57",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 5160,
-    "title": "Мы В ТАЙЛАНДЕ РОЗА И КОСТЯ ?где чивиля?остов обезьян"
-   },
-   {
     "name": "melharucos",
     "display": "twitch.tv/melharucos",
     "platform": "twitch",
     "live": true,
-    "viewers": 2962,
+    "viewers": 3004,
     "title": "ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА"
-   },
-   {
-    "name": "vovapain",
-    "display": "twitch.tv/vovapain",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 999,
-    "title": "🔴 НЮХАО 👃 | !tg !bb !бк !лига"
    },
    {
     "name": "keliencs",
@@ -106,6 +82,30 @@
     "live": true,
     "viewers": 837,
     "title": "HEROIC vs Chinggis Warriors | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !fonbet"
+   },
+   {
+    "name": "betboom_dota_ru",
+    "display": "twitch.tv/betboom_dota_ru",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 1126,
+    "title": "ПОВТОР | BLAST SLAM IX | Group Stage Day 4"
+   },
+   {
+    "name": "shiishak",
+    "display": "twitch.tv/shiishak",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 965,
+    "title": "Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB"
+   },
+   {
+    "name": "vovapain",
+    "display": "twitch.tv/vovapain",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 999,
+    "title": "🔴 НЮХАО 👃 | !tg !bb !бк !лига"
    },
    {
     "name": "welovegames",
@@ -164,7 +164,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 NIP vs Lynn Vision | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 31775], [\"bysl4m\", true, \"NiP vs Lynn Vision | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 12675], [\"dmitry_lixxx\", true, \"[120 FPS] ОТКРЫВАЕМ СЕКРЕТНЫЙ БУНКЕР | !tg !winline !ЯО !ВТБ !avan\", 6525], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 4175], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | NiP [0:0] Lynn Vision Gaming | PGL Major Singapore 2026: Stage 1 | BO1 | @little_cs, @siberiancaster & @Roma_roo\", 5400], [\"dunduk\", true, \"пока в таркове обнова абишечку\", 3125], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 1150], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB\", 900], [\"gadjiev57\", true, \"Мы В ТАЙЛАНДЕ РОЗА И КОСТЯ ?где чивиля?остов обезьян\", 5150], [\"melharucos\", true, \"ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА\", 2950], [\"vovapain\", true, \"🔴 НЮХАО 👃 | !tg !bb !бк !лига\", 1000], [\"keliencs\", true, \"HEROIC vs Chinggis Warriors | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 825], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 NIP vs Lynn Vision | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 31275], [\"bysl4m\", true, \"NiP vs Lynn Vision | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 12675], [\"dmitry_lixxx\", true, \"[120 FPS] ОТКРЫВАЕМ СЕКРЕТНЫЙ БУНКЕР | !tg !winline !ЯО !ВТБ !avan\", 6525], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | NiP [0:0] Lynn Vision Gaming | PGL Major Singapore 2026: Stage 1 | BO1 | @little_cs, @siberiancaster & @Roma_roo\", 5325], [\"gadjiev57\", true, \"Мы В ТАЙЛАНДЕ РОЗА И КОСТЯ ?где чивиля?остов обезьян\", 5000], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 4175], [\"dunduk\", true, \"пока в таркове обнова абишечку\", 3125], [\"melharucos\", true, \"ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА\", 3000], [\"keliencs\", true, \"HEROIC vs Chinggis Warriors | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 825], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 1125], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB\", 975], [\"vovapain\", true, \"🔴 НЮХАО 👃 | !tg !bb !бк !лига\", 1000], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
