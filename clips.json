@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T06:07:18Z",
+ "updated": "2026-11-24T06:07:27Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -10,30 +10,6 @@
     "live": false,
     "viewers": 0,
     "title": ""
-   },
-   {
-    "name": "bratishkinoff",
-    "display": "twitch.tv/bratishkinoff",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "leva2k",
-    "display": "twitch.tv/leva2k",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 3418,
-    "title": "ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel"
-   },
-   {
-    "name": "betboom_dota_ru",
-    "display": "twitch.tv/betboom_dota_ru",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 913,
-    "title": "ПОВТОР | BLAST SLAM IX | Group Stage Day 4"
    },
    {
     "name": "strogo",
@@ -52,20 +28,12 @@
     "title": "Liquid vs GOSH | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit"
    },
    {
-    "name": "t2x2",
-    "display": "twitch.tv/t2x2",
+    "name": "leva2k",
+    "display": "twitch.tv/leva2k",
     "platform": "twitch",
     "live": true,
-    "viewers": 4964,
-    "title": "Team Liquid 0:0 BCG | PGL Major Singapore 2026 - Stage 1 | t.me/t2xtwitch"
-   },
-   {
-    "name": "cs2_paragon_ru",
-    "display": "twitch.tv/cs2_paragon_ru",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 4328,
-    "title": "[RU] REDZONE | 100 Thieves [0:0] Chinggis Warriors | PGL Major Singapore 2026: Stage 1 | BO1 | @yarushkin1, @Lampaaa & @cybercracken"
+    "viewers": 3418,
+    "title": "ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel"
    },
    {
     "name": "dmitry_lixxx",
@@ -76,12 +44,12 @@
     "title": "[MAJOR] 100 Thieves vs Chinggis Warriors | PGL Major Singapore 2026 Stage 1 | !tg !winline !ЯО !ВТБ !avan"
    },
    {
-    "name": "dunduk",
-    "display": "twitch.tv/dunduk",
+    "name": "betboom_dota_ru",
+    "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
     "live": true,
-    "viewers": 2162,
-    "title": "концовку делаю выживший"
+    "viewers": 913,
+    "title": "ПОВТОР | BLAST SLAM IX | Group Stage Day 4"
    },
    {
     "name": "keliencs",
@@ -90,9 +58,81 @@
     "live": true,
     "viewers": 785,
     "title": "100 Thieves vs Chinggis Warriors | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !fonbet"
+   },
+   {
+    "name": "followkudes",
+    "display": "twitch.tv/followkudes",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 635,
+    "title": "🔴Поднимаем птс на carry в новом патче  !TG !WINLINE"
+   },
+   {
+    "name": "dunduk",
+    "display": "twitch.tv/dunduk",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 2162,
+    "title": "концовку делаю выживший"
+   },
+   {
+    "name": "welovegames",
+    "display": "youtube.com/@welovegames",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "bratishkinoff",
+    "display": "youtube.com/@bratishkinoff",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "KuplinovPlay",
+    "display": "youtube.com/@KuplinovPlay",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "5opka",
+    "display": "youtube.com/@5opka",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "stariy_bog",
+    "display": "youtube.com/@stariy_bog",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "AlinaRin",
+    "display": "youtube.com/@AlinaRin",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "Okisebi",
+    "display": "youtube.com/@Okisebi",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 3425], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 925], [\"strogo\", true, \"🔴 Liquid vs s1mple | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 24300], [\"bysl4m\", true, \"Liquid vs GOSH | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 9450], [\"t2x2\", true, \"Team Liquid 0:0 BCG | PGL Major Singapore 2026 - Stage 1 | t.me/t2xtwitch\", 4975], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | 100 Thieves [0:0] Chinggis Warriors | PGL Major Singapore 2026: Stage 1 | BO1 | @yarushkin1, @Lampaaa & @cybercracken\", 4325], [\"dmitry_lixxx\", true, \"[MAJOR] 100 Thieves vs Chinggis Warriors | PGL Major Singapore 2026 Stage 1 | !tg !winline !ЯО !ВТБ !avan\", 3025], [\"dunduk\", true, \"концовку делаю выживший\", 2150], [\"keliencs\", true, \"100 Thieves vs Chinggis Warriors | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 775]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 Liquid vs s1mple | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 24300], [\"bysl4m\", true, \"Liquid vs GOSH | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 9450], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 3425], [\"dmitry_lixxx\", true, \"[MAJOR] 100 Thieves vs Chinggis Warriors | PGL Major Singapore 2026 Stage 1 | !tg !winline !ЯО !ВТБ !avan\", 3025], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 925], [\"keliencs\", true, \"100 Thieves vs Chinggis Warriors | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 775], [\"followkudes\", true, \"🔴Поднимаем птс на carry в новом патче  !TG !WINLINE\", 625], [\"dunduk\", true, \"концовку делаю выживший\", 2150], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
