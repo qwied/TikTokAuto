@@ -29,7 +29,9 @@ concurrency:
 jobs:
   monitor:
     runs-on: ubuntu-latest
-    timeout-minutes: 350           # чуть меньше лимита задачи (6 ч)
+    timeout-minutes: 130           # сессия живёт максимум ~100 мин + ~15 мин на
+                                   # старт/финал: раньше 350 — и зависшая смена
+                                   # («зомби») молча блокировала слежку на часы
     steps:
       - uses: actions/checkout@v4
 
@@ -72,7 +74,10 @@ jobs:
           NOTIFY_WEBHOOK_URL: ${{ secrets.NOTIFY_WEBHOOK_URL }}
           VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}
           VAPID_SUB: ${{ secrets.VAPID_SUB }}
-        run: python gh_run.py --monitor --channel "${{ inputs.channel }}"
+        run: python gh_run.py --monitor --channel "${{ inputs.channel }}" --max-minutes 100
+        # --max-minutes 100 (было 280): смена короче — зависший прогон не
+        # держит ворота «Monitor уже работает» часами; после смены финальная
+        # проверка сама запустит следующую сессию, если эфир продолжается.
 
       # Сессия закончилась (лимит времени или эфир кончился): проверяем
       # ещё раз. Если эфир ПРОДОЛЖАЕТСЯ — запускаем новую сессию Monitor
