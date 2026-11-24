@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-24T00:00:31Z",
+ "updated": "2026-11-24T00:00:36Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=Q-DFC0AnbY4",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Глава UFC: «Есть одна формула. Угадайте, у кого она!» — Дана Уайт",
    "views": 3396697,
