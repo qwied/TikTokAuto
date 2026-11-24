@@ -896,7 +896,7 @@
 
   // --- плеер: офлайн-копия или поток с сервера ---------------------------------------
 
-  var player = { url: null, file: null, urlSrc: null };
+  var player = { url: null, file: null, urlSrc: null, previewSrc: null };
 
   function closePlayer() {
     el.playerVideo.pause();
@@ -907,6 +907,7 @@
     try { el.playerVideo.load(); } catch (e) {}
     player.file = null;
     player.urlSrc = null;
+    player.previewSrc = null;
   }
 
   function openPlayer(item, rec) {
@@ -924,9 +925,19 @@
       return;
     }
     if (item.gh && item.url) {
-      player.urlSrc = item.url;
-      el.playerVideo.src = item.url;
-      el.playerNote.textContent = "Видео из GitHub (Releases) — если не заиграет, через мгновение кэширую сюда";
+      player.urlSrc = item.url;          // полный файл в Releases — для «Скачать»
+      if (item.preview) {
+        // 480p-копия в репо: Pages отдаёт её same-origin с video/mp4 —
+        // играет сразу, в том числе на iPhone (файлы Releases Safari
+        // не играет: Content-Disposition: attachment + нет CORS)
+        player.previewSrc = item.preview;
+        el.playerVideo.src = item.preview;
+        el.playerNote.textContent = "Играет сразу (лёгкая копия 480p) — полное качество по кнопке «Скачать»";
+      } else {
+        player.previewSrc = null;
+        el.playerVideo.src = item.url;
+        el.playerNote.textContent = "Видео из GitHub (Releases) — если не заиграет, через мгновение кэширую сюда";
+      }
       el.playerDl.hidden = false;
       return;
     }
@@ -989,8 +1000,15 @@
     });
   }
 
-  // Ошибка прямого воспроизведения -> blob-фолбэк (кроме офлайн-копии)
+  // Ошибка воспроизведения: если играли превью — пробуем Releases;
+  // если Releases — blob-фолбэк (кроме офлайн-копии)
   el.playerVideo.addEventListener("error", function () {
+    if (player.previewSrc) {
+      player.previewSrc = null;
+      el.playerNote.textContent = "Превью не открылось — пробую полное видео…";
+      el.playerVideo.src = player.urlSrc;
+      return;
+    }
     if (player.urlSrc && !player.url) ghBlobFallback();
   });
 
