@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-24T11:52:54Z",
- "jobs": []
+ "updated": "2026-11-24T12:16:54Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=ksTLbCG0fig",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Потерянное поколение, коррупция, бизнес | Денис Курышов. СТЕНДАП 2026",
+   "views": 118792,
+   "added": "2026-11-24T12:16:51Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=Og21A43E4u0",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "ШАШЛЫЧНЫЙ УГАР с Генсухой, Акулич, Строго, Деко, Гаечкой, Шадоукеком, Байовл, Ураниум, Станиславом!",
+   "views": 114604,
+   "added": "2026-11-24T12:16:44Z"
+  }
+ ]
 }
