@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-24T10:56:58Z",
+ "updated": "2026-11-24T10:57:06Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=xyA3SpULVdE",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "ЭКСПЕРИМЕНТ | Серия 1 из 5 | Мелодрама | EPIC+",
    "views": 53619,
