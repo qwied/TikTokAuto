@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>YouTube-нарезка — StreamClipper</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<style>
+  :root{
+    --bg:#05060a; --fg:#eef2f8; --muted:#8b93a7;
+    --card:#0b0e17; --card2:#111524; --line:#1d2337;
+    --accent-a:#8b5cf6; --accent-b:#ec4899; --ok:#34d399; --err:#f43f5e;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--fg); min-height:100vh;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:var(--bg)}
+  .bg i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5}
+  .orb-a{width:420px;height:420px;left:-140px;top:-120px;background:var(--accent-a)}
+  .orb-b{width:380px;height:380px;right:-120px;bottom:-140px;background:var(--accent-b)}
+  .grain{position:absolute;inset:0;opacity:.35;
+    background-image:radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size:3px 3px}
+  header.topbar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 18px;max-width:640px;margin:0 auto;
+  }
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--fg)}
+  .logo{
+    display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;
+    border-radius:10px;font-weight:800;font-size:13px;font-style:normal;
+    background:linear-gradient(135deg,var(--accent-a),var(--accent-b));color:#fff;
+  }
+  .brand-name{font-weight:700;font-size:17px}
+  .brand-name em{font-style:normal;color:var(--accent-b)}
+  .back{color:var(--muted);text-decoration:none;font-size:14px;padding:8px 12px;
+    border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.02)}
+  .back:active{border-color:var(--accent-a)}
+  main{max-width:640px;margin:0 auto;padding:6px 18px 60px;display:flex;flex-direction:column;gap:16px}
+  .card{
+    background:linear-gradient(180deg,var(--card),var(--card2));
+    border:1px solid var(--line);border-radius:18px;padding:18px;
+  }
+  h1{font-size:21px;margin:0 0 6px}
+  h2{font-size:16px;margin:0 0 10px;color:var(--fg)}
+  .hint{color:var(--muted);font-size:13.5px;line-height:1.55;margin:0 0 14px}
+  .field{display:block;margin-bottom:12px}
+  .field span{display:block;font-size:12.5px;color:var(--muted);margin-bottom:6px}
+  input,select{
+    width:100%;padding:12px 13px;font-size:15px;color:var(--fg);
+    background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;
+    outline:none;-webkit-appearance:none;appearance:none;
+  }
+  input:focus,select:focus{border-color:var(--accent-a);box-shadow:0 0 0 3px rgba(139,92,246,.22)}
+  select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%238b93a7' stroke-width='2' fill='none' stroke-linecap='round'/></svg>");background-repeat:no-repeat;background-position:right 13px center;padding-right:34px}
+  .row{display:flex;gap:10px}
+  .row>*{flex:1;min-width:0}
+  .btn{
+    display:block;width:100%;padding:14px;font-size:16px;font-weight:700;color:#fff;
+    background:linear-gradient(135deg,var(--accent-a),var(--accent-b));
+    border:none;border-radius:14px;cursor:pointer;
+  }
+  .btn:disabled{opacity:.5}
+  .btn.ghost{background:rgba(255,255,255,.05);border:1px solid var(--line);font-weight:600}
+  .check-result{font-size:13.5px;line-height:1.5;margin:10px 0 0;color:var(--muted);word-break:break-word}
+  .check-result.ok{color:var(--ok)}
+  .check-result.err{color:var(--err)}
+  .status-grid{display:flex;flex-direction:column;gap:10px;font-size:14px}
+  .st-row{display:flex;justify-content:space-between;gap:12px;padding:10px 12px;
+    background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px}
+  .st-row b{font-weight:600}
+  .st-label{color:var(--muted);white-space:nowrap}
+  .st-val{text-align:right;word-break:break-word}
+  .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--muted);margin-right:6px;vertical-align:middle}
+  .dot.run{background:#fbbf24;box-shadow:0 0 6px #fbbf24}
+  .dot.ok{background:var(--ok);box-shadow:0 0 6px var(--ok)}
+  .dot.err{background:var(--err);box-shadow:0 0 6px var(--err)}
+  .mini{font-size:12.5px;color:var(--muted);line-height:1.5}
+  a.link{color:var(--accent-a);text-decoration:none}
+  a.link:active{text-decoration:underline}
+  .clips-list{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+  .clip-row{display:flex;align-items:center;gap:10px;padding:9px 12px;
+    background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;
+    text-decoration:none;color:var(--fg);font-size:13.5px}
+  .clip-row:active{border-color:var(--accent-a)}
+  .clip-play{flex:0 0 auto;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,var(--accent-a),var(--accent-b));color:#fff;font-size:11px}
+  .clip-t{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .clip-meta{flex:0 0 auto;color:var(--muted);font-size:12px}
+  .howto{background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.25);
+    border-radius:14px;padding:12px 14px;font-size:13px;line-height:1.6;color:var(--fg)}
+  .howto-title{font-weight:700;margin-bottom:6px;color:var(--accent-b)}
+  details.token{margin-top:2px}
+  details.token summary{cursor:pointer;color:var(--muted);font-size:13.5px}
+  .tk-ok{color:var(--ok);font-size:13px;margin-top:6px}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"><i class="orb-a"></i><i class="orb-b"></i><i class="grain"></i></div>
+
+<header class="topbar">
+  <a class="brand" href="index.html">
+    <span class="logo"><i>SC</i></span>
+    <span class="brand-name">Stream<em>Clipper</em></span>
+  </a>
+  <a class="back" href="index.html">В ленту</a>
+</header>
+
+<main>
+  <section class="card">
+    <h1>Нарезка по твоей ссылке</h1>
+    <p class="hint">Вставь ссылку на YouTube-ролик — бот скачает его и порежет
+      на <b>вертикальные шортсы 9:16</b> с субтитрами и баннером. Готовые клипы
+      появятся в ленте и уйдут в TikTok. Режим «Всё подряд» режет <b>весь ролик
+      подряд</b>, без отбора «самых интересных» моментов.</p>
+
+    <label class="field"><span>Ссылка на YouTube-видео</span>
+      <input id="url" type="url" inputmode="url" autocapitalize="off" autocorrect="off"
+             spellcheck="false" placeholder="https://www.youtube.com/watch?v=… или youtu.be/…">
+    </label>
+
+    <div class="row" style="margin-bottom:12px">
+      <label class="field"><span>Режим</span>
+        <select id="mode">
+          <option value="all" selected>Всё подряд — весь ролик</option>
+          <option value="hype">Только интересные (хайп)</option>
+        </select>
+      </label>
+    </div>
+    <div class="row" style="margin-bottom:12px">
+      <label class="field"><span>Длина клипа</span>
+        <select id="win">
+          <option value="30">30 сек</option>
+          <option value="45">45 сек</option>
+          <option value="60" selected>60 сек</option>
+          <option value="90">90 сек</option>
+        </select>
+      </label>
+      <label class="field"><span>Сколько клипов</span>
+        <select id="limit">
+          <option value="0" selected>Весь ролик</option>
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="40">40</option>
+        </select>
+      </label>
+    </div>
+    <div class="row">
+      <label class="field"><span>От (можно не заполнять)</span>
+        <input id="start" inputmode="numeric" placeholder="0:00">
+      </label>
+      <label class="field"><span>До (можно не заполнять)</span>
+        <input id="end" inputmode="numeric" placeholder="12:34">
+      </label>
+    </div>
+
+    <button id="go" class="btn">Нарезать!</button>
+    <p id="msg" class="check-result"></p>
+  </section>
+
+  <section class="card" id="card-status">
+    <h2>Статус нарезки</h2>
+    <div class="status-grid">
+      <div class="st-row"><span class="st-label">Задача нарезки</span>
+        <span class="st-val" id="st-run"><span class="dot"></span>загрузка…</span></div>
+      <div class="st-row"><span class="st-label">Очередь</span>
+        <span class="st-val" id="st-queue">…</span></div>
+      <div class="st-row"><span class="st-label">Клипов в ленте</span>
+        <span class="st-val" id="st-clips">…</span></div>
+    </div>
+    <p class="mini" style="margin:10px 0 0" id="st-note"></p>
+    <div class="clips-list" id="st-recent"></div>
+    <p class="mini" style="margin-top:10px">Логи:
+      <a class="link" id="act-link"
+         href="https://github.com/qwied/TikTokAuto/actions/workflows/clip.yml" target="_blank" rel="noopener">
+        Actions → Clip video</a></p>
+  </section>
+
+  <section class="card">
+    <h2>Как это работает</h2>
+    <div class="howto">
+      <div class="howto-title">Порядок</div>
+      1. Ссылка уходит в очередь репозитория.<br>
+      2. Через минуту стартует нарезка: скачивание → 9:16 → субтитры → баннер.<br>
+      3. Клип за клипом появляются в ленте и постятся в TikTok.<br>
+      4. Длинный ролик нарезается цепочкой запусков (по ~40 клипов за заход).<br><br>
+      Пока приложение TikTok на модерации, посты идут «только для меня» —
+      после одобрения новые клипы станут публичными автоматически.
+    </div>
+    <details class="token" style="margin-top:12px">
+      <summary>GitHub-токен (если нарезка не отправляется)</summary>
+      <label class="field" style="margin-top:10px"><span>Репозиторий (владелец/имя)</span>
+        <input id="repo" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="qwied/TikTokAuto">
+      </label>
+      <label class="field"><span>GitHub-токен (Contents: Read and write)</span>
+        <input id="token" type="password" autocapitalize="off" autocorrect="off"
+               spellcheck="false" placeholder="github_pat_…">
+      </label>
+      <button id="tk-save" class="btn ghost">Сохранить токен</button>
+      <p class="mini" id="tk-status"></p>
+      <p class="mini">Токен нужен, чтобы сайт мог положить твой запрос в репозиторий.
+        Хранится только в твоём браузере (localStorage). Создать: github.com →
+        Settings → Developer settings → Fine-grained tokens → Generate →
+        выбрать свой репозиторий → Repository permissions → Contents:
+        <b>Read and write</b>.</p>
+      <p class="tk-ok" id="tk-ok" hidden>Токен сохранён — окно готово к работе</p>
+    </details>
+  </section>
+</main>
+
+<script>
+(function(){
+  "use strict";
+  var LS_REPO="sc.ghrepo", LS_TOKEN="sc.ghtoken", LS_LAST="sc.ytclip.last";
+  var REPO_DEFAULT="qwied/TikTokAuto";
+  var $=function(id){return document.getElementById(id)};
+  var el={url:$("url"),mode:$("mode"),win:$("win"),limit:$("limit"),
+          start:$("start"),end:$("end"),go:$("go"),msg:$("msg"),
+          repo:$("repo"),token:$("token"),tkSave:$("tk-save"),tkStatus:$("tk-status"),
+          tkOk:$("tk-ok"),stRun:$("st-run"),stQueue:$("st-queue"),stClips:$("st-clips"),
+          stNote:$("st-note"),stRecent:$("st-recent"),actLink:$("act-link")};
+
+  function lsGet(key,fallback){
+    try{var v=localStorage.getItem(key);
+      return v==null?fallback:JSON.parse(v);
+    }catch(e){return fallback}
+  }
+  function lsSet(key,val){
+    try{localStorage.setItem(key,JSON.stringify(val))}catch(e){}
+  }
+  function repo(){return (lsGet(LS_REPO,"")||REPO_DEFAULT).trim()||REPO_DEFAULT}
+  function token(){return (lsGet(LS_TOKEN,"")||"").trim()}
+
+  var YT_RE=/^(?:https?:\/\/)?(?:www\.|m\.)?(?:youtube\.com\/(?:watch\?(?:[^#\s]*&)?v=|live\/|shorts\/|embed\/|v\/)|youtu\.be\/)([A-Za-z0-9_-]{5,})/i;
+
+  function parseTime(s){
+    s=String(s||"").trim();
+    if(!s)return null;
+    if(/^\d+$/.test(s))return Math.max(0,parseInt(s,10));
+    var p=s.split(":");
+    if(p.length>3)return null;
+    for(var i=0;i<p.length;i++)if(!/^\d+$/.test(p[i].trim()))return null;
+    while(p.length<3)p.unshift("0");
+    return parseInt(p[0],10)*3600+parseInt(p[1],10)*60+parseInt(p[2],10);
+  }
+  function fmtHms(sec){
+    sec=Math.max(0,Math.floor(sec||0));
+    var h=Math.floor(sec/3600),m=Math.floor(sec%3600/60),s=sec%60;
+    return h+":"+(m<10?"0":"")+m+":"+(s<10?"0":"")+s;
+  }
+  function b64utf8(str){
+    return btoa(unescape(encodeURIComponent(str)));
+  }
+  function setMsg(text,cls){
+    el.msg.textContent=text||"";
+    el.msg.className="check-result"+(cls?" "+cls:"");
+  }
+
+  // --- токен ---------------------------------------------------------------
+  el.repo.value=lsGet(LS_REPO,"")||REPO_DEFAULT;
+  el.tkOk.hidden=!token();
+  el.tkSave.addEventListener("click",function(){
+    var r=el.repo.value.trim()||REPO_DEFAULT;
+    var t=el.token.value.trim();
+    if(!/^[\w.\-]+\/[\w.\-]+$/.test(r)){
+      el.tkStatus.textContent="Репозиторий должен быть вида владелец/имя";
+      el.tkStatus.className="mini";return;
+    }
+    if(!t){
+      el.tkStatus.textContent="Вставь токен (github_pat_… или ghp_…)";
+      el.tkStatus.className="mini";return;
+    }
+    fetch("https://api.github.com/repos/"+r,{headers:{Authorization:"Bearer "+t}})
+      .then(function(r2){
+        if(r2.ok){
+          lsSet(LS_REPO,r);lsSet(LS_TOKEN,t);
+          el.tkStatus.textContent="Проверено: доступ к репозиторию есть";
+          el.tkStatus.className="mini";
+          el.tkOk.hidden=false;el.token.value="";
+          return;
+        }
+        el.tkStatus.textContent=r2.status===401
+          ?"Токен не подошёл (401) — проверь, что скопировал целиком"
+          :"GitHub ответил "+r2.status+" — проверь репозиторий и права токена";
+        el.tkStatus.className="mini";
+      })
+      .catch(function(){el.tkStatus.textContent="Сеть недоступна";el.tkStatus.className="mini"});
+  });
+
+  // --- отправка запроса -----------------------------------------------------
+  el.go.addEventListener("click",function(){
+    var m=YT_RE.exec(String(el.url.value||"").trim());
+    if(!m){
+      setMsg("Это не похоже на ссылку YouTube-видео (watch / youtu.be / live / shorts)","err");
+      return;
+    }
+    if(!token()){
+      setMsg("Сначала сохрани GitHub-токен ниже (раздел «GitHub-токен») — без него сайт не может положить запрос в репозиторий","err");
+      return;
+    }
+    var start=parseTime(el.start.value);
+    var end=parseTime(el.end.value);
+    if(start!=null&&end!=null&&end-start<10){
+      setMsg("«До» должно быть хотя бы на 10 секунд позже «От»","err");
+      return;
+    }
+    var vid=m[1];
+    var payload={
+      url:"https://www.youtube.com/watch?v="+vid,
+      mode:el.mode.value,
+      win:parseInt(el.win.value,10)||60,
+      limit:parseInt(el.limit.value,10)||0,
+      start:el.start.value.trim(),
+      end:el.end.value.trim(),
+      from:"site",ts:new Date().toISOString()
+    };
+    var stamp=new Date().toISOString().replace(/[-:T]/g,"").slice(0,14);
+    var path="requests/req-"+stamp+"-"+vid.slice(0,8)+".json";
+    el.go.disabled=true;
+    setMsg("Отправляю запрос…","");
+    submitRequest(path,payload,0);
+  });
+
+  function submitRequest(path,payload,attempt){
+    var r=repo(),t=token();
+    var body={message:"youtube-clipper: нарезать "+payload.url,
+              content:b64utf8(JSON.stringify(payload)),branch:"main"};
+    var finish=function(ok,text){
+      el.go.disabled=false;
+      if(ok){
+        var after=function(count){
+          lsSet(LS_LAST,{ts:Date.now(),url:payload.url,mode:payload.mode,
+                         win:payload.win,baseClips:count});
+          setMsg("Запрос отправлен! Нарезка стартует автоматически в течение минуты — следи за статусом ниже","ok");
+          pollNow();
+        };
+        getClipsCount().then(after,after.bind(null,0));
+      }else{
+        setMsg(text,"err");
+      }
+    };
+    fetch("https://api.github.com/repos/"+r+"/contents/"+path,{
+      method:"PUT",
+      headers:{Authorization:"Bearer "+t,"Accept":"application/vnd.github+json",
+               "Content-Type":"application/json"},
+      body:JSON.stringify(body)
+    }).then(function(resp){
+      if(resp.status===201){finish(true);return;}
+      if(resp.status===409&&attempt<1){
+        // файл уже есть (двойной тап) — пробуем с его sha
+        fetch("https://api.github.com/repos/"+r+"/contents/"+path,
+              {headers:{Authorization:"Bearer "+t}})
+          .then(function(g){return g.json()})
+          .then(function(g){
+            body.sha=g.sha;
+            submitRequest(path,payload,attempt+1);
+          });
+        return;
+      }
+      if(resp.status===401||resp.status===403){
+        finish(false,"Токен не может писать в репозиторий ("+resp.status+"). Открой «GitHub-токен» ниже и проверь: Contents — Read and write, репозиторий свой");
+        return;
+      }
+      resp.json().then(function(j){
+        finish(false,"GitHub ответил "+resp.status+": "+((j&&j.message)||"неизвестная ошибка"));
+      },function(){finish(false,"GitHub ответил "+resp.status)});
+    }).catch(function(){finish(false,"Сеть недоступна — попробуй ещё раз")});
+  }
+
+  // --- статус ---------------------------------------------------------------
+  function getClipsCount(){
+    return fetch("https://raw.githubusercontent.com/"+repo()+"/main/clips.json?_="+Date.now())
+      .then(function(r){return r.ok?r.json():null})
+      .then(function(d){return d&&d.clips?d.clips.length:0});
+  }
+
+  function pollRuns(){
+    fetch("https://api.github.com/repos/"+repo()+"/actions/workflows/clip.yml/runs?per_page=1&_="+Date.now())
+      .then(function(r){return r.ok?r.json():null})
+      .then(function(d){
+        var run=d&&d.workflow_runs&&d.workflow_runs[0];
+        if(!run)return;
+        var cls,dot,label;
+        if(run.status!=="completed"){cls="run";label="выполняется (с "+utc2(run.created_at)+")";}
+        else if(run.conclusion==="success"){cls="ok";label="успешно ("+utc2(run.created_at)+")";}
+        else{cls="err";label="ошибка: "+run.conclusion+" ("+utc2(run.created_at)+")";}
+        el.stRun.innerHTML='<span class="dot '+cls+'"></span>'+label;
+        el.actLink.href="https://github.com/"+repo()+"/actions/workflows/clip.yml";
+        lastRun={status:run.status,conclusion:run.conclusion,url:run.html_url,at:run.created_at};
+      })
+      .catch(function(){});
+  }
+  function utc2(iso){
+    if(!iso)return"";
+    var d=new Date(iso);
+    return ("0"+d.getHours()).slice(-2)+":"+("0"+d.getMinutes()).slice(-2);
+  }
+  var lastRun=null;
+
+  function pollState(){
+    fetch("https://raw.githubusercontent.com/"+repo()+"/main/jobs.json?_="+Date.now())
+      .then(function(r){return r.ok?r.json():null})
+      .then(function(d){
+        var jobs=(d&&d.jobs)||[];
+        var last=lsGet(LS_LAST,null);
+        var mine=null;
+        if(last){
+          for(var i=0;i<jobs.length;i++){
+            if(String(jobs[i].url||"").toLowerCase()===String(last.url).toLowerCase()){mine=jobs[i];break;}
+          }
+        }
+        if(!jobs.length){
+          el.stQueue.textContent="пуста — можно кидать ссылку";
+        }else if(mine){
+          var w=(mine.windows||[]).length;
+          el.stQueue.textContent="твоя ссылка в очереди"+(w?" — осталось окон: "+w:"");
+        }else{
+          el.stQueue.textContent=jobs.length+" задач (первая: "+
+            String(jobs[0].display||jobs[0].url||"?").slice(0,40)+")";
+        }
+      }).catch(function(){});
+    getClipsCount().then(function(n){
+      var last=lsGet(LS_LAST,null);
+      var html=n+" клипов";
+      if(last&&last.baseClips!=null&&n>last.baseClips){
+        html+=" <b style='color:var(--ok)'>+"+(n-last.baseClips)+" твоих новых</b>";
+      }
+      el.stClips.innerHTML=html;
+      return fetch("https://raw.githubusercontent.com/"+repo()+"/main/clips.json?_="+Date.now())
+        .then(function(r){return r.ok?r.json():null});
+    }).then(function(d){
+      var clips=(d&&d.clips)||[];
+      var box=el.stRecent;
+      if(!clips.length){box.innerHTML="";return;}
+      var rows="";
+      for(var i=0;i<Math.min(4,clips.length);i++){
+        var c=clips[i];
+        var title=String(c.title||c.display||c.file||"клип");
+        var mins=c.duration?Math.round(c.duration/60)+" мин":"";
+        rows+='<a class="clip-row" href="'+(c.url||"#")+'" target="_blank" rel="noopener">'
+             +'<span class="clip-play">&#9654;</span>'
+             +'<span class="clip-t">'+escapeHtml(title)+'</span>'
+             +'<span class="clip-meta">'+mins+'</span></a>';
+      }
+      box.innerHTML=rows;
+    }).catch(function(){});
+  }
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g,function(ch){
+      return{"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[ch]});
+  }
+
+  function pollNow(){pollState();pollRuns();}
+  pollNow();
+  setInterval(pollState,20000);
+  setInterval(pollRuns,90000);
+
+  // Подсказка о свежем запросе
+  var last=lsGet(LS_LAST,null);
+  if(last){
+    var mins=Math.round((Date.now()-last.ts)/60000);
+    el.stNote.textContent="Последний запрос: "+last.url+
+      " ("+(mins<1?"только что":mins+" мин назад")+", режим "+
+      (last.mode==="all"?"всё подряд":"хайп")+", клип "+last.win+" c)";
+  }
+})();
+</script>
+</body>
+</html>
