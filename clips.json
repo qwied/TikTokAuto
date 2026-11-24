@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T15:14:43Z",
+ "updated": "2026-11-24T15:23:30Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -202,65 +202,9 @@
     "live": true,
     "viewers": 0,
     "title": "Yandex x 1w | Bo3 | BLAST SLAM IX | !tg !bb"
-   },
-   {
-    "name": "welovegames",
-    "display": "youtube.com/@welovegames",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "bratishkinoff",
-    "display": "youtube.com/@bratishkinoff",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "KuplinovPlay",
-    "display": "youtube.com/@KuplinovPlay",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "5opka",
-    "display": "youtube.com/@5opka",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "stariy_bog",
-    "display": "youtube.com/@stariy_bog",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "AlinaRin",
-    "display": "youtube.com/@AlinaRin",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "Okisebi",
-    "display": "youtube.com/@Okisebi",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"Yandex vs 1w bo3 0:1 BLAST SLAM IX\", 0], [\"solo\", true, \"🔴 Team Yandex [0:1] 1W | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto @DreadzTV !tg !BETBOOM !розыгрыш\", 0], [\"betboom_dota_ru\", true, \"Team Yandex [0] vs [1] 1win Team | Bo3 | Seeding Matches | BLAST SLAM IX | cast: @shachlos & @adekvat !предикты\", 0], [\"ravshann\", true, \"🔴 ОТДЫХ ПОСЛЕ ФУТБОЛЬЧИКА w/ @gelodi_telefone @beton011 !тг !бб !yota\", 0], [\"recrent\", true, \"[1440p] GTA VI в 60 fps. День 7 | !pari !ggsel !tg !мерч\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 7 | !tg !прогресс\", 0], [\"betboom_dota_ru2\", true, \"GamerLegion [0] vs [1] PARIVISION | Bo3 | Seeding Match | BLAST SLAM IX | cast: @BLACKARHANGEL & @sheyl311 !предикты\", 0], [\"morphe_ya\", true, \"ОХОТА начало 18:10 | !tg !winline !мышки !wb\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Ультра мега гипер ластецкий\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 0], [\"melharucos\", true, \"ГТА ПРОДОЛЖИМ НА СЛЕДУЮЩЕЙ СТРИМЕ\", 0], [\"dyrachyo\", true, \"Team Yandex [0:1] 1w bo3 BLAST SLAM IX Group Stage w/ @mrAhillesko @dkfogas1 | !bb !tg\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"syslov171\", true, \"Лёгкий вечер\", 0], [\"zer0truel0ve\", true, \"[GTA6 120fps DLSS - 7 день] марафон 24/7 ФИНАЛ [DROPS Включены]\", 0], [\"welovegames\", true, \"GTA VI проходим на 100% | !сити !ggsel !втб !dodo\", 0], [\"praden\", true, \"Большой гейминг\", 0], [\"ghostik\", true, \"🔥Сьогодні добиваємо 8 000 рейтингу на НОВИХ героях в НОВІЙ меті (1-6) 🔥\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !боты !bots !funpay\", 0], [\"raythis\", true, \"Продолжаем ПУШ Р14 Шмота! 60 ЛвЛ Энх! WoW Forever! 5 из 6 Р14 шмоток! Новый WoW ● РЭЙВИС\", 0], [\"blackrabbit342\", true, \"yandex 1win BLAST БЕЗ ЗАДЕРЖКИ!  !bb\", 0], [\"mainfinitytv\", true, \"Фармим PVP+PVE на локе, болтаем о WOW Forever, чил стрим.\", 0], [\"amor_ed\", true, \"трудно быть ботом 4 сезон 4 серия (НОВАЯ ЭРА) !pl\", 0], [\"mantaq\", true, \"Yandex x 1w | Bo3 | BLAST SLAM IX | !tg !bb\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"Yandex vs 1w bo3 0:1 BLAST SLAM IX\", 0], [\"solo\", true, \"🔴 Team Yandex [0:1] 1W | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto @DreadzTV !tg !BETBOOM !розыгрыш\", 0], [\"betboom_dota_ru\", true, \"Team Yandex [0] vs [1] 1win Team | Bo3 | Seeding Matches | BLAST SLAM IX | cast: @shachlos & @adekvat !предикты\", 0], [\"ravshann\", true, \"🔴 ОТДЫХ ПОСЛЕ ФУТБОЛЬЧИКА w/ @gelodi_telefone @beton011 !тг !бб !yota\", 0], [\"recrent\", true, \"[1440p] GTA VI в 60 fps. День 7 | !pari !ggsel !tg !мерч\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 7 | !tg !прогресс\", 0], [\"betboom_dota_ru2\", true, \"GamerLegion [0] vs [1] PARIVISION | Bo3 | Seeding Match | BLAST SLAM IX | cast: @BLACKARHANGEL & @sheyl311 !предикты\", 0], [\"morphe_ya\", true, \"ОХОТА начало 18:10 | !tg !winline !мышки !wb\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Ультра мега гипер ластецкий\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 0], [\"melharucos\", true, \"ГТА ПРОДОЛЖИМ НА СЛЕДУЮЩЕЙ СТРИМЕ\", 0], [\"dyrachyo\", true, \"Team Yandex [0:1] 1w bo3 BLAST SLAM IX Group Stage w/ @mrAhillesko @dkfogas1 | !bb !tg\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"syslov171\", true, \"Лёгкий вечер\", 0], [\"zer0truel0ve\", true, \"[GTA6 120fps DLSS - 7 день] марафон 24/7 ФИНАЛ [DROPS Включены]\", 0], [\"welovegames\", true, \"GTA VI проходим на 100% | !сити !ggsel !втб !dodo\", 0], [\"praden\", true, \"Большой гейминг\", 0], [\"ghostik\", true, \"🔥Сьогодні добиваємо 8 000 рейтингу на НОВИХ героях в НОВІЙ меті (1-6) 🔥\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !боты !bots !funpay\", 0], [\"raythis\", true, \"Продолжаем ПУШ Р14 Шмота! 60 ЛвЛ Энх! WoW Forever! 5 из 6 Р14 шмоток! Новый WoW ● РЭЙВИС\", 0], [\"blackrabbit342\", true, \"yandex 1win BLAST БЕЗ ЗАДЕРЖКИ!  !bb\", 0], [\"mainfinitytv\", true, \"Фармим PVP+PVE на локе, болтаем о WOW Forever, чил стрим.\", 0], [\"amor_ed\", true, \"трудно быть ботом 4 сезон 4 серия (НОВАЯ ЭРА) !pl\", 0], [\"mantaq\", true, \"Yandex x 1w | Bo3 | BLAST SLAM IX | !tg !bb\", 0]]"
  },
  "clips": [
   {
