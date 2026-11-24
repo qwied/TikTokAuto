@@ -165,9 +165,24 @@ def main():
     if not TOKEN:
         log("НЕТ ТОКЕНА (GH_TOKEN) — запросы обработать нельзя")
         return 1
+    # Cookies YouTube: либо ПУТЬ к файлу, либо сам файл (Netscape) из секрета
+    # YOUTUBE_COOKIES_FILE. Без cookies раннеры GitHub бот-чеком закрываются.
     cookies = os.environ.get("YOUTUBE_COOKIES_FILE", "").strip()
+    if cookies and not os.path.isfile(cookies) \
+            and ("youtube" in cookies or cookies.startswith("#")):
+        try:
+            with open("cookies_secret.txt", "w", encoding="utf-8") as f:
+                f.write(cookies if cookies.endswith("\n") else cookies + "\n")
+            cookies = "cookies_secret.txt"
+            log("Cookies YouTube получены ИЗ СЕКРЕТА (cookies_secret.txt)")
+        except OSError:
+            log("Cookies из секрета не сохранить в файл")
+            cookies = ""
     if not cookies and os.path.isfile("cookies.txt"):
         cookies = "cookies.txt"
+    if not cookies:
+        log("ВНИМАНИЕ: cookies YouTube не заданы — YouTube обычно закрывает "
+            "раннеры бот-чеком; нарезка ссылок может не скачаться")
     reqs = sorted(glob.glob(os.path.join(REQ_DIR, "*.json")))
     if not reqs:
         log("нет запросов с сайта — нечего делать")
@@ -175,6 +190,7 @@ def main():
 
     s = api_session()
     my_jobs = []
+    failed = 0
     for path in reqs:
         raw, sha = get_file(s, path)
         if raw is None:
@@ -183,11 +199,13 @@ def main():
         try:
             req = json.loads(raw.decode("utf-8"))
         except Exception as e:
+            failed += 1
             log("битый запрос %s (%s) — удаляю", _name, e)
             del_file(s, path, sha, "requests: битый запрос удалён")
             continue
         url = str(req.get("url") or "").strip()
         if not YT_URL_RE.match(url):
+            failed += 1
             log("НЕ YouTube-ссылка в %s: %r — удаляю", _name, url[:80])
             del_file(s, path, sha, "requests: не youtube-ссылка — удалено")
             continue
@@ -214,6 +232,7 @@ def main():
         try:
             title, dur, live = vod.probe_video(url, cookies)
         except Exception as e:
+            failed += 1
             if vod._looks_like_bot_check(str(e)):
                 log("ОШИБКА: YouTube закрыл раннер бот-чеком (%s). Запрос удалён. "
                     "Нужно добавить cookies YouTube в секрет YOUTUBE_COOKIES_FILE "
@@ -225,11 +244,13 @@ def main():
             del_file(s, path, sha, "requests: видео недоступно (%s)" % _name)
             continue
         if str(live or "").lower() == "is_live":
+            failed += 1
             log("видео сейчас В ЭФИРЕ — дождись окончания и кинь ссылку снова: %s", url)
             del_file(s, path, sha, "requests: видео в эфире — удалено")
             continue
         if not dur or dur < 10:
-            log("ОШИБКА: не понял длину видео (%.1f c) — запрос удалён" % (dur or 0))
+            failed += 1
+            log("ОШИБКА: не понял длину видео (%.1f c) — запрос удалён", dur or 0)
             del_file(s, path, sha, "requests: не определилась длина — удалено")
             continue
 
@@ -240,8 +261,9 @@ def main():
         if mode == "all":
             wins = build_all_windows(dur, win, limit, start, end)
             if not wins:
-                log("ОШИБКА: диапазон %s-%s слишком короткий — запрос удалён"
-                    % (start, end))
+                failed += 1
+                log("ОШИБКА: диапазон %s-%s слишком короткий — запрос удалён",
+                    fmt_hms(start), fmt_hms(end) if end else "конец")
                 del_file(s, path, sha, "requests: пустой диапазон — удалено")
                 continue
             job["windows"] = wins
@@ -256,6 +278,10 @@ def main():
         del_file(s, path, sha, "requests: %s принят (%s)" % (_name, mode))
 
     if not my_jobs:
+        if failed:
+            log("НИ ОДИН запрос не принят (%d шт.) — запуск помечен ошибкой, "
+                "смотри сообщения выше", failed)
+            return 2
         return 0
 
     # Ставим свои задачи В ПЕРЁД очереди (ручные запросы важнее автопоиска).
