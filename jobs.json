@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-24T10:01:33Z",
+ "updated": "2026-11-24T10:01:40Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=uRkgaT_sjuQ",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "\"Prank Show 3\" цуврал шоу | 1-р анги",
    "views": 129653,
