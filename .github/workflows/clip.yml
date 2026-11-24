@@ -70,7 +70,7 @@ jobs:
           ls -la ~/.cache/streamclipper-ai/
 
       - name: Зависимости
-        run: pip install streamlink yt-dlp requests PyYAML numpy websocket-client faster-whisper pywebpush llama-cpp-python "opencv-python-headless>=4.9,<5"
+        run: pip install streamlink yt-dlp requests PyYAML numpy websocket-client faster-whisper pywebpush llama-cpp-python Pillow "opencv-python-headless>=4.9,<5"
 
       - name: FFmpeg (нарезка и склейка)
         run: |
