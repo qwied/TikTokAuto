@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-24T09:05:44Z",
+ "updated": "2026-11-24T09:05:51Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=Of1uv__A3vQ",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Лучшие сцены Уолтера Уайта, ставшие культовыми | Во все тяжкие",
    "views": 789341,
