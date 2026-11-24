@@ -1148,6 +1148,19 @@ def make_subtitles_meta(video_path, workdir, sub_cfg, language, chat_messages,
     smeta["speech_pct"] = min(100, round(100.0 * float(smeta.get("speech_sec") or 0.0)
                                          / dur_s))
     smeta["ok"] = bool(words)
+    # --- ТРАНСКРИПТ В ФАЙЛ: его читает ai_caption (LLM-заголовки TikTok) ----
+    # Финальный список слов = то, что реально в субтитрах (после лип-гейта
+    # и VAD-фильтров): LLM описывает именно то, что зритель увидит в клипе.
+    if words:
+        try:
+            t_txt = " ".join((w.get("word") or "").strip()
+                             for w in words if (w.get("word") or "").strip())
+            if t_txt:
+                with open(os.path.join(str(workdir), "transcript.txt"),
+                          "w", encoding="utf-8") as _tf:
+                    _tf.write(t_txt)
+        except OSError:
+            pass
     if smeta.get("lang"):
         smeta["lang"] = str(smeta["lang"]).lower()[:2]
     if words:
