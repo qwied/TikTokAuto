@@ -68,12 +68,14 @@ try:                                       # нарезка готовых ви�
     from clipper import vod as vod_mod
     from clipper.tiktok import TikTokPoster
     from clipper import tiktok as tiktok_mod
+    from clipper import ai_caption as ai_caption_mod
 except ImportError:
     import banner as banner_mod
     from utils import detect_h264_encoder, ensure_dir
     import vod as vod_mod
     from tiktok import TikTokPoster
     import tiktok as tiktok_mod
+    import ai_caption as ai_caption_mod
 
 log = logging.getLogger("gh_run")
 
@@ -2641,8 +2643,23 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
                              speech_pct)
                 elif force or final_score >= tk.min_score:
                     tk_posts += 1
+                    # AI-ЗАГОЛОВОК: локальная LLM (Qwen 1.5B, кэш раннера)
+                    # пишет цепляющую фразу по транскрипту клипа; нет
+                    # модели/речи — выжимка из транскрипта; совсем пусто —
+                    # ник канала, как раньше. Ошибки не роняют постинг.
+                    tk_title = display
+                    try:
+                        tk_title = (ai_caption_mod.make_title(
+                            ai_caption_mod.transcript_of(workdir),
+                            fallback=display) or display)
+                        if tk_title != display:
+                            log.info("AI-заголовок: %r (было %r)",
+                                     tk_title, display)
+                    except Exception:
+                        log.exception("AI-заголовок не удался — прежний")
+                        tk_title = display
                     tk.enqueue(out, tiktok_mod.build_caption(
-                        {"title": display, "channel": display,
+                        {"title": tk_title, "channel": display,
                          "platform": platform}, tk.hashtags))
                     log.info("TikTok: в очередь (%d/%d за запуск, оценка %.0f)",
                              tk_posts, tk_cap, final_score)
