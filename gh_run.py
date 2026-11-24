@@ -2448,10 +2448,17 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
     made = 0
     skips = 0
     bored = 0
+    noface_streak = 0          # окна подряд без вебкамеры в ТЕКУЩЕЙ задаче
+    face_gate_off = False      # гейт лица выключен сам (стрим без камеры)
+    prev_job_key = None
     holdout = []      # отложенные как «скучные»: (path, score, display, platform, smeta, url, start)
     while jobs and made < max_jobs and time.time() < deadline - 12 * 60:
         job = jobs[0]
         key = vod_key(job)
+        if key != prev_job_key:
+            prev_job_key = key
+            noface_streak = 0
+            face_gate_off = False
         # Ручной запрос «резать всё» с сайта: гейты качества отключены.
         force = bool(job.get("force"))
         # YouTube с раннеров закрыт бот-чеком («Sign in to confirm…»):
@@ -2510,11 +2517,22 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
                                                   display, platform,
                                                   vcodec_args=vcodec_args,
                                                   banner_path=banner_path,
-                                                  require_face=not force)
+                                                  require_face=not force
+                                                  and not face_gate_off)
             except vod_mod.NoFaceClip:
                 # Жалоба пользователя «опять без лица»: клипы с эфиров без
                 # вебкамеры (турниры, стримы сайтов) не публикуются вовсе.
                 # Окно выбрасывается, берём следующее (лимит — не сжечь run).
+                noface_streak += 1
+                if noface_streak >= 4 and not face_gate_off and not force:
+                    # ПРОД-фикс «3 часа нет нарезок» (2026-11-24): турницие/
+                    # геймплей-стримы БЕЗ вебкамеры выбрасывали ВСЕ окна —
+                    # нарезка стояла часами. После 4 окон подряд без лица
+                    # гейт выключается сам: стрим просто без камеры.
+                    face_gate_off = True
+                    log.info("%s: гейт лица ВЫКЛЮЧЕН сам (%d окон подряд "
+                             "без вебкамеры) — стрим без камеры, режу все "
+                             "окна", display, noface_streak)
                 log.info("%s: в окне нет стримера (вебкамера не найдена) — "
                          "клип не собирается", display)
                 skips += 1
