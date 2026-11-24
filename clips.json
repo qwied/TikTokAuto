@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T10:11:18Z",
+ "updated": "2026-11-24T10:11:33Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -207,12 +207,12 @@
     "name": "zloyn",
     "display": "twitch.tv/zloyn",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "МАРАФОН | GTA VI 🤯 | ДЕНЬ 7 | !tg !прогресс"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 100 Thieves vs Imperial | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 28175], [\"bysl4m\", true, \"100 Thieves vs Imperial | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 10475], [\"dmitry_lixxx\", true, \"[120 FPS] ОТКРЫВАЕМ СЕКРЕТНЫЙ БУНКЕР | !tg !winline !ЯО !ВТБ !avan\", 7125], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | 100 Thieves [0:0] Imperial Esports | PGL Major Singapore 2026: Stage 1 | BO1 | @little_cs, @siberiancaster & @Roma_roo\", 4375], [\"gadjiev57\", true, \"Мы В ТАЙЛАНДЕ РОЗА И КОСТЯ ?где чивиля?остов обезьян\", 6050], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 4325], [\"dunduk\", true, \"пока в таркове обнова абишечку\", 3125], [\"melharucos\", true, \"ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА\", 3200], [\"keliencs\", true, \"9z vs M80 | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 725], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 1025], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB\", 975], [\"vovapain\", true, \"🔴 НЮХАО 👃 | !tg !bb !бк !лига\", 1075], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Ультра мега гипер ластецкий\", 0], [\"tpabomah\", true, \"С НУЛЯ ДО ИНТА, 7К ММР🔥!угадай !сборки !руинер !тг\", 0], [\"blindzonexgod\", true, \"grind winter season 100% импрува 100% скилла 100% мотивации| !tg !мерч !bb\", 0], [\"watchfultv\", true, \"[RU 2K] 9z vs M80 | PGL Major Singapore | Telegram: @watchfulTV\", 0], [\"zloyn\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 100 Thieves vs Imperial | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 28175], [\"bysl4m\", true, \"100 Thieves vs Imperial | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 10475], [\"dmitry_lixxx\", true, \"[120 FPS] ОТКРЫВАЕМ СЕКРЕТНЫЙ БУНКЕР | !tg !winline !ЯО !ВТБ !avan\", 7125], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | 100 Thieves [0:0] Imperial Esports | PGL Major Singapore 2026: Stage 1 | BO1 | @little_cs, @siberiancaster & @Roma_roo\", 4375], [\"gadjiev57\", true, \"Мы В ТАЙЛАНДЕ РОЗА И КОСТЯ ?где чивиля?остов обезьян\", 6050], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 4325], [\"dunduk\", true, \"пока в таркове обнова абишечку\", 3125], [\"melharucos\", true, \"ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА\", 3200], [\"keliencs\", true, \"9z vs M80 | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 725], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 1025], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB\", 975], [\"vovapain\", true, \"🔴 НЮХАО 👃 | !tg !bb !бк !лига\", 1075], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Ультра мега гипер ластецкий\", 0], [\"tpabomah\", true, \"С НУЛЯ ДО ИНТА, 7К ММР🔥!угадай !сборки !руинер !тг\", 0], [\"blindzonexgod\", true, \"grind winter season 100% импрува 100% скилла 100% мотивации| !tg !мерч !bb\", 0], [\"watchfultv\", true, \"[RU 2K] 9z vs M80 | PGL Major Singapore | Telegram: @watchfulTV\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 7 | !tg !прогресс\", 0]]"
  },
  "clips": [
   {
