@@ -1,0 +1,45 @@
+# Почасовая сверка ленты и релиза. Инциденты 2026-11-22 и 2026-11-24:
+# клип нарезан и залит в релиз, но записи в clips.json нет (гонка 409
+# параллельных писателей) — лента сайта пустеет, хотя клипы есть.
+# Раз в час берём последние клипы релиза и добиваем недостающее:
+# восстановление записей + 480p-копии в preview/ (для плеера на iPhone).
+# Если всё на месте — работа вхолостую (без коммитов).
+name: Feed repair
+
+on:
+  schedule:
+    - cron: "35 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: feed-repair
+  cancel-in-progress: true
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Зависимости
+        run: pip install requests
+
+      - name: FFmpeg
+        run: |
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update -y
+            sudo apt-get install -y --no-install-recommends ffmpeg
+          fi
+
+      - name: Сверка ленты с релизом (восстановить записи + превью)
+        env:
+          GH_TOKEN: ${{ secrets.SC_PAT }}
+        run: python make_previews.py --limit 6
