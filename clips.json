@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T17:36:16Z",
+ "updated": "2026-11-24T17:36:46Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -295,36 +295,36 @@
     "name": "bidgy_traj",
     "display": "twitch.tv/bidgy_traj",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ШТАКЕТ В ЗУБЫ МЫШКУ В РУКИ"
    },
    {
     "name": "deepins02",
     "display": "twitch.tv/deepins02",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "[мама в 16] | !winline !авито !флаувау !tg"
    },
    {
     "name": "lenagol0vach",
     "display": "twitch.tv/lenagol0vach",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🏆 НОВЫЙ ПАТЧ 7.42 🏆 ПУТЬ В ТОП 100 🏆  ЖЕСТКИЙ АП ММР 🍔 БЫЛО 15к ММР 🍆 ТЕСТИМ НОВЫЙ ПАТЧ ⭐ НАШЕЛ ИМБУ ПАТЧА ⭐🧀🏆⭐"
    },
    {
     "name": "rejiboi",
     "display": "twitch.tv/rejiboi",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "давай воровать машинки 6, 7 серия | 57% !tg"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"Xtreme vs Liquid 0:1 BLAST SLAM IX w/ Alagon\", 0], [\"anarabdullaev\", true, \"Гуляем, ласт дей на Пхукете /w @enzzai @whylollycry Огр Эксити Вика Бабулики\", 0], [\"solo\", true, \"🔴 Aurora [0:0] OG | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto @DreadzTV @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"recrent\", true, \"[1440p] GTA VI в 60 fps. День 7 | !pari !ggsel !tg !мерч\", 0], [\"betboom_dota_ru\", true, \"OG [0] vs [0] Aurora Gaming | Bo3 | Seeding Matches | BLAST SLAM IX | cast: @shachlos & @adekvat !предикты\", 0], [\"mafanyaking\", true, \"здарова / !тг !донат !предложка\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 0], [\"morphe_ya\", false, \"0-0 | !tg !winline !мышки !wb\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 7 | Нафармил 2КК | !tg !прогресс\", 0], [\"blackufa\", false, \"[DROPS] GTA 6 [PS5Pro] Ультра мега гипер ластецкий\", 0], [\"welovegames\", true, \"GTA VI проходим на 100% | !гилан !ситилинк !ggsel !втб !dodo\", 0], [\"melharucos\", true, \"ГТА ПРОДОЛЖИМ НА СЛЕДУЮЩЕЙ СТРИМЕ\", 0], [\"rostikfacekid\", true, \"день 1. растян в здании детка=)\", 0], [\"silvername\", false, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"dyrachyo\", true, \"Aurora Gaming vs OG bo3 BLAST SLAM IX Group Stage w/ @mrAhillesko @dkfogas1 | !bb !tg\", 0], [\"betboom_dota_ru2\", true, \"Team Liquid [1] vs [0] Xtreme Gaming | Bo3 | Last Chance | BLAST SLAM IX | cast: @BLACKARHANGEL & @sheyl311 !предикты\", 0], [\"syslov171\", false, \"\", 0], [\"zer0truel0ve\", true, \"[GTA6 120fps DLSS - 7 день] марафон 24/7 ФИНАЛ [DROPS Включены]\", 0], [\"keliencs\", true, \"МНЕ СКАЗАЛИ ЕСЛИ Я НЕ АПНУ 4К ЭЛО, ТО КИКНУТ ИЗ WW... w/ @m3wsu | !tg !fonbet\", 0], [\"praden\", true, \"Большой гейминг\", 0], [\"blackrabbit342\", true, \"yandex 1win BLAST БЕЗ ЗАДЕРЖКИ!  !bb\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !боты !bots !funpay\", 0], [\"raythis\", false, \"\", 0], [\"exigent_wires\", true, \"СМОТР ПАТЧА !ивент !дропс\", 0], [\"mainfinitytv\", true, \"Фармим PVP+PVE на локе, болтаем о WOW Forever, чил стрим.\", 0], [\"mantaq\", true, \"Yandex x 1w | Bo3 | BLAST SLAM IX | !tg !bb\", 0], [\"amor_ed\", false, \"трудно быть ботом 4 сезон 4 серия (НОВАЯ ЭРА) !pl\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", true, \"GTA VI ★★★★★★ РЕЛИЗ (2026) 【#6】\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit KINO GRAFIK!\", 0], [\"kopsteep\", true, \"импровизационный контент !tg !bot\", 0], [\"bidgy_traj\", false, \"\", 0], [\"deepins02\", false, \"\", 0], [\"lenagol0vach\", false, \"\", 0], [\"rejiboi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"Xtreme vs Liquid 0:1 BLAST SLAM IX w/ Alagon\", 0], [\"anarabdullaev\", true, \"Гуляем, ласт дей на Пхукете /w @enzzai @whylollycry Огр Эксити Вика Бабулики\", 0], [\"solo\", true, \"🔴 Aurora [0:0] OG | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto @DreadzTV @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"recrent\", true, \"[1440p] GTA VI в 60 fps. День 7 | !pari !ggsel !tg !мерч\", 0], [\"betboom_dota_ru\", true, \"OG [0] vs [0] Aurora Gaming | Bo3 | Seeding Matches | BLAST SLAM IX | cast: @shachlos & @adekvat !предикты\", 0], [\"mafanyaking\", true, \"здарова / !тг !донат !предложка\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 0], [\"morphe_ya\", false, \"0-0 | !tg !winline !мышки !wb\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 7 | Нафармил 2КК | !tg !прогресс\", 0], [\"blackufa\", false, \"[DROPS] GTA 6 [PS5Pro] Ультра мега гипер ластецкий\", 0], [\"welovegames\", true, \"GTA VI проходим на 100% | !гилан !ситилинк !ggsel !втб !dodo\", 0], [\"melharucos\", true, \"ГТА ПРОДОЛЖИМ НА СЛЕДУЮЩЕЙ СТРИМЕ\", 0], [\"rostikfacekid\", true, \"день 1. растян в здании детка=)\", 0], [\"silvername\", false, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"dyrachyo\", true, \"Aurora Gaming vs OG bo3 BLAST SLAM IX Group Stage w/ @mrAhillesko @dkfogas1 | !bb !tg\", 0], [\"betboom_dota_ru2\", true, \"Team Liquid [1] vs [0] Xtreme Gaming | Bo3 | Last Chance | BLAST SLAM IX | cast: @BLACKARHANGEL & @sheyl311 !предикты\", 0], [\"syslov171\", false, \"\", 0], [\"zer0truel0ve\", true, \"[GTA6 120fps DLSS - 7 день] марафон 24/7 ФИНАЛ [DROPS Включены]\", 0], [\"keliencs\", true, \"МНЕ СКАЗАЛИ ЕСЛИ Я НЕ АПНУ 4К ЭЛО, ТО КИКНУТ ИЗ WW... w/ @m3wsu | !tg !fonbet\", 0], [\"praden\", true, \"Большой гейминг\", 0], [\"blackrabbit342\", true, \"yandex 1win BLAST БЕЗ ЗАДЕРЖКИ!  !bb\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !боты !bots !funpay\", 0], [\"raythis\", false, \"\", 0], [\"exigent_wires\", true, \"СМОТР ПАТЧА !ивент !дропс\", 0], [\"mainfinitytv\", true, \"Фармим PVP+PVE на локе, болтаем о WOW Forever, чил стрим.\", 0], [\"mantaq\", true, \"Yandex x 1w | Bo3 | BLAST SLAM IX | !tg !bb\", 0], [\"amor_ed\", false, \"трудно быть ботом 4 сезон 4 серия (НОВАЯ ЭРА) !pl\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", true, \"GTA VI ★★★★★★ РЕЛИЗ (2026) 【#6】\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit KINO GRAFIK!\", 0], [\"kopsteep\", true, \"импровизационный контент !tg !bot\", 0], [\"bidgy_traj\", true, \"ШТАКЕТ В ЗУБЫ МЫШКУ В РУКИ\", 0], [\"deepins02\", true, \"[мама в 16] | !winline !авито !флаувау !tg\", 0], [\"lenagol0vach\", true, \"🏆 НОВЫЙ ПАТЧ 7.42 🏆 ПУТЬ В ТОП 100 🏆  ЖЕСТКИЙ АП ММР 🍔 БЫЛО 15к ММР 🍆 ТЕСТИМ НОВЫЙ ПАТЧ ⭐ НАШЕЛ ИМБУ ПАТЧА ⭐🧀🏆⭐\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 7 серия | 57% !tg\", 0]]"
  },
  "clips": [
   {
