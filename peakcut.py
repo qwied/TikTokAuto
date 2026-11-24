@@ -16,12 +16,13 @@
 текст в белом скруглённом боксе, две сбалансированные строки.
 """
 import json
+import logging
 import math
 import os
 import re
 import struct
 
-log_pre = "[peakcut] "
+log = logging.getLogger("peakcut")
 
 W, H = 1080, 1920          # выходной кадр (vertical.py: WIDTH x HEIGHT)
 
@@ -284,6 +285,8 @@ def write_ass(words, path, width=W, height=H, hook="", style="bounce",
 # --- AI-ОТБОР МОМЕНТОВ (порт brain.py PeakCut на локальную Qwen) ------------
 
 LOUD_MARK_MIN = 1.0        # окно с score заметно выше среднего помечается (LOUD)
+MAX_TEXT_CHARS = 320       # обрезок транскрипта окна: контекст LLM всего 1024
+MAX_LLM_WINDOWS = 10
 
 
 def _mmss(t):
@@ -303,7 +306,7 @@ BRAIN_HEAD = (
 )
 
 
-def ai_moments(workdir, wins, ask_fn=None, max_windows=14):
+def ai_moments(workdir, wins, ask_fn=None, max_windows=MAX_LLM_WINDOWS):
     """Переупорядочить окна [(s, e, score)] по смыслу транскрипта.
 
     moments.json (пишет vod._rerank_by_transcript) содержит транскрипты окон.
@@ -331,20 +334,22 @@ def ai_moments(workdir, wins, ask_fn=None, max_windows=14):
             if i >= min(len(wins), max_windows):
                 break
             s, e, sc = wins[i][0], wins[i][1], float(wins[i][2])
-            txt = str(w.get("text") or "")[:900]
+            txt = " ".join(str(w.get("text") or "").split())[:MAX_TEXT_CHARS]
             loud = " (LOUD)" if sc >= 0.6 * hi else ""
             cands.append({"i": i + 1, "s": s, "e": e, "sc": sc,
-                          "line": "[%s] окно %d%s: %s"
-                                  % (_mmss(s), i + 1, loud, txt)})
+                          "line": "%d. [%s]%s %s"
+                                  % (i + 1, _mmss(s), loud, txt)})
         prompt = BRAIN_HEAD.replace("{n}", str(min(6, len(cands)))) \
             + "\n".join(c["line"] for c in cands)
         raw = ""
         try:
-            raw = str(ask_fn(prompt, max_tokens=220) or "")
+            raw = str(ask_fn(prompt, max_tokens=200) or "")
         except Exception:
-            return wins
+            raw = ""
         m = re.search(r"\[.*\]", raw, re.S)
         if not m:
+            log.info("PeakCut-отбор: LLM без JSON (%s...) — окна как были",
+                     (raw[:60] or "пусто").replace("\n", " "))
             return wins
         picks = json.loads(m.group(0))
         if not isinstance(picks, list):
@@ -360,6 +365,7 @@ def ai_moments(workdir, wins, ask_fn=None, max_windows=14):
             except Exception:
                 continue
         if not boost:
+            log.info("PeakCut-отбор: LLM не выбрала ни одного окна — как было")
             return wins
         ranked = []
         for i, (s, e, sc) in enumerate(wins):
@@ -375,8 +381,12 @@ def ai_moments(workdir, wins, ask_fn=None, max_windows=14):
             meta["windows"] = texts
             with open(path, "w", encoding="utf-8") as fh:
                 json.dump(meta, fh, ensure_ascii=False)
+        log.info("PeakCut-отбор: LLM выбрала окна %s — порядок обновлён, "
+                 "лучшее теперь на %d c",
+                 sorted(i + 1 for i in boost), ranked[0][0])
         return ranked
     except Exception:
+        log.exception("PeakCut-отбор упал — окна как были")
         return wins
 
 
