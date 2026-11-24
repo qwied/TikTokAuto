@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-24T09:04:35Z",
+ "updated": "2026-11-24T09:05:28Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=AnKvFrXdc2E",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Слово пацана. Лучшие моменты, эпизоды, фразы.",
    "views": 6140932,
