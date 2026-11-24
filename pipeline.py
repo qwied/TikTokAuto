@@ -23,6 +23,10 @@ import subtitle
 import vod as vod_mod
 import vertical as vertical_mod
 import webcam as webcam_mod
+try:                       # AI-заголовки TikTok (локальная LLM; нет — fallback)
+    import ai_caption
+except ImportError:
+    ai_caption = None
 from ad_guard import AdGuard
 from bot import TelegramBot
 from chat_watcher import TwitchChatWatcher, YouTubeChatWatcher
@@ -928,8 +932,22 @@ class Pipeline:
                                        score=q_score, subs=smeta)
         if self.tiktok:
             if q_score >= self.tiktok.min_score:
+                # AI-заголовок: LLM по транскрипту клипа (transcript.txt из
+                # subtitle.py); нет модели/речи — выжимка; совсем пусто —
+                # название стрима. Ошибки не роняют публикацию.
+                tk_title = st.ch.title or ""
+                if ai_caption:
+                    try:
+                        tk_title = (ai_caption.make_title(
+                            ai_caption.transcript_of(workdir),
+                            fallback=tk_title) or tk_title)
+                        if tk_title != (st.ch.title or ""):
+                            log.info("AI-заголовок TikTok: %r", tk_title)
+                    except Exception:
+                        log.exception("AI-заголовок не удался — прежний")
+                        tk_title = st.ch.title or ""
                 tk_caption = tiktok_mod.build_caption(
-                    {"title": st.ch.title or "", "channel": st.ch.display(),
+                    {"title": tk_title, "channel": st.ch.display(),
                      "platform": st.ch.platform}, self.tiktok.hashtags)
                 self.tiktok.enqueue(out_path, tk_caption)
             else:
