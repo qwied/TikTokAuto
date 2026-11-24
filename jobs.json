@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-24T08:46:30Z",
+ "updated": "2026-11-24T08:46:33Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=xNPh8x4qINg",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Три острова | Сезон 1 | Выпуск 3",
    "views": 123252,
