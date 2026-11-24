@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T05:10:23Z",
+ "updated": "2026-11-24T05:12:10Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -122,9 +122,25 @@
     "live": false,
     "viewers": 0,
     "title": ""
+   },
+   {
+    "name": "followkudes",
+    "display": "twitch.tv/followkudes",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "d1pro4",
+    "display": "twitch.tv/d1pro4",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 NIP vs M80 | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 15850], [\"bysl4m\", true, \"NiP vs M80 | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 6375], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 3275], [\"dmitry_lixxx\", true, \"[MAJOR] 100 Thieves vs Chinggis Warriors | PGL Major Singapore 2026 Stage 1 | !tg !winline !ЯО !ВТБ !avan\", 1550], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 825], [\"keliencs\", true, \"NIP vs M80 | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 650], [\"despot1ck\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 NIP vs M80 | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 15850], [\"bysl4m\", true, \"NiP vs M80 | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 6375], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 3275], [\"dmitry_lixxx\", true, \"[MAJOR] 100 Thieves vs Chinggis Warriors | PGL Major Singapore 2026 Stage 1 | !tg !winline !ЯО !ВТБ !avan\", 1550], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 825], [\"keliencs\", true, \"NIP vs M80 | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 650], [\"despot1ck\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"followkudes\", false, \"\", 0], [\"d1pro4\", false, \"\", 0]]"
  },
  "clips": [
   {
