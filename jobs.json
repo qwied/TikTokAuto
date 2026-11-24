@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-24T08:33:25Z",
- "jobs": []
+ "updated": "2026-11-24T08:34:29Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=VLaEpBI7chs",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "💸 Она думала, что легко заберёт его деньги… Ошиблась! 😳",
+   "views": 130180,
+   "added": "2026-11-24T08:34:22Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=xNPh8x4qINg",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Три острова | Сезон 1 | Выпуск 3",
+   "views": 123252,
+   "added": "2026-11-24T08:34:25Z"
+  }
+ ]
 }
