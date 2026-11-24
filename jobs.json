@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-24T13:42:39Z",
+ "updated": "2026-11-24T13:44:08Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=RBM2RIvW8Ug",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Какие привычки делают нас ГЛУПЕЕ? Алипов, Дробышевский",
    "views": 3186298,
