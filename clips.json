@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T10:49:43Z",
+ "updated": "2026-11-24T10:49:49Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -28,20 +28,20 @@
     "title": "PARIVISION vs FlyQuest | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit"
    },
    {
-    "name": "t2x2",
-    "display": "twitch.tv/t2x2",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "cs2_paragon_ru",
-    "display": "twitch.tv/cs2_paragon_ru",
+    "name": "dmitry_lixxx",
+    "display": "twitch.tv/dmitry_lixxx",
     "platform": "twitch",
     "live": true,
     "viewers": 0,
-    "title": "[RU] REDZONE | 100 Thieves [0:1] Imperial Esports | PGL Major Singapore 2026: Stage 1 | BO1 | @little_cs, @siberiancaster & @Roma_roo"
+    "title": "[120 FPS] ОТКРЫВАЕМ СЕКРЕТНЫЙ БУНКЕР | !tg !winline !ЯО !ВТБ !avan"
+   },
+   {
+    "name": "gadjiev57",
+    "display": "twitch.tv/gadjiev57",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "Мы В ТАЙЛАНДЕ РОЗА И КОСТЯ ?где чивиля?остов обезьян"
    },
    {
     "name": "leva2k",
@@ -52,12 +52,36 @@
     "title": "Аук НА ЕДУ | ИЗОЛЯЦИЯ ДЕНЬ9 | !tg !donate !winline !ggsel"
    },
    {
-    "name": "dmitry_lixxx",
-    "display": "twitch.tv/dmitry_lixxx",
+    "name": "cs2_paragon_ru",
+    "display": "twitch.tv/cs2_paragon_ru",
     "platform": "twitch",
     "live": true,
     "viewers": 0,
-    "title": "[120 FPS] ОТКРЫВАЕМ СЕКРЕТНЫЙ БУНКЕР | !tg !winline !ЯО !ВТБ !avan"
+    "title": "[RU] REDZONE | 100 Thieves [0:1] Imperial Esports | PGL Major Singapore 2026: Stage 1 | BO1 | @little_cs, @siberiancaster & @Roma_roo"
+   },
+   {
+    "name": "stariy_bog",
+    "display": "twitch.tv/stariy_bog",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ"
+   },
+   {
+    "name": "watchfultv",
+    "display": "twitch.tv/watchfultv",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "[RU 2K] PARIVISION vs FlyQuest | PGL Major Singapore | Telegram: @watchfulTV"
+   },
+   {
+    "name": "melharucos",
+    "display": "twitch.tv/melharucos",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА"
    },
    {
     "name": "dunduk",
@@ -68,12 +92,36 @@
     "title": "пока в таркове обнова абишечку"
    },
    {
-    "name": "betboom_dota_ru",
-    "display": "twitch.tv/betboom_dota_ru",
+    "name": "blackufa",
+    "display": "twitch.tv/blackufa",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "[DROPS] GTA 6 [PS5Pro] Ультра мега гипер ластецкий"
+   },
+   {
+    "name": "tpabomah",
+    "display": "twitch.tv/tpabomah",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "С НУЛЯ ДО ИНТА, 7К ММР🔥!угадай !сборки !руинер !тг"
+   },
+   {
+    "name": "zloyn",
+    "display": "twitch.tv/zloyn",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "МАРАФОН | GTA VI 🤯 | ДЕНЬ 7 | !tg !прогресс"
+   },
+   {
+    "name": "blindzonexgod",
+    "display": "twitch.tv/blindzonexgod",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "grind winter season 100% импрува 100% скилла 100% мотивации| !tg !мерч !bb"
    },
    {
     "name": "keliencs",
@@ -81,146 +129,42 @@
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": ""
+    "title": "9z vs M80 | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !fonbet"
    },
    {
-    "name": "stariy_bog",
-    "display": "twitch.tv/stariy_bog",
+    "name": "betboom_dota_ru",
+    "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "gadjiev57",
-    "display": "twitch.tv/gadjiev57",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "melharucos",
-    "display": "twitch.tv/melharucos",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "blackufa",
-    "display": "twitch.tv/blackufa",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "zloyn",
-    "display": "twitch.tv/zloyn",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "tpabomah",
-    "display": "twitch.tv/tpabomah",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "blindzonexgod",
-    "display": "twitch.tv/blindzonexgod",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "title": "ПОВТОР | BLAST SLAM IX | Group Stage Day 4"
    },
    {
     "name": "vovapain",
     "display": "twitch.tv/vovapain",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "ghostik",
-    "display": "twitch.tv/ghostik",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "title": "🔴 НЮХАО 👃 | !tg !bb !бк !лига"
    },
    {
     "name": "shiishak",
     "display": "twitch.tv/shiishak",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB"
    },
    {
-    "name": "welovegames",
-    "display": "youtube.com/@welovegames",
-    "platform": "youtube",
-    "live": false,
+    "name": "ghostik",
+    "display": "twitch.tv/ghostik",
+    "platform": "twitch",
+    "live": true,
     "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "bratishkinoff",
-    "display": "youtube.com/@bratishkinoff",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "KuplinovPlay",
-    "display": "youtube.com/@KuplinovPlay",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "5opka",
-    "display": "youtube.com/@5opka",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "stariy_bog",
-    "display": "youtube.com/@stariy_bog",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "AlinaRin",
-    "display": "youtube.com/@AlinaRin",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "Okisebi",
-    "display": "youtube.com/@Okisebi",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "title": "🔥Сьогодні добиваємо 8 000 рейтингу на НОВИХ героях в НОВІЙ меті (0-1) 🔥"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 100 Thieves vs Imperial | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 0], [\"bysl4m\", true, \"PARIVISION vs FlyQuest | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 0], [\"t2x2\", false, \"\", 0], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | 100 Thieves [0:1] Imperial Esports | PGL Major Singapore 2026: Stage 1 | BO1 | @little_cs, @siberiancaster & @Roma_roo\", 0], [\"leva2k\", true, \"Аук НА ЕДУ | ИЗОЛЯЦИЯ ДЕНЬ9 | !tg !donate !winline !ggsel\", 0], [\"dmitry_lixxx\", true, \"[120 FPS] ОТКРЫВАЕМ СЕКРЕТНЫЙ БУНКЕР | !tg !winline !ЯО !ВТБ !avan\", 0], [\"dunduk\", true, \"пока в таркове обнова абишечку\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"gadjiev57\", false, \"\", 0], [\"melharucos\", false, \"\", 0], [\"blackufa\", false, \"\", 0], [\"zloyn\", false, \"\", 0], [\"tpabomah\", false, \"\", 0], [\"blindzonexgod\", false, \"\", 0], [\"vovapain\", false, \"\", 0], [\"ghostik\", false, \"\", 0], [\"shiishak\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 100 Thieves vs Imperial | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 0], [\"bysl4m\", true, \"PARIVISION vs FlyQuest | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 0], [\"dmitry_lixxx\", true, \"[120 FPS] ОТКРЫВАЕМ СЕКРЕТНЫЙ БУНКЕР | !tg !winline !ЯО !ВТБ !avan\", 0], [\"gadjiev57\", true, \"Мы В ТАЙЛАНДЕ РОЗА И КОСТЯ ?где чивиля?остов обезьян\", 0], [\"leva2k\", true, \"Аук НА ЕДУ | ИЗОЛЯЦИЯ ДЕНЬ9 | !tg !donate !winline !ggsel\", 0], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | 100 Thieves [0:1] Imperial Esports | PGL Major Singapore 2026: Stage 1 | BO1 | @little_cs, @siberiancaster & @Roma_roo\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"watchfultv\", true, \"[RU 2K] PARIVISION vs FlyQuest | PGL Major Singapore | Telegram: @watchfulTV\", 0], [\"melharucos\", true, \"ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА\", 0], [\"dunduk\", true, \"пока в таркове обнова абишечку\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Ультра мега гипер ластецкий\", 0], [\"tpabomah\", true, \"С НУЛЯ ДО ИНТА, 7К ММР🔥!угадай !сборки !руинер !тг\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 7 | !tg !прогресс\", 0], [\"blindzonexgod\", true, \"grind winter season 100% импрува 100% скилла 100% мотивации| !tg !мерч !bb\", 0], [\"keliencs\", false, \"9z vs M80 | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 0], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 0], [\"vovapain\", true, \"🔴 НЮХАО 👃 | !tg !bb !бк !лига\", 0], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB\", 0], [\"ghostik\", true, \"🔥Сьогодні добиваємо 8 000 рейтингу на НОВИХ героях в НОВІЙ меті (0-1) 🔥\", 0]]"
  },
  "clips": [
   {
