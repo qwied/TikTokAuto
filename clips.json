@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T13:53:27Z",
+ "updated": "2026-11-24T13:55:27Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -103,7 +103,7 @@
     "name": "blindzonexgod",
     "display": "twitch.tv/blindzonexgod",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
     "title": "grind winter season 100% импрува 100% скилла 100% мотивации w/ @shefango @SovietMedicina | !tg !мерч !bb"
    },
@@ -236,7 +236,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", false, \"\", 0], [\"ravshann\", true, \"🔴 ФУТБОЛЬНЫЕ ЧЕЛЛЕНДЖИ w/ @steel @volkov815 @tengoone @gelodi_telefone @murobenzoo @beton011 !тг !бб !yota\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"stintik\", true, \"я тут\", 0], [\"leva2k\", true, \"АУК НА ЕДУ | ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 7 | !tg !прогресс\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Ультра мега гипер ластецкий\", 0], [\"melharucos\", true, \"ГРАБЛЮ БЕЗ ГАЙДОВ\", 0], [\"dmitry_lixxx\", false, \"🔴 ИЩЕМ ПАСХАЛКИ В ГТА 6 | !tg !winline !ЯО !ВТБ !avan\", 0], [\"dunduk\", true, \"графониум\", 0], [\"tpabomah\", false, \"\", 0], [\"blindzonexgod\", true, \"grind winter season 100% импрува 100% скилла 100% мотивации w/ @shefango @SovietMedicina | !tg !мерч !bb\", 0], [\"praden\", true, \"Большой гейминг\", 0], [\"kerimch1k\", false, \"\", 0], [\"ghostik\", true, \"🔥Сьогодні добиваємо 8 000 рейтингу на НОВИХ героях в НОВІЙ меті (1-4) 🔥\", 0], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB\", 0], [\"alohadancetv\", true, \"развлекаю школьников (шут) !tg\", 0], [\"zer0truel0ve\", true, \"[GTA6 120fps DLSS - 7 день] марафон 24/7 ФИНАЛ [DROPS Включены]\", 0], [\"syslov171\", true, \"Лёгкий вечер\", 0], [\"betboom_dota_ru\", true, \"Team Yandex [0] vs [0] 1win Team | Bo3 | Seeding Matches | BLAST SLAM IX | cast: @shachlos & @adekvat !предикты\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", false, \"\", 0], [\"ravshann\", true, \"🔴 ФУТБОЛЬНЫЕ ЧЕЛЛЕНДЖИ w/ @steel @volkov815 @tengoone @gelodi_telefone @murobenzoo @beton011 !тг !бб !yota\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"stintik\", true, \"я тут\", 0], [\"leva2k\", true, \"АУК НА ЕДУ | ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 7 | !tg !прогресс\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Ультра мега гипер ластецкий\", 0], [\"melharucos\", true, \"ГРАБЛЮ БЕЗ ГАЙДОВ\", 0], [\"dmitry_lixxx\", false, \"🔴 ИЩЕМ ПАСХАЛКИ В ГТА 6 | !tg !winline !ЯО !ВТБ !avan\", 0], [\"dunduk\", true, \"графониум\", 0], [\"tpabomah\", false, \"\", 0], [\"blindzonexgod\", false, \"grind winter season 100% импрува 100% скилла 100% мотивации w/ @shefango @SovietMedicina | !tg !мерч !bb\", 0], [\"praden\", true, \"Большой гейминг\", 0], [\"kerimch1k\", false, \"\", 0], [\"ghostik\", true, \"🔥Сьогодні добиваємо 8 000 рейтингу на НОВИХ героях в НОВІЙ меті (1-4) 🔥\", 0], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB\", 0], [\"alohadancetv\", true, \"развлекаю школьников (шут) !tg\", 0], [\"zer0truel0ve\", true, \"[GTA6 120fps DLSS - 7 день] марафон 24/7 ФИНАЛ [DROPS Включены]\", 0], [\"syslov171\", true, \"Лёгкий вечер\", 0], [\"betboom_dota_ru\", true, \"Team Yandex [0] vs [0] 1win Team | Bo3 | Seeding Matches | BLAST SLAM IX | cast: @shachlos & @adekvat !предикты\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
