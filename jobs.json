@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-24T10:57:22Z",
- "jobs": []
+ "updated": "2026-11-24T11:21:16Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=MNIFr4Sp6uU",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "😱 Психолог придумала СХЕМУ на 250 000₽… но таксист раскрыл правду 💸",
+   "views": 114944,
+   "added": "2026-11-24T11:21:10Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=zatS0cRXj-U",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "😱 Пассажирка устроила истерику из-за платной стоянки… Финал всё изменил! 🚕",
+   "views": 84651,
+   "added": "2026-11-24T11:21:10Z"
+  }
+ ]
 }
