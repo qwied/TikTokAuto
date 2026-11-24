@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T07:57:17Z",
+ "updated": "2026-11-24T07:58:09Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -167,6 +167,48 @@
   "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 FaZe vs Wildcard | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 27250], [\"bysl4m\", true, \"Eternal Fire vs FlyQuest | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 11225], [\"t2x2\", false, \"FaZe Clan 0:0 Wildcard | PGL Major Singapore 2026 - Stage 1 | t.me/t2xtwitch\", 0], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | Eternal Fire [0:0] FlyQuest | PGL Major Singapore 2026: Stage 1 | BO1 | @yarushkin1, @Lampaaa & @cybercracken\", 4050], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 3625], [\"dmitry_lixxx\", true, \"[120 FPS] ВЫЖИТЬ С 6 ЗВЕЗДАМИ | !tg !winline !ЯО !ВТБ !avan\", 4250], [\"dunduk\", true, \"пока в таркове обнова абишечку\", 2825], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 1175], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB\", 1025], [\"keliencs\", true, \"Eternal Fire vs FlyQuest | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 900], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"jefreeeeeeee\", true, \"🔥ПРОКАЧКА ИНВЕНТАРЯ ОТ 5000р | ВТОРОЙ КАНАЛ - twitch.tv/jefreeeeeee 🔥 !trade !тг !онлайн\", 3650], [\"watchfultv\", true, \"[RU 2K] Eternal Fire vs FlyQuest | PGL Major Singapore | Telegram: @watchfulTV\", 1275]]"
  },
  "clips": [
+  {
+   "id": "2026-11-24_07-53-04_dunduk",
+   "file": "2026-11-24_07-53-04_dunduk.mp4",
+   "url": "https://github.com/qwied/TikTokAuto/releases/download/auto/2026-11-24_07-53-04_dunduk.mp4",
+   "thumb": "data:image/jpeg;base64,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",
+   "size": 28315815,
+   "duration": 38.0,
+   "channel": "dunduk",
+   "display": "twitch.tv/dunduk",
+   "platform": "twitch",
+   "title": "концовку делаю выживший",
+   "score": 58.0,
+   "hashtags": [
+    "#dunduk",
+    "#twitch",
+    "#рек",
+    "#рекомендации",
+    "#fyp",
+    "#foryou",
+    "#viral",
+    "#прикол",
+    "#смешно",
+    "#хайп",
+    "#стрим",
+    "#клипы",
+    "#стример"
+   ],
+   "caption": "«Дружище, так это непрично верно, это дырка твоя анальная. Зря ты ее давил так» — twitch.tv/dunduk",
+   "subs": {
+    "lang": "ru",
+    "words": 15,
+    "aligned": true,
+    "lip_gate": false,
+    "speech_pct": 43,
+    "ok": true,
+    "hook": "Дружище, так это непрично верно, это дырка твоя анальная. Зря ты ее давил так"
+   },
+   "src": "",
+   "start": 0,
+   "created": 1795507083,
+   "gh": true
+  },
   {
    "id": "2026-11-24_07-47-49_dmitry_lixxx",
    "file": "2026-11-24_07-47-49_dmitry_lixxx.mp4",
