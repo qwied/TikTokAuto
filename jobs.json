@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T17:29:30Z",
+ "updated": "2026-11-24T17:35:48Z",
  "jobs": [
   {
    "url": "https://www.twitch.tv/videos/2935934475/",
@@ -14,16 +14,11 @@
    "force": true,
    "windows": [
     [
-     300,
-     345
-    ],
-    [
      900,
      945
     ]
    ],
    "scores": [
-    1.0,
     1.0
    ]
   }
