@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-24T12:18:40Z",
- "jobs": []
+ "updated": "2026-11-24T12:47:00Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=s2pTBuRepXw",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Я РАЗЫГРАЛ ВЕСЬ ШОУ БИЗНЕС! (Азамат, Бондарчук, Янковский и другие)",
+   "views": 132596,
+   "added": "2026-11-24T12:46:55Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=6iRfDf57KRI",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "ЛУКОВОЕ БЕЗУМИЕ В ПРЯМОМ ЭФИРЕ! ДАНЯ КАШИН ГОТОВИТ ЛУКОВЫЙ УГАР НА СТРИМЕ",
+   "views": 129061,
+   "added": "2026-11-24T12:46:49Z"
+  }
+ ]
 }
