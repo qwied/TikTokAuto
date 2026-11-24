@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T06:27:14Z",
+ "updated": "2026-11-24T06:27:46Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -76,62 +76,6 @@
     "title": "концовку делаю выживший"
    },
    {
-    "name": "welovegames",
-    "display": "youtube.com/@welovegames",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "bratishkinoff",
-    "display": "youtube.com/@bratishkinoff",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "KuplinovPlay",
-    "display": "youtube.com/@KuplinovPlay",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "5opka",
-    "display": "youtube.com/@5opka",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "stariy_bog",
-    "display": "youtube.com/@stariy_bog",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "AlinaRin",
-    "display": "youtube.com/@AlinaRin",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "Okisebi",
-    "display": "youtube.com/@Okisebi",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
     "name": "t2x2",
     "display": "twitch.tv/t2x2",
     "platform": "twitch",
@@ -148,7 +92,7 @@
     "title": "[RU] REDZONE | Team Liquid [0:0] GOSH | PGL Major Singapore 2026: Stage 1 | BO1 | @yarushkin1, @Lampaaa & @cybercracken"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 Liquid vs s1mple | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 39225], [\"bysl4m\", true, \"Liquid vs GOSH | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 13850], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 3250], [\"dmitry_lixxx\", true, \"[MAJOR] Liquid vs BC | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !winline !ЯО !ВТБ !avan\", 2600], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 875], [\"keliencs\", true, \"PARIVISION vs DENDELE | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 600], [\"followkudes\", true, \"🔴Поднимаем птс на carry в новом патче  !TG !WINLINE\", 625], [\"dunduk\", true, \"концовку делаю выживший\", 2275], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"t2x2\", true, \"Team Liquid 0:0 BCG | PGL Major Singapore 2026 - Stage 1 | t.me/t2xtwitch\", 4500], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | Team Liquid [0:0] GOSH | PGL Major Singapore 2026: Stage 1 | BO1 | @yarushkin1, @Lampaaa & @cybercracken\", 5100]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 Liquid vs s1mple | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 39225], [\"bysl4m\", true, \"Liquid vs GOSH | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 13850], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 3250], [\"dmitry_lixxx\", true, \"[MAJOR] Liquid vs BC | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !winline !ЯО !ВТБ !avan\", 2600], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 875], [\"keliencs\", true, \"PARIVISION vs DENDELE | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 600], [\"followkudes\", true, \"🔴Поднимаем птс на carry в новом патче  !TG !WINLINE\", 625], [\"dunduk\", true, \"концовку делаю выживший\", 2275], [\"t2x2\", true, \"Team Liquid 0:0 BCG | PGL Major Singapore 2026 - Stage 1 | t.me/t2xtwitch\", 4500], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | Team Liquid [0:0] GOSH | PGL Major Singapore 2026: Stage 1 | BO1 | @yarushkin1, @Lampaaa & @cybercracken\", 5100]]"
  },
  "clips": [
   {
