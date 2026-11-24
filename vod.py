@@ -748,13 +748,18 @@ def download_clip_full(url, out_path, workdir, cookies_file=""):
 
 
 def process_clip(src_video, clips_dir, workdir, cfg, display, platform,
-                 vcodec_args=None, banner_path=None):
+                 vcodec_args=None, banner_path=None, require_face=True):
     """Кусок видео -> вертикальный клип 60 с с субтитрами и баннером.
 
     Те же шаги, что у клипов из эфира (pipeline): 9:16 -> субтитры Whisper ->
     баннер по центру. Возвращает (путь к готовому mp4, мета субтитров):
     мета идёт в clips.json (бейдж «Субтитры» на карточке) и в уведомление,
     а gh_run по ней умеет ПРОПУСКАТЬ окна без речи (настройка на сайте).
+
+    require_face=False отключает гейт «нет стримера в кадре» — так режут
+    РУЧНЫЕ запросы с сайта (обычные YouTube-ролики: подкасты, стендап, шоу
+    без вебкамеры). Пользователь сам просил нарезать весь ролик — гейт ему
+    выбросил бы ВСЕ окна подряд.
     """
     ensure_dir(str(workdir))
     ensure_dir(str(clips_dir))
@@ -801,8 +806,9 @@ def process_clip(src_video, clips_dir, workdir, cfg, display, platform,
     # Турниры (betboom_dota_ru2), стримы сайтов (solo) и прочие эфиры без
     # вебкамеры дают вертикальные клипы «без лица» — пользователь просил
     # такие не делать. Слабый детект (2 голоса) ловит тёмные/мелкие камеры;
-    # гейт отключается сам, если на машине нет OpenCV.
-    if bool(clip_cfg.get("vertical", True)) and webcam_mod.cv2_available():
+    # гейт отключается сам, если на машине нет OpenCV. Для ручных запросов
+    # с сайта (require_face=False) гейт не действует — режем как попросили.
+    if require_face and bool(clip_cfg.get("vertical", True)) and webcam_mod.cv2_available():
         face_seen = cam_box is not None
         if not face_seen:
             try:
