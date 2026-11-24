@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-24T09:06:06Z",
- "jobs": []
+ "updated": "2026-11-24T09:30:07Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=gNJW0j06N1Y",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Александр Зубарев - Про стримы, прическу и пельмени / Опять не Гальцев",
+   "views": 23653317,
+   "added": "2026-11-24T09:29:54Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=gbDi98XMYmo",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Анна Хилькевич: возвращение «Универа», кризис в браке, конфликты в реалити",
+   "views": 948290,
+   "added": "2026-11-24T09:30:04Z"
+  }
+ ]
 }
