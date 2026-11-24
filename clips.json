@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T11:57:57Z",
+ "updated": "2026-11-24T12:01:13Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -170,9 +170,65 @@
     "live": true,
     "viewers": 0,
     "title": "РАЗГОВОРНЫЙ ДЕЛАЕМ АЛКО НАПИТКИ НА СТРИМЕ !tg !donate"
+   },
+   {
+    "name": "welovegames",
+    "display": "youtube.com/@welovegames",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "bratishkinoff",
+    "display": "youtube.com/@bratishkinoff",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "KuplinovPlay",
+    "display": "youtube.com/@KuplinovPlay",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "5opka",
+    "display": "youtube.com/@5opka",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "stariy_bog",
+    "display": "youtube.com/@stariy_bog",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "AlinaRin",
+    "display": "youtube.com/@AlinaRin",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "Okisebi",
+    "display": "youtube.com/@Okisebi",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 S1MPLE vs FAZE | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 0], [\"bysl4m\", true, \"PARIVISION vs FlyQuest | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"dmitry_lixxx\", true, \"[MAJOR] FaZe vs BC | BO1 | PGL Major Singapore 2026 Stage 1 /w @Aunkere | !tg !winline !ЯО !ВТБ !avan\", 0], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | FaZe Clan [0:0] GOSH | PGL Major Singapore 2026: Stage 1 | BO1 | @little_cs, @siberiancaster & @Roma_roo\", 0], [\"gadjiev57\", false, \"\", 0], [\"melharucos\", true, \"ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 7 | !tg !прогресс\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Ультра мега гипер ластецкий\", 0], [\"dunduk\", true, \"пока в таркове обнова абишечку\", 0], [\"tpabomah\", true, \"С НУЛЯ ДО ИНТА, 7К ММР🔥!угадай !сборки !руинер !тг\", 0], [\"blindzonexgod\", true, \"grind winter season 100% импрува 100% скилла 100% мотивации| !tg !мерч !bb\", 0], [\"betboom_dota_ru\", false, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 0], [\"vovapain\", false, \"🔴 НЮХАО 👃 | !tg !bb !бк !лига\", 0], [\"ghostik\", true, \"🔥Сьогодні добиваємо 8 000 рейтингу на НОВИХ героях в НОВІЙ меті (0-3) 🔥\", 0], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB\", 0], [\"praden\", true, \"Большой гейминг\", 0], [\"stintik\", true, \"я тут\", 0], [\"kerimch1k\", true, \"РАЗГОВОРНЫЙ ДЕЛАЕМ АЛКО НАПИТКИ НА СТРИМЕ !tg !donate\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 S1MPLE vs FAZE | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 0], [\"bysl4m\", true, \"PARIVISION vs FlyQuest | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"dmitry_lixxx\", true, \"[MAJOR] FaZe vs BC | BO1 | PGL Major Singapore 2026 Stage 1 /w @Aunkere | !tg !winline !ЯО !ВТБ !avan\", 0], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | FaZe Clan [0:0] GOSH | PGL Major Singapore 2026: Stage 1 | BO1 | @little_cs, @siberiancaster & @Roma_roo\", 0], [\"gadjiev57\", false, \"\", 0], [\"melharucos\", true, \"ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 7 | !tg !прогресс\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Ультра мега гипер ластецкий\", 0], [\"dunduk\", true, \"пока в таркове обнова абишечку\", 0], [\"tpabomah\", true, \"С НУЛЯ ДО ИНТА, 7К ММР🔥!угадай !сборки !руинер !тг\", 0], [\"blindzonexgod\", true, \"grind winter season 100% импрува 100% скилла 100% мотивации| !tg !мерч !bb\", 0], [\"betboom_dota_ru\", false, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 0], [\"vovapain\", false, \"🔴 НЮХАО 👃 | !tg !bb !бк !лига\", 0], [\"ghostik\", true, \"🔥Сьогодні добиваємо 8 000 рейтингу на НОВИХ героях в НОВІЙ меті (0-3) 🔥\", 0], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB\", 0], [\"praden\", true, \"Большой гейминг\", 0], [\"stintik\", true, \"я тут\", 0], [\"kerimch1k\", true, \"РАЗГОВОРНЫЙ ДЕЛАЕМ АЛКО НАПИТКИ НА СТРИМЕ !tg !donate\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
