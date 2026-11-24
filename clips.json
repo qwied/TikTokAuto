@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T01:59:24Z",
+ "updated": "2026-11-24T02:01:24Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -32,11 +32,11 @@
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
     "live": true,
-    "viewers": 936,
+    "viewers": 938,
     "title": "ПОВТОР | BLAST SLAM IX | Group Stage Day 4"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 БАГУЮ, ИГРУ 🔴 ГЛАВА II 🔴 DAY 6 🔴\", 12075], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 3875], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 925]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 БАГУЮ, ИГРУ 🔴 ГЛАВА II 🔴 DAY 6 🔴\", 12075], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 3875], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 950]]"
  },
  "clips": [
   {
