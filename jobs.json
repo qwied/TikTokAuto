@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-24T13:14:17Z",
- "jobs": []
+ "updated": "2026-11-24T13:42:39Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=RBM2RIvW8Ug",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Какие привычки делают нас ГЛУПЕЕ? Алипов, Дробышевский",
+   "views": 3186298,
+   "added": "2026-11-24T13:42:33Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=x2SXxihBsz0",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Какую ошибку люди совершают всю жизнь? Нейробиолог Василий Ключарёв",
+   "views": 798410,
+   "added": "2026-11-24T13:42:33Z"
+  }
+ ]
 }
