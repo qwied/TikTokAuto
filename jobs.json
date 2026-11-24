@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-24T00:15:29Z",
+ "updated": "2026-11-24T00:15:38Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=o67k4Nni0-g",
    "kind": "video",
-   "fails": 1,
+   "fails": 2,
    "tag": "ru",
    "display": "Забавные моменты со стримов",
    "views": 392907,
