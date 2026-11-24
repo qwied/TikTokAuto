@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T19:40:56Z",
+ "updated": "2026-11-24T19:41:11Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,41 +15,41 @@
     "name": "nix",
     "display": "twitch.tv/nix",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Xtreme vs Liquid 1:1 BLAST SLAM IX w/ Alagon"
    },
    {
     "name": "deepins02",
     "display": "twitch.tv/deepins02",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "[мама в 16] | !winline !авито !флаувау !tg"
    },
    {
     "name": "solo",
     "display": "twitch.tv/solo",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🔴 Liquid [0:0] Xtreme | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto @kyzko_doto !tg !BETBOOM !розыгрыш"
    },
    {
     "name": "recrent",
     "display": "twitch.tv/recrent",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "[1440p] GTA VI в 60 fps. День 7 | !pari !ggsel !tg !мерч"
    },
    {
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "OG [1] vs [1] Aurora Gaming | Bo3 | Last Chance | BLAST SLAM IX | cast: @shachlos & @adekvat !предикты"
    },
    {
     "name": "5opka",
@@ -199,20 +199,20 @@
     "name": "AlinaRin",
     "display": "youtube.com/@AlinaRin",
     "platform": "youtube",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "GTA VI ★★★★★★ РЕЛИЗ (2026) 【#6】"
    },
    {
     "name": "Okisebi",
     "display": "youtube.com/@Okisebi",
     "platform": "youtube",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🔴 LIVE! - GTA 6 mit KINO GRAFIK!"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", false, \"\", 0], [\"deepins02\", false, \"\", 0], [\"solo\", false, \"\", 0], [\"recrent\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"lenagol0vach\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"kopsteep\", false, \"\", 0], [\"stray228\", false, \"\", 0], [\"betboom_dota_ru2\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"blackrabbit342\", false, \"\", 0], [\"mainfinitytv\", false, \"\", 0], [\"mantaq\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"Xtreme vs Liquid 1:1 BLAST SLAM IX w/ Alagon\", 0], [\"deepins02\", true, \"[мама в 16] | !winline !авито !флаувау !tg\", 0], [\"solo\", true, \"🔴 Liquid [0:0] Xtreme | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"recrent\", true, \"[1440p] GTA VI в 60 fps. День 7 | !pari !ggsel !tg !мерч\", 0], [\"betboom_dota_ru\", true, \"OG [1] vs [1] Aurora Gaming | Bo3 | Last Chance | BLAST SLAM IX | cast: @shachlos & @adekvat !предикты\", 0], [\"5opka\", false, \"\", 0], [\"lenagol0vach\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"kopsteep\", false, \"\", 0], [\"stray228\", false, \"\", 0], [\"betboom_dota_ru2\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"blackrabbit342\", false, \"\", 0], [\"mainfinitytv\", false, \"\", 0], [\"mantaq\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", true, \"GTA VI ★★★★★★ РЕЛИЗ (2026) 【#6】\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit KINO GRAFIK!\", 0]]"
  },
  "clips": [
   {
