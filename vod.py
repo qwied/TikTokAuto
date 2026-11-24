@@ -477,6 +477,96 @@ def pick_windows(rms, duration, max_windows=100, win=WIN_SECONDS,
     return out
 
 
+# --- AI-ПЕРЕРАНЖИРОВАНИЕ ОКОН ПО ТРАНСКРИПТУ (Whisper) ----------------------
+
+_LAUGH_RE = re.compile(
+    r"(ахах|хаха|ах+х|ору|ржу|ржач|лол|кек|смех|смешно|прикол|поржать)", re.I)
+_WOW_RE = re.compile(
+    r"(жесть|капец|ужас|ого|вау|вот это|не поверишь|нереально|невероятно|"
+    r"шок|сенсация|краш|залип|блин|чёрт|черт|да ладно|серьёзно|серьезно|"
+    r"никогда такого|не ожидал|топ)", re.I)
+_YOU_RE = re.compile(
+    r"\b(ребята|парни|чувак|бро|смотрите|смотри|гляни|глянь|чекай|"
+    r"посмотри|представь|угадай|погнали|жми)\b", re.I)
+
+
+def _text_score(text, speech_s):
+    """Плотность «сочных» сигналов на минуту речи (0..~8).
+
+    Смех в голосе > сильные слова > прямые обращения к зрителю >
+    вопросы > восклицания. Нормируем на время речи, а не на окно:
+    минута болтовни и минута тишины оцениваются честно.
+    """
+    if not text:
+        return 0.0
+    laughs = len(_LAUGH_RE.findall(text))
+    wow = len(_WOW_RE.findall(text))
+    you = len(_YOU_RE.findall(text))
+    s = (1.1 * min(laughs, 5) + 0.8 * min(wow, 4) + 0.35 * min(you, 6)
+         + 0.5 * min(text.count("?"), 3) + 0.25 * min(text.count("!"), 4))
+    return s * 60.0 / max(15.0, float(speech_s or 0.0))
+
+
+def _rerank_by_transcript(audio_path, wins, workdir, chat_present=False):
+    """Whisper-транскрипт ТОП-окон -> текстовая оценка -> переупорядочивание.
+
+    Громкость говорит «здесь шумело», но не «здесь смешно». Транскрипт
+    ловит смех в голосе, вопросы зрителям, прямые обращения и сильные
+    слова. БЕЗ чата (обычные YouTube-ролики) текст — второй ПОЛНОЦЕННЫЙ
+    сигнал; С чатом — лёгкий тайбрейкер, чтобы не ломать чат-режим.
+    Модель та же, что у субтитров (small, кэш) — вторая загрузка не тратит
+    ни трафика, ни памяти. Ошибки не роняют разметку: окна остаются по
+    громкости/чату.
+    """
+    cands = list(wins[:30])
+    try:
+        if not cands or not subtitle.whisper_available():
+            return wins
+    except Exception:
+        return wins
+    log.info("AI-отбор: транскриптирую %d окно-кандидатов (Whisper small, "
+             "~1-3 мин)", len(cands))
+    scored = []
+    for i, (s, e, sc) in enumerate(cands):
+        wav = os.path.join(str(workdir), "ai_win_%02d.wav" % i)
+        try:
+            cmd = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-y",
+                   "-ss", "%0.1f" % max(0.0, float(s)),
+                   "-t", "%0.1f" % max(5.0, float(e) - float(s)),
+                   "-i", str(audio_path), "-vn", "-ac", "1", "-ar", "16000",
+                   wav]
+            if subprocess.run(cmd, capture_output=True,
+                              timeout=180).returncode != 0:
+                scored.append((s, e, sc, 0.0))
+                continue
+            segs, _w = subtitle.transcribe(wav, language="ru",
+                                           model_size="small", beam_size=1)
+            txt = " ".join((x.get("text") or "").strip()
+                           for x in (segs or []) if x.get("text"))
+            speech_s = sum(max(0.0, float(x.get("end", 0)) -
+                               float(x.get("start", 0)))
+                           for x in (segs or []))
+            scored.append((s, e, sc, _text_score(txt, speech_s)))
+        except Exception:
+            log.exception("AI-отбор: окно %d не обработано — без текста", i)
+            scored.append((s, e, sc, 0.0))
+        finally:
+            try:
+                os.remove(wav)
+            except OSError:
+                pass
+    weight = 0.4 if chat_present else 1.0        # чат-режим не ломаем
+    reranked = [(int(s), int(e), round(float(sc) +
+                                       weight * min(2.0, ts / 4.0), 3))
+                for s, e, sc, ts in scored]
+    tail = [(int(a), int(b), float(c)) for a, b, c in wins[len(cands):]]
+    reranked = sorted(reranked + tail, key=lambda x: -x[2])
+    log.info("AI-отбор: окна переупорядочены (вес текста %.1f); лучшее "
+             "теперь на %d с (оценка %.2f)", weight, reranked[0][0],
+             reranked[0][2])
+    return reranked
+
+
 def expand_video(url, workdir, cookies_file="", max_windows=100,
                  exclude_ranges=None):
     """(title, [(start, end, score), ...]) — разметка на интересные окна.
@@ -499,11 +589,13 @@ def expand_video(url, workdir, cookies_file="", max_windows=100,
     audio = download_audio(url, "vod_audio.bin", workdir, cookies_file)
     try:
         rms = loudness_curve(audio)
-    finally:
+    except Exception:
         try:
             os.remove(audio)
         except OSError:
             pass
+        raise
+    # аудио живёт ДО AI-переранжирования: Whisper читает из него окна
     is_twitch_vod = "twitch." in url and ("/videos/" in url or "/v/" in url)
     yt_archived = _is_youtube(url) and live_status in ("was_live", "post_live")
     chat = chat_exc = chat_extra = None
@@ -531,6 +623,18 @@ def expand_video(url, workdir, cookies_file="", max_windows=100,
                         chat_clip=extra.get("clipreq"),
                         chat_echo=extra.get("echo"),
                         exclude=exclude_ranges)
+    if wins and audio and os.path.exists(audio):
+        # AI-переранжирование: смысл окон по транскрипту (смех, вопросы,
+        # обращения). Упало — окна остаются по громкости/чату.
+        try:
+            wins = _rerank_by_transcript(audio, wins, str(workdir),
+                                         chat_present=chat is not None)
+        except Exception:
+            log.exception("AI-переранжирование не удалось — окна по громкости")
+    try:
+        os.remove(audio)
+    except OSError:
+        pass
     if wins:
         log.info("Выбрано окон: %d; лучшая минута на %d с (оценка %.2f)",
                  len(wins), wins[0][0], wins[0][2])
