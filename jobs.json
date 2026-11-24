@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-24T07:13:33Z",
+ "updated": "2026-11-24T07:32:39Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=KV5MfmJ2wdE",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Юрий Быков и Брутто: вам будет плохо (KujiPodcast 235）",
    "views": 379746,
