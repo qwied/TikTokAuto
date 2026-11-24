@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T06:23:14Z",
+ "updated": "2026-11-24T06:23:49Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -151,6 +151,49 @@
   "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 Liquid vs s1mple | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 36350], [\"bysl4m\", true, \"Liquid vs GOSH | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 13525], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 3250], [\"dmitry_lixxx\", true, \"[MAJOR] Liquid vs BC | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !winline !ЯО !ВТБ !avan\", 2825], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 875], [\"keliencs\", true, \"PARIVISION vs DENDELE | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 550], [\"followkudes\", true, \"🔴Поднимаем птс на carry в новом патче  !TG !WINLINE\", 650], [\"dunduk\", true, \"концовку делаю выживший\", 2325], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"t2x2\", true, \"Team Liquid 0:0 BCG | PGL Major Singapore 2026 - Stage 1 | t.me/t2xtwitch\", 4550], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | Team Liquid [0:0] GOSH | PGL Major Singapore 2026: Stage 1 | BO1 | @yarushkin1, @Lampaaa & @cybercracken\", 5025]]"
  },
  "clips": [
+  {
+   "id": "2026-11-24_06-19-12_dunduk",
+   "file": "2026-11-24_06-19-12_dunduk.mp4",
+   "url": "https://github.com/qwied/TikTokAuto/releases/download/auto/2026-11-24_06-19-12_dunduk.mp4",
+   "thumb": "data:image/jpeg;base64,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",
+   "size": 37671216,
+   "duration": 72.5,
+   "channel": "dunduk",
+   "display": "twitch.tv/dunduk",
+   "platform": "twitch",
+   "title": "концовку делаю выживший",
+   "score": 81.0,
+   "hashtags": [
+    "#dunduk",
+    "#twitch",
+    "#рек",
+    "#рекомендации",
+    "#fyp",
+    "#foryou",
+    "#viral",
+    "#прикол",
+    "#смешно",
+    "#хайп",
+    "#стрим",
+    "#клипы",
+    "#стример"
+   ],
+   "caption": "«Найти личные вещи воеводой, я что -то не нашел, что ли, здесь? Ну территории» — twitch.tv/dunduk",
+   "subs": {
+    "lang": "ru",
+    "words": 23,
+    "aligned": true,
+    "lip_gate": true,
+    "lip_speech_pct": 58,
+    "speech_pct": 33,
+    "ok": true,
+    "hook": "Найти личные вещи воеводой, я что -то не нашел, что ли, здесь? Ну территории"
+   },
+   "src": "",
+   "start": 0,
+   "created": 1795501424,
+   "gh": true
+  },
   {
    "id": "2026-11-24_06-13-35_dmitry_lixxx",
    "file": "2026-11-24_06-13-35_dmitry_lixxx.mp4",
