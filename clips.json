@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T19:39:26Z",
+ "updated": "2026-11-24T19:40:56Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,153 +15,113 @@
     "name": "nix",
     "display": "twitch.tv/nix",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Xtreme vs Liquid 1:1 BLAST SLAM IX w/ Alagon"
-   },
-   {
-    "name": "solo",
-    "display": "twitch.tv/solo",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "🔴 Liquid [0:0] Xtreme | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto @kyzko_doto !tg !BETBOOM !розыгрыш"
+    "title": ""
    },
    {
     "name": "deepins02",
     "display": "twitch.tv/deepins02",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "[мама в 16] | !winline !авито !флаувау !tg"
+    "title": ""
+   },
+   {
+    "name": "solo",
+    "display": "twitch.tv/solo",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "recrent",
     "display": "twitch.tv/recrent",
     "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "[1440p] GTA VI в 60 fps. День 7 | !pari !ggsel !tg !мерч"
-   },
-   {
-    "name": "anarabdullaev",
-    "display": "twitch.tv/anarabdullaev",
-    "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "Сижу один с вами беседую откровенно"
+    "title": ""
    },
    {
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "OG [1] vs [1] Aurora Gaming | Bo3 | Last Chance | BLAST SLAM IX | cast: @shachlos & @adekvat !предикты"
-   },
-   {
-    "name": "mafanyaking",
-    "display": "twitch.tv/mafanyaking",
-    "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "здарова / !тг !донат !предложка"
+    "title": ""
    },
    {
     "name": "5opka",
     "display": "twitch.tv/5opka",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "КАЙФУЮ В ГТА 6 // !донат !приватка !правила !funpay !тг"
+    "title": ""
    },
    {
     "name": "lenagol0vach",
     "display": "twitch.tv/lenagol0vach",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "🏆 НОВЫЙ ПАТЧ 7.42 🏆 ПУТЬ В ТОП 100 🏆  ЖЕСТКИЙ АП ММР 🍔 БЫЛО 15к ММР 🍆 ТЕСТИМ НОВЫЙ ПАТЧ ⭐ НАШЕЛ ИМБУ ПАТЧА ⭐🧀🏆⭐"
-   },
-   {
-    "name": "betboom_dota_ru2",
-    "display": "twitch.tv/betboom_dota_ru2",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Team Liquid [1] vs [1] Xtreme Gaming | Bo3 | Last Chance | BLAST SLAM IX | cast: @BLACKARHANGEL & @sheyl311 !предикты"
+    "title": ""
    },
    {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel"
+    "title": ""
    },
    {
     "name": "welovegames",
     "display": "twitch.tv/welovegames",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "GTA VI проходим на 100% | !гилан !ситилинк !ggsel !втб !dodo"
-   },
-   {
-    "name": "rejiboi",
-    "display": "twitch.tv/rejiboi",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "давай воровать машинки 6, 7 серия | 57% !tg"
+    "title": ""
    },
    {
     "name": "kopsteep",
     "display": "twitch.tv/kopsteep",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "импровизационный контент !tg !bot"
+    "title": ""
    },
    {
-    "name": "rostikfacekid",
-    "display": "twitch.tv/rostikfacekid",
+    "name": "stray228",
+    "display": "twitch.tv/stray228",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "день 1. растян в здании детка=)"
+    "title": ""
    },
    {
-    "name": "dyrachyo",
-    "display": "twitch.tv/dyrachyo",
+    "name": "betboom_dota_ru2",
+    "display": "twitch.tv/betboom_dota_ru2",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "Aurora [1:0] Og bo3 BLAST SLAM IX Group Stage w/ @mrAhillesko | !bb !tg"
+    "title": ""
+   },
+   {
+    "name": "rejiboi",
+    "display": "twitch.tv/rejiboi",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "keliencs",
     "display": "twitch.tv/keliencs",
     "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "МНЕ СКАЗАЛИ ЕСЛИ Я НЕ АПНУ 4К ЭЛО, ТО КИКНУТ ИЗ WW... w/ @flouzer7331| !tg !fonbet"
-   },
-   {
-    "name": "melharucos",
-    "display": "twitch.tv/melharucos",
-    "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "ГТА ПРОДОЛЖИМ НА СЛЕДУЮЩЕЙ СТРИМЕ"
-   },
-   {
-    "name": "blackrabbit342",
-    "display": "twitch.tv/blackrabbit342",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "aurora og 1 0  BLAST БЕЗ ЗАДЕРЖКИ!  !bb"
+    "title": ""
    },
    {
     "name": "bezp",
@@ -169,34 +129,90 @@
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "[EXCLUSIVE DROPS] Вотчпати турика !боты !bots !funpay"
+    "title": ""
    },
    {
-    "name": "praden",
-    "display": "twitch.tv/praden",
+    "name": "blackrabbit342",
+    "display": "twitch.tv/blackrabbit342",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "Большой гейминг"
+    "title": ""
    },
    {
     "name": "mainfinitytv",
     "display": "twitch.tv/mainfinitytv",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Смотрим \"Робин гуд: Принц воров\" начало в 21-50"
+    "title": ""
    },
    {
-    "name": "stray228",
-    "display": "twitch.tv/stray228",
+    "name": "mantaq",
+    "display": "twitch.tv/mantaq",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер"
+    "title": ""
+   },
+   {
+    "name": "welovegames",
+    "display": "youtube.com/@welovegames",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "bratishkinoff",
+    "display": "youtube.com/@bratishkinoff",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "KuplinovPlay",
+    "display": "youtube.com/@KuplinovPlay",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "5opka",
+    "display": "youtube.com/@5opka",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "stariy_bog",
+    "display": "youtube.com/@stariy_bog",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "AlinaRin",
+    "display": "youtube.com/@AlinaRin",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "Okisebi",
+    "display": "youtube.com/@Okisebi",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"Xtreme vs Liquid 1:1 BLAST SLAM IX w/ Alagon\", 0], [\"solo\", true, \"🔴 Liquid [0:0] Xtreme | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"deepins02\", true, \"[мама в 16] | !winline !авито !флаувау !tg\", 0], [\"recrent\", true, \"[1440p] GTA VI в 60 fps. День 7 | !pari !ggsel !tg !мерч\", 0], [\"anarabdullaev\", false, \"Сижу один с вами беседую откровенно\", 0], [\"betboom_dota_ru\", true, \"OG [1] vs [1] Aurora Gaming | Bo3 | Last Chance | BLAST SLAM IX | cast: @shachlos & @adekvat !предикты\", 0], [\"mafanyaking\", false, \"здарова / !тг !донат !предложка\", 0], [\"5opka\", true, \"КАЙФУЮ В ГТА 6 // !донат !приватка !правила !funpay !тг\", 0], [\"lenagol0vach\", true, \"🏆 НОВЫЙ ПАТЧ 7.42 🏆 ПУТЬ В ТОП 100 🏆  ЖЕСТКИЙ АП ММР 🍔 БЫЛО 15к ММР 🍆 ТЕСТИМ НОВЫЙ ПАТЧ ⭐ НАШЕЛ ИМБУ ПАТЧА ⭐🧀🏆⭐\", 0], [\"betboom_dota_ru2\", true, \"Team Liquid [1] vs [1] Xtreme Gaming | Bo3 | Last Chance | BLAST SLAM IX | cast: @BLACKARHANGEL & @sheyl311 !предикты\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 0], [\"welovegames\", true, \"GTA VI проходим на 100% | !гилан !ситилинк !ggsel !втб !dodo\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 7 серия | 57% !tg\", 0], [\"kopsteep\", true, \"импровизационный контент !tg !bot\", 0], [\"rostikfacekid\", false, \"день 1. растян в здании детка=)\", 0], [\"dyrachyo\", false, \"Aurora [1:0] Og bo3 BLAST SLAM IX Group Stage w/ @mrAhillesko | !bb !tg\", 0], [\"keliencs\", true, \"МНЕ СКАЗАЛИ ЕСЛИ Я НЕ АПНУ 4К ЭЛО, ТО КИКНУТ ИЗ WW... w/ @flouzer7331| !tg !fonbet\", 0], [\"melharucos\", false, \"ГТА ПРОДОЛЖИМ НА СЛЕДУЮЩЕЙ СТРИМЕ\", 0], [\"blackrabbit342\", true, \"aurora og 1 0  BLAST БЕЗ ЗАДЕРЖКИ!  !bb\", 0], [\"bezp\", false, \"[EXCLUSIVE DROPS] Вотчпати турика !боты !bots !funpay\", 0], [\"praden\", false, \"Большой гейминг\", 0], [\"mainfinitytv\", true, \"Смотрим \\\"Робин гуд: Принц воров\\\" начало в 21-50\", 0], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", false, \"\", 0], [\"deepins02\", false, \"\", 0], [\"solo\", false, \"\", 0], [\"recrent\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"lenagol0vach\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"kopsteep\", false, \"\", 0], [\"stray228\", false, \"\", 0], [\"betboom_dota_ru2\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"blackrabbit342\", false, \"\", 0], [\"mainfinitytv\", false, \"\", 0], [\"mantaq\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
