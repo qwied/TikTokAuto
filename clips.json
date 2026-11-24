@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T20:20:59Z",
+ "updated": "2026-11-24T20:22:11Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -159,20 +159,20 @@
     "name": "egorkreed",
     "display": "twitch.tv/egorkreed",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "4К , DLSS + 60 fps - на сонном в GTA6 ! Марафончик"
    },
    {
     "name": "silvername",
     "display": "twitch.tv/silvername",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"OG vs Aurora 1:1 BLAST SLAM IX w/ Alagon\", 0], [\"deepins02\", true, \"[мама в 16] | !winline !авито !флаувау !tg\", 0], [\"solo\", true, \"🔴 Aurora [1:1] OG | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"recrent\", true, \"[1440p] GTA VI в 60 fps. День 7 | !pari !ggsel !tg !мерч\", 0], [\"betboom_dota_ru\", true, \"OG [1] vs [1] Aurora Gaming | Bo3 | Last Chance | BLAST SLAM IX | cast: @shachlos & @adekvat !предикты\", 0], [\"5opka\", true, \"КАЙФУЮ В ГТА 6 // !донат !приватка !правила !funpay !тг\", 0], [\"lenagol0vach\", true, \"🏆 НОВЫЙ ПАТЧ 7.42 🏆 ПУТЬ В ТОП 100 🏆  ЖЕСТКИЙ АП ММР 🍔 БЫЛО 15к ММР 🍆 ТЕСТИМ НОВЫЙ ПАТЧ ⭐ НАШЕЛ ИМБУ ПАТЧА ⭐🧀🏆⭐\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 0], [\"welovegames\", true, \"GTA VI проходим на 100% | !гилан !ситилинк !ggsel !втб !dodo\", 0], [\"kopsteep\", true, \"импровизационный контент !tg !bot\", 0], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 0], [\"betboom_dota_ru2\", false, \"Team Liquid [2] vs [1] Xtreme Gaming | Bo3 | Last Chance | BLAST SLAM IX | cast: @BLACKARHANGEL & @sheyl311 !предикты\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 7 серия | 57% !tg\", 0], [\"keliencs\", true, \"МНЕ СКАЗАЛИ ЕСЛИ Я НЕ АПНУ 4К ЭЛО, ТО КИКНУТ ИЗ WW... w/ @flouzer7331 | !tg !fonbet\", 0], [\"bezp\", false, \"\", 0], [\"blackrabbit342\", true, \"aurora og 1 1  BLAST БЕЗ ЗАДЕРЖКИ!  !bb\", 0], [\"mainfinitytv\", true, \"Смотрим \\\"Робин гуд: Принц воров\\\" начало в 21-50\", 0], [\"mantaq\", true, \"OG x Aurora | Bo3 | BLAST SLAM IX | !tg !bb\", 0], [\"egorkreed\", false, \"\", 0], [\"silvername\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"OG vs Aurora 1:1 BLAST SLAM IX w/ Alagon\", 0], [\"deepins02\", true, \"[мама в 16] | !winline !авито !флаувау !tg\", 0], [\"solo\", true, \"🔴 Aurora [1:1] OG | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"recrent\", true, \"[1440p] GTA VI в 60 fps. День 7 | !pari !ggsel !tg !мерч\", 0], [\"betboom_dota_ru\", true, \"OG [1] vs [1] Aurora Gaming | Bo3 | Last Chance | BLAST SLAM IX | cast: @shachlos & @adekvat !предикты\", 0], [\"5opka\", true, \"КАЙФУЮ В ГТА 6 // !донат !приватка !правила !funpay !тг\", 0], [\"lenagol0vach\", true, \"🏆 НОВЫЙ ПАТЧ 7.42 🏆 ПУТЬ В ТОП 100 🏆  ЖЕСТКИЙ АП ММР 🍔 БЫЛО 15к ММР 🍆 ТЕСТИМ НОВЫЙ ПАТЧ ⭐ НАШЕЛ ИМБУ ПАТЧА ⭐🧀🏆⭐\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 0], [\"welovegames\", true, \"GTA VI проходим на 100% | !гилан !ситилинк !ggsel !втб !dodo\", 0], [\"kopsteep\", true, \"импровизационный контент !tg !bot\", 0], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 0], [\"betboom_dota_ru2\", false, \"Team Liquid [2] vs [1] Xtreme Gaming | Bo3 | Last Chance | BLAST SLAM IX | cast: @BLACKARHANGEL & @sheyl311 !предикты\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 7 серия | 57% !tg\", 0], [\"keliencs\", true, \"МНЕ СКАЗАЛИ ЕСЛИ Я НЕ АПНУ 4К ЭЛО, ТО КИКНУТ ИЗ WW... w/ @flouzer7331 | !tg !fonbet\", 0], [\"bezp\", false, \"\", 0], [\"blackrabbit342\", true, \"aurora og 1 1  BLAST БЕЗ ЗАДЕРЖКИ!  !bb\", 0], [\"mainfinitytv\", true, \"Смотрим \\\"Робин гуд: Принц воров\\\" начало в 21-50\", 0], [\"mantaq\", true, \"OG x Aurora | Bo3 | BLAST SLAM IX | !tg !bb\", 0], [\"egorkreed\", true, \"4К , DLSS + 60 fps - на сонном в GTA6 ! Марафончик\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0]]"
  },
  "clips": [
   {
