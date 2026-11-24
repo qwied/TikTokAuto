@@ -2427,11 +2427,16 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
     while jobs and made < max_jobs and time.time() < deadline - 12 * 60:
         job = jobs[0]
         key = vod_key(job)
+        # Ручной запрос «резать всё» с сайта: гейты качества отключены.
+        force = bool(job.get("force"))
         # YouTube с раннеров закрыт бот-чеком («Sign in to confirm…»):
-        # задача жгла 3 попытки × ~30 c и забивала очередь. Пропускаем
-        # мгновенно (на компьютере — как раньше).
-        if os.environ.get("GITHUB_ACTIONS") \
-                and "youtube." in str(job.get("url") or ""):
+        # задача жгла 3 попытки × ~30 c и забивала очередь. Автопоиск
+        # пропускаем мгновенно (на компьютере — как раньше), а вот РУЧНЫЕ
+        # запросы с сайта пользователь ждёт: их пробуем по-настоящему —
+        # yt-dlp сам перебирает плеер-клиенты (android_vr, tv_simply…).
+        if (os.environ.get("GITHUB_ACTIONS")
+                and "youtube." in str(job.get("url") or "")
+                and not force):
             log.info("YouTube-задача пропущена (бот-чек на Actions): %s",
                      job.get("url"))
             jobs.pop(0)
@@ -2441,6 +2446,9 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
             save(PROCESSED_JSON, done_set=done,
                  msg="vod: отмечаю пропущенное (yt)")
             continue
+        if force:
+            log.info("РУЧНОЙ ЗАПРОС «резать всё»: %s — гейты «лицо/речь/скука» "
+                     "и порог TikTok отключены, клипы пойдут все", job.get("url"))
         try:
             url = str(job.get("url") or "")
             display = str(job.get("display") or _vod_display(url))
@@ -2476,7 +2484,8 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
                 out, smeta = vod_mod.process_clip(src, clips_dir, workdir, cfg,
                                                   display, platform,
                                                   vcodec_args=vcodec_args,
-                                                  banner_path=banner_path)
+                                                  banner_path=banner_path,
+                                                  require_face=not force)
             except vod_mod.NoFaceClip:
                 # Жалоба пользователя «опять без лица»: клипы с эфиров без
                 # вебкамеры (турниры, стримы сайтов) не публикуются вовсе.
@@ -2505,7 +2514,7 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
             speech_pct = int(smeta.get("speech_pct") or 0)
             low_speech = (words_n < MIN_WORDS_CLIP
                           or speech_pct < MIN_SPEECH_PCT)
-            if (settings.get("skip_no_speech")
+            if (not force and settings.get("skip_no_speech")
                     and (not smeta.get("ok") or low_speech)
                     and skips < NO_SPEECH_SKIP_MAX):
                 skips += 1
@@ -2549,7 +2558,8 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
             # ЖЁСТКИЙ БРАК (статичный кадр ~2 МБ / обрезок < 45 с) выбрасывается
             # совсем — он не попадает даже в спасательный круг публикации.
             hard_reject = bool(qparts.get("hard"))
-            if final_score < min_score and (hard_reject or bored < BORED_SKIP_MAX):
+            if (not force and final_score < min_score
+                    and (hard_reject or bored < BORED_SKIP_MAX)):
                 bored += 1
                 if hard_reject:
                     try:
@@ -2596,15 +2606,17 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
                 made += 1
             if tk and tk_posts < tk_cap:
                 # В TikTok — ТОЛЬКО говорящие хайповые: нет связной речи — не
-                # постим вовсе (тихие клипы никогда не залетают в рекомендации)
+                # постим вовсе (тихие клипы никогда не залетают в рекомендации).
+                # РУЧНЫЕ запросы с сайта (force) постим все: пользователь сам
+                # решил резать весь ролик — его воля. Кап за запуск остаётся.
                 speech_ok = (bool(smeta.get("ok"))
                              and words_n >= 10
                              and speech_pct >= 10)
-                if not speech_ok:
+                if not speech_ok and not force:
                     log.info("TikTok: пропустил — нет связной речи (слов %d, "
                              "речи %d%%), тихие клипы не постим", words_n,
                              speech_pct)
-                elif final_score >= tk.min_score:
+                elif force or final_score >= tk.min_score:
                     tk_posts += 1
                     tk.enqueue(out, tiktok_mod.build_caption(
                         {"title": display, "channel": display,
