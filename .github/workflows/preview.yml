@@ -1,0 +1,44 @@
+# Превью-копии последних клипов: 480p-файлы в preview/ репо.
+# Сайт отдаёт их same-origin (Pages) — плеер играет сразу, в том числе
+# на iPhone (файлы Releases помечены attachment и без CORS: Safari их
+# не играет). Запускается вручную; новые клипы получают превью сами
+# (gh_run.py -> GitHubPublisher._make_preview).
+name: Preview copies
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Сколько последних клипов превью-ить"
+        required: false
+        default: "12"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: preview
+  cancel-in-progress: true
+
+jobs:
+  previews:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: FFmpeg
+        run: |
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update -y
+            sudo apt-get install -y --no-install-recommends ffmpeg
+          fi
+
+      - name: 480p-копии последних клипов -> preview/ + ремонт clips.json
+        env:
+          GH_TOKEN: ${{ secrets.SC_PAT }}
+        run: python make_previews.py --limit "${{ inputs.limit }}"
