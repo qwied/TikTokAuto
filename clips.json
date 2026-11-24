@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T14:08:12Z",
+ "updated": "2026-11-24T14:08:27Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -71,9 +71,9 @@
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Team Yandex [0] vs [0] 1win Team | Bo3 | Seeding Matches | BLAST SLAM IX | cast: @shachlos & @adekvat !предикты"
    },
    {
     "name": "blindzonexgod",
@@ -87,41 +87,41 @@
     "name": "silvername",
     "display": "twitch.tv/silvername",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг"
    },
    {
     "name": "syslov171",
     "display": "twitch.tv/syslov171",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Лёгкий вечер"
    },
    {
     "name": "praden",
     "display": "twitch.tv/praden",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Большой гейминг"
    },
    {
     "name": "zer0truel0ve",
     "display": "twitch.tv/zer0truel0ve",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "[GTA6 120fps DLSS - 7 день] марафон 24/7 ФИНАЛ [DROPS Включены]"
    },
    {
     "name": "ghostik",
     "display": "twitch.tv/ghostik",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🔥Сьогодні добиваємо 8 000 рейтингу на НОВИХ героях в НОВІЙ меті (1-4) 🔥"
    },
    {
     "name": "shiishak",
@@ -135,9 +135,9 @@
     "name": "alohadancetv",
     "display": "twitch.tv/alohadancetv",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "развлекаю школьников (шут) !tg"
    },
    {
     "name": "welovegames",
@@ -199,17 +199,17 @@
     "name": "solo",
     "display": "twitch.tv/solo",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🔴 Team Yandex [0:0] 1W | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto !tg !BETBOOM !розыгрыш"
    },
    {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "АУК НА ЕДУ | ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel"
    },
    {
     "name": "morphe_ya",
@@ -276,7 +276,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"ravshann\", true, \"🔴 ФУТБОЛЬНЫЕ ЧЕЛЛЕНДЖИ w/ @steel @volkov815 @tengoone @gelodi_telefone @murobenzoo @beton011 !тг !бб !yota\", 0], [\"stintik\", false, \"\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 7 | !tg !прогресс\", 0], [\"dunduk\", true, \"графониум\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Ультра мега гипер ластецкий\", 0], [\"melharucos\", true, \"ГРАБЛЮ БЕЗ ГАЙДОВ\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"blindzonexgod\", false, \"\", 0], [\"silvername\", false, \"\", 0], [\"syslov171\", false, \"\", 0], [\"praden\", false, \"\", 0], [\"zer0truel0ve\", false, \"\", 0], [\"ghostik\", false, \"\", 0], [\"shiishak\", false, \"\", 0], [\"alohadancetv\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"solo\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"morphe_ya\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"betboom_dota_ru2\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"raythis\", false, \"\", 0], [\"mainfinitytv\", false, \"\", 0], [\"uniquee\", false, \"\", 0], [\"amor_ed\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"ravshann\", true, \"🔴 ФУТБОЛЬНЫЕ ЧЕЛЛЕНДЖИ w/ @steel @volkov815 @tengoone @gelodi_telefone @murobenzoo @beton011 !тг !бб !yota\", 0], [\"stintik\", false, \"\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 7 | !tg !прогресс\", 0], [\"dunduk\", true, \"графониум\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Ультра мега гипер ластецкий\", 0], [\"melharucos\", true, \"ГРАБЛЮ БЕЗ ГАЙДОВ\", 0], [\"betboom_dota_ru\", true, \"Team Yandex [0] vs [0] 1win Team | Bo3 | Seeding Matches | BLAST SLAM IX | cast: @shachlos & @adekvat !предикты\", 0], [\"blindzonexgod\", false, \"\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"syslov171\", true, \"Лёгкий вечер\", 0], [\"praden\", true, \"Большой гейминг\", 0], [\"zer0truel0ve\", true, \"[GTA6 120fps DLSS - 7 день] марафон 24/7 ФИНАЛ [DROPS Включены]\", 0], [\"ghostik\", true, \"🔥Сьогодні добиваємо 8 000 рейтингу на НОВИХ героях в НОВІЙ меті (1-4) 🔥\", 0], [\"shiishak\", false, \"\", 0], [\"alohadancetv\", true, \"развлекаю школьников (шут) !tg\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"solo\", true, \"🔴 Team Yandex [0:0] 1W | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto !tg !BETBOOM !розыгрыш\", 0], [\"leva2k\", true, \"АУК НА ЕДУ | ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 0], [\"morphe_ya\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"betboom_dota_ru2\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"raythis\", false, \"\", 0], [\"mainfinitytv\", false, \"\", 0], [\"uniquee\", false, \"\", 0], [\"amor_ed\", false, \"\", 0]]"
  },
  "clips": [
   {
