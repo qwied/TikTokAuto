@@ -1,4 +1,23 @@
 {
- "updated": "2026-11-24T05:57:54Z",
- "jobs": []
+ "updated": "2026-11-24T06:07:34Z",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=rGHvzOvYJYQ",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "[Треш Обзор] АЛИСА В СТРАНЕ ЧУДЕС 2025 | Айгуль в стране веществ",
+   "views": 636455,
+   "added": "2026-11-24T06:07:33Z"
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=UU7pG0oIr_M",
+   "kind": "video",
+   "fails": 0,
+   "tag": "ru",
+   "display": "Гарик Оганисян | «И там и сям» | Сольный стендап-концерт",
+   "views": 538969,
+   "added": "2026-11-24T06:07:31Z"
+  }
+ ]
 }
