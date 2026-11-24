@@ -1173,6 +1173,32 @@ def make_subtitles_meta(video_path, workdir, sub_cfg, language, chat_messages,
     if words:
         if style == "classic":
             build_classic_ass(segs or [], ass_path, width=width, height=height, font=font)
+        elif style == "peakcut":
+            # PeakCut-субтитры (порт PeakCut, MIT, см. peakcut.py): поп-караоке —
+            # активное слово красится и «выпрыгивает», слова положены по одному
+            # точной геометрией шрифта; сверху плашка-крючок (белый бокс, тёмный
+            # текст). Ошибка -> обычные караоке-субтитры, клип не теряем.
+            built = False
+            try:
+                import peakcut as _pk
+                src_wh = sub_cfg.get("peakcut_src_wh") or ()
+                built = _pk.write_ass(
+                    words, ass_path, width=width, height=height,
+                    hook=str(smeta.get("hook") or "") if bool(
+                        sub_cfg.get("peakcut_hook", True)) else "",
+                    style=str(sub_cfg.get("peakcut_style", "bounce")),
+                    layout=str(sub_cfg.get("peakcut_layout", "blur")),
+                    src_w=(int(src_wh[0]) if len(src_wh) > 0 else 16),
+                    src_h=(int(src_wh[1]) if len(src_wh) > 1 else 9)) is not None
+                if built:
+                    smeta["peakcut"] = True
+            except Exception:
+                log.exception("PeakCut-субтитры не удались — обычные караоке")
+                built = False
+            if not built:
+                build_tiktok_ass(words, ass_path, width=width, height=height, font=font,
+                                 skip_intervals=skip_intervals,
+                                 speech_intervals=speech_iv)
         else:
             build_tiktok_ass(words, ass_path, width=width, height=height, font=font,
                              skip_intervals=skip_intervals,
