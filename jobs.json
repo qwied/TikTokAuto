@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-24T07:40:13Z",
+ "updated": "2026-11-24T07:40:21Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=4wdmtESQlEw",
    "kind": "video",
-   "fails": 1,
+   "fails": 2,
    "tag": "ru",
    "display": "Эксперимент и человек. Мини-фильм.",
    "views": 193383,
