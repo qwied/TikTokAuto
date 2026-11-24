@@ -274,7 +274,12 @@ def write_ass(words, path, width=W, height=H, hook="", style="bounce",
     global W, H
     W, H = int(width), int(height)
     hook_y, cap_y = geometry(src_w, src_h, layout)
-    ass = build_ass(words, 0.0, float(words[-1]["e"]) + 0.6 if words else 60.0,
+    if words:
+        last = words[-1]
+        last_e = float(last.get("e", last.get("end", 0)) or 0.0)
+    else:
+        last_e = 60.0
+    ass = build_ass(words, 0.0, last_e + 0.6,
                     hook, style, highlight, hook_y=hook_y, cap_y=cap_y,
                     width=width, height=height)
     with open(path, "w", encoding="utf-8") as fh:
