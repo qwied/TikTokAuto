@@ -98,42 +98,76 @@ def _looks_like_bot_check(err):
     return any(m in low for m in BOT_CHECK_MARKS)
 
 
-def ytdlp_exec(build_cmd, timeout, cwd=None, label="yt-dlp"):
-    """Прогон yt-dlp с фолбэком на другие плеер-клиенты при бот-чеке.
+# Мягкие блоки YouTube, при которых стоит перебрать клиентов/cookies:
+# датацентр-IP получает то бот-чек, то «Video unavailable. This content
+# isn't available» (подмена для чужих IP), то SABR-потоки без ссылок
+# (эксперимент, привязанный к аккаунту в cookies). У анонимного запроса
+# и у разных плеер-клиентов это лечится по-разному — перебираем всё.
+_SOFT_BLOCK_MARKS = ("no video formats found", "missing a url",
+                     "sabr", "requested format is not available",
+                     "failed to extract any player response",
+                     "the page needs to be reloaded",
+                     "video unavailable. this content isn",
+                     "only images are available")
 
-    build_cmd(client) возвращает ПОЛНУЮ команду для выбранного клиента
-    (None = настройки по умолчанию). Возвращает (rc, stdout, stderr)
-    последней попытки. Ошибки, НЕ похожие на бот-чек, возвращаются сразу —
-    смена клиента им не поможет.
+
+def _retry_worthy(err):
+    low = str(err or "").lower()
+    return _looks_like_bot_check(low) or any(m in low for m in _SOFT_BLOCK_MARKS)
+
+
+def ytdlp_exec(build_cmd, timeout, cwd=None, label="yt-dlp", cookies_file=""):
+    """Прогон yt-dlp с перебором «cookies × плеер-клиент» при мягких блоках.
+
+    build_cmd(cookies_file, client) возвращает ПОЛНУЮ команду (внутри
+    cookies_file — путь к cookies или «» = анонимный запрос). Порядок:
+    сначала АНОНИМНО по всем клиентам — SABR-эксперимент сидит в аккаунте
+    cookies и режет ссылки у всех web-клиентов разом; при бот-чеке повтор
+    той же цепочки С cookies (SABR тогда неизбежен, но лучше хоть что-то
+    попробовать). Рабочая связка запоминается на текущий запуск.
     """
-    attempts = []
-    for c in ([_YT_STATE["client"]] if _YT_STATE.get("client") else []) \
-            + [None] + list(_YT_CLIENTS):
-        if c not in attempts:
-            attempts.append(c)
+    clients = ([_YT_STATE["client"]] if _YT_STATE.get("client") else []) \
+        + [None] + list(_YT_CLIENTS)
+    seen, ordered = set(), []
+    for c in clients:
+        if c not in seen:
+            seen.add(c)
+            ordered.append(c)
+    variants = [(False, c) for c in ordered]
+    if cookies_file:
+        variants += [(True, c) for c in ordered]
+
     rc, out, err = 1, "", ""
-    for client in attempts:
-        cmd = build_cmd(client)
+    sabr_with_cookies = False
+    for use_cookies, client in variants:
+        cmd = build_cmd(cookies_file if use_cookies else "", client)
         try:
             p = subprocess.run(cmd, capture_output=True, text=True,
                                timeout=timeout,
                                cwd=str(cwd) if cwd else None)
         except subprocess.TimeoutExpired:
-            if client is None:
-                return 1, "", "yt-dlp timeout %ss" % timeout   # таймаут не лечим перебором
+            rc, out, err = 1, "", "yt-dlp timeout %ss" % timeout
             continue
         rc, out, err = p.returncode, p.stdout or "", p.stderr or ""
         if rc == 0:
             if client:
                 _YT_STATE["client"] = client
-                log.info("yt-dlp %s: бот-чек обойдён плеер-клиентом %s "
-                         "(запомнил на этот запуск)", label, client)
+            log.info("yt-dlp %s: прошло %s cookies (клиент %s) — запомнил на запуск",
+                     label, "С" if use_cookies else "БЕЗ", client or "по умолчанию")
             return rc, out, err
-        if not _looks_like_bot_check(err):
+        low = str(err).lower()
+        if not _retry_worthy(low):
             return rc, out, err          # другая ошибка — перебор не поможет
-        log.warning("yt-dlp %s: YouTube бот-чек — пробую плеер-клиент %s (%d/%d)",
-                    label, client or "default",
-                    attempts.index(client) + 1, len(attempts))
+        if use_cookies and ("sabr" in low or "missing a url" in low
+                            or "no video formats" in low):
+            if sabr_with_cookies:
+                break            # SABR у всех клиентов одинаков — не тратим время
+            sabr_with_cookies = True
+        first = (err or "").strip().splitlines()[-1] if err.strip() else "таймаут"
+        log.warning("yt-dlp %s: YouTube закрылся (%s) — пробую %s, клиент %s",
+                    label, first[:140],
+                    "С cookies" if use_cookies else "БЕЗ cookies",
+                    client or "по умолчанию")
     return rc, out, err
 
 
@@ -142,10 +176,10 @@ def yt_search_json(query, cookies_file="", timeout=180):
 
     Возвращает (rc, stdout, stderr) — используется YouTube-дискавери в gh_run.
     """
-    def build(client):
-        return ytdlp_base(cookies_file) + _client_args(client) + [
+    def build(cf, client):
+        return ytdlp_base(cf) + _client_args(client) + [
             "--flat-playlist", "--dump-single-json", "--ignore-config", query]
-    return ytdlp_exec(build, timeout, label="поиск")
+    return ytdlp_exec(build, timeout, label="поиск", cookies_file=cookies_file)
 
 
 def probe_video(url, cookies_file=""):
@@ -155,11 +189,11 @@ def probe_video(url, cookies_file=""):
     которые БЫЛИ трансляциями (was_live/post_live). У обычных загрузок чата
     нет — отбор пойдёт по громкости.
     """
-    def build(client):
-        return ytdlp_base(cookies_file) + _client_args(client) + [
+    def build(cf, client):
+        return ytdlp_base(cf) + _client_args(client) + [
             "--skip-download", "--print",
             "%(title)s|||%(duration)s|||%(live_status)s", url]
-    rc, out, err = ytdlp_exec(build, 180, label="инфо")
+    rc, out, err = ytdlp_exec(build, 180, label="инфо", cookies_file=cookies_file)
     if rc != 0:
         raise RuntimeError("yt-dlp (инфо): " + err[-400:])
     line = (out or "").strip().splitlines()[-1] if out.strip() else ""
@@ -179,10 +213,11 @@ def download_audio(url, out_path, workdir, cookies_file=""):
     """Самый дешёвый звуковой поток всего видео (для оценки интересности)."""
     out = os.path.basename(str(out_path))
 
-    def build(client):
-        return ytdlp_base(cookies_file) + _client_args(client) + [
+    def build(cf, client):
+        return ytdlp_base(cf) + _client_args(client) + [
             "-f", "worstaudio/bestaudio/worst", "-o", out, url]
-    rc, _o, err = ytdlp_exec(build, 1800, cwd=str(workdir), label="звук")
+    rc, _o, err = ytdlp_exec(build, 1800, cwd=str(workdir), label="звук",
+                             cookies_file=cookies_file)
     if rc != 0:
         raise RuntimeError("yt-dlp (звук): " + err[-400:])
     path = os.path.join(str(workdir), out)
@@ -516,11 +551,12 @@ def fetch_chat_replay(url, workdir, cookies_file=""):
     """
     out = "chat_replay"
     if _is_youtube(url):
-        def build_yt(client):
-            return ytdlp_base(cookies_file) + _client_args(client) + [
+        def build_yt(cf, client):
+            return ytdlp_base(cf) + _client_args(client) + [
                 "--skip-download", "--write-subs", "--sub-langs", "live_chat",
                 "--sub-format", "json3", "-o", out, url]
-        rc, _o, _e = ytdlp_exec(build_yt, 900, cwd=str(workdir), label="чат YT")
+        rc, _o, _e = ytdlp_exec(build_yt, 900, cwd=str(workdir), label="чат YT",
+                                cookies_file=cookies_file)
         if rc != 0:
             return None
         for cand in (os.path.join(str(workdir), out + ".live_chat.json"),
@@ -529,11 +565,12 @@ def fetch_chat_replay(url, workdir, cookies_file=""):
             if os.path.exists(cand):
                 return cand
         return None
-    def build_tw(client):
-        return ytdlp_base(cookies_file) + _client_args(client) + [
+    def build_tw(cf, client):
+        return ytdlp_base(cf) + _client_args(client) + [
             "--skip-download", "--write-subs", "--sub-langs", "chat",
             "--sub-format", "vtt/srt", "-o", out, url]
-    rc, _o, _e = ytdlp_exec(build_tw, 600, cwd=str(workdir), label="чат Twitch")
+    rc, _o, _e = ytdlp_exec(build_tw, 600, cwd=str(workdir), label="чат Twitch",
+                            cookies_file=cookies_file)
     if rc != 0:
         return None
     for cand in (os.path.join(str(workdir), out + ".chat.vtt"),
@@ -717,15 +754,16 @@ def download_section(url, start, end, out_path, workdir, cookies_file=""):
     def hms(t):
         t = max(0, int(t))
         return "%02d:%02d:%02d" % (t // 3600, (t % 3600) // 60, t % 60)
-    def build(client):
-        return ytdlp_base(cookies_file) + _client_args(client) + [
+    def build(cf, client):
+        return ytdlp_base(cf) + _client_args(client) + [
             "--download-sections", "*%s-%s" % (hms(start), hms(end)),
             "--force-keyframes-at-cuts",
             "-f", "bv*[height<=1080][vcodec^=avc1]+ba/b[height<=1080][vcodec^=avc1]/bv*+ba/b",
             "--merge-output-format", "mp4",
             "--concurrent-fragments", "4",
             "-o", out, url]
-    rc, _o, err = ytdlp_exec(build, 1800, cwd=str(workdir), label="кусок")
+    rc, _o, err = ytdlp_exec(build, 1800, cwd=str(workdir), label="кусок",
+                             cookies_file=cookies_file)
     path = os.path.join(str(workdir), out)
     if rc != 0 or not os.path.exists(path):
         raise RuntimeError("yt-dlp (кусок %s-%s): %s" % (hms(start), hms(end), err[-400:]))
@@ -736,11 +774,12 @@ def download_clip_full(url, out_path, workdir, cookies_file=""):
     """Скачать клип Twitch целиком (короткий)."""
     out = os.path.basename(str(out_path))
 
-    def build(client):
-        return ytdlp_base(cookies_file) + _client_args(client) + [
+    def build(cf, client):
+        return ytdlp_base(cf) + _client_args(client) + [
             "-f", "bv*+ba/b", "--merge-output-format", "mp4",
             "-o", out, url]
-    rc, _o, err = ytdlp_exec(build, 1200, cwd=str(workdir), label="клип")
+    rc, _o, err = ytdlp_exec(build, 1200, cwd=str(workdir), label="клип",
+                             cookies_file=cookies_file)
     path = os.path.join(str(workdir), out)
     if rc != 0 or not os.path.exists(path):
         raise RuntimeError("yt-dlp (клип): " + err[-400:])
