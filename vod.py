@@ -527,6 +527,7 @@ def _rerank_by_transcript(audio_path, wins, workdir, chat_present=False):
     log.info("AI-отбор: транскриптирую %d окно-кандидатов (Whisper small, "
              "~1-3 мин)", len(cands))
     scored = []
+    texts = []                      # транскрипты окон -> moments.json (PeakCut)
     for i, (s, e, sc) in enumerate(cands):
         wav = os.path.join(str(workdir), "ai_win_%02d.wav" % i)
         try:
@@ -538,6 +539,7 @@ def _rerank_by_transcript(audio_path, wins, workdir, chat_present=False):
             if subprocess.run(cmd, capture_output=True,
                               timeout=180).returncode != 0:
                 scored.append((s, e, sc, 0.0))
+                texts.append("")
                 continue
             segs, _w = subtitle.transcribe(wav, language="ru",
                                            model_size="small", beam_size=1)
@@ -547,9 +549,11 @@ def _rerank_by_transcript(audio_path, wins, workdir, chat_present=False):
                                float(x.get("start", 0)))
                            for x in (segs or []))
             scored.append((s, e, sc, _text_score(txt, speech_s)))
+            texts.append(txt)
         except Exception:
             log.exception("AI-отбор: окно %d не обработано — без текста", i)
             scored.append((s, e, sc, 0.0))
+            texts.append("")
         finally:
             try:
                 os.remove(wav)
@@ -564,6 +568,18 @@ def _rerank_by_transcript(audio_path, wins, workdir, chat_present=False):
     log.info("AI-отбор: окна переупорядочены (вес текста %.1f); лучшее "
              "теперь на %d с (оценка %.2f)", weight, reranked[0][0],
              reranked[0][2])
+    # Транскрипты окон в moments.json: их читает PeakCut-отбор моментов
+    # (peakcut.ai_moments — LLM выбирает лучшие окна и пишет крючки).
+    try:
+        _moments = {"windows": [
+            {"i": i, "s": int(s), "e": int(e),
+             "score": round(float(sc), 3), "text": str(tx or "")}
+            for i, (s, e, sc, tx) in enumerate(scored)]}
+        with open(os.path.join(str(workdir), "moments.json"), "w",
+                  encoding="utf-8") as _mf:
+            json.dump(_moments, _mf, ensure_ascii=False)
+    except OSError:
+        pass
     return reranked
 
 
@@ -631,6 +647,13 @@ def expand_video(url, workdir, cookies_file="", max_windows=100,
                                          chat_present=chat is not None)
         except Exception:
             log.exception("AI-переранжирование не удалось — окна по громкости")
+        # PeakCut-отбор: локальная LLM читает транскрипты окон и решает,
+        # какие моменты реально зацепят зрителя (как brain.py в PeakCut).
+        try:
+            import peakcut as _pk
+            wins = _pk.ai_moments(str(workdir), wins)
+        except Exception:
+            log.exception("PeakCut-отбор моментов не удался — окна как были")
     try:
         os.remove(audio)
     except OSError:
@@ -1008,8 +1031,14 @@ def process_clip(src_video, clips_dir, workdir, cfg, display, platform,
             log.exception("Лип-синк не удался — субтитры без гейта по губам")
             lip_iv = None
     try:
+        sub_cfg = dict(cfg.get("subtitle") or {})
+        # PeakCut-субтитрам нужен макет 9:16 и размер ИСХОДНИКА — от них
+        # зависят позиции плашки-крючка и строк.
+        sub_cfg["peakcut_layout"] = str(clip_cfg.get("vertical_mode", "blur"))
+        sub_cfg["peakcut_src_wh"] = [int(meta.get("width") or 16),
+                                     int(meta.get("height") or 9)]
         ass, smeta = subtitle.make_subtitles_meta(
-            cur, str(workdir), cfg.get("subtitle") or {},
+            cur, str(workdir), sub_cfg,
             str(cfg.get("speech_language", "ru")), [],
             duration=dur, skip_intervals=intervals, lip_intervals=lip_iv)
     except Exception:
