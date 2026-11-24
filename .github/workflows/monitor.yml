@@ -23,7 +23,9 @@ permissions:
   actions: write                   # финальная проверка может перезапустить Monitor
 
 concurrency:
-  group: monitor
+  group: monitor-v2                # 2026-11-24: группа переименована — старая
+                                   # была забита зависшим запуском (cancel API
+                                   # не сработал), новые сессии ждали его часами
   cancel-in-progress: false        # не убивать идущую запись
 
 jobs:
