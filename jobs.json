@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-24T13:12:32Z",
+ "updated": "2026-11-24T13:13:36Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=GF_FWO1zoW8",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Обзор Луков Звезд с Алексеем Сухаревым | Памела Андерсон, Ирина Шейк, Джордж и Амаль Клуни",
    "views": 176690,
