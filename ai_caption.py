@@ -97,7 +97,7 @@ def _load_llm():
             return None
         try:
             from llama_cpp import Llama
-            _llm = Llama(model_path=p, n_ctx=1024, n_gpu_layers=0,
+            _llm = Llama(model_path=p, n_ctx=2048, n_gpu_layers=0,
                          n_threads=max(2, (os.cpu_count() or 2) // 2),
                          verbose=False)
             log.info("AI-заголовки: LLM загружена (%s)", os.path.basename(p))
