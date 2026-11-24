@@ -2361,7 +2361,23 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
     if banner_path:
         log.info("Баннер: %s (в каждой нарезке)", os.path.basename(banner_path))
 
+    # Cookies YouTube: либо ПУТЬ к файлу, либо сам файл (Netscape) из секрета.
+    # YouTube встречает раннеры бот-чеком — без cookies нарезка YouTube на
+    # Actions не работает вовсе (проверено 2026-11-24: бот-чек по всем
+    # плеер-клиентам). Секрет YOUTUBE_COOKIES_FILE может содержать и путь,
+    # и содержимое cookies.txt — поддерживаем оба варианта.
     cookies = os.environ.get("YOUTUBE_COOKIES_FILE", "").strip()
+    if cookies and not os.path.isfile(cookies) \
+            and ("youtube" in cookies or cookies.startswith("#")):
+        try:
+            p = os.path.join(base, "cookies_secret.txt")
+            with open(p, "w", encoding="utf-8") as f:
+                f.write(cookies if cookies.endswith("\n") else cookies + "\n")
+            cookies = p
+            log.info("Cookies YouTube получены ИЗ СЕКРЕТА (файл %s)", p)
+        except OSError:
+            log.exception("Cookies из секрета не сохранить в файл")
+            cookies = ""
     if not cookies:
         for cand in ("cookies.txt", os.path.join(base, "cookies.txt")):
             if os.path.isfile(cand):
@@ -2369,6 +2385,10 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
                 break
     if cookies:
         log.info("Cookies для YouTube: %s", cookies)
+    elif os.environ.get("GITHUB_ACTIONS"):
+        log.warning("Cookies YouTube НЕ заданы: раннеры GitHub бот-чеком закрываются "
+                    "— нарезка YouTube-ссылок на Actions не сможет скачаться. "
+                    "Пришли cookies.txt из браузера (секрет YOUTUBE_COOKIES_FILE)")
 
     workdir = ensure_dir(os.path.join(base, "temp", "vod"))
     clips_dir = ensure_dir(os.path.join(base, "clips"))
