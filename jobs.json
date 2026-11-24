@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-24T09:31:22Z",
+ "updated": "2026-11-24T09:31:31Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=gbDi98XMYmo",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Анна Хилькевич: возвращение «Универа», кризис в браке, конфликты в реалити",
    "views": 948290,
