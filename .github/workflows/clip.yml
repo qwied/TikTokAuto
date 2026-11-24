@@ -68,7 +68,10 @@ jobs:
           YOUTUBE_COOKIES_FILE: ${{ secrets.YOUTUBE_COOKIES_FILE }}
         run: python process_requests.py
 
+      # Нарезка идёт ДАЖЕ если разбор запросов упал: упавший запрос красит
+      # запуск ошибкой (это видно на сайте), но очередь должна обработаться.
       - name: Нарезать видео на клипы
+        if: always() && !cancelled()
         env:
           GH_TOKEN: ${{ secrets.SC_PAT }}
           TIKTOK_CLIENT_KEY: ${{ secrets.TIKTOK_CLIENT_KEY }}
