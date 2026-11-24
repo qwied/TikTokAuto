@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T13:12:38Z",
+ "updated": "2026-11-24T13:12:52Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -127,41 +127,41 @@
     "name": "ghostik",
     "display": "twitch.tv/ghostik",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🔥Сьогодні добиваємо 8 000 рейтингу на НОВИХ героях в НОВІЙ меті (0-4) 🔥"
    },
    {
     "name": "shiishak",
     "display": "twitch.tv/shiishak",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB"
    },
    {
     "name": "alohadancetv",
     "display": "twitch.tv/alohadancetv",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "развлекаю школьников (шут) !tg"
    },
    {
     "name": "zer0truel0ve",
     "display": "twitch.tv/zer0truel0ve",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "[GTA6 120fps DLSS - 7 день] марафон 24/7 ФИНАЛ [DROPS Включены]"
    },
    {
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Team Yandex [0] vs [0] 1win Team | Bo3 | Group Stage Day 5 | BLAST SLAM IX | cast: @shachlos & @adekvat"
    },
    {
     "name": "welovegames",
@@ -220,7 +220,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", false, \"\", 0], [\"ravshann\", true, \"🔴 ФУТБОЛЬНЫЕ ЧЕЛЛЕНДЖИ w/ @steel @volkov815 @tengoone @gelodi_telefone @murobenzoo @beton011 !тг !бб !yota\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"stintik\", true, \"я тут\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 7 | !tg !прогресс\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Ультра мега гипер ластецкий\", 0], [\"melharucos\", true, \"ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА\", 0], [\"dmitry_lixxx\", true, \"🔴 ИЩЕМ ПАСХАЛКИ В ГТА 6 | !tg !winline !ЯО !ВТБ !avan\", 0], [\"dunduk\", true, \"графониум\", 0], [\"tpabomah\", false, \"\", 0], [\"blindzonexgod\", true, \"grind winter season 100% импрува 100% скилла 100% мотивации w/ @shefango @SovietMedicina | !tg !мерч !bb\", 0], [\"praden\", true, \"Большой гейминг\", 0], [\"kerimch1k\", false, \"\", 0], [\"ghostik\", false, \"\", 0], [\"shiishak\", false, \"\", 0], [\"alohadancetv\", false, \"\", 0], [\"zer0truel0ve\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", false, \"\", 0], [\"ravshann\", true, \"🔴 ФУТБОЛЬНЫЕ ЧЕЛЛЕНДЖИ w/ @steel @volkov815 @tengoone @gelodi_telefone @murobenzoo @beton011 !тг !бб !yota\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"stintik\", true, \"я тут\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 7 | !tg !прогресс\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Ультра мега гипер ластецкий\", 0], [\"melharucos\", true, \"ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА\", 0], [\"dmitry_lixxx\", true, \"🔴 ИЩЕМ ПАСХАЛКИ В ГТА 6 | !tg !winline !ЯО !ВТБ !avan\", 0], [\"dunduk\", true, \"графониум\", 0], [\"tpabomah\", false, \"\", 0], [\"blindzonexgod\", true, \"grind winter season 100% импрува 100% скилла 100% мотивации w/ @shefango @SovietMedicina | !tg !мерч !bb\", 0], [\"praden\", true, \"Большой гейминг\", 0], [\"kerimch1k\", false, \"\", 0], [\"ghostik\", true, \"🔥Сьогодні добиваємо 8 000 рейтингу на НОВИХ героях в НОВІЙ меті (0-4) 🔥\", 0], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB\", 0], [\"alohadancetv\", true, \"развлекаю школьников (шут) !tg\", 0], [\"zer0truel0ve\", true, \"[GTA6 120fps DLSS - 7 день] марафон 24/7 ФИНАЛ [DROPS Включены]\", 0], [\"betboom_dota_ru\", true, \"Team Yandex [0] vs [0] 1win Team | Bo3 | Group Stage Day 5 | BLAST SLAM IX | cast: @shachlos & @adekvat\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
