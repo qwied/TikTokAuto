@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-24T07:32:46Z",
+ "updated": "2026-11-24T07:32:49Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=eiDIjQuFI6k",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "Война вышла из берегов, Над Балтикой тревожно, Визабан для россиян. Обсудим с Сергеем Пархоменко",
    "views": 154298,
