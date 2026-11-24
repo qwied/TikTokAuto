@@ -180,6 +180,7 @@ def main():
     by_id = {c.get("id"): c for c in clips if isinstance(c, dict)}
 
     made, restored = 0, 0
+    dirty = False
     for asset in todo:
         name = asset["name"]
         preview_url = f"{PAGES_BASE}/{PREVIEW_DIR}/{name}"
@@ -190,8 +191,10 @@ def main():
             clips.insert(0, entry)
             by_id[entry["id"]] = entry
             restored += 1
+            dirty = True
         if entry.get("preview") != preview_url:
             entry["preview"] = preview_url
+            dirty = True
         if name in existing_previews:
             continue
         log(f"превью для {name} ({round(asset.get('size') / 1e6, 1)} МБ)…")
@@ -203,7 +206,10 @@ def main():
             with open(src, "wb") as f:
                 for chunk in r.iter_content(1 << 20):
                     f.write(chunk)
-            entry["duration"] = ffprobe_duration(src)
+            new_dur = ffprobe_duration(src)
+            if new_dur != entry.get("duration"):
+                entry["duration"] = new_dur
+                dirty = True
             dst = os.path.join(td, "preview.mp4")
             make_preview(src, dst)
             with open(dst, "rb") as f:
@@ -211,6 +217,7 @@ def main():
         put_file_retry(s, f"{PREVIEW_DIR}/{name}", data_bytes,
                        f"preview: {name}")
         made += 1
+        dirty = True
         log(f"  ок: {round(len(data_bytes) / 1e6, 1)} МБ -> {preview_url}")
 
     # чистим старые превью: остаются только последние PREVIEW_KEEP по имени
@@ -223,6 +230,10 @@ def main():
             log(f"  старое превью удалено: {f.get('name')}")
         except Exception as e:
             log(f"  не удалилось {f.get('name')}: {e}")
+
+    if not dirty:
+        log("лента в порядке, превью на месте — записей не трогаю")
+        return
 
     for _ in range(5):
         try:
