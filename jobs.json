@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-24T02:05:36Z",
+ "updated": "2026-11-24T02:06:36Z",
  "jobs": [
   {
    "url": "https://www.youtube.com/watch?v=WeS2Cs-zxig",
    "kind": "video",
-   "fails": 0,
+   "fails": 1,
    "tag": "ru",
    "display": "ПАРАДЕЕВИЧ УБЕГАЕТ ОТ ДПС | ЛЮТЫЙ УГАР НА НОЧНОМ СТРИМЕ",
    "views": 200781,
