@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T04:36:18Z",
+ "updated": "2026-11-24T04:36:35Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -58,9 +58,73 @@
     "live": true,
     "viewers": 500,
     "title": "ПОБУРБОЛДЕТЬ ЗАХОТЕЛОСЬ"
+   },
+   {
+    "name": "keliencs",
+    "display": "twitch.tv/keliencs",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "welovegames",
+    "display": "youtube.com/@welovegames",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "bratishkinoff",
+    "display": "youtube.com/@bratishkinoff",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "KuplinovPlay",
+    "display": "youtube.com/@KuplinovPlay",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "5opka",
+    "display": "youtube.com/@5opka",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "stariy_bog",
+    "display": "youtube.com/@stariy_bog",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "AlinaRin",
+    "display": "youtube.com/@AlinaRin",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "Okisebi",
+    "display": "youtube.com/@Okisebi",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 3400], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 825], [\"strogo\", true, \"🔴 9z vs Lynn Vision | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 15625], [\"dmitry_lixxx\", true, \"[MAJOR] HEROIC vs Imperial | PGL Major Singapore 2026 Stage 1 | !tg !winline !ЯО !ВТБ !avan\", 1650], [\"bysl4m\", true, \"HEROIC vs Imperial | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 5675], [\"despot1ck\", true, \"ПОБУРБОЛДЕТЬ ЗАХОТЕЛОСЬ\", 500]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 3400], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 825], [\"strogo\", true, \"🔴 9z vs Lynn Vision | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 15625], [\"dmitry_lixxx\", true, \"[MAJOR] HEROIC vs Imperial | PGL Major Singapore 2026 Stage 1 | !tg !winline !ЯО !ВТБ !avan\", 1650], [\"bysl4m\", true, \"HEROIC vs Imperial | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 5675], [\"despot1ck\", true, \"ПОБУРБОЛДЕТЬ ЗАХОТЕЛОСЬ\", 500], [\"keliencs\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
