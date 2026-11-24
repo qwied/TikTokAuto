@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T20:36:53Z",
+ "updated": "2026-11-24T20:37:08Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -151,9 +151,9 @@
     "name": "mantaq",
     "display": "twitch.tv/mantaq",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "OG x Aurora | Bo3 | BLAST SLAM IX | !tg !bb"
    },
    {
     "name": "welovegames",
@@ -212,7 +212,7 @@
     "title": "🔴 LIVE! - GTA 6 mit KINO GRAFIK!"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"OG vs Aurora 1:1 BLAST SLAM IX w/ Alagon\", 0], [\"solo\", true, \"🔴 Aurora [1:1] OG | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"deepins02\", true, \"[мама в 16] | !winline !авито !флаувау !tg\", 0], [\"recrent\", true, \"[1440p] GTA VI в 60 fps. День 7 | !pari !ggsel !tg !мерч\", 0], [\"egorkreed\", true, \"4К , DLSS + 60 fps - на сонном в GTA6 ! Марафончик\", 0], [\"betboom_dota_ru\", true, \"OG [1] vs [1] Aurora Gaming | Bo3 | Last Chance | BLAST SLAM IX | cast: @shachlos & @adekvat !предикты\", 0], [\"lenagol0vach\", true, \"🏆 НОВЫЙ ПАТЧ 7.42 🏆 ПУТЬ В ТОП 100 🏆  ЖЕСТКИЙ АП ММР 🍔 БЫЛО 15к ММР 🍆 ТЕСТИМ НОВЫЙ ПАТЧ ⭐ НАШЕЛ ИМБУ ПАТЧА ⭐🧀🏆⭐\", 0], [\"5opka\", true, \"КАЙФУЮ В ГТА 6 // !донат !приватка !правила !funpay !тг\", 0], [\"leva2k\", true, \"ГТА БЕЗ СНА | ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 0], [\"welovegames\", true, \"GTA VI проходим на 100% | !гилан !ситилинк !ggsel !втб !dodo\", 0], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 0], [\"kopsteep\", true, \"импровизационный контент !tg !bot\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 7 серия | 57% !tg\", 0], [\"keliencs\", true, \"МНЕ СКАЗАЛИ ЕСЛИ Я НЕ АПНУ 4К ЭЛО, ТО КИКНУТ ИЗ WW... | !tg !fonbet\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"blackrabbit342\", true, \"aurora og 1 1  BLAST БЕЗ ЗАДЕРЖКИ!  !bb\", 0], [\"mainfinitytv\", true, \"Смотрим \\\"Робин гуд: Принц воров\\\" начало в 21-50\", 0], [\"mantaq\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", true, \"GTA VI ★★★★★★ РЕЛИЗ (2026) 【#6】\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit KINO GRAFIK!\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"OG vs Aurora 1:1 BLAST SLAM IX w/ Alagon\", 0], [\"solo\", true, \"🔴 Aurora [1:1] OG | BLAST SLAM IX: Group Stage w/ @геннадий @icebergdoto @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"deepins02\", true, \"[мама в 16] | !winline !авито !флаувау !tg\", 0], [\"recrent\", true, \"[1440p] GTA VI в 60 fps. День 7 | !pari !ggsel !tg !мерч\", 0], [\"egorkreed\", true, \"4К , DLSS + 60 fps - на сонном в GTA6 ! Марафончик\", 0], [\"betboom_dota_ru\", true, \"OG [1] vs [1] Aurora Gaming | Bo3 | Last Chance | BLAST SLAM IX | cast: @shachlos & @adekvat !предикты\", 0], [\"lenagol0vach\", true, \"🏆 НОВЫЙ ПАТЧ 7.42 🏆 ПУТЬ В ТОП 100 🏆  ЖЕСТКИЙ АП ММР 🍔 БЫЛО 15к ММР 🍆 ТЕСТИМ НОВЫЙ ПАТЧ ⭐ НАШЕЛ ИМБУ ПАТЧА ⭐🧀🏆⭐\", 0], [\"5opka\", true, \"КАЙФУЮ В ГТА 6 // !донат !приватка !правила !funpay !тг\", 0], [\"leva2k\", true, \"ГТА БЕЗ СНА | ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 0], [\"welovegames\", true, \"GTA VI проходим на 100% | !гилан !ситилинк !ggsel !втб !dodo\", 0], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 0], [\"kopsteep\", true, \"импровизационный контент !tg !bot\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 7 серия | 57% !tg\", 0], [\"keliencs\", true, \"МНЕ СКАЗАЛИ ЕСЛИ Я НЕ АПНУ 4К ЭЛО, ТО КИКНУТ ИЗ WW... | !tg !fonbet\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"blackrabbit342\", true, \"aurora og 1 1  BLAST БЕЗ ЗАДЕРЖКИ!  !bb\", 0], [\"mainfinitytv\", true, \"Смотрим \\\"Робин гуд: Принц воров\\\" начало в 21-50\", 0], [\"mantaq\", true, \"OG x Aurora | Bo3 | BLAST SLAM IX | !tg !bb\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", true, \"GTA VI ★★★★★★ РЕЛИЗ (2026) 【#6】\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit KINO GRAFIK!\", 0]]"
  },
  "clips": [
   {
