@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T22:34:25Z",
+ "updated": "2026-11-24T22:35:18Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -159,6 +159,50 @@
   "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"egorkreed\", true, \"4К , DLSS + 60 fps - на сонном в GTA6 ! Марафончик\", 8475], [\"5opka\", true, \"КАЙФУЮ В ГТА 6 // !донат !приватка !правила !funpay !тг\", 4475], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 4425], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | ФИНАЛ ПРОХОЖДЕНИЯ GTA VI | !tg !donate !winline !ggsel\", 4075], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 1800], [\"znat51\", true, \"пока все хайпят на гта , мы играем на фасике - !тг !vip !дс !донат !музыка\", 1700], [\"kopsteep\", false, \"\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 7 серия | 61% !tg\", 1250], [\"zer0truel0ve\", true, \"[GTA6 120fps DLSS - 7 день] марафон 24/7 ФИНАЛ [DROPS Включены]\", 1125], [\"betboom_dota_ru\", true, \"ПОВТОР BLAST SLAM IX | Last Chance\", 725], [\"mainfinitytv\", true, \"Смотрим \\\"Девять ярдов\\\" начало в 00-20\", 475], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
+  {
+   "id": "2026-11-24_22-30-30_mainfinitytv",
+   "file": "2026-11-24_22-30-30_mainfinitytv.mp4",
+   "url": "https://github.com/qwied/TikTokAuto/releases/download/clips-2026-11-24/2026-11-24_22-30-30_mainfinitytv.mp4",
+   "preview": "https://qwied.github.io/TikTokAuto/preview/2026-11-24_22-30-30_mainfinitytv.mp4",
+   "thumb": "data:image/jpeg;base64,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",
+   "size": 29825357,
+   "duration": 70.3,
+   "channel": "mainfinitytv",
+   "display": "twitch.tv/mainfinitytv",
+   "platform": "twitch",
+   "title": "Смотрим \"Робин гуд: Принц воров\" начало в 21-50",
+   "score": 83.0,
+   "hashtags": [
+    "#mainfinitytv",
+    "#twitch",
+    "#рек",
+    "#рекомендации",
+    "#fyp",
+    "#foryou",
+    "#viral",
+    "#прикол",
+    "#смешно",
+    "#хайп",
+    "#стрим",
+    "#клипы",
+    "#стример"
+   ],
+   "caption": "«сейчас смеется тот камнем большее сейчас должны быть сиськи где -то ага ауф боля» — twitch.tv/mainfinitytv",
+   "subs": {
+    "lang": "ru",
+    "words": 27,
+    "aligned": true,
+    "lip_gate": true,
+    "lip_speech_pct": 51,
+    "speech_pct": 65,
+    "ok": true,
+    "hook": "сейчас смеется тот камнем большее сейчас должны быть сиськи где -то ага ауф боля"
+   },
+   "src": "",
+   "start": 0,
+   "created": 1795559688,
+   "gh": true
+  },
   {
    "id": "2026-11-24_22-28-09_stray228",
    "file": "2026-11-24_22-28-09_stray228.mp4",
