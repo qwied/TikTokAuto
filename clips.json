@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T13:01:05Z",
+ "updated": "2026-11-24T13:12:35Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -17,15 +17,15 @@
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "🔴 Eternal Fire vs 100 Thieves | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот"
+    "title": ""
    },
    {
-    "name": "bysl4m",
-    "display": "twitch.tv/bysl4m",
+    "name": "ravshann",
+    "display": "twitch.tv/ravshann",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": "FaZe vs GOSH | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit"
+    "title": "🔴 ФУТБОЛЬНЫЕ ЧЕЛЛЕНДЖИ w/ @steel @volkov815 @tengoone @gelodi_telefone @murobenzoo @beton011 !тг !бб !yota"
    },
    {
     "name": "stariy_bog",
@@ -36,20 +36,12 @@
     "title": "ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ"
    },
    {
-    "name": "cs2_paragon_ru",
-    "display": "twitch.tv/cs2_paragon_ru",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": "[RU] REDZONE | FaZe Clan [1:0] GOSH | PGL Major Singapore 2026: Stage 1 | BO1 | @little_cs, @siberiancaster & @Roma_roo"
-   },
-   {
-    "name": "dmitry_lixxx",
-    "display": "twitch.tv/dmitry_lixxx",
+    "name": "stintik",
+    "display": "twitch.tv/stintik",
     "platform": "twitch",
     "live": true,
     "viewers": 0,
-    "title": "🔴 ИЩЕМ ПАСХАЛКИ В ГТА 6 | !tg !winline !ЯО !ВТБ !avan"
+    "title": "я тут"
    },
    {
     "name": "leva2k",
@@ -60,12 +52,12 @@
     "title": "ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel"
    },
    {
-    "name": "melharucos",
-    "display": "twitch.tv/melharucos",
+    "name": "zloyn",
+    "display": "twitch.tv/zloyn",
     "platform": "twitch",
     "live": true,
     "viewers": 0,
-    "title": "ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА"
+    "title": "МАРАФОН | GTA VI 🤯 | ДЕНЬ 7 | !tg !прогресс"
    },
    {
     "name": "blackufa",
@@ -76,20 +68,20 @@
     "title": "[DROPS] GTA 6 [PS5Pro] Ультра мега гипер ластецкий"
    },
    {
-    "name": "zloyn",
-    "display": "twitch.tv/zloyn",
+    "name": "melharucos",
+    "display": "twitch.tv/melharucos",
     "platform": "twitch",
     "live": true,
     "viewers": 0,
-    "title": "МАРАФОН | GTA VI 🤯 | ДЕНЬ 7 | !tg !прогресс"
+    "title": "ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА"
    },
    {
-    "name": "stintik",
-    "display": "twitch.tv/stintik",
+    "name": "dmitry_lixxx",
+    "display": "twitch.tv/dmitry_lixxx",
     "platform": "twitch",
     "live": true,
     "viewers": 0,
-    "title": "я тут"
+    "title": "🔴 ИЩЕМ ПАСХАЛКИ В ГТА 6 | !tg !winline !ЯО !ВТБ !avan"
    },
    {
     "name": "dunduk",
@@ -105,47 +97,71 @@
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "С НУЛЯ ДО ИНТА, 7К ММР🔥!угадай !сборки !руинер !тг"
+    "title": ""
    },
    {
     "name": "blindzonexgod",
     "display": "twitch.tv/blindzonexgod",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "grind winter season 100% импрува 100% скилла 100% мотивации w/ @shefango @SovietMedicina | !tg !мерч !bb"
-   },
-   {
-    "name": "kerimch1k",
-    "display": "twitch.tv/kerimch1k",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "РАЗГОВОРНЫЙ ДЕЛАЕМ АЛКО НАПИТКИ НА СТРИМЕ !tg !donate"
+    "title": ""
    },
    {
     "name": "praden",
     "display": "twitch.tv/praden",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Большой гейминг"
+    "title": ""
+   },
+   {
+    "name": "kerimch1k",
+    "display": "twitch.tv/kerimch1k",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "ghostik",
     "display": "twitch.tv/ghostik",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "🔥Сьогодні добиваємо 8 000 рейтингу на НОВИХ героях в НОВІЙ меті (0-4) 🔥"
+    "title": ""
    },
    {
     "name": "shiishak",
     "display": "twitch.tv/shiishak",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB"
+    "title": ""
+   },
+   {
+    "name": "alohadancetv",
+    "display": "twitch.tv/alohadancetv",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "zer0truel0ve",
+    "display": "twitch.tv/zer0truel0ve",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "betboom_dota_ru",
+    "display": "twitch.tv/betboom_dota_ru",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "welovegames",
@@ -202,25 +218,9 @@
     "live": false,
     "viewers": 0,
     "title": ""
-   },
-   {
-    "name": "ravshann",
-    "display": "twitch.tv/ravshann",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "🔴 ФУТБОЛЬНЫЕ ЧЕЛЛЕНДЖИ w/ @steel @volkov815 @tengoone @gelodi_telefone @murobenzoo @beton011 !тг !бб !yota"
-   },
-   {
-    "name": "alohadancetv",
-    "display": "twitch.tv/alohadancetv",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "развлекаю школьников (шут) !tg"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", false, \"🔴 Eternal Fire vs 100 Thieves | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 0], [\"bysl4m\", false, \"FaZe vs GOSH | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"cs2_paragon_ru\", false, \"[RU] REDZONE | FaZe Clan [1:0] GOSH | PGL Major Singapore 2026: Stage 1 | BO1 | @little_cs, @siberiancaster & @Roma_roo\", 0], [\"dmitry_lixxx\", true, \"🔴 ИЩЕМ ПАСХАЛКИ В ГТА 6 | !tg !winline !ЯО !ВТБ !avan\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 0], [\"melharucos\", true, \"ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Ультра мега гипер ластецкий\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 7 | !tg !прогресс\", 0], [\"stintik\", true, \"я тут\", 0], [\"dunduk\", true, \"графониум\", 0], [\"tpabomah\", false, \"С НУЛЯ ДО ИНТА, 7К ММР🔥!угадай !сборки !руинер !тг\", 0], [\"blindzonexgod\", true, \"grind winter season 100% импрува 100% скилла 100% мотивации w/ @shefango @SovietMedicina | !tg !мерч !bb\", 0], [\"kerimch1k\", true, \"РАЗГОВОРНЫЙ ДЕЛАЕМ АЛКО НАПИТКИ НА СТРИМЕ !tg !donate\", 0], [\"praden\", true, \"Большой гейминг\", 0], [\"ghostik\", true, \"🔥Сьогодні добиваємо 8 000 рейтингу на НОВИХ героях в НОВІЙ меті (0-4) 🔥\", 0], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"ravshann\", true, \"🔴 ФУТБОЛЬНЫЕ ЧЕЛЛЕНДЖИ w/ @steel @volkov815 @tengoone @gelodi_telefone @murobenzoo @beton011 !тг !бб !yota\", 0], [\"alohadancetv\", true, \"развлекаю школьников (шут) !tg\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", false, \"\", 0], [\"ravshann\", true, \"🔴 ФУТБОЛЬНЫЕ ЧЕЛЛЕНДЖИ w/ @steel @volkov815 @tengoone @gelodi_telefone @murobenzoo @beton011 !тг !бб !yota\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"stintik\", true, \"я тут\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 7 | !tg !прогресс\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Ультра мега гипер ластецкий\", 0], [\"melharucos\", true, \"ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА\", 0], [\"dmitry_lixxx\", true, \"🔴 ИЩЕМ ПАСХАЛКИ В ГТА 6 | !tg !winline !ЯО !ВТБ !avan\", 0], [\"dunduk\", true, \"графониум\", 0], [\"tpabomah\", false, \"\", 0], [\"blindzonexgod\", false, \"\", 0], [\"praden\", false, \"\", 0], [\"kerimch1k\", false, \"\", 0], [\"ghostik\", false, \"\", 0], [\"shiishak\", false, \"\", 0], [\"alohadancetv\", false, \"\", 0], [\"zer0truel0ve\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
