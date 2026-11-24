@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T12:15:57Z",
+ "updated": "2026-11-24T12:16:57Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -28,28 +28,12 @@
     "title": "FaZe vs GOSH | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit"
    },
    {
-    "name": "leva2k",
-    "display": "twitch.tv/leva2k",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel"
-   },
-   {
     "name": "stariy_bog",
     "display": "twitch.tv/stariy_bog",
     "platform": "twitch",
     "live": true,
     "viewers": 0,
     "title": "ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ"
-   },
-   {
-    "name": "dmitry_lixxx",
-    "display": "twitch.tv/dmitry_lixxx",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "[MAJOR] FaZe vs BC | BO1 | PGL Major Singapore 2026 Stage 1 /w @Aunkere | !tg !winline !ЯО !ВТБ !avan"
    },
    {
     "name": "cs2_paragon_ru",
@@ -60,12 +44,20 @@
     "title": "[RU] REDZONE | FaZe Clan [0:0] GOSH | PGL Major Singapore 2026: Stage 1 | BO1 | @little_cs, @siberiancaster & @Roma_roo"
    },
    {
-    "name": "gadjiev57",
-    "display": "twitch.tv/gadjiev57",
+    "name": "dmitry_lixxx",
+    "display": "twitch.tv/dmitry_lixxx",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "[MAJOR] FaZe vs BC | BO1 | PGL Major Singapore 2026 Stage 1 /w @Aunkere | !tg !winline !ЯО !ВТБ !avan"
+   },
+   {
+    "name": "leva2k",
+    "display": "twitch.tv/leva2k",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel"
    },
    {
     "name": "melharucos",
@@ -76,14 +68,6 @@
     "title": "ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА"
    },
    {
-    "name": "zloyn",
-    "display": "twitch.tv/zloyn",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "МАРАФОН | GTA VI 🤯 | ДЕНЬ 7 | !tg !прогресс"
-   },
-   {
     "name": "blackufa",
     "display": "twitch.tv/blackufa",
     "platform": "twitch",
@@ -92,68 +76,12 @@
     "title": "[DROPS] GTA 6 [PS5Pro] Ультра мега гипер ластецкий"
    },
    {
-    "name": "dunduk",
-    "display": "twitch.tv/dunduk",
+    "name": "zloyn",
+    "display": "twitch.tv/zloyn",
     "platform": "twitch",
     "live": true,
     "viewers": 0,
-    "title": "пока в таркове обнова абишечку"
-   },
-   {
-    "name": "tpabomah",
-    "display": "twitch.tv/tpabomah",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "С НУЛЯ ДО ИНТА, 7К ММР🔥!угадай !сборки !руинер !тг"
-   },
-   {
-    "name": "blindzonexgod",
-    "display": "twitch.tv/blindzonexgod",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "grind winter season 100% импрува 100% скилла 100% мотивации| !tg !мерч !bb"
-   },
-   {
-    "name": "betboom_dota_ru",
-    "display": "twitch.tv/betboom_dota_ru",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": "ПОВТОР | BLAST SLAM IX | Group Stage Day 4"
-   },
-   {
-    "name": "vovapain",
-    "display": "twitch.tv/vovapain",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": "🔴 НЮХАО 👃 | !tg !bb !бк !лига"
-   },
-   {
-    "name": "ghostik",
-    "display": "twitch.tv/ghostik",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "🔥Сьогодні добиваємо 8 000 рейтингу на НОВИХ героях в НОВІЙ меті (0-3) 🔥"
-   },
-   {
-    "name": "shiishak",
-    "display": "twitch.tv/shiishak",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB"
-   },
-   {
-    "name": "praden",
-    "display": "twitch.tv/praden",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Большой гейминг"
+    "title": "МАРАФОН | GTA VI 🤯 | ДЕНЬ 7 | !tg !прогресс"
    },
    {
     "name": "stintik",
@@ -164,12 +92,60 @@
     "title": "я тут"
    },
    {
+    "name": "dunduk",
+    "display": "twitch.tv/dunduk",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "tpabomah",
+    "display": "twitch.tv/tpabomah",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "blindzonexgod",
+    "display": "twitch.tv/blindzonexgod",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
     "name": "kerimch1k",
     "display": "twitch.tv/kerimch1k",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "РАЗГОВОРНЫЙ ДЕЛАЕМ АЛКО НАПИТКИ НА СТРИМЕ !tg !donate"
+    "title": ""
+   },
+   {
+    "name": "praden",
+    "display": "twitch.tv/praden",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "ghostik",
+    "display": "twitch.tv/ghostik",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "shiishak",
+    "display": "twitch.tv/shiishak",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "welovegames",
@@ -226,9 +202,25 @@
     "live": false,
     "viewers": 0,
     "title": ""
+   },
+   {
+    "name": "ravshann",
+    "display": "twitch.tv/ravshann",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "alohadancetv",
+    "display": "twitch.tv/alohadancetv",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 S1MPLE vs FAZE | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 0], [\"bysl4m\", true, \"FaZe vs GOSH | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"dmitry_lixxx\", true, \"[MAJOR] FaZe vs BC | BO1 | PGL Major Singapore 2026 Stage 1 /w @Aunkere | !tg !winline !ЯО !ВТБ !avan\", 0], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | FaZe Clan [0:0] GOSH | PGL Major Singapore 2026: Stage 1 | BO1 | @little_cs, @siberiancaster & @Roma_roo\", 0], [\"gadjiev57\", false, \"\", 0], [\"melharucos\", true, \"ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 7 | !tg !прогресс\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Ультра мега гипер ластецкий\", 0], [\"dunduk\", true, \"пока в таркове обнова абишечку\", 0], [\"tpabomah\", true, \"С НУЛЯ ДО ИНТА, 7К ММР🔥!угадай !сборки !руинер !тг\", 0], [\"blindzonexgod\", true, \"grind winter season 100% импрува 100% скилла 100% мотивации| !tg !мерч !bb\", 0], [\"betboom_dota_ru\", false, \"ПОВТОР | BLAST SLAM IX | Group Stage Day 4\", 0], [\"vovapain\", false, \"🔴 НЮХАО 👃 | !tg !bb !бк !лига\", 0], [\"ghostik\", true, \"🔥Сьогодні добиваємо 8 000 рейтингу на НОВИХ героях в НОВІЙ меті (0-3) 🔥\", 0], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay. !челлендж !tg !VTB\", 0], [\"praden\", true, \"Большой гейминг\", 0], [\"stintik\", true, \"я тут\", 0], [\"kerimch1k\", true, \"РАЗГОВОРНЫЙ ДЕЛАЕМ АЛКО НАПИТКИ НА СТРИМЕ !tg !donate\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 S1MPLE vs FAZE | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 0], [\"bysl4m\", true, \"FaZe vs GOSH | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | FaZe Clan [0:0] GOSH | PGL Major Singapore 2026: Stage 1 | BO1 | @little_cs, @siberiancaster & @Roma_roo\", 0], [\"dmitry_lixxx\", true, \"[MAJOR] FaZe vs BC | BO1 | PGL Major Singapore 2026 Stage 1 /w @Aunkere | !tg !winline !ЯО !ВТБ !avan\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 9 | !tg !donate !winline !ggsel\", 0], [\"melharucos\", true, \"ГРАБЛЮ БАНКИ ПО ГАЙДУ ИЛЮХИ МЭДА\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Ультра мега гипер ластецкий\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 7 | !tg !прогресс\", 0], [\"stintik\", true, \"я тут\", 0], [\"dunduk\", false, \"\", 0], [\"tpabomah\", false, \"\", 0], [\"blindzonexgod\", false, \"\", 0], [\"kerimch1k\", false, \"\", 0], [\"praden\", false, \"\", 0], [\"ghostik\", false, \"\", 0], [\"shiishak\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"ravshann\", false, \"\", 0], [\"alohadancetv\", false, \"\", 0]]"
  },
  "clips": [
   {
