@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T08:22:25Z",
+ "updated": "2026-11-25T08:22:38Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -143,20 +143,20 @@
     "name": "exigent_wires",
     "display": "twitch.tv/exigent_wires",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 531,
+    "title": "ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ !ивент"
    },
    {
     "name": "ezpvp_lover",
     "display": "twitch.tv/ezpvp_lover",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 477,
+    "title": "Церковь ЦЛК на WoWCircle! Потом мб Wow Forever"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 s1mple vs Chinggis Warriors | PGL Major Singapore 2026 Stage 1 | @m3wsu  !бот\", 26125], [\"bysl4m\", true, \"Imperial [0:0] FlyQuest | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 2 | @bySL4M @WorldEdit\", 7950], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | Imperial Esports [0:0] FlyQuest | PGL Major Singapore 2026: Stage 1 | BO3 | @yarushkin1, @Lampaaa & @cybercracken\", 4900], [\"leva2k\", true, \"АУК НА ЕДУ | ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 5175], [\"silvername\", false, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"dmitry_lixxx\", true, \"🔴 ИЩЕМ ПАСХАЛКИ В ГТА | !tg !winline !ЯО !ВТБ !avan\", 2100], [\"keliencs\", true, \"9z [0:0] DENDELE | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 725], [\"followkudes\", true, \"🔴БАШКИРСКАЯ КРЫСА  !TG !WINLINE\", 825], [\"betboom_dota_ru\", true, \"ПОВТОР BLAST SLAM IX | Last Chance\", 525], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"exigent_wires\", false, \"\", 0], [\"ezpvp_lover\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 s1mple vs Chinggis Warriors | PGL Major Singapore 2026 Stage 1 | @m3wsu  !бот\", 26125], [\"bysl4m\", true, \"Imperial [0:0] FlyQuest | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 2 | @bySL4M @WorldEdit\", 7950], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | Imperial Esports [0:0] FlyQuest | PGL Major Singapore 2026: Stage 1 | BO3 | @yarushkin1, @Lampaaa & @cybercracken\", 4900], [\"leva2k\", true, \"АУК НА ЕДУ | ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 5175], [\"silvername\", false, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"dmitry_lixxx\", true, \"🔴 ИЩЕМ ПАСХАЛКИ В ГТА | !tg !winline !ЯО !ВТБ !avan\", 2100], [\"keliencs\", true, \"9z [0:0] DENDELE | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 725], [\"followkudes\", true, \"🔴БАШКИРСКАЯ КРЫСА  !TG !WINLINE\", 825], [\"betboom_dota_ru\", true, \"ПОВТОР BLAST SLAM IX | Last Chance\", 525], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"exigent_wires\", true, \"ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ !ивент\", 525], [\"ezpvp_lover\", true, \"Церковь ЦЛК на WoWCircle! Потом мб Wow Forever\", 475]]"
  },
  "clips": [
   {
