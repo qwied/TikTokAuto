@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T15:44:21Z",
+ "updated": "2026-11-25T15:47:10Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -32,7 +32,7 @@
     "display": "twitch.tv/sasavot",
     "platform": "twitch",
     "live": true,
-    "viewers": 9404,
+    "viewers": 9573,
     "title": "ФИНАЛ/НАДЕЮСЬ"
    },
    {
@@ -48,7 +48,7 @@
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
     "live": true,
-    "viewers": 4902,
+    "viewers": 4699,
     "title": "ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel"
    },
    {
@@ -56,7 +56,7 @@
     "display": "twitch.tv/morphe_ya",
     "platform": "twitch",
     "live": true,
-    "viewers": 3918,
+    "viewers": 3658,
     "title": "ВПЕРВИЕ ХОЛОУ НАЙТ (без гайдов!) | !tg !winline !мышки !wb"
    },
    {
@@ -72,7 +72,7 @@
     "display": "twitch.tv/chopperinho",
     "platform": "twitch",
     "live": true,
-    "viewers": 3109,
+    "viewers": 3057,
     "title": "ПРЕМЬЕР С ЧАТТЕРСАМИ, БАЛДЕЕМ | !bb !tg !yt"
    },
    {
@@ -80,7 +80,7 @@
     "display": "twitch.tv/welovegames",
     "platform": "twitch",
     "live": true,
-    "viewers": 2436,
+    "viewers": 2608,
     "title": "GTA VI проходим на 100% | !гилан !ситилинк !ggsel !втб !dodo"
    },
    {
@@ -88,7 +88,7 @@
     "display": "twitch.tv/stintik",
     "platform": "twitch",
     "live": true,
-    "viewers": 1824,
+    "viewers": 1770,
     "title": "йоуууу не ждали"
    },
    {
@@ -96,7 +96,7 @@
     "display": "twitch.tv/praden",
     "platform": "twitch",
     "live": true,
-    "viewers": 1159,
+    "viewers": 1127,
     "title": "Спейс Марина"
    },
    {
@@ -104,7 +104,7 @@
     "display": "twitch.tv/bezp",
     "platform": "twitch",
     "live": true,
-    "viewers": 691,
+    "viewers": 686,
     "title": "[EXCLUSIVE DROPS] Вотчпати турика !funpay"
    },
    {
@@ -172,7 +172,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 САМОЕ ДОЛГОЕ ПРОХОЖДЕНИЕ 🔴 ГЛАВА II 🔴 DAY 7 🔴\", 15450], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch\", 14825], [\"sasavot\", true, \"ФИНАЛ/НАДЕЮСЬ\", 9400], [\"zxcursed\", true, \"аккуратно превосходим других\", 7600], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 4900], [\"morphe_ya\", true, \"ВПЕРВИЕ ХОЛОУ НАЙТ (без гайдов!) | !tg !winline !мышки !wb\", 3925], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Точно последний стрим по игре\", 3850], [\"chopperinho\", true, \"ПРЕМЬЕР С ЧАТТЕРСАМИ, БАЛДЕЕМ | !bb !tg !yt\", 3100], [\"welovegames\", true, \"GTA VI проходим на 100% | !гилан !ситилинк !ggsel !втб !dodo\", 2425], [\"stintik\", true, \"йоуууу не ждали\", 1825], [\"praden\", true, \"Спейс Марина\", 1150], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 700], [\"mafanyaking\", true, \"здарова / !тг !донат !предложка\", 6725], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 САМОЕ ДОЛГОЕ ПРОХОЖДЕНИЕ 🔴 ГЛАВА II 🔴 DAY 7 🔴\", 15450], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch\", 14825], [\"sasavot\", true, \"ФИНАЛ/НАДЕЮСЬ\", 9575], [\"zxcursed\", true, \"аккуратно превосходим других\", 7600], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 4700], [\"morphe_ya\", true, \"ВПЕРВИЕ ХОЛОУ НАЙТ (без гайдов!) | !tg !winline !мышки !wb\", 3650], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Точно последний стрим по игре\", 3850], [\"chopperinho\", true, \"ПРЕМЬЕР С ЧАТТЕРСАМИ, БАЛДЕЕМ | !bb !tg !yt\", 3050], [\"welovegames\", true, \"GTA VI проходим на 100% | !гилан !ситилинк !ggsel !втб !dodo\", 2600], [\"stintik\", true, \"йоуууу не ждали\", 1775], [\"praden\", true, \"Спейс Марина\", 1125], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 675], [\"mafanyaking\", true, \"здарова / !тг !донат !предложка\", 6725], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
