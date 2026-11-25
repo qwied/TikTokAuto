@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T06:46:56Z",
+ "updated": "2026-11-25T06:47:11Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,73 +15,73 @@
     "name": "strogo",
     "display": "twitch.tv/strogo",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 20957,
+    "title": "🔴 PV vs FaZe  | PGL Major Singapore 2026 Stage 1 | @m3wsu  !бот"
    },
    {
     "name": "bysl4m",
     "display": "twitch.tv/bysl4m",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 8300,
+    "title": "HEROIC vs M80 | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 2 | @FANAT_ROCKA @xryst_t"
    },
    {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 4258,
+    "title": "ИЗОЛЯЦИЯ ДЕНЬ 10 | ФИНАЛ ПРОХОЖДЕНИЯ GTA VI | !tg !donate !winline !ggsel"
    },
    {
     "name": "cs2_paragon_ru",
     "display": "twitch.tv/cs2_paragon_ru",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 3608,
+    "title": "[RU] REDZONE | HEROIC [0:0] M80 | PGL Major Singapore 2026: Stage 1 | BO1 | @yarushkin1, @Lampaaa & @cybercracken"
    },
    {
     "name": "silvername",
     "display": "twitch.tv/silvername",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 2121,
+    "title": "Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг"
    },
    {
     "name": "keliencs",
     "display": "twitch.tv/keliencs",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 1043,
+    "title": "HEROIC vs M80 | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !fonbet"
    },
    {
     "name": "followkudes",
     "display": "twitch.tv/followkudes",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 663,
+    "title": "🔴БАШКИРСКАЯ КРЫСА  !TG !WINLINE"
    },
    {
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 492,
+    "title": "ПОВТОР BLAST SLAM IX | Last Chance"
    },
    {
     "name": "dmitry_lixxx",
     "display": "twitch.tv/dmitry_lixxx",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 551,
+    "title": "[MAJOR] PARIVISION vs FaZe | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !winline !ЯО !ВТБ !avan"
    },
    {
     "name": "welovegames",
@@ -140,7 +140,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", false, \"\", 0], [\"bysl4m\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"cs2_paragon_ru\", false, \"\", 0], [\"silvername\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"followkudes\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"dmitry_lixxx\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 PV vs FaZe  | PGL Major Singapore 2026 Stage 1 | @m3wsu  !бот\", 20950], [\"bysl4m\", true, \"HEROIC vs M80 | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 2 | @FANAT_ROCKA @xryst_t\", 8300], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | ФИНАЛ ПРОХОЖДЕНИЯ GTA VI | !tg !donate !winline !ggsel\", 4250], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | HEROIC [0:0] M80 | PGL Major Singapore 2026: Stage 1 | BO1 | @yarushkin1, @Lampaaa & @cybercracken\", 3600], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 2125], [\"keliencs\", true, \"HEROIC vs M80 | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 1050], [\"followkudes\", true, \"🔴БАШКИРСКАЯ КРЫСА  !TG !WINLINE\", 675], [\"betboom_dota_ru\", true, \"ПОВТОР BLAST SLAM IX | Last Chance\", 500], [\"dmitry_lixxx\", true, \"[MAJOR] PARIVISION vs FaZe | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !winline !ЯО !ВТБ !avan\", 550], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
