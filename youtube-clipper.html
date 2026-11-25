@@ -100,6 +100,25 @@
   details.token{margin-top:2px}
   details.token summary{cursor:pointer;color:var(--muted);font-size:13.5px}
   .tk-ok{color:var(--ok);font-size:13px;margin-top:6px}
+  textarea#urls{width:100%;min-height:150px;padding:12px 13px;font-size:14px;line-height:1.45;
+    color:var(--fg);background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;
+    outline:none;resize:vertical;font-family:inherit}
+  textarea#urls:focus{border-color:var(--accent-a);box-shadow:0 0 0 3px rgba(139,92,246,.22)}
+  .batch-sum{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 0;font-size:13px}
+  .batch-sum span{padding:6px 10px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
+  .batch-sum .s-done{color:var(--muted)}
+  .batch-sum .s-new{color:var(--ok)}
+  .batch-sum .s-queued{color:#fbbf24}
+  .batch-list{margin-top:10px;max-height:300px;overflow-y:auto;display:flex;flex-direction:column;gap:6px;
+    border:1px solid var(--line);border-radius:12px;padding:8px;background:rgba(255,255,255,.02)}
+  .batch-row{display:flex;gap:8px;align-items:baseline;font-size:13px;line-height:1.45;word-break:break-all}
+  .batch-row .b-n{flex:0 0 auto;color:var(--muted);font-size:11.5px;min-width:26px;text-align:right}
+  .batch-row.b-done{color:var(--muted);text-decoration:line-through;opacity:.6}
+  .batch-row.b-queued{color:#fbbf24}
+  .batch-row.b-new{color:var(--fg)}
+  .batch-row .b-tag{flex:0 0 auto;font-size:10.5px;padding:2px 7px;border-radius:8px;border:1px solid var(--line)}
+  .b-queued .b-tag{border-color:#fbbf24;color:#fbbf24}
+  .b-new .b-tag{border-color:var(--ok);color:var(--ok)}
 </style>
 </head>
 <body>
@@ -115,15 +134,16 @@
 
 <main>
   <section class="card">
-    <h1>Нарезка по твоей ссылке</h1>
-    <p class="hint">Вставь ссылку на YouTube-ролик — бот скачает его и порежет
-      на <b>вертикальные шортсы 9:16</b> с субтитрами и баннером. Готовые клипы
-      появятся в ленте и уйдут в TikTok. Режим «Всё подряд» режет <b>весь ролик
-      подряд</b>, без отбора «самых интересных» моментов.</p>
+    <h1>Нарезка по твоим ссылкам</h1>
+    <p class="hint">Вставь <b>сколько хочешь ссылок YouTube</b> — хоть 1000, по одной в
+      строке (можно вместе с текстом, бот вытащит ссылки сам). Каждый ролик скачается
+      и порежется на <b>вертикальные шортсы 9:16</b> с субтитрами и баннером.
+      <b>Уже нарезанные зачеркнутся</b> — повторно они не режутся. Режим «Всё подряд»
+      режет весь ролик подряд, без отбора моментов.</p>
 
-    <label class="field"><span>Ссылка на YouTube-видео</span>
-      <input id="url" type="url" inputmode="url" autocapitalize="off" autocorrect="off"
-             spellcheck="false" placeholder="https://www.youtube.com/watch?v=… или youtu.be/…">
+    <label class="field"><span>Ссылки на YouTube-видео (одна в строке, до 1000)</span>
+      <textarea id="urls" autocapitalize="off" autocorrect="off" spellcheck="false"
+        placeholder="https://www.youtube.com/watch?v=…&#10;https://youtu.be/…&#10;https://www.youtube.com/shorts/…"></textarea>
     </label>
 
     <div class="row" style="margin-bottom:12px">
@@ -162,6 +182,9 @@
     </div>
 
     <button id="go" class="btn">Нарезать!</button>
+    <button id="refresh" class="btn ghost" style="margin-top:8px">Обновить статусы</button>
+    <div class="batch-sum" id="batch-sum" hidden></div>
+    <div class="batch-list" id="batch-list" hidden></div>
     <p id="msg" class="check-result"></p>
   </section>
 
@@ -187,10 +210,14 @@
     <h2>Как это работает</h2>
     <div class="howto">
       <div class="howto-title">Порядок</div>
-      1. Ссылка уходит в очередь репозитория.<br>
+      1. Ссылки уходят в очередь репозитория пакетами по 50 шт.<br>
       2. Через минуту стартует нарезка: скачивание → 9:16 → субтитры → баннер.<br>
       3. Клип за клипом появляются в ленте и постятся в TikTok.<br>
-      4. Длинный ролик нарезается цепочкой запусков (по ~40 клипов за заход).<br><br>
+      4. Ссылки, которые бот уже нарезал, <b>зачеркнутся</b> в списке сами —
+         статусы обновляются каждые 20 секунд.<br>
+      5. Длинный ролик нарезается цепочкой запусков (по ~40 клипов за заход);
+         очередь из 1000 ссылок разгребается часами — просто не закрывай вкладку,<br>
+         статусы видно всегда.<br><br>
       Пока приложение TikTok на модерации, посты идут «только для меня» —
       после одобрения новые клипы станут публичными автоматически.
     </div>
@@ -218,11 +245,12 @@
 <script>
 (function(){
   "use strict";
-  var LS_REPO="sc.ghrepo", LS_TOKEN="sc.ghtoken", LS_LAST="sc.ytclip.last";
+  var LS_REPO="sc.ghrepo", LS_TOKEN="sc.ghtoken", LS_BATCH="sc.ytclip.batch";
   var REPO_DEFAULT="qwied/TikTokAuto";
   var $=function(id){return document.getElementById(id)};
-  var el={url:$("url"),mode:$("mode"),win:$("win"),limit:$("limit"),
-          start:$("start"),end:$("end"),go:$("go"),msg:$("msg"),
+  var el={urls:$("urls"),mode:$("mode"),win:$("win"),limit:$("limit"),
+          start:$("start"),end:$("end"),go:$("go"),refresh:$("refresh"),msg:$("msg"),
+          batchSum:$("batch-sum"),batchList:$("batch-list"),
           repo:$("repo"),token:$("token"),tkSave:$("tk-save"),tkStatus:$("tk-status"),
           tkOk:$("tk-ok"),stRun:$("st-run"),stQueue:$("st-queue"),stClips:$("st-clips"),
           stNote:$("st-note"),stRecent:$("st-recent"),actLink:$("act-link")};
@@ -294,15 +322,103 @@
       .catch(function(){el.tkStatus.textContent="Сеть недоступна";el.tkStatus.className="mini"});
   });
 
-  // --- отправка запроса -----------------------------------------------------
+  // --- пакет ссылок: разбор, статусы, зачёркивание, отправка ----------------
+  var BATCH_CHUNK=50, BATCH_MAX=1000;
+  var batchItems=[];              // {vid,url,state:"done"|"queued"|"new"}
+  var doneIds={},queuedIds={};    // vid -> true
+
+  function vidFrom(text){
+    var m=YT_RE.exec(String(text||"").trim());
+    return m?m[1]:null;
+  }
+  function parseBatch(){
+    var raw=String(el.urls.value||"").split(/[\s,;]+/);
+    var seen={},items=[];
+    for(var i=0;i<raw.length;i++){
+      var vid=vidFrom(raw[i]);
+      if(!vid||seen[vid])continue;
+      seen[vid]=true;
+      items.push({vid:vid,url:"https://www.youtube.com/watch?v="+vid,state:"new"});
+    }
+    if(items.length>BATCH_MAX)items=items.slice(0,BATCH_MAX);
+    return items;
+  }
+  function renderBatch(){
+    var sum=el.batchSum,box=el.batchList;
+    if(!batchItems.length){sum.hidden=true;box.hidden=true;updateGoLabel();return;}
+    var nd=0,nq=0,nn=0,rows="";
+    for(var i=0;i<batchItems.length;i++){
+      var it=batchItems[i];
+      if(it.state==="done")nd++;else if(it.state==="queued")nq++;else nn++;
+      var tag=it.state==="done"?"нарезано":(it.state==="queued"?"в очереди":"новое");
+      rows+='<div class="batch-row b-'+it.state+'"><span class="b-n">'+(i+1)+'</span>'
+           +'<a class="link" href="'+it.url+'" target="_blank" rel="noopener">'+it.vid+'</a>'
+           +'<span class="b-tag">'+tag+'</span></div>';
+    }
+    sum.innerHTML='<span class="s-done">нарезано: '+nd+'</span>'
+                 +'<span class="s-queued">в очереди: '+nq+'</span>'
+                 +'<span class="s-new">новых: '+nn+'</span>';
+    box.innerHTML=rows;
+    sum.hidden=false;box.hidden=false;
+    updateGoLabel();
+  }
+  function updateGoLabel(){
+    var nn=0;
+    for(var i=0;i<batchItems.length;i++)if(batchItems[i].state==="new")nn++;
+    el.go.textContent=nn?("Нарезать новое: "+nn+" шт.!"):"Нарезать!";
+  }
+  function refreshStatuses(){
+    var jobsP=fetch("https://raw.githubusercontent.com/"+repo()+"/main/jobs.json?_="+Date.now())
+      .then(function(r){return r.ok?r.json():null});
+    var procP=fetch("https://raw.githubusercontent.com/"+repo()+"/main/processed.json?_="+Date.now())
+      .then(function(r){return r.ok?r.json():null});
+    return Promise.all([jobsP,procP]).then(function(res){
+      var jobs=(res[0]&&res[0].jobs)||[];
+      queuedIds={};
+      for(var i=0;i<jobs.length;i++){
+        var v=vidFrom(jobs[i].url||"");
+        if(v)queuedIds[v]=true;
+      }
+      doneIds={};
+      var done=(res[1]&&res[1].done)||[];
+      for(var j=0;j<done.length;j++){
+        var dv=vidFrom(done[j])||String(done[j]);
+        doneIds[dv]=true;
+      }
+      for(var k=0;k<batchItems.length;k++){
+        var st=batchItems[k].vid in doneIds?"done":(batchItems[k].vid in queuedIds?"queued":"new");
+        batchItems[k].state=st;
+      }
+      renderBatch();
+    }).catch(function(){});
+  }
+
+  el.urls.addEventListener("input",function(){
+    batchItems=parseBatch();
+    lsSet(LS_BATCH,batchItems);
+    renderBatch();
+    setMsg("");
+  });
+  el.refresh.addEventListener("click",function(){
+    refreshStatuses();
+    setMsg("Статусы обновляются…","");
+  });
+
+  // --- отправка пакетами ------------------------------------------------------
   el.go.addEventListener("click",function(){
-    var m=YT_RE.exec(String(el.url.value||"").trim());
-    if(!m){
-      setMsg("Это не похоже на ссылку YouTube-видео (watch / youtu.be / live / shorts)","err");
+    if(!batchItems.length){batchItems=parseBatch();renderBatch();}
+    if(!batchItems.length){
+      setMsg("Вставь хотя бы одну ссылку YouTube (watch / youtu.be / live / shorts)","err");
       return;
     }
     if(!token()){
       setMsg("Сначала сохрани GitHub-токен ниже (раздел «GitHub-токен») — без него сайт не может положить запрос в репозиторий","err");
+      return;
+    }
+    var fresh=[];
+    for(var i=0;i<batchItems.length;i++)if(batchItems[i].state==="new")fresh.push(batchItems[i]);
+    if(!fresh.length){
+      setMsg("Все вставленные ссылки уже нарезаны или уже в очереди — вставь новые","err");
       return;
     }
     var start=parseTime(el.start.value);
@@ -311,48 +427,55 @@
       setMsg("«До» должно быть хотя бы на 10 секунд позже «От»","err");
       return;
     }
-    var vid=m[1];
-    var payload={
-      url:"https://www.youtube.com/watch?v="+vid,
-      mode:el.mode.value,
-      win:parseInt(el.win.value,10)||60,
-      limit:parseInt(el.limit.value,10)||0,
-      start:el.start.value.trim(),
-      end:el.end.value.trim(),
-      from:"site",ts:new Date().toISOString()
+    var common={mode:el.mode.value,win:parseInt(el.win.value,10)||60,
+                limit:parseInt(el.limit.value,10)||0,
+                start:el.start.value.trim(),end:el.end.value.trim(),
+                from:"site",ts:new Date().toISOString()};
+    var chunks=[],i2;
+    for(i2=0;i2<fresh.length;i2+=BATCH_CHUNK)chunks.push(fresh.slice(i2,i2+BATCH_CHUNK));
+    el.go.disabled=true;el.refresh.disabled=true;
+    var idx=0,sent=0;
+    var next=function(){
+      if(idx>=chunks.length){
+        el.go.disabled=false;el.refresh.disabled=false;
+        lsSet(LS_BATCH,batchItems);
+        setMsg("Отправлено "+sent+" ссылок ("+chunks.length+" пакет"+(chunks.length>1?"ов":"")+"). Нарезка стартует автоматически в течение минуты — зачёркнутся они по мере готовности","ok");
+        pollNow();refreshStatuses();
+        return;
+      }
+      setMsg("Отправляю пакет "+(idx+1)+"/"+chunks.length+" ("+chunks[idx].length+" ссылок)…","");
+      var stamp=new Date().toISOString().replace(/[-:T]/g,"").slice(0,14);
+      var path="requests/req-"+stamp+"-b"+idx+"-"+chunks[idx][0].vid.slice(0,8)+".json";
+      var payload={};
+      for(var k in common)payload[k]=common[k];
+      payload.urls=chunks[idx].map(function(it){return it.url});
+      submitChunk(path,payload,0,function(ok,text){
+        if(!ok){
+          el.go.disabled=false;el.refresh.disabled=false;
+          setMsg(text,"err");
+          lsSet(LS_BATCH,batchItems);
+          return;
+        }
+        sent+=chunks[idx].length;
+        for(var j=0;j<chunks[idx].length;j++)chunks[idx][j].state="queued";
+        idx++;
+        setTimeout(next,700);
+      });
     };
-    var stamp=new Date().toISOString().replace(/[-:T]/g,"").slice(0,14);
-    var path="requests/req-"+stamp+"-"+vid.slice(0,8)+".json";
-    el.go.disabled=true;
-    setMsg("Отправляю запрос…","");
-    submitRequest(path,payload,0);
+    next();
   });
 
-  function submitRequest(path,payload,attempt){
+  function submitChunk(path,payload,attempt,done){
     var r=repo(),t=token();
-    var body={message:"youtube-clipper: нарезать "+payload.url,
+    var body={message:"youtube-clipper: нарезать "+payload.urls.length+" ссылок",
               content:b64utf8(JSON.stringify(payload)),branch:"main"};
-    var finish=function(ok,text){
-      el.go.disabled=false;
-      if(ok){
-        var after=function(count){
-          lsSet(LS_LAST,{ts:Date.now(),url:payload.url,mode:payload.mode,
-                         win:payload.win,baseClips:count});
-          setMsg("Запрос отправлен! Нарезка стартует автоматически в течение минуты — следи за статусом ниже","ok");
-          pollNow();
-        };
-        getClipsCount().then(after,after.bind(null,0));
-      }else{
-        setMsg(text,"err");
-      }
-    };
     fetch("https://api.github.com/repos/"+r+"/contents/"+path,{
       method:"PUT",
       headers:{Authorization:"Bearer "+t,"Accept":"application/vnd.github+json",
                "Content-Type":"application/json"},
       body:JSON.stringify(body)
     }).then(function(resp){
-      if(resp.status===201){finish(true);return;}
+      if(resp.status===201){done(true);return;}
       if(resp.status===409&&attempt<1){
         // файл уже есть (двойной тап) — пробуем с его sha
         fetch("https://api.github.com/repos/"+r+"/contents/"+path,
@@ -360,18 +483,18 @@
           .then(function(g){return g.json()})
           .then(function(g){
             body.sha=g.sha;
-            submitRequest(path,payload,attempt+1);
+            submitChunk(path,payload,attempt+1,done);
           });
         return;
       }
       if(resp.status===401||resp.status===403){
-        finish(false,"Токен не может писать в репозиторий ("+resp.status+"). Открой «GitHub-токен» ниже и проверь: Contents — Read and write, репозиторий свой");
+        done(false,"Токен не может писать в репозиторий ("+resp.status+"). Открой «GitHub-токен» ниже и проверь: Contents — Read and write, репозиторий свой");
         return;
       }
       resp.json().then(function(j){
-        finish(false,"GitHub ответил "+resp.status+": "+((j&&j.message)||"неизвестная ошибка"));
-      },function(){finish(false,"GitHub ответил "+resp.status)});
-    }).catch(function(){finish(false,"Сеть недоступна — попробуй ещё раз")});
+        done(false,"GitHub ответил "+resp.status+": "+((j&&j.message)||"неизвестная ошибка"));
+      },function(){done(false,"GitHub ответил "+resp.status)});
+    }).catch(function(){done(false,"Сеть недоступна — попробуй ещё раз")});
   }
 
   // --- статус ---------------------------------------------------------------
@@ -409,29 +532,15 @@
       .then(function(r){return r.ok?r.json():null})
       .then(function(d){
         var jobs=(d&&d.jobs)||[];
-        var last=lsGet(LS_LAST,null);
-        var mine=null;
-        if(last){
-          for(var i=0;i<jobs.length;i++){
-            if(String(jobs[i].url||"").toLowerCase()===String(last.url).toLowerCase()){mine=jobs[i];break;}
-          }
-        }
         if(!jobs.length){
-          el.stQueue.textContent="пуста — можно кидать ссылку";
-        }else if(mine){
-          var w=(mine.windows||[]).length;
-          el.stQueue.textContent="твоя ссылка в очереди"+(w?" — осталось окон: "+w:"");
+          el.stQueue.textContent="пуста — можно кидать ссылки";
         }else{
           el.stQueue.textContent=jobs.length+" задач (первая: "+
             String(jobs[0].display||jobs[0].url||"?").slice(0,40)+")";
         }
       }).catch(function(){});
     getClipsCount().then(function(n){
-      var last=lsGet(LS_LAST,null);
       var html=n+" клипов";
-      if(last&&last.baseClips!=null&&n>last.baseClips){
-        html+=" <b style='color:var(--ok)'>+"+(n-last.baseClips)+" твоих новых</b>";
-      }
       el.stClips.innerHTML=html;
       return fetch("https://raw.githubusercontent.com/"+repo()+"/main/clips.json?_="+Date.now())
         .then(function(r){return r.ok?r.json():null});
@@ -461,14 +570,17 @@
   pollNow();
   setInterval(pollState,20000);
   setInterval(pollRuns,90000);
+  setInterval(refreshStatuses,20000);
 
-  // Подсказка о свежем запросе
-  var last=lsGet(LS_LAST,null);
-  if(last){
-    var mins=Math.round((Date.now()-last.ts)/60000);
-    el.stNote.textContent="Последний запрос: "+last.url+
-      " ("+(mins<1?"только что":mins+" мин назад")+", режим "+
-      (last.mode==="all"?"всё подряд":"хайп")+", клип "+last.win+" c)";
+  // Восстановить список ссылок с прошлого раза + подсказка
+  batchItems=lsGet(LS_BATCH,[])||[];
+  if(batchItems.length){
+    var back="";
+    for(var b=0;b<batchItems.length;b++)back+=(b?"\n":"")+batchItems[b].url;
+    el.urls.value=back;
+    renderBatch();
+    refreshStatuses();
+    el.stNote.textContent="В списке "+batchItems.length+" ссылок — статусы обновляются сами каждые 20 с";
   }
 })();
 </script>
