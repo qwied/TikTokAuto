@@ -1571,6 +1571,11 @@ def yt_cookies_resolved(yt):
             return p
         except OSError:
             pass
+    # локальный запуск (ноутбук пользователя): живые cookies прямо из
+    # браузера — свежие всегда, домашний IP YouTube не блокирует
+    cb = str((yt or {}).get("cookies_from_browser") or "").strip()
+    if cb:
+        return "browser:" + cb
     return c
 
 
