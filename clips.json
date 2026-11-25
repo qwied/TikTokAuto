@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T14:27:16Z",
+ "updated": "2026-11-25T14:28:17Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -112,7 +112,7 @@
     "display": "twitch.tv/bezp",
     "platform": "twitch",
     "live": true,
-    "viewers": 688,
+    "viewers": 676,
     "title": "[EXCLUSIVE DROPS] Вотчпати турика !funpay"
    },
    {
@@ -120,67 +120,35 @@
     "display": "twitch.tv/praden",
     "platform": "twitch",
     "live": true,
-    "viewers": 1152,
+    "viewers": 1113,
     "title": "Спейс Марина"
    },
    {
-    "name": "welovegames",
-    "display": "youtube.com/@welovegames",
-    "platform": "youtube",
+    "name": "t2x2",
+    "display": "twitch.tv/t2x2",
+    "platform": "twitch",
     "live": false,
     "viewers": 0,
     "title": ""
    },
    {
-    "name": "bratishkinoff",
-    "display": "youtube.com/@bratishkinoff",
-    "platform": "youtube",
+    "name": "morphe_ya",
+    "display": "twitch.tv/morphe_ya",
+    "platform": "twitch",
     "live": false,
     "viewers": 0,
     "title": ""
    },
    {
-    "name": "KuplinovPlay",
-    "display": "youtube.com/@KuplinovPlay",
-    "platform": "youtube",
+    "name": "betboom_dota_ru",
+    "display": "twitch.tv/betboom_dota_ru",
+    "platform": "twitch",
     "live": false,
     "viewers": 0,
     "title": ""
-   },
-   {
-    "name": "5opka",
-    "display": "youtube.com/@5opka",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "stariy_bog",
-    "display": "youtube.com/@stariy_bog",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "AlinaRin",
-    "display": "youtube.com/@AlinaRin",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "Okisebi",
-    "display": "youtube.com/@Okisebi",
-    "platform": "youtube",
-    "live": true,
-    "viewers": 0,
-    "title": "🚨 DIE BESTEN PETS! DU KANNST MITMACHEN! 🚨"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"gadjiev57\", true, \"ЧИВИЛЯ В ТАЙЛАНДЕ ВСТРЕЧА РОЗЫ КОСТИ И ЧИВИЛИ 😂\", 25100], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 САМОЕ ДОЛГОЕ ПРОХОЖДЕНИЕ 🔴 ГЛАВА II 🔴 DAY 7 🔴\", 13625], [\"skywhywalker\", true, \"23 😇\", 7875], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 8425], [\"zxcursed\", true, \"аккуратно превосходим других\", 6700], [\"sasavot\", true, \"ФИНАЛ/НАДЕЮСЬ\", 7950], [\"chopperinho\", true, \"Обсуждаем мажор | !bb !tg !yt\", 4400], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 4275], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Точно последний стрим по игре\", 3825], [\"zloyn\", false, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 8 | ЛУЧШАЯ КОНЦОВКА | !tg\", 0], [\"stintik\", true, \"йоуууу не ждали\", 2100], [\"ghostik\", true, \"😎АБСОЛЮТНО БЕЗТІЛЬТОВИЙ СТРІМ, ЯКЩО ТІЛЬТАНУ - ІДУ в LoL😎Стата 3-2\", 1050], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 700], [\"praden\", true, \"Спейс Марина\", 1150], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🚨 DIE BESTEN PETS! DU KANNST MITMACHEN! 🚨\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"gadjiev57\", true, \"ЧИВИЛЯ В ТАЙЛАНДЕ ВСТРЕЧА РОЗЫ КОСТИ И ЧИВИЛИ 😂\", 25100], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 САМОЕ ДОЛГОЕ ПРОХОЖДЕНИЕ 🔴 ГЛАВА II 🔴 DAY 7 🔴\", 13625], [\"skywhywalker\", true, \"23 😇\", 7875], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 8425], [\"zxcursed\", true, \"аккуратно превосходим других\", 6700], [\"sasavot\", true, \"ФИНАЛ/НАДЕЮСЬ\", 7950], [\"chopperinho\", true, \"Обсуждаем мажор | !bb !tg !yt\", 4400], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 4275], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Точно последний стрим по игре\", 3825], [\"zloyn\", false, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 8 | ЛУЧШАЯ КОНЦОВКА | !tg\", 0], [\"stintik\", true, \"йоуууу не ждали\", 2100], [\"ghostik\", true, \"😎АБСОЛЮТНО БЕЗТІЛЬТОВИЙ СТРІМ, ЯКЩО ТІЛЬТАНУ - ІДУ в LoL😎Стата 3-2\", 1050], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 675], [\"praden\", true, \"Спейс Марина\", 1125], [\"t2x2\", false, \"\", 0], [\"morphe_ya\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0]]"
  },
  "clips": [
   {
