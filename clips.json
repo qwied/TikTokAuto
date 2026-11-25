@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T16:15:39Z",
+ "updated": "2026-11-25T16:16:13Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -24,7 +24,7 @@
     "display": "twitch.tv/t2x2",
     "platform": "twitch",
     "live": true,
-    "viewers": 11393,
+    "viewers": 11079,
     "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch"
    },
    {
@@ -48,7 +48,7 @@
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
     "live": true,
-    "viewers": 4444,
+    "viewers": 4058,
     "title": "ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel"
    },
    {
@@ -72,7 +72,7 @@
     "display": "twitch.tv/chopperinho",
     "platform": "twitch",
     "live": true,
-    "viewers": 2855,
+    "viewers": 2091,
     "title": "ПРОДОЛЖЕМ ПУТЬ В ТЁМНЫХ ДУШАХ 3 | !bb !tg !yt"
    },
    {
@@ -80,7 +80,7 @@
     "display": "twitch.tv/welovegames",
     "platform": "twitch",
     "live": true,
-    "viewers": 2813,
+    "viewers": 2855,
     "title": "GTA VI проходим на 100% | !гилан !ситилинк !ggsel !втб !dodo"
    },
    {
@@ -104,7 +104,7 @@
     "display": "twitch.tv/bezp",
     "platform": "twitch",
     "live": true,
-    "viewers": 677,
+    "viewers": 670,
     "title": "[EXCLUSIVE DROPS] Вотчпати турика !funpay"
    },
    {
@@ -172,7 +172,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 САМОЕ ДОЛГОЕ ПРОХОЖДЕНИЕ 🔴 ГЛАВА II 🔴 DAY 7 🔴\", 14600], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch\", 11400], [\"sasavot\", true, \"ФИНАЛ/НАДЕЮСЬ\", 9100], [\"zxcursed\", true, \"аккуратно превосходим других\", 7825], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 4450], [\"morphe_ya\", true, \"ВПЕРВИЕ ХОЛОУ НАЙТ (без гайдов!) | !tg !winline !мышки !wb\", 3525], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Точно последний стрим по игре\", 3850], [\"chopperinho\", true, \"ПРОДОЛЖЕМ ПУТЬ В ТЁМНЫХ ДУШАХ 3 | !bb !tg !yt\", 2850], [\"welovegames\", true, \"GTA VI проходим на 100% | !гилан !ситилинк !ggsel !втб !dodo\", 2825], [\"stintik\", true, \"йоуууу не ждали\", 1625], [\"praden\", true, \"Спейс Марина\", 1050], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 675], [\"mafanyaking\", true, \"подкаст с @kussia88 / !тг !донат !предложка\", 9275], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 САМОЕ ДОЛГОЕ ПРОХОЖДЕНИЕ 🔴 ГЛАВА II 🔴 DAY 7 🔴\", 14600], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch\", 11075], [\"sasavot\", true, \"ФИНАЛ/НАДЕЮСЬ\", 9100], [\"zxcursed\", true, \"аккуратно превосходим других\", 7825], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 4050], [\"morphe_ya\", true, \"ВПЕРВИЕ ХОЛОУ НАЙТ (без гайдов!) | !tg !winline !мышки !wb\", 3525], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Точно последний стрим по игре\", 3850], [\"chopperinho\", true, \"ПРОДОЛЖЕМ ПУТЬ В ТЁМНЫХ ДУШАХ 3 | !bb !tg !yt\", 2100], [\"welovegames\", true, \"GTA VI проходим на 100% | !гилан !ситилинк !ggsel !втб !dodo\", 2850], [\"stintik\", true, \"йоуууу не ждали\", 1625], [\"praden\", true, \"Спейс Марина\", 1050], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 675], [\"mafanyaking\", true, \"подкаст с @kussia88 / !тг !донат !предложка\", 9275], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
