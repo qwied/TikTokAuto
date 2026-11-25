@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T08:11:08Z",
+ "updated": "2026-11-25T08:12:49Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -10,6 +10,38 @@
     "live": false,
     "viewers": 0,
     "title": ""
+   },
+   {
+    "name": "leva2k",
+    "display": "twitch.tv/leva2k",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 4900,
+    "title": "АУК НА ЕДУ | ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel"
+   },
+   {
+    "name": "silvername",
+    "display": "twitch.tv/silvername",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "followkudes",
+    "display": "twitch.tv/followkudes",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 820,
+    "title": "🔴БАШКИРСКАЯ КРЫСА  !TG !WINLINE"
+   },
+   {
+    "name": "betboom_dota_ru",
+    "display": "twitch.tv/betboom_dota_ru",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 559,
+    "title": "ПОВТОР BLAST SLAM IX | Last Chance"
    },
    {
     "name": "strogo",
@@ -36,22 +68,6 @@
     "title": "[RU] REDZONE | PVISION [0:0] FaZe Clan | PGL Major Singapore 2026: Stage 1 | BO1 | @yarushkin1, @Lampaaa & @cybercracken"
    },
    {
-    "name": "leva2k",
-    "display": "twitch.tv/leva2k",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 4900,
-    "title": "АУК НА ЕДУ | ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel"
-   },
-   {
-    "name": "silvername",
-    "display": "twitch.tv/silvername",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": "Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг"
-   },
-   {
     "name": "dmitry_lixxx",
     "display": "twitch.tv/dmitry_lixxx",
     "platform": "twitch",
@@ -68,79 +84,23 @@
     "title": "9z [0:0] DENDELE | PGL Major Singapore 2026 Stage 1 | !tg !fonbet"
    },
    {
-    "name": "followkudes",
-    "display": "twitch.tv/followkudes",
+    "name": "exigent_wires",
+    "display": "twitch.tv/exigent_wires",
     "platform": "twitch",
     "live": true,
-    "viewers": 820,
-    "title": "🔴БАШКИРСКАЯ КРЫСА  !TG !WINLINE"
+    "viewers": 444,
+    "title": "ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ !ивент"
    },
    {
-    "name": "betboom_dota_ru",
-    "display": "twitch.tv/betboom_dota_ru",
+    "name": "ezpvp_lover",
+    "display": "twitch.tv/ezpvp_lover",
     "platform": "twitch",
     "live": true,
-    "viewers": 547,
-    "title": "ПОВТОР BLAST SLAM IX | Last Chance"
-   },
-   {
-    "name": "welovegames",
-    "display": "youtube.com/@welovegames",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "bratishkinoff",
-    "display": "youtube.com/@bratishkinoff",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "KuplinovPlay",
-    "display": "youtube.com/@KuplinovPlay",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "5opka",
-    "display": "youtube.com/@5opka",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "stariy_bog",
-    "display": "youtube.com/@stariy_bog",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "AlinaRin",
-    "display": "youtube.com/@AlinaRin",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "Okisebi",
-    "display": "youtube.com/@Okisebi",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "viewers": 418,
+    "title": "Церковь ЦЛК на WoWCircle! Потом мб Wow Forever"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 PV vs FaZe  | PGL Major Singapore 2026 Stage 1 | @m3wsu  !бот\", 33900], [\"bysl4m\", true, \"PVISION vs FaZe | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 2 | @FANAT_ROCKA @xryst_t\", 12400], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | PVISION [0:0] FaZe Clan | PGL Major Singapore 2026: Stage 1 | BO1 | @yarushkin1, @Lampaaa & @cybercracken\", 6700], [\"leva2k\", true, \"АУК НА ЕДУ | ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 4900], [\"silvername\", false, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"dmitry_lixxx\", true, \"[MAJOR] PARIVISION vs FaZe | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !winline !ЯО !ВТБ !avan\", 2925], [\"keliencs\", true, \"9z [0:0] DENDELE | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 700], [\"followkudes\", true, \"🔴БАШКИРСКАЯ КРЫСА  !TG !WINLINE\", 825], [\"betboom_dota_ru\", true, \"ПОВТОР BLAST SLAM IX | Last Chance\", 550], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leva2k\", true, \"АУК НА ЕДУ | ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 4900], [\"silvername\", false, \"\", 0], [\"followkudes\", true, \"🔴БАШКИРСКАЯ КРЫСА  !TG !WINLINE\", 825], [\"betboom_dota_ru\", true, \"ПОВТОР BLAST SLAM IX | Last Chance\", 550], [\"strogo\", true, \"🔴 PV vs FaZe  | PGL Major Singapore 2026 Stage 1 | @m3wsu  !бот\", 33900], [\"bysl4m\", true, \"PVISION vs FaZe | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 2 | @FANAT_ROCKA @xryst_t\", 12400], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | PVISION [0:0] FaZe Clan | PGL Major Singapore 2026: Stage 1 | BO1 | @yarushkin1, @Lampaaa & @cybercracken\", 6700], [\"dmitry_lixxx\", true, \"[MAJOR] PARIVISION vs FaZe | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !winline !ЯО !ВТБ !avan\", 2925], [\"keliencs\", true, \"9z [0:0] DENDELE | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 700], [\"exigent_wires\", true, \"ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ !ивент\", 450], [\"ezpvp_lover\", true, \"Церковь ЦЛК на WoWCircle! Потом мб Wow Forever\", 425]]"
  },
  "clips": [
   {
