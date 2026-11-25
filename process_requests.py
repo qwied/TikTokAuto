@@ -45,6 +45,7 @@ TOKEN = (os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN") or "").str
 API = "https://api.github.com/repos/%s/contents/%%s" % REPO
 REQ_DIR = "requests"
 JOBS_JSON = "jobs.json"
+MAX_BATCH_URLS = 200    # максимум ссылок в одном файле запроса (страница шлёт по 50)
 
 # YouTube-видео (не канал): watch / youtu.be / live / shorts
 YT_URL_RE = re.compile(
@@ -203,12 +204,25 @@ def main():
             log("битый запрос %s (%s) — удаляю", _name, e)
             del_file(s, path, sha, "requests: битый запрос удалён")
             continue
-        url = str(req.get("url") or "").strip()
-        if not YT_URL_RE.match(url):
+        url_list_raw = req.get("urls") if isinstance(req.get("urls"), list) else [req.get("url")]
+        urls = []
+        for _u in url_list_raw:
+            _u = str(_u or "").strip()
+            if not _u:
+                continue
+            if YT_URL_RE.match(_u):
+                urls.append(_u)
+            else:
+                log("НЕ YouTube-ссылка в %s: %r — пропущена", _name, _u[:80])
+        if not urls:
             failed += 1
-            log("НЕ YouTube-ссылка в %s: %r — удаляю", _name, url[:80])
-            del_file(s, path, sha, "requests: не youtube-ссылка — удалено")
+            log("в %s нет ни одной youtube-ссылки — удаляю", _name)
+            del_file(s, path, sha, "requests: нет youtube-ссылок — удалено")
             continue
+        if len(urls) > MAX_BATCH_URLS:
+            log("в %s %d ссылок — беру первые %d, остальное в следующем файле",
+                _name, len(urls), MAX_BATCH_URLS)
+            urls = urls[:MAX_BATCH_URLS]
         mode = "all" if str(req.get("mode") or "all").lower() != "hype" else "hype"
         try:
             win = int(req.get("win") or 60)
@@ -223,59 +237,62 @@ def main():
         start = parse_time(req.get("start")) or 0
         end = parse_time(req.get("end"))
 
-        log("разбираю %s: %s | режим %s | клип %d c | лимит %s | %s-%s",
-            _name, url, mode, win, limit or "весь ролик",
+        log("разбираю %s: %d ссылок | режим %s | клип %d c | лимит %s | %s-%s",
+            _name, len(urls), mode, win, limit or "весь ролик",
             fmt_hms(start) if start else "начало",
             fmt_hms(end) if end else "конец")
 
-        # Инфо о ролике: название + длина (yt-dlp, секунды; бот-чек ловим сразу)
-        try:
-            title, dur, live = vod.probe_video(url, cookies)
-        except Exception as e:
-            failed += 1
-            if vod._looks_like_bot_check(str(e)):
-                log("ОШИБКА: YouTube закрыл раннер бот-чеком (%s). Запрос удалён. "
-                    "Нужно добавить cookies YouTube в секрет YOUTUBE_COOKIES_FILE "
-                    "(файл cookies.txt из браузера) — тогда нарезка будет работать "
-                    "на GitHub.", url)
-            else:
-                log("ОШИБКА: не удалось получить инфо о видео %s: %s — запрос удалён",
-                    url, str(e)[:300])
-            del_file(s, path, sha, "requests: видео недоступно (%s)" % _name)
-            continue
-        if str(live or "").lower() == "is_live":
-            failed += 1
-            log("видео сейчас В ЭФИРЕ — дождись окончания и кинь ссылку снова: %s", url)
-            del_file(s, path, sha, "requests: видео в эфире — удалено")
-            continue
-        if not dur or dur < 10:
-            failed += 1
-            log("ОШИБКА: не понял длину видео (%.1f c) — запрос удалён", dur or 0)
-            del_file(s, path, sha, "requests: не определилась длина — удалено")
-            continue
-
-        job = {"url": url, "kind": "video", "fails": 0, "tag": "manual",
-               "display": (title or "video")[:120], "views": 0,
-               "added": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
-               "mode": mode, "win": win, "force": mode == "all"}
-        if mode == "all":
-            wins = build_all_windows(dur, win, limit, start, end)
-            if not wins:
-                failed += 1
-                log("ОШИБКА: диапазон %s-%s слишком короткий — запрос удалён",
-                    fmt_hms(start), fmt_hms(end) if end else "конец")
-                del_file(s, path, sha, "requests: пустой диапазон — удалено")
+        # Инфо о каждом ролике: название + длина (yt-dlp, секунды; бот-чек ловим
+        # сразу). Пакетный режим: одна ссылка не прошла — пакет не страдает.
+        file_rejected = 0
+        for url in urls:
+            try:
+                title, dur, live = vod.probe_video(url, cookies)
+            except Exception as e:
+                file_rejected += 1
+                if vod._looks_like_bot_check(str(e)):
+                    log("ОШИБКА: YouTube закрыл раннер бот-чеком (%s). Ссылка пропущена. "
+                        "Нужно добавить cookies YouTube в секрет YOUTUBE_COOKIES_FILE "
+                        "(файл cookies.txt из браузера) — тогда нарезка будет работать "
+                        "на GitHub.", url)
+                else:
+                    log("ОШИБКА: не удалось получить инфо о видео %s: %s — пропущена",
+                        url, str(e)[:300])
                 continue
-            job["windows"] = wins
-            job["scores"] = [1.0] * len(wins)
-            log("OK: «%s» (%s, %.0f c) — %d клипов по %d c (%s–%s), режим «всё подряд»",
-                title[:60], url, dur, len(wins), win,
-                fmt_hms(wins[0][0]), fmt_hms(wins[-1][1]))
-        else:
-            log("OK: «%s» (%s, %.0f c) — отбор интересных моментов как обычно",
-                title[:60], url, dur)
-        my_jobs.append(job)
-        del_file(s, path, sha, "requests: %s принят (%s)" % (_name, mode))
+            if str(live or "").lower() == "is_live":
+                file_rejected += 1
+                log("видео сейчас В ЭФИРЕ — дождись окончания и кинь ссылку снова: %s", url)
+                continue
+            if not dur or dur < 10:
+                file_rejected += 1
+                log("ОШИБКА: не понял длину видео %s (%.1f c) — пропущена", url, dur or 0)
+                continue
+
+            job = {"url": url, "kind": "video", "fails": 0, "tag": "manual",
+                   "display": (title or "video")[:120], "views": 0,
+                   "added": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+                   "mode": mode, "win": win, "force": mode == "all"}
+            if mode == "all":
+                wins = build_all_windows(dur, win, limit, start, end)
+                if not wins:
+                    file_rejected += 1
+                    log("ОШИБКА: диапазон %s-%s у %s слишком короткий — пропущена",
+                        fmt_hms(start), fmt_hms(end) if end else "конец", url)
+                    continue
+                job["windows"] = wins
+                job["scores"] = [1.0] * len(wins)
+                log("OK: «%s» (%.0f c) — %d клипов по %d c (%s–%s)",
+                    (title or "video")[:60], dur, len(wins), win,
+                    fmt_hms(wins[0][0]), fmt_hms(wins[-1][1]))
+            else:
+                log("OK: «%s» — отбор интересных моментов как обычно",
+                    (title or "video")[:60])
+            my_jobs.append(job)
+
+        del_file(s, path, sha, "requests: %s — принято %d, пропущено %d"
+                 % (_name, len(urls) - file_rejected, file_rejected))
+        if file_rejected:
+            failed += 1
 
     if not my_jobs:
         if failed:
