@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T07:28:11Z",
+ "updated": "2026-11-25T07:30:01Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -143,6 +143,50 @@
   "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 PV vs FaZe  | PGL Major Singapore 2026 Stage 1 | @m3wsu  !бот\", 25050], [\"bysl4m\", true, \"PVISION vs FaZe | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 2 | @FANAT_ROCKA @xryst_t\", 9000], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | ФИНАЛ ПРОХОЖДЕНИЯ GTA VI | !tg !donate !winline !ggsel\", 4475], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | PVISION [0:0] FaZe Clan | PGL Major Singapore 2026: Stage 1 | BO1 | @yarushkin1, @Lampaaa & @cybercracken\", 4750], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 2275], [\"keliencs\", true, \"Wildcard vs Lynn Vision | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 1025], [\"followkudes\", true, \"🔴БАШКИРСКАЯ КРЫСА  !TG !WINLINE\", 850], [\"betboom_dota_ru\", true, \"ПОВТОР BLAST SLAM IX | Last Chance\", 525], [\"dmitry_lixxx\", true, \"[MAJOR] PARIVISION vs FaZe | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !winline !ЯО !ВТБ !avan\", 1900], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
+  {
+   "id": "2026-11-25_07-23-55_leva2k",
+   "file": "2026-11-25_07-23-55_leva2k.mp4",
+   "url": "https://github.com/qwied/TikTokAuto/releases/download/clips-2026-11-25/2026-11-25_07-23-55_leva2k.mp4",
+   "preview": "https://qwied.github.io/TikTokAuto/preview/2026-11-25_07-23-55_leva2k.mp4",
+   "thumb": "data:image/jpeg;base64,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",
+   "size": 33155181,
+   "duration": 72.4,
+   "channel": "leva2k",
+   "display": "twitch.tv/leva2k",
+   "platform": "twitch",
+   "title": "ИЗОЛЯЦИЯ ДЕНЬ 10 | ФИНАЛ ПРОХОЖДЕНИЯ GTA VI | !tg !donate !winline !ggsel",
+   "score": 81.0,
+   "hashtags": [
+    "#gta",
+    "#гта5",
+    "#gtarp",
+    "#leva2k",
+    "#twitch",
+    "#рек",
+    "#рекомендации",
+    "#fyp",
+    "#foryou",
+    "#viral",
+    "#прикол",
+    "#смешно",
+    "#хайп",
+    "#стрим"
+   ],
+   "caption": "«Нормально, санэ, нормально. Скоро пойдем, бля, на еду. Год на еду, аукционная еду. Год» — twitch.tv/leva2k",
+   "subs": {
+    "lang": "ru",
+    "words": 34,
+    "aligned": true,
+    "speech_pct": 19,
+    "ok": true,
+    "hook": "Нормально, санэ, нормально. Скоро пойдем, бля, на еду. Год на еду, аукционная еду. Год",
+    "peakcut": true
+   },
+   "src": "",
+   "start": 0,
+   "created": 1795591769,
+   "gh": true
+  },
   {
    "id": "2026-11-25_07-21-34_followkudes",
    "file": "2026-11-25_07-21-34_followkudes.mp4",
