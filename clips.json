@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T14:39:53Z",
+ "updated": "2026-11-25T14:43:32Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,17 +15,41 @@
     "name": "gadjiev57",
     "display": "twitch.tv/gadjiev57",
     "platform": "twitch",
-    "live": true,
-    "viewers": 25095,
-    "title": "ЧИВИЛЯ В ТАЙЛАНДЕ ВСТРЕЧА РОЗЫ КОСТИ И ЧИВИЛИ 😂"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "bratishkinoff",
     "display": "twitch.tv/bratishkinoff",
     "platform": "twitch",
-    "live": true,
-    "viewers": 13626,
-    "title": "🔴 2K 60 FPS 🔴 САМОЕ ДОЛГОЕ ПРОХОЖДЕНИЕ 🔴 ГЛАВА II 🔴 DAY 7 🔴"
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "t2x2",
+    "display": "twitch.tv/t2x2",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "stariy_bog",
+    "display": "twitch.tv/stariy_bog",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "sasavot",
+    "display": "twitch.tv/sasavot",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "skywhywalker",
@@ -33,122 +57,146 @@
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "23 😇"
-   },
-   {
-    "name": "stariy_bog",
-    "display": "twitch.tv/stariy_bog",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 8417,
-    "title": "ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ"
+    "title": ""
    },
    {
     "name": "zxcursed",
     "display": "twitch.tv/zxcursed",
     "platform": "twitch",
-    "live": true,
-    "viewers": 6701,
-    "title": "аккуратно превосходим других"
-   },
-   {
-    "name": "sasavot",
-    "display": "twitch.tv/sasavot",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 7939,
-    "title": "ФИНАЛ/НАДЕЮСЬ"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "chopperinho",
     "display": "twitch.tv/chopperinho",
     "platform": "twitch",
-    "live": true,
-    "viewers": 4389,
-    "title": "Обсуждаем мажор | !bb !tg !yt"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": true,
-    "viewers": 4281,
-    "title": "ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "blackufa",
     "display": "twitch.tv/blackufa",
     "platform": "twitch",
-    "live": true,
-    "viewers": 3822,
-    "title": "[DROPS] GTA 6 [PS5Pro] Точно последний стрим по игре"
-   },
-   {
-    "name": "zloyn",
-    "display": "twitch.tv/zloyn",
-    "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "МАРАФОН | GTA VI 🤯 | ДЕНЬ 8 | ЛУЧШАЯ КОНЦОВКА | !tg"
-   },
-   {
-    "name": "stintik",
-    "display": "twitch.tv/stintik",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 2102,
-    "title": "йоуууу не ждали"
-   },
-   {
-    "name": "ghostik",
-    "display": "twitch.tv/ghostik",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 1054,
-    "title": "😎АБСОЛЮТНО БЕЗТІЛЬТОВИЙ СТРІМ, ЯКЩО ТІЛЬТАНУ - ІДУ в LoL😎Стата 4-2"
-   },
-   {
-    "name": "bezp",
-    "display": "twitch.tv/bezp",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 676,
-    "title": "[EXCLUSIVE DROPS] Вотчпати турика !funpay"
-   },
-   {
-    "name": "praden",
-    "display": "twitch.tv/praden",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 1113,
-    "title": "Спейс Марина"
-   },
-   {
-    "name": "t2x2",
-    "display": "twitch.tv/t2x2",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch"
+    "title": ""
    },
    {
     "name": "morphe_ya",
     "display": "twitch.tv/morphe_ya",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "ВПЕРВИЕ ХОЛОУ НАЙТ (без гайдов!) | !tg !winline !мышки !wb"
+    "title": ""
+   },
+   {
+    "name": "stintik",
+    "display": "twitch.tv/stintik",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "praden",
+    "display": "twitch.tv/praden",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "ghostik",
+    "display": "twitch.tv/ghostik",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Шоу ЖБ | BLAST SLAM IX | cast: @5Misha & @mrahillesko"
+    "title": ""
+   },
+   {
+    "name": "bezp",
+    "display": "twitch.tv/bezp",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "welovegames",
+    "display": "youtube.com/@welovegames",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "bratishkinoff",
+    "display": "youtube.com/@bratishkinoff",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "KuplinovPlay",
+    "display": "youtube.com/@KuplinovPlay",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "5opka",
+    "display": "youtube.com/@5opka",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "stariy_bog",
+    "display": "youtube.com/@stariy_bog",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "AlinaRin",
+    "display": "youtube.com/@AlinaRin",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "Okisebi",
+    "display": "youtube.com/@Okisebi",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"gadjiev57\", true, \"ЧИВИЛЯ В ТАЙЛАНДЕ ВСТРЕЧА РОЗЫ КОСТИ И ЧИВИЛИ 😂\", 25100], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 САМОЕ ДОЛГОЕ ПРОХОЖДЕНИЕ 🔴 ГЛАВА II 🔴 DAY 7 🔴\", 13625], [\"skywhywalker\", false, \"23 😇\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 8425], [\"zxcursed\", true, \"аккуратно превосходим других\", 6700], [\"sasavot\", true, \"ФИНАЛ/НАДЕЮСЬ\", 7950], [\"chopperinho\", true, \"Обсуждаем мажор | !bb !tg !yt\", 4400], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 4275], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Точно последний стрим по игре\", 3825], [\"zloyn\", false, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 8 | ЛУЧШАЯ КОНЦОВКА | !tg\", 0], [\"stintik\", true, \"йоуууу не ждали\", 2100], [\"ghostik\", true, \"😎АБСОЛЮТНО БЕЗТІЛЬТОВИЙ СТРІМ, ЯКЩО ТІЛЬТАНУ - ІДУ в LoL😎Стата 4-2\", 1050], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 675], [\"praden\", true, \"Спейс Марина\", 1125], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch\", 0], [\"morphe_ya\", true, \"ВПЕРВИЕ ХОЛОУ НАЙТ (без гайдов!) | !tg !winline !мышки !wb\", 0], [\"betboom_dota_ru\", true, \"Шоу ЖБ | BLAST SLAM IX | cast: @5Misha & @mrahillesko\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"gadjiev57\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"t2x2\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"sasavot\", false, \"\", 0], [\"skywhywalker\", false, \"\", 0], [\"zxcursed\", false, \"\", 0], [\"chopperinho\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"blackufa\", false, \"\", 0], [\"morphe_ya\", false, \"\", 0], [\"stintik\", false, \"\", 0], [\"praden\", false, \"\", 0], [\"ghostik\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
