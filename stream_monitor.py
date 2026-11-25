@@ -646,11 +646,20 @@ class StreamMonitor(threading.Thread):
     # --- ссылки на поток -----------------------------------------------------------------
 
     def _ytdlp_args(self):
-        """Дополнительные аргументы yt-dlp (cookies, если настроены)."""
+        """Дополнительные аргументы yt-dlp (cookies, если настроены).
+
+        cookies_file может быть "browser:chrome" — живые cookies из браузера
+        (локальный запуск). cookies_from_browser НЕ используется на GitHub
+        Actions: на раннере нет браузера, там работают cookies из секрета.
+        """
         args = []
-        if self.cookies_file:
+        on_ci = bool(os.environ.get("GITHUB_ACTIONS"))
+        cf = str(self.cookies_file or "")
+        if cf.startswith("browser:"):
+            args += ["--cookies-from-browser", cf.split(":", 1)[1]]
+        elif self.cookies_file:
             args += ["--cookies", self.cookies_file]
-        if self.cookies_from_browser:
+        if self.cookies_from_browser and not cf.startswith("browser:") and not on_ci:
             args += ["--cookies-from-browser", self.cookies_from_browser]
         return args
 
