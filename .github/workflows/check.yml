@@ -45,6 +45,7 @@ jobs:
       - name: Постоянное слежение (55 мин, монитор каждые ~2-3 c, статус ~15 c)
         env:
           GH_TOKEN: ${{ secrets.SC_PAT }}   # PAT — без него Monitor не стартует
+          YOUTUBE_COOKIES_FILE: ${{ secrets.YOUTUBE_COOKIES_FILE }}   # YouTube без бот-чека (2026-11-25)
         run: python gh_run.py --check-loop --max-minutes 55
 
       # Эстафета: следующая смена слежения. if: always() — цепочка
