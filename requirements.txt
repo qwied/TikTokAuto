@@ -32,3 +32,8 @@ llama-cpp-python>=0.3.0
 
 # Автопостинг в TikTok (mode: browser — окно Chrome; нужен установленный Chrome)
 selenium>=4.20
+
+# PO-токены YouTube: YouTube с 2026 не отдаёт стримы датацентровым IP
+# без proof-of-origin. Плагин yt-dlp + node-сервер (шаг в clip.yml)
+# генерируют их автоматически.
+bgutil-ytdlp-pot-provider>=1.0
