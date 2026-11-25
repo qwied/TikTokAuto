@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T14:43:32Z",
+ "updated": "2026-11-25T14:43:46Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,41 +15,41 @@
     "name": "gadjiev57",
     "display": "twitch.tv/gadjiev57",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ЧИВИЛЯ В ТАЙЛАНДЕ ВСТРЕЧА РОЗЫ КОСТИ И ЧИВИЛИ 😂"
    },
    {
     "name": "bratishkinoff",
     "display": "twitch.tv/bratishkinoff",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🔴 2K 60 FPS 🔴 САМОЕ ДОЛГОЕ ПРОХОЖДЕНИЕ 🔴 ГЛАВА II 🔴 DAY 7 🔴"
    },
    {
     "name": "t2x2",
     "display": "twitch.tv/t2x2",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch"
    },
    {
     "name": "stariy_bog",
     "display": "twitch.tv/stariy_bog",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ"
    },
    {
     "name": "sasavot",
     "display": "twitch.tv/sasavot",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ФИНАЛ/НАДЕЮСЬ"
    },
    {
     "name": "skywhywalker",
@@ -63,17 +63,17 @@
     "name": "zxcursed",
     "display": "twitch.tv/zxcursed",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "аккуратно превосходим других"
    },
    {
     "name": "chopperinho",
     "display": "twitch.tv/chopperinho",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Обсуждаем мажор | !bb !tg !yt"
    },
    {
     "name": "leva2k",
@@ -191,12 +191,12 @@
     "name": "Okisebi",
     "display": "youtube.com/@Okisebi",
     "platform": "youtube",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🚨 DIE BESTEN PETS! DU KANNST MITMACHEN! 🚨"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"gadjiev57\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"t2x2\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"sasavot\", false, \"\", 0], [\"skywhywalker\", false, \"\", 0], [\"zxcursed\", false, \"\", 0], [\"chopperinho\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"blackufa\", false, \"\", 0], [\"morphe_ya\", false, \"\", 0], [\"stintik\", false, \"\", 0], [\"praden\", false, \"\", 0], [\"ghostik\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"gadjiev57\", true, \"ЧИВИЛЯ В ТАЙЛАНДЕ ВСТРЕЧА РОЗЫ КОСТИ И ЧИВИЛИ 😂\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 САМОЕ ДОЛГОЕ ПРОХОЖДЕНИЕ 🔴 ГЛАВА II 🔴 DAY 7 🔴\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"sasavot\", true, \"ФИНАЛ/НАДЕЮСЬ\", 0], [\"skywhywalker\", false, \"\", 0], [\"zxcursed\", true, \"аккуратно превосходим других\", 0], [\"chopperinho\", true, \"Обсуждаем мажор | !bb !tg !yt\", 0], [\"leva2k\", false, \"\", 0], [\"blackufa\", false, \"\", 0], [\"morphe_ya\", false, \"\", 0], [\"stintik\", false, \"\", 0], [\"praden\", false, \"\", 0], [\"ghostik\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🚨 DIE BESTEN PETS! DU KANNST MITMACHEN! 🚨\", 0]]"
  },
  "clips": [
   {
