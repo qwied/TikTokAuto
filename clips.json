@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T13:16:16Z",
+ "updated": "2026-11-25T13:17:46Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -167,12 +167,12 @@
     "name": "despot1ck",
     "display": "twitch.tv/despot1ck",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
     "title": "ПОБУРБОЛДЕТЬ ЗАХОТЕЛОСЬ"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", false, \"🔴 s1mple 1:1 Chinggis Warriors | PGL Major Singapore 2026 Stage 1 | @m3wsu  !бот\", 0], [\"bysl4m\", true, \"GOSH [1:1] Chinggis Warriors | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 2 | @bySL4M @WorldEdit\", 0], [\"gadjiev57\", true, \"ЧИВИЛЯ В ТАЙЛАНДЕ ВСТРЕЧА РОЗЫ КОСТИ И ЧИВИЛИ 😂\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | GOSH [1:2] Chinggis Warriors | PGL Major Singapore 2026: Stage 1 | BO3 | @little_cs, @siberiancaster & @Roma_roo\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 8 | ЛУЧШАЯ КОНЦОВКА | !tg !прогресс\", 0], [\"koma\", true, \"9K & RANK 100 & CARRY & NEW PATCH !vtb !tg\", 0], [\"stintik\", true, \"йоуууу не ждали\", 0], [\"dmitry_lixxx\", true, \"🔴 ИЩЕМ ПАСХАЛКИ В ГТА 6 | !tg !winline !ЯО !ВТБ !avan\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Точно последний стрим по игре\", 0], [\"keliencs\", false, \"\", 0], [\"ghostik\", true, \"😎АБСОЛЮТНО БЕЗТІЛЬТОВИЙ СТРІМ, ЯКЩО ТІЛЬТАНУ - ІДУ в LoL😎Стата 3-1\", 0], [\"exigent_wires\", false, \"ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ !ивент\", 0], [\"hibako\", true, \"СРОЧНО ЗАХОДИ! ОЧЕНЬ БЫСТРО! ДА ЭТО БАЙТ НАЗВАНИЕ! ВСЕ РАВНО КРАСАВА! !hibako !tg\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 САМОЕ ДОЛГОЕ ПРОХОЖДЕНИЕ 🔴 ГЛАВА II 🔴 DAY 7 🔴\", 0], [\"zxcursed\", true, \"аккуратно превосходим других\", 0], [\"chopperinho\", true, \"Обсуждаем мажор | !bb !tg !yt\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 0], [\"despot1ck\", true, \"ПОБУРБОЛДЕТЬ ЗАХОТЕЛОСЬ\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", false, \"🔴 s1mple 1:1 Chinggis Warriors | PGL Major Singapore 2026 Stage 1 | @m3wsu  !бот\", 0], [\"bysl4m\", true, \"GOSH [1:1] Chinggis Warriors | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 2 | @bySL4M @WorldEdit\", 0], [\"gadjiev57\", true, \"ЧИВИЛЯ В ТАЙЛАНДЕ ВСТРЕЧА РОЗЫ КОСТИ И ЧИВИЛИ 😂\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | GOSH [1:2] Chinggis Warriors | PGL Major Singapore 2026: Stage 1 | BO3 | @little_cs, @siberiancaster & @Roma_roo\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 8 | ЛУЧШАЯ КОНЦОВКА | !tg !прогресс\", 0], [\"koma\", true, \"9K & RANK 100 & CARRY & NEW PATCH !vtb !tg\", 0], [\"stintik\", true, \"йоуууу не ждали\", 0], [\"dmitry_lixxx\", true, \"🔴 ИЩЕМ ПАСХАЛКИ В ГТА 6 | !tg !winline !ЯО !ВТБ !avan\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Точно последний стрим по игре\", 0], [\"keliencs\", false, \"\", 0], [\"ghostik\", true, \"😎АБСОЛЮТНО БЕЗТІЛЬТОВИЙ СТРІМ, ЯКЩО ТІЛЬТАНУ - ІДУ в LoL😎Стата 3-1\", 0], [\"exigent_wires\", false, \"ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ !ивент\", 0], [\"hibako\", true, \"СРОЧНО ЗАХОДИ! ОЧЕНЬ БЫСТРО! ДА ЭТО БАЙТ НАЗВАНИЕ! ВСЕ РАВНО КРАСАВА! !hibako !tg\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 САМОЕ ДОЛГОЕ ПРОХОЖДЕНИЕ 🔴 ГЛАВА II 🔴 DAY 7 🔴\", 0], [\"zxcursed\", true, \"аккуратно превосходим других\", 0], [\"chopperinho\", true, \"Обсуждаем мажор | !bb !tg !yt\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 0], [\"despot1ck\", false, \"ПОБУРБОЛДЕТЬ ЗАХОТЕЛОСЬ\", 0]]"
  },
  "clips": [
   {
