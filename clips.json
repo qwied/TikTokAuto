@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T06:11:28Z",
+ "updated": "2026-11-25T06:11:41Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -111,20 +111,20 @@
     "name": "bysl4m",
     "display": "twitch.tv/bysl4m",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 4717,
+    "title": "HEROIC vs M80 | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 2 | @FANAT_ROCKA @xryst_t"
    },
    {
     "name": "keliencs",
     "display": "twitch.tv/keliencs",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 560,
+    "title": "HEROIC vs M80 | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !fonbet"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | ФИНАЛ ПРОХОЖДЕНИЯ GTA VI | !tg !donate !winline !ggsel\", 4375], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 2175], [\"followkudes\", true, \"🔴БАШКИРСКАЯ КРЫСА  !TG !WINLINE\", 675], [\"betboom_dota_ru\", true, \"ПОВТОР BLAST SLAM IX | Last Chance\", 550], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"strogo\", true, \"🔴 Eternal Fire vs 100 Thieves | PGL Major Singapore 2026 Stage 1 | !бот\", 14725], [\"bysl4m\", false, \"\", 0], [\"keliencs\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | ФИНАЛ ПРОХОЖДЕНИЯ GTA VI | !tg !donate !winline !ggsel\", 4375], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 2175], [\"followkudes\", true, \"🔴БАШКИРСКАЯ КРЫСА  !TG !WINLINE\", 675], [\"betboom_dota_ru\", true, \"ПОВТОР BLAST SLAM IX | Last Chance\", 550], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"strogo\", true, \"🔴 Eternal Fire vs 100 Thieves | PGL Major Singapore 2026 Stage 1 | !бот\", 14725], [\"bysl4m\", true, \"HEROIC vs M80 | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 2 | @FANAT_ROCKA @xryst_t\", 4725], [\"keliencs\", true, \"HEROIC vs M80 | BO1 | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 550]]"
  },
  "clips": [
   {
