@@ -1,4 +1,1 @@
-{
- "updated": "2026-11-24T23:43:01Z",
- "jobs": []
-}
+{"updated": "2026-11-25T12:14:38Z", "jobs": [{"url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ", "kind": "video", "fails": 0, "tag": "manual", "display": "Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)", "views": 0, "added": "2026-11-25T12:14:27Z", "mode": "all", "win": 30, "force": true, "windows": [[0, 30], [30, 60]], "scores": [1.0, 1.0]}]}
