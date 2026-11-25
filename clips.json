@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T13:43:11Z",
+ "updated": "2026-11-25T13:43:16Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -17,7 +17,7 @@
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": ""
+    "title": "🔴 s1mple 1:1 Chinggis Warriors | PGL Major Singapore 2026 Stage 1 | @m3wsu  !бот"
    },
    {
     "name": "bysl4m",
@@ -25,15 +25,15 @@
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": ""
+    "title": "GOSH [1:1] Chinggis Warriors | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 2 | @bySL4M @WorldEdit"
    },
    {
-    "name": "cs2_paragon_ru",
-    "display": "twitch.tv/cs2_paragon_ru",
+    "name": "gadjiev57",
+    "display": "twitch.tv/gadjiev57",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ЧИВИЛЯ В ТАЙЛАНДЕ ВСТРЕЧА РОЗЫ КОСТИ И ЧИВИЛИ 😂"
    },
    {
     "name": "stariy_bog",
@@ -44,6 +44,14 @@
     "title": "ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ"
    },
    {
+    "name": "cs2_paragon_ru",
+    "display": "twitch.tv/cs2_paragon_ru",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": "[RU] REDZONE | GOSH [1:2] Chinggis Warriors | PGL Major Singapore 2026: Stage 1 | BO3 | @little_cs, @siberiancaster & @Roma_roo"
+   },
+   {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
@@ -52,52 +60,44 @@
     "title": "ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel"
    },
    {
-    "name": "dmitry_lixxx",
-    "display": "twitch.tv/dmitry_lixxx",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "tpabomah",
-    "display": "twitch.tv/tpabomah",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
     "name": "zloyn",
     "display": "twitch.tv/zloyn",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "МАРАФОН | GTA VI 🤯 | ДЕНЬ 8 | ЛУЧШАЯ КОНЦОВКА | !tg"
+   },
+   {
+    "name": "koma",
+    "display": "twitch.tv/koma",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "9K & RANK 100 & CARRY & NEW PATCH !vtb !tg"
    },
    {
     "name": "stintik",
     "display": "twitch.tv/stintik",
     "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "йоуууу не ждали"
+   },
+   {
+    "name": "dmitry_lixxx",
+    "display": "twitch.tv/dmitry_lixxx",
+    "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": ""
+    "title": "🔴 ИЩЕМ ПАСХАЛКИ В ГТА 6 | !tg !winline !ЯО !ВТБ !avan"
    },
    {
     "name": "blackufa",
     "display": "twitch.tv/blackufa",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "ghostik",
-    "display": "twitch.tv/ghostik",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "title": "[DROPS] GTA 6 [PS5Pro] Точно последний стрим по игре"
    },
    {
     "name": "keliencs",
@@ -108,20 +108,76 @@
     "title": ""
    },
    {
+    "name": "ghostik",
+    "display": "twitch.tv/ghostik",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "😎АБСОЛЮТНО БЕЗТІЛЬТОВИЙ СТРІМ, ЯКЩО ТІЛЬТАНУ - ІДУ в LoL😎Стата 3-1"
+   },
+   {
     "name": "exigent_wires",
     "display": "twitch.tv/exigent_wires",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": ""
+    "title": "ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ !ивент"
    },
    {
     "name": "hibako",
     "display": "twitch.tv/hibako",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "СРОЧНО ЗАХОДИ! ОЧЕНЬ БЫСТРО! ДА ЭТО БАЙТ НАЗВАНИЕ! ВСЕ РАВНО КРАСАВА! !hibako !tg"
+   },
+   {
+    "name": "bratishkinoff",
+    "display": "twitch.tv/bratishkinoff",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "🔴 2K 60 FPS 🔴 САМОЕ ДОЛГОЕ ПРОХОЖДЕНИЕ 🔴 ГЛАВА II 🔴 DAY 7 🔴"
+   },
+   {
+    "name": "zxcursed",
+    "display": "twitch.tv/zxcursed",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "аккуратно превосходим других"
+   },
+   {
+    "name": "chopperinho",
+    "display": "twitch.tv/chopperinho",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "Обсуждаем мажор | !bb !tg !yt"
+   },
+   {
+    "name": "bezp",
+    "display": "twitch.tv/bezp",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "[EXCLUSIVE DROPS] Вотчпати турика !funpay"
+   },
+   {
+    "name": "skywhywalker",
+    "display": "twitch.tv/skywhywalker",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "23 😇"
+   },
+   {
+    "name": "sasavot",
+    "display": "twitch.tv/sasavot",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "ФИНАЛ/НАДЕЮСЬ"
    },
    {
     "name": "welovegames",
@@ -178,65 +234,9 @@
     "live": true,
     "viewers": 0,
     "title": "🚨 DIE BESTEN PETS! DU KANNST MITMACHEN! 🚨"
-   },
-   {
-    "name": "gadjiev57",
-    "display": "twitch.tv/gadjiev57",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "bratishkinoff",
-    "display": "twitch.tv/bratishkinoff",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "skywhywalker",
-    "display": "twitch.tv/skywhywalker",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "zxcursed",
-    "display": "twitch.tv/zxcursed",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "sasavot",
-    "display": "twitch.tv/sasavot",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "chopperinho",
-    "display": "twitch.tv/chopperinho",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "bezp",
-    "display": "twitch.tv/bezp",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", false, \"\", 0], [\"bysl4m\", false, \"\", 0], [\"cs2_paragon_ru\", false, \"\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 0], [\"dmitry_lixxx\", false, \"\", 0], [\"tpabomah\", false, \"\", 0], [\"zloyn\", false, \"\", 0], [\"stintik\", false, \"\", 0], [\"blackufa\", false, \"\", 0], [\"ghostik\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"exigent_wires\", false, \"\", 0], [\"hibako\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🚨 DIE BESTEN PETS! DU KANNST MITMACHEN! 🚨\", 0], [\"gadjiev57\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"skywhywalker\", false, \"\", 0], [\"zxcursed\", false, \"\", 0], [\"sasavot\", false, \"\", 0], [\"chopperinho\", false, \"\", 0], [\"bezp\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", false, \"🔴 s1mple 1:1 Chinggis Warriors | PGL Major Singapore 2026 Stage 1 | @m3wsu  !бот\", 0], [\"bysl4m\", false, \"GOSH [1:1] Chinggis Warriors | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 2 | @bySL4M @WorldEdit\", 0], [\"gadjiev57\", true, \"ЧИВИЛЯ В ТАЙЛАНДЕ ВСТРЕЧА РОЗЫ КОСТИ И ЧИВИЛИ 😂\", 0], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"cs2_paragon_ru\", false, \"[RU] REDZONE | GOSH [1:2] Chinggis Warriors | PGL Major Singapore 2026: Stage 1 | BO3 | @little_cs, @siberiancaster & @Roma_roo\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 0], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 8 | ЛУЧШАЯ КОНЦОВКА | !tg\", 0], [\"koma\", true, \"9K & RANK 100 & CARRY & NEW PATCH !vtb !tg\", 0], [\"stintik\", true, \"йоуууу не ждали\", 0], [\"dmitry_lixxx\", false, \"🔴 ИЩЕМ ПАСХАЛКИ В ГТА 6 | !tg !winline !ЯО !ВТБ !avan\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Точно последний стрим по игре\", 0], [\"keliencs\", false, \"\", 0], [\"ghostik\", true, \"😎АБСОЛЮТНО БЕЗТІЛЬТОВИЙ СТРІМ, ЯКЩО ТІЛЬТАНУ - ІДУ в LoL😎Стата 3-1\", 0], [\"exigent_wires\", false, \"ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ !ивент\", 0], [\"hibako\", true, \"СРОЧНО ЗАХОДИ! ОЧЕНЬ БЫСТРО! ДА ЭТО БАЙТ НАЗВАНИЕ! ВСЕ РАВНО КРАСАВА! !hibako !tg\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 САМОЕ ДОЛГОЕ ПРОХОЖДЕНИЕ 🔴 ГЛАВА II 🔴 DAY 7 🔴\", 0], [\"zxcursed\", true, \"аккуратно превосходим других\", 0], [\"chopperinho\", true, \"Обсуждаем мажор | !bb !tg !yt\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 0], [\"skywhywalker\", true, \"23 😇\", 0], [\"sasavot\", true, \"ФИНАЛ/НАДЕЮСЬ\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🚨 DIE BESTEN PETS! DU KANNST MITMACHEN! 🚨\", 0]]"
  },
  "clips": [
   {
