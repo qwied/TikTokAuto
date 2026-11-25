@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T12:14:05Z",
+ "updated": "2026-11-25T12:15:05Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -32,7 +32,7 @@
     "display": "twitch.tv/cs2_paragon_ru",
     "platform": "twitch",
     "live": true,
-    "viewers": 6579,
+    "viewers": 6364,
     "title": "[RU] REDZONE | GOSH [1:1] Chinggis Warriors | PGL Major Singapore 2026: Stage 1 | BO3 | @little_cs, @siberiancaster & @Roma_roo"
    },
    {
@@ -64,7 +64,7 @@
     "display": "twitch.tv/tpabomah",
     "platform": "twitch",
     "live": true,
-    "viewers": 3298,
+    "viewers": 3264,
     "title": "С НУЛЯ ДО ИНТА, 7К ММР🔥!конкурс сборки !руинер !тг"
    },
    {
@@ -72,7 +72,7 @@
     "display": "twitch.tv/zloyn",
     "platform": "twitch",
     "live": true,
-    "viewers": 4582,
+    "viewers": 4474,
     "title": "МАРАФОН | GTA VI 🤯 | ДЕНЬ 8 | ЛУЧШАЯ КОНЦОВКА | !tg !прогресс"
    },
    {
@@ -80,7 +80,7 @@
     "display": "twitch.tv/stintik",
     "platform": "twitch",
     "live": true,
-    "viewers": 4122,
+    "viewers": 3949,
     "title": "йоуууу не ждали"
    },
    {
@@ -88,7 +88,7 @@
     "display": "twitch.tv/blackufa",
     "platform": "twitch",
     "live": true,
-    "viewers": 3293,
+    "viewers": 3356,
     "title": "[DROPS] GTA 6 [PS5Pro] Точно последний стрим по игре"
    },
    {
@@ -180,7 +180,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 s1mple 1:1 Chinggis Warriors | PGL Major Singapore 2026 Stage 1 | @m3wsu  !бот\", 47125], [\"bysl4m\", true, \"GOSH [1:1] Chinggis Warriors | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 2 | @bySL4M @WorldEdit\", 15125], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | GOSH [1:1] Chinggis Warriors | PGL Major Singapore 2026: Stage 1 | BO3 | @little_cs, @siberiancaster & @Roma_roo\", 6575], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 7475], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 5525], [\"dmitry_lixxx\", true, \"[MAJOR] BC [1:1] Chinggis Warriors | PGL Major Singapore 2026 Stage 1 /w @Aunkere | !tg !winline !ЯО !ВТБ !avan\", 3375], [\"tpabomah\", true, \"С НУЛЯ ДО ИНТА, 7К ММР🔥!конкурс сборки !руинер !тг\", 3300], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 8 | ЛУЧШАЯ КОНЦОВКА | !tg !прогресс\", 4575], [\"stintik\", true, \"йоуууу не ждали\", 4125], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Точно последний стрим по игре\", 3300], [\"ghostik\", true, \"😎АБСОЛЮТНО БЕЗТІЛЬТОВИЙ СТРІМ, ЯКЩО ТІЛЬТАНУ - ІДУ в LoL😎Стата 2-0\", 1175], [\"keliencs\", true, \"NIP [1:0] Liquid | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 1675], [\"exigent_wires\", true, \"ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ !ивент\", 725], [\"hibako\", true, \"СРОЧНО ЗАХОДИ! ОЧЕНЬ БЫСТРО! ДА ЭТО БАЙТ НАЗВАНИЕ! ВСЕ РАВНО КРАСАВА! !hibako !tg\", 575], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 s1mple 1:1 Chinggis Warriors | PGL Major Singapore 2026 Stage 1 | @m3wsu  !бот\", 47125], [\"bysl4m\", true, \"GOSH [1:1] Chinggis Warriors | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 2 | @bySL4M @WorldEdit\", 15125], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | GOSH [1:1] Chinggis Warriors | PGL Major Singapore 2026: Stage 1 | BO3 | @little_cs, @siberiancaster & @Roma_roo\", 6375], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 7475], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 5525], [\"dmitry_lixxx\", true, \"[MAJOR] BC [1:1] Chinggis Warriors | PGL Major Singapore 2026 Stage 1 /w @Aunkere | !tg !winline !ЯО !ВТБ !avan\", 3375], [\"tpabomah\", true, \"С НУЛЯ ДО ИНТА, 7К ММР🔥!конкурс сборки !руинер !тг\", 3275], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 8 | ЛУЧШАЯ КОНЦОВКА | !tg !прогресс\", 4475], [\"stintik\", true, \"йоуууу не ждали\", 3950], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Точно последний стрим по игре\", 3350], [\"ghostik\", true, \"😎АБСОЛЮТНО БЕЗТІЛЬТОВИЙ СТРІМ, ЯКЩО ТІЛЬТАНУ - ІДУ в LoL😎Стата 2-0\", 1175], [\"keliencs\", true, \"NIP [1:0] Liquid | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 1675], [\"exigent_wires\", true, \"ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ !ивент\", 725], [\"hibako\", true, \"СРОЧНО ЗАХОДИ! ОЧЕНЬ БЫСТРО! ДА ЭТО БАЙТ НАЗВАНИЕ! ВСЕ РАВНО КРАСАВА! !hibako !tg\", 575], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
