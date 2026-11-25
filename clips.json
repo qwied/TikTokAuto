@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T11:57:05Z",
+ "updated": "2026-11-25T11:57:20Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,113 +15,113 @@
     "name": "strogo",
     "display": "twitch.tv/strogo",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 74780,
+    "title": "🔴 s1mple 1:1 Chinggis Warriors | PGL Major Singapore 2026 Stage 1 | @m3wsu  !бот"
    },
    {
     "name": "bysl4m",
     "display": "twitch.tv/bysl4m",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 20392,
+    "title": "GOSH [0:1] Chinggis Warriors | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 2 | @bySL4M @WorldEdit"
    },
    {
     "name": "cs2_paragon_ru",
     "display": "twitch.tv/cs2_paragon_ru",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 8206,
+    "title": "[RU] REDZONE | GOSH [1:1] Chinggis Warriors | PGL Major Singapore 2026: Stage 1 | BO3 | @little_cs, @siberiancaster & @Roma_roo"
    },
    {
     "name": "stariy_bog",
     "display": "twitch.tv/stariy_bog",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 6114,
+    "title": "ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ"
    },
    {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 5252,
+    "title": "ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel"
    },
    {
     "name": "dmitry_lixxx",
     "display": "twitch.tv/dmitry_lixxx",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 4123,
+    "title": "[MAJOR] BC [1:1] Chinggis Warriors | PGL Major Singapore 2026 Stage 1 /w @Aunkere | !tg !winline !ЯО !ВТБ !avan"
    },
    {
     "name": "tpabomah",
     "display": "twitch.tv/tpabomah",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 3254,
+    "title": "С НУЛЯ ДО ИНТА, 7К ММР🔥!конкурс сборки !руинер !тг"
    },
    {
     "name": "zloyn",
     "display": "twitch.tv/zloyn",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 3847,
+    "title": "МАРАФОН | GTA VI 🤯 | ДЕНЬ 8 | ЛУЧШАЯ КОНЦОВКА | !tg !прогресс"
    },
    {
     "name": "stintik",
     "display": "twitch.tv/stintik",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 3703,
+    "title": "йоуууу не ждали"
    },
    {
     "name": "blackufa",
     "display": "twitch.tv/blackufa",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 3276,
+    "title": "[DROPS] GTA 6 [PS5Pro] Точно последний стрим по игре"
    },
    {
     "name": "ghostik",
     "display": "twitch.tv/ghostik",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 1069,
+    "title": "😎АБСОЛЮТНО БЕЗТІЛЬТОВИЙ СТРІМ, ЯКЩО ТІЛЬТАНУ - ІДУ в LoL😎Стата 1-0"
    },
    {
     "name": "keliencs",
     "display": "twitch.tv/keliencs",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 879,
+    "title": "NIP [1:0] Liquid | PGL Major Singapore 2026 Stage 1 | !tg !fonbet"
    },
    {
     "name": "exigent_wires",
     "display": "twitch.tv/exigent_wires",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 695,
+    "title": "ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ !ивент"
    },
    {
     "name": "hibako",
     "display": "twitch.tv/hibako",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 589,
+    "title": "СРОЧНО ЗАХОДИ! ОЧЕНЬ БЫСТРО! ДА ЭТО БАЙТ НАЗВАНИЕ! ВСЕ РАВНО КРАСАВА! !hibako !tg"
    },
    {
     "name": "welovegames",
@@ -180,7 +180,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", false, \"\", 0], [\"bysl4m\", false, \"\", 0], [\"cs2_paragon_ru\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"dmitry_lixxx\", false, \"\", 0], [\"tpabomah\", false, \"\", 0], [\"zloyn\", false, \"\", 0], [\"stintik\", false, \"\", 0], [\"blackufa\", false, \"\", 0], [\"ghostik\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"exigent_wires\", false, \"\", 0], [\"hibako\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 s1mple 1:1 Chinggis Warriors | PGL Major Singapore 2026 Stage 1 | @m3wsu  !бот\", 74775], [\"bysl4m\", true, \"GOSH [0:1] Chinggis Warriors | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 2 | @bySL4M @WorldEdit\", 20400], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | GOSH [1:1] Chinggis Warriors | PGL Major Singapore 2026: Stage 1 | BO3 | @little_cs, @siberiancaster & @Roma_roo\", 8200], [\"stariy_bog\", true, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 6125], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 5250], [\"dmitry_lixxx\", true, \"[MAJOR] BC [1:1] Chinggis Warriors | PGL Major Singapore 2026 Stage 1 /w @Aunkere | !tg !winline !ЯО !ВТБ !avan\", 4125], [\"tpabomah\", true, \"С НУЛЯ ДО ИНТА, 7К ММР🔥!конкурс сборки !руинер !тг\", 3250], [\"zloyn\", true, \"МАРАФОН | GTA VI 🤯 | ДЕНЬ 8 | ЛУЧШАЯ КОНЦОВКА | !tg !прогресс\", 3850], [\"stintik\", true, \"йоуууу не ждали\", 3700], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Точно последний стрим по игре\", 3275], [\"ghostik\", true, \"😎АБСОЛЮТНО БЕЗТІЛЬТОВИЙ СТРІМ, ЯКЩО ТІЛЬТАНУ - ІДУ в LoL😎Стата 1-0\", 1075], [\"keliencs\", true, \"NIP [1:0] Liquid | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 875], [\"exigent_wires\", true, \"ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ !ивент\", 700], [\"hibako\", true, \"СРОЧНО ЗАХОДИ! ОЧЕНЬ БЫСТРО! ДА ЭТО БАЙТ НАЗВАНИЕ! ВСЕ РАВНО КРАСАВА! !hibako !tg\", 600], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
