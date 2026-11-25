@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T02:08:04Z",
+ "updated": "2026-11-25T02:09:23Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,9 +15,9 @@
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": true,
-    "viewers": 3353,
-    "title": "ИЗОЛЯЦИЯ ДЕНЬ 10 | ФИНАЛ ПРОХОЖДЕНИЯ GTA VI | !tg !donate !winline !ggsel"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "5opka",
@@ -25,27 +25,11 @@
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "РАССКАЗЫВАЮ ИСТОРИИ И ЧЁ-ТА ДЕЛАЮ // !донат !приватка !правила !funpay !тг"
+    "title": ""
    },
    {
     "name": "silvername",
     "display": "twitch.tv/silvername",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 1811,
-    "title": "Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг"
-   },
-   {
-    "name": "zer0truel0ve",
-    "display": "twitch.tv/zer0truel0ve",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": "[GTA6 120fps DLSS - 7 день] марафон 24/7 ФИНАЛ [DROPS Включены]"
-   },
-   {
-    "name": "rejiboi",
-    "display": "twitch.tv/rejiboi",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
@@ -55,9 +39,9 @@
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": true,
-    "viewers": 457,
-    "title": "ПОВТОР BLAST SLAM IX | Last Chance"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "welovegames",
@@ -116,7 +100,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | ФИНАЛ ПРОХОЖДЕНИЯ GTA VI | !tg !donate !winline !ggsel\", 3350], [\"5opka\", false, \"РАССКАЗЫВАЮ ИСТОРИИ И ЧЁ-ТА ДЕЛАЮ // !донат !приватка !правила !funpay !тг\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 1800], [\"zer0truel0ve\", false, \"[GTA6 120fps DLSS - 7 день] марафон 24/7 ФИНАЛ [DROPS Включены]\", 0], [\"rejiboi\", false, \"\", 0], [\"betboom_dota_ru\", true, \"ПОВТОР BLAST SLAM IX | Last Chance\", 450], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"silvername\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
