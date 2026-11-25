@@ -70,7 +70,7 @@ jobs:
           ls -la ~/.cache/streamclipper-ai/
 
       - name: Зависимости
-        run: pip install streamlink yt-dlp requests PyYAML numpy websocket-client faster-whisper pywebpush llama-cpp-python Pillow "opencv-python-headless>=4.9,<5"
+        run: pip install streamlink yt-dlp requests PyYAML numpy websocket-client faster-whisper pywebpush llama-cpp-python Pillow "opencv-python-headless>=4.9,<5" bgutil-ytdlp-pot-provider
 
       - name: FFmpeg (нарезка и склейка)
         run: |
@@ -79,6 +79,20 @@ jobs:
             sudo apt-get install -y --no-install-recommends ffmpeg
           fi
           ffmpeg -version | head -n 1
+
+      # PO-токены YouTube: без proof-of-origin YouTube не отдаёт стримы
+      # датацентровым IP (раннер получает «Sign in to confirm» или пустые
+      # форматы). Плагин bgutil-ytdlp-pot-provider (в requirements.txt) сам
+      # ходит на этот сервер и подкладывает токены в yt-dlp.
+      - name: PO-token сервер для YouTube (bgutil)
+        run: |
+          git clone --depth 1 https://github.com/Brainicism/bgutil-ytdlp-pot-provider.git /tmp/bgutil
+          cd /tmp/bgutil/server
+          npm install --no-audit --no-fund --silent
+          npx tsc
+          nohup node build/main.js -p 4416 > /tmp/bgutil.log 2>&1 &
+          sleep 4
+          curl -s http://127.0.0.1:4416/ping || (cat /tmp/bgutil.log && exit 1)
 
       # Запросы из окна на сайте (requests/*.json) -> в очередь jobs.json.
       # Файлы запросов удаляются, чтобы их не разбирали повторно.
