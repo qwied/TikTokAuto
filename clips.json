@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T05:32:20Z",
+ "updated": "2026-11-25T05:34:20Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -24,7 +24,7 @@
     "display": "twitch.tv/silvername",
     "platform": "twitch",
     "live": true,
-    "viewers": 2243,
+    "viewers": 2195,
     "title": "Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг"
    },
    {
@@ -32,7 +32,7 @@
     "display": "twitch.tv/followkudes",
     "platform": "twitch",
     "live": true,
-    "viewers": 650,
+    "viewers": 666,
     "title": "🔴БАШКИРСКАЯ КРЫСА  !TG !WINLINE"
    },
    {
@@ -44,7 +44,7 @@
     "title": "ПОВТОР BLAST SLAM IX | Last Chance"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | ФИНАЛ ПРОХОЖДЕНИЯ GTA VI | !tg !donate !winline !ggsel\", 4200], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 2250], [\"followkudes\", true, \"🔴БАШКИРСКАЯ КРЫСА  !TG !WINLINE\", 650], [\"betboom_dota_ru\", true, \"ПОВТОР BLAST SLAM IX | Last Chance\", 500]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | ФИНАЛ ПРОХОЖДЕНИЯ GTA VI | !tg !donate !winline !ggsel\", 4200], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 2200], [\"followkudes\", true, \"🔴БАШКИРСКАЯ КРЫСА  !TG !WINLINE\", 675], [\"betboom_dota_ru\", true, \"ПОВТОР BLAST SLAM IX | Last Chance\", 500]]"
  },
  "clips": [
   {
