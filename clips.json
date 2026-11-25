@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T00:38:20Z",
+ "updated": "2026-11-25T00:40:03Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -63,8 +63,8 @@
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": true,
-    "viewers": 440,
+    "live": false,
+    "viewers": 0,
     "title": "ПОВТОР BLAST SLAM IX | Last Chance"
    },
    {
@@ -124,7 +124,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | ФИНАЛ ПРОХОЖДЕНИЯ GTA VI | !tg !donate !winline !ggsel\", 3525], [\"stray228\", false, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 0], [\"5opka\", true, \"ПЕРЕРВЫЧИК НА ПОКУШАТЬ // !донат !приватка !правила !funpay !тг\", 3000], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 1825], [\"zer0truel0ve\", true, \"[GTA6 120fps DLSS - 7 день] марафон 24/7 ФИНАЛ [DROPS Включены]\", 1250], [\"rejiboi\", true, \"давай воровать машинки 6, 7 серия | 61% !tg\", 925], [\"betboom_dota_ru\", true, \"ПОВТОР BLAST SLAM IX | Last Chance\", 450], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | ФИНАЛ ПРОХОЖДЕНИЯ GTA VI | !tg !donate !winline !ggsel\", 3525], [\"stray228\", false, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 0], [\"5opka\", true, \"ПЕРЕРВЫЧИК НА ПОКУШАТЬ // !донат !приватка !правила !funpay !тг\", 3000], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 1825], [\"zer0truel0ve\", true, \"[GTA6 120fps DLSS - 7 день] марафон 24/7 ФИНАЛ [DROPS Включены]\", 1250], [\"rejiboi\", true, \"давай воровать машинки 6, 7 серия | 61% !tg\", 925], [\"betboom_dota_ru\", false, \"ПОВТОР BLAST SLAM IX | Last Chance\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
