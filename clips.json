@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T17:30:23Z",
+ "updated": "2026-11-25T17:30:37Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,49 +15,49 @@
     "name": "anarabdullaev",
     "display": "twitch.tv/anarabdullaev",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Ночной Бангкок /w Огр Эксити Жека Лера Вика Бабулики"
    },
    {
     "name": "bratishkinoff",
     "display": "twitch.tv/bratishkinoff",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🔴 2K 60 FPS 🔴 САМОЕ ДОЛГОЕ ПРОХОЖДЕНИЕ 🔴 ГЛАВА II 🔴 DAY 7 🔴"
    },
    {
     "name": "zubarefff",
     "display": "twitch.tv/zubarefff",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Прошлое может спустить курок 🩰 Смотрим «Балерина» 💥"
    },
    {
     "name": "t2x2",
     "display": "twitch.tv/t2x2",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф"
    },
    {
     "name": "sasavot",
     "display": "twitch.tv/sasavot",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ФИНАЛ/НАДЕЮСЬ"
    },
    {
     "name": "mafanyaking",
     "display": "twitch.tv/mafanyaking",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "подкаст с @kussia88 / !тг !донат !предложка"
    },
    {
     "name": "lenagol0vach",
@@ -215,17 +215,17 @@
     "name": "AlinaRin",
     "display": "youtube.com/@AlinaRin",
     "platform": "youtube",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "GTA VI ★★★★★★ РЕЛИЗ (2026) 【#7】"
    },
    {
     "name": "Okisebi",
     "display": "youtube.com/@Okisebi",
     "platform": "youtube",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🔴 LIVE! - GTA 6 mit KINO GRAFIK!"
    },
    {
     "name": "fadivs",
@@ -236,7 +236,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"anarabdullaev\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"zubarefff\", false, \"\", 0], [\"t2x2\", false, \"\", 0], [\"sasavot\", false, \"\", 0], [\"mafanyaking\", false, \"\", 0], [\"lenagol0vach\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"blackufa\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"uniquee\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"chopperinho\", false, \"\", 0], [\"blackrabbit342\", false, \"\", 0], [\"praden\", false, \"\", 0], [\"shiishak\", false, \"\", 0], [\"silvername\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"fadivs\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"anarabdullaev\", true, \"Ночной Бангкок /w Огр Эксити Жека Лера Вика Бабулики\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 САМОЕ ДОЛГОЕ ПРОХОЖДЕНИЕ 🔴 ГЛАВА II 🔴 DAY 7 🔴\", 0], [\"zubarefff\", true, \"Прошлое может спустить курок 🩰 Смотрим «Балерина» 💥\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф\", 0], [\"sasavot\", true, \"ФИНАЛ/НАДЕЮСЬ\", 0], [\"mafanyaking\", true, \"подкаст с @kussia88 / !тг !донат !предложка\", 0], [\"lenagol0vach\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"blackufa\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"uniquee\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"chopperinho\", false, \"\", 0], [\"blackrabbit342\", false, \"\", 0], [\"praden\", false, \"\", 0], [\"shiishak\", false, \"\", 0], [\"silvername\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", true, \"GTA VI ★★★★★★ РЕЛИЗ (2026) 【#7】\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit KINO GRAFIK!\", 0], [\"fadivs\", false, \"\", 0]]"
  },
  "clips": [
   {
