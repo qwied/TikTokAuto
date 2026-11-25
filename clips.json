@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T09:58:41Z",
+ "updated": "2026-11-25T09:58:54Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -52,12 +52,12 @@
     "title": "🔴 ИЩЕМ ПАСХАЛКИ В ГТА | !tg !winline !ЯО !ВТБ !avan"
    },
    {
-    "name": "followkudes",
-    "display": "twitch.tv/followkudes",
+    "name": "tpabomah",
+    "display": "twitch.tv/tpabomah",
     "platform": "twitch",
     "live": true,
-    "viewers": 801,
-    "title": "🔴БАШКИРСКАЯ КРЫСА  !TG !WINLINE"
+    "viewers": 3382,
+    "title": "С НУЛЯ ДО ИНТА, 7К ММР🔥!сборки !руинер !тг"
    },
    {
     "name": "keliencs",
@@ -68,12 +68,20 @@
     "title": "Imperial [0:1] FlyQuest | PGL Major Singapore 2026 Stage 1 | !tg !fonbet"
    },
    {
-    "name": "betboom_dota_ru",
-    "display": "twitch.tv/betboom_dota_ru",
+    "name": "alohadancetv",
+    "display": "twitch.tv/alohadancetv",
     "platform": "twitch",
     "live": true,
-    "viewers": 590,
-    "title": "ПОВТОР BLAST SLAM IX | Last Chance"
+    "viewers": 1244,
+    "title": "дорога к первому рангу ( proffesor mode ) хочу остаться позитивным и не сойти с ума !судимости !tg"
+   },
+   {
+    "name": "followkudes",
+    "display": "twitch.tv/followkudes",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 801,
+    "title": "🔴БАШКИРСКАЯ КРЫСА  !TG !WINLINE"
    },
    {
     "name": "exigent_wires",
@@ -84,28 +92,12 @@
     "title": "ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ !ивент"
    },
    {
-    "name": "ezpvp_lover",
-    "display": "twitch.tv/ezpvp_lover",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "tpabomah",
-    "display": "twitch.tv/tpabomah",
+    "name": "betboom_dota_ru",
+    "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
     "live": true,
-    "viewers": 3382,
-    "title": "С НУЛЯ ДО ИНТА, 7К ММР🔥!сборки !руинер !тг"
-   },
-   {
-    "name": "alohadancetv",
-    "display": "twitch.tv/alohadancetv",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 1244,
-    "title": "дорога к первому рангу ( proffesor mode ) хочу остаться позитивным и не сойти с ума !судимости !tg"
+    "viewers": 590,
+    "title": "ПОВТОР BLAST SLAM IX | Last Chance"
    },
    {
     "name": "hibako",
@@ -116,63 +108,15 @@
     "title": "СРОЧНО ЗАХОДИ! ОЧЕНЬ БЫСТРО! ДА ЭТО БАЙТ НАЗВАНИЕ! ВСЕ РАВНО КРАСАВА! !hibako !tg"
    },
    {
-    "name": "welovegames",
-    "display": "youtube.com/@welovegames",
-    "platform": "youtube",
+    "name": "ezpvp_lover",
+    "display": "twitch.tv/ezpvp_lover",
+    "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "bratishkinoff",
-    "display": "youtube.com/@bratishkinoff",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "KuplinovPlay",
-    "display": "youtube.com/@KuplinovPlay",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "5opka",
-    "display": "youtube.com/@5opka",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "stariy_bog",
-    "display": "youtube.com/@stariy_bog",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "AlinaRin",
-    "display": "youtube.com/@AlinaRin",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "Okisebi",
-    "display": "youtube.com/@Okisebi",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "title": "Церковь ЦЛК на WoWCircle! Потом мб Wow Forever"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 s1mple 0:0 Chinggis Warriors | PGL Major Singapore 2026 Stage 1 | @m3wsu  !бот\", 25700], [\"bysl4m\", true, \"Imperial [0:1] FlyQuest | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 2 | @bySL4M @WorldEdit\", 12050], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | GOSH [0:0] Chinggis Warriors | PGL Major Singapore 2026: Stage 1 | BO3 | @yarushkin1, @Lampaaa & @cybercracken\", 5200], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 5175], [\"dmitry_lixxx\", true, \"🔴 ИЩЕМ ПАСХАЛКИ В ГТА | !tg !winline !ЯО !ВТБ !avan\", 4575], [\"followkudes\", true, \"🔴БАШКИРСКАЯ КРЫСА  !TG !WINLINE\", 800], [\"keliencs\", true, \"Imperial [0:1] FlyQuest | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 1275], [\"betboom_dota_ru\", true, \"ПОВТОР BLAST SLAM IX | Last Chance\", 600], [\"exigent_wires\", true, \"ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ !ивент\", 675], [\"ezpvp_lover\", false, \"\", 0], [\"tpabomah\", true, \"С НУЛЯ ДО ИНТА, 7К ММР🔥!сборки !руинер !тг\", 3375], [\"alohadancetv\", true, \"дорога к первому рангу ( proffesor mode ) хочу остаться позитивным и не сойти с ума !судимости !tg\", 1250], [\"hibako\", true, \"СРОЧНО ЗАХОДИ! ОЧЕНЬ БЫСТРО! ДА ЭТО БАЙТ НАЗВАНИЕ! ВСЕ РАВНО КРАСАВА! !hibako !tg\", 650], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 s1mple 0:0 Chinggis Warriors | PGL Major Singapore 2026 Stage 1 | @m3wsu  !бот\", 25700], [\"bysl4m\", true, \"Imperial [0:1] FlyQuest | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 2 | @bySL4M @WorldEdit\", 12050], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | GOSH [0:0] Chinggis Warriors | PGL Major Singapore 2026: Stage 1 | BO3 | @yarushkin1, @Lampaaa & @cybercracken\", 5200], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 5175], [\"dmitry_lixxx\", true, \"🔴 ИЩЕМ ПАСХАЛКИ В ГТА | !tg !winline !ЯО !ВТБ !avan\", 4575], [\"tpabomah\", true, \"С НУЛЯ ДО ИНТА, 7К ММР🔥!сборки !руинер !тг\", 3375], [\"keliencs\", true, \"Imperial [0:1] FlyQuest | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 1275], [\"alohadancetv\", true, \"дорога к первому рангу ( proffesor mode ) хочу остаться позитивным и не сойти с ума !судимости !tg\", 1250], [\"followkudes\", true, \"🔴БАШКИРСКАЯ КРЫСА  !TG !WINLINE\", 800], [\"exigent_wires\", true, \"ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ !ивент\", 675], [\"betboom_dota_ru\", true, \"ПОВТОР BLAST SLAM IX | Last Chance\", 600], [\"hibako\", true, \"СРОЧНО ЗАХОДИ! ОЧЕНЬ БЫСТРО! ДА ЭТО БАЙТ НАЗВАНИЕ! ВСЕ РАВНО КРАСАВА! !hibako !tg\", 650], [\"ezpvp_lover\", false, \"Церковь ЦЛК на WoWCircle! Потом мб Wow Forever\", 0]]"
  },
  "clips": [
   {
