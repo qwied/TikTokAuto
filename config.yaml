@@ -80,7 +80,11 @@ youtube_discover:
 #   cookies_from_browser — или просто имя браузера: chrome | firefox | edge.
 youtube:
   cookies_file: ""
-  cookies_from_browser: ""
+  # Живые cookies прямо из браузера (локальный запуск на ноутбуке):
+  # YouTube протухает файловые cookies за минуты (ротация сессии), а
+  # cookies-from-browser всегда свежие. На GitHub Actions не действует —
+  # там стримы YouTube всё равно закрыты для датацентровых IP (2026-11-25).
+  cookies_from_browser: "chrome"
 
 # Язык речи стримера для субтитров: ru | en | auto
 speech_language: ru
