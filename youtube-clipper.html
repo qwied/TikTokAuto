@@ -183,6 +183,7 @@
 
     <button id="go" class="btn">Нарезать!</button>
     <button id="refresh" class="btn ghost" style="margin-top:8px">Обновить статусы</button>
+    <button id="loadq" class="btn ghost" style="margin-top:8px">Показать очередь бота (из репозитория)</button>
     <div class="batch-sum" id="batch-sum" hidden></div>
     <div class="batch-list" id="batch-list" hidden></div>
     <p id="msg" class="check-result"></p>
@@ -211,6 +212,8 @@
     <div class="howto">
       <div class="howto-title">Порядок</div>
       1. Ссылки уходят в очередь репозитория пакетами по 50 шт.<br>
+      Кнопка «Показать очередь бота» — весь список, который бот нарезает сам
+      (io-игры и т.п.), нарезанные зачёркнуты.<br>
       2. Через минуту стартует нарезка: скачивание → 9:16 → субтитры → баннер.<br>
       3. Клип за клипом появляются в ленте и постятся в TikTok.<br>
       4. Ссылки, которые бот уже нарезал, <b>зачеркнутся</b> в списке сами —
@@ -249,7 +252,7 @@
   var REPO_DEFAULT="qwied/TikTokAuto";
   var $=function(id){return document.getElementById(id)};
   var el={urls:$("urls"),mode:$("mode"),win:$("win"),limit:$("limit"),
-          start:$("start"),end:$("end"),go:$("go"),refresh:$("refresh"),msg:$("msg"),
+          start:$("start"),end:$("end"),go:$("go"),refresh:$("refresh"),loadq:$("loadq"),msg:$("msg"),
           batchSum:$("batch-sum"),batchList:$("batch-list"),
           repo:$("repo"),token:$("token"),tkSave:$("tk-save"),tkStatus:$("tk-status"),
           tkOk:$("tk-ok"),stRun:$("st-run"),stQueue:$("st-queue"),stClips:$("st-clips"),
@@ -402,6 +405,42 @@
   el.refresh.addEventListener("click",function(){
     refreshStatuses();
     setMsg("Статусы обновляются…","");
+  });
+
+  // Показать всю очередь бота из репозитория (jobs.json + уже нарезанные)
+  el.loadq.addEventListener("click",function(){
+    setMsg("Загружаю очередь из репозитория…","");
+    var jP=fetch("https://raw.githubusercontent.com/"+repo()+"/main/jobs.json?_="+Date.now())
+      .then(function(r){return r.ok?r.json():null});
+    var pP=fetch("https://raw.githubusercontent.com/"+repo()+"/main/processed.json?_="+Date.now())
+      .then(function(r){return r.ok?r.json():null});
+    Promise.all([jP,pP]).then(function(res){
+      var jobs=(res[0]&&res[0].jobs)||[];
+      var done=(res[1]&&res[1].done)||[];
+      var seen={},items=[],dIds={};
+      for(var i=0;i<done.length;i++){
+        var dv=vidFrom(done[i]);
+        if(dv)dIds[dv]=true;
+      }
+      for(var j=0;j<jobs.length;j++){
+        var v=vidFrom(jobs[j].url||"");
+        if(!v||seen[v])continue;
+        seen[v]=true;
+        items.push({vid:v,url:"https://www.youtube.com/watch?v="+v,state:dIds[v]?"done":"queued"});
+      }
+      for(var k in dIds){
+        if(!seen[k]){
+          seen[k]=true;
+          items.push({vid:k,url:"https://www.youtube.com/watch?v="+k,state:"done"});
+        }
+      }
+      if(!items.length){setMsg("Очередь бота пуста — кидай свои ссылки выше","err");return;}
+      batchItems=items.slice(0,BATCH_MAX);
+      lsSet(LS_BATCH,batchItems);
+      renderBatch();
+      var nd=0;for(var m=0;m<batchItems.length;m++)if(batchItems[m].state==="done")nd++;
+      setMsg("Очередь бота: "+batchItems.length+" ссылок, из них нарезано: "+nd+". Нарезанные зачёркнуты","ok");
+    }).catch(function(){setMsg("Не удалось загрузить очередь из репозитория","err")});
   });
 
   // --- отправка пакетами ------------------------------------------------------
