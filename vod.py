@@ -64,7 +64,13 @@ class NoFaceClip(Exception):
 
 
 def _cookies_args(cookies_file):
-    return ["--cookies", str(cookies_file)] if cookies_file else []
+    """Cookies для yt-dlp: файл Netscape ИЛИ "browser:chrome" — читать живые
+    cookies прямо из браузера (домашний IP + свежая сессия = YouTube качается
+    без ротаций и бот-чеков; файловые cookies протухают за минуты, 2026-11-25)."""
+    s = str(cookies_file or "")
+    if s.startswith("browser:"):
+        return ["--cookies-from-browser", s.split(":", 1)[1]]
+    return ["--cookies", s] if cookies_file else []
 
 
 def ytdlp_base(cookies_file=""):
