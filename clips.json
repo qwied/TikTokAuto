@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T15:27:24Z",
+ "updated": "2026-11-25T15:28:40Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -17,7 +17,7 @@
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "ЧИВИЛЯ В ТАЙЛАНДЕ ВСТРЕЧА РОЗЫ КОСТИ И ЧИВИЛИ 😂"
+    "title": ""
    },
    {
     "name": "bratishkinoff",
@@ -28,32 +28,16 @@
     "title": "🔴 2K 60 FPS 🔴 САМОЕ ДОЛГОЕ ПРОХОЖДЕНИЕ 🔴 ГЛАВА II 🔴 DAY 7 🔴"
    },
    {
-    "name": "t2x2",
-    "display": "twitch.tv/t2x2",
+    "name": "skywhywalker",
+    "display": "twitch.tv/skywhywalker",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch"
+    "title": ""
    },
    {
     "name": "stariy_bog",
     "display": "twitch.tv/stariy_bog",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": "ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ"
-   },
-   {
-    "name": "sasavot",
-    "display": "twitch.tv/sasavot",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "ФИНАЛ/НАДЕЮСЬ"
-   },
-   {
-    "name": "skywhywalker",
-    "display": "twitch.tv/skywhywalker",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
@@ -66,6 +50,14 @@
     "live": true,
     "viewers": 0,
     "title": "аккуратно превосходим других"
+   },
+   {
+    "name": "sasavot",
+    "display": "twitch.tv/sasavot",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "ФИНАЛ/НАДЕЮСЬ"
    },
    {
     "name": "chopperinho",
@@ -92,12 +84,12 @@
     "title": "[DROPS] GTA 6 [PS5Pro] Точно последний стрим по игре"
    },
    {
-    "name": "morphe_ya",
-    "display": "twitch.tv/morphe_ya",
+    "name": "zloyn",
+    "display": "twitch.tv/zloyn",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "ВПЕРВИЕ ХОЛОУ НАЙТ (без гайдов!) | !tg !winline !мышки !wb"
+    "title": ""
    },
    {
     "name": "stintik",
@@ -108,103 +100,55 @@
     "title": "йоуууу не ждали"
    },
    {
-    "name": "praden",
-    "display": "twitch.tv/praden",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Спейс Марина"
-   },
-   {
     "name": "ghostik",
     "display": "twitch.tv/ghostik",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "😎АБСОЛЮТНО БЕЗТІЛЬТОВИЙ СТРІМ, ЯКЩО ТІЛЬТАНУ - ІДУ в LoL😎Стата 4-2"
-   },
-   {
-    "name": "betboom_dota_ru",
-    "display": "twitch.tv/betboom_dota_ru",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": "Шоу ЖБ | BLAST SLAM IX | cast: @5Misha & @mrahillesko"
+    "title": ""
    },
    {
     "name": "bezp",
     "display": "twitch.tv/bezp",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "[EXCLUSIVE DROPS] Вотчпати турика !funpay"
+    "title": ""
+   },
+   {
+    "name": "t2x2",
+    "display": "twitch.tv/t2x2",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "morphe_ya",
+    "display": "twitch.tv/morphe_ya",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "welovegames",
     "display": "twitch.tv/welovegames",
     "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "GTA VI проходим на 100% | !гилан !ситилинк !ggsel !втб !dodo"
-   },
-   {
-    "name": "welovegames",
-    "display": "youtube.com/@welovegames",
-    "platform": "youtube",
     "live": false,
     "viewers": 0,
     "title": ""
    },
    {
-    "name": "bratishkinoff",
-    "display": "youtube.com/@bratishkinoff",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "KuplinovPlay",
-    "display": "youtube.com/@KuplinovPlay",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "5opka",
-    "display": "youtube.com/@5opka",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "stariy_bog",
-    "display": "youtube.com/@stariy_bog",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "AlinaRin",
-    "display": "youtube.com/@AlinaRin",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "Okisebi",
-    "display": "youtube.com/@Okisebi",
-    "platform": "youtube",
+    "name": "praden",
+    "display": "twitch.tv/praden",
+    "platform": "twitch",
     "live": false,
     "viewers": 0,
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"gadjiev57\", false, \"ЧИВИЛЯ В ТАЙЛАНДЕ ВСТРЕЧА РОЗЫ КОСТИ И ЧИВИЛИ 😂\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 САМОЕ ДОЛГОЕ ПРОХОЖДЕНИЕ 🔴 ГЛАВА II 🔴 DAY 7 🔴\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch\", 0], [\"stariy_bog\", false, \"ПАТЧ, НАШЕЛ ИМБУ, 16000 ММР, УСТАЛ, ПОДНИМАЮ РЕЙТИНГ, ПОД КЛАССИЧЕСКОЕ МУЗЫКАЛЬНОЕ СОПРОВОЖДЕНИЕ\", 0], [\"sasavot\", true, \"ФИНАЛ/НАДЕЮСЬ\", 0], [\"skywhywalker\", false, \"\", 0], [\"zxcursed\", true, \"аккуратно превосходим других\", 0], [\"chopperinho\", true, \"ПРЕМЬЕР С ЧАТТЕРСАМИ, БАЛДЕЕМ | !bb !tg !yt\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Точно последний стрим по игре\", 0], [\"morphe_ya\", true, \"ВПЕРВИЕ ХОЛОУ НАЙТ (без гайдов!) | !tg !winline !мышки !wb\", 0], [\"stintik\", true, \"йоуууу не ждали\", 0], [\"praden\", true, \"Спейс Марина\", 0], [\"ghostik\", false, \"😎АБСОЛЮТНО БЕЗТІЛЬТОВИЙ СТРІМ, ЯКЩО ТІЛЬТАНУ - ІДУ в LoL😎Стата 4-2\", 0], [\"betboom_dota_ru\", false, \"Шоу ЖБ | BLAST SLAM IX | cast: @5Misha & @mrahillesko\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 0], [\"welovegames\", true, \"GTA VI проходим на 100% | !гилан !ситилинк !ggsel !втб !dodo\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"gadjiev57\", false, \"\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 САМОЕ ДОЛГОЕ ПРОХОЖДЕНИЕ 🔴 ГЛАВА II 🔴 DAY 7 🔴\", 0], [\"skywhywalker\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"zxcursed\", true, \"аккуратно превосходим других\", 0], [\"sasavot\", true, \"ФИНАЛ/НАДЕЮСЬ\", 0], [\"chopperinho\", true, \"ПРЕМЬЕР С ЧАТТЕРСАМИ, БАЛДЕЕМ | !bb !tg !yt\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Точно последний стрим по игре\", 0], [\"zloyn\", false, \"\", 0], [\"stintik\", true, \"йоуууу не ждали\", 0], [\"ghostik\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"t2x2\", false, \"\", 0], [\"morphe_ya\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"praden\", false, \"\", 0]]"
  },
  "clips": [
   {
