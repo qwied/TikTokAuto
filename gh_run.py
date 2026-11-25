@@ -1553,6 +1553,27 @@ def enqueue_vod_jobs(gh, refs, live_keys):
     return added
 
 
+def yt_cookies_resolved(yt):
+    """Cookies для yt-dlp в любом воркфлоу: config youtube.cookies_file,
+    иначе секрет YOUTUBE_COOKIES_FILE (путь ИЛИ сам файл Netscape — тогда
+    пишем его в cookies_secret.txt рядом с кодом). Единая логика с --vod,
+    чтобы и Check live, и Monitor качали YouTube без бот-чека (2026-11-25)."""
+    c = str((yt or {}).get("cookies_file") or "")
+    if c and os.path.isfile(c):
+        return c
+    env = os.environ.get("YOUTUBE_COOKIES_FILE", "").strip()
+    if env and not os.path.isfile(env) and ("youtube" in env or env.startswith("#")):
+        try:
+            p = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                             "cookies_secret.txt")
+            with open(p, "w", encoding="utf-8") as f:
+                f.write(env if env.endswith("\n") else env + "\n")
+            return p
+        except OSError:
+            pass
+    return c
+
+
 def probe_live(refs, cfg, wait_s=PROBE_WAIT):
     """Одна проверка «кто в эфире» тем же кодом, что и постоянный монитор.
 
@@ -1563,7 +1584,7 @@ def probe_live(refs, cfg, wait_s=PROBE_WAIT):
     yt = cfg.get("youtube", {}) or {}
     mon = StreamMonitor(channels=refs, quality="best", poll_twitch=2,
                         poll_youtube=3, yt_workers=3,
-                        cookies_file=str(yt.get("cookies_file") or ""),
+                        cookies_file=yt_cookies_resolved(yt),
                         cookies_from_browser=str(yt.get("cookies_from_browser") or ""),
                         links_file=None, refresh_refs=lambda: refs,
                         on_live=lambda ch: None, on_offline=lambda ch: None)
@@ -1945,7 +1966,7 @@ def run_check_loop(max_minutes=CHECK_LOOP_MIN):
     refs = current_refs()
     mon = StreamMonitor(channels=live_refs(refs), quality="best", poll_twitch=2,
                         poll_youtube=3, yt_workers=3,
-                        cookies_file=str(yt.get("cookies_file") or ""),
+                        cookies_file=yt_cookies_resolved(yt),
                         cookies_from_browser=str(yt.get("cookies_from_browser") or ""),
                         links_file=None,
                         refresh_refs=lambda: live_refs(current_refs()),
