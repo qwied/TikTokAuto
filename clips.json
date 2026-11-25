@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T05:51:26Z",
+ "updated": "2026-11-25T05:51:41Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,33 +15,33 @@
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 4097,
+    "title": "ИЗОЛЯЦИЯ ДЕНЬ 10 | ФИНАЛ ПРОХОЖДЕНИЯ GTA VI | !tg !donate !winline !ggsel"
    },
    {
     "name": "silvername",
     "display": "twitch.tv/silvername",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 2224,
+    "title": "Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг"
    },
    {
     "name": "followkudes",
     "display": "twitch.tv/followkudes",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 687,
+    "title": "🔴БАШКИРСКАЯ КРЫСА  !TG !WINLINE"
    },
    {
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 502,
+    "title": "ПОВТОР BLAST SLAM IX | Last Chance"
    },
    {
     "name": "welovegames",
@@ -103,12 +103,12 @@
     "name": "strogo",
     "display": "twitch.tv/strogo",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 4354,
+    "title": "🔴 Eternal Fire vs 100 Thieves | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"silvername\", false, \"\", 0], [\"followkudes\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"strogo\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | ФИНАЛ ПРОХОЖДЕНИЯ GTA VI | !tg !donate !winline !ggsel\", 4100], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 2225], [\"followkudes\", true, \"🔴БАШКИРСКАЯ КРЫСА  !TG !WINLINE\", 675], [\"betboom_dota_ru\", true, \"ПОВТОР BLAST SLAM IX | Last Chance\", 500], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"strogo\", true, \"🔴 Eternal Fire vs 100 Thieves | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 4350]]"
  },
  "clips": [
   {
