@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T18:58:06Z",
+ "updated": "2026-11-25T19:01:21Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -28,14 +28,6 @@
     "title": "🔴 2K 60 FPS 🔴 САМОЕ ДОЛГОЕ ПРОХОЖДЕНИЕ 🔴 ГЛАВА II 🔴 DAY 7 🔴"
    },
    {
-    "name": "lesn4ok",
-    "display": "twitch.tv/lesn4ok",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "🌲ИГРАЕМ В ДОТУ НА МЕЙНЕ🌲ТЕСТИРУЕМ ПАТЧ 7.42а🌲"
-   },
-   {
     "name": "zubarefff",
     "display": "twitch.tv/zubarefff",
     "platform": "twitch",
@@ -44,100 +36,76 @@
     "title": "Прошлое может спустить курок 🩰 Смотрим «Балерина» 💥"
    },
    {
-    "name": "sasavot",
-    "display": "twitch.tv/sasavot",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "ФИНАЛ/НАДЕЮСЬ"
-   },
-   {
     "name": "t2x2",
     "display": "twitch.tv/t2x2",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф"
+    "title": ""
    },
    {
-    "name": "egorkreed",
-    "display": "twitch.tv/egorkreed",
+    "name": "sasavot",
+    "display": "twitch.tv/sasavot",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "если не пройду ГТА6 - вы бреетесь налысо. 4К , DLSS + 60 fps. Марафон ДЕНЬ 6 🏎️💨"
+    "title": ""
    },
    {
-    "name": "fadivs",
-    "display": "twitch.tv/fadivs",
+    "name": "mafanyaking",
+    "display": "twitch.tv/mafanyaking",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "сол балдармен кс ойнап / molodoy- glaz her1tage jokhar / delay 20sec"
+    "title": ""
    },
    {
     "name": "lenagol0vach",
     "display": "twitch.tv/lenagol0vach",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "🏆 НОВЫЙ ПАТЧ 7.42 🏆 ПУТЬ В ТОП 100 🏆  ЖЕСТКИЙ АП ММР 🍔 БЫЛО 15к ММР 🍆 ТЕСТИМ НОВЫЙ ПАТЧ ⭐ НАШЕЛ ИМБУ ПАТЧА ⭐🧀🏆⭐"
+    "title": ""
    },
    {
     "name": "5opka",
     "display": "twitch.tv/5opka",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "КАЙФУЕМ В ГТА 6 // !донат !приватка !правила !funpay !тг"
+    "title": ""
+   },
+   {
+    "name": "blackufa",
+    "display": "twitch.tv/blackufa",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "welovegames",
     "display": "twitch.tv/welovegames",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "GTA VI проходим на 100% | !гилан !ситилинк !ggsel !втб !dodo"
+    "title": ""
    },
    {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel"
+    "title": ""
    },
    {
     "name": "keliencs",
     "display": "twitch.tv/keliencs",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "СКАЗАЛИ ЕСЛИ НЕ АПНУ 4К, КИКНУТ ИЗ WW... | !tg !fonbet"
-   },
-   {
-    "name": "silvername",
-    "display": "twitch.tv/silvername",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг"
-   },
-   {
-    "name": "rejiboi",
-    "display": "twitch.tv/rejiboi",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "давай воровать машинки 6, 8 серия | 65% !tg"
-   },
-   {
-    "name": "blackrabbit342",
-    "display": "twitch.tv/blackrabbit342",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "гринд человеческий  !bb"
+    "title": ""
    },
    {
     "name": "uniquee",
@@ -148,39 +116,127 @@
     "title": ""
    },
    {
-    "name": "shiishak",
-    "display": "twitch.tv/shiishak",
+    "name": "rejiboi",
+    "display": "twitch.tv/rejiboi",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB"
+    "title": ""
+   },
+   {
+    "name": "chopperinho",
+    "display": "twitch.tv/chopperinho",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "blackrabbit342",
+    "display": "twitch.tv/blackrabbit342",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "praden",
     "display": "twitch.tv/praden",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Спейс Марина"
+    "title": ""
    },
    {
-    "name": "tixerok",
-    "display": "twitch.tv/tixerok",
+    "name": "shiishak",
+    "display": "twitch.tv/shiishak",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Позитив ✅ Скилл ✅ Юмор ✅ Скуф ✅"
+    "title": ""
+   },
+   {
+    "name": "silvername",
+    "display": "twitch.tv/silvername",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "bezp",
     "display": "twitch.tv/bezp",
     "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "egorkreed",
+    "display": "twitch.tv/egorkreed",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "welovegames",
+    "display": "youtube.com/@welovegames",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "bratishkinoff",
+    "display": "youtube.com/@bratishkinoff",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "KuplinovPlay",
+    "display": "youtube.com/@KuplinovPlay",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "5opka",
+    "display": "youtube.com/@5opka",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "stariy_bog",
+    "display": "youtube.com/@stariy_bog",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "AlinaRin",
+    "display": "youtube.com/@AlinaRin",
+    "platform": "youtube",
     "live": true,
     "viewers": 0,
-    "title": "[EXCLUSIVE DROPS] Вотчпати турика !funpay"
+    "title": "GTA VI ★★★★★★ РЕЛИЗ (2026) 【#7】"
+   },
+   {
+    "name": "Okisebi",
+    "display": "youtube.com/@Okisebi",
+    "platform": "youtube",
+    "live": true,
+    "viewers": 0,
+    "title": "🔴 LIVE! - GTA 6 mit KINO GRAFIK!"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"anarabdullaev\", false, \"\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 САМОЕ ДОЛГОЕ ПРОХОЖДЕНИЕ 🔴 ГЛАВА II 🔴 DAY 7 🔴\", 0], [\"lesn4ok\", true, \"🌲ИГРАЕМ В ДОТУ НА МЕЙНЕ🌲ТЕСТИРУЕМ ПАТЧ 7.42а🌲\", 0], [\"zubarefff\", true, \"Прошлое может спустить курок 🩰 Смотрим «Балерина» 💥\", 0], [\"sasavot\", true, \"ФИНАЛ/НАДЕЮСЬ\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф\", 0], [\"egorkreed\", true, \"если не пройду ГТА6 - вы бреетесь налысо. 4К , DLSS + 60 fps. Марафон ДЕНЬ 6 🏎️💨\", 0], [\"fadivs\", true, \"сол балдармен кс ойнап / molodoy- glaz her1tage jokhar / delay 20sec\", 0], [\"lenagol0vach\", true, \"🏆 НОВЫЙ ПАТЧ 7.42 🏆 ПУТЬ В ТОП 100 🏆  ЖЕСТКИЙ АП ММР 🍔 БЫЛО 15к ММР 🍆 ТЕСТИМ НОВЫЙ ПАТЧ ⭐ НАШЕЛ ИМБУ ПАТЧА ⭐🧀🏆⭐\", 0], [\"5opka\", true, \"КАЙФУЕМ В ГТА 6 // !донат !приватка !правила !funpay !тг\", 0], [\"welovegames\", true, \"GTA VI проходим на 100% | !гилан !ситилинк !ggsel !втб !dodo\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 0], [\"keliencs\", true, \"СКАЗАЛИ ЕСЛИ НЕ АПНУ 4К, КИКНУТ ИЗ WW... | !tg !fonbet\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 8 серия | 65% !tg\", 0], [\"blackrabbit342\", true, \"гринд человеческий  !bb\", 0], [\"uniquee\", false, \"\", 0], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB\", 0], [\"praden\", true, \"Спейс Марина\", 0], [\"tixerok\", true, \"Позитив ✅ Скилл ✅ Юмор ✅ Скуф ✅\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"anarabdullaev\", false, \"\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 САМОЕ ДОЛГОЕ ПРОХОЖДЕНИЕ 🔴 ГЛАВА II 🔴 DAY 7 🔴\", 0], [\"zubarefff\", true, \"Прошлое может спустить курок 🩰 Смотрим «Балерина» 💥\", 0], [\"t2x2\", false, \"\", 0], [\"sasavot\", false, \"\", 0], [\"mafanyaking\", false, \"\", 0], [\"lenagol0vach\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"blackufa\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"uniquee\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"chopperinho\", false, \"\", 0], [\"blackrabbit342\", false, \"\", 0], [\"praden\", false, \"\", 0], [\"shiishak\", false, \"\", 0], [\"silvername\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"egorkreed\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", true, \"GTA VI ★★★★★★ РЕЛИЗ (2026) 【#7】\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit KINO GRAFIK!\", 0]]"
  },
  "clips": [
   {
