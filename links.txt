@@ -1,16 +1,26 @@
 # ============================================================
 #  StreamClipper — ссылки на стримеров
-#  Вставьте по одной ссылке в строку и сохраните файл.
-#  Программа подхватит изменения за несколько секунд, перезапуск не нужен.
+#  Фиксированный список ТОП русскоязычных стримеров.
+#  Постоянная слежка 24/7: эти каналы никогда не удаляются,
+#  автопоиск только ДОБАВЛЯЕТ остальных сверху.
 #
-#  Можно кидать в любом виде:
-#    twitch.tv/ник
-#    https://www.twitch.tv/ник
-#    https://www.youtube.com/@канал
-#    https://www.youtube.com/channel/UCxxxx
-#    https://www.youtube.com/watch?v=VIDEO      (прямая ссылка на трансляцию)
-#
+#  Пополняется руками (просто вставьте ссылку ниже).
 #  Строки, начинающиеся с # — комментарии, они не учитываются.
-#  Ещё способ: пришлите ссылку боту в Telegram — она добавится сюда сама.
 # ============================================================
 
+# --- Запрос пользователя 2026-11-25: «Buster, Bratishkin и такие прочие» ---
+https://www.twitch.tv/buster
+https://www.twitch.tv/bratishkinoff
+https://www.twitch.tv/melharucos
+https://www.twitch.tv/evelone192
+https://www.twitch.tv/evelone2004
+https://www.twitch.tv/silvername
+https://www.twitch.tv/leva2k
+https://www.twitch.tv/5opka
+https://www.twitch.tv/zhekan
+https://www.twitch.tv/chipsa
+https://www.twitch.tv/s1mple
+https://www.twitch.tv/t2x2
+https://www.twitch.tv/koreshzy
+https://www.twitch.tv/strogo
+https://www.twitch.tv/deepins02
