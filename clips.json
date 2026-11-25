@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T18:25:58Z",
+ "updated": "2026-11-25T18:26:06Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -17,95 +17,127 @@
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "Ночной Бангкок /w Огр Эксити Жека Лера Вика Бабулики"
+    "title": ""
    },
    {
     "name": "bratishkinoff",
     "display": "twitch.tv/bratishkinoff",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "🔴 2K 60 FPS 🔴 САМОЕ ДОЛГОЕ ПРОХОЖДЕНИЕ 🔴 ГЛАВА II 🔴 DAY 7 🔴"
+    "title": ""
+   },
+   {
+    "name": "lesn4ok",
+    "display": "twitch.tv/lesn4ok",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "zubarefff",
     "display": "twitch.tv/zubarefff",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Прошлое может спустить курок 🩰 Смотрим «Балерина» 💥"
-   },
-   {
-    "name": "t2x2",
-    "display": "twitch.tv/t2x2",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф"
+    "title": ""
    },
    {
     "name": "sasavot",
     "display": "twitch.tv/sasavot",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "ФИНАЛ/НАДЕЮСЬ"
+    "title": ""
    },
    {
-    "name": "mafanyaking",
-    "display": "twitch.tv/mafanyaking",
+    "name": "t2x2",
+    "display": "twitch.tv/t2x2",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "подкаст с @kussia88 / !тг !донат !предложка"
+    "title": ""
+   },
+   {
+    "name": "egorkreed",
+    "display": "twitch.tv/egorkreed",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "fadivs",
+    "display": "twitch.tv/fadivs",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "lenagol0vach",
     "display": "twitch.tv/lenagol0vach",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "🏆 НОВЫЙ ПАТЧ 7.42 🏆 ПУТЬ В ТОП 100 🏆  ЖЕСТКИЙ АП ММР 🍔 БЫЛО 15к ММР 🍆 ТЕСТИМ НОВЫЙ ПАТЧ ⭐ НАШЕЛ ИМБУ ПАТЧА ⭐🧀🏆⭐"
+    "title": ""
    },
    {
     "name": "5opka",
     "display": "twitch.tv/5opka",
     "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "КАЙФУЕМ В ГТА 6 // !донат !приватка !правила !funpay !тг"
-   },
-   {
-    "name": "blackufa",
-    "display": "twitch.tv/blackufa",
-    "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "[DROPS] GTA 6 [PS5Pro] Точно последний стрим по игре"
+    "title": ""
    },
    {
     "name": "welovegames",
     "display": "twitch.tv/welovegames",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "GTA VI проходим на 100% | !гилан !ситилинк !ggsel !втб !dodo"
+    "title": ""
    },
    {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel"
+    "title": ""
    },
    {
     "name": "keliencs",
     "display": "twitch.tv/keliencs",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "СКАЗАЛИ ЕСЛИ НЕ АПНУ 4К, КИКНУТ ИЗ WW... | !tg !fonbet"
+    "title": ""
+   },
+   {
+    "name": "silvername",
+    "display": "twitch.tv/silvername",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "rejiboi",
+    "display": "twitch.tv/rejiboi",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "blackrabbit342",
+    "display": "twitch.tv/blackrabbit342",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "uniquee",
@@ -113,63 +145,39 @@
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "top 180 ranked tryhard✔️я гуль✔️"
-   },
-   {
-    "name": "rejiboi",
-    "display": "twitch.tv/rejiboi",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "давай воровать машинки 6, 8 серия | 65% !tg"
-   },
-   {
-    "name": "chopperinho",
-    "display": "twitch.tv/chopperinho",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": "ПРОДОЛЖЕМ ПУТЬ В ТЁМНЫХ ДУШАХ 3 | !bb !tg !yt"
-   },
-   {
-    "name": "blackrabbit342",
-    "display": "twitch.tv/blackrabbit342",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "гринд человеческий  !bb"
-   },
-   {
-    "name": "praden",
-    "display": "twitch.tv/praden",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Спейс Марина"
+    "title": ""
    },
    {
     "name": "shiishak",
     "display": "twitch.tv/shiishak",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB"
+    "title": ""
    },
    {
-    "name": "silvername",
-    "display": "twitch.tv/silvername",
+    "name": "praden",
+    "display": "twitch.tv/praden",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг"
+    "title": ""
+   },
+   {
+    "name": "tixerok",
+    "display": "twitch.tv/tixerok",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "bezp",
     "display": "twitch.tv/bezp",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "[EXCLUSIVE DROPS] Вотчпати турика !funpay"
+    "title": ""
    },
    {
     "name": "welovegames",
@@ -215,52 +223,20 @@
     "name": "AlinaRin",
     "display": "youtube.com/@AlinaRin",
     "platform": "youtube",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "GTA VI ★★★★★★ РЕЛИЗ (2026) 【#7】"
+    "title": ""
    },
    {
     "name": "Okisebi",
     "display": "youtube.com/@Okisebi",
     "platform": "youtube",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "🔴 LIVE! - GTA 6 mit KINO GRAFIK!"
-   },
-   {
-    "name": "fadivs",
-    "display": "twitch.tv/fadivs",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "сол балдармен кс ойнап / molodoy- glaz her1tage jokhar / delay 20sec"
-   },
-   {
-    "name": "lesn4ok",
-    "display": "twitch.tv/lesn4ok",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "🌲голосуем на слей🌲"
-   },
-   {
-    "name": "egorkreed",
-    "display": "twitch.tv/egorkreed",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "если не пройду ГТА6 - вы бреетесь налысо. 4К , DLSS + 60 fps. Марафон ДЕНЬ 6 🏎️💨"
-   },
-   {
-    "name": "tixerok",
-    "display": "twitch.tv/tixerok",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Позитив ✅ Скилл ✅ Юмор ✅ Скуф ✅"
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"anarabdullaev\", false, \"Ночной Бангкок /w Огр Эксити Жека Лера Вика Бабулики\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 САМОЕ ДОЛГОЕ ПРОХОЖДЕНИЕ 🔴 ГЛАВА II 🔴 DAY 7 🔴\", 0], [\"zubarefff\", true, \"Прошлое может спустить курок 🩰 Смотрим «Балерина» 💥\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф\", 0], [\"sasavot\", true, \"ФИНАЛ/НАДЕЮСЬ\", 0], [\"mafanyaking\", false, \"подкаст с @kussia88 / !тг !донат !предложка\", 0], [\"lenagol0vach\", true, \"🏆 НОВЫЙ ПАТЧ 7.42 🏆 ПУТЬ В ТОП 100 🏆  ЖЕСТКИЙ АП ММР 🍔 БЫЛО 15к ММР 🍆 ТЕСТИМ НОВЫЙ ПАТЧ ⭐ НАШЕЛ ИМБУ ПАТЧА ⭐🧀🏆⭐\", 0], [\"5opka\", true, \"КАЙФУЕМ В ГТА 6 // !донат !приватка !правила !funpay !тг\", 0], [\"blackufa\", false, \"[DROPS] GTA 6 [PS5Pro] Точно последний стрим по игре\", 0], [\"welovegames\", true, \"GTA VI проходим на 100% | !гилан !ситилинк !ggsel !втб !dodo\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 0], [\"keliencs\", true, \"СКАЗАЛИ ЕСЛИ НЕ АПНУ 4К, КИКНУТ ИЗ WW... | !tg !fonbet\", 0], [\"uniquee\", false, \"top 180 ranked tryhard✔️я гуль✔️\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 8 серия | 65% !tg\", 0], [\"chopperinho\", false, \"ПРОДОЛЖЕМ ПУТЬ В ТЁМНЫХ ДУШАХ 3 | !bb !tg !yt\", 0], [\"blackrabbit342\", true, \"гринд человеческий  !bb\", 0], [\"praden\", true, \"Спейс Марина\", 0], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", true, \"GTA VI ★★★★★★ РЕЛИЗ (2026) 【#7】\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit KINO GRAFIK!\", 0], [\"fadivs\", true, \"сол балдармен кс ойнап / molodoy- glaz her1tage jokhar / delay 20sec\", 0], [\"lesn4ok\", true, \"🌲голосуем на слей🌲\", 0], [\"egorkreed\", true, \"если не пройду ГТА6 - вы бреетесь налысо. 4К , DLSS + 60 fps. Марафон ДЕНЬ 6 🏎️💨\", 0], [\"tixerok\", true, \"Позитив ✅ Скилл ✅ Юмор ✅ Скуф ✅\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"anarabdullaev\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"lesn4ok\", false, \"\", 0], [\"zubarefff\", false, \"\", 0], [\"sasavot\", false, \"\", 0], [\"t2x2\", false, \"\", 0], [\"egorkreed\", false, \"\", 0], [\"fadivs\", false, \"\", 0], [\"lenagol0vach\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"silvername\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"blackrabbit342\", false, \"\", 0], [\"uniquee\", false, \"\", 0], [\"shiishak\", false, \"\", 0], [\"praden\", false, \"\", 0], [\"tixerok\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
