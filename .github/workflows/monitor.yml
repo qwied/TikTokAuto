@@ -93,6 +93,7 @@ jobs:
           NOTIFY_WEBHOOK_URL: ${{ secrets.NOTIFY_WEBHOOK_URL }}
           VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}
           VAPID_SUB: ${{ secrets.VAPID_SUB }}
+          YOUTUBE_COOKIES_FILE: ${{ secrets.YOUTUBE_COOKIES_FILE }}   # YouTube без бот-чека (2026-11-25)
         run: python gh_run.py --monitor --channel "${{ inputs.channel }}" --max-minutes 100
         # --max-minutes 100 (было 280): смена короче — зависший прогон не
         # держит ворота «Monitor уже работает» часами; после смены финальная
