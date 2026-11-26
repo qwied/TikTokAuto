@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T07:41:11Z",
+ "updated": "2026-11-26T07:43:12Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -24,7 +24,7 @@
     "display": "twitch.tv/bysl4m",
     "platform": "twitch",
     "live": true,
-    "viewers": 9521,
+    "viewers": 9796,
     "title": "HEROIC [1:0] FaZe | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 3 | @FANAT_ROCKA @xryst_t"
    },
    {
@@ -32,7 +32,7 @@
     "display": "twitch.tv/cs2_paragon_ru",
     "platform": "twitch",
     "live": true,
-    "viewers": 5230,
+    "viewers": 5545,
     "title": "[RU] REDZONE | HEROIC [1:0] FaZe Clan | PGL Major Singapore 2026: Stage 1 | BO3 | @yarushkin1, @Lampaaa & @cybercracken"
    },
    {
@@ -40,7 +40,7 @@
     "display": "twitch.tv/bobito217",
     "platform": "twitch",
     "live": true,
-    "viewers": 3565,
+    "viewers": 3850,
     "title": "игры с максимчиком"
    },
    {
@@ -64,7 +64,7 @@
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
     "live": true,
-    "viewers": 1240,
+    "viewers": 1171,
     "title": "ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel"
    },
    {
@@ -72,7 +72,7 @@
     "display": "twitch.tv/keliencs",
     "platform": "twitch",
     "live": true,
-    "viewers": 602,
+    "viewers": 523,
     "title": "M80 [1:1] Eternal Fire | PGL Major Singapore 2026 Stage 1 | !tg !fonbet"
    },
    {
@@ -132,7 +132,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 HEROIC 1:0 FaZe | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 26600], [\"bysl4m\", true, \"HEROIC [1:0] FaZe | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 3 | @FANAT_ROCKA @xryst_t\", 9525], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | HEROIC [1:0] FaZe Clan | PGL Major Singapore 2026: Stage 1 | BO3 | @yarushkin1, @Lampaaa & @cybercracken\", 5225], [\"bobito217\", true, \"игры с максимчиком\", 3575], [\"enzzai\", true, \"🏝️ПХУКЕТ | РЫБАЛКА | ДЕНЬ 26 W/ @DJAFARX @WHYLOLLYCRY | !GGSEL !ВТБ !SLAY\", 3525], [\"justcooman\", true, \"КАЛИБРОВКА (7965 откалибровался)\", 3775], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 1250], [\"keliencs\", true, \"M80 [1:1] Eternal Fire | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 600], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 HEROIC 1:0 FaZe | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 26600], [\"bysl4m\", true, \"HEROIC [1:0] FaZe | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 3 | @FANAT_ROCKA @xryst_t\", 9800], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | HEROIC [1:0] FaZe Clan | PGL Major Singapore 2026: Stage 1 | BO3 | @yarushkin1, @Lampaaa & @cybercracken\", 5550], [\"bobito217\", true, \"игры с максимчиком\", 3850], [\"enzzai\", true, \"🏝️ПХУКЕТ | РЫБАЛКА | ДЕНЬ 26 W/ @DJAFARX @WHYLOLLYCRY | !GGSEL !ВТБ !SLAY\", 3525], [\"justcooman\", true, \"КАЛИБРОВКА (7965 откалибровался)\", 3775], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 1175], [\"keliencs\", true, \"M80 [1:1] Eternal Fire | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 525], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
