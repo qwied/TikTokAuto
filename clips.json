@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T02:05:20Z",
+ "updated": "2026-11-26T02:06:20Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -16,7 +16,7 @@
     "display": "twitch.tv/oregiru",
     "platform": "twitch",
     "live": true,
-    "viewers": 7429,
+    "viewers": 2229,
     "title": "самый тупой сет на тампларку"
    },
    {
@@ -32,7 +32,7 @@
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
     "live": true,
-    "viewers": 1089,
+    "viewers": 1148,
     "title": "ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel"
    },
    {
@@ -92,7 +92,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"oregiru\", true, \"самый тупой сет на тампларку\", 7425], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 1950], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 1100], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"oregiru\", true, \"самый тупой сет на тампларку\", 2225], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 1950], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 1150], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
