@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T08:55:03Z",
+ "updated": "2026-11-26T08:55:33Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -33,7 +33,7 @@
     "platform": "twitch",
     "live": true,
     "viewers": 3816,
-    "title": "[RU] REDZONE | HEROIC [2:1] FaZe Clan | PGL Major Singapore 2026: Stage 1 | BO3 | @little_cs, @yarushkin1 & @cybercracken"
+    "title": "[RU] REDZONE | Lynn Vision Gaming [0:0] PVISION | PGL Major Singapore 2026: Stage 1 | BO3 | @little_cs & @cybercracken"
    },
    {
     "name": "enzzai",
@@ -72,7 +72,7 @@
     "display": "twitch.tv/hibako",
     "platform": "twitch",
     "live": true,
-    "viewers": 607,
+    "viewers": 597,
     "title": "СРОЧНО ЗАХОДИ! ОЧЕНЬ БЫСТРО! ДА ЭТО БАЙТ НАЗВАНИЕ! ВСЕ РАВНО КРАСАВА! !hibako !tg"
    },
    {
@@ -140,7 +140,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 PV 0:0 Lynn Vision | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 22175], [\"bysl4m\", true, \"Lynn Vision [0:0] PVISION | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 3 | @bySL4M @WorldEdit\", 7275], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | HEROIC [2:1] FaZe Clan | PGL Major Singapore 2026: Stage 1 | BO3 | @little_cs, @yarushkin1 & @cybercracken\", 3825], [\"enzzai\", true, \"🏝️ПХУКЕТ | РЫБАЛКА | ДЕНЬ 26 W/ @DJAFARX @WHYLOLLYCRY | !GGSEL !ВТБ !SLAY\", 4850], [\"justcooman\", false, \"КАЛИБРОВКА (7965 откалибровался)\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 2625], [\"keliencs\", true, \"100 Thieves [0:0] 9z | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 600], [\"hibako\", true, \"СРОЧНО ЗАХОДИ! ОЧЕНЬ БЫСТРО! ДА ЭТО БАЙТ НАЗВАНИЕ! ВСЕ РАВНО КРАСАВА! !hibako !tg\", 600], [\"exigent_wires\", true, \"ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ !ивент\", 600], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 PV 0:0 Lynn Vision | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 22175], [\"bysl4m\", true, \"Lynn Vision [0:0] PVISION | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 3 | @bySL4M @WorldEdit\", 7275], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | Lynn Vision Gaming [0:0] PVISION | PGL Major Singapore 2026: Stage 1 | BO3 | @little_cs & @cybercracken\", 3825], [\"enzzai\", true, \"🏝️ПХУКЕТ | РЫБАЛКА | ДЕНЬ 26 W/ @DJAFARX @WHYLOLLYCRY | !GGSEL !ВТБ !SLAY\", 4850], [\"justcooman\", false, \"КАЛИБРОВКА (7965 откалибровался)\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 2625], [\"keliencs\", true, \"100 Thieves [0:0] 9z | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 600], [\"hibako\", true, \"СРОЧНО ЗАХОДИ! ОЧЕНЬ БЫСТРО! ДА ЭТО БАЙТ НАЗВАНИЕ! ВСЕ РАВНО КРАСАВА! !hibako !tg\", 600], [\"exigent_wires\", true, \"ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ !ивент\", 600], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
