@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T00:19:09Z",
+ "updated": "2026-11-26T00:19:37Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -20,6 +20,14 @@
     "title": "🔴 2K 60 FPS 🔴 САМОЕ ДОЛГОЕ ПРОХОЖДЕНИЕ 🔴 ГЛАВА II 🔴 DAY 7 🔴"
    },
    {
+    "name": "5opka",
+    "display": "twitch.tv/5opka",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 2072,
+    "title": "КАЙФУЕМ В ГТА 6 // !донат !приватка !правила !funpay !тг"
+   },
+   {
     "name": "silvername",
     "display": "twitch.tv/silvername",
     "platform": "twitch",
@@ -28,12 +36,12 @@
     "title": "Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг"
    },
    {
-    "name": "5opka",
-    "display": "twitch.tv/5opka",
+    "name": "znat51",
+    "display": "twitch.tv/znat51",
     "platform": "twitch",
-    "live": true,
-    "viewers": 2072,
-    "title": "КАЙФУЕМ В ГТА 6 // !донат !приватка !правила !funpay !тг"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "shiishak",
@@ -44,12 +52,20 @@
     "title": "Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB"
    },
    {
+    "name": "blackrabbit342",
+    "display": "twitch.tv/blackrabbit342",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
     "name": "rejiboi",
     "display": "twitch.tv/rejiboi",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "давай воровать машинки 6, 8 серия | 74% !tg"
+    "title": ""
    },
    {
     "name": "leva2k",
@@ -116,7 +132,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 САМОЕ ДОЛГОЕ ПРОХОЖДЕНИЕ 🔴 ГЛАВА II 🔴 DAY 7 🔴\", 10575], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 2275], [\"5opka\", true, \"КАЙФУЕМ В ГТА 6 // !донат !приватка !правила !funpay !тг\", 2075], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB\", 825], [\"rejiboi\", false, \"давай воровать машинки 6, 8 серия | 74% !tg\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 650], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"🔴 2K 60 FPS 🔴 САМОЕ ДОЛГОЕ ПРОХОЖДЕНИЕ 🔴 ГЛАВА II 🔴 DAY 7 🔴\", 10575], [\"5opka\", true, \"КАЙФУЕМ В ГТА 6 // !донат !приватка !правила !funpay !тг\", 2075], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 2275], [\"znat51\", false, \"\", 0], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB\", 825], [\"blackrabbit342\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 650], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
