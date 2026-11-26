@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T08:18:48Z",
+ "updated": "2026-11-26T08:19:03Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,73 +15,73 @@
     "name": "strogo",
     "display": "twitch.tv/strogo",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 24893,
+    "title": "🔴 HEROIC 1:1 FaZe | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот"
    },
    {
     "name": "bysl4m",
     "display": "twitch.tv/bysl4m",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 8580,
+    "title": "HEROIC [1:1] FaZe | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 3 | @FANAT_ROCKA @xryst_t"
    },
    {
     "name": "cs2_paragon_ru",
     "display": "twitch.tv/cs2_paragon_ru",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 4913,
+    "title": "[RU] REDZONE | HEROIC [1:1] FaZe Clan | PGL Major Singapore 2026: Stage 1 | BO3 | @yarushkin1, @Lampaaa & @cybercracken"
    },
    {
     "name": "enzzai",
     "display": "twitch.tv/enzzai",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 4737,
+    "title": "🏝️ПХУКЕТ | РЫБАЛКА | ДЕНЬ 26 W/ @DJAFARX @WHYLOLLYCRY | !GGSEL !ВТБ !SLAY"
    },
    {
     "name": "justcooman",
     "display": "twitch.tv/justcooman",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 3845,
+    "title": "КАЛИБРОВКА (7965 откалибровался)"
    },
    {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 1595,
+    "title": "ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel"
    },
    {
     "name": "keliencs",
     "display": "twitch.tv/keliencs",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 893,
+    "title": "M80 [1:1] Eternal Fire | PGL Major Singapore 2026 Stage 1 | !tg !fonbet"
    },
    {
     "name": "hibako",
     "display": "twitch.tv/hibako",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 534,
+    "title": "СРОЧНО ЗАХОДИ! ОЧЕНЬ БЫСТРО! ДА ЭТО БАЙТ НАЗВАНИЕ! ВСЕ РАВНО КРАСАВА! !hibako !tg"
    },
    {
     "name": "exigent_wires",
     "display": "twitch.tv/exigent_wires",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 518,
+    "title": "ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ !ивент"
    },
    {
     "name": "welovegames",
@@ -140,7 +140,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", false, \"\", 0], [\"bysl4m\", false, \"\", 0], [\"cs2_paragon_ru\", false, \"\", 0], [\"enzzai\", false, \"\", 0], [\"justcooman\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"hibako\", false, \"\", 0], [\"exigent_wires\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 HEROIC 1:1 FaZe | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 24900], [\"bysl4m\", true, \"HEROIC [1:1] FaZe | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 3 | @FANAT_ROCKA @xryst_t\", 8575], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | HEROIC [1:1] FaZe Clan | PGL Major Singapore 2026: Stage 1 | BO3 | @yarushkin1, @Lampaaa & @cybercracken\", 4925], [\"enzzai\", true, \"🏝️ПХУКЕТ | РЫБАЛКА | ДЕНЬ 26 W/ @DJAFARX @WHYLOLLYCRY | !GGSEL !ВТБ !SLAY\", 4725], [\"justcooman\", true, \"КАЛИБРОВКА (7965 откалибровался)\", 3850], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 1600], [\"keliencs\", true, \"M80 [1:1] Eternal Fire | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 900], [\"hibako\", true, \"СРОЧНО ЗАХОДИ! ОЧЕНЬ БЫСТРО! ДА ЭТО БАЙТ НАЗВАНИЕ! ВСЕ РАВНО КРАСАВА! !hibako !tg\", 525], [\"exigent_wires\", true, \"ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ !ивент\", 525], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
