@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T09:13:18Z",
+ "updated": "2026-11-26T09:14:20Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,73 +15,81 @@
     "name": "strogo",
     "display": "twitch.tv/strogo",
     "platform": "twitch",
-    "live": true,
-    "viewers": 26164,
-    "title": "🔴 PV 0:0 Lynn Vision | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "bysl4m",
     "display": "twitch.tv/bysl4m",
     "platform": "twitch",
-    "live": true,
-    "viewers": 10309,
-    "title": "Lynn Vision [0:0] PVISION | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 3 | @bySL4M @WorldEdit"
-   },
-   {
-    "name": "cs2_paragon_ru",
-    "display": "twitch.tv/cs2_paragon_ru",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 4770,
-    "title": "[RU] REDZONE | Lynn Vision Gaming [0:0] PVISION | PGL Major Singapore 2026: Stage 1 | BO3 | @little_cs, @siberiancaster & @Roma_roo"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "enzzai",
     "display": "twitch.tv/enzzai",
     "platform": "twitch",
-    "live": true,
-    "viewers": 4147,
-    "title": "🏝️ПХУКЕТ | РЫБАЛКА | ДЕНЬ 26 W/ @DJAFARX @WHYLOLLYCRY | !GGSEL !ВТБ !SLAY"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
-    "name": "justcooman",
-    "display": "twitch.tv/justcooman",
+    "name": "cs2_paragon_ru",
+    "display": "twitch.tv/cs2_paragon_ru",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "КАЛИБРОВКА (7965 откалибровался)"
+    "title": ""
    },
    {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": true,
-    "viewers": 2790,
-    "title": "ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel"
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "dmitry_lixxx",
+    "display": "twitch.tv/dmitry_lixxx",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "betboom_dota_ru",
+    "display": "twitch.tv/betboom_dota_ru",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "keliencs",
     "display": "twitch.tv/keliencs",
     "platform": "twitch",
-    "live": true,
-    "viewers": 870,
-    "title": "100 Thieves [0:0] 9z | PGL Major Singapore 2026 Stage 1 | !tg !fonbet"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "hibako",
     "display": "twitch.tv/hibako",
     "platform": "twitch",
-    "live": true,
-    "viewers": 638,
-    "title": "СРОЧНО ЗАХОДИ! ОЧЕНЬ БЫСТРО! ДА ЭТО БАЙТ НАЗВАНИЕ! ВСЕ РАВНО КРАСАВА! !hibako !tg"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "exigent_wires",
     "display": "twitch.tv/exigent_wires",
     "platform": "twitch",
-    "live": true,
-    "viewers": 660,
-    "title": "ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ !ивент"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "welovegames",
@@ -138,25 +146,9 @@
     "live": false,
     "viewers": 0,
     "title": ""
-   },
-   {
-    "name": "dmitry_lixxx",
-    "display": "twitch.tv/dmitry_lixxx",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 1446,
-    "title": "[MAJOR] LYNN VISION [0:0] PARIVISION | PGL Major Singapore 2026 Stage 1 | !tg !winline !ЯО !ВТБ !avan"
-   },
-   {
-    "name": "betboom_dota_ru",
-    "display": "twitch.tv/betboom_dota_ru",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 867,
-    "title": "GamerLegion [0] vs [0] Aurora | Bo3 | Playoffs Day 1 | BLAST SLAM IX | cast: @shachlos & @adekvat"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 PV 0:0 Lynn Vision | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 26175], [\"bysl4m\", true, \"Lynn Vision [0:0] PVISION | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 3 | @bySL4M @WorldEdit\", 10300], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | Lynn Vision Gaming [0:0] PVISION | PGL Major Singapore 2026: Stage 1 | BO3 | @little_cs, @siberiancaster & @Roma_roo\", 4775], [\"enzzai\", true, \"🏝️ПХУКЕТ | РЫБАЛКА | ДЕНЬ 26 W/ @DJAFARX @WHYLOLLYCRY | !GGSEL !ВТБ !SLAY\", 4150], [\"justcooman\", false, \"КАЛИБРОВКА (7965 откалибровался)\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 2800], [\"keliencs\", true, \"100 Thieves [0:0] 9z | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 875], [\"hibako\", true, \"СРОЧНО ЗАХОДИ! ОЧЕНЬ БЫСТРО! ДА ЭТО БАЙТ НАЗВАНИЕ! ВСЕ РАВНО КРАСАВА! !hibako !tg\", 650], [\"exigent_wires\", true, \"ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ !ивент\", 650], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"dmitry_lixxx\", true, \"[MAJOR] LYNN VISION [0:0] PARIVISION | PGL Major Singapore 2026 Stage 1 | !tg !winline !ЯО !ВТБ !avan\", 1450], [\"betboom_dota_ru\", true, \"GamerLegion [0] vs [0] Aurora | Bo3 | Playoffs Day 1 | BLAST SLAM IX | cast: @shachlos & @adekvat\", 875]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", false, \"\", 0], [\"bysl4m\", false, \"\", 0], [\"enzzai\", false, \"\", 0], [\"cs2_paragon_ru\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"dmitry_lixxx\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"hibako\", false, \"\", 0], [\"exigent_wires\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
