@@ -1,11 +1,19 @@
 {
- "updated": "2026-11-26T23:17:06Z",
+ "updated": "2026-11-26T23:19:54Z",
  "meta": {
   "mode": "github",
   "channels": [
    {
     "name": "honeymad",
     "display": "twitch.tv/honeymad",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "leb1ga",
+    "display": "twitch.tv/leb1ga",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
@@ -20,6 +28,22 @@
     "title": "СТОЛЬКО БЕСПЛАТНЫХ НАГРАД?! Празднуем вторую годовщину Marvel Rivals"
    },
    {
+    "name": "lesn4ok",
+    "display": "twitch.tv/lesn4ok",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "klos_dota2",
+    "display": "twitch.tv/klos_dota2",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "ПАТЧ 7.42 ПОЛНЫЙ ФОРСАЖ !трон !дасты !немало"
+   },
+   {
     "name": "t2x2",
     "display": "twitch.tv/t2x2",
     "platform": "twitch",
@@ -28,68 +52,76 @@
     "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch"
    },
    {
+    "name": "lenagol0vach",
+    "display": "twitch.tv/lenagol0vach",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel"
+    "title": ""
    },
    {
     "name": "stray228",
     "display": "twitch.tv/stray228",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер"
+    "title": ""
    },
    {
     "name": "5opka",
     "display": "twitch.tv/5opka",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "ЧИЛЛЮ В ГТА 6 // !донат !приватка !правила !funpay !тг"
-   },
-   {
-    "name": "lenagol0vach",
-    "display": "twitch.tv/lenagol0vach",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "СТОЛЬКО БЕСПЛАТНЫХ НАГРАД?! Празднуем вторую годовщину Marvel Rivals."
-   },
-   {
-    "name": "silvername",
-    "display": "twitch.tv/silvername",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг"
-   },
-   {
-    "name": "danila_gorilla",
-    "display": "twitch.tv/danila_gorilla",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "🔴 ВЕЧЕРНИЙ W STREAM w/ @брат"
+    "title": ""
    },
    {
     "name": "welovegames",
     "display": "twitch.tv/welovegames",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Следите за новостями → t.me/welovegames | !гилан !ситилинк !ggsel !dodo"
+    "title": ""
    },
    {
-    "name": "znat51",
-    "display": "twitch.tv/znat51",
+    "name": "danila_gorilla",
+    "display": "twitch.tv/danila_gorilla",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "пока все хайпят на гта , мы играем на фасике - !тг !vip !дс !донат !музыка"
+    "title": ""
+   },
+   {
+    "name": "deko",
+    "display": "twitch.tv/deko",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "kopsteep",
+    "display": "twitch.tv/kopsteep",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "silvername",
+    "display": "twitch.tv/silvername",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "keliencs",
@@ -97,39 +129,39 @@
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "ПОКАЗЫВАЮ КАК ГРАМОТНО ВЫИГРЫВАТЬ ИГРЫ. w/ @hypetried | !tg !fonbet"
+    "title": ""
+   },
+   {
+    "name": "znat51",
+    "display": "twitch.tv/znat51",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "rejiboi",
     "display": "twitch.tv/rejiboi",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "давай воровать машинки 6, 9 серия | 76% !tg"
+    "title": ""
    },
    {
     "name": "shiishak",
     "display": "twitch.tv/shiishak",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB"
+    "title": ""
    },
    {
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "ПОВТОР | BLAST SLAM IX | Playoffs Day 1"
-   },
-   {
-    "name": "blindzonexgod",
-    "display": "twitch.tv/blindzonexgod",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "grind winter season 100% импрува 100% скилла 100% мотивации w/ @avice @iseedeadp3ople @earthq__ @obscurelxght| !tg !мерч !bb"
+    "title": ""
    },
    {
     "name": "welovegames",
@@ -186,9 +218,17 @@
     "live": false,
     "viewers": 0,
     "title": ""
+   },
+   {
+    "name": "blindzonexgod",
+    "display": "twitch.tv/blindzonexgod",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"СТОЛЬКО БЕСПЛАТНЫХ НАГРАД?! Празднуем вторую годовщину Marvel Rivals\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 0], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 0], [\"5opka\", true, \"ЧИЛЛЮ В ГТА 6 // !донат !приватка !правила !funpay !тг\", 0], [\"lenagol0vach\", true, \"СТОЛЬКО БЕСПЛАТНЫХ НАГРАД?! Празднуем вторую годовщину Marvel Rivals.\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"danila_gorilla\", true, \"🔴 ВЕЧЕРНИЙ W STREAM w/ @брат\", 0], [\"welovegames\", true, \"Следите за новостями → t.me/welovegames | !гилан !ситилинк !ggsel !dodo\", 0], [\"znat51\", false, \"пока все хайпят на гта , мы играем на фасике - !тг !vip !дс !донат !музыка\", 0], [\"keliencs\", false, \"ПОКАЗЫВАЮ КАК ГРАМОТНО ВЫИГРЫВАТЬ ИГРЫ. w/ @hypetried | !tg !fonbet\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 9 серия | 76% !tg\", 0], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB\", 0], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Playoffs Day 1\", 0], [\"blindzonexgod\", true, \"grind winter season 100% импрува 100% скилла 100% мотивации w/ @avice @iseedeadp3ople @earthq__ @obscurelxght| !tg !мерч !bb\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leb1ga\", false, \"\", 0], [\"bratishkinoff\", true, \"СТОЛЬКО БЕСПЛАТНЫХ НАГРАД?! Празднуем вторую годовщину Marvel Rivals\", 0], [\"lesn4ok\", false, \"\", 0], [\"klos_dota2\", true, \"ПАТЧ 7.42 ПОЛНЫЙ ФОРСАЖ !трон !дасты !немало\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch\", 0], [\"lenagol0vach\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"stray228\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"danila_gorilla\", false, \"\", 0], [\"deko\", false, \"\", 0], [\"kopsteep\", false, \"\", 0], [\"silvername\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"znat51\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"shiishak\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"blindzonexgod\", false, \"\", 0]]"
  },
  "clips": [
   {
