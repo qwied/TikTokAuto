@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T16:38:16Z",
+ "updated": "2026-11-26T16:38:31Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,65 +15,65 @@
     "name": "nix",
     "display": "twitch.tv/nix",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Team Yandex vs GamerLegion 1:0 BLAST SLAM IX Playoffs"
    },
    {
     "name": "solo",
     "display": "twitch.tv/solo",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🔴Team Yandex [1:0] GamerLegion | BLAST SLAM IX: Playoffs w/ @icebergdoto @kyzko_doto @геннадий @vtunedota !tg !BETBOOM !розыгрыш"
    },
    {
     "name": "t2x2",
     "display": "twitch.tv/t2x2",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch"
    },
    {
     "name": "bratishkinoff",
     "display": "twitch.tv/bratishkinoff",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ПЕРЕЗЖАЮ В VICE CITY НАКОНЕЦ"
    },
    {
     "name": "sasavot",
     "display": "twitch.tv/sasavot",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ЧЕТВЕРГ/ЛЕГКИЙ"
    },
    {
     "name": "ravshann",
     "display": "twitch.tv/ravshann",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🔴 СМОТРИМ «МАМА В 16» и Чат рулетка !тг !бб !yota"
    },
    {
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Team Yandex [1] vs [0] GamerLegion | Bo3 | Playoffs Day 1 | BLAST SLAM IX | cast: @mrahillesko & @arszeeqq !предикты"
    },
    {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "АУК НА МИНУС ВЕЩЬ | ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel"
    },
    {
     "name": "deko",
@@ -236,7 +236,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", false, \"\", 0], [\"solo\", false, \"\", 0], [\"t2x2\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"sasavot\", false, \"\", 0], [\"ravshann\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"deko\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"morphe_ya\", false, \"\", 0], [\"melharucos\", false, \"\", 0], [\"chopperinho\", false, \"\", 0], [\"syslov171\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"blackrabbit342\", false, \"\", 0], [\"murzofix\", false, \"\", 0], [\"ghostik\", false, \"\", 0], [\"raythis\", false, \"\", 0], [\"mantaq\", false, \"\", 0], [\"kopsteep\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"Team Yandex vs GamerLegion 1:0 BLAST SLAM IX Playoffs\", 0], [\"solo\", true, \"🔴Team Yandex [1:0] GamerLegion | BLAST SLAM IX: Playoffs w/ @icebergdoto @kyzko_doto @геннадий @vtunedota !tg !BETBOOM !розыгрыш\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch\", 0], [\"bratishkinoff\", true, \"ПЕРЕЗЖАЮ В VICE CITY НАКОНЕЦ\", 0], [\"sasavot\", true, \"ЧЕТВЕРГ/ЛЕГКИЙ\", 0], [\"ravshann\", true, \"🔴 СМОТРИМ «МАМА В 16» и Чат рулетка !тг !бб !yota\", 0], [\"betboom_dota_ru\", true, \"Team Yandex [1] vs [0] GamerLegion | Bo3 | Playoffs Day 1 | BLAST SLAM IX | cast: @mrahillesko & @arszeeqq !предикты\", 0], [\"leva2k\", true, \"АУК НА МИНУС ВЕЩЬ | ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 0], [\"deko\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"morphe_ya\", false, \"\", 0], [\"melharucos\", false, \"\", 0], [\"chopperinho\", false, \"\", 0], [\"syslov171\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"blackrabbit342\", false, \"\", 0], [\"murzofix\", false, \"\", 0], [\"ghostik\", false, \"\", 0], [\"raythis\", false, \"\", 0], [\"mantaq\", false, \"\", 0], [\"kopsteep\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
