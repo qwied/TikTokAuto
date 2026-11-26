@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T02:04:58Z",
+ "updated": "2026-11-26T02:05:05Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -12,12 +12,12 @@
     "title": ""
    },
    {
-    "name": "bratishkinoff",
-    "display": "twitch.tv/bratishkinoff",
+    "name": "oregiru",
+    "display": "twitch.tv/oregiru",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 7429,
+    "title": "самый тупой сет на тампларку"
    },
    {
     "name": "silvername",
@@ -28,22 +28,6 @@
     "title": "Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг"
    },
    {
-    "name": "5opka",
-    "display": "twitch.tv/5opka",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "shiishak",
-    "display": "twitch.tv/shiishak",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
@@ -52,15 +36,63 @@
     "title": "ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel"
    },
    {
-    "name": "oregiru",
-    "display": "twitch.tv/oregiru",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 7429,
-    "title": "самый тупой сет на тампларку"
+    "name": "welovegames",
+    "display": "youtube.com/@welovegames",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "bratishkinoff",
+    "display": "youtube.com/@bratishkinoff",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "KuplinovPlay",
+    "display": "youtube.com/@KuplinovPlay",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "5opka",
+    "display": "youtube.com/@5opka",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "stariy_bog",
+    "display": "youtube.com/@stariy_bog",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "AlinaRin",
+    "display": "youtube.com/@AlinaRin",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "Okisebi",
+    "display": "youtube.com/@Okisebi",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 1975], [\"5opka\", false, \"\", 0], [\"shiishak\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 1100], [\"oregiru\", true, \"самый тупой сет на тампларку\", 7425]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"oregiru\", true, \"самый тупой сет на тампларку\", 7425], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 1975], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 1100], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
