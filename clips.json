@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T20:20:13Z",
+ "updated": "2026-11-26T20:20:28Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,17 +15,17 @@
     "name": "leb1ga",
     "display": "twitch.tv/leb1ga",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "⚡️НОВИЙ СЕЗОН КОХАННЯ НА ВИЖИВАННЯ!!!!"
    },
    {
     "name": "bratishkinoff",
     "display": "twitch.tv/bratishkinoff",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ПЕРЕЗЖАЮ В VICE CITY НАКОНЕЦ"
    },
    {
     "name": "ravshann",
@@ -39,49 +39,49 @@
     "name": "t2x2",
     "display": "twitch.tv/t2x2",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф"
    },
    {
     "name": "5opka",
     "display": "twitch.tv/5opka",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ЧИЛЛЮ В ГТА 6 // !донат !приватка !правила !funpay !тг"
    },
    {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "АУК НА ЕДУ | ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel"
    },
    {
     "name": "stray228",
     "display": "twitch.tv/stray228",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер"
    },
    {
     "name": "welovegames",
     "display": "twitch.tv/welovegames",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Проходим GTA VI на 100% | !гилан !ситилинк !ggsel !dodo"
    },
    {
     "name": "deko",
     "display": "twitch.tv/deko",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "DEPRESSED FAMQ / ORLANDO 👉 !bb"
    },
    {
     "name": "kopsteep",
@@ -223,12 +223,12 @@
     "name": "Okisebi",
     "display": "youtube.com/@Okisebi",
     "platform": "youtube",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🔴 LIVE! - GTA 6 mit 6 Sternen überleben!"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leb1ga\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"ravshann\", false, \"\", 0], [\"t2x2\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"stray228\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"deko\", false, \"\", 0], [\"kopsteep\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"syslov171\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"danila_gorilla\", false, \"\", 0], [\"blackrabbit342\", false, \"\", 0], [\"chopperinho\", false, \"\", 0], [\"shiishak\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"lenagol0vach\", false, \"\", 0], [\"silvername\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leb1ga\", true, \"⚡️НОВИЙ СЕЗОН КОХАННЯ НА ВИЖИВАННЯ!!!!\", 0], [\"bratishkinoff\", true, \"ПЕРЕЗЖАЮ В VICE CITY НАКОНЕЦ\", 0], [\"ravshann\", false, \"\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф\", 0], [\"5opka\", true, \"ЧИЛЛЮ В ГТА 6 // !донат !приватка !правила !funpay !тг\", 0], [\"leva2k\", true, \"АУК НА ЕДУ | ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 0], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 0], [\"welovegames\", true, \"Проходим GTA VI на 100% | !гилан !ситилинк !ggsel !dodo\", 0], [\"deko\", true, \"DEPRESSED FAMQ / ORLANDO 👉 !bb\", 0], [\"kopsteep\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"syslov171\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"danila_gorilla\", false, \"\", 0], [\"blackrabbit342\", false, \"\", 0], [\"chopperinho\", false, \"\", 0], [\"shiishak\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"lenagol0vach\", false, \"\", 0], [\"silvername\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit 6 Sternen überleben!\", 0]]"
  },
  "clips": [
   {
