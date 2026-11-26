@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T22:10:17Z",
+ "updated": "2026-11-26T22:11:08Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -17,95 +17,87 @@
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "⚡️НОВИЙ СЕЗОН КОХАННЯ НА ВИЖИВАННЯ!!!!"
+    "title": ""
    },
    {
     "name": "bratishkinoff",
     "display": "twitch.tv/bratishkinoff",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "СТОЛЬКО БЕСПЛАТНЫХ НАГРАД?! Празднуем вторую годовщину Marvel Rivals"
+    "title": ""
    },
    {
-    "name": "lesn4ok",
-    "display": "twitch.tv/lesn4ok",
+    "name": "klos_dota2",
+    "display": "twitch.tv/klos_dota2",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "🌲ТЕСТИРУЕМ ВСЯКОЕ НА КЕРРИ НА МЕЙНЕ 🌲ПАТЧ 7.42а🌲"
-   },
-   {
-    "name": "koma",
-    "display": "twitch.tv/koma",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "9K & RANK 50 & CARRY & NEW PATCH !vtb !tg"
+    "title": ""
    },
    {
     "name": "t2x2",
     "display": "twitch.tv/t2x2",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch"
-   },
-   {
-    "name": "lenagol0vach",
-    "display": "twitch.tv/lenagol0vach",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "СТОЛЬКО БЕСПЛАТНЫХ НАГРАД?! Празднуем вторую годовщину Marvel Rivals."
-   },
-   {
-    "name": "stray228",
-    "display": "twitch.tv/stray228",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер"
-   },
-   {
-    "name": "5opka",
-    "display": "twitch.tv/5opka",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "ЧИЛЛЮ В ГТА 6 // !донат !приватка !правила !funpay !тг"
+    "title": ""
    },
    {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "АУК НА ЕДУ | ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel"
+    "title": ""
+   },
+   {
+    "name": "lenagol0vach",
+    "display": "twitch.tv/lenagol0vach",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "stray228",
+    "display": "twitch.tv/stray228",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "welovegames",
     "display": "twitch.tv/welovegames",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Проходим GTA VI на 100% | !гилан !ситилинк !ggsel !dodo"
+    "title": ""
    },
    {
-    "name": "deko",
-    "display": "twitch.tv/deko",
+    "name": "5opka",
+    "display": "twitch.tv/5opka",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "⭕ АУК ЗА БАЛЛЫ НА AWP ГИДРА 👉 !bb"
+    "title": ""
    },
    {
-    "name": "keliencs",
-    "display": "twitch.tv/keliencs",
+    "name": "danila_gorilla",
+    "display": "twitch.tv/danila_gorilla",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "ПОКАЗЫВАЮ КАК ГРАМОТНО ВЫИГРЫВАТЬ ИГРЫ. w/ @hypetried | !tg !fonbet"
+    "title": ""
+   },
+   {
+    "name": "silvername",
+    "display": "twitch.tv/silvername",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "kopsteep",
@@ -113,35 +105,27 @@
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "лудомания моральный распад зависимость !tg !bot"
+    "title": ""
+   },
+   {
+    "name": "keliencs",
+    "display": "twitch.tv/keliencs",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "znat51",
+    "display": "twitch.tv/znat51",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "rejiboi",
     "display": "twitch.tv/rejiboi",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "давай воровать машинки 6, 9 серия | 74% !tg"
-   },
-   {
-    "name": "danila_gorilla",
-    "display": "twitch.tv/danila_gorilla",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "🔴 ВЕЧЕРНИЙ W STREAM w/ @брат"
-   },
-   {
-    "name": "betboom_dota_ru",
-    "display": "twitch.tv/betboom_dota_ru",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "ПОВТОР | BLAST SLAM IX | Playoffs Day 1"
-   },
-   {
-    "name": "syslov171",
-    "display": "twitch.tv/syslov171",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
@@ -151,17 +135,17 @@
     "name": "shiishak",
     "display": "twitch.tv/shiishak",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB"
+    "title": ""
    },
    {
-    "name": "chopperinho",
-    "display": "twitch.tv/chopperinho",
+    "name": "betboom_dota_ru",
+    "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "Продолжаем ДС3 | !bb !tg !yt"
+    "title": ""
    },
    {
     "name": "welovegames",
@@ -217,34 +201,10 @@
     "platform": "youtube",
     "live": false,
     "viewers": 0,
-    "title": "🔴 LIVE! - GTA 6 mit 6 Sternen überleben!"
-   },
-   {
-    "name": "znat51",
-    "display": "twitch.tv/znat51",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "пока все хайпят на гта , мы играем на фасике - !тг !vip !дс !донат !музыка"
-   },
-   {
-    "name": "silvername",
-    "display": "twitch.tv/silvername",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг"
-   },
-   {
-    "name": "klos_dota2",
-    "display": "twitch.tv/klos_dota2",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "ПАТЧ 7.42 ПОЛНЫЙ ФОРСАЖ !трон !дасты !немало"
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leb1ga\", false, \"⚡️НОВИЙ СЕЗОН КОХАННЯ НА ВИЖИВАННЯ!!!!\", 0], [\"bratishkinoff\", true, \"СТОЛЬКО БЕСПЛАТНЫХ НАГРАД?! Празднуем вторую годовщину Marvel Rivals\", 0], [\"lesn4ok\", false, \"🌲ТЕСТИРУЕМ ВСЯКОЕ НА КЕРРИ НА МЕЙНЕ 🌲ПАТЧ 7.42а🌲\", 0], [\"koma\", true, \"9K & RANK 50 & CARRY & NEW PATCH !vtb !tg\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch\", 0], [\"lenagol0vach\", true, \"СТОЛЬКО БЕСПЛАТНЫХ НАГРАД?! Празднуем вторую годовщину Marvel Rivals.\", 0], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 0], [\"5opka\", true, \"ЧИЛЛЮ В ГТА 6 // !донат !приватка !правила !funpay !тг\", 0], [\"leva2k\", true, \"АУК НА ЕДУ | ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 0], [\"welovegames\", true, \"Проходим GTA VI на 100% | !гилан !ситилинк !ggsel !dodo\", 0], [\"deko\", false, \"⭕ АУК ЗА БАЛЛЫ НА AWP ГИДРА 👉 !bb\", 0], [\"keliencs\", true, \"ПОКАЗЫВАЮ КАК ГРАМОТНО ВЫИГРЫВАТЬ ИГРЫ. w/ @hypetried | !tg !fonbet\", 0], [\"kopsteep\", false, \"лудомания моральный распад зависимость !tg !bot\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 9 серия | 74% !tg\", 0], [\"danila_gorilla\", true, \"🔴 ВЕЧЕРНИЙ W STREAM w/ @брат\", 0], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Playoffs Day 1\", 0], [\"syslov171\", false, \"\", 0], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB\", 0], [\"chopperinho\", false, \"Продолжаем ДС3 | !bb !tg !yt\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"🔴 LIVE! - GTA 6 mit 6 Sternen überleben!\", 0], [\"znat51\", true, \"пока все хайпят на гта , мы играем на фасике - !тг !vip !дс !донат !музыка\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"klos_dota2\", true, \"ПАТЧ 7.42 ПОЛНЫЙ ФОРСАЖ !трон !дасты !немало\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leb1ga\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"klos_dota2\", false, \"\", 0], [\"t2x2\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"lenagol0vach\", false, \"\", 0], [\"stray228\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"danila_gorilla\", false, \"\", 0], [\"silvername\", false, \"\", 0], [\"kopsteep\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"znat51\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"shiishak\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
