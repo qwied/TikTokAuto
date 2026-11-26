@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T17:33:51Z",
+ "updated": "2026-11-26T17:34:06Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,65 +15,65 @@
     "name": "nix",
     "display": "twitch.tv/nix",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Team Yandex vs GamerLegion 1:0 BLAST SLAM IX Playoffs"
    },
    {
     "name": "solo",
     "display": "twitch.tv/solo",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🔴Team Yandex [1:0] GamerLegion | BLAST SLAM IX: Playoffs w/ @icebergdoto @kyzko_doto @геннадий @vtunedota !tg !BETBOOM !розыгрыш"
    },
    {
     "name": "bratishkinoff",
     "display": "twitch.tv/bratishkinoff",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ПЕРЕЗЖАЮ В VICE CITY НАКОНЕЦ"
    },
    {
     "name": "sasavot",
     "display": "twitch.tv/sasavot",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ЧЕТВЕРГ/ЛЕГКИЙ"
    },
    {
     "name": "ravshann",
     "display": "twitch.tv/ravshann",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🔴СЛЕЙ КИНГ В ЧАТ РУЛЕТКЕ !тг !бб !yota"
    },
    {
     "name": "t2x2",
     "display": "twitch.tv/t2x2",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch"
    },
    {
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Team Yandex [1] vs [0] GamerLegion | Bo3 | Playoffs Day 1 | BLAST SLAM IX | cast: @mrahillesko & @arszeeqq !предикты"
    },
    {
     "name": "egorkreed",
     "display": "twitch.tv/egorkreed",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ПАРУ МИССИЙ И УЛЕТАЮ. 4К , DLSS + 60 fps. Марафон ДЕНЬ 6 🏎️💨"
    },
    {
     "name": "leva2k",
@@ -223,12 +223,12 @@
     "name": "Okisebi",
     "display": "youtube.com/@Okisebi",
     "platform": "youtube",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🔴 LIVE! - GTA 6 mit 6 Sternen überleben!"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", false, \"\", 0], [\"solo\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"sasavot\", false, \"\", 0], [\"ravshann\", false, \"\", 0], [\"t2x2\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"egorkreed\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"deko\", false, \"\", 0], [\"melharucos\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"kopsteep\", false, \"\", 0], [\"syslov171\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"chopperinho\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"blackrabbit342\", false, \"\", 0], [\"mantaq\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"Team Yandex vs GamerLegion 1:0 BLAST SLAM IX Playoffs\", 0], [\"solo\", true, \"🔴Team Yandex [1:0] GamerLegion | BLAST SLAM IX: Playoffs w/ @icebergdoto @kyzko_doto @геннадий @vtunedota !tg !BETBOOM !розыгрыш\", 0], [\"bratishkinoff\", true, \"ПЕРЕЗЖАЮ В VICE CITY НАКОНЕЦ\", 0], [\"sasavot\", true, \"ЧЕТВЕРГ/ЛЕГКИЙ\", 0], [\"ravshann\", true, \"🔴СЛЕЙ КИНГ В ЧАТ РУЛЕТКЕ !тг !бб !yota\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch\", 0], [\"betboom_dota_ru\", true, \"Team Yandex [1] vs [0] GamerLegion | Bo3 | Playoffs Day 1 | BLAST SLAM IX | cast: @mrahillesko & @arszeeqq !предикты\", 0], [\"egorkreed\", true, \"ПАРУ МИССИЙ И УЛЕТАЮ. 4К , DLSS + 60 fps. Марафон ДЕНЬ 6 🏎️💨\", 0], [\"leva2k\", false, \"\", 0], [\"deko\", false, \"\", 0], [\"melharucos\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"kopsteep\", false, \"\", 0], [\"syslov171\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"chopperinho\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"blackrabbit342\", false, \"\", 0], [\"mantaq\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit 6 Sternen überleben!\", 0]]"
  },
  "clips": [
   {
