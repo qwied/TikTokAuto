@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T07:23:15Z",
+ "updated": "2026-11-26T07:23:26Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -10,22 +10,6 @@
     "live": false,
     "viewers": 0,
     "title": ""
-   },
-   {
-    "name": "silvername",
-    "display": "twitch.tv/silvername",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "leva2k",
-    "display": "twitch.tv/leva2k",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 1165,
-    "title": "ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel"
    },
    {
     "name": "strogo",
@@ -76,15 +60,79 @@
     "title": "КАЛИБРОВКА (7965 откалибровался)"
    },
    {
+    "name": "leva2k",
+    "display": "twitch.tv/leva2k",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 1165,
+    "title": "ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel"
+   },
+   {
     "name": "keliencs",
     "display": "twitch.tv/keliencs",
     "platform": "twitch",
     "live": true,
     "viewers": 636,
     "title": "M80 [1:0] Eternal Fire | PGL Major Singapore 2026 Stage 1 | !tg !fonbet"
+   },
+   {
+    "name": "welovegames",
+    "display": "youtube.com/@welovegames",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "bratishkinoff",
+    "display": "youtube.com/@bratishkinoff",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "KuplinovPlay",
+    "display": "youtube.com/@KuplinovPlay",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "5opka",
+    "display": "youtube.com/@5opka",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "stariy_bog",
+    "display": "youtube.com/@stariy_bog",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "AlinaRin",
+    "display": "youtube.com/@AlinaRin",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "Okisebi",
+    "display": "youtube.com/@Okisebi",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"silvername\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 1175], [\"strogo\", true, \"🔴 HEROIC 1:0 FaZe | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 22600], [\"bysl4m\", true, \"HEROIC [1:0] FaZe | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 3 | @FANAT_ROCKA @xryst_t\", 7900], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | HEROIC [1:0] FaZe Clan | PGL Major Singapore 2026: Stage 1 | BO3 | @yarushkin1, @Lampaaa & @cybercracken\", 4575], [\"bobito217\", true, \"игры с максимчиком\", 3750], [\"enzzai\", true, \"🏝️ПХУКЕТ | РЫБАЛКА | ДЕНЬ 26 W/ @DJAFARX @WHYLOLLYCRY | !GGSEL !ВТБ !SLAY\", 3450], [\"justcooman\", true, \"КАЛИБРОВКА (7965 откалибровался)\", 3475], [\"keliencs\", true, \"M80 [1:0] Eternal Fire | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 625]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 HEROIC 1:0 FaZe | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 22600], [\"bysl4m\", true, \"HEROIC [1:0] FaZe | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 3 | @FANAT_ROCKA @xryst_t\", 7900], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | HEROIC [1:0] FaZe Clan | PGL Major Singapore 2026: Stage 1 | BO3 | @yarushkin1, @Lampaaa & @cybercracken\", 4575], [\"bobito217\", true, \"игры с максимчиком\", 3750], [\"enzzai\", true, \"🏝️ПХУКЕТ | РЫБАЛКА | ДЕНЬ 26 W/ @DJAFARX @WHYLOLLYCRY | !GGSEL !ВТБ !SLAY\", 3450], [\"justcooman\", true, \"КАЛИБРОВКА (7965 откалибровался)\", 3475], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 1175], [\"keliencs\", true, \"M80 [1:0] Eternal Fire | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 625], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
