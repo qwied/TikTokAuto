@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T10:46:29Z",
+ "updated": "2026-11-26T10:50:00Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -130,9 +130,89 @@
     "live": true,
     "viewers": 0,
     "title": "Aurora Gaming vs GamerLegion 0:0 BLAST SLAM IX Playoffs"
+   },
+   {
+    "name": "zloyn",
+    "display": "twitch.tv/zloyn",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "kerimch1k",
+    "display": "twitch.tv/kerimch1k",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "ghostik",
+    "display": "twitch.tv/ghostik",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "welovegames",
+    "display": "youtube.com/@welovegames",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "bratishkinoff",
+    "display": "youtube.com/@bratishkinoff",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "KuplinovPlay",
+    "display": "youtube.com/@KuplinovPlay",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "5opka",
+    "display": "youtube.com/@5opka",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "stariy_bog",
+    "display": "youtube.com/@stariy_bog",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "AlinaRin",
+    "display": "youtube.com/@AlinaRin",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "Okisebi",
+    "display": "youtube.com/@Okisebi",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 PV 1:0 Lynn Vision | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 27150], [\"bysl4m\", true, \"Lynn Vision [0:1] PVISION | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 3 | @bySL4M @WorldEdit\", 11025], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | Lynn Vision Gaming [0:1] PVISION | PGL Major Singapore 2026: Stage 1 | BO3 | @little_cs, @siberiancaster & @Roma_roo\", 4975], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 3775], [\"betboom_dota_ru\", true, \"GamerLegion [0] vs [0] Aurora | Bo3 | Playoffs Day 1 | BLAST SLAM IX | cast: @shachlos & @adekvat\", 6650], [\"melharucos\", true, \"ФИНАЛ\", 3050], [\"dmitry_lixxx\", true, \"[MAJOR] LYNN VISION [0:1] PARIVISION | PGL Major Singapore 2026 Stage 1 /w @Aunkere | !tg !winline !ЯО !ВТБ !avan\", 2175], [\"keliencs\", true, \"100 Thieves [1:1] 9z | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 1575], [\"hibako\", true, \"СРОЧНО ЗАХОДИ! ОЧЕНЬ БЫСТРО! ДА ЭТО БАЙТ НАЗВАНИЕ! ВСЕ РАВНО КРАСАВА! !hibako !tg\", 700], [\"exigent_wires\", true, \"ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ\", 650], [\"solo\", true, \"🔴GamerLegion [0:0] Aurora Gaming | BLAST SLAM IX:  Playoffs w/ @геннадий !tg !BETBOOM !розыгрыш\", 9925], [\"dyrachyo\", true, \"Aurora vs GamerLegion bo3 BLAST SLAM IX Play Off | !bb !tg\", 2000], [\"rostikfacekid\", true, \"самый прикольный стример😎👍\", 1175], [\"gadjiev57\", true, \"ЧИВИЛЯ В ТАЙЛАНДЕ ВСТРЕЧА РОЗЫ КОСТИ И ЧИВИЛИ 😂\", 0], [\"nix\", true, \"Aurora Gaming vs GamerLegion 0:0 BLAST SLAM IX Playoffs\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 PV 1:0 Lynn Vision | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 27150], [\"bysl4m\", true, \"Lynn Vision [0:1] PVISION | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 3 | @bySL4M @WorldEdit\", 11025], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | Lynn Vision Gaming [0:1] PVISION | PGL Major Singapore 2026: Stage 1 | BO3 | @little_cs, @siberiancaster & @Roma_roo\", 4975], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 3775], [\"betboom_dota_ru\", true, \"GamerLegion [0] vs [0] Aurora | Bo3 | Playoffs Day 1 | BLAST SLAM IX | cast: @shachlos & @adekvat\", 6650], [\"melharucos\", true, \"ФИНАЛ\", 3050], [\"dmitry_lixxx\", true, \"[MAJOR] LYNN VISION [0:1] PARIVISION | PGL Major Singapore 2026 Stage 1 /w @Aunkere | !tg !winline !ЯО !ВТБ !avan\", 2175], [\"keliencs\", true, \"100 Thieves [1:1] 9z | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 1575], [\"hibako\", true, \"СРОЧНО ЗАХОДИ! ОЧЕНЬ БЫСТРО! ДА ЭТО БАЙТ НАЗВАНИЕ! ВСЕ РАВНО КРАСАВА! !hibako !tg\", 700], [\"exigent_wires\", true, \"ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ\", 650], [\"solo\", true, \"🔴GamerLegion [0:0] Aurora Gaming | BLAST SLAM IX:  Playoffs w/ @геннадий !tg !BETBOOM !розыгрыш\", 9925], [\"dyrachyo\", true, \"Aurora vs GamerLegion bo3 BLAST SLAM IX Play Off | !bb !tg\", 2000], [\"rostikfacekid\", true, \"самый прикольный стример😎👍\", 1175], [\"gadjiev57\", true, \"ЧИВИЛЯ В ТАЙЛАНДЕ ВСТРЕЧА РОЗЫ КОСТИ И ЧИВИЛИ 😂\", 0], [\"nix\", true, \"Aurora Gaming vs GamerLegion 0:0 BLAST SLAM IX Playoffs\", 0], [\"zloyn\", false, \"\", 0], [\"kerimch1k\", false, \"\", 0], [\"ghostik\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
