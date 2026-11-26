@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T02:39:20Z",
+ "updated": "2026-11-26T02:44:20Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -32,11 +32,11 @@
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
     "live": true,
-    "viewers": 1082,
+    "viewers": 1043,
     "title": "ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"oregiru\", true, \"самый тупой сет на тампларку\", 11700], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 1975], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 1075]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"oregiru\", true, \"самый тупой сет на тампларку\", 11700], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 1975], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 1050]]"
  },
  "clips": [
   {
