@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T03:16:41Z",
+ "updated": "2026-11-26T03:17:21Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -16,7 +16,7 @@
     "display": "twitch.tv/oregiru",
     "platform": "twitch",
     "live": true,
-    "viewers": 3841,
+    "viewers": 1049,
     "title": "самый тупой сет на тампларку"
    },
    {
@@ -32,11 +32,11 @@
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
     "live": true,
-    "viewers": 1644,
+    "viewers": 1533,
     "title": "ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"oregiru\", true, \"самый тупой сет на тампларку\", 3850], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 1950], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 1650]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"oregiru\", true, \"самый тупой сет на тампларку\", 1050], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 1950], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 10 | !tg !donate !winline !ggsel\", 1525]]"
  },
  "clips": [
   {
