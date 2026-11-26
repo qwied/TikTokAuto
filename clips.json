@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T11:05:12Z",
+ "updated": "2026-11-26T11:05:27Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,57 +15,57 @@
     "name": "strogo",
     "display": "twitch.tv/strogo",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🔴 Liquid 0:0 Imperial | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот"
    },
    {
     "name": "nix",
     "display": "twitch.tv/nix",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Aurora Gaming vs GamerLegion 0:1 BLAST SLAM IX Playoffs"
    },
    {
     "name": "gadjiev57",
     "display": "twitch.tv/gadjiev57",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ЧИВИЛЯ В ТАЙЛАНДЕ ВСТРЕЧА РОЗЫ КОСТИ И ЧИВИЛИ 😂"
    },
    {
     "name": "bysl4m",
     "display": "twitch.tv/bysl4m",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Imperial [0:0] Liquid | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 3 | @bySL4M @WorldEdit"
    },
    {
     "name": "solo",
     "display": "twitch.tv/solo",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🔴GamerLegion [0:0] Aurora Gaming | BLAST SLAM IX:  Playoffs w/ @геннадий !tg !BETBOOM !розыгрыш"
    },
    {
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "GamerLegion [0] vs [0] Aurora | Bo3 | Playoffs Day 1 | BLAST SLAM IX | cast: @shachlos & @adekvat"
    },
    {
     "name": "cs2_paragon_ru",
     "display": "twitch.tv/cs2_paragon_ru",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "[RU] REDZONE | Lynn Vision Gaming [0:2] PVISION | PGL Major Singapore 2026: Stage 1 | BO3 | @little_cs, @siberiancaster & @Roma_roo"
    },
    {
     "name": "leva2k",
@@ -220,7 +220,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", false, \"\", 0], [\"nix\", false, \"\", 0], [\"gadjiev57\", false, \"\", 0], [\"bysl4m\", false, \"\", 0], [\"solo\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"cs2_paragon_ru\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"melharucos\", false, \"\", 0], [\"dmitry_lixxx\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"zloyn\", false, \"\", 0], [\"rostikfacekid\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"kerimch1k\", false, \"\", 0], [\"hibako\", false, \"\", 0], [\"ghostik\", false, \"\", 0], [\"exigent_wires\", false, \"\", 0], [\"mantaq\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 Liquid 0:0 Imperial | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 0], [\"nix\", true, \"Aurora Gaming vs GamerLegion 0:1 BLAST SLAM IX Playoffs\", 0], [\"gadjiev57\", true, \"ЧИВИЛЯ В ТАЙЛАНДЕ ВСТРЕЧА РОЗЫ КОСТИ И ЧИВИЛИ 😂\", 0], [\"bysl4m\", true, \"Imperial [0:0] Liquid | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 3 | @bySL4M @WorldEdit\", 0], [\"solo\", true, \"🔴GamerLegion [0:0] Aurora Gaming | BLAST SLAM IX:  Playoffs w/ @геннадий !tg !BETBOOM !розыгрыш\", 0], [\"betboom_dota_ru\", true, \"GamerLegion [0] vs [0] Aurora | Bo3 | Playoffs Day 1 | BLAST SLAM IX | cast: @shachlos & @adekvat\", 0], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | Lynn Vision Gaming [0:2] PVISION | PGL Major Singapore 2026: Stage 1 | BO3 | @little_cs, @siberiancaster & @Roma_roo\", 0], [\"leva2k\", false, \"\", 0], [\"melharucos\", false, \"\", 0], [\"dmitry_lixxx\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"zloyn\", false, \"\", 0], [\"rostikfacekid\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"kerimch1k\", false, \"\", 0], [\"hibako\", false, \"\", 0], [\"ghostik\", false, \"\", 0], [\"exigent_wires\", false, \"\", 0], [\"mantaq\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
