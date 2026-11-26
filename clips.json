@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T19:04:07Z",
+ "updated": "2026-11-26T19:08:04Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -223,6 +223,50 @@
   "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", false, \"\", 0], [\"bratishkinoff\", true, \"ПЕРЕЗЖАЮ В VICE CITY НАКОНЕЦ\", 0], [\"ravshann\", true, \"🔴СЛЕЙ КИНГ В ЧАТ РУЛЕТКЕ !тг !бб !yota\", 0], [\"sasavot\", true, \"ЧЕТВЕРГ/ЛЕГКИЙ\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф\", 0], [\"egorkreed\", false, \"ПАРУ МИССИЙ И УЛЕТАЮ. 4К , DLSS + 60 fps. Марафон ДЕНЬ 6 🏎️💨\", 0], [\"deko\", true, \"DEPRESSED FAMQ / ORLANDO 👉 !bb\", 0], [\"5opka\", true, \"РАССКАЗЫВАЮ ИСТОРИИ И ЧЁ-ТА ДЕЛАЮ // !донат !приватка !правила !funpay !тг\", 0], [\"leva2k\", true, \"АУК НА ЕДУ | ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 0], [\"welovegames\", true, \"Проходим GTA VI на 100% | !гилан !ситилинк !ggsel !dodo\", 0], [\"melharucos\", false, \"ФИНАЛ\", 0], [\"keliencs\", true, \"ПОКАЗЫВАЮ КАК ГРАМОТНО ВЫИГРЫВАТЬ ИГРЫ. w/ @hypetried | !tg !fonbet\", 0], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Playoffs Day 1\", 0], [\"kopsteep\", true, \"лудомания моральный распад зависимость !tg !bot\", 0], [\"syslov171\", true, \"Лёгкая закупка перед Якутском @bondarenk01\", 0], [\"chopperinho\", true, \"faceit w/ @m3ycs | ROAD TO 4K ELO | !bb !tg !yt\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 9 серия | 74% !tg\", 0], [\"blackrabbit342\", true, \"очнулся. тыща. гринд !bb\", 0], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit 6 Sternen überleben!\", 0]]"
  },
  "clips": [
+  {
+   "id": "2026-11-26_19-03-12_kopsteep",
+   "file": "2026-11-26_19-03-12_kopsteep.mp4",
+   "url": "https://github.com/qwied/TikTokAuto/releases/download/clips-2026-11-26/2026-11-26_19-03-12_kopsteep.mp4",
+   "preview": "https://qwied.github.io/TikTokAuto/preview/2026-11-26_19-03-12_kopsteep.mp4",
+   "thumb": "data:image/jpeg;base64,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",
+   "size": 10091253,
+   "duration": 37.1,
+   "channel": "kopsteep",
+   "display": "twitch.tv/kopsteep",
+   "platform": "twitch",
+   "title": "лудомания моральный распад зависимость !tg !bot",
+   "score": 61.0,
+   "hashtags": [
+    "#kopsteep",
+    "#twitch",
+    "#рек",
+    "#рекомендации",
+    "#fyp",
+    "#foryou",
+    "#viral",
+    "#прикол",
+    "#смешно",
+    "#хайп",
+    "#стрим",
+    "#клипы",
+    "#стример"
+   ],
+   "caption": "«Да, отдохнуть. Степан, если бы реально хотел что -то со мной, он бы не» — twitch.tv/kopsteep",
+   "subs": {
+    "lang": "ru",
+    "words": 87,
+    "aligned": true,
+    "lip_gate": false,
+    "speech_pct": 88,
+    "ok": true,
+    "hook": "Да, отдохнуть. Степан, если бы реально хотел что -то со мной, он бы не",
+    "peakcut": true
+   },
+   "src": "",
+   "start": 0,
+   "created": 1795720066,
+   "gh": true
+  },
   {
    "id": "2026-11-26_18-52-53_syslov171",
    "file": "2026-11-26_18-52-53_syslov171.mp4",
@@ -2798,27 +2842,6 @@
    "src": "",
    "start": 0,
    "created": 1795514493,
-   "gh": true
-  },
-  {
-   "id": "2026-11-24_09-52-12_strogo",
-   "file": "2026-11-24_09-52-12_strogo.mp4",
-   "url": "https://github.com/qwied/TikTokAuto/releases/download/auto/2026-11-24_09-52-12_strogo.mp4",
-   "preview": "https://qwied.github.io/TikTokAuto/preview/2026-11-24_09-52-12_strogo.mp4",
-   "thumb": "",
-   "size": 26869699,
-   "duration": 37.6,
-   "channel": "strogo",
-   "display": "strogo",
-   "platform": "twitch",
-   "title": "",
-   "score": 0.0,
-   "hashtags": [],
-   "caption": "",
-   "subs": {},
-   "src": "",
-   "start": 0,
-   "created": 1795514245,
    "gh": true
   }
  ]
