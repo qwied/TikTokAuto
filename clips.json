@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T17:18:18Z",
+ "updated": "2026-11-26T17:18:31Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -57,7 +57,7 @@
     "platform": "twitch",
     "live": true,
     "viewers": 0,
-    "title": "🔴 СМОТРИМ «МАМА В 16» и Чат рулетка !тг !бб !yota"
+    "title": "🔴СЛЕЙ КИНГ В ЧАТ РУЛЕТКЕ !тг !бб !yota"
    },
    {
     "name": "betboom_dota_ru",
@@ -255,12 +255,12 @@
     "name": "Okisebi",
     "display": "youtube.com/@Okisebi",
     "platform": "youtube",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🔴 LIVE! - GTA 6 mit 6 Sternen überleben!"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"Team Yandex vs GamerLegion 1:0 BLAST SLAM IX Playoffs\", 0], [\"solo\", true, \"🔴Team Yandex [1:0] GamerLegion | BLAST SLAM IX: Playoffs w/ @icebergdoto @kyzko_doto @геннадий @vtunedota !tg !BETBOOM !розыгрыш\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch\", 0], [\"bratishkinoff\", true, \"ПЕРЕЗЖАЮ В VICE CITY НАКОНЕЦ\", 0], [\"sasavot\", true, \"ЧЕТВЕРГ/ЛЕГКИЙ\", 0], [\"ravshann\", true, \"🔴 СМОТРИМ «МАМА В 16» и Чат рулетка !тг !бб !yota\", 0], [\"betboom_dota_ru\", true, \"Team Yandex [1] vs [0] GamerLegion | Bo3 | Playoffs Day 1 | BLAST SLAM IX | cast: @mrahillesko & @arszeeqq !предикты\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 0], [\"deko\", true, \"✔ фэйсит прем w/ @tankzor 👉 !bb\", 0], [\"welovegames\", true, \"Проходим GTA VI на 100% | !гилан !ситилинк !ggsel !dodo\", 0], [\"morphe_ya\", false, \"ВПЕРВИЕ ХОЛОУ НАЙТ (без гайдов!) ДЕНЬ ТУ | !tg !winline !мышки !wb\", 0], [\"melharucos\", true, \"ФИНАЛ\", 0], [\"chopperinho\", true, \"faceit w/ @m3ycs | ROAD TO 4K ELO | !bb !tg !yt\", 0], [\"syslov171\", true, \"Лёгкая закупка перед Якутском @bondarenk01\", 0], [\"dyrachyo\", true, \"Team Yandex [1:0] GamerLegion bo3 BLAST SLAM IX Play Off w/ @dkfogas1 | !bb !tg\", 0], [\"blackrabbit342\", true, \"yandex 1 0 gamerlegion BLAST !bb\", 0], [\"murzofix\", false, \"\", 0], [\"ghostik\", false, \"\", 0], [\"raythis\", false, \"ЛУЧШАЯ ПУШКА на ЭНХ Шаму ВЗЯТА! WoW Forever! ПУШ р14 ПОЛНЫМ Ходом! Новый WoW ● РЭЙВИС\", 0], [\"mantaq\", true, \"Liquids x 1w | Bo3 | BLAST SLAM IX | !tg !bb\", 0], [\"kopsteep\", true, \"лудомания моральный распад зависимость !tg !bot\", 0], [\"keliencs\", true, \"ПОКАЗЫВАЮ КАК ГРАМОТНО ВЫИГРЫВАТЬ ИГРЫ. | !tg !fonbet\", 0], [\"egorkreed\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"Team Yandex vs GamerLegion 1:0 BLAST SLAM IX Playoffs\", 0], [\"solo\", true, \"🔴Team Yandex [1:0] GamerLegion | BLAST SLAM IX: Playoffs w/ @icebergdoto @kyzko_doto @геннадий @vtunedota !tg !BETBOOM !розыгрыш\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch\", 0], [\"bratishkinoff\", true, \"ПЕРЕЗЖАЮ В VICE CITY НАКОНЕЦ\", 0], [\"sasavot\", true, \"ЧЕТВЕРГ/ЛЕГКИЙ\", 0], [\"ravshann\", true, \"🔴СЛЕЙ КИНГ В ЧАТ РУЛЕТКЕ !тг !бб !yota\", 0], [\"betboom_dota_ru\", true, \"Team Yandex [1] vs [0] GamerLegion | Bo3 | Playoffs Day 1 | BLAST SLAM IX | cast: @mrahillesko & @arszeeqq !предикты\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 0], [\"deko\", true, \"✔ фэйсит прем w/ @tankzor 👉 !bb\", 0], [\"welovegames\", true, \"Проходим GTA VI на 100% | !гилан !ситилинк !ggsel !dodo\", 0], [\"morphe_ya\", false, \"ВПЕРВИЕ ХОЛОУ НАЙТ (без гайдов!) ДЕНЬ ТУ | !tg !winline !мышки !wb\", 0], [\"melharucos\", true, \"ФИНАЛ\", 0], [\"chopperinho\", true, \"faceit w/ @m3ycs | ROAD TO 4K ELO | !bb !tg !yt\", 0], [\"syslov171\", true, \"Лёгкая закупка перед Якутском @bondarenk01\", 0], [\"dyrachyo\", true, \"Team Yandex [1:0] GamerLegion bo3 BLAST SLAM IX Play Off w/ @dkfogas1 | !bb !tg\", 0], [\"blackrabbit342\", true, \"yandex 1 0 gamerlegion BLAST !bb\", 0], [\"murzofix\", false, \"\", 0], [\"ghostik\", false, \"\", 0], [\"raythis\", false, \"ЛУЧШАЯ ПУШКА на ЭНХ Шаму ВЗЯТА! WoW Forever! ПУШ р14 ПОЛНЫМ Ходом! Новый WoW ● РЭЙВИС\", 0], [\"mantaq\", true, \"Liquids x 1w | Bo3 | BLAST SLAM IX | !tg !bb\", 0], [\"kopsteep\", true, \"лудомания моральный распад зависимость !tg !bot\", 0], [\"keliencs\", true, \"ПОКАЗЫВАЮ КАК ГРАМОТНО ВЫИГРЫВАТЬ ИГРЫ. | !tg !fonbet\", 0], [\"egorkreed\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit 6 Sternen überleben!\", 0]]"
  },
  "clips": [
   {
