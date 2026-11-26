@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T05:53:21Z",
+ "updated": "2026-11-26T05:55:11Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -88,7 +88,7 @@
     "display": "twitch.tv/justcooman",
     "platform": "twitch",
     "live": true,
-    "viewers": 3141,
+    "viewers": 3207,
     "title": "КАЛИБРОВКА (7965 откалибровался)"
    },
    {
@@ -96,11 +96,11 @@
     "display": "twitch.tv/strogo",
     "platform": "twitch",
     "live": true,
-    "viewers": 568,
+    "viewers": 3068,
     "title": "🔴 HEROIC 0:0 FaZe | PGL Major Singapore 2026 Stage 1 | !бот"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 2600], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 1150], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"justcooman\", true, \"КАЛИБРОВКА (7965 откалибровался)\", 3150], [\"strogo\", true, \"🔴 HEROIC 0:0 FaZe | PGL Major Singapore 2026 Stage 1 | !бот\", 575]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 2600], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 1150], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"justcooman\", true, \"КАЛИБРОВКА (7965 откалибровался)\", 3200], [\"strogo\", true, \"🔴 HEROIC 0:0 FaZe | PGL Major Singapore 2026 Stage 1 | !бот\", 3075]]"
  },
  "clips": [
   {
