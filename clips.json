@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T23:07:08Z",
+ "updated": "2026-11-26T23:07:23Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -103,33 +103,33 @@
     "name": "rejiboi",
     "display": "twitch.tv/rejiboi",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "давай воровать машинки 6, 9 серия | 76% !tg"
    },
    {
     "name": "shiishak",
     "display": "twitch.tv/shiishak",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB"
    },
    {
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ПОВТОР | BLAST SLAM IX | Playoffs Day 1"
    },
    {
     "name": "blindzonexgod",
     "display": "twitch.tv/blindzonexgod",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "grind winter season 100% импрува 100% скилла 100% мотивации w/ @avice @iseedeadp3ople @earthq__ @obscurelxght| !tg !мерч !bb"
    },
    {
     "name": "welovegames",
@@ -188,7 +188,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"СТОЛЬКО БЕСПЛАТНЫХ НАГРАД?! Празднуем вторую годовщину Marvel Rivals\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 0], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 0], [\"5opka\", true, \"ЧИЛЛЮ В ГТА 6 // !донат !приватка !правила !funpay !тг\", 0], [\"lenagol0vach\", true, \"СТОЛЬКО БЕСПЛАТНЫХ НАГРАД?! Празднуем вторую годовщину Marvel Rivals.\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"danila_gorilla\", true, \"🔴 ВЕЧЕРНИЙ W STREAM w/ @брат\", 0], [\"welovegames\", true, \"Следите за новостями → t.me/welovegames | !гилан !ситилинк !ggsel !dodo\", 0], [\"znat51\", true, \"пока все хайпят на гта , мы играем на фасике - !тг !vip !дс !донат !музыка\", 0], [\"keliencs\", true, \"ПОКАЗЫВАЮ КАК ГРАМОТНО ВЫИГРЫВАТЬ ИГРЫ. w/ @hypetried | !tg !fonbet\", 0], [\"rejiboi\", false, \"\", 0], [\"shiishak\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"blindzonexgod\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"СТОЛЬКО БЕСПЛАТНЫХ НАГРАД?! Празднуем вторую годовщину Marvel Rivals\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 0], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 0], [\"5opka\", true, \"ЧИЛЛЮ В ГТА 6 // !донат !приватка !правила !funpay !тг\", 0], [\"lenagol0vach\", true, \"СТОЛЬКО БЕСПЛАТНЫХ НАГРАД?! Празднуем вторую годовщину Marvel Rivals.\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"danila_gorilla\", true, \"🔴 ВЕЧЕРНИЙ W STREAM w/ @брат\", 0], [\"welovegames\", true, \"Следите за новостями → t.me/welovegames | !гилан !ситилинк !ggsel !dodo\", 0], [\"znat51\", true, \"пока все хайпят на гта , мы играем на фасике - !тг !vip !дс !донат !музыка\", 0], [\"keliencs\", true, \"ПОКАЗЫВАЮ КАК ГРАМОТНО ВЫИГРЫВАТЬ ИГРЫ. w/ @hypetried | !tg !fonbet\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 9 серия | 76% !tg\", 0], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB\", 0], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Playoffs Day 1\", 0], [\"blindzonexgod\", true, \"grind winter season 100% импрува 100% скилла 100% мотивации w/ @avice @iseedeadp3ople @earthq__ @obscurelxght| !tg !мерч !bb\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
