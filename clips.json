@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T19:25:14Z",
+ "updated": "2026-11-26T19:25:18Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -79,81 +79,81 @@
     "name": "kopsteep",
     "display": "twitch.tv/kopsteep",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "лудомания моральный распад зависимость !tg !bot"
    },
    {
     "name": "syslov171",
     "display": "twitch.tv/syslov171",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Лёгкая закупка перед Якутском @bondarenk01"
    },
    {
     "name": "chopperinho",
     "display": "twitch.tv/chopperinho",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "faceit w/ @m3ycs | ROAD TO 4K ELO | !bb !tg !yt"
    },
    {
     "name": "stray228",
     "display": "twitch.tv/stray228",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер"
    },
    {
     "name": "keliencs",
     "display": "twitch.tv/keliencs",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ПОКАЗЫВАЮ КАК ГРАМОТНО ВЫИГРЫВАТЬ ИГРЫ. w/ @hypetried | !tg !fonbet"
    },
    {
     "name": "rejiboi",
     "display": "twitch.tv/rejiboi",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "давай воровать машинки 6, 9 серия | 74% !tg"
    },
    {
     "name": "blackrabbit342",
     "display": "twitch.tv/blackrabbit342",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "очнулся. тыща. гринд !bb"
    },
    {
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ПОВТОР | BLAST SLAM IX | Playoffs Day 1"
    },
    {
     "name": "silvername",
     "display": "twitch.tv/silvername",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг"
    },
    {
     "name": "shiishak",
     "display": "twitch.tv/shiishak",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB"
    },
    {
     "name": "leb1ga",
@@ -220,7 +220,7 @@
     "title": "🔴 LIVE! - GTA 6 mit 6 Sternen überleben!"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"ПЕРЕЗЖАЮ В VICE CITY НАКОНЕЦ\", 0], [\"ravshann\", true, \"🔴СЛЕЙ КИНГ В ЧАТ РУЛЕТКЕ !тг !бб !yota\", 0], [\"sasavot\", true, \"ЧЕТВЕРГ/ЛЕГКИЙ\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф\", 0], [\"5opka\", true, \"РАССКАЗЫВАЮ ИСТОРИИ И ЧЁ-ТА ДЕЛАЮ // !донат !приватка !правила !funpay !тг\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 0], [\"welovegames\", true, \"Проходим GTA VI на 100% | !гилан !ситилинк !ggsel !dodo\", 0], [\"deko\", true, \"DEPRESSED FAMQ / ORLANDO 👉 !bb\", 0], [\"kopsteep\", false, \"\", 0], [\"syslov171\", false, \"\", 0], [\"chopperinho\", false, \"\", 0], [\"stray228\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"blackrabbit342\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"silvername\", false, \"\", 0], [\"shiishak\", false, \"\", 0], [\"leb1ga\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit 6 Sternen überleben!\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"ПЕРЕЗЖАЮ В VICE CITY НАКОНЕЦ\", 0], [\"ravshann\", true, \"🔴СЛЕЙ КИНГ В ЧАТ РУЛЕТКЕ !тг !бб !yota\", 0], [\"sasavot\", true, \"ЧЕТВЕРГ/ЛЕГКИЙ\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф\", 0], [\"5opka\", true, \"РАССКАЗЫВАЮ ИСТОРИИ И ЧЁ-ТА ДЕЛАЮ // !донат !приватка !правила !funpay !тг\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 0], [\"welovegames\", true, \"Проходим GTA VI на 100% | !гилан !ситилинк !ggsel !dodo\", 0], [\"deko\", true, \"DEPRESSED FAMQ / ORLANDO 👉 !bb\", 0], [\"kopsteep\", true, \"лудомания моральный распад зависимость !tg !bot\", 0], [\"syslov171\", true, \"Лёгкая закупка перед Якутском @bondarenk01\", 0], [\"chopperinho\", true, \"faceit w/ @m3ycs | ROAD TO 4K ELO | !bb !tg !yt\", 0], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 0], [\"keliencs\", true, \"ПОКАЗЫВАЮ КАК ГРАМОТНО ВЫИГРЫВАТЬ ИГРЫ. w/ @hypetried | !tg !fonbet\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 9 серия | 74% !tg\", 0], [\"blackrabbit342\", true, \"очнулся. тыща. гринд !bb\", 0], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Playoffs Day 1\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB\", 0], [\"leb1ga\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit 6 Sternen überleben!\", 0]]"
  },
  "clips": [
   {
