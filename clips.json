@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T06:11:12Z",
+ "updated": "2026-11-26T06:12:13Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -28,79 +28,31 @@
     "title": "ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel"
    },
    {
-    "name": "welovegames",
-    "display": "youtube.com/@welovegames",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "bratishkinoff",
-    "display": "youtube.com/@bratishkinoff",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "KuplinovPlay",
-    "display": "youtube.com/@KuplinovPlay",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "5opka",
-    "display": "youtube.com/@5opka",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "stariy_bog",
-    "display": "youtube.com/@stariy_bog",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "AlinaRin",
-    "display": "youtube.com/@AlinaRin",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "Okisebi",
-    "display": "youtube.com/@Okisebi",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "justcooman",
-    "display": "twitch.tv/justcooman",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 2601,
-    "title": "КАЛИБРОВКА (7965 откалибровался)"
-   },
-   {
     "name": "strogo",
     "display": "twitch.tv/strogo",
     "platform": "twitch",
     "live": true,
-    "viewers": 12297,
+    "viewers": 13297,
     "title": "🔴 HEROIC 0:0 FaZe | PGL Major Singapore 2026 Stage 1 | !бот"
+   },
+   {
+    "name": "bysl4m",
+    "display": "twitch.tv/bysl4m",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "bobito217",
+    "display": "twitch.tv/bobito217",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 2475], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 1100], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"justcooman\", true, \"КАЛИБРОВКА (7965 откалибровался)\", 2600], [\"strogo\", true, \"🔴 HEROIC 0:0 FaZe | PGL Major Singapore 2026 Stage 1 | !бот\", 12300]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 2475], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 1100], [\"strogo\", true, \"🔴 HEROIC 0:0 FaZe | PGL Major Singapore 2026 Stage 1 | !бот\", 13300], [\"bysl4m\", false, \"\", 0], [\"bobito217\", false, \"\", 0]]"
  },
  "clips": [
   {
