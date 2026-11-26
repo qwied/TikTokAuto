@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T12:49:06Z",
+ "updated": "2026-11-26T12:56:17Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -12,120 +12,104 @@
     "title": ""
    },
    {
-    "name": "nix",
-    "display": "twitch.tv/nix",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "1w vs Liquid 0:0 BLAST SLAM IX Playoffs"
-   },
-   {
     "name": "strogo",
     "display": "twitch.tv/strogo",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "🔴 Liquid 1:0 Imperial | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот"
-   },
-   {
-    "name": "gadjiev57",
-    "display": "twitch.tv/gadjiev57",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": "ЧИВИЛЯ В ТАЙЛАНДЕ ВСТРЕЧА РОЗЫ КОСТИ И ЧИВИЛИ 😂"
-   },
-   {
-    "name": "solo",
-    "display": "twitch.tv/solo",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "🔴1W [0:0] Team Liquid | BLAST SLAM IX: Playoffs w/ @icebergdoto @kyzko_doto @геннадий !tg !BETBOOM !розыгрыш"
-   },
-   {
-    "name": "bysl4m",
-    "display": "twitch.tv/bysl4m",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Imperial [0:1] Liquid | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 3 | @bySL4M @WorldEdit"
-   },
-   {
-    "name": "betboom_dota_ru",
-    "display": "twitch.tv/betboom_dota_ru",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "1win [0] vs [0] Team Liquid | Bo3 | Playoffs Day 1 | BLAST SLAM IX | cast: @shachlos & @adekvat"
-   },
-   {
-    "name": "leva2k",
-    "display": "twitch.tv/leva2k",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel"
-   },
-   {
-    "name": "melharucos",
-    "display": "twitch.tv/melharucos",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "ФИНАЛ"
-   },
-   {
-    "name": "zloyn",
-    "display": "twitch.tv/zloyn",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "ПАСХАЛКИ | GTA VI 🤯 | !tg"
-   },
-   {
-    "name": "dyrachyo",
-    "display": "twitch.tv/dyrachyo",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "1w [0:0] Team Liquid bo3 BLAST SLAM IX Play Off w/ @dkfogas1 | !bb !tg"
-   },
-   {
-    "name": "dmitry_lixxx",
-    "display": "twitch.tv/dmitry_lixxx",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": "СМОТРИМ ВИДОСЫ | !tg !winline !ЯО !ВТБ !avan"
-   },
-   {
-    "name": "rostikfacekid",
-    "display": "twitch.tv/rostikfacekid",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "самый прикольный стример😎👍"
-   },
-   {
-    "name": "kerimch1k",
-    "display": "twitch.tv/kerimch1k",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": "4 УЖАСНЫХ ЧЕСА В МЕТРО !tg !donate"
-   },
-   {
-    "name": "keliencs",
-    "display": "twitch.tv/keliencs",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
     "title": ""
    },
    {
-    "name": "hibako",
-    "display": "twitch.tv/hibako",
+    "name": "nix",
+    "display": "twitch.tv/nix",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "anarabdullaev",
+    "display": "twitch.tv/anarabdullaev",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "solo",
+    "display": "twitch.tv/solo",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "bysl4m",
+    "display": "twitch.tv/bysl4m",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "exbo_official",
+    "display": "twitch.tv/exbo_official",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "leva2k",
+    "display": "twitch.tv/leva2k",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "betboom_dota_ru",
+    "display": "twitch.tv/betboom_dota_ru",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "melharucos",
+    "display": "twitch.tv/melharucos",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "zloyn",
+    "display": "twitch.tv/zloyn",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "stintik",
+    "display": "twitch.tv/stintik",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "rostikfacekid",
+    "display": "twitch.tv/rostikfacekid",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "dyrachyo",
+    "display": "twitch.tv/dyrachyo",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
@@ -135,25 +119,33 @@
     "name": "ghostik",
     "display": "twitch.tv/ghostik",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "😎 АБСОЛЮТНО БЕЗТІЛЬТОВИЙ СТРІМ, ЯКЩО ТІЛЬТАНУ - ІДУ в LoL 😎 Стата 2-1"
+    "title": ""
+   },
+   {
+    "name": "alohadancetv",
+    "display": "twitch.tv/alohadancetv",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "exigent_wires",
     "display": "twitch.tv/exigent_wires",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ"
+    "title": ""
    },
    {
-    "name": "mantaq",
-    "display": "twitch.tv/mantaq",
+    "name": "amor_ed",
+    "display": "twitch.tv/amor_ed",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Liquids x 1w | Bo3 | BLAST SLAM IX | !tg !bb"
+    "title": ""
    },
    {
     "name": "welovegames",
@@ -212,47 +204,23 @@
     "title": ""
    },
    {
-    "name": "anarabdullaev",
-    "display": "twitch.tv/anarabdullaev",
+    "name": "murzofix",
+    "display": "twitch.tv/murzofix",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Едем в магаз бейб вам подарок выбирать в Бангкоке /w Эксити Лера Вика"
+    "title": ""
    },
    {
-    "name": "exbo_official",
-    "display": "twitch.tv/exbo_official",
+    "name": "mantaq",
+    "display": "twitch.tv/mantaq",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "СПОЙЛЕРЫ ЗИМНЕГО СЕЗОНА✅ЕЛКА✅ПРОМОКОДЫ✅ ДРАМА✅ЧЕРНАЯ ПЯТНИЦА✅ВАЖНЫЙ ДЕНЬ✅"
-   },
-   {
-    "name": "stintik",
-    "display": "twitch.tv/stintik",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "епывпавыпва"
-   },
-   {
-    "name": "alohadancetv",
-    "display": "twitch.tv/alohadancetv",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "на керри к топ1 рангу ( proffesor mode ) доброта 10/10  !судимости !tg"
-   },
-   {
-    "name": "amor_ed",
-    "display": "twitch.tv/amor_ed",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "трудно быть бобом 4 сезон 6 серия (MOGNUS) !pl"
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"1w vs Liquid 0:0 BLAST SLAM IX Playoffs\", 0], [\"strogo\", true, \"🔴 Liquid 1:0 Imperial | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 0], [\"gadjiev57\", false, \"ЧИВИЛЯ В ТАЙЛАНДЕ ВСТРЕЧА РОЗЫ КОСТИ И ЧИВИЛИ 😂\", 0], [\"solo\", true, \"🔴1W [0:0] Team Liquid | BLAST SLAM IX: Playoffs w/ @icebergdoto @kyzko_doto @геннадий !tg !BETBOOM !розыгрыш\", 0], [\"bysl4m\", true, \"Imperial [0:1] Liquid | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 3 | @bySL4M @WorldEdit\", 0], [\"betboom_dota_ru\", true, \"1win [0] vs [0] Team Liquid | Bo3 | Playoffs Day 1 | BLAST SLAM IX | cast: @shachlos & @adekvat\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 0], [\"melharucos\", true, \"ФИНАЛ\", 0], [\"zloyn\", true, \"ПАСХАЛКИ | GTA VI 🤯 | !tg\", 0], [\"dyrachyo\", true, \"1w [0:0] Team Liquid bo3 BLAST SLAM IX Play Off w/ @dkfogas1 | !bb !tg\", 0], [\"dmitry_lixxx\", false, \"СМОТРИМ ВИДОСЫ | !tg !winline !ЯО !ВТБ !avan\", 0], [\"rostikfacekid\", true, \"самый прикольный стример😎👍\", 0], [\"kerimch1k\", false, \"4 УЖАСНЫХ ЧЕСА В МЕТРО !tg !donate\", 0], [\"keliencs\", false, \"\", 0], [\"hibako\", false, \"\", 0], [\"ghostik\", true, \"😎 АБСОЛЮТНО БЕЗТІЛЬТОВИЙ СТРІМ, ЯКЩО ТІЛЬТАНУ - ІДУ в LoL 😎 Стата 2-1\", 0], [\"exigent_wires\", true, \"ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ\", 0], [\"mantaq\", true, \"Liquids x 1w | Bo3 | BLAST SLAM IX | !tg !bb\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"anarabdullaev\", true, \"Едем в магаз бейб вам подарок выбирать в Бангкоке /w Эксити Лера Вика\", 0], [\"exbo_official\", true, \"СПОЙЛЕРЫ ЗИМНЕГО СЕЗОНА✅ЕЛКА✅ПРОМОКОДЫ✅ ДРАМА✅ЧЕРНАЯ ПЯТНИЦА✅ВАЖНЫЙ ДЕНЬ✅\", 0], [\"stintik\", true, \"епывпавыпва\", 0], [\"alohadancetv\", true, \"на керри к топ1 рангу ( proffesor mode ) доброта 10/10  !судимости !tg\", 0], [\"amor_ed\", true, \"трудно быть бобом 4 сезон 6 серия (MOGNUS) !pl\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", false, \"\", 0], [\"nix\", false, \"\", 0], [\"anarabdullaev\", false, \"\", 0], [\"solo\", false, \"\", 0], [\"bysl4m\", false, \"\", 0], [\"exbo_official\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"melharucos\", false, \"\", 0], [\"zloyn\", false, \"\", 0], [\"stintik\", false, \"\", 0], [\"rostikfacekid\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"ghostik\", false, \"\", 0], [\"alohadancetv\", false, \"\", 0], [\"exigent_wires\", false, \"\", 0], [\"amor_ed\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"murzofix\", false, \"\", 0], [\"mantaq\", false, \"\", 0]]"
  },
  "clips": [
   {
