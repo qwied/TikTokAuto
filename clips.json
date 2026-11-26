@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T20:25:17Z",
+ "updated": "2026-11-26T20:28:13Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -167,7 +167,7 @@
     "name": "silvername",
     "display": "twitch.tv/silvername",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
     "title": "Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг"
    },
@@ -228,7 +228,7 @@
     "title": "🔴 LIVE! - GTA 6 mit 6 Sternen überleben!"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leb1ga\", true, \"⚡️НОВИЙ СЕЗОН КОХАННЯ НА ВИЖИВАННЯ!!!!\", 0], [\"bratishkinoff\", true, \"ПЕРЕЗЖАЮ В VICE CITY НАКОНЕЦ\", 0], [\"ravshann\", false, \"\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф\", 0], [\"5opka\", true, \"ЧИЛЛЮ В ГТА 6 // !донат !приватка !правила !funpay !тг\", 0], [\"leva2k\", true, \"АУК НА ЕДУ | ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 0], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 0], [\"welovegames\", true, \"Проходим GTA VI на 100% | !гилан !ситилинк !ggsel !dodo\", 0], [\"deko\", true, \"DEPRESSED FAMQ / ORLANDO 👉 !bb\", 0], [\"kopsteep\", true, \"лудомания моральный распад зависимость !tg !bot\", 0], [\"keliencs\", true, \"ПОКАЗЫВАЮ КАК ГРАМОТНО ВЫИГРЫВАТЬ ИГРЫ. w/ @hypetried | !tg !fonbet\", 0], [\"syslov171\", true, \"Лёгкая закупка перед Якутском @bondarenk01\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 9 серия | 74% !tg\", 0], [\"danila_gorilla\", true, \"🔴 ВЕЧЕРНИЙ W STREAM w/ @paradeev1ch @vladragovski @брат\", 0], [\"blackrabbit342\", true, \"очнулся. тыща. гринд !bb\", 0], [\"chopperinho\", true, \"Продолжаем ДС3 | !bb !tg !yt\", 0], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB\", 0], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Playoffs Day 1\", 0], [\"lenagol0vach\", true, \"🏆 НОВЫЙ ПАТЧ 7.42 🏆 ПУТЬ В ТОП 100 🏆  ЖЕСТКИЙ АП ММР 🍔 БЫЛО 15к ММР 🍆 ТЕСТИМ НОВЫЙ ПАТЧ ⭐ НАШЕЛ ИМБУ ПАТЧА ⭐🧀🏆⭐\", 0], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit 6 Sternen überleben!\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leb1ga\", true, \"⚡️НОВИЙ СЕЗОН КОХАННЯ НА ВИЖИВАННЯ!!!!\", 0], [\"bratishkinoff\", true, \"ПЕРЕЗЖАЮ В VICE CITY НАКОНЕЦ\", 0], [\"ravshann\", false, \"\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф\", 0], [\"5opka\", true, \"ЧИЛЛЮ В ГТА 6 // !донат !приватка !правила !funpay !тг\", 0], [\"leva2k\", true, \"АУК НА ЕДУ | ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 0], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 0], [\"welovegames\", true, \"Проходим GTA VI на 100% | !гилан !ситилинк !ggsel !dodo\", 0], [\"deko\", true, \"DEPRESSED FAMQ / ORLANDO 👉 !bb\", 0], [\"kopsteep\", true, \"лудомания моральный распад зависимость !tg !bot\", 0], [\"keliencs\", true, \"ПОКАЗЫВАЮ КАК ГРАМОТНО ВЫИГРЫВАТЬ ИГРЫ. w/ @hypetried | !tg !fonbet\", 0], [\"syslov171\", true, \"Лёгкая закупка перед Якутском @bondarenk01\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 9 серия | 74% !tg\", 0], [\"danila_gorilla\", true, \"🔴 ВЕЧЕРНИЙ W STREAM w/ @paradeev1ch @vladragovski @брат\", 0], [\"blackrabbit342\", true, \"очнулся. тыща. гринд !bb\", 0], [\"chopperinho\", true, \"Продолжаем ДС3 | !bb !tg !yt\", 0], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB\", 0], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Playoffs Day 1\", 0], [\"lenagol0vach\", true, \"🏆 НОВЫЙ ПАТЧ 7.42 🏆 ПУТЬ В ТОП 100 🏆  ЖЕСТКИЙ АП ММР 🍔 БЫЛО 15к ММР 🍆 ТЕСТИМ НОВЫЙ ПАТЧ ⭐ НАШЕЛ ИМБУ ПАТЧА ⭐🧀🏆⭐\", 0], [\"silvername\", false, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit 6 Sternen überleben!\", 0]]"
  },
  "clips": [
   {
