@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T23:06:38Z",
+ "updated": "2026-11-26T23:06:53Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,41 +15,41 @@
     "name": "bratishkinoff",
     "display": "twitch.tv/bratishkinoff",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "СТОЛЬКО БЕСПЛАТНЫХ НАГРАД?! Празднуем вторую годовщину Marvel Rivals"
    },
    {
     "name": "t2x2",
     "display": "twitch.tv/t2x2",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch"
    },
    {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel"
    },
    {
     "name": "stray228",
     "display": "twitch.tv/stray228",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер"
    },
    {
     "name": "5opka",
     "display": "twitch.tv/5opka",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ЧИЛЛЮ В ГТА 6 // !донат !приватка !правила !funpay !тг"
    },
    {
     "name": "lenagol0vach",
@@ -188,7 +188,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"t2x2\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"stray228\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"lenagol0vach\", false, \"\", 0], [\"silvername\", false, \"\", 0], [\"danila_gorilla\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"znat51\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"shiishak\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"blindzonexgod\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"СТОЛЬКО БЕСПЛАТНЫХ НАГРАД?! Празднуем вторую годовщину Marvel Rivals\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 0], [\"stray228\", true, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 0], [\"5opka\", true, \"ЧИЛЛЮ В ГТА 6 // !донат !приватка !правила !funpay !тг\", 0], [\"lenagol0vach\", false, \"\", 0], [\"silvername\", false, \"\", 0], [\"danila_gorilla\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"znat51\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"shiishak\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"blindzonexgod\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
