@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T12:03:19Z",
+ "updated": "2026-11-27T12:03:34Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -71,57 +71,57 @@
     "name": "blackufa",
     "display": "twitch.tv/blackufa",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "[DROPS] GTA 6 [PS5Pro] Последний стрим. Сага. Часть 101"
    },
    {
     "name": "rostikfacekid",
     "display": "twitch.tv/rostikfacekid",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "САМЫЙ ЗАВОЗНОЙ СТРИМЕР😎👍"
    },
    {
     "name": "stintik",
     "display": "twitch.tv/stintik",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "гыгыгыгыгыггы"
    },
    {
     "name": "dmitry_lixxx",
     "display": "twitch.tv/dmitry_lixxx",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "[MAJOR] M80 [0:0] 100 Thieves | PGL Major Singapore 2026 Stage 1 | !tg !winline !ЯО !ВТБ !avan"
    },
    {
     "name": "dyrachyo",
     "display": "twitch.tv/dyrachyo",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Pvision [0:1] Team Liquid bo3 BLAST SLAM IX Play Off w/ @vtunedota | !bb !tg"
    },
    {
     "name": "tpabomah",
     "display": "twitch.tv/tpabomah",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "СДЕЛАЛ ТУРНИР - ИГРАЕМ НА ПОЛМИЛЛИОНА🔥 !ищунарезчика !розыгрыш !тг"
    },
    {
     "name": "kerimch1k",
     "display": "twitch.tv/kerimch1k",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ТРЕНИРОВКА КОМАНДЫ «ПОРВАННЫЕ РТЫ» перед мажором | !tg"
    },
    {
     "name": "blackrabbit342",
@@ -244,7 +244,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"Liquid vs PARIVISION bo3 1:0 BLAST SLAM IX Playoffs w/ Alagon\", 0], [\"solo\", true, \"🔴PV [0:1] Team Liquid| BLAST SLAM IX: Playoffs w/ @геннадий @rodjer @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"betboom_dota_ru\", true, \"PARIVISION [0] vs [1] Team Liquid | Bo3 | Playoffs Day 2 | BLAST SLAM IX | cast: @arszeeqq & @adekvat !предикты\", 0], [\"bysl4m\", true, \"M80 [0:0] 100 Thieves | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 4 | @bySL4M @WorldEdit\", 0], [\"leva2k\", true, \"АУК НА ЕДУ | ИЗОЛЯЦИЯ ДЕНЬ 12 | !tg !donate !winline !ggsel (аук)\", 0], [\"cs2_paragon_ru\", true, \"[RU] M80 [0:0] 100 Thieves | PGL Major Singapore 2026: Stage 1 | BO3 | @yarushkin1, @siberiancaster & @Roma_roo\", 0], [\"keliencs\", false, \"\", 0], [\"blackufa\", false, \"\", 0], [\"rostikfacekid\", false, \"\", 0], [\"stintik\", false, \"\", 0], [\"dmitry_lixxx\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"tpabomah\", false, \"\", 0], [\"kerimch1k\", false, \"\", 0], [\"blackrabbit342\", false, \"\", 0], [\"vovapain\", false, \"\", 0], [\"alohadancetv\", false, \"\", 0], [\"hibako\", false, \"\", 0], [\"mainfinitytv\", false, \"\", 0], [\"ghostik\", false, \"\", 0], [\"mantaq\", false, \"\", 0], [\"strogo\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"Liquid vs PARIVISION bo3 1:0 BLAST SLAM IX Playoffs w/ Alagon\", 0], [\"solo\", true, \"🔴PV [0:1] Team Liquid| BLAST SLAM IX: Playoffs w/ @геннадий @rodjer @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"betboom_dota_ru\", true, \"PARIVISION [0] vs [1] Team Liquid | Bo3 | Playoffs Day 2 | BLAST SLAM IX | cast: @arszeeqq & @adekvat !предикты\", 0], [\"bysl4m\", true, \"M80 [0:0] 100 Thieves | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 4 | @bySL4M @WorldEdit\", 0], [\"leva2k\", true, \"АУК НА ЕДУ | ИЗОЛЯЦИЯ ДЕНЬ 12 | !tg !donate !winline !ggsel (аук)\", 0], [\"cs2_paragon_ru\", true, \"[RU] M80 [0:0] 100 Thieves | PGL Major Singapore 2026: Stage 1 | BO3 | @yarushkin1, @siberiancaster & @Roma_roo\", 0], [\"keliencs\", false, \"\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Последний стрим. Сага. Часть 101\", 0], [\"rostikfacekid\", true, \"САМЫЙ ЗАВОЗНОЙ СТРИМЕР😎👍\", 0], [\"stintik\", true, \"гыгыгыгыгыггы\", 0], [\"dmitry_lixxx\", true, \"[MAJOR] M80 [0:0] 100 Thieves | PGL Major Singapore 2026 Stage 1 | !tg !winline !ЯО !ВТБ !avan\", 0], [\"dyrachyo\", true, \"Pvision [0:1] Team Liquid bo3 BLAST SLAM IX Play Off w/ @vtunedota | !bb !tg\", 0], [\"tpabomah\", true, \"СДЕЛАЛ ТУРНИР - ИГРАЕМ НА ПОЛМИЛЛИОНА🔥 !ищунарезчика !розыгрыш !тг\", 0], [\"kerimch1k\", true, \"ТРЕНИРОВКА КОМАНДЫ «ПОРВАННЫЕ РТЫ» перед мажором | !tg\", 0], [\"blackrabbit342\", false, \"\", 0], [\"vovapain\", false, \"\", 0], [\"alohadancetv\", false, \"\", 0], [\"hibako\", false, \"\", 0], [\"mainfinitytv\", false, \"\", 0], [\"ghostik\", false, \"\", 0], [\"mantaq\", false, \"\", 0], [\"strogo\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
