@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T20:22:35Z",
+ "updated": "2026-11-27T20:22:50Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,105 +15,105 @@
     "name": "deepins02",
     "display": "twitch.tv/deepins02",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 20147,
+    "title": "[мама в 16 ] | !winline !tg"
    },
    {
     "name": "ravshann",
     "display": "twitch.tv/ravshann",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 16071,
+    "title": "🔴 ЧАТ РУЛЕТКА !тг !бб !yota"
    },
    {
     "name": "bratishkinoff",
     "display": "twitch.tv/bratishkinoff",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 11235,
+    "title": "Я ПРОШЕЛ ГТА 6 НА 101% ПОКАЗЫВАЮ СЕКРЕТНУЮ КАТСЦЕНУ 🔴 !пасхалки !планы"
    },
    {
     "name": "gpkdota21",
     "display": "twitch.tv/gpkdota21",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 8673,
+    "title": "Night chill pubs !tg"
    },
    {
     "name": "zxcursed",
     "display": "twitch.tv/zxcursed",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 5980,
+    "title": "аккуратно превосходим других"
    },
    {
     "name": "stray228",
     "display": "twitch.tv/stray228",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 4121,
+    "title": "НАШЕЛ ИМБУ, УЧУ ТАЩИТЬ МИД НА ХАЙ ПТС !tg !bb !wow !воппер"
    },
    {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 4242,
+    "title": "ИЗОЛЯЦИЯ ДЕНЬ 12 | !tg !donate !winline !ggsel"
    },
    {
     "name": "welovegames",
     "display": "twitch.tv/welovegames",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 3490,
+    "title": "Сегодня банк и подводные приключения | !гилан !ситилинк !ggsel !dodo"
    },
    {
     "name": "5opka",
     "display": "twitch.tv/5opka",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 3075,
+    "title": "Дал Концерт, даю гта // !донат !приватка !правила !funpay !тг"
    },
    {
     "name": "rejiboi",
     "display": "twitch.tv/rejiboi",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 1161,
+    "title": "давай воровать машинки 6, 10 серия | 81% !tg"
    },
    {
     "name": "blackrabbit342",
     "display": "twitch.tv/blackrabbit342",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 875,
+    "title": "туманный гринд... !bb"
    },
    {
     "name": "shiishak",
     "display": "twitch.tv/shiishak",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 752,
+    "title": "Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB"
    },
    {
     "name": "bezp",
     "display": "twitch.tv/bezp",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 611,
+    "title": "[EXCLUSIVE DROPS] Вотчпати турика !funpay"
    },
    {
     "name": "welovegames",
@@ -159,28 +159,28 @@
     "name": "AlinaRin",
     "display": "youtube.com/@AlinaRin",
     "platform": "youtube",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "GTA VI ★★★★★★ РЕЛИЗ (2026) 【#8】"
    },
    {
     "name": "Okisebi",
     "display": "youtube.com/@Okisebi",
     "platform": "youtube",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🔴 LIVE! - GTA 6 mit 6 Sternen überleben!"
    },
    {
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 806,
+    "title": "ПОВТОР BLAST SLAM IX | Playoffs Day 2"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"deepins02\", false, \"\", 0], [\"ravshann\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"gpkdota21\", false, \"\", 0], [\"zxcursed\", false, \"\", 0], [\"stray228\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"blackrabbit342\", false, \"\", 0], [\"shiishak\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"deepins02\", true, \"[мама в 16 ] | !winline !tg\", 20150], [\"ravshann\", true, \"🔴 ЧАТ РУЛЕТКА !тг !бб !yota\", 16075], [\"bratishkinoff\", true, \"Я ПРОШЕЛ ГТА 6 НА 101% ПОКАЗЫВАЮ СЕКРЕТНУЮ КАТСЦЕНУ 🔴 !пасхалки !планы\", 11225], [\"gpkdota21\", true, \"Night chill pubs !tg\", 8675], [\"zxcursed\", true, \"аккуратно превосходим других\", 5975], [\"stray228\", true, \"НАШЕЛ ИМБУ, УЧУ ТАЩИТЬ МИД НА ХАЙ ПТС !tg !bb !wow !воппер\", 4125], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 12 | !tg !donate !winline !ggsel\", 4250], [\"welovegames\", true, \"Сегодня банк и подводные приключения | !гилан !ситилинк !ggsel !dodo\", 3500], [\"5opka\", true, \"Дал Концерт, даю гта // !донат !приватка !правила !funpay !тг\", 3075], [\"rejiboi\", true, \"давай воровать машинки 6, 10 серия | 81% !tg\", 1150], [\"blackrabbit342\", true, \"туманный гринд... !bb\", 875], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB\", 750], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 600], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", true, \"GTA VI ★★★★★★ РЕЛИЗ (2026) 【#8】\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit 6 Sternen überleben!\", 0], [\"betboom_dota_ru\", true, \"ПОВТОР BLAST SLAM IX | Playoffs Day 2\", 800]]"
  },
  "clips": [
   {
