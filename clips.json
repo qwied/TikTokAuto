@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T10:11:10Z",
+ "updated": "2026-11-27T10:12:09Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,89 +15,81 @@
     "name": "bysl4m",
     "display": "twitch.tv/bysl4m",
     "platform": "twitch",
-    "live": true,
-    "viewers": 12035,
-    "title": "Imperial [1:0] Wildcard | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 4 | @bySL4M @WorldEdit"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "cs2_paragon_ru",
     "display": "twitch.tv/cs2_paragon_ru",
     "platform": "twitch",
-    "live": true,
-    "viewers": 6753,
-    "title": "[RU] Imperial Esports [1:0] Wildcard | PGL Major Singapore 2026: Stage 1 | BO3 | @yarushkin1, @Lampaaa & @cybercracken"
-   },
-   {
-    "name": "perfecto_of",
-    "display": "twitch.tv/perfecto_of",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 2784,
-    "title": "[NO DELAY] Imperial [1:0] Wildcard | BO3 | PGL Major Singapore Stage 1 Round 5 Elimination Match | !winline !ковер"
-   },
-   {
-    "name": "watchfultv",
-    "display": "twitch.tv/watchfultv",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 3107,
-    "title": "[RU] Imperial vs Wildcard | PGL Major Singapore | Telegram: @watchfulTV"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": true,
-    "viewers": 4211,
-    "title": "ИЗОЛЯЦИЯ ДЕНЬ 12 | !tg !donate !winline !ggsel"
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "betboom_dota_ru",
+    "display": "twitch.tv/betboom_dota_ru",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "keliencs",
     "display": "twitch.tv/keliencs",
     "platform": "twitch",
-    "live": true,
-    "viewers": 2549,
-    "title": "Imperial [1:0] Wildcard | PGL Major Singapore 2026 Stage 1 | !tg !fonbet"
-   },
-   {
-    "name": "vovapain",
-    "display": "twitch.tv/vovapain",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 1605,
-    "title": "🔴 PARIVISION [0] vs [0] Team Liquid | Bo3 | Playoffs Day 2 | BLAST SLAM IX | !tg !bb !бк !лига"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "alohadancetv",
     "display": "twitch.tv/alohadancetv",
     "platform": "twitch",
-    "live": true,
-    "viewers": 1902,
-    "title": "на керри к топ1 рангу - доброта 10/10  !судимости !tg"
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "vovapain",
+    "display": "twitch.tv/vovapain",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "exigent_wires",
     "display": "twitch.tv/exigent_wires",
     "platform": "twitch",
-    "live": true,
-    "viewers": 660,
-    "title": "ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ"
-   },
-   {
-    "name": "hibako",
-    "display": "twitch.tv/hibako",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 631,
-    "title": "СРОЧНО ЗАХОДИ! ОЧЕНЬ БЫСТРО! ДА ЭТО БАЙТ НАЗВАНИЕ! ВСЕ РАВНО КРАСАВА! !hibako !tg"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "mainfinitytv",
     "display": "twitch.tv/mainfinitytv",
     "platform": "twitch",
-    "live": true,
-    "viewers": 651,
-    "title": "Вернулся из бана! Фармим бисяры на локе, я по вам соскучился <3"
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "hibako",
+    "display": "twitch.tv/hibako",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "welovegames",
@@ -156,15 +148,39 @@
     "title": ""
    },
    {
-    "name": "betboom_dota_ru",
-    "display": "twitch.tv/betboom_dota_ru",
+    "name": "solo",
+    "display": "twitch.tv/solo",
     "platform": "twitch",
-    "live": true,
-    "viewers": 5085,
-    "title": "PARIVISION [0] vs [0] Team Liquid | Bo3 | Playoffs Day 2 | BLAST SLAM IX | cast: @arszeeqq & @adekvat !предикты"
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "dmitry_lixxx",
+    "display": "twitch.tv/dmitry_lixxx",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "dyrachyo",
+    "display": "twitch.tv/dyrachyo",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "nix",
+    "display": "twitch.tv/nix",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bysl4m\", true, \"Imperial [1:0] Wildcard | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 4 | @bySL4M @WorldEdit\", 12025], [\"cs2_paragon_ru\", true, \"[RU] Imperial Esports [1:0] Wildcard | PGL Major Singapore 2026: Stage 1 | BO3 | @yarushkin1, @Lampaaa & @cybercracken\", 6750], [\"perfecto_of\", true, \"[NO DELAY] Imperial [1:0] Wildcard | BO3 | PGL Major Singapore Stage 1 Round 5 Elimination Match | !winline !ковер\", 2775], [\"watchfultv\", true, \"[RU] Imperial vs Wildcard | PGL Major Singapore | Telegram: @watchfulTV\", 3100], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 12 | !tg !donate !winline !ggsel\", 4200], [\"keliencs\", true, \"Imperial [1:0] Wildcard | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 2550], [\"vovapain\", true, \"🔴 PARIVISION [0] vs [0] Team Liquid | Bo3 | Playoffs Day 2 | BLAST SLAM IX | !tg !bb !бк !лига\", 1600], [\"alohadancetv\", true, \"на керри к топ1 рангу - доброта 10/10  !судимости !tg\", 1900], [\"exigent_wires\", true, \"ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ\", 650], [\"hibako\", true, \"СРОЧНО ЗАХОДИ! ОЧЕНЬ БЫСТРО! ДА ЭТО БАЙТ НАЗВАНИЕ! ВСЕ РАВНО КРАСАВА! !hibako !tg\", 625], [\"mainfinitytv\", true, \"Вернулся из бана! Фармим бисяры на локе, я по вам соскучился <3\", 650], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"betboom_dota_ru\", true, \"PARIVISION [0] vs [0] Team Liquid | Bo3 | Playoffs Day 2 | BLAST SLAM IX | cast: @arszeeqq & @adekvat !предикты\", 5075]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bysl4m\", false, \"\", 0], [\"cs2_paragon_ru\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"alohadancetv\", false, \"\", 0], [\"vovapain\", false, \"\", 0], [\"exigent_wires\", false, \"\", 0], [\"mainfinitytv\", false, \"\", 0], [\"hibako\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"solo\", false, \"\", 0], [\"dmitry_lixxx\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"nix\", false, \"\", 0]]"
  },
  "clips": [
   {
