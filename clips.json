@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T19:57:05Z",
+ "updated": "2026-11-27T20:07:22Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -63,7 +63,7 @@
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
     "title": "ПОВТОР BLAST SLAM IX | Playoffs Day 2"
    },
@@ -154,9 +154,81 @@
     "live": true,
     "viewers": 0,
     "title": "Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB"
+   },
+   {
+    "name": "gpkdota21",
+    "display": "twitch.tv/gpkdota21",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "5opka",
+    "display": "twitch.tv/5opka",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "welovegames",
+    "display": "youtube.com/@welovegames",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "bratishkinoff",
+    "display": "youtube.com/@bratishkinoff",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "KuplinovPlay",
+    "display": "youtube.com/@KuplinovPlay",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "5opka",
+    "display": "youtube.com/@5opka",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "stariy_bog",
+    "display": "youtube.com/@stariy_bog",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "AlinaRin",
+    "display": "youtube.com/@AlinaRin",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "Okisebi",
+    "display": "youtube.com/@Okisebi",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", false, \"PARIVISION vs Aurora bo3 2:1 BLAST SLAM IX Playoffs w/ Alagon, @gpkdota21\", 0], [\"deepins02\", true, \"[мама в 16 ] | !winline !tg\", 0], [\"r1fmabes2tipa\", true, \"СМОТРИМ СОПРАНУ 2 СЕЗОН!\", 0], [\"solo\", false, \"Aurora Gaming [1:1] PV | BLAST SLAM IX: Playoffs w/ @геннадий @rodjer @vtunedota @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"ravshann\", true, \"🔴 ЧАТ РУЛЕТКА !тг !бб !yota\", 0], [\"bratishkinoff\", true, \"Я ПРОШЕЛ ГТА 6 НА 101% ПОКАЗЫВАЮ СЕКРЕТНУЮ КАТСЦЕНУ 🔴 !пасхалки !планы\", 0], [\"betboom_dota_ru\", false, \"ПОВТОР BLAST SLAM IX | Playoffs Day 2\", 0], [\"egorkreed\", false, \"ПАРУ МИССИЙ в 30 ФПС. Марафон ДЕНЬ 6 🏎️💨\", 0], [\"zxcursed\", true, \"аккуратно превосходим других\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 12 | !tg !donate !winline !ggsel\", 0], [\"welovegames\", true, \"Сегодня банк и подводные приключения | !гилан !ситилинк !ggsel !dodo\", 0], [\"stray228\", true, \"НАШЕЛ ИМБУ, УЧУ ТАЩИТЬ МИД НА ХАЙ ПТС !tg !bb !wow !воппер\", 0], [\"dyrachyo\", false, \"PVISION [2:1] Aurora Gaming bo3 BLAST SLAM IX Play Off | !bb !tg\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 10 серия | 81% !tg\", 0], [\"blackrabbit342\", true, \"туманный гринд... !bb\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 0], [\"mantaq\", false, \"PV x Aurora | Bo3 | BLAST SLAM IX | !tg !bb\", 0], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", false, \"PARIVISION vs Aurora bo3 2:1 BLAST SLAM IX Playoffs w/ Alagon, @gpkdota21\", 0], [\"deepins02\", true, \"[мама в 16 ] | !winline !tg\", 0], [\"r1fmabes2tipa\", true, \"СМОТРИМ СОПРАНУ 2 СЕЗОН!\", 0], [\"solo\", false, \"Aurora Gaming [1:1] PV | BLAST SLAM IX: Playoffs w/ @геннадий @rodjer @vtunedota @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"ravshann\", true, \"🔴 ЧАТ РУЛЕТКА !тг !бб !yota\", 0], [\"bratishkinoff\", true, \"Я ПРОШЕЛ ГТА 6 НА 101% ПОКАЗЫВАЮ СЕКРЕТНУЮ КАТСЦЕНУ 🔴 !пасхалки !планы\", 0], [\"betboom_dota_ru\", true, \"ПОВТОР BLAST SLAM IX | Playoffs Day 2\", 0], [\"egorkreed\", false, \"ПАРУ МИССИЙ в 30 ФПС. Марафон ДЕНЬ 6 🏎️💨\", 0], [\"zxcursed\", true, \"аккуратно превосходим других\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 12 | !tg !donate !winline !ggsel\", 0], [\"welovegames\", true, \"Сегодня банк и подводные приключения | !гилан !ситилинк !ggsel !dodo\", 0], [\"stray228\", true, \"НАШЕЛ ИМБУ, УЧУ ТАЩИТЬ МИД НА ХАЙ ПТС !tg !bb !wow !воппер\", 0], [\"dyrachyo\", false, \"PVISION [2:1] Aurora Gaming bo3 BLAST SLAM IX Play Off | !bb !tg\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 10 серия | 81% !tg\", 0], [\"blackrabbit342\", true, \"туманный гринд... !bb\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 0], [\"mantaq\", false, \"PV x Aurora | Bo3 | BLAST SLAM IX | !tg !bb\", 0], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB\", 0], [\"gpkdota21\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
