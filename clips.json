@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T00:56:31Z",
+ "updated": "2026-11-27T00:57:36Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,61 +15,45 @@
     "name": "bratishkinoff",
     "display": "twitch.tv/bratishkinoff",
     "platform": "twitch",
-    "live": true,
-    "viewers": 3767,
-    "title": "МЕНЯ ДОБАВИЛИ В ГТА6 ПОД КАБЛУК ЭКСКЛЮЗИВ ПОДПИСАЛ NDA"
-   },
-   {
-    "name": "leva2k",
-    "display": "twitch.tv/leva2k",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 2248,
-    "title": "ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel"
-   },
-   {
-    "name": "stray228",
-    "display": "twitch.tv/stray228",
-    "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер"
+    "title": ""
    },
    {
     "name": "5opka",
     "display": "twitch.tv/5opka",
     "platform": "twitch",
-    "live": true,
-    "viewers": 2214,
-    "title": "ЧИЛЛЮ В ГТА 6 // !донат !приватка !правила !funpay !тг"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
-    "name": "silvername",
-    "display": "twitch.tv/silvername",
+    "name": "leva2k",
+    "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": true,
-    "viewers": 1873,
-    "title": "Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "danila_gorilla",
     "display": "twitch.tv/danila_gorilla",
     "platform": "twitch",
-    "live": true,
-    "viewers": 1834,
-    "title": "🔴 ВЕЧЕРНИЙ W STREAM w/ @n3xelll @брат"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
-    "name": "lenagol0vach",
-    "display": "twitch.tv/lenagol0vach",
+    "name": "silvername",
+    "display": "twitch.tv/silvername",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "СТОЛЬКО БЕСПЛАТНЫХ НАГРАД?! Празднуем вторую годовщину Marvel Rivals."
+    "title": ""
    },
    {
-    "name": "welovegames",
-    "display": "twitch.tv/welovegames",
+    "name": "blindzonexgod",
+    "display": "twitch.tv/blindzonexgod",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
@@ -81,31 +65,15 @@
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "давай воровать машинки 6, 9 серия | 81% !tg"
-   },
-   {
-    "name": "blindzonexgod",
-    "display": "twitch.tv/blindzonexgod",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 1431,
-    "title": "grind winter season 100% импрува 100% скилла 100% мотивации w/ @avice @iseedeadp3ople @earthq__ @obscurelxght| !tg !мерч !bb"
-   },
-   {
-    "name": "shiishak",
-    "display": "twitch.tv/shiishak",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": "Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB"
+    "title": ""
    },
    {
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": true,
-    "viewers": 532,
-    "title": "ПОВТОР | BLAST SLAM IX | Playoffs Day 1"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "welovegames",
@@ -164,7 +132,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"МЕНЯ ДОБАВИЛИ В ГТА6 ПОД КАБЛУК ЭКСКЛЮЗИВ ПОДПИСАЛ NDA\", 3775], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 2250], [\"stray228\", false, \"НАШЕЛ ИМБУ В НОВОМ ПАТЧЕ, ЗАХОДИ И УЧИСЬ БРАТИШКА !tg !bb !wow !воппер\", 0], [\"5opka\", true, \"ЧИЛЛЮ В ГТА 6 // !донат !приватка !правила !funpay !тг\", 2225], [\"silvername\", true, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 1875], [\"danila_gorilla\", true, \"🔴 ВЕЧЕРНИЙ W STREAM w/ @n3xelll @брат\", 1825], [\"lenagol0vach\", false, \"СТОЛЬКО БЕСПЛАТНЫХ НАГРАД?! Празднуем вторую годовщину Marvel Rivals.\", 0], [\"welovegames\", false, \"\", 0], [\"rejiboi\", false, \"давай воровать машинки 6, 9 серия | 81% !tg\", 0], [\"blindzonexgod\", true, \"grind winter season 100% импрува 100% скилла 100% мотивации w/ @avice @iseedeadp3ople @earthq__ @obscurelxght| !tg !мерч !bb\", 1425], [\"shiishak\", false, \"Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB\", 0], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Playoffs Day 1\", 525], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"danila_gorilla\", false, \"\", 0], [\"silvername\", false, \"\", 0], [\"blindzonexgod\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
