@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T15:43:19Z",
+ "updated": "2026-11-27T15:45:07Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,57 +15,41 @@
     "name": "nix",
     "display": "twitch.tv/nix",
     "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "GamerLegion vs 1w Team bo3 0:2 BLAST SLAM IX Playoffs w/ Alagon, @gpkdota21"
-   },
-   {
-    "name": "strogo",
-    "display": "twitch.tv/strogo",
-    "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "🔴 M80 1:1 100 Thieves | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот"
-   },
-   {
-    "name": "gadjiev57",
-    "display": "twitch.tv/gadjiev57",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "ПОДГОТВОКА К БОЮ РОЗЫ И ЧИВИЛИ КОСТЯ И ФУАД В ШОКЕ"
+    "title": ""
    },
    {
     "name": "solo",
     "display": "twitch.tv/solo",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "GamerLegion [0:2] 1w Team | BLAST SLAM IX: Playoffs w/ @геннадий @rodjer @kyzko_doto !tg !BETBOOM !розыгрыш"
+    "title": ""
    },
    {
-    "name": "bysl4m",
-    "display": "twitch.tv/bysl4m",
+    "name": "gadjiev57",
+    "display": "twitch.tv/gadjiev57",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "M80 [1:1] 100 Thieves | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 4 | @bySL4M @WorldEdit"
+    "title": ""
    },
    {
-    "name": "tpabomah",
-    "display": "twitch.tv/tpabomah",
+    "name": "bratishkinoff",
+    "display": "twitch.tv/bratishkinoff",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "СДЕЛАЛ ТУРНИР - ИГРАЕМ НА ПОЛМИЛЛИОНА🔥 !ищунарезчика !розыгрыш !тг"
+    "title": ""
    },
    {
-    "name": "oregiru",
-    "display": "twitch.tv/oregiru",
+    "name": "betboom_dota_ru",
+    "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Я выиграю ботов!"
+    "title": ""
    },
    {
     "name": "enzzai",
@@ -73,23 +57,31 @@
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "🏝️ПХУКЕТ | ЛАСТ ДЭЙ КУКИНГ С ЛИНОЙ | ДЕНЬ 27 W/  @WHYLOLLYCRY inst: bbylina.mbc | !GGSEL !WINLINE !SLAY"
+    "title": ""
    },
    {
-    "name": "rostikfacekid",
-    "display": "twitch.tv/rostikfacekid",
+    "name": "tpabomah",
+    "display": "twitch.tv/tpabomah",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "САМЫЙ ЗАВОЗНОЙ СТРИМЕР😎👍 @shadowkekw @tankzor @r4dom1r"
+    "title": ""
    },
    {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "ИЗОЛЯЦИЯ ДЕНЬ 12 | !tg !donate !winline !ggsel"
+    "title": ""
+   },
+   {
+    "name": "rostikfacekid",
+    "display": "twitch.tv/rostikfacekid",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "stintik",
@@ -97,90 +89,122 @@
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "детроид, но выбор делает чат"
+    "title": ""
    },
    {
     "name": "blackufa",
     "display": "twitch.tv/blackufa",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "[DROPS] GTA 6 [PS5Pro] Последний стрим. Сага. Часть 101"
-   },
-   {
-    "name": "betboom_dota_ru",
-    "display": "twitch.tv/betboom_dota_ru",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "GamerLegion [0] vs [1] 1w Team | Bo3 | Playoffs Day 2 | BLAST SLAM IX | cast: @arszeeqq & @adekvat !предикты"
-   },
-   {
-    "name": "welovegames",
-    "display": "twitch.tv/welovegames",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Сегодня банк и подводные приключения | !гилан !ситилинк !ggsel !dodo"
+    "title": ""
    },
    {
     "name": "dyrachyo",
     "display": "twitch.tv/dyrachyo",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "1W [2:0] Gamerlegion bo3 BLAST SLAM IX Play Off w/ @fnjke00 | !bb !tg"
+    "title": ""
    },
    {
-    "name": "murzofix",
-    "display": "twitch.tv/murzofix",
+    "name": "welovegames",
+    "display": "twitch.tv/welovegames",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "Гриферство по полной программе на FACEIT 😈😈😈 w. @synd1cat !tg"
+    "title": ""
    },
    {
     "name": "blackrabbit342",
     "display": "twitch.tv/blackrabbit342",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "туманный гринд... !bb"
+    "title": ""
    },
    {
     "name": "bezp",
     "display": "twitch.tv/bezp",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "[EXCLUSIVE DROPS] Вотчпати турика !funpay"
+    "title": ""
    },
    {
     "name": "raythis",
     "display": "twitch.tv/raythis",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "День Отдыха от WoW Forever! БИСТКЛИВ на ЭНХ Шаме! Затем ШОУМАТЧ Против КХАЛА! WoW Wotlk ● РЭЙВИС"
-   },
-   {
-    "name": "bratishkinoff",
-    "display": "twitch.tv/bratishkinoff",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Я ПРОШЕЛ ГТА 6 НА 101% ПОКАЗЫВАЮ СЕКРЕТНУЮ КАТСЦЕНУ"
+    "title": ""
    },
    {
     "name": "mantaq",
     "display": "twitch.tv/mantaq",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "1w x GamerLegion | Bo3 | BLAST SLAM IX | !tg !bb"
+    "title": ""
+   },
+   {
+    "name": "welovegames",
+    "display": "youtube.com/@welovegames",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "bratishkinoff",
+    "display": "youtube.com/@bratishkinoff",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "KuplinovPlay",
+    "display": "youtube.com/@KuplinovPlay",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "5opka",
+    "display": "youtube.com/@5opka",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "stariy_bog",
+    "display": "youtube.com/@stariy_bog",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "AlinaRin",
+    "display": "youtube.com/@AlinaRin",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "Okisebi",
+    "display": "youtube.com/@Okisebi",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"GamerLegion vs 1w Team bo3 0:2 BLAST SLAM IX Playoffs w/ Alagon, @gpkdota21\", 0], [\"strogo\", false, \"🔴 M80 1:1 100 Thieves | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 0], [\"gadjiev57\", true, \"ПОДГОТВОКА К БОЮ РОЗЫ И ЧИВИЛИ КОСТЯ И ФУАД В ШОКЕ\", 0], [\"solo\", true, \"GamerLegion [0:2] 1w Team | BLAST SLAM IX: Playoffs w/ @геннадий @rodjer @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"bysl4m\", false, \"M80 [1:1] 100 Thieves | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 4 | @bySL4M @WorldEdit\", 0], [\"tpabomah\", true, \"СДЕЛАЛ ТУРНИР - ИГРАЕМ НА ПОЛМИЛЛИОНА🔥 !ищунарезчика !розыгрыш !тг\", 0], [\"oregiru\", true, \"Я выиграю ботов!\", 0], [\"enzzai\", false, \"🏝️ПХУКЕТ | ЛАСТ ДЭЙ КУКИНГ С ЛИНОЙ | ДЕНЬ 27 W/  @WHYLOLLYCRY inst: bbylina.mbc | !GGSEL !WINLINE !SLAY\", 0], [\"rostikfacekid\", true, \"САМЫЙ ЗАВОЗНОЙ СТРИМЕР😎👍 @shadowkekw @tankzor @r4dom1r\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 12 | !tg !donate !winline !ggsel\", 0], [\"stintik\", false, \"детроид, но выбор делает чат\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Последний стрим. Сага. Часть 101\", 0], [\"betboom_dota_ru\", true, \"GamerLegion [0] vs [1] 1w Team | Bo3 | Playoffs Day 2 | BLAST SLAM IX | cast: @arszeeqq & @adekvat !предикты\", 0], [\"welovegames\", true, \"Сегодня банк и подводные приключения | !гилан !ситилинк !ggsel !dodo\", 0], [\"dyrachyo\", true, \"1W [2:0] Gamerlegion bo3 BLAST SLAM IX Play Off w/ @fnjke00 | !bb !tg\", 0], [\"murzofix\", false, \"Гриферство по полной программе на FACEIT 😈😈😈 w. @synd1cat !tg\", 0], [\"blackrabbit342\", true, \"туманный гринд... !bb\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 0], [\"raythis\", true, \"День Отдыха от WoW Forever! БИСТКЛИВ на ЭНХ Шаме! Затем ШОУМАТЧ Против КХАЛА! WoW Wotlk ● РЭЙВИС\", 0], [\"bratishkinoff\", true, \"Я ПРОШЕЛ ГТА 6 НА 101% ПОКАЗЫВАЮ СЕКРЕТНУЮ КАТСЦЕНУ\", 0], [\"mantaq\", true, \"1w x GamerLegion | Bo3 | BLAST SLAM IX | !tg !bb\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", false, \"\", 0], [\"solo\", false, \"\", 0], [\"gadjiev57\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"enzzai\", false, \"\", 0], [\"tpabomah\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"rostikfacekid\", false, \"\", 0], [\"stintik\", false, \"\", 0], [\"blackufa\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"blackrabbit342\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"raythis\", false, \"\", 0], [\"mantaq\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
