@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T18:22:52Z",
+ "updated": "2026-11-27T18:31:39Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,161 +15,169 @@
     "name": "nix",
     "display": "twitch.tv/nix",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "PARIVISION vs Aurora bo3 1:0 BLAST SLAM IX Playoffs w/ Alagon, @gpkdota21"
+    "title": ""
    },
    {
     "name": "deepins02",
     "display": "twitch.tv/deepins02",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "[мама в 16 ] | !winline !tg"
-   },
-   {
-    "name": "zubarefff",
-    "display": "twitch.tv/zubarefff",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Лети к своей мечте! 🦅 Смотрим «Эдди «Орёл»» ⛷️"
-   },
-   {
-    "name": "bratishkinoff",
-    "display": "twitch.tv/bratishkinoff",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Я ПРОШЕЛ ГТА 6 НА 101% ПОКАЗЫВАЮ СЕКРЕТНУЮ КАТСЦЕНУ 🔴 !пасхалки !планы"
-   },
-   {
-    "name": "sasavot",
-    "display": "twitch.tv/sasavot",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "АУК/НЕЙТРАЛЬНЫЙ"
-   },
-   {
-    "name": "ravshann",
-    "display": "twitch.tv/ravshann",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "🔴 ЧАТ РУЛЕТКА !тг !бб !yota"
+    "title": ""
    },
    {
     "name": "solo",
     "display": "twitch.tv/solo",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Aurora Gaming [0:1] PV | BLAST SLAM IX: Playoffs w/ @геннадий @rodjer @vtunedota @kyzko_doto !tg !BETBOOM !розыгрыш"
+    "title": ""
    },
    {
-    "name": "lilzushi_",
-    "display": "twitch.tv/lilzushi_",
+    "name": "r1fmabes2tipa",
+    "display": "twitch.tv/r1fmabes2tipa",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Кто сможет меня расмешнить - того забодаю"
+    "title": ""
    },
    {
-    "name": "egorkreed",
-    "display": "twitch.tv/egorkreed",
+    "name": "bratishkinoff",
+    "display": "twitch.tv/bratishkinoff",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "ПАРУ МИССИЙ в 30 ФПС. Марафон ДЕНЬ 6 🏎️💨"
+    "title": ""
+   },
+   {
+    "name": "zubarefff",
+    "display": "twitch.tv/zubarefff",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "ravshann",
+    "display": "twitch.tv/ravshann",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "PARIVISION [1] vs [0] Aurora Gaming | Bo3 | Playoffs Day 2 | BLAST SLAM IX | cast: @sheyl311 & @mrahillesko !предикты"
+    "title": ""
+   },
+   {
+    "name": "sasavot",
+    "display": "twitch.tv/sasavot",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "egorkreed",
+    "display": "twitch.tv/egorkreed",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "zxcursed",
     "display": "twitch.tv/zxcursed",
     "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "аккуратно превосходим других"
-   },
-   {
-    "name": "tpabomah",
-    "display": "twitch.tv/tpabomah",
-    "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "СДЕЛАЛ ТУРНИР - ИГРАЕМ НА ПОЛМИЛЛИОНА🔥 !ищунарезчика !розыгрыш !тг"
+    "title": ""
    },
    {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "ИЗОЛЯЦИЯ ДЕНЬ 12 | !tg !donate !winline !ggsel"
+    "title": ""
    },
    {
     "name": "welovegames",
     "display": "twitch.tv/welovegames",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Сегодня банк и подводные приключения | !гилан !ситилинк !ggsel !dodo"
+    "title": ""
    },
    {
     "name": "blackufa",
     "display": "twitch.tv/blackufa",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "[DROPS] GTA 6 [PS5Pro] Последний стрим. Сага. Часть 101"
+    "title": ""
    },
    {
     "name": "stray228",
     "display": "twitch.tv/stray228",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "НАШЕЛ ИМБУ, УЧУ ТАЩИТЬ МИД НА ХАЙ ПТС !tg !bb !wow !воппер"
-   },
-   {
-    "name": "rejiboi",
-    "display": "twitch.tv/rejiboi",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "давай воровать машинки 6, 10 серия | 81% !tg"
+    "title": ""
    },
    {
     "name": "dyrachyo",
     "display": "twitch.tv/dyrachyo",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "PVISION [1:0] Aurora Gaming bo3 BLAST SLAM IX Play Off | !bb !tg"
+    "title": ""
+   },
+   {
+    "name": "rejiboi",
+    "display": "twitch.tv/rejiboi",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "blackrabbit342",
     "display": "twitch.tv/blackrabbit342",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "туманный гринд... !bb"
+    "title": ""
    },
    {
     "name": "bezp",
     "display": "twitch.tv/bezp",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "[EXCLUSIVE DROPS] Вотчпати турика !funpay"
+    "title": ""
+   },
+   {
+    "name": "shiishak",
+    "display": "twitch.tv/shiishak",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "mantaq",
+    "display": "twitch.tv/mantaq",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "welovegames",
@@ -215,44 +223,20 @@
     "name": "AlinaRin",
     "display": "youtube.com/@AlinaRin",
     "platform": "youtube",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "GTA VI ★★★★★★ РЕЛИЗ (2026) 【#8】"
+    "title": ""
    },
    {
     "name": "Okisebi",
     "display": "youtube.com/@Okisebi",
     "platform": "youtube",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "🔴 LIVE! - GTA 6 mit 6 Sternen überleben!"
-   },
-   {
-    "name": "r1fmabes2tipa",
-    "display": "twitch.tv/r1fmabes2tipa",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "СМОТРИМ СОПРАНУ 2 СЕЗОН!"
-   },
-   {
-    "name": "mantaq",
-    "display": "twitch.tv/mantaq",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "PV x Aurora | Bo3 | BLAST SLAM IX | !tg !bb"
-   },
-   {
-    "name": "shiishak",
-    "display": "twitch.tv/shiishak",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB"
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"PARIVISION vs Aurora bo3 1:0 BLAST SLAM IX Playoffs w/ Alagon, @gpkdota21\", 0], [\"deepins02\", true, \"[мама в 16 ] | !winline !tg\", 0], [\"zubarefff\", true, \"Лети к своей мечте! 🦅 Смотрим «Эдди «Орёл»» ⛷️\", 0], [\"bratishkinoff\", true, \"Я ПРОШЕЛ ГТА 6 НА 101% ПОКАЗЫВАЮ СЕКРЕТНУЮ КАТСЦЕНУ 🔴 !пасхалки !планы\", 0], [\"sasavot\", true, \"АУК/НЕЙТРАЛЬНЫЙ\", 0], [\"ravshann\", true, \"🔴 ЧАТ РУЛЕТКА !тг !бб !yota\", 0], [\"solo\", true, \"Aurora Gaming [0:1] PV | BLAST SLAM IX: Playoffs w/ @геннадий @rodjer @vtunedota @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"lilzushi_\", true, \"Кто сможет меня расмешнить - того забодаю\", 0], [\"egorkreed\", true, \"ПАРУ МИССИЙ в 30 ФПС. Марафон ДЕНЬ 6 🏎️💨\", 0], [\"betboom_dota_ru\", true, \"PARIVISION [1] vs [0] Aurora Gaming | Bo3 | Playoffs Day 2 | BLAST SLAM IX | cast: @sheyl311 & @mrahillesko !предикты\", 0], [\"zxcursed\", true, \"аккуратно превосходим других\", 0], [\"tpabomah\", false, \"СДЕЛАЛ ТУРНИР - ИГРАЕМ НА ПОЛМИЛЛИОНА🔥 !ищунарезчика !розыгрыш !тг\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 12 | !tg !donate !winline !ggsel\", 0], [\"welovegames\", true, \"Сегодня банк и подводные приключения | !гилан !ситилинк !ggsel !dodo\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Последний стрим. Сага. Часть 101\", 0], [\"stray228\", true, \"НАШЕЛ ИМБУ, УЧУ ТАЩИТЬ МИД НА ХАЙ ПТС !tg !bb !wow !воппер\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 10 серия | 81% !tg\", 0], [\"dyrachyo\", true, \"PVISION [1:0] Aurora Gaming bo3 BLAST SLAM IX Play Off | !bb !tg\", 0], [\"blackrabbit342\", true, \"туманный гринд... !bb\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", true, \"GTA VI ★★★★★★ РЕЛИЗ (2026) 【#8】\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit 6 Sternen überleben!\", 0], [\"r1fmabes2tipa\", true, \"СМОТРИМ СОПРАНУ 2 СЕЗОН!\", 0], [\"mantaq\", true, \"PV x Aurora | Bo3 | BLAST SLAM IX | !tg !bb\", 0], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", false, \"\", 0], [\"deepins02\", false, \"\", 0], [\"solo\", false, \"\", 0], [\"r1fmabes2tipa\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"zubarefff\", false, \"\", 0], [\"ravshann\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"sasavot\", false, \"\", 0], [\"egorkreed\", false, \"\", 0], [\"zxcursed\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"blackufa\", false, \"\", 0], [\"stray228\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"blackrabbit342\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"shiishak\", false, \"\", 0], [\"mantaq\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
