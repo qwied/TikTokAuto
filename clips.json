@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T06:30:20Z",
+ "updated": "2026-11-27T06:30:35Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,49 +15,49 @@
     "name": "bysl4m",
     "display": "twitch.tv/bysl4m",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 8078,
+    "title": "Lynn Vision [0:0] HEROIC | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 4 | @FANAT_ROCKA @xryst_t"
    },
    {
     "name": "cs2_paragon_ru",
     "display": "twitch.tv/cs2_paragon_ru",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 5736,
+    "title": "[RU] Lynn Vision Gaming [0:0] HEROIC | PGL Major Singapore 2026: Stage 1 | BO3 | @yarushkin1, @Lampaaa & @cybercracken"
    },
    {
     "name": "bobito217",
     "display": "twitch.tv/bobito217",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 3581,
+    "title": "игры с максимчиком"
    },
    {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 2122,
+    "title": "ИЗОЛЯЦИЯ ДЕНЬ 12 | !tg !donate !winline !ggsel"
    },
    {
     "name": "vovapain",
     "display": "twitch.tv/vovapain",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 1473,
+    "title": "🔴 НЮХАО 👃 | !tg !bb !бк !лига"
    },
    {
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 494,
+    "title": "ПОВТОР | BLAST SLAM IX | Playoffs Day 1"
    },
    {
     "name": "welovegames",
@@ -119,12 +119,12 @@
     "name": "perfecto_of",
     "display": "twitch.tv/perfecto_of",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 2967,
+    "title": "[NO DELAY] Lynn Vision [0:0] HEROIC  | BO3 | PGL Major Singapore Stage 1 Round 5 Elimination Match | !winline !ковер"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bysl4m\", false, \"\", 0], [\"cs2_paragon_ru\", false, \"\", 0], [\"bobito217\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"vovapain\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"perfecto_of\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bysl4m\", true, \"Lynn Vision [0:0] HEROIC | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 4 | @FANAT_ROCKA @xryst_t\", 8075], [\"cs2_paragon_ru\", true, \"[RU] Lynn Vision Gaming [0:0] HEROIC | PGL Major Singapore 2026: Stage 1 | BO3 | @yarushkin1, @Lampaaa & @cybercracken\", 5725], [\"bobito217\", true, \"игры с максимчиком\", 3575], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 12 | !tg !donate !winline !ggsel\", 2125], [\"vovapain\", true, \"🔴 НЮХАО 👃 | !tg !bb !бк !лига\", 1475], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Playoffs Day 1\", 500], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"perfecto_of\", true, \"[NO DELAY] Lynn Vision [0:0] HEROIC  | BO3 | PGL Major Singapore Stage 1 Round 5 Elimination Match | !winline !ковер\", 2975]]"
  },
  "clips": [
   {
