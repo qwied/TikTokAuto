@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T08:20:14Z",
+ "updated": "2026-11-27T08:21:12Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,73 +15,65 @@
     "name": "bysl4m",
     "display": "twitch.tv/bysl4m",
     "platform": "twitch",
-    "live": true,
-    "viewers": 6084,
-    "title": "Imperial [0:0] Wildcard | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 4 | @bySL4M @WorldEdit"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "cs2_paragon_ru",
     "display": "twitch.tv/cs2_paragon_ru",
     "platform": "twitch",
-    "live": true,
-    "viewers": 4816,
-    "title": "[RU] Imperial Esports [0:0] Wildcard | PGL Major Singapore 2026: Stage 1 | BO3 | @yarushkin1, @Lampaaa & @cybercracken"
-   },
-   {
-    "name": "bobito217",
-    "display": "twitch.tv/bobito217",
-    "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "игры с максимчиком"
-   },
-   {
-    "name": "leva2k",
-    "display": "twitch.tv/leva2k",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 2359,
-    "title": "ИЗОЛЯЦИЯ ДЕНЬ 12 | !tg !donate !winline !ggsel"
-   },
-   {
-    "name": "vovapain",
-    "display": "twitch.tv/vovapain",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 2035,
-    "title": "🔴 НЮХАО 👃 | !tg !bb !бк !лига"
-   },
-   {
-    "name": "exigent_wires",
-    "display": "twitch.tv/exigent_wires",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 631,
-    "title": "ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ"
+    "title": ""
    },
    {
     "name": "perfecto_of",
     "display": "twitch.tv/perfecto_of",
     "platform": "twitch",
-    "live": true,
-    "viewers": 2589,
-    "title": "[NO DELAY] Imperial [0:0] Wildcard | BO3 | PGL Major Singapore Stage 1 Round 5 Elimination Match | !winline !ковер"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
-    "name": "mainfinitytv",
-    "display": "twitch.tv/mainfinitytv",
+    "name": "leva2k",
+    "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": true,
-    "viewers": 587,
-    "title": "Вернулся из бана! Фармим бисяры на локе, я по вам соскучился <3"
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "vovapain",
+    "display": "twitch.tv/vovapain",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "hibako",
     "display": "twitch.tv/hibako",
     "platform": "twitch",
-    "live": true,
-    "viewers": 574,
-    "title": "СРОЧНО ЗАХОДИ! ОЧЕНЬ БЫСТРО! ДА ЭТО БАЙТ НАЗВАНИЕ! ВСЕ РАВНО КРАСАВА! !hibako !tg"
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "exigent_wires",
+    "display": "twitch.tv/exigent_wires",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "mainfinitytv",
+    "display": "twitch.tv/mainfinitytv",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "welovegames",
@@ -140,7 +132,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bysl4m\", true, \"Imperial [0:0] Wildcard | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 4 | @bySL4M @WorldEdit\", 6075], [\"cs2_paragon_ru\", true, \"[RU] Imperial Esports [0:0] Wildcard | PGL Major Singapore 2026: Stage 1 | BO3 | @yarushkin1, @Lampaaa & @cybercracken\", 4825], [\"bobito217\", false, \"игры с максимчиком\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 12 | !tg !donate !winline !ggsel\", 2350], [\"vovapain\", true, \"🔴 НЮХАО 👃 | !tg !bb !бк !лига\", 2025], [\"exigent_wires\", true, \"ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ\", 625], [\"perfecto_of\", true, \"[NO DELAY] Imperial [0:0] Wildcard | BO3 | PGL Major Singapore Stage 1 Round 5 Elimination Match | !winline !ковер\", 2600], [\"mainfinitytv\", true, \"Вернулся из бана! Фармим бисяры на локе, я по вам соскучился <3\", 575], [\"hibako\", true, \"СРОЧНО ЗАХОДИ! ОЧЕНЬ БЫСТРО! ДА ЭТО БАЙТ НАЗВАНИЕ! ВСЕ РАВНО КРАСАВА! !hibako !tg\", 575], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bysl4m\", false, \"\", 0], [\"cs2_paragon_ru\", false, \"\", 0], [\"perfecto_of\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"vovapain\", false, \"\", 0], [\"hibako\", false, \"\", 0], [\"exigent_wires\", false, \"\", 0], [\"mainfinitytv\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
