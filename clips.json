@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T08:40:12Z",
+ "updated": "2026-11-27T08:41:14Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -32,7 +32,7 @@
     "display": "twitch.tv/perfecto_of",
     "platform": "twitch",
     "live": true,
-    "viewers": 2826,
+    "viewers": 2958,
     "title": "[NO DELAY] Imperial [0:0] Wildcard | BO3 | PGL Major Singapore Stage 1 Round 5 Elimination Match | !winline !ковер"
    },
    {
@@ -48,7 +48,7 @@
     "display": "twitch.tv/vovapain",
     "platform": "twitch",
     "live": true,
-    "viewers": 1574,
+    "viewers": 1594,
     "title": "🔴 НЮХАО 👃 | !tg !bb !бк !лига"
    },
    {
@@ -76,63 +76,23 @@
     "title": "Вернулся из бана! Фармим бисяры на локе, я по вам соскучился <3"
    },
    {
-    "name": "welovegames",
-    "display": "youtube.com/@welovegames",
-    "platform": "youtube",
+    "name": "keliencs",
+    "display": "twitch.tv/keliencs",
+    "platform": "twitch",
     "live": false,
     "viewers": 0,
     "title": ""
    },
    {
-    "name": "bratishkinoff",
-    "display": "youtube.com/@bratishkinoff",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "KuplinovPlay",
-    "display": "youtube.com/@KuplinovPlay",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "5opka",
-    "display": "youtube.com/@5opka",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "stariy_bog",
-    "display": "youtube.com/@stariy_bog",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "AlinaRin",
-    "display": "youtube.com/@AlinaRin",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "Okisebi",
-    "display": "youtube.com/@Okisebi",
-    "platform": "youtube",
+    "name": "alohadancetv",
+    "display": "twitch.tv/alohadancetv",
+    "platform": "twitch",
     "live": false,
     "viewers": 0,
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bysl4m\", true, \"Imperial [0:0] Wildcard | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 4 | @bySL4M @WorldEdit\", 9600], [\"cs2_paragon_ru\", true, \"[RU] Imperial Esports [0:0] Wildcard | PGL Major Singapore 2026: Stage 1 | BO3 | @yarushkin1, @Lampaaa & @cybercracken\", 6200], [\"perfecto_of\", true, \"[NO DELAY] Imperial [0:0] Wildcard | BO3 | PGL Major Singapore Stage 1 Round 5 Elimination Match | !winline !ковер\", 2825], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 12 | !tg !donate !winline !ggsel\", 2400], [\"vovapain\", true, \"🔴 НЮХАО 👃 | !tg !bb !бк !лига\", 1575], [\"hibako\", true, \"СРОЧНО ЗАХОДИ! ОЧЕНЬ БЫСТРО! ДА ЭТО БАЙТ НАЗВАНИЕ! ВСЕ РАВНО КРАСАВА! !hibako !tg\", 700], [\"exigent_wires\", true, \"ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ\", 650], [\"mainfinitytv\", true, \"Вернулся из бана! Фармим бисяры на локе, я по вам соскучился <3\", 625], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bysl4m\", true, \"Imperial [0:0] Wildcard | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 4 | @bySL4M @WorldEdit\", 9600], [\"cs2_paragon_ru\", true, \"[RU] Imperial Esports [0:0] Wildcard | PGL Major Singapore 2026: Stage 1 | BO3 | @yarushkin1, @Lampaaa & @cybercracken\", 6200], [\"perfecto_of\", true, \"[NO DELAY] Imperial [0:0] Wildcard | BO3 | PGL Major Singapore Stage 1 Round 5 Elimination Match | !winline !ковер\", 2950], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 12 | !tg !donate !winline !ggsel\", 2400], [\"vovapain\", true, \"🔴 НЮХАО 👃 | !tg !bb !бк !лига\", 1600], [\"hibako\", true, \"СРОЧНО ЗАХОДИ! ОЧЕНЬ БЫСТРО! ДА ЭТО БАЙТ НАЗВАНИЕ! ВСЕ РАВНО КРАСАВА! !hibako !tg\", 700], [\"exigent_wires\", true, \"ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ\", 650], [\"mainfinitytv\", true, \"Вернулся из бана! Фармим бисяры на локе, я по вам соскучился <3\", 625], [\"keliencs\", false, \"\", 0], [\"alohadancetv\", false, \"\", 0]]"
  },
  "clips": [
   {
