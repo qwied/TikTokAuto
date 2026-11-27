@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T01:52:20Z",
+ "updated": "2026-11-27T01:53:00Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,33 +15,17 @@
     "name": "bratishkinoff",
     "display": "twitch.tv/bratishkinoff",
     "platform": "twitch",
-    "live": true,
-    "viewers": 6152,
-    "title": "МЕНЯ ДОБАВИЛИ В ГТА6 ПОД КАБЛУК ЭКСКЛЮЗИВ ПОДПИСАЛ NDA"
-   },
-   {
-    "name": "5opka",
-    "display": "twitch.tv/5opka",
-    "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "РАССКАЗЫВАЮ ИСТОРИИ И ЧЁ-ТА ДЕЛАЮ // !донат !приватка !правила !funpay !тг"
+    "title": ""
    },
    {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": true,
-    "viewers": 2341,
-    "title": "ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel"
-   },
-   {
-    "name": "danila_gorilla",
-    "display": "twitch.tv/danila_gorilla",
-    "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "🔴 ВЕЧЕРНИЙ W STREAM w/ @n3xelll @брат"
+    "title": ""
    },
    {
     "name": "silvername",
@@ -49,19 +33,11 @@
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг"
+    "title": ""
    },
    {
     "name": "blindzonexgod",
     "display": "twitch.tv/blindzonexgod",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 1243,
-    "title": "grind winter season 100% импрува 100% скилла 100% мотивации w/ @avice @iseedeadp3ople @earthq__ @obscurelxght| !tg !мерч !bb"
-   },
-   {
-    "name": "rejiboi",
-    "display": "twitch.tv/rejiboi",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
@@ -71,9 +47,9 @@
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": true,
-    "viewers": 544,
-    "title": "ПОВТОР | BLAST SLAM IX | Playoffs Day 1"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "welovegames",
@@ -132,7 +108,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"МЕНЯ ДОБАВИЛИ В ГТА6 ПОД КАБЛУК ЭКСКЛЮЗИВ ПОДПИСАЛ NDA\", 6150], [\"5opka\", false, \"РАССКАЗЫВАЮ ИСТОРИИ И ЧЁ-ТА ДЕЛАЮ // !донат !приватка !правила !funpay !тг\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 11 | !tg !donate !winline !ggsel\", 2350], [\"danila_gorilla\", false, \"🔴 ВЕЧЕРНИЙ W STREAM w/ @n3xelll @брат\", 0], [\"silvername\", false, \"Я НОВИЧОК, ОБУЧАЮСЬ ИГРЕ  // !forever !wowinfo !мета !аддоны !гильдия !тг\", 0], [\"blindzonexgod\", true, \"grind winter season 100% импрува 100% скилла 100% мотивации w/ @avice @iseedeadp3ople @earthq__ @obscurelxght| !tg !мерч !bb\", 1250], [\"rejiboi\", false, \"\", 0], [\"betboom_dota_ru\", true, \"ПОВТОР | BLAST SLAM IX | Playoffs Day 1\", 550], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"silvername\", false, \"\", 0], [\"blindzonexgod\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
