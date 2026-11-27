@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T09:16:57Z",
+ "updated": "2026-11-27T09:17:04Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,89 +15,89 @@
     "name": "bysl4m",
     "display": "twitch.tv/bysl4m",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 13061,
+    "title": "Imperial [0:0] Wildcard | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 4 | @bySL4M @WorldEdit"
    },
    {
     "name": "cs2_paragon_ru",
     "display": "twitch.tv/cs2_paragon_ru",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 7055,
+    "title": "[RU] Imperial Esports [0:0] Wildcard | PGL Major Singapore 2026: Stage 1 | BO3 | @yarushkin1, @Lampaaa & @cybercracken"
    },
    {
     "name": "perfecto_of",
     "display": "twitch.tv/perfecto_of",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 4187,
+    "title": "[NO DELAY] Imperial [0:0] Wildcard | BO3 | PGL Major Singapore Stage 1 Round 5 Elimination Match | !winline !ковер"
    },
    {
     "name": "watchfultv",
     "display": "twitch.tv/watchfultv",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 3512,
+    "title": "[RU] Imperial vs Wildcard | PGL Major Singapore | Telegram: @watchfulTV"
    },
    {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 2670,
+    "title": "ИЗОЛЯЦИЯ ДЕНЬ 12 | !tg !donate !winline !ggsel"
    },
    {
     "name": "keliencs",
     "display": "twitch.tv/keliencs",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 2292,
+    "title": "Imperial [0:0] Wildcard | PGL Major Singapore 2026 Stage 1 | !tg !fonbet"
    },
    {
     "name": "vovapain",
     "display": "twitch.tv/vovapain",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 1687,
+    "title": "🔴 НЮХАО 👃 | !tg !bb !бк !лига"
    },
    {
     "name": "alohadancetv",
     "display": "twitch.tv/alohadancetv",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 1363,
+    "title": "на керри к топ1 рангу - доброта 10/10  !судимости !tg"
    },
    {
     "name": "exigent_wires",
     "display": "twitch.tv/exigent_wires",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 663,
+    "title": "ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ"
    },
    {
     "name": "hibako",
     "display": "twitch.tv/hibako",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 686,
+    "title": "СРОЧНО ЗАХОДИ! ОЧЕНЬ БЫСТРО! ДА ЭТО БАЙТ НАЗВАНИЕ! ВСЕ РАВНО КРАСАВА! !hibako !tg"
    },
    {
     "name": "mainfinitytv",
     "display": "twitch.tv/mainfinitytv",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 599,
+    "title": "Вернулся из бана! Фармим бисяры на локе, я по вам соскучился <3"
    },
    {
     "name": "welovegames",
@@ -159,12 +159,12 @@
     "name": "tixerok",
     "display": "twitch.tv/tixerok",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 458,
+    "title": "Позитив ✅ Скилл ✅ Юмор ✅ Скуф ✅"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bysl4m\", false, \"\", 0], [\"cs2_paragon_ru\", false, \"\", 0], [\"perfecto_of\", false, \"\", 0], [\"watchfultv\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"vovapain\", false, \"\", 0], [\"alohadancetv\", false, \"\", 0], [\"exigent_wires\", false, \"\", 0], [\"hibako\", false, \"\", 0], [\"mainfinitytv\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"tixerok\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bysl4m\", true, \"Imperial [0:0] Wildcard | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 4 | @bySL4M @WorldEdit\", 13050], [\"cs2_paragon_ru\", true, \"[RU] Imperial Esports [0:0] Wildcard | PGL Major Singapore 2026: Stage 1 | BO3 | @yarushkin1, @Lampaaa & @cybercracken\", 7050], [\"perfecto_of\", true, \"[NO DELAY] Imperial [0:0] Wildcard | BO3 | PGL Major Singapore Stage 1 Round 5 Elimination Match | !winline !ковер\", 4175], [\"watchfultv\", true, \"[RU] Imperial vs Wildcard | PGL Major Singapore | Telegram: @watchfulTV\", 3500], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 12 | !tg !donate !winline !ggsel\", 2675], [\"keliencs\", true, \"Imperial [0:0] Wildcard | PGL Major Singapore 2026 Stage 1 | !tg !fonbet\", 2300], [\"vovapain\", true, \"🔴 НЮХАО 👃 | !tg !bb !бк !лига\", 1675], [\"alohadancetv\", true, \"на керри к топ1 рангу - доброта 10/10  !судимости !tg\", 1375], [\"exigent_wires\", true, \"ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ\", 675], [\"hibako\", true, \"СРОЧНО ЗАХОДИ! ОЧЕНЬ БЫСТРО! ДА ЭТО БАЙТ НАЗВАНИЕ! ВСЕ РАВНО КРАСАВА! !hibako !tg\", 675], [\"mainfinitytv\", true, \"Вернулся из бана! Фармим бисяры на локе, я по вам соскучился <3\", 600], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"tixerok\", true, \"Позитив ✅ Скилл ✅ Юмор ✅ Скуф ✅\", 450]]"
  },
  "clips": [
   {
