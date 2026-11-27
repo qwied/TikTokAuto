@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T07:31:14Z",
+ "updated": "2026-11-27T07:32:14Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -16,7 +16,7 @@
     "display": "twitch.tv/bysl4m",
     "platform": "twitch",
     "live": true,
-    "viewers": 10567,
+    "viewers": 10692,
     "title": "Lynn Vision [1:0] HEROIC | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 4 | @FANAT_ROCKA @xryst_t"
    },
    {
@@ -31,8 +31,8 @@
     "name": "bobito217",
     "display": "twitch.tv/bobito217",
     "platform": "twitch",
-    "live": true,
-    "viewers": 3623,
+    "live": false,
+    "viewers": 0,
     "title": "игры с максимчиком"
    },
    {
@@ -48,7 +48,7 @@
     "display": "twitch.tv/vovapain",
     "platform": "twitch",
     "live": true,
-    "viewers": 1906,
+    "viewers": 1968,
     "title": "🔴 НЮХАО 👃 | !tg !bb !бк !лига"
    },
    {
@@ -56,7 +56,7 @@
     "display": "twitch.tv/exigent_wires",
     "platform": "twitch",
     "live": true,
-    "viewers": 531,
+    "viewers": 539,
     "title": "ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ"
    },
    {
@@ -140,7 +140,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bysl4m\", true, \"Lynn Vision [1:0] HEROIC | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 4 | @FANAT_ROCKA @xryst_t\", 10575], [\"cs2_paragon_ru\", true, \"[RU] Lynn Vision Gaming [1:0] HEROIC | PGL Major Singapore 2026: Stage 1 | BO3 | @yarushkin1, @Lampaaa & @cybercracken\", 7225], [\"bobito217\", true, \"игры с максимчиком\", 3625], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 12 | !tg !donate !winline !ggsel\", 2325], [\"vovapain\", true, \"🔴 НЮХАО 👃 | !tg !bb !бк !лига\", 1900], [\"exigent_wires\", true, \"ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ\", 525], [\"perfecto_of\", true, \"[NO DELAY] Lynn Vision [1:0] HEROIC  | BO3 | PGL Major Singapore Stage 1 Round 5 Elimination Match | !winline !ковер\", 4350], [\"watchfultv\", true, \"[RU] HEROIC vs Lynn Vision | PGL Major Singapore | Telegram: @watchfulTV\", 3225], [\"mainfinitytv\", true, \"Вернулся из бана! Фармим бисяры на локе, я по вам соскучился <3\", 500], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bysl4m\", true, \"Lynn Vision [1:0] HEROIC | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 4 | @FANAT_ROCKA @xryst_t\", 10700], [\"cs2_paragon_ru\", true, \"[RU] Lynn Vision Gaming [1:0] HEROIC | PGL Major Singapore 2026: Stage 1 | BO3 | @yarushkin1, @Lampaaa & @cybercracken\", 7225], [\"bobito217\", false, \"игры с максимчиком\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 12 | !tg !donate !winline !ggsel\", 2325], [\"vovapain\", true, \"🔴 НЮХАО 👃 | !tg !bb !бк !лига\", 1975], [\"exigent_wires\", true, \"ПАТЧ КРУТОЙ, ФПС СТАЛ СТАБИЛЬНЕЕ\", 550], [\"perfecto_of\", true, \"[NO DELAY] Lynn Vision [1:0] HEROIC  | BO3 | PGL Major Singapore Stage 1 Round 5 Elimination Match | !winline !ковер\", 4350], [\"watchfultv\", true, \"[RU] HEROIC vs Lynn Vision | PGL Major Singapore | Telegram: @watchfulTV\", 3225], [\"mainfinitytv\", true, \"Вернулся из бана! Фармим бисяры на локе, я по вам соскучился <3\", 500], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
