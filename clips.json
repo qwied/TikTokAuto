@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T17:21:45Z",
+ "updated": "2026-11-27T17:22:13Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -215,28 +215,28 @@
     "name": "lilzushi_",
     "display": "twitch.tv/lilzushi_",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Кто сможет меня расмешнить - того забодаю"
    },
    {
     "name": "egorkreed",
     "display": "twitch.tv/egorkreed",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ПАРУ МИССИЙ в 30 ФПС. Марафон ДЕНЬ 6 🏎️💨"
    },
    {
     "name": "rejiboi",
     "display": "twitch.tv/rejiboi",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "давай воровать машинки 6, 10 серия | 81% !tg"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"PARIVISION vs Aurora bo3 1:0 BLAST SLAM IX Playoffs w/ Alagon, @gpkdota21\", 0], [\"solo\", true, \"Aurora Gaming [0:1] PV | BLAST SLAM IX: Playoffs w/ @геннадий @rodjer @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"zubarefff\", true, \"Лети к своей мечте! 🦅 Смотрим «Эдди «Орёл»» ⛷️\", 0], [\"bratishkinoff\", true, \"Я ПРОШЕЛ ГТА 6 НА 101% ПОКАЗЫВАЮ СЕКРЕТНУЮ КАТСЦЕНУ 🔴 !пасхалки !планы\", 0], [\"sasavot\", true, \"АУК/НЕЙТРАЛЬНЫЙ\", 0], [\"betboom_dota_ru\", true, \"PARIVISION [1] vs [0] Aurora Gaming | Bo3 | Playoffs Day 2 | BLAST SLAM IX | cast: @sheyl311 & @mrahillesko !предикты\", 0], [\"ravshann\", true, \"🔴 ВЕЧЕРНИЙ ДОМАШНИЙ СТРИМ !тг !бб !yota\", 0], [\"tpabomah\", true, \"СДЕЛАЛ ТУРНИР - ИГРАЕМ НА ПОЛМИЛЛИОНА🔥 !ищунарезчика !розыгрыш !тг\", 0], [\"zxcursed\", true, \"аккуратно превосходим других\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 12 | !tg !donate !winline !ggsel\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Последний стрим. Сага. Часть 101\", 0], [\"welovegames\", true, \"Сегодня банк и подводные приключения | !гилан !ситилинк !ggsel !dodo\", 0], [\"stray228\", true, \"ЧЕМПИОНАТ МИРА ПО MLBB ПРОТИВ РАМЗИКА666 !tg !bb !wow !воппер\", 0], [\"dyrachyo\", true, \"PVISION [0:0] Aurora Gaming bo3 BLAST SLAM IX Play Off | !bb !tg\", 0], [\"blackrabbit342\", true, \"туманный гринд... !bb\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 0], [\"mantaq\", true, \"PV x Aurora | Bo3 | BLAST SLAM IX | !tg !bb\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", true, \"GTA VI ★★★★★★ РЕЛИЗ (2026) 【#8】\", 0], [\"Okisebi\", false, \"\", 0], [\"deepins02\", true, \"[мама в 16 ] | !winline !tg\", 0], [\"lilzushi_\", false, \"\", 0], [\"egorkreed\", false, \"\", 0], [\"rejiboi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"PARIVISION vs Aurora bo3 1:0 BLAST SLAM IX Playoffs w/ Alagon, @gpkdota21\", 0], [\"solo\", true, \"Aurora Gaming [0:1] PV | BLAST SLAM IX: Playoffs w/ @геннадий @rodjer @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"zubarefff\", true, \"Лети к своей мечте! 🦅 Смотрим «Эдди «Орёл»» ⛷️\", 0], [\"bratishkinoff\", true, \"Я ПРОШЕЛ ГТА 6 НА 101% ПОКАЗЫВАЮ СЕКРЕТНУЮ КАТСЦЕНУ 🔴 !пасхалки !планы\", 0], [\"sasavot\", true, \"АУК/НЕЙТРАЛЬНЫЙ\", 0], [\"betboom_dota_ru\", true, \"PARIVISION [1] vs [0] Aurora Gaming | Bo3 | Playoffs Day 2 | BLAST SLAM IX | cast: @sheyl311 & @mrahillesko !предикты\", 0], [\"ravshann\", true, \"🔴 ВЕЧЕРНИЙ ДОМАШНИЙ СТРИМ !тг !бб !yota\", 0], [\"tpabomah\", true, \"СДЕЛАЛ ТУРНИР - ИГРАЕМ НА ПОЛМИЛЛИОНА🔥 !ищунарезчика !розыгрыш !тг\", 0], [\"zxcursed\", true, \"аккуратно превосходим других\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 12 | !tg !donate !winline !ggsel\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Последний стрим. Сага. Часть 101\", 0], [\"welovegames\", true, \"Сегодня банк и подводные приключения | !гилан !ситилинк !ggsel !dodo\", 0], [\"stray228\", true, \"ЧЕМПИОНАТ МИРА ПО MLBB ПРОТИВ РАМЗИКА666 !tg !bb !wow !воппер\", 0], [\"dyrachyo\", true, \"PVISION [0:0] Aurora Gaming bo3 BLAST SLAM IX Play Off | !bb !tg\", 0], [\"blackrabbit342\", true, \"туманный гринд... !bb\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 0], [\"mantaq\", true, \"PV x Aurora | Bo3 | BLAST SLAM IX | !tg !bb\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", true, \"GTA VI ★★★★★★ РЕЛИЗ (2026) 【#8】\", 0], [\"Okisebi\", false, \"\", 0], [\"deepins02\", true, \"[мама в 16 ] | !winline !tg\", 0], [\"lilzushi_\", true, \"Кто сможет меня расмешнить - того забодаю\", 0], [\"egorkreed\", true, \"ПАРУ МИССИЙ в 30 ФПС. Марафон ДЕНЬ 6 🏎️💨\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 10 серия | 81% !tg\", 0]]"
  },
  "clips": [
   {
