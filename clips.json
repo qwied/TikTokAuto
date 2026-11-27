@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T15:23:31Z",
+ "updated": "2026-11-27T15:29:55Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -95,7 +95,7 @@
     "name": "stintik",
     "display": "twitch.tv/stintik",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
     "title": "детроид, но выбор делает чат"
    },
@@ -180,7 +180,7 @@
     "title": "1w x GamerLegion | Bo3 | BLAST SLAM IX | !tg !bb"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"GamerLegion vs 1w Team bo3 0:1 BLAST SLAM IX Playoffs w/ Alagon, @gpkdota21\", 0], [\"strogo\", false, \"🔴 M80 1:1 100 Thieves | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 0], [\"gadjiev57\", true, \"ПОДГОТВОКА К БОЮ РОЗЫ И ЧИВИЛИ КОСТЯ И ФУАД В ШОКЕ\", 0], [\"solo\", true, \"GamerLegion [0:1] 1w Team | BLAST SLAM IX: Playoffs w/ @геннадий @rodjer @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"bysl4m\", false, \"M80 [1:1] 100 Thieves | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 4 | @bySL4M @WorldEdit\", 0], [\"tpabomah\", true, \"СДЕЛАЛ ТУРНИР - ИГРАЕМ НА ПОЛМИЛЛИОНА🔥 !ищунарезчика !розыгрыш !тг\", 0], [\"oregiru\", true, \"Я выиграю ботов!\", 0], [\"enzzai\", true, \"🏝️ПХУКЕТ | ЛАСТ ДЭЙ КУКИНГ С ЛИНОЙ | ДЕНЬ 27 W/  @WHYLOLLYCRY inst: bbylina.mbc | !GGSEL !WINLINE !SLAY\", 0], [\"rostikfacekid\", true, \"САМЫЙ ЗАВОЗНОЙ СТРИМЕР😎👍 @shadowkekw @tankzor @r4dom1r @мистербист\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 12 | !tg !donate !winline !ggsel\", 0], [\"stintik\", true, \"детроид, но выбор делает чат\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Последний стрим. Сага. Часть 101\", 0], [\"betboom_dota_ru\", true, \"GamerLegion [0] vs [1] 1w Team | Bo3 | Playoffs Day 2 | BLAST SLAM IX | cast: @arszeeqq & @adekvat !предикты\", 0], [\"welovegames\", true, \"Сегодня банк и подводные приключения | !гилан !ситилинк !ggsel !dodo\", 0], [\"dyrachyo\", true, \"1W [1:0] Gamerlegion bo3 BLAST SLAM IX Play Off w/ @fnjke00 | !bb !tg\", 0], [\"murzofix\", false, \"Гриферство по полной программе на FACEIT 😈😈😈 w. @synd1cat !tg\", 0], [\"blackrabbit342\", true, \"туманный гринд... !bb\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 0], [\"raythis\", true, \"День Отдыха от WoW Forever! БИСТКЛИВ на ЭНХ Шаме! Затем ШОУМАТЧ Против КХАЛА! WoW Wotlk ● РЭЙВИС\", 0], [\"bratishkinoff\", true, \"Я ПРОШЕЛ ГТА 6 НА 101% ПОКАЗЫВАЮ СЕКРЕТНУЮ КАТСЦЕНУ\", 0], [\"mantaq\", true, \"1w x GamerLegion | Bo3 | BLAST SLAM IX | !tg !bb\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"GamerLegion vs 1w Team bo3 0:1 BLAST SLAM IX Playoffs w/ Alagon, @gpkdota21\", 0], [\"strogo\", false, \"🔴 M80 1:1 100 Thieves | PGL Major Singapore 2026 Stage 1 | @m3wsu !бот\", 0], [\"gadjiev57\", true, \"ПОДГОТВОКА К БОЮ РОЗЫ И ЧИВИЛИ КОСТЯ И ФУАД В ШОКЕ\", 0], [\"solo\", true, \"GamerLegion [0:1] 1w Team | BLAST SLAM IX: Playoffs w/ @геннадий @rodjer @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"bysl4m\", false, \"M80 [1:1] 100 Thieves | PGL Major Singapore 2026 Stage 1 | КРИВОЙ ЭФИР | Day 4 | @bySL4M @WorldEdit\", 0], [\"tpabomah\", true, \"СДЕЛАЛ ТУРНИР - ИГРАЕМ НА ПОЛМИЛЛИОНА🔥 !ищунарезчика !розыгрыш !тг\", 0], [\"oregiru\", true, \"Я выиграю ботов!\", 0], [\"enzzai\", true, \"🏝️ПХУКЕТ | ЛАСТ ДЭЙ КУКИНГ С ЛИНОЙ | ДЕНЬ 27 W/  @WHYLOLLYCRY inst: bbylina.mbc | !GGSEL !WINLINE !SLAY\", 0], [\"rostikfacekid\", true, \"САМЫЙ ЗАВОЗНОЙ СТРИМЕР😎👍 @shadowkekw @tankzor @r4dom1r @мистербист\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 12 | !tg !donate !winline !ggsel\", 0], [\"stintik\", false, \"детроид, но выбор делает чат\", 0], [\"blackufa\", true, \"[DROPS] GTA 6 [PS5Pro] Последний стрим. Сага. Часть 101\", 0], [\"betboom_dota_ru\", true, \"GamerLegion [0] vs [1] 1w Team | Bo3 | Playoffs Day 2 | BLAST SLAM IX | cast: @arszeeqq & @adekvat !предикты\", 0], [\"welovegames\", true, \"Сегодня банк и подводные приключения | !гилан !ситилинк !ggsel !dodo\", 0], [\"dyrachyo\", true, \"1W [1:0] Gamerlegion bo3 BLAST SLAM IX Play Off w/ @fnjke00 | !bb !tg\", 0], [\"murzofix\", false, \"Гриферство по полной программе на FACEIT 😈😈😈 w. @synd1cat !tg\", 0], [\"blackrabbit342\", true, \"туманный гринд... !bb\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 0], [\"raythis\", true, \"День Отдыха от WoW Forever! БИСТКЛИВ на ЭНХ Шаме! Затем ШОУМАТЧ Против КХАЛА! WoW Wotlk ● РЭЙВИС\", 0], [\"bratishkinoff\", true, \"Я ПРОШЕЛ ГТА 6 НА 101% ПОКАЗЫВАЮ СЕКРЕТНУЮ КАТСЦЕНУ\", 0], [\"mantaq\", true, \"1w x GamerLegion | Bo3 | BLAST SLAM IX | !tg !bb\", 0]]"
  },
  "clips": [
   {
