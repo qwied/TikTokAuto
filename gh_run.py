@@ -95,6 +95,7 @@ SETTINGS_JSON = "settings.json"         # настройки качества к
 FEEDBACK_JSON = "feedback.json"         # Интересно/Скучно по клипам (пишет сайт)
 TIKTOK_PENDING_JSON = "tiktok_pending.json"  # отложенная очередь TikTok (самолечение)
 TIKTOK_POSTED_JSON = "tiktok_posted.json"    # что уже выходило (защита от дублей)
+TIKTOK_POST_LOG_JSON = "tiktok_post_log.json"  # журнал постов с датами (дневной лимит между запусками)
 MAX_CLIPS = 60          # сколько клипов держать в clips.json
 MAX_ASSETS = 60         # сколько файлов держать в релизе (старые удаляются)
 PREVIEW_DIR = "preview"  # лёгкие 480p-копии клипов в репо: Pages отдаёт их
@@ -1797,6 +1798,17 @@ def tiktok_pending_commit(gh, base, msg="tiktok: очередь публикац
             ok2 = False
         if ok2:
             log.info("TikTok: история публикаций закоммичена")
+        # журнал постов с таймстампами: по нему считается СУТОЧНЫЙ ЛИМИТ
+        # (max_per_day) — без коммита каждый запуск Actions начинал бы день
+        # с нуля и сутки выйдет сотни клипов (бан аккаунта).
+        try:
+            ok3 = _commit_repo_json(gh, TIKTOK_POST_LOG_JSON, base,
+                                    "tiktok: дневной журнал постов обновлён")
+        except Exception:
+            ok3 = False
+        if ok3:
+            log.info("TikTok: дневной журнал постов закоммичен (суточный "
+                     "лимит учтён между запусками)")
     except Exception:
         log.exception("TikTok: не удалось закоммитить очередь публикации")
 
@@ -2367,7 +2379,8 @@ def run_vod(max_minutes=260, max_jobs=VOD_MAX_JOBS):
                 if push is not None:
                     tk.notify = push        # тревога TikTok на телефон
                 log.info("TikTok: постинг включён (мин. оценка %d, до %d постов "
-                         "за запуск)", tk.min_score, tk_cap)
+                         "за запуск, не больше %s в сутки)",
+                         tk.min_score, tk_cap, tk_cfg.get("max_per_day") or 30)
             else:
                 log.warning("TikTok: постер не готов — VOD-клипы не постятся")
         except Exception:
