@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28T13:48:07Z",
+ "updated": "2026-11-28T13:54:29Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -191,6 +191,51 @@
   "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"Team Yandex vs Team Liquid bo3 0:1 BLAST SLAM IX Upper Bracket Final w/ Alagon\", 0], [\"strogo\", true, \"🔴 FlyQuest vs PV | PGL Major Singapore 2026 Stage 2 | @m3wsu  !бот\", 0], [\"gadjiev57\", true, \"БОЙ РОЗЫ И ЧИВИЛи в прямом эфире\", 0], [\"solo\", true, \"Team Yandex [0:1] Team Liquid | BLAST SLAM IX: Playoffs w/ @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"bysl4m\", true, \"FlyQuest vs PVISION | PGL Major Singapore 2026 Stage 2 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 0], [\"betboom_dota_ru\", true, \"Team Yandex [0] vs [1] Team Liquid | Bo3 | Playoffs Day 3 | BLAST SLAM IX | cast: @arszeeqq & @adekvat !предикты\", 0], [\"skywhywalker\", false, \"🏆 FlyQuest [0:0] PARIVISION | PGL Major Singapore 2026 Stage 2 | !ставка !fonbet\", 0], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | FlyQuest [0:0] PVISION | PGL Major Singapore 2026: Stage 2 | BO1 | @little_cs, @siberiancaster & @Roma_roo\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel\", 0], [\"stintik\", true, \"дароа\", 0], [\"tpabomah\", false, \"\", 0], [\"dmitry_lixxx\", true, \"[MAJOR] FlyQuest vs PV | BO1 | PGL Major Singapore 2026 Stage 2 @Aunkere | !tg !winline !ЯО !ВТБ !avan\", 0], [\"dyrachyo\", true, \"Yandex [0:1] Liquid bo3 BLAST SLAM IX Play Off /w @dkfogas1 | !bb !tg\", 0], [\"praden\", true, \"Свободный полёт\", 0], [\"keliencs\", false, \"MIBR vs Imperial | BO1 | PGL Major Singapore 2026 Stage 2 | @quefix_ !tg !fonbet\", 0], [\"syslov171\", true, \"ЯКУТСК ДЕНЬ 1 с @bondarenk01 @akimenem\", 0], [\"raythis\", true, \"ЭЛЕМ ШАМАН на 60 ЛвЛ в WoW Forever! Тестируем и Набираем р14 ШМОТ! Новый WoW ● РЭЙВИС\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 0], [\"ezpvp_lover\", true, \"Wow Forever Движ! Ищу пати по Инстам, раскручиваю Аукич + профы\", 0], [\"blaaaackberry\", true, \"концерт WIPO !бусти !тг\", 0], [\"blackufa\", true, \"Наказание от зрителей для стримера. TRUE FEAR часть 2, стрим 2\", 0], [\"welovegames\", true, \"Розыгрыш GTA 6 | !гилан !ситилинк !ggsel !dodo\", 0]]"
  },
  "clips": [
+  {
+   "id": "2026-11-28_13-50-43_praden",
+   "file": "2026-11-28_13-50-43_praden.mp4",
+   "url": "https://github.com/qwied/TikTokAuto/releases/download/clips-2026-11-28/2026-11-28_13-50-43_praden.mp4",
+   "preview": "https://qwied.github.io/TikTokAuto/preview/2026-11-28_13-50-43_praden.mp4",
+   "thumb": "data:image/jpeg;base64,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",
+   "size": 10756522,
+   "duration": 37.5,
+   "channel": "praden",
+   "display": "twitch.tv/praden",
+   "platform": "twitch",
+   "title": "Свободный полёт",
+   "score": 58.0,
+   "hashtags": [
+    "#praden",
+    "#twitch",
+    "#рек",
+    "#рекомендации",
+    "#fyp",
+    "#foryou",
+    "#viral",
+    "#прикол",
+    "#смешно",
+    "#хайп",
+    "#стрим",
+    "#клипы",
+    "#стример"
+   ],
+   "caption": "«сурок английский сурка вообще топфильм там -то дей выручим как -нибудь попозже манге а» — twitch.tv/praden",
+   "subs": {
+    "lang": "ru",
+    "words": 27,
+    "aligned": true,
+    "lip_gate": true,
+    "lip_speech_pct": 61,
+    "speech_pct": 96,
+    "ok": true,
+    "hook": "сурок английский сурка вообще топфильм там -то дей выручим как -нибудь попозже манге а",
+    "peakcut": true
+   },
+   "src": "",
+   "start": 0,
+   "created": 1795874056,
+   "gh": true
+  },
   {
    "id": "2026-11-28_13-36-43_raythis",
    "file": "2026-11-28_13-36-43_raythis.mp4",
