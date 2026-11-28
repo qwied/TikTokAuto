@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28T18:34:08Z",
+ "updated": "2026-11-28T18:34:23Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -167,25 +167,25 @@
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ПОВТОР BLAST SLAM IX | Playoffs Day 3"
    },
    {
     "name": "bezp",
     "display": "twitch.tv/bezp",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "[EXCLUSIVE DROPS] Вотчпати турика !funpay"
    },
    {
     "name": "mainfinitytv",
     "display": "twitch.tv/mainfinitytv",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Смотрим кринж видосы, под пивко и хорошее настроение."
    },
    {
     "name": "welovegames",
@@ -244,7 +244,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"🔴 БАГАЮ БАГАНУЮ ГТА 🔴 ГЛАВА III 🔴 ДЕНЬ: я уже забыл какой 🔴\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф\", 0], [\"sasavot\", true, \"ПРЕДВАРИТЕЛЬНЫЕ/ИГРЫ\", 0], [\"gadjiev57\", true, \"ЕДЕМ В КЛУБ\", 0], [\"edison\", true, \"😭ПРОЩАЙ😭 Последний стрим! Следующий только 12 декабря\", 0], [\"mafanyaking\", true, \"ИРЛ ПРИКОЛЬЧИКИ / !тг !донат !предложка\", 0], [\"dkincc\", true, \"Субботник\", 0], [\"lenagol0vach\", true, \"🏆 НОВЫЙ ПАТЧ 7.42 🏆 ПУТЬ В ТОП 100 🏆 ЖЕСТКИЙ АП ММР 🍔 БЫЛО 15к ММР 🍆 ТЕСТИМ НОВЫЙ ПАТЧ ⭐ НАШЕЛ ИМБУ ПАТЧА ⭐🧀🏆⭐\", 0], [\"zxcursed\", true, \"аккуратно превосходим других / w @akumaqqe @avice @uniquee @mary_day\", 0], [\"syslov171\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel\", 0], [\"imdankar\", true, \"СЛОВЕЧКИ + ДЕРЕВьЯ НЕНАВИДЯТ МЕНя😤😤\", 0], [\"kopsteep\", true, \"субботний аккуратный раскумар !tg !bot\", 0], [\"chopperinho\", true, \"ПРЕМЬЕР С ЧАТТЕРСАМИ | !bb !tg !yt\", 0], [\"stray228\", true, \"Полное погружение в GTA6, это стрим не про игру, это стрим про жизнь! !tg !bb !wow !воппер\", 0], [\"welovegames\", false, \"\", 0], [\"praden\", false, \"\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 11 серия | 91% !tg\", 0], [\"exigent_wires\", true, \"ДРОПСЫ + ГОЛДЕН КОИНС\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"mainfinitytv\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"🔴 БАГАЮ БАГАНУЮ ГТА 🔴 ГЛАВА III 🔴 ДЕНЬ: я уже забыл какой 🔴\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф\", 0], [\"sasavot\", true, \"ПРЕДВАРИТЕЛЬНЫЕ/ИГРЫ\", 0], [\"gadjiev57\", true, \"ЕДЕМ В КЛУБ\", 0], [\"edison\", true, \"😭ПРОЩАЙ😭 Последний стрим! Следующий только 12 декабря\", 0], [\"mafanyaking\", true, \"ИРЛ ПРИКОЛЬЧИКИ / !тг !донат !предложка\", 0], [\"dkincc\", true, \"Субботник\", 0], [\"lenagol0vach\", true, \"🏆 НОВЫЙ ПАТЧ 7.42 🏆 ПУТЬ В ТОП 100 🏆 ЖЕСТКИЙ АП ММР 🍔 БЫЛО 15к ММР 🍆 ТЕСТИМ НОВЫЙ ПАТЧ ⭐ НАШЕЛ ИМБУ ПАТЧА ⭐🧀🏆⭐\", 0], [\"zxcursed\", true, \"аккуратно превосходим других / w @akumaqqe @avice @uniquee @mary_day\", 0], [\"syslov171\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel\", 0], [\"imdankar\", true, \"СЛОВЕЧКИ + ДЕРЕВьЯ НЕНАВИДЯТ МЕНя😤😤\", 0], [\"kopsteep\", true, \"субботний аккуратный раскумар !tg !bot\", 0], [\"chopperinho\", true, \"ПРЕМЬЕР С ЧАТТЕРСАМИ | !bb !tg !yt\", 0], [\"stray228\", true, \"Полное погружение в GTA6, это стрим не про игру, это стрим про жизнь! !tg !bb !wow !воппер\", 0], [\"welovegames\", false, \"\", 0], [\"praden\", false, \"\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 11 серия | 91% !tg\", 0], [\"exigent_wires\", true, \"ДРОПСЫ + ГОЛДЕН КОИНС\", 0], [\"betboom_dota_ru\", true, \"ПОВТОР BLAST SLAM IX | Playoffs Day 3\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 0], [\"mainfinitytv\", true, \"Смотрим кринж видосы, под пивко и хорошее настроение.\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
