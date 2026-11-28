@@ -1,0 +1,32 @@
+# Быстрая проверка детекции смеха/криков (moments.py + YAMNet) на раннере:
+# python test_moments.py banner.mp4 — модель в репо, рантайм ai-edge-litert.
+# Запуск: Actions -> Moments smoke test -> Run workflow.
+name: Moments smoke test
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  moments:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Зависимости (numpy + litert + ffmpeg)
+        run: |
+          pip install numpy ai-edge-litert
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update -y
+            sudo apt-get install -y --no-install-recommends ffmpeg
+          fi
+
+      - name: Тест детекции моментов (YAMNet)
+        run: python test_moments.py banner.mp4
