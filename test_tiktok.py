@@ -1,7 +1,9 @@
 """Тесты автопостинга TikTok: описание, cookies, очередь/сухой режим."""
 
+import json
 import os
 import sys
+import tempfile
 import time
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -36,11 +38,12 @@ def test_cookies_parse():
 
 
 def test_dry_run_queue():
+    tmp = tempfile.mkdtemp(prefix="tt_dry_")   # в репо ничего не пишем
     cfg = {"enabled": True, "mode": "browser", "dry_run": True,
            "delay_min": 0, "delay_max": 0,
            "cookies_file": os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                         "nofile.txt")}
-    poster = TikTokPoster(cfg, base_dir=os.path.dirname(os.path.abspath(__file__)))
+    poster = TikTokPoster(cfg, base_dir=tmp)
     assert poster.ready(), "dry_run должен быть готов всегда"
     poster.start()
     poster.enqueue("clip1.mp4", "тест 1")
@@ -56,10 +59,78 @@ def test_dry_run_queue():
     print("ok: очередь/сухой режим ->", st)
 
 
+def _api_cfg(tmp, **extra):
+    """Готовый api-постер без сети: токен-файл создаётся в tmp."""
+    with open(os.path.join(tmp, "tok.json"), "w", encoding="utf-8") as f:
+        json.dump({"access_token": "x", "refresh_token": "r"}, f)
+    cfg = {"enabled": True, "mode": "api", "dry_run": False,
+           "delay_min": 0, "delay_max": 0, "spread_through_day": False,
+           "client_key": "k", "client_secret": "s", "token_file": "tok.json"}
+    cfg.update(extra)
+    return cfg
+
+
+def test_daily_cap():
+    """Сверх дневного лимита клипы НЕ постятся и НЕ теряются: ждут в
+    отложенной очереди до завтра."""
+    tmp = tempfile.mkdtemp(prefix="tt_cap_")
+    tk = TikTokPoster(_api_cfg(tmp, max_per_day=2), base_dir=tmp)
+    assert tk.ready()
+    # имитируем 2 уже вышедших сегодня поста
+    tk._log_post("a.mp4")
+    tk._log_post("b.mp4")
+    assert tk._posts_today() == 2
+    tk._post = lambda path, cap: None          # публикация без сети
+    tk.start()
+    tk.enqueue("c.mp4", "лимит 1")
+    tk.enqueue("d.mp4", "лимит 2")
+    deadline = time.time() + 8
+    while time.time() < deadline and len(tk.pending_entries()) < 2:
+        time.sleep(0.2)
+    tk.stop()
+    assert tk.posted == 0, "сверх дневного лимита постов быть не должно"
+    pend = {e["id"]: e for e in tk.pending_entries()}
+    assert {"c.mp4", "d.mp4"} <= set(pend), pend
+    assert "лимит" in str(pend["c.mp4"].get("last_error"))
+    assert tk._posts_today() == 2, "лимитные клипы не должны попасть в журнал"
+    print("ok: дневной лимит 2 -> сверх лимита клипы ждут завтра в очереди")
+
+
+def test_post_log_days():
+    """Вчерашние посты не съедают сегодняшний лимит; журнал переживает
+    перезапуск (персистентность между запусками Actions)."""
+    tmp = tempfile.mkdtemp(prefix="tt_log_")
+    tk = TikTokPoster(_api_cfg(tmp, max_per_day=2), base_dir=tmp)
+    tk._post_log = [{"id": "old.mp4", "ts": time.time() - 86400 * 1.2}]
+    assert tk._posts_today() == 0, "вчерашний пост не считается сегодняшним"
+    tk._log_post("new.mp4")
+    assert tk._posts_today() == 1
+    tk._save_post_log()
+    tk2 = TikTokPoster(_api_cfg(tmp, max_per_day=2), base_dir=tmp)
+    assert tk2._posts_today() == 1, "журнал должен читаться с диска"
+    # лимит 2: один пост уже был — ещё один проходит, третий откладывается
+    tk2._post = lambda path, cap: None
+    tk2.start()
+    tk2.enqueue("n2.mp4", "ок")
+    deadline = time.time() + 8
+    while time.time() < deadline and tk2.posted < 1:
+        time.sleep(0.2)
+    assert tk2.posted == 1
+    tk2.enqueue("n3.mp4", "сверх")
+    deadline = time.time() + 8
+    while time.time() < deadline and len(tk2.pending_entries()) < 1:
+        time.sleep(0.2)
+    tk2.stop()
+    assert tk2._posts_today() == 2 and tk2.posted == 1
+    print("ok: журнал постов — вчерашнее не в счёт, лимит держится между запусками")
+
+
 def main():
     test_caption()
     test_cookies_parse()
     test_dry_run_queue()
+    test_daily_cap()
+    test_post_log_days()
     print("ВСЕ ТЕСТЫ TIKTOK ПРОШЛИ")
 
 
