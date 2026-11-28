@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28T16:30:00Z",
+ "updated": "2026-11-28T16:33:15Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -20,12 +20,20 @@
     "title": "1w Team vs PARIVISION bo3 1:0 BLAST SLAM IX Lower Bracket Semifinals w/ Alagon"
    },
    {
-    "name": "solo",
-    "display": "twitch.tv/solo",
+    "name": "strogo",
+    "display": "twitch.tv/strogo",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "1W Team [1:0] PV | BLAST SLAM IX: Playoffs w/ @kyzko_doto !tg !BETBOOM !розыгрыш"
+    "title": ""
+   },
+   {
+    "name": "bysl4m",
+    "display": "twitch.tv/bysl4m",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "shadowkekw",
@@ -33,31 +41,7 @@
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "🌴 ЖМУРКИ / НАЧАЛО: 17:15 👉 !тг !betboom !торнадо !РО !yota"
-   },
-   {
-    "name": "t2x2",
-    "display": "twitch.tv/t2x2",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch"
-   },
-   {
-    "name": "standoff2esports_ru",
-    "display": "twitch.tv/standoff2esports_ru",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": "WINLINE EPIC Standoff 2 Jumble Rumble Major 2 | Плей-офф"
-   },
-   {
-    "name": "betboom_dota_ru",
-    "display": "twitch.tv/betboom_dota_ru",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "1win [1] vs [0] PARIVISION | Bo3 | Playoffs Day 3 | BLAST SLAM IX | cast: @arszeeqq & @adekvat !предикты"
+    "title": ""
    },
    {
     "name": "gadjiev57",
@@ -68,6 +52,22 @@
     "title": "ЕДЕМ В КЛУБ"
    },
    {
+    "name": "t2x2",
+    "display": "twitch.tv/t2x2",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch"
+   },
+   {
+    "name": "solo",
+    "display": "twitch.tv/solo",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "1W Team [1:0] PV | BLAST SLAM IX: Playoffs w/ @kyzko_doto !tg !BETBOOM !розыгрыш"
+   },
+   {
     "name": "morphe_ya",
     "display": "twitch.tv/morphe_ya",
     "platform": "twitch",
@@ -76,12 +76,12 @@
     "title": "МЫ ДОТЕРЫ @dangerlyoha @kopsteep @clean_killl | !tg !winline !мышки !wb"
    },
    {
-    "name": "sasavot",
-    "display": "twitch.tv/sasavot",
+    "name": "cs2_paragon_ru",
+    "display": "twitch.tv/cs2_paragon_ru",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "ПРЕДВАРИТЕЛЬНЫЕ/ИГРЫ"
+    "title": ""
    },
    {
     "name": "dkincc",
@@ -92,44 +92,28 @@
     "title": "Субботник"
    },
    {
+    "name": "betboom_dota_ru",
+    "display": "twitch.tv/betboom_dota_ru",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel"
+    "title": ""
    },
    {
     "name": "blackufa",
     "display": "twitch.tv/blackufa",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Наказание от зрителей для стримера. TRUE FEAR часть 2, стрим 2"
-   },
-   {
-    "name": "syslov171",
-    "display": "twitch.tv/syslov171",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Лёгкий ЯКУТСК ДЕНЬ первый с @bondarenk01 @akimenem"
-   },
-   {
-    "name": "welovegames",
-    "display": "twitch.tv/welovegames",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Совместный просмотр | Marvel Rivals IGNITE Grand Finals | !rivals"
-   },
-   {
-    "name": "chopperinho",
-    "display": "twitch.tv/chopperinho",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Обсуждаем мажор и кукинг | !bb !tg !yt"
+    "title": ""
    },
    {
     "name": "stintik",
@@ -140,28 +124,44 @@
     "title": ""
    },
    {
+    "name": "dmitry_lixxx",
+    "display": "twitch.tv/dmitry_lixxx",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "syslov171",
+    "display": "twitch.tv/syslov171",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "welovegames",
+    "display": "twitch.tv/welovegames",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
     "name": "dyrachyo",
     "display": "twitch.tv/dyrachyo",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "1W [1:0] PVISION bo3 BLAST SLAM IX Play Off /w @dkfogas1 | !bb !tg"
+    "title": ""
    },
    {
     "name": "praden",
     "display": "twitch.tv/praden",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Розыгрыш слона (индийского)"
-   },
-   {
-    "name": "exigent_wires",
-    "display": "twitch.tv/exigent_wires",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "ДРОПСЫ + ГОЛДЕН КОИНС"
+    "title": ""
    },
    {
     "name": "raythis",
@@ -169,31 +169,23 @@
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "ЭЛЕМ ШАМАН на 60 ЛвЛ в WoW Forever! Тестируем и Набираем р14 ШМОТ! Новый WoW ● РЭЙВИС"
+    "title": ""
    },
    {
     "name": "bezp",
     "display": "twitch.tv/bezp",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "[EXCLUSIVE DROPS] Вотчпати турика !funpay"
+    "title": ""
    },
    {
     "name": "mainfinitytv",
     "display": "twitch.tv/mainfinitytv",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Вернулся из бана! Фармим бисяры на локе, ВЕЧЕРОМ ВИДОСИКИ!"
-   },
-   {
-    "name": "mantaq",
-    "display": "twitch.tv/mantaq",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "1w x PariVision | Bo3 | BLAST SLAM IX | !tg !bb | Единственный ученик додепса на твиче"
+    "title": ""
    },
    {
     "name": "ezpvp_lover",
@@ -201,7 +193,79 @@
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "Wow Forever Движ! Ищу пати по Инстам, раскручиваю Аукич + профы"
+    "title": ""
+   },
+   {
+    "name": "sasavot",
+    "display": "twitch.tv/sasavot",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "bratishkinoff",
+    "display": "twitch.tv/bratishkinoff",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "edison",
+    "display": "twitch.tv/edison",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "imdankar",
+    "display": "twitch.tv/imdankar",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "renatko",
+    "display": "twitch.tv/renatko",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "chopperinho",
+    "display": "twitch.tv/chopperinho",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "exigent_wires",
+    "display": "twitch.tv/exigent_wires",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "stray228",
+    "display": "twitch.tv/stray228",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "mantaq",
+    "display": "twitch.tv/mantaq",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "welovegames",
@@ -258,41 +322,9 @@
     "live": true,
     "viewers": 0,
     "title": "🚨 ADMIN EVENT! DU KANNST MITMACHEN! 🚨"
-   },
-   {
-    "name": "imdankar",
-    "display": "twitch.tv/imdankar",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "СЛОВЕЧКИ + ДЕРЕВьЯ НЕНАВИДЯТ МЕНя😤😤"
-   },
-   {
-    "name": "renatko",
-    "display": "twitch.tv/renatko",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "ЧАТ РУЛЕТКА,ИЩУ ГРЯЗНУЛЕК! !бб !тг"
-   },
-   {
-    "name": "edison",
-    "display": "twitch.tv/edison",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "😭ПРОЩАЙ😭 Последний стрим! Следующий только 12 декабря"
-   },
-   {
-    "name": "bratishkinoff",
-    "display": "twitch.tv/bratishkinoff",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "🔴 БАГАЮ БАГАНУЮ ГТА 🔴 ГЛАВА III 🔴 ДЕНЬ: я уже забыл какой 🔴"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"1w Team vs PARIVISION bo3 1:0 BLAST SLAM IX Lower Bracket Semifinals w/ Alagon\", 0], [\"solo\", true, \"1W Team [1:0] PV | BLAST SLAM IX: Playoffs w/ @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"shadowkekw\", false, \"🌴 ЖМУРКИ / НАЧАЛО: 17:15 👉 !тг !betboom !торнадо !РО !yota\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch\", 0], [\"standoff2esports_ru\", false, \"WINLINE EPIC Standoff 2 Jumble Rumble Major 2 | Плей-офф\", 0], [\"betboom_dota_ru\", true, \"1win [1] vs [0] PARIVISION | Bo3 | Playoffs Day 3 | BLAST SLAM IX | cast: @arszeeqq & @adekvat !предикты\", 0], [\"gadjiev57\", true, \"ЕДЕМ В КЛУБ\", 0], [\"morphe_ya\", true, \"МЫ ДОТЕРЫ @dangerlyoha @kopsteep @clean_killl | !tg !winline !мышки !wb\", 0], [\"sasavot\", true, \"ПРЕДВАРИТЕЛЬНЫЕ/ИГРЫ\", 0], [\"dkincc\", true, \"Субботник\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel\", 0], [\"blackufa\", true, \"Наказание от зрителей для стримера. TRUE FEAR часть 2, стрим 2\", 0], [\"syslov171\", true, \"Лёгкий ЯКУТСК ДЕНЬ первый с @bondarenk01 @akimenem\", 0], [\"welovegames\", true, \"Совместный просмотр | Marvel Rivals IGNITE Grand Finals | !rivals\", 0], [\"chopperinho\", true, \"Обсуждаем мажор и кукинг | !bb !tg !yt\", 0], [\"stintik\", false, \"\", 0], [\"dyrachyo\", true, \"1W [1:0] PVISION bo3 BLAST SLAM IX Play Off /w @dkfogas1 | !bb !tg\", 0], [\"praden\", true, \"Розыгрыш слона (индийского)\", 0], [\"exigent_wires\", true, \"ДРОПСЫ + ГОЛДЕН КОИНС\", 0], [\"raythis\", false, \"ЭЛЕМ ШАМАН на 60 ЛвЛ в WoW Forever! Тестируем и Набираем р14 ШМОТ! Новый WoW ● РЭЙВИС\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 0], [\"mainfinitytv\", true, \"Вернулся из бана! Фармим бисяры на локе, ВЕЧЕРОМ ВИДОСИКИ!\", 0], [\"mantaq\", true, \"1w x PariVision | Bo3 | BLAST SLAM IX | !tg !bb | Единственный ученик додепса на твиче\", 0], [\"ezpvp_lover\", false, \"Wow Forever Движ! Ищу пати по Инстам, раскручиваю Аукич + профы\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🚨 ADMIN EVENT! DU KANNST MITMACHEN! 🚨\", 0], [\"imdankar\", true, \"СЛОВЕЧКИ + ДЕРЕВьЯ НЕНАВИДЯТ МЕНя😤😤\", 0], [\"renatko\", true, \"ЧАТ РУЛЕТКА,ИЩУ ГРЯЗНУЛЕК! !бб !тг\", 0], [\"edison\", true, \"😭ПРОЩАЙ😭 Последний стрим! Следующий только 12 декабря\", 0], [\"bratishkinoff\", true, \"🔴 БАГАЮ БАГАНУЮ ГТА 🔴 ГЛАВА III 🔴 ДЕНЬ: я уже забыл какой 🔴\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"1w Team vs PARIVISION bo3 1:0 BLAST SLAM IX Lower Bracket Semifinals w/ Alagon\", 0], [\"strogo\", false, \"\", 0], [\"bysl4m\", false, \"\", 0], [\"shadowkekw\", false, \"\", 0], [\"gadjiev57\", true, \"ЕДЕМ В КЛУБ\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch\", 0], [\"solo\", true, \"1W Team [1:0] PV | BLAST SLAM IX: Playoffs w/ @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"morphe_ya\", true, \"МЫ ДОТЕРЫ @dangerlyoha @kopsteep @clean_killl | !tg !winline !мышки !wb\", 0], [\"cs2_paragon_ru\", false, \"\", 0], [\"dkincc\", true, \"Субботник\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"blackufa\", false, \"\", 0], [\"stintik\", false, \"\", 0], [\"dmitry_lixxx\", false, \"\", 0], [\"syslov171\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"praden\", false, \"\", 0], [\"raythis\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"mainfinitytv\", false, \"\", 0], [\"ezpvp_lover\", false, \"\", 0], [\"sasavot\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"edison\", false, \"\", 0], [\"imdankar\", false, \"\", 0], [\"renatko\", false, \"\", 0], [\"chopperinho\", false, \"\", 0], [\"exigent_wires\", false, \"\", 0], [\"stray228\", false, \"\", 0], [\"mantaq\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🚨 ADMIN EVENT! DU KANNST MITMACHEN! 🚨\", 0]]"
  },
  "clips": [
   {
