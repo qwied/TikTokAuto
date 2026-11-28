@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28T14:51:47Z",
+ "updated": "2026-11-28T14:52:02Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,57 +15,57 @@
     "name": "nix",
     "display": "twitch.tv/nix",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "1w Team vs PARIVISION bo3 0:0 BLAST SLAM IX Lower Bracket Semifinals w/ Alagon"
    },
    {
     "name": "strogo",
     "display": "twitch.tv/strogo",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🔴 FlyQuest vs PV | PGL Major Singapore 2026 Stage 2 | @m3wsu  !бот"
    },
    {
     "name": "bysl4m",
     "display": "twitch.tv/bysl4m",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "FlyQuest vs PVISION | PGL Major Singapore 2026 Stage 2 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit"
    },
    {
     "name": "shadowkekw",
     "display": "twitch.tv/shadowkekw",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🌴 ЖМУРКИ / НАЧАЛО: 17:15 👉 !тг !betboom !торнадо !РО !yota"
    },
    {
     "name": "gadjiev57",
     "display": "twitch.tv/gadjiev57",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "БОЙ РОЗЫ И ЧИВИЛи в прямом эфире"
    },
    {
     "name": "t2x2",
     "display": "twitch.tv/t2x2",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch"
    },
    {
     "name": "solo",
     "display": "twitch.tv/solo",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "1W Team [0:0] PV | BLAST SLAM IX: Playoffs w/ @kyzko_doto !tg !BETBOOM !розыгрыш"
    },
    {
     "name": "morphe_ya",
@@ -247,12 +247,12 @@
     "name": "Okisebi",
     "display": "youtube.com/@Okisebi",
     "platform": "youtube",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🚨 ADMIN EVENT! DU KANNST MITMACHEN! 🚨"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", false, \"\", 0], [\"strogo\", false, \"\", 0], [\"bysl4m\", false, \"\", 0], [\"shadowkekw\", false, \"\", 0], [\"gadjiev57\", false, \"\", 0], [\"t2x2\", false, \"\", 0], [\"solo\", false, \"\", 0], [\"morphe_ya\", false, \"\", 0], [\"cs2_paragon_ru\", false, \"\", 0], [\"dkincc\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"blackufa\", false, \"\", 0], [\"stintik\", false, \"\", 0], [\"dmitry_lixxx\", false, \"\", 0], [\"syslov171\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"praden\", false, \"\", 0], [\"raythis\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"mainfinitytv\", false, \"\", 0], [\"ezpvp_lover\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"1w Team vs PARIVISION bo3 0:0 BLAST SLAM IX Lower Bracket Semifinals w/ Alagon\", 0], [\"strogo\", true, \"🔴 FlyQuest vs PV | PGL Major Singapore 2026 Stage 2 | @m3wsu  !бот\", 0], [\"bysl4m\", true, \"FlyQuest vs PVISION | PGL Major Singapore 2026 Stage 2 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 0], [\"shadowkekw\", true, \"🌴 ЖМУРКИ / НАЧАЛО: 17:15 👉 !тг !betboom !торнадо !РО !yota\", 0], [\"gadjiev57\", true, \"БОЙ РОЗЫ И ЧИВИЛи в прямом эфире\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch\", 0], [\"solo\", true, \"1W Team [0:0] PV | BLAST SLAM IX: Playoffs w/ @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"morphe_ya\", false, \"\", 0], [\"cs2_paragon_ru\", false, \"\", 0], [\"dkincc\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"blackufa\", false, \"\", 0], [\"stintik\", false, \"\", 0], [\"dmitry_lixxx\", false, \"\", 0], [\"syslov171\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"praden\", false, \"\", 0], [\"raythis\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"mainfinitytv\", false, \"\", 0], [\"ezpvp_lover\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🚨 ADMIN EVENT! DU KANNST MITMACHEN! 🚨\", 0]]"
  },
  "clips": [
   {
