@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28T10:50:37Z",
+ "updated": "2026-11-28T10:54:54Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -172,23 +172,31 @@
     "title": "Я беру ружьё — теперь мы в бесконечности"
    },
    {
-    "name": "ramzes",
-    "display": "twitch.tv/ramzes",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "MLBB 🔥 играем турнир \\w @afoninje  !tg !win"
-   },
-   {
     "name": "sh0kerix",
     "display": "twitch.tv/sh0kerix",
     "platform": "twitch",
     "live": true,
     "viewers": 0,
     "title": "🏆 WCI DROPS 🏆 WCI 2026 | ПЛЕЙ-ОФФ ЧЕМПІОНАТУ СВІТУ ПО НАТИСКУ | ДЕНЬ 3"
+   },
+   {
+    "name": "alcoreru",
+    "display": "twitch.tv/alcoreru",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "velyalive",
+    "display": "twitch.tv/velyalive",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 1w vs The MongolZ | PGL Major Singapore 2026 Stage 2 | @m3wsu  !бот\", 34725], [\"anarabdullaev\", false, \"\", 0], [\"bysl4m\", true, \"The One vs The MongolZ | PGL Major Singapore 2026 Stage 2 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 12750], [\"skywhywalker\", true, \"🏆 The MongolZ [0:0] 1win | PGL Major Singapore 2026 Stage 2 | !ставка !fonbet\", 7125], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | The One [0:0] The MongolZ | PGL Major Singapore 2026: Stage 2 | BO1 | @little_cs, @siberiancaster & @Roma_roo\", 6175], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel\", 4425], [\"dmitry_lixxx\", true, \"В ПОГОНЕ ЗА ПАСХАЛКАМИ В ГТА | !tg !winline !ЯО !ВТБ !avan\", 3875], [\"keliencs\", true, \"Liquid vs Eternal Fire | BO1 | PGL Major Singapore 2026 Stage 2 | @quefix_ !tg !fonbet\", 850], [\"tixerok\", true, \"Позитив ✅ Скилл ✅ Юмор ✅ Скуф ✅\", 275], [\"wildanimalhs\", true, \"Европа старт 10 !телега !колоды !плейлист !donate !обучение !промокод !заказдеки !бравлик\", 675], [\"ezpvp_lover\", true, \"Wow Forever Движ! Ищу пати по Инстам, раскручиваю Аукич + профы\", 650], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit 6 Sternen überleben!\", 0], [\"tpabomah\", true, \"ПЛЕЙОФФ ПРОТИВ РАМЗЕСА🔥 !ищунарезчика !розыгрыш !тг\", 5225], [\"notenity\", true, \"Я беру ружьё — теперь мы в бесконечности\", 0], [\"ramzes\", true, \"MLBB 🔥 играем турнир \\\\w @afoninje  !tg !win\", 0], [\"sh0kerix\", true, \"🏆 WCI DROPS 🏆 WCI 2026 | ПЛЕЙ-ОФФ ЧЕМПІОНАТУ СВІТУ ПО НАТИСКУ | ДЕНЬ 3\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 1w vs The MongolZ | PGL Major Singapore 2026 Stage 2 | @m3wsu  !бот\", 34725], [\"anarabdullaev\", false, \"\", 0], [\"bysl4m\", true, \"The One vs The MongolZ | PGL Major Singapore 2026 Stage 2 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 12750], [\"skywhywalker\", true, \"🏆 The MongolZ [0:0] 1win | PGL Major Singapore 2026 Stage 2 | !ставка !fonbet\", 7125], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | The One [0:0] The MongolZ | PGL Major Singapore 2026: Stage 2 | BO1 | @little_cs, @siberiancaster & @Roma_roo\", 6175], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel\", 4425], [\"dmitry_lixxx\", true, \"В ПОГОНЕ ЗА ПАСХАЛКАМИ В ГТА | !tg !winline !ЯО !ВТБ !avan\", 3875], [\"keliencs\", true, \"Liquid vs Eternal Fire | BO1 | PGL Major Singapore 2026 Stage 2 | @quefix_ !tg !fonbet\", 850], [\"tixerok\", true, \"Позитив ✅ Скилл ✅ Юмор ✅ Скуф ✅\", 275], [\"wildanimalhs\", true, \"Европа старт 10 !телега !колоды !плейлист !donate !обучение !промокод !заказдеки !бравлик\", 675], [\"ezpvp_lover\", true, \"Wow Forever Движ! Ищу пати по Инстам, раскручиваю Аукич + профы\", 650], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit 6 Sternen überleben!\", 0], [\"tpabomah\", true, \"ПЛЕЙОФФ ПРОТИВ РАМЗЕСА🔥 !ищунарезчика !розыгрыш !тг\", 5225], [\"notenity\", true, \"Я беру ружьё — теперь мы в бесконечности\", 0], [\"sh0kerix\", true, \"🏆 WCI DROPS 🏆 WCI 2026 | ПЛЕЙ-ОФФ ЧЕМПІОНАТУ СВІТУ ПО НАТИСКУ | ДЕНЬ 3\", 0], [\"alcoreru\", false, \"\", 0], [\"velyalive\", false, \"\", 0]]"
  },
  "clips": [
   {
