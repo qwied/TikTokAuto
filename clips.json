@@ -1,27 +1,11 @@
 {
- "updated": "2026-11-28T02:13:07Z",
+ "updated": "2026-11-28T02:13:19Z",
  "meta": {
   "mode": "github",
   "channels": [
    {
     "name": "honeymad",
     "display": "twitch.tv/honeymad",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "bratishkinoff",
-    "display": "twitch.tv/bratishkinoff",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "5opka",
-    "display": "twitch.tv/5opka",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
@@ -36,12 +20,12 @@
     "title": "ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel"
    },
    {
-    "name": "rejiboi",
-    "display": "twitch.tv/rejiboi",
+    "name": "betboom_dota_ru",
+    "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 266,
+    "title": "ПОВТОР BLAST SLAM IX | Playoffs Day 2"
    },
    {
     "name": "welovegames",
@@ -98,9 +82,17 @@
     "live": false,
     "viewers": 0,
     "title": ""
+   },
+   {
+    "name": "judah_xx",
+    "display": "twitch.tv/judah_xx",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 2600,
+    "title": "ГАДАЛКИ ОНЛАЙН. РОЗЫГРЫШ В ТГ ПЕРЧАТКИ И ДРУГОЕ /РОЗЫГРЫШ В ТГ | promo JUDAH | !tg !gta !win"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel\", 1925], [\"rejiboi\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel\", 1925], [\"betboom_dota_ru\", true, \"ПОВТОР BLAST SLAM IX | Playoffs Day 2\", 275], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"judah_xx\", true, \"ГАДАЛКИ ОНЛАЙН. РОЗЫГРЫШ В ТГ ПЕРЧАТКИ И ДРУГОЕ /РОЗЫГРЫШ В ТГ | promo JUDAH | !tg !gta !win\", 2600]]"
  },
  "clips": [
   {
