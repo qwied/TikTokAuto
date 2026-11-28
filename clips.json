@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28T13:56:18Z",
+ "updated": "2026-11-28T13:56:33Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,57 +15,57 @@
     "name": "nix",
     "display": "twitch.tv/nix",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Team Yandex vs Team Liquid bo3 0:1 BLAST SLAM IX Upper Bracket Final w/ Alagon"
    },
    {
     "name": "strogo",
     "display": "twitch.tv/strogo",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🔴 FlyQuest vs PV | PGL Major Singapore 2026 Stage 2 | @m3wsu  !бот"
    },
    {
     "name": "bysl4m",
     "display": "twitch.tv/bysl4m",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "FlyQuest vs PVISION | PGL Major Singapore 2026 Stage 2 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit"
    },
    {
     "name": "solo",
     "display": "twitch.tv/solo",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Team Yandex [0:1] Team Liquid | BLAST SLAM IX: Playoffs w/ @kyzko_doto !tg !BETBOOM !розыгрыш"
    },
    {
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Team Yandex [0] vs [1] Team Liquid | Bo3 | Playoffs Day 3 | BLAST SLAM IX | cast: @arszeeqq & @adekvat !предикты"
    },
    {
     "name": "blaaaackberry",
     "display": "twitch.tv/blaaaackberry",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "концерт WIPO !бусти !тг"
    },
    {
     "name": "gadjiev57",
     "display": "twitch.tv/gadjiev57",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "БОЙ РОЗЫ И ЧИВИЛи в прямом эфире"
    },
    {
     "name": "skywhywalker",
@@ -244,7 +244,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", false, \"\", 0], [\"strogo\", false, \"\", 0], [\"bysl4m\", false, \"\", 0], [\"solo\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"blaaaackberry\", false, \"\", 0], [\"gadjiev57\", false, \"\", 0], [\"skywhywalker\", false, \"\", 0], [\"cs2_paragon_ru\", false, \"\", 0], [\"stintik\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"blackufa\", false, \"\", 0], [\"dmitry_lixxx\", false, \"\", 0], [\"syslov171\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"praden\", false, \"\", 0], [\"raythis\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"ezpvp_lover\", false, \"\", 0], [\"shadowkekw\", false, \"\", 0], [\"leshiy699\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"Team Yandex vs Team Liquid bo3 0:1 BLAST SLAM IX Upper Bracket Final w/ Alagon\", 0], [\"strogo\", true, \"🔴 FlyQuest vs PV | PGL Major Singapore 2026 Stage 2 | @m3wsu  !бот\", 0], [\"bysl4m\", true, \"FlyQuest vs PVISION | PGL Major Singapore 2026 Stage 2 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 0], [\"solo\", true, \"Team Yandex [0:1] Team Liquid | BLAST SLAM IX: Playoffs w/ @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"betboom_dota_ru\", true, \"Team Yandex [0] vs [1] Team Liquid | Bo3 | Playoffs Day 3 | BLAST SLAM IX | cast: @arszeeqq & @adekvat !предикты\", 0], [\"blaaaackberry\", true, \"концерт WIPO !бусти !тг\", 0], [\"gadjiev57\", true, \"БОЙ РОЗЫ И ЧИВИЛи в прямом эфире\", 0], [\"skywhywalker\", false, \"\", 0], [\"cs2_paragon_ru\", false, \"\", 0], [\"stintik\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"blackufa\", false, \"\", 0], [\"dmitry_lixxx\", false, \"\", 0], [\"syslov171\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"praden\", false, \"\", 0], [\"raythis\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"ezpvp_lover\", false, \"\", 0], [\"shadowkekw\", false, \"\", 0], [\"leshiy699\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
