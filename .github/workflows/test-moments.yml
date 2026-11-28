@@ -1,7 +1,7 @@
-# Быстрая проверка детекции смеха/криков (moments.py + YAMNet) на раннере:
-# python test_moments.py banner.mp4 — модель в репо, рантайм ai-edge-litert.
-# Запуск: Actions -> Moments smoke test -> Run workflow.
-name: Moments smoke test
+# Быстрая проверка на раннере: детекция смеха/криков (moments.py + YAMNet) и
+# автопостинг TikTok (суточный лимит, журнал постов, очередь).
+# Запуск: Actions -> Smoke tests -> Run workflow.
+name: Smoke tests
 
 on:
   workflow_dispatch: {}
@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 jobs:
-  moments:
+  smoke:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -30,3 +30,6 @@ jobs:
 
       - name: Тест детекции моментов (YAMNet)
         run: python test_moments.py banner.mp4
+
+      - name: Тест автопостинга TikTok (дневной лимит 30/день)
+        run: python test_tiktok.py
