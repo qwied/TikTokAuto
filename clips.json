@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28T19:26:44Z",
+ "updated": "2026-11-28T19:29:04Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,77 +15,53 @@
     "name": "bratishkinoff",
     "display": "twitch.tv/bratishkinoff",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "МАМА В 16 ПРИЕХАЛА В ГТА 6 МСТИТЬ ЗА УШЕДШЕГО ОТЦА — ПОТОМ ПРОДОЛЖАЕМ ИГРАТЬ"
-   },
-   {
-    "name": "t2x2",
-    "display": "twitch.tv/t2x2",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф"
+    "title": ""
    },
    {
     "name": "sasavot",
     "display": "twitch.tv/sasavot",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "ПРЕДВАРИТЕЛЬНЫЕ/ИГРЫ"
+    "title": ""
    },
    {
-    "name": "gadjiev57",
-    "display": "twitch.tv/gadjiev57",
+    "name": "t2x2",
+    "display": "twitch.tv/t2x2",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "ЕДЕМ В КЛУБ"
+    "title": ""
    },
    {
     "name": "edison",
     "display": "twitch.tv/edison",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "😭ПРОЩАЙ😭 Последний стрим! Следующий только 12 декабря"
+    "title": ""
    },
    {
     "name": "mafanyaking",
     "display": "twitch.tv/mafanyaking",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "КУ / !тг !донат !предложка"
-   },
-   {
-    "name": "dkincc",
-    "display": "twitch.tv/dkincc",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Субботник"
-   },
-   {
-    "name": "lenagol0vach",
-    "display": "twitch.tv/lenagol0vach",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "🏆 НОВЫЙ ПАТЧ 7.42 🏆 ПУТЬ В ТОП 100 🏆 ЖЕСТКИЙ АП ММР 🍔 БЫЛО 15к ММР 🍆 ТЕСТИМ НОВЫЙ ПАТЧ ⭐ НАШЕЛ ИМБУ ПАТЧА ⭐🧀🏆⭐"
+    "title": ""
    },
    {
     "name": "zxcursed",
     "display": "twitch.tv/zxcursed",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "аккуратно превосходим других / w @akumaqqe @avice @uniquee @mary_day"
+    "title": ""
    },
    {
-    "name": "syslov171",
-    "display": "twitch.tv/syslov171",
+    "name": "lenagol0vach",
+    "display": "twitch.tv/lenagol0vach",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
@@ -95,53 +71,45 @@
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel"
+    "title": ""
    },
    {
-    "name": "imdankar",
-    "display": "twitch.tv/imdankar",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "СЛОВЕЧКИ + ДЕРЕВьЯ НЕНАВИДЯТ МЕНя😤😤"
-   },
-   {
-    "name": "kopsteep",
-    "display": "twitch.tv/kopsteep",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "субботний аккуратный раскумар !tg !bot"
-   },
-   {
-    "name": "chopperinho",
-    "display": "twitch.tv/chopperinho",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "ПРЕМЬЕР С ЧАТТЕРСАМИ | !bb !tg !yt"
-   },
-   {
-    "name": "stray228",
-    "display": "twitch.tv/stray228",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Полное погружение в GTA6, это стрим не про игру, это стрим про жизнь! !tg !bb !wow !воппер"
-   },
-   {
-    "name": "welovegames",
-    "display": "twitch.tv/welovegames",
+    "name": "5opka",
+    "display": "twitch.tv/5opka",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
     "title": ""
    },
    {
-    "name": "praden",
-    "display": "twitch.tv/praden",
+    "name": "imdankar",
+    "display": "twitch.tv/imdankar",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "kopsteep",
+    "display": "twitch.tv/kopsteep",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "stray228",
+    "display": "twitch.tv/stray228",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "chopperinho",
+    "display": "twitch.tv/chopperinho",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
@@ -151,41 +119,33 @@
     "name": "rejiboi",
     "display": "twitch.tv/rejiboi",
     "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "давай воровать машинки 6, 11 серия | 91% !tg"
-   },
-   {
-    "name": "exigent_wires",
-    "display": "twitch.tv/exigent_wires",
-    "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "ДРОПСЫ + ГОЛДЕН КОИНС"
+    "title": ""
    },
    {
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "ПОВТОР BLAST SLAM IX | Playoffs Day 3"
-   },
-   {
-    "name": "bezp",
-    "display": "twitch.tv/bezp",
-    "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "[EXCLUSIVE DROPS] Вотчпати турика !funpay"
+    "title": ""
    },
    {
     "name": "mainfinitytv",
     "display": "twitch.tv/mainfinitytv",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Смотрим кринж видосы, под пивко и хорошее настроение."
+    "title": ""
+   },
+   {
+    "name": "amor_ed",
+    "display": "twitch.tv/amor_ed",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "welovegames",
@@ -239,28 +199,12 @@
     "name": "Okisebi",
     "display": "youtube.com/@Okisebi",
     "platform": "youtube",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "🔴 LIVE! - GTA 6 mit 6 Sternen überleben!"
-   },
-   {
-    "name": "amor_ed",
-    "display": "twitch.tv/amor_ed",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "бк БЕЗ ПОНЯТИЯ С кем !pl"
-   },
-   {
-    "name": "5opka",
-    "display": "twitch.tv/5opka",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "РАССКАЗЫВАЮ ИСТОРИИ И ЧЁ-ТА ДЕЛАЮ // !донат !приватка !правила !funpay !тг"
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"МАМА В 16 ПРИЕХАЛА В ГТА 6 МСТИТЬ ЗА УШЕДШЕГО ОТЦА — ПОТОМ ПРОДОЛЖАЕМ ИГРАТЬ\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф\", 0], [\"sasavot\", true, \"ПРЕДВАРИТЕЛЬНЫЕ/ИГРЫ\", 0], [\"gadjiev57\", false, \"ЕДЕМ В КЛУБ\", 0], [\"edison\", true, \"😭ПРОЩАЙ😭 Последний стрим! Следующий только 12 декабря\", 0], [\"mafanyaking\", true, \"КУ / !тг !донат !предложка\", 0], [\"dkincc\", true, \"Субботник\", 0], [\"lenagol0vach\", true, \"🏆 НОВЫЙ ПАТЧ 7.42 🏆 ПУТЬ В ТОП 100 🏆 ЖЕСТКИЙ АП ММР 🍔 БЫЛО 15к ММР 🍆 ТЕСТИМ НОВЫЙ ПАТЧ ⭐ НАШЕЛ ИМБУ ПАТЧА ⭐🧀🏆⭐\", 0], [\"zxcursed\", true, \"аккуратно превосходим других / w @akumaqqe @avice @uniquee @mary_day\", 0], [\"syslov171\", false, \"\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel\", 0], [\"imdankar\", true, \"СЛОВЕЧКИ + ДЕРЕВьЯ НЕНАВИДЯТ МЕНя😤😤\", 0], [\"kopsteep\", true, \"субботний аккуратный раскумар !tg !bot\", 0], [\"chopperinho\", true, \"ПРЕМЬЕР С ЧАТТЕРСАМИ | !bb !tg !yt\", 0], [\"stray228\", true, \"Полное погружение в GTA6, это стрим не про игру, это стрим про жизнь! !tg !bb !wow !воппер\", 0], [\"welovegames\", false, \"\", 0], [\"praden\", false, \"\", 0], [\"rejiboi\", true, \"давай воровать машинки 6, 11 серия | 91% !tg\", 0], [\"exigent_wires\", false, \"ДРОПСЫ + ГОЛДЕН КОИНС\", 0], [\"betboom_dota_ru\", true, \"ПОВТОР BLAST SLAM IX | Playoffs Day 3\", 0], [\"bezp\", false, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 0], [\"mainfinitytv\", true, \"Смотрим кринж видосы, под пивко и хорошее настроение.\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit 6 Sternen überleben!\", 0], [\"amor_ed\", true, \"бк БЕЗ ПОНЯТИЯ С кем !pl\", 0], [\"5opka\", true, \"РАССКАЗЫВАЮ ИСТОРИИ И ЧЁ-ТА ДЕЛАЮ // !донат !приватка !правила !funpay !тг\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"sasavot\", false, \"\", 0], [\"t2x2\", false, \"\", 0], [\"edison\", false, \"\", 0], [\"mafanyaking\", false, \"\", 0], [\"zxcursed\", false, \"\", 0], [\"lenagol0vach\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"imdankar\", false, \"\", 0], [\"kopsteep\", false, \"\", 0], [\"stray228\", false, \"\", 0], [\"chopperinho\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"mainfinitytv\", false, \"\", 0], [\"amor_ed\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
