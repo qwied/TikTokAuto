@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28T05:36:07Z",
+ "updated": "2026-11-28T05:37:09Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,49 +15,49 @@
     "name": "strogo",
     "display": "twitch.tv/strogo",
     "platform": "twitch",
-    "live": true,
-    "viewers": 19268,
-    "title": "🔴 Nemiga vs NIP | PGL Major Singapore 2026 Stage 2 | @m3wsu  !бот"
-   },
-   {
-    "name": "leva2k",
-    "display": "twitch.tv/leva2k",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 1665,
-    "title": "ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel"
-   },
-   {
-    "name": "dmitry_lixxx",
-    "display": "twitch.tv/dmitry_lixxx",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 1603,
-    "title": "[MAJOR] Nemiga vs NIP | BO1 | PGL Major Singapore 2026 Stage 2 | !tg !winline !ЯО !ВТБ !avan"
-   },
-   {
-    "name": "vovapain",
-    "display": "twitch.tv/vovapain",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 1062,
-    "title": "🔴 НЮХАО 👃 | !tg !bb !бк !лига"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "bysl4m",
     "display": "twitch.tv/bysl4m",
     "platform": "twitch",
-    "live": true,
-    "viewers": 5831,
-    "title": "Nemiga vs NiP | PGL Major Singapore 2026 Stage 2 | КРИВОЙ ЭФИР | Day 1 | @FANAT_ROCKA @xryst_t"
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "leva2k",
+    "display": "twitch.tv/leva2k",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "dmitry_lixxx",
+    "display": "twitch.tv/dmitry_lixxx",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "vovapain",
+    "display": "twitch.tv/vovapain",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "keliencs",
     "display": "twitch.tv/keliencs",
     "platform": "twitch",
-    "live": true,
-    "viewers": 576,
-    "title": "Astralis [0:0] Imperial | BO1 | PGL Major Singapore 2026 Stage 2 | @quefix_ !tg !fonbet"
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "welovegames",
@@ -116,7 +116,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 Nemiga vs NIP | PGL Major Singapore 2026 Stage 2 | @m3wsu  !бот\", 19275], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel\", 1675], [\"dmitry_lixxx\", true, \"[MAJOR] Nemiga vs NIP | BO1 | PGL Major Singapore 2026 Stage 2 | !tg !winline !ЯО !ВТБ !avan\", 1600], [\"vovapain\", true, \"🔴 НЮХАО 👃 | !tg !bb !бк !лига\", 1050], [\"bysl4m\", true, \"Nemiga vs NiP | PGL Major Singapore 2026 Stage 2 | КРИВОЙ ЭФИР | Day 1 | @FANAT_ROCKA @xryst_t\", 5825], [\"keliencs\", true, \"Astralis [0:0] Imperial | BO1 | PGL Major Singapore 2026 Stage 2 | @quefix_ !tg !fonbet\", 575], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", false, \"\", 0], [\"bysl4m\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"dmitry_lixxx\", false, \"\", 0], [\"vovapain\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
