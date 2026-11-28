@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28T08:37:16Z",
+ "updated": "2026-11-28T08:37:39Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -143,6 +143,46 @@
   "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 MIBR vs 100 Thieves  | PGL Major Singapore 2026 Stage 2 | @m3wsu  !бот\", 23125], [\"anarabdullaev\", true, \"Самый большой сафари парк в Азии /w Огр Эксити Лера Вика\", 16400], [\"bysl4m\", true, \"MIBR vs 100 Thieves | PGL Major Singapore 2026 Stage 2 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 7675], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | PGL Major Singapore 2026: Stage 2 | BO1 | @yarushkin1, @Lampaaa & @cybercracken\", 4425], [\"skywhywalker\", true, \"САМОЕ ТУПОЕ + НЕУМНОЕ ПРОХОЖДЕНИЕ GTA VI 🤓👑\", 5400], [\"dmitry_lixxx\", true, \"В ПОГОНЕ ЗА ПАСХАЛКАМИ В ГТА | !tg !winline !ЯО !ВТБ !avan\", 2475], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel\", 1875], [\"vovapain\", false, \"🔴 НЮХАО 👃 | !tg !bb !бк !лига\", 0], [\"keliencs\", true, \"MIBR vs 100 Thieves | BO1 | PGL Major Singapore 2026 Stage 2 | @quefix_ !tg !fonbet\", 875], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit 6 Sternen überleben!\", 0]]"
  },
  "clips": [
+  {
+   "id": "2026-11-28_08-32-25_leva2k",
+   "file": "2026-11-28_08-32-25_leva2k.mp4",
+   "url": "https://github.com/qwied/TikTokAuto/releases/download/clips-2026-11-28/2026-11-28_08-32-25_leva2k.mp4",
+   "preview": "https://qwied.github.io/TikTokAuto/preview/2026-11-28_08-32-25_leva2k.mp4",
+   "thumb": "data:image/jpeg;base64,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",
+   "size": 18290867,
+   "duration": 46.2,
+   "channel": "leva2k",
+   "display": "twitch.tv/leva2k",
+   "platform": "twitch",
+   "title": "ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel",
+   "score": 45.0,
+   "hashtags": [
+    "#leva2k",
+    "#twitch",
+    "#рек",
+    "#рекомендации",
+    "#fyp",
+    "#foryou",
+    "#viral",
+    "#прикол",
+    "#смешно",
+    "#хайп",
+    "#стрим",
+    "#клипы",
+    "#стример"
+   ],
+   "caption": "Лучший момент со стрима twitch.tv/leva2k",
+   "subs": {
+    "lang": "en",
+    "words": 0,
+    "speech_pct": 0,
+    "ok": false
+   },
+   "src": "",
+   "start": 0,
+   "created": 1795855044,
+   "gh": true
+  },
   {
    "id": "2026-11-28_08-20-20_zxcpulsedx",
    "file": "2026-11-28_08-20-20_zxcpulsedx.mp4",
