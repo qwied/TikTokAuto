@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28T05:21:07Z",
+ "updated": "2026-11-28T05:21:39Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -42,9 +42,81 @@
     "live": true,
     "viewers": 893,
     "title": "🔴 НЮХАО 👃 | !tg !bb !бк !лига"
+   },
+   {
+    "name": "bysl4m",
+    "display": "twitch.tv/bysl4m",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "keliencs",
+    "display": "twitch.tv/keliencs",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "welovegames",
+    "display": "youtube.com/@welovegames",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "bratishkinoff",
+    "display": "youtube.com/@bratishkinoff",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "KuplinovPlay",
+    "display": "youtube.com/@KuplinovPlay",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "5opka",
+    "display": "youtube.com/@5opka",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "stariy_bog",
+    "display": "youtube.com/@stariy_bog",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "AlinaRin",
+    "display": "youtube.com/@AlinaRin",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "Okisebi",
+    "display": "youtube.com/@Okisebi",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 Nemiga vs NIP | PGL Major Singapore 2026 Stage 2 | @m3wsu  !бот\", 16650], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel\", 1500], [\"dmitry_lixxx\", true, \"[MAJOR] Nemiga vs NIP | BO1 | PGL Major Singapore 2026 Stage 2 | !tg !winline !ЯО !ВТБ !avan\", 1475], [\"vovapain\", true, \"🔴 НЮХАО 👃 | !tg !bb !бк !лига\", 900]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 Nemiga vs NIP | PGL Major Singapore 2026 Stage 2 | @m3wsu  !бот\", 16650], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel\", 1500], [\"dmitry_lixxx\", true, \"[MAJOR] Nemiga vs NIP | BO1 | PGL Major Singapore 2026 Stage 2 | !tg !winline !ЯО !ВТБ !avan\", 1475], [\"vovapain\", true, \"🔴 НЮХАО 👃 | !tg !bb !бк !лига\", 900], [\"bysl4m\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
