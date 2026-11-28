@@ -6,6 +6,9 @@
 Как выбираются интересные моменты:
   1) yt-dlp скачивает ЗВУК всего видео в самом низком качестве (быстро);
   2) ffmpeg декодирует его в моно, считаем громкость по секундам (RMS);
+     параллельно YAMNet (moments.py) находит в звуке СМЕХ, КРИКИ и
+     реакцию толпы — «смешно не там, где громко» (главный сигнал для
+     видео без чата, напр. обычных YouTube-роликов);
   3) для каждой минуты считаем СКОЛЬКО признаков «накала» в ней:
        - средняя громкость выше обычного для этого видео;
        - ДИНАМИКА (всплески на фоне среднего), а не монотонный шум;
@@ -31,6 +34,7 @@ from collections import Counter, defaultdict
 try:
     import banner
     import lipsync as lipsync_mod
+    import moments
     import subtitle
     import vertical as vertical_mod
     import overlays as overlays_mod
@@ -40,6 +44,7 @@ try:
 except ImportError:                                    # плоский репозиторий
     import banner
     import lipsync as lipsync_mod
+    import moments
     import subtitle
     import vertical as vertical_mod
     import overlays as overlays_mod
@@ -272,7 +277,8 @@ def loudness_curve(audio_path, sr=4000):
 
 def pick_windows(rms, duration, max_windows=100, win=WIN_SECONDS,
                  chat=None, chat_exc=None, exclude=None,
-                 chat_users=None, chat_clip=None, chat_echo=None):
+                 chat_users=None, chat_clip=None, chat_echo=None,
+                 laugh=None, shout=None, appl=None):
     """Окна самых интересных минут: [(start, end, score), ...] по времени.
 
     «Интересное» — это взрыв смеха, крик, накал момента. В децибелах
@@ -340,6 +346,48 @@ def pick_windows(rms, duration, max_windows=100, win=WIN_SECONDS,
     score = (0.42 * _z(mean_db) + 0.20 * _z(peak_db) + 0.28 * _z(std_db)
              + 0.55 * _z(loud) - 1.10 * silent)
 
+    # --- аудио-события: СМЕХ/КРИКИ по звуку (YAMNet, moments.py) -------------
+    # «Смешно не там, где громко»: нейросеть видит в самом звуке смех,
+    # крики и реакцию толпы. Работает и БЕЗ чата — обычные YouTube-ролики,
+    # где раньше отбор шёл только по громкости и часто попадал в шум.
+    # С чатом тоже усиливает громкостную половину оценки.
+    laugh_mode = False
+    ev_heat = None
+    if laugh is not None or shout is not None:
+        try:
+            def _ev_pad(a):
+                a = np.asarray(a, dtype=np.float64) if a is not None \
+                    else np.zeros(n)
+                if a.size < n:
+                    a = np.pad(a, (0, n - a.size))
+                elif a.size > n:
+                    a = a[:n]
+                return a
+
+            lg, sh, ap = _ev_pad(laugh), _ev_pad(shout), _ev_pad(appl)
+            if float(lg.max()) > 0.0 or float(sh.max()) > 0.0:
+                laugh_mode = True
+                lw = np.lib.stride_tricks.sliding_window_view(lg, w).sum(axis=1)
+                sw = np.lib.stride_tricks.sliding_window_view(sh, w).sum(axis=1)
+                aw = np.lib.stride_tricks.sliding_window_view(ap, w).sum(axis=1)
+
+                def _zev(x):
+                    s = float(np.std(x))
+                    z = (np.asarray(x, dtype=np.float64)
+                         - float(np.median(x))) / (s + 1e-9)
+                    return np.clip(z, -3.0, 4.0)
+
+                score = score + 1.60 * _zev(lw) + 0.85 * _zev(sw) \
+                    + 0.30 * _zev(aw)
+                ev_heat = np.convolve(lg + 2.0 * sh + 0.5 * ap,
+                                      np.ones(11) / 11.0, mode="same")
+                log.info("YAMNet-события в оценке: окна со СМЕХОМ и криками "
+                         "приоритетнее громких пустышек")
+        except Exception:
+            laugh_mode = False
+            ev_heat = None
+            log.exception("Аудио-события не учлись — только громкость/чат")
+
     # --- чат-реплей: ЧАТ РЕШАЕТ ПРАКТИЧЕСКИ ВСЁ ------------------------------
     # Жалоба «скучные моменты»: смешно не там, где громко, а там, где
     # РЕАГИРУЕТ чат. Шесть сигналов (см. докстринг), чат-микс весит в 5+ раз
@@ -401,6 +449,8 @@ def pick_windows(rms, duration, max_windows=100, win=WIN_SECONDS,
                 # «тепло» секунды для привязки пика: пик чата встаёт на ~15-ю
                 # секунду клипа — момент наступает быстро, не в хвосте минуты
                 heat = chat + 2.0 * exc + 0.8 * users_a + 3.0 * clip_a
+                if laugh_mode:
+                    heat = heat + 3.0 * lg          # пик СМЕХА — тоже якорь
                 heat = np.convolve(heat, np.ones(21) / 21.0, mode="same")
                 log.info("Чат — ГЛАВНЫЙ сигнал отбора (6 сигналов; среднее %.2f сообщ/сек, "
                          "уникальных авторов/сек %.2f, восторгов %.0f%%, просьб клип %d, "
@@ -416,6 +466,8 @@ def pick_windows(rms, duration, max_windows=100, win=WIN_SECONDS,
             heat = None
             log.exception("Чат-оценка не удалась — беру только громкость")
 
+    if laugh_mode and heat is None:
+        heat = ev_heat                             # пик смеха без чата
     head = int(min(TRIM_HEAD, duration * 0.02))
     tail = int(min(TRIM_TAIL, duration * 0.02))
     lo, hi = head, max(head + 1, n - w - tail)
@@ -449,7 +501,7 @@ def pick_windows(rms, duration, max_windows=100, win=WIN_SECONDS,
     chosen = []                            # (оценка окна, старт)
     for i in cand:
         s_i = float(score[i])
-        t = _align_to_peak(i) if chat_mode else i
+        t = _align_to_peak(i) if (chat_mode or laugh_mode) else i
         if _exclude_hit(t, w, exclude):
             continue
         if any(abs(t - c) < min_gap for _s2, c in chosen):
@@ -494,21 +546,27 @@ _WOW_RE = re.compile(
 _YOU_RE = re.compile(
     r"\b(ребята|парни|чувак|бро|смотрите|смотри|гляни|глянь|чекай|"
     r"посмотри|представь|угадай|погнали|жми)\b", re.I)
+_CONFLICT_RE = re.compile(
+    r"(ссора|конфликт|скандал|ругать|оrать|орут|орё|кричал|разборк|"
+    r"драк|базар|ты ч[её]|чё ты|что ты|не поверишь|забан|перма|бан|"
+    r"проблемы|мусор|полице|продал|кинул|обман)", re.I)
 
 
 def _text_score(text, speech_s):
     """Плотность «сочных» сигналов на минуту речи (0..~8).
 
-    Смех в голосе > сильные слова > прямые обращения к зрителю >
-    вопросы > восклицания. Нормируем на время речи, а не на окно:
-    минута болтовни и минута тишины оцениваются честно.
+    Смех в голосе > ССОРЫ/конфликты > сильные слова > прямые обращения
+    к зрителю > вопросы > восклицания. Нормируем на время речи, а не на
+    окно: минута болтовни и минута тишины оцениваются честно.
     """
     if not text:
         return 0.0
     laughs = len(_LAUGH_RE.findall(text))
     wow = len(_WOW_RE.findall(text))
     you = len(_YOU_RE.findall(text))
-    s = (1.1 * min(laughs, 5) + 0.8 * min(wow, 4) + 0.35 * min(you, 6)
+    conflict = len(_CONFLICT_RE.findall(text))
+    s = (1.1 * min(laughs, 5) + 1.0 * min(conflict, 4)
+         + 0.8 * min(wow, 4) + 0.35 * min(you, 6)
          + 0.5 * min(text.count("?"), 3) + 0.25 * min(text.count("!"), 4))
     return s * 60.0 / max(15.0, float(speech_s or 0.0))
 
@@ -617,6 +675,15 @@ def expand_video(url, workdir, cookies_file="", max_windows=100,
         except OSError:
             pass
         raise
+    # Аудио-события (YAMNet): СМЕХ/крики/толпа по звуку. Fail-open: нет
+    # модели/рантайма — отбор как раньше, по громкости и чату.
+    laugh = shout = appl = None
+    try:
+        ev = moments.event_curves(audio)
+        if ev is not None:
+            laugh, shout, appl = ev
+    except Exception:
+        log.exception("Аудио-события недоступны — отбор без них")
     # аудио живёт ДО AI-переранжирования: Whisper читает из него окна
     is_twitch_vod = "twitch." in url and ("/videos/" in url or "/v/" in url)
     yt_archived = _is_youtube(url) and live_status in ("was_live", "post_live")
@@ -644,6 +711,7 @@ def expand_video(url, workdir, cookies_file="", max_windows=100,
                         chat_users=extra.get("users"),
                         chat_clip=extra.get("clipreq"),
                         chat_echo=extra.get("echo"),
+                        laugh=laugh, shout=shout, appl=appl,
                         exclude=exclude_ranges)
     if wins and audio and os.path.exists(audio):
         # AI-переранжирование: смысл окон по транскрипту (смех, вопросы,
