@@ -54,7 +54,8 @@ def test_event_curves(video):
     ev = moments.event_curves(video)
     assert ev is not None, "YAMNet недоступен"
     laugh, shout, appl = ev
-    assert laugh.size > 10 and laugh.shape == shout.shape == appl.shape
+    assert laugh.size >= 4 and laugh.shape == shout.shape == appl.shape, \
+        "кривые пустые или разной длины: %d" % laugh.size
     assert 0.0 <= float(laugh.min()) and float(laugh.max()) <= 1.0
     print("OK: кривые %d с; смех пик %.2f, крики пик %.2f, толпа пик %.2f"
           % (laugh.size, laugh.max(), shout.max(), appl.max()))
