@@ -1,16 +1,5 @@
 {
- "updated": "2026-11-28T12:56:37Z",
+ "updated": "2026-11-28T12:56:51Z",
  "note": "Тест YAMNet-отбора моментов (force)",
- "jobs": [
-  {
-   "url": "https://www.youtube.com/watch?v=7rKVlAkRDKc",
-   "kind": "video",
-   "fails": 2,
-   "tag": "io",
-   "display": "ОГРОМНАЯ ЗМЕЯ Little big snake [тест YAMNet]",
-   "views": 15881628,
-   "limit": 2,
-   "force": true
-  }
- ]
+ "jobs": []
 }
