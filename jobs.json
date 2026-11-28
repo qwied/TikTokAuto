@@ -1,5 +1,15 @@
 {
- "updated": "2026-11-28T12:33:05Z",
- "note": "Тест YAMNet-отбора моментов: окно выбирается по смеху/крикам/громкости",
- "jobs": []
+ "updated": "2026-11-28T12:41:44Z",
+ "note": "Тест YAMNet-отбора моментов",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=7rKVlAkRDKc",
+   "kind": "video",
+   "fails": 0,
+   "tag": "io",
+   "display": "ОГРОМНАЯ ЗМЕЯ Little big snake Смешные Моменты [тест YAMNet]",
+   "views": 15881628,
+   "limit": 2
+  }
+ ]
 }
