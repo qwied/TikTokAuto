@@ -19,7 +19,16 @@
 Антибан: между публикациями случайная пауза delay_min..delay_max секунд,
 описание не длиннее 2200 символов, очередность клипов соблюдается.
 
-dry_run: true — ничего не выкладывает, только пишет в лог (для проверки).
+Суточный лимит: НЕ БОЛЬШЕ max_per_day постов за календарные сутки (по
+умолчанию 30), равномерно распределённых по дневному окну day_start_hour..
+day_end_hour (например 30 постов в окне 09-23 = пауза ~28 минут между
+постами). Клипы сверх лимита НЕ ТЕРЯЮТСЯ — ждут в отложенной очереди
+(tiktok_pending.json) и выходят в следующие дни. Счёт ведётся по журналу
+с таймстампами tiktok_post_log.json — лимит работает и между запусками
+Actions (журнал доливается в репозиторий вместе с очередью).
+
+dry_run: true — ничего не выкладывает, только пишет в лог (для проверки;
+дневной лимит и журнал при этом не тратятся).
 """
 
 import json
@@ -175,7 +184,15 @@ def load_cookies_netscape(path):
 
 PENDING_FILE = "tiktok_pending.json"   # очередь неудавшихся постов (файл в репо)
 POSTED_FILE = "tiktok_posted.json"     # что уже выходило (защита от дублей)
+POST_LOG_FILE = "tiktok_post_log.json"  # журнал постов с таймстампами (дневной лимит)
 PENDING_TRIES_MAX = 3        # столько попыток скачать клип из релиза, потом дроп
+
+# Суточный лимит постинга (антибан TikTok: сотни постов за день = мгновенный
+# бан аккаунта). 30 в день, распределённые по окну 09-23 — безопасный темп.
+DEFAULT_MAX_PER_DAY = 30
+DEFAULT_DAY_START = 9    # начало дневного окна, час локального времени
+DEFAULT_DAY_END = 23     # конец дневного окна
+POST_LOG_KEEP_DAYS = 7   # сколько суток хранить журнал постов
 
 
 class TikTokPoster:
@@ -198,6 +215,16 @@ class TikTokPoster:
         self.min_score = max(0, int(self.cfg.get("min_score", 65)))
         # база ссылок релиза для восстановления очереди после смерти раннера
         self.release_url_base = str(self.cfg.get("release_url_base") or "")
+        # Суточный лимит: не больше max_per_day за календарные сутки, равномерно
+        # в окне дня (антибан: массовый постинг = бан). Клипы сверх лимита ждут
+        # в отложенной очереди и выходят в следующие дни — ничего не теряется.
+        self.max_per_day = max(1, int(self.cfg.get("max_per_day") or DEFAULT_MAX_PER_DAY))
+        self.day_start_hour = min(23, max(0, int(self.cfg.get("day_start_hour") or DEFAULT_DAY_START)))
+        self.day_end_hour = max(self.day_start_hour + 1,
+                                min(24, int(self.cfg.get("day_end_hour") or DEFAULT_DAY_END)))
+        self.spread_through_day = bool(self.cfg.get("spread_through_day", True))
+        self._post_log = self._load_post_log()
+        self._wake_thread = None
         self.pending_file = os.path.join(self.base_dir, PENDING_FILE)
         self.posted_file = os.path.join(self.base_dir, POSTED_FILE)
         self._posted = self._load_posted()
@@ -289,6 +316,8 @@ class TikTokPoster:
             }
         with self._pending_lock:
             st["pending"] = len(self._pending)
+        st["posts_today"] = self._posts_today()
+        st["max_per_day"] = self.max_per_day
         return st
 
     # --- воркер ----------------------------------------------------------------
@@ -306,6 +335,24 @@ class TikTokPoster:
                 continue
             delay = random.randint(self.delay_min, self.delay_max) \
                 if self.delay_max > self.delay_min else self.delay_min
+            # Суточный лимит: сверх max_per_day за сутки клип ждёт завтра в
+            # отложенной очереди (персистентной) — постов-флуда не бывает.
+            if not self.dry_run and self._posts_today() >= self.max_per_day:
+                log.info("TikTok: дневной лимит %d постов исчерпан — %s "
+                         "выйдет завтра", self.max_per_day,
+                         os.path.basename(path))
+                self._pending_add(path, caption,
+                                  "дневной лимит %d постов" % self.max_per_day)
+                self.q.task_done()
+                self._plan_next_day_requeue()
+                continue
+            # Равномерное распределение по дню: окно 09-23 и 30 постов дают
+            # паузу ~28 минут (первый пост дня не задерживаем).
+            if (self.spread_through_day and not self.dry_run
+                    and self._posts_today() > 0):
+                slot = int(self._day_span_s() / max(1, self.max_per_day))
+                if slot > delay:
+                    delay = slot
             if delay and not self.dry_run:
                 log.info("TikTok: публикация через %d сек (пауза против блокировок)",
                          delay)
@@ -315,7 +362,11 @@ class TikTokPoster:
                     with self._lock:
                         self.posted += 1
                     self._pending_done(path)
-                    log.info("TikTok: опубликовано %s", os.path.basename(path))
+                    if not self.dry_run:
+                        self._log_post(path)     # тратим дневной лимит
+                    log.info("TikTok: опубликовано %s (за сегодня: %d/%d)",
+                             os.path.basename(path), self._posts_today(),
+                             self.max_per_day)
                 except Exception as e:
                     with self._lock:
                         self.failed += 1
@@ -389,6 +440,86 @@ class TikTokPoster:
                 json.dump(sorted(self._posted)[-100:], f, ensure_ascii=False)
         except OSError:
             pass
+
+    # --- суточный лимит и равномерное распределение по дню ---------------------
+
+    def _load_post_log(self):
+        try:
+            with open(os.path.join(self.base_dir, POST_LOG_FILE), "r",
+                      encoding="utf-8") as f:
+                data = json.load(f)
+            cutoff = time.time() - POST_LOG_KEEP_DAYS * 86400
+            if isinstance(data, list):
+                return [e for e in data if isinstance(e, dict)
+                        and float(e.get("ts") or 0) >= cutoff]
+        except Exception:
+            pass
+        return []
+
+    def _save_post_log(self):
+        cutoff = time.time() - POST_LOG_KEEP_DAYS * 86400
+        self._post_log = [e for e in self._post_log
+                          if float((e or {}).get("ts") or 0) >= cutoff]
+        try:
+            with open(os.path.join(self.base_dir, POST_LOG_FILE), "w",
+                      encoding="utf-8") as f:
+                json.dump(self._post_log, f, ensure_ascii=False)
+        except OSError:
+            pass
+
+    def _posts_today(self):
+        """Сколько постов уже вышло за текущие календарные сутки (локальное
+        время машины; журнал персистентен — лимит держится и между запусками)."""
+        lt = time.localtime()
+        n = 0
+        for e in self._post_log:
+            t = time.localtime(float((e or {}).get("ts") or 0))
+            if t.tm_year == lt.tm_year and t.tm_yday == lt.tm_yday:
+                n += 1
+        return n
+
+    def _log_post(self, video_path):
+        self._post_log.append({"id": os.path.basename(str(video_path)),
+                               "ts": time.time()})
+        self._save_post_log()
+
+    def _day_span_s(self):
+        return max(3600, (self.day_end_hour - self.day_start_hour) * 3600)
+
+    def _seconds_to_window_start(self):
+        """Секунды до ближайшего начала дневного окна (сегодня, если ещё до
+        него, иначе завтра)."""
+        lt = time.localtime()
+        now_s = lt.tm_hour * 3600 + lt.tm_min * 60 + lt.tm_sec
+        start_s = self.day_start_hour * 3600
+        if now_s < start_s:
+            return start_s - now_s
+        return 86400 - now_s + start_s
+
+    def _plan_next_day_requeue(self):
+        """Лимит суток исчерпан: разбудить воркер в начале следующего окна и
+        вернуть клипы из отложенной очереди (локальные файлы на месте —
+        скачивание не нужно). Один будильник на процесс, прерывается stop()."""
+        if self._wake_thread is not None and self._wake_thread.is_alive():
+            return
+
+        def _wake():
+            wait = self._seconds_to_window_start()
+            log.info("TikTok: дневной лимит %d исчерпан — следующая порция "
+                     "через %.1f ч (в %02d:00)", self.max_per_day,
+                     wait / 3600.0, self.day_start_hour)
+            if self._sleep(wait):
+                try:
+                    n = self.requeue_pending(limit=self.max_per_day)
+                    if n:
+                        log.info("TikTok: новый день — вернул %d клипов "
+                                 "в очередь публикации", n)
+                except Exception:
+                    log.exception("TikTok: возврат очереди на новый день не удался")
+
+        self._wake_thread = threading.Thread(target=_wake, daemon=True,
+                                             name="tiktok-day-wake")
+        self._wake_thread.start()
 
     def posted_ids(self):
         with self._pending_lock:
