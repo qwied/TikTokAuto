@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28T07:28:11Z",
+ "updated": "2026-11-28T07:28:26Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,89 +15,89 @@
     "name": "strogo",
     "display": "twitch.tv/strogo",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 27773,
+    "title": "🔴 NaVi vs PV | PGL Major Singapore 2026 Stage 2 | @m3wsu  !бот"
    },
    {
     "name": "anarabdullaev",
     "display": "twitch.tv/anarabdullaev",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 15126,
+    "title": "Самый большой сафари парк в Азии /w Огр Эксити Лера Вика"
    },
    {
     "name": "bysl4m",
     "display": "twitch.tv/bysl4m",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 10651,
+    "title": "NAVI vs PVISION | PGL Major Singapore 2026 Stage 2 | КРИВОЙ ЭФИР | Day 1 | @FANAT_ROCKA @xryst_t"
    },
    {
     "name": "br1gk_",
     "display": "twitch.tv/br1gk_",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 4633,
+    "title": "Играю в кс2"
    },
    {
     "name": "cs2_paragon_ru",
     "display": "twitch.tv/cs2_paragon_ru",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 5218,
+    "title": "[RU] REDZONE | Natus Vincere [0:0] PVISION | PGL Major Singapore 2026: Stage 2 | BO1 | @yarushkin1, @Lampaaa & @cybercracken"
    },
    {
     "name": "dmitry_lixxx",
     "display": "twitch.tv/dmitry_lixxx",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 2463,
+    "title": "[MAJOR] NAVI vs PV | BO1 | PGL Major Singapore 2026 Stage 2 | !tg !winline !ЯО !ВТБ !avan"
    },
    {
     "name": "vovapain",
     "display": "twitch.tv/vovapain",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 1616,
+    "title": "🔴 НЮХАО 👃 | !tg !bb !бк !лига"
    },
    {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 1691,
+    "title": "ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel"
    },
    {
     "name": "skywhywalker",
     "display": "twitch.tv/skywhywalker",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 4102,
+    "title": "🏆 NaVi [0:0] PARIVISION | PGL Major Singapore 2026 Stage 2 | !ставка !fonbet"
    },
    {
     "name": "zxcpulsedx",
     "display": "twitch.tv/zxcpulsedx",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 1384,
+    "title": "ВНИМАНИЕ!!! ЧУШПАНЫ!!! ПРИШИВАЕМ К ПУЛСЕДЯТАМ !!!l wakeupfromthedeath 1.9 day to streamer d1 e  ( top 0 after ban)"
    },
    {
     "name": "keliencs",
     "display": "twitch.tv/keliencs",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 537,
+    "title": "MIBR vs 100 Thieves | BO1 | PGL Major Singapore 2026 Stage 2 | @quefix_ !tg !fonbet"
    },
    {
     "name": "welovegames",
@@ -156,7 +156,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", false, \"\", 0], [\"anarabdullaev\", false, \"\", 0], [\"bysl4m\", false, \"\", 0], [\"br1gk_\", false, \"\", 0], [\"cs2_paragon_ru\", false, \"\", 0], [\"dmitry_lixxx\", false, \"\", 0], [\"vovapain\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"skywhywalker\", false, \"\", 0], [\"zxcpulsedx\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 NaVi vs PV | PGL Major Singapore 2026 Stage 2 | @m3wsu  !бот\", 27775], [\"anarabdullaev\", true, \"Самый большой сафари парк в Азии /w Огр Эксити Лера Вика\", 15125], [\"bysl4m\", true, \"NAVI vs PVISION | PGL Major Singapore 2026 Stage 2 | КРИВОЙ ЭФИР | Day 1 | @FANAT_ROCKA @xryst_t\", 10650], [\"br1gk_\", true, \"Играю в кс2\", 4625], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | Natus Vincere [0:0] PVISION | PGL Major Singapore 2026: Stage 2 | BO1 | @yarushkin1, @Lampaaa & @cybercracken\", 5225], [\"dmitry_lixxx\", true, \"[MAJOR] NAVI vs PV | BO1 | PGL Major Singapore 2026 Stage 2 | !tg !winline !ЯО !ВТБ !avan\", 2475], [\"vovapain\", true, \"🔴 НЮХАО 👃 | !tg !bb !бк !лига\", 1625], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel\", 1700], [\"skywhywalker\", true, \"🏆 NaVi [0:0] PARIVISION | PGL Major Singapore 2026 Stage 2 | !ставка !fonbet\", 4100], [\"zxcpulsedx\", true, \"ВНИМАНИЕ!!! ЧУШПАНЫ!!! ПРИШИВАЕМ К ПУЛСЕДЯТАМ !!!l wakeupfromthedeath 1.9 day to streamer d1 e  ( top 0 after ban)\", 1375], [\"keliencs\", true, \"MIBR vs 100 Thieves | BO1 | PGL Major Singapore 2026 Stage 2 | @quefix_ !tg !fonbet\", 525], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
