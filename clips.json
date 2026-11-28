@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28T05:16:22Z",
+ "updated": "2026-11-28T05:17:22Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -24,7 +24,7 @@
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
     "live": true,
-    "viewers": 1543,
+    "viewers": 1512,
     "title": "ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel"
    },
    {
@@ -32,7 +32,7 @@
     "display": "twitch.tv/dmitry_lixxx",
     "platform": "twitch",
     "live": true,
-    "viewers": 1258,
+    "viewers": 1413,
     "title": "[MAJOR] Nemiga vs NIP | BO1 | PGL Major Singapore 2026 Stage 2 | !tg !winline !ЯО !ВТБ !avan"
    },
    {
@@ -40,11 +40,11 @@
     "display": "twitch.tv/vovapain",
     "platform": "twitch",
     "live": true,
-    "viewers": 842,
+    "viewers": 904,
     "title": "🔴 НЮХАО 👃 | !tg !bb !бк !лига"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 Nemiga vs NIP | PGL Major Singapore 2026 Stage 2 | !бот\", 15575], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel\", 1550], [\"dmitry_lixxx\", true, \"[MAJOR] Nemiga vs NIP | BO1 | PGL Major Singapore 2026 Stage 2 | !tg !winline !ЯО !ВТБ !avan\", 1250], [\"vovapain\", true, \"🔴 НЮХАО 👃 | !tg !bb !бк !лига\", 850]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 Nemiga vs NIP | PGL Major Singapore 2026 Stage 2 | !бот\", 15575], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel\", 1500], [\"dmitry_lixxx\", true, \"[MAJOR] Nemiga vs NIP | BO1 | PGL Major Singapore 2026 Stage 2 | !tg !winline !ЯО !ВТБ !avan\", 1425], [\"vovapain\", true, \"🔴 НЮХАО 👃 | !tg !bb !бк !лига\", 900]]"
  },
  "clips": [
   {
