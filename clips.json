@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28T18:33:38Z",
+ "updated": "2026-11-28T18:33:53Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,57 +15,57 @@
     "name": "bratishkinoff",
     "display": "twitch.tv/bratishkinoff",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🔴 БАГАЮ БАГАНУЮ ГТА 🔴 ГЛАВА III 🔴 ДЕНЬ: я уже забыл какой 🔴"
    },
    {
     "name": "t2x2",
     "display": "twitch.tv/t2x2",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф"
    },
    {
     "name": "sasavot",
     "display": "twitch.tv/sasavot",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ПРЕДВАРИТЕЛЬНЫЕ/ИГРЫ"
    },
    {
     "name": "gadjiev57",
     "display": "twitch.tv/gadjiev57",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ЕДЕМ В КЛУБ"
    },
    {
     "name": "edison",
     "display": "twitch.tv/edison",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "😭ПРОЩАЙ😭 Последний стрим! Следующий только 12 декабря"
    },
    {
     "name": "mafanyaking",
     "display": "twitch.tv/mafanyaking",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ИРЛ ПРИКОЛЬЧИКИ / !тг !донат !предложка"
    },
    {
     "name": "dkincc",
     "display": "twitch.tv/dkincc",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Субботник"
    },
    {
     "name": "lenagol0vach",
@@ -244,7 +244,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"t2x2\", false, \"\", 0], [\"sasavot\", false, \"\", 0], [\"gadjiev57\", false, \"\", 0], [\"edison\", false, \"\", 0], [\"mafanyaking\", false, \"\", 0], [\"dkincc\", false, \"\", 0], [\"lenagol0vach\", false, \"\", 0], [\"zxcursed\", false, \"\", 0], [\"syslov171\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"imdankar\", false, \"\", 0], [\"kopsteep\", false, \"\", 0], [\"chopperinho\", false, \"\", 0], [\"stray228\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"praden\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"exigent_wires\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"mainfinitytv\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"🔴 БАГАЮ БАГАНУЮ ГТА 🔴 ГЛАВА III 🔴 ДЕНЬ: я уже забыл какой 🔴\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch | донаты и мемы офф\", 0], [\"sasavot\", true, \"ПРЕДВАРИТЕЛЬНЫЕ/ИГРЫ\", 0], [\"gadjiev57\", true, \"ЕДЕМ В КЛУБ\", 0], [\"edison\", true, \"😭ПРОЩАЙ😭 Последний стрим! Следующий только 12 декабря\", 0], [\"mafanyaking\", true, \"ИРЛ ПРИКОЛЬЧИКИ / !тг !донат !предложка\", 0], [\"dkincc\", true, \"Субботник\", 0], [\"lenagol0vach\", false, \"\", 0], [\"zxcursed\", false, \"\", 0], [\"syslov171\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"imdankar\", false, \"\", 0], [\"kopsteep\", false, \"\", 0], [\"chopperinho\", false, \"\", 0], [\"stray228\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"praden\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"exigent_wires\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"mainfinitytv\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
