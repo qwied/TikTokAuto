@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28T07:53:11Z",
+ "updated": "2026-11-28T07:55:11Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -16,7 +16,7 @@
     "display": "twitch.tv/strogo",
     "platform": "twitch",
     "live": true,
-    "viewers": 34895,
+    "viewers": 35745,
     "title": "🔴 NaVi vs PV | PGL Major Singapore 2026 Stage 2 | @m3wsu  !бот"
    },
    {
@@ -24,7 +24,7 @@
     "display": "twitch.tv/anarabdullaev",
     "platform": "twitch",
     "live": true,
-    "viewers": 18139,
+    "viewers": 18930,
     "title": "Самый большой сафари парк в Азии /w Огр Эксити Лера Вика"
    },
    {
@@ -32,7 +32,7 @@
     "display": "twitch.tv/bysl4m",
     "platform": "twitch",
     "live": true,
-    "viewers": 13456,
+    "viewers": 13719,
     "title": "NAVI vs PVISION | PGL Major Singapore 2026 Stage 2 | КРИВОЙ ЭФИР | Day 1 | @FANAT_ROCKA @xryst_t"
    },
    {
@@ -72,7 +72,7 @@
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
     "live": true,
-    "viewers": 1586,
+    "viewers": 1698,
     "title": "ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel"
    },
    {
@@ -156,7 +156,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 NaVi vs PV | PGL Major Singapore 2026 Stage 2 | @m3wsu  !бот\", 34900], [\"anarabdullaev\", true, \"Самый большой сафари парк в Азии /w Огр Эксити Лера Вика\", 18150], [\"bysl4m\", true, \"NAVI vs PVISION | PGL Major Singapore 2026 Stage 2 | КРИВОЙ ЭФИР | Day 1 | @FANAT_ROCKA @xryst_t\", 13450], [\"br1gk_\", true, \"Играю в кс2\", 0], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | Natus Vincere [0:0] PVISION | PGL Major Singapore 2026: Stage 2 | BO1 | @yarushkin1, @Lampaaa & @cybercracken\", 6550], [\"dmitry_lixxx\", true, \"[MAJOR] NAVI vs PV | BO1 | PGL Major Singapore 2026 Stage 2 | !tg !winline !ЯО !ВТБ !avan\", 2775], [\"vovapain\", true, \"🔴 НЮХАО 👃 | !tg !bb !бк !лига\", 1550], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel\", 1575], [\"skywhywalker\", true, \"🏆 NaVi [0:0] PARIVISION | PGL Major Singapore 2026 Stage 2 | !ставка !fonbet\", 5600], [\"zxcpulsedx\", true, \"ВНИМАНИЕ!!! ЧУШПАНЫ!!! ПРИШИВАЕМ К ПУЛСЕДЯТАМ !!!l wakeupfromthedeath 1.9 day to streamer d1 e  ( top 0 after ban)\", 1375], [\"keliencs\", true, \"MIBR vs 100 Thieves | BO1 | PGL Major Singapore 2026 Stage 2 | @quefix_ !tg !fonbet\", 900], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 NaVi vs PV | PGL Major Singapore 2026 Stage 2 | @m3wsu  !бот\", 35750], [\"anarabdullaev\", true, \"Самый большой сафари парк в Азии /w Огр Эксити Лера Вика\", 18925], [\"bysl4m\", true, \"NAVI vs PVISION | PGL Major Singapore 2026 Stage 2 | КРИВОЙ ЭФИР | Day 1 | @FANAT_ROCKA @xryst_t\", 13725], [\"br1gk_\", true, \"Играю в кс2\", 0], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | Natus Vincere [0:0] PVISION | PGL Major Singapore 2026: Stage 2 | BO1 | @yarushkin1, @Lampaaa & @cybercracken\", 6550], [\"dmitry_lixxx\", true, \"[MAJOR] NAVI vs PV | BO1 | PGL Major Singapore 2026 Stage 2 | !tg !winline !ЯО !ВТБ !avan\", 2775], [\"vovapain\", true, \"🔴 НЮХАО 👃 | !tg !bb !бк !лига\", 1550], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel\", 1700], [\"skywhywalker\", true, \"🏆 NaVi [0:0] PARIVISION | PGL Major Singapore 2026 Stage 2 | !ставка !fonbet\", 5600], [\"zxcpulsedx\", true, \"ВНИМАНИЕ!!! ЧУШПАНЫ!!! ПРИШИВАЕМ К ПУЛСЕДЯТАМ !!!l wakeupfromthedeath 1.9 day to streamer d1 e  ( top 0 after ban)\", 1375], [\"keliencs\", true, \"MIBR vs 100 Thieves | BO1 | PGL Major Singapore 2026 Stage 2 | @quefix_ !tg !fonbet\", 900], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
