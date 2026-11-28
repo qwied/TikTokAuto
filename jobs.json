@@ -1,4 +1,15 @@
 {
- "updated": "2026-11-25T14:19:22Z",
- "jobs": []
+ "updated": "2026-11-28T12:29:42Z",
+ "note": "Тест YAMNet-отбора моментов: окно выбирается по смеху/крикам/громкости",
+ "jobs": [
+  {
+   "url": "https://www.youtube.com/watch?v=XdzvQoaeaZ0",
+   "kind": "video",
+   "fails": 0,
+   "tag": "io",
+   "display": "ИВАН НОМЕР ОДИН!!! | Ивангай | Slither.io [тест YAMNet]",
+   "views": 31507767,
+   "limit": 2
+  }
+ ]
 }
