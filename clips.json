@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28T11:14:07Z",
+ "updated": "2026-11-28T11:14:57Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -63,73 +63,73 @@
     "name": "alcoreru",
     "display": "twitch.tv/alcoreru",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "!tg Финал? Коопы Станция и всё в этом духе"
+    "title": ""
    },
    {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel"
+    "title": ""
    },
    {
     "name": "dmitry_lixxx",
     "display": "twitch.tv/dmitry_lixxx",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "В ПОГОНЕ ЗА ПАСХАЛКАМИ В ГТА | !tg !winline !ЯО !ВТБ !avan"
+    "title": ""
    },
    {
     "name": "keliencs",
     "display": "twitch.tv/keliencs",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Liquid vs Eternal Fire | BO1 | PGL Major Singapore 2026 Stage 2 | @quefix_ !tg !fonbet"
+    "title": ""
    },
    {
     "name": "tixerok",
     "display": "twitch.tv/tixerok",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Позитив ✅ Скилл ✅ Юмор ✅ Скуф ✅"
+    "title": ""
    },
    {
     "name": "ezpvp_lover",
     "display": "twitch.tv/ezpvp_lover",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Wow Forever Движ! Ищу пати по Инстам, раскручиваю Аукич + профы"
+    "title": ""
    },
    {
     "name": "wildanimalhs",
     "display": "twitch.tv/wildanimalhs",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Европа старт 10 !телега !колоды !плейлист !donate !обучение !промокод !заказдеки !бравлик"
+    "title": ""
    },
    {
     "name": "velyalive",
     "display": "twitch.tv/velyalive",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "ЛЕГЕНДАРНАЯ РАЗДАЧА ГОЛДЫ В STANDOFF 2 (ЧАСТЬ 4)"
+    "title": ""
    },
    {
     "name": "sh0kerix",
     "display": "twitch.tv/sh0kerix",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "🏆 WCI DROPS 🏆 WCI 2026 | ПЛЕЙ-ОФФ ЧЕМПІОНАТУ СВІТУ ПО НАТИСКУ | ДЕНЬ 3"
+    "title": ""
    },
    {
     "name": "welovegames",
@@ -191,12 +191,12 @@
     "name": "bezp",
     "display": "twitch.tv/bezp",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "[EXCLUSIVE DROPS] Вотчпати турика !funpay"
+    "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 1w vs The MongolZ | PGL Major Singapore 2026 Stage 2 | @m3wsu  !бот\", 0], [\"bysl4m\", true, \"The One vs The MongolZ | PGL Major Singapore 2026 Stage 2 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 0], [\"notenity\", true, \"Я беру ружьё — теперь мы в бесконечности\", 0], [\"tpabomah\", true, \"ПЛЕЙОФФ ПРОТИВ РАМЗЕСА🔥 !ищунарезчика !розыгрыш !тг\", 0], [\"skywhywalker\", true, \"🏆 The MongolZ [0:0] 1win | PGL Major Singapore 2026 Stage 2 | !ставка !fonbet\", 0], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | The One [0:0] The MongolZ | PGL Major Singapore 2026: Stage 2 | BO1 | @little_cs, @siberiancaster & @Roma_roo\", 0], [\"alcoreru\", true, \"!tg Финал? Коопы Станция и всё в этом духе\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel\", 0], [\"dmitry_lixxx\", true, \"В ПОГОНЕ ЗА ПАСХАЛКАМИ В ГТА | !tg !winline !ЯО !ВТБ !avan\", 0], [\"keliencs\", true, \"Liquid vs Eternal Fire | BO1 | PGL Major Singapore 2026 Stage 2 | @quefix_ !tg !fonbet\", 0], [\"tixerok\", true, \"Позитив ✅ Скилл ✅ Юмор ✅ Скуф ✅\", 0], [\"ezpvp_lover\", true, \"Wow Forever Движ! Ищу пати по Инстам, раскручиваю Аукич + профы\", 0], [\"wildanimalhs\", true, \"Европа старт 10 !телега !колоды !плейлист !donate !обучение !промокод !заказдеки !бравлик\", 0], [\"velyalive\", true, \"ЛЕГЕНДАРНАЯ РАЗДАЧА ГОЛДЫ В STANDOFF 2 (ЧАСТЬ 4)\", 0], [\"sh0kerix\", true, \"🏆 WCI DROPS 🏆 WCI 2026 | ПЛЕЙ-ОФФ ЧЕМПІОНАТУ СВІТУ ПО НАТИСКУ | ДЕНЬ 3\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit 6 Sternen überleben!\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 1w vs The MongolZ | PGL Major Singapore 2026 Stage 2 | @m3wsu  !бот\", 0], [\"bysl4m\", true, \"The One vs The MongolZ | PGL Major Singapore 2026 Stage 2 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 0], [\"notenity\", true, \"Я беру ружьё — теперь мы в бесконечности\", 0], [\"tpabomah\", true, \"ПЛЕЙОФФ ПРОТИВ РАМЗЕСА🔥 !ищунарезчика !розыгрыш !тг\", 0], [\"skywhywalker\", true, \"🏆 The MongolZ [0:0] 1win | PGL Major Singapore 2026 Stage 2 | !ставка !fonbet\", 0], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | The One [0:0] The MongolZ | PGL Major Singapore 2026: Stage 2 | BO1 | @little_cs, @siberiancaster & @Roma_roo\", 0], [\"alcoreru\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"dmitry_lixxx\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"tixerok\", false, \"\", 0], [\"ezpvp_lover\", false, \"\", 0], [\"wildanimalhs\", false, \"\", 0], [\"velyalive\", false, \"\", 0], [\"sh0kerix\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🔴 LIVE! - GTA 6 mit 6 Sternen überleben!\", 0], [\"bezp\", false, \"\", 0]]"
  },
  "clips": [
   {
