@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28T00:04:25Z",
+ "updated": "2026-11-28T00:04:39Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,9 +15,9 @@
     "name": "bratishkinoff",
     "display": "twitch.tv/bratishkinoff",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 8100,
+    "title": "Я НЕ ПРОШЕЛ ГТА 6 НА 101% ПОКАЗЫВАЮ СЕКРЕТНУЮ КАТСЦЕНУ 🔴 !пасхалки !планы"
    },
    {
     "name": "stray228",
@@ -31,49 +31,49 @@
     "name": "5opka",
     "display": "twitch.tv/5opka",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 2310,
+    "title": "Дал Концерт, даю гта // !донат !приватка !правила !funpay !тг"
    },
    {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 1724,
+    "title": "ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel"
    },
    {
     "name": "rejiboi",
     "display": "twitch.tv/rejiboi",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 838,
+    "title": "давай воровать машинки 6, 10 серия | 84% !tg"
    },
    {
     "name": "shiishak",
     "display": "twitch.tv/shiishak",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 820,
+    "title": "Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB"
    },
    {
     "name": "d1pro4",
     "display": "twitch.tv/d1pro4",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 350,
+    "title": "Я снова один в этом Ламбо"
    },
    {
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "live": true,
+    "viewers": 388,
+    "title": "ПОВТОР BLAST SLAM IX | Playoffs Day 2"
    },
    {
     "name": "welovegames",
@@ -132,7 +132,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"stray228\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"rejiboi\", false, \"\", 0], [\"shiishak\", false, \"\", 0], [\"d1pro4\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"Я НЕ ПРОШЕЛ ГТА 6 НА 101% ПОКАЗЫВАЮ СЕКРЕТНУЮ КАТСЦЕНУ 🔴 !пасхалки !планы\", 8100], [\"stray228\", false, \"\", 0], [\"5opka\", true, \"Дал Концерт, даю гта // !донат !приватка !правила !funpay !тг\", 2300], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel\", 1725], [\"rejiboi\", true, \"давай воровать машинки 6, 10 серия | 84% !tg\", 850], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB\", 825], [\"d1pro4\", true, \"Я снова один в этом Ламбо\", 350], [\"betboom_dota_ru\", true, \"ПОВТОР BLAST SLAM IX | Playoffs Day 2\", 400], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
