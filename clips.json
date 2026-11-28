@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28T06:16:53Z",
+ "updated": "2026-11-28T06:17:10Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -56,7 +56,7 @@
     "display": "twitch.tv/keliencs",
     "platform": "twitch",
     "live": true,
-    "viewers": 446,
+    "viewers": 802,
     "title": "1w [0:0] Eternal Fire | BO1 | PGL Major Singapore 2026 Stage 2 | @quefix_ !tg !fonbet"
    },
    {
@@ -114,17 +114,9 @@
     "live": false,
     "viewers": 0,
     "title": ""
-   },
-   {
-    "name": "cs2_paragon_ru",
-    "display": "twitch.tv/cs2_paragon_ru",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 3511,
-    "title": "[RU] REDZONE | The One [0:0] Eternal Fire | PGL Major Singapore 2026: Stage 2 | BO1 | @yarushkin1, @Lampaaa & @cybercracken"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 G2 vs Liquid | PGL Major Singapore 2026 Stage 2 | @m3wsu  !бот\", 17550], [\"bysl4m\", true, \"The One vs  Eternal Fire | PGL Major Singapore 2026 Stage 2 | КРИВОЙ ЭФИР | Day 1 | @FANAT_ROCKA @xryst_t\", 6525], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel\", 1600], [\"dmitry_lixxx\", true, \"[MAJOR] 1W vs EF | BO1 | PGL Major Singapore 2026 Stage 2 | !tg !winline !ЯО !ВТБ !avan\", 1800], [\"vovapain\", true, \"🔴 НЮХАО 👃 | !tg !bb !бк !лига\", 1350], [\"keliencs\", true, \"1w [0:0] Eternal Fire | BO1 | PGL Major Singapore 2026 Stage 2 | @quefix_ !tg !fonbet\", 450], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | The One [0:0] Eternal Fire | PGL Major Singapore 2026: Stage 2 | BO1 | @yarushkin1, @Lampaaa & @cybercracken\", 3500]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 G2 vs Liquid | PGL Major Singapore 2026 Stage 2 | @m3wsu  !бот\", 17550], [\"bysl4m\", true, \"The One vs  Eternal Fire | PGL Major Singapore 2026 Stage 2 | КРИВОЙ ЭФИР | Day 1 | @FANAT_ROCKA @xryst_t\", 6525], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel\", 1600], [\"dmitry_lixxx\", true, \"[MAJOR] 1W vs EF | BO1 | PGL Major Singapore 2026 Stage 2 | !tg !winline !ЯО !ВТБ !avan\", 1800], [\"vovapain\", true, \"🔴 НЮХАО 👃 | !tg !bb !бк !лига\", 1350], [\"keliencs\", true, \"1w [0:0] Eternal Fire | BO1 | PGL Major Singapore 2026 Stage 2 | @quefix_ !tg !fonbet\", 800], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
