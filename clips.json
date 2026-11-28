@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28T00:11:24Z",
+ "updated": "2026-11-28T00:13:24Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -64,7 +64,7 @@
     "display": "twitch.tv/d1pro4",
     "platform": "twitch",
     "live": true,
-    "viewers": 345,
+    "viewers": 339,
     "title": "Я снова один в этом Ламбо"
    },
    {
@@ -72,7 +72,7 @@
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
     "live": true,
-    "viewers": 413,
+    "viewers": 407,
     "title": "ПОВТОР BLAST SLAM IX | Playoffs Day 2"
    },
    {
@@ -132,7 +132,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"Я НЕ ПРОШЕЛ ГТА 6 НА 101% ПОКАЗЫВАЮ СЕКРЕТНУЮ КАТСЦЕНУ 🔴 !пасхалки !планы\", 8100], [\"stray228\", false, \"\", 0], [\"5opka\", true, \"Дал Концерт, даю гта // !донат !приватка !правила !funpay !тг\", 2250], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel\", 1700], [\"rejiboi\", true, \"давай воровать машинки 6, 10 серия | 84% !tg\", 875], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB\", 850], [\"d1pro4\", true, \"Я снова один в этом Ламбо\", 350], [\"betboom_dota_ru\", true, \"ПОВТОР BLAST SLAM IX | Playoffs Day 2\", 425], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"bratishkinoff\", true, \"Я НЕ ПРОШЕЛ ГТА 6 НА 101% ПОКАЗЫВАЮ СЕКРЕТНУЮ КАТСЦЕНУ 🔴 !пасхалки !планы\", 8100], [\"stray228\", false, \"\", 0], [\"5opka\", true, \"Дал Концерт, даю гта // !донат !приватка !правила !funpay !тг\", 2250], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel\", 1700], [\"rejiboi\", true, \"давай воровать машинки 6, 10 серия | 84% !tg\", 875], [\"shiishak\", true, \"Челлендж. 8500 Pos 4 Gameplay !челлендж !tg !VTB\", 850], [\"d1pro4\", true, \"Я снова один в этом Ламбо\", 350], [\"betboom_dota_ru\", true, \"ПОВТОР BLAST SLAM IX | Playoffs Day 2\", 400], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
