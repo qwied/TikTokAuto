@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28T14:46:56Z",
+ "updated": "2026-11-28T14:47:03Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -28,28 +28,12 @@
     "title": "🔴 FlyQuest vs PV | PGL Major Singapore 2026 Stage 2 | @m3wsu  !бот"
    },
    {
-    "name": "gadjiev57",
-    "display": "twitch.tv/gadjiev57",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "БОЙ РОЗЫ И ЧИВИЛи в прямом эфире"
-   },
-   {
     "name": "bysl4m",
     "display": "twitch.tv/bysl4m",
     "platform": "twitch",
     "live": true,
     "viewers": 0,
     "title": "FlyQuest vs PVISION | PGL Major Singapore 2026 Stage 2 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit"
-   },
-   {
-    "name": "skywhywalker",
-    "display": "twitch.tv/skywhywalker",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
    },
    {
     "name": "solo",
@@ -68,14 +52,6 @@
     "title": "1win [0] vs [0] PARIVISION | Bo3 | Playoffs Day 3 | BLAST SLAM IX | cast: @arszeeqq & @adekvat !предикты"
    },
    {
-    "name": "cs2_paragon_ru",
-    "display": "twitch.tv/cs2_paragon_ru",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "[RU] REDZONE | FlyQuest [0:0] PVISION | PGL Major Singapore 2026: Stage 2 | BO1 | @little_cs, @siberiancaster & @Roma_roo"
-   },
-   {
     "name": "blaaaackberry",
     "display": "twitch.tv/blaaaackberry",
     "platform": "twitch",
@@ -84,143 +60,207 @@
     "title": "концерт WIPO !бусти !тг"
    },
    {
-    "name": "leva2k",
-    "display": "twitch.tv/leva2k",
+    "name": "gadjiev57",
+    "display": "twitch.tv/gadjiev57",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "БОЙ РОЗЫ И ЧИВИЛи в прямом эфире"
+   },
+   {
+    "name": "skywhywalker",
+    "display": "twitch.tv/skywhywalker",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
     "title": ""
+   },
+   {
+    "name": "cs2_paragon_ru",
+    "display": "twitch.tv/cs2_paragon_ru",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "[RU] REDZONE | FlyQuest [0:0] PVISION | PGL Major Singapore 2026: Stage 2 | BO1 | @little_cs, @siberiancaster & @Roma_roo"
    },
    {
     "name": "stintik",
     "display": "twitch.tv/stintik",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "дароа"
    },
    {
-    "name": "dmitry_lixxx",
-    "display": "twitch.tv/dmitry_lixxx",
+    "name": "leva2k",
+    "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "syslov171",
-    "display": "twitch.tv/syslov171",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "keliencs",
-    "display": "twitch.tv/keliencs",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "dyrachyo",
-    "display": "twitch.tv/dyrachyo",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "praden",
-    "display": "twitch.tv/praden",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "raythis",
-    "display": "twitch.tv/raythis",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "bezp",
-    "display": "twitch.tv/bezp",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "ezpvp_lover",
-    "display": "twitch.tv/ezpvp_lover",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "shadowkekw",
-    "display": "twitch.tv/shadowkekw",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "t2x2",
-    "display": "twitch.tv/t2x2",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "morphe_ya",
-    "display": "twitch.tv/morphe_ya",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "dkincc",
-    "display": "twitch.tv/dkincc",
-    "platform": "twitch",
-    "live": false,
-    "viewers": 0,
-    "title": ""
+    "title": "ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel"
    },
    {
     "name": "blackufa",
     "display": "twitch.tv/blackufa",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Наказание от зрителей для стримера. TRUE FEAR часть 2, стрим 2"
+   },
+   {
+    "name": "dmitry_lixxx",
+    "display": "twitch.tv/dmitry_lixxx",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "[MAJOR] FlyQuest vs PV | BO1 | PGL Major Singapore 2026 Stage 2 @Aunkere | !tg !winline !ЯО !ВТБ !avan"
+   },
+   {
+    "name": "syslov171",
+    "display": "twitch.tv/syslov171",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "Лёгкий ЯКУТСК ДЕНЬ первый с @bondarenk01 @akimenem"
    },
    {
     "name": "welovegames",
     "display": "twitch.tv/welovegames",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "Смотрим Marvel Rivals IGNITE Grand Finals с @DMITRY_BALE | !rivals !гилан !ситилинк !ggsel !dodo"
+   },
+   {
+    "name": "dyrachyo",
+    "display": "twitch.tv/dyrachyo",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "1W [0:0] PVISION bo3 BLAST SLAM IX Play Off /w @dkfogas1 | !bb !tg"
+   },
+   {
+    "name": "praden",
+    "display": "twitch.tv/praden",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "Свободный полёт"
+   },
+   {
+    "name": "raythis",
+    "display": "twitch.tv/raythis",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "ЭЛЕМ ШАМАН на 60 ЛвЛ в WoW Forever! Тестируем и Набираем р14 ШМОТ! Новый WoW ● РЭЙВИС"
+   },
+   {
+    "name": "bezp",
+    "display": "twitch.tv/bezp",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "[EXCLUSIVE DROPS] Вотчпати турика !funpay"
+   },
+   {
+    "name": "ezpvp_lover",
+    "display": "twitch.tv/ezpvp_lover",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "Wow Forever Движ! Ищу пати по Инстам, раскручиваю Аукич + профы"
+   },
+   {
+    "name": "shadowkekw",
+    "display": "twitch.tv/shadowkekw",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "🌴 ЖМУРКИ / НАЧАЛО: 17:15 👉 !тг !betboom !торнадо !РО !yota"
+   },
+   {
+    "name": "t2x2",
+    "display": "twitch.tv/t2x2",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch"
+   },
+   {
+    "name": "morphe_ya",
+    "display": "twitch.tv/morphe_ya",
+    "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "МЫ ШКОЛЬНИКИ @dangerlyoha @kopsteep @clean_killl | !tg !winline !мышки !wb"
    },
    {
     "name": "mainfinitytv",
     "display": "twitch.tv/mainfinitytv",
     "platform": "twitch",
+    "live": true,
+    "viewers": 0,
+    "title": "Вернулся из бана! Фармим бисяры на локе, ВЕЧЕРОМ ВИДОСИКИ!"
+   },
+   {
+    "name": "welovegames",
+    "display": "youtube.com/@welovegames",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "bratishkinoff",
+    "display": "youtube.com/@bratishkinoff",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "KuplinovPlay",
+    "display": "youtube.com/@KuplinovPlay",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "5opka",
+    "display": "youtube.com/@5opka",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "stariy_bog",
+    "display": "youtube.com/@stariy_bog",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "AlinaRin",
+    "display": "youtube.com/@AlinaRin",
+    "platform": "youtube",
+    "live": false,
+    "viewers": 0,
+    "title": ""
+   },
+   {
+    "name": "Okisebi",
+    "display": "youtube.com/@Okisebi",
+    "platform": "youtube",
     "live": false,
     "viewers": 0,
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"1w Team vs PARIVISION bo3 0:0 BLAST SLAM IX Lower Bracket Semifinals w/ Alagon\", 0], [\"strogo\", true, \"🔴 FlyQuest vs PV | PGL Major Singapore 2026 Stage 2 | @m3wsu  !бот\", 0], [\"gadjiev57\", true, \"БОЙ РОЗЫ И ЧИВИЛи в прямом эфире\", 0], [\"bysl4m\", true, \"FlyQuest vs PVISION | PGL Major Singapore 2026 Stage 2 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 0], [\"skywhywalker\", false, \"\", 0], [\"solo\", true, \"1W Team [0:0] PV | BLAST SLAM IX: Playoffs w/ @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"betboom_dota_ru\", true, \"1win [0] vs [0] PARIVISION | Bo3 | Playoffs Day 3 | BLAST SLAM IX | cast: @arszeeqq & @adekvat !предикты\", 0], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | FlyQuest [0:0] PVISION | PGL Major Singapore 2026: Stage 2 | BO1 | @little_cs, @siberiancaster & @Roma_roo\", 0], [\"blaaaackberry\", true, \"концерт WIPO !бусти !тг\", 0], [\"leva2k\", false, \"\", 0], [\"stintik\", false, \"\", 0], [\"dmitry_lixxx\", false, \"\", 0], [\"syslov171\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"praden\", false, \"\", 0], [\"raythis\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"ezpvp_lover\", false, \"\", 0], [\"shadowkekw\", false, \"\", 0], [\"t2x2\", false, \"\", 0], [\"morphe_ya\", false, \"\", 0], [\"dkincc\", false, \"\", 0], [\"blackufa\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"mainfinitytv\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"1w Team vs PARIVISION bo3 0:0 BLAST SLAM IX Lower Bracket Semifinals w/ Alagon\", 0], [\"strogo\", true, \"🔴 FlyQuest vs PV | PGL Major Singapore 2026 Stage 2 | @m3wsu  !бот\", 0], [\"bysl4m\", true, \"FlyQuest vs PVISION | PGL Major Singapore 2026 Stage 2 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 0], [\"solo\", true, \"1W Team [0:0] PV | BLAST SLAM IX: Playoffs w/ @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"betboom_dota_ru\", true, \"1win [0] vs [0] PARIVISION | Bo3 | Playoffs Day 3 | BLAST SLAM IX | cast: @arszeeqq & @adekvat !предикты\", 0], [\"blaaaackberry\", true, \"концерт WIPO !бусти !тг\", 0], [\"gadjiev57\", true, \"БОЙ РОЗЫ И ЧИВИЛи в прямом эфире\", 0], [\"skywhywalker\", false, \"\", 0], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | FlyQuest [0:0] PVISION | PGL Major Singapore 2026: Stage 2 | BO1 | @little_cs, @siberiancaster & @Roma_roo\", 0], [\"stintik\", true, \"дароа\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel\", 0], [\"blackufa\", true, \"Наказание от зрителей для стримера. TRUE FEAR часть 2, стрим 2\", 0], [\"dmitry_lixxx\", true, \"[MAJOR] FlyQuest vs PV | BO1 | PGL Major Singapore 2026 Stage 2 @Aunkere | !tg !winline !ЯО !ВТБ !avan\", 0], [\"syslov171\", true, \"Лёгкий ЯКУТСК ДЕНЬ первый с @bondarenk01 @akimenem\", 0], [\"welovegames\", true, \"Смотрим Marvel Rivals IGNITE Grand Finals с @DMITRY_BALE | !rivals !гилан !ситилинк !ggsel !dodo\", 0], [\"dyrachyo\", true, \"1W [0:0] PVISION bo3 BLAST SLAM IX Play Off /w @dkfogas1 | !bb !tg\", 0], [\"praden\", true, \"Свободный полёт\", 0], [\"raythis\", true, \"ЭЛЕМ ШАМАН на 60 ЛвЛ в WoW Forever! Тестируем и Набираем р14 ШМОТ! Новый WoW ● РЭЙВИС\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 0], [\"ezpvp_lover\", true, \"Wow Forever Движ! Ищу пати по Инстам, раскручиваю Аукич + профы\", 0], [\"shadowkekw\", true, \"🌴 ЖМУРКИ / НАЧАЛО: 17:15 👉 !тг !betboom !торнадо !РО !yota\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch\", 0], [\"morphe_ya\", true, \"МЫ ШКОЛЬНИКИ @dangerlyoha @kopsteep @clean_killl | !tg !winline !мышки !wb\", 0], [\"mainfinitytv\", true, \"Вернулся из бана! Фармим бисяры на локе, ВЕЧЕРОМ ВИДОСИКИ!\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0]]"
  },
  "clips": [
   {
