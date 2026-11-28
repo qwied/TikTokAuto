@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28T15:47:15Z",
+ "updated": "2026-11-28T15:47:30Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -15,65 +15,65 @@
     "name": "nix",
     "display": "twitch.tv/nix",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "1w Team vs PARIVISION bo3 1:0 BLAST SLAM IX Lower Bracket Semifinals w/ Alagon"
    },
    {
     "name": "solo",
     "display": "twitch.tv/solo",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "1W Team [1:0] PV | BLAST SLAM IX: Playoffs w/ @kyzko_doto !tg !BETBOOM !розыгрыш"
    },
    {
     "name": "shadowkekw",
     "display": "twitch.tv/shadowkekw",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🌴 ЖМУРКИ / НАЧАЛО: 17:15 👉 !тг !betboom !торнадо !РО !yota"
    },
    {
     "name": "t2x2",
     "display": "twitch.tv/t2x2",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch"
    },
    {
     "name": "standoff2esports_ru",
     "display": "twitch.tv/standoff2esports_ru",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "WINLINE EPIC Standoff 2 Jumble Rumble Major 2 | Плей-офф"
    },
    {
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "1win [1] vs [0] PARIVISION | Bo3 | Playoffs Day 3 | BLAST SLAM IX | cast: @arszeeqq & @adekvat !предикты"
    },
    {
     "name": "gadjiev57",
     "display": "twitch.tv/gadjiev57",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "ЕДЕМ В КЛУБ"
    },
    {
     "name": "morphe_ya",
     "display": "twitch.tv/morphe_ya",
     "platform": "twitch",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "МЫ ШКОЛЬНИКИ @dangerlyoha @kopsteep @clean_killl | !tg !winline !мышки !wb"
    },
    {
     "name": "sasavot",
@@ -255,9 +255,9 @@
     "name": "Okisebi",
     "display": "youtube.com/@Okisebi",
     "platform": "youtube",
-    "live": false,
+    "live": true,
     "viewers": 0,
-    "title": ""
+    "title": "🚨 ADMIN EVENT! DU KANNST MITMACHEN! 🚨"
    },
    {
     "name": "imdankar",
@@ -276,7 +276,7 @@
     "title": ""
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", false, \"\", 0], [\"solo\", false, \"\", 0], [\"shadowkekw\", false, \"\", 0], [\"t2x2\", false, \"\", 0], [\"standoff2esports_ru\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"gadjiev57\", false, \"\", 0], [\"morphe_ya\", false, \"\", 0], [\"sasavot\", false, \"\", 0], [\"dkincc\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"blackufa\", false, \"\", 0], [\"syslov171\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"chopperinho\", false, \"\", 0], [\"stintik\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"praden\", false, \"\", 0], [\"exigent_wires\", false, \"\", 0], [\"raythis\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"mainfinitytv\", false, \"\", 0], [\"mantaq\", false, \"\", 0], [\"ezpvp_lover\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"imdankar\", false, \"\", 0], [\"renatko\", false, \"\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", true, \"1w Team vs PARIVISION bo3 1:0 BLAST SLAM IX Lower Bracket Semifinals w/ Alagon\", 0], [\"solo\", true, \"1W Team [1:0] PV | BLAST SLAM IX: Playoffs w/ @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"shadowkekw\", true, \"🌴 ЖМУРКИ / НАЧАЛО: 17:15 👉 !тг !betboom !торнадо !РО !yota\", 0], [\"t2x2\", true, \"༼ ºل͟º༼ ºل͟º( ͡° ͜ʖ ͡°)ºل͟º ༽ºل͟º ༽ | Тг: t.me/t2xtwitch\", 0], [\"standoff2esports_ru\", true, \"WINLINE EPIC Standoff 2 Jumble Rumble Major 2 | Плей-офф\", 0], [\"betboom_dota_ru\", true, \"1win [1] vs [0] PARIVISION | Bo3 | Playoffs Day 3 | BLAST SLAM IX | cast: @arszeeqq & @adekvat !предикты\", 0], [\"gadjiev57\", true, \"ЕДЕМ В КЛУБ\", 0], [\"morphe_ya\", true, \"МЫ ШКОЛЬНИКИ @dangerlyoha @kopsteep @clean_killl | !tg !winline !мышки !wb\", 0], [\"sasavot\", false, \"\", 0], [\"dkincc\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"blackufa\", false, \"\", 0], [\"syslov171\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"chopperinho\", false, \"\", 0], [\"stintik\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"praden\", false, \"\", 0], [\"exigent_wires\", false, \"\", 0], [\"raythis\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"mainfinitytv\", false, \"\", 0], [\"mantaq\", false, \"\", 0], [\"ezpvp_lover\", false, \"\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", true, \"🚨 ADMIN EVENT! DU KANNST MITMACHEN! 🚨\", 0], [\"imdankar\", false, \"\", 0], [\"renatko\", false, \"\", 0]]"
  },
  "clips": [
   {
