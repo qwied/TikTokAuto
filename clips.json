@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28T12:57:01Z",
+ "updated": "2026-11-28T13:00:52Z",
  "meta": {
   "mode": "github",
   "channels": [
@@ -12,76 +12,84 @@
     "title": ""
    },
    {
-    "name": "strogo",
-    "display": "twitch.tv/strogo",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "🔴 NaVi vs Astralis | PGL Major Singapore 2026 Stage 2 | @m3wsu  !бот"
-   },
-   {
     "name": "nix",
     "display": "twitch.tv/nix",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Team Yandex vs Team Liquid bo3 0:1 BLAST SLAM IX Upper Bracket Final w/ Alagon"
+    "title": ""
    },
    {
-    "name": "bysl4m",
-    "display": "twitch.tv/bysl4m",
+    "name": "strogo",
+    "display": "twitch.tv/strogo",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "NAVI vs Astralis | PGL Major Singapore 2026 Stage 2 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit"
+    "title": ""
+   },
+   {
+    "name": "gadjiev57",
+    "display": "twitch.tv/gadjiev57",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "solo",
     "display": "twitch.tv/solo",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Team Yandex [0:0] Team Liquid | BLAST SLAM IX: Playoffs w/ @kyzko_doto !tg !BETBOOM !розыгрыш"
+    "title": ""
+   },
+   {
+    "name": "bysl4m",
+    "display": "twitch.tv/bysl4m",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "betboom_dota_ru",
     "display": "twitch.tv/betboom_dota_ru",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Team Yandex [0] vs [1] Team Liquid | Bo3 | Playoffs Day 3 | BLAST SLAM IX | cast: @arszeeqq & @adekvat !предикты"
+    "title": ""
    },
    {
     "name": "skywhywalker",
     "display": "twitch.tv/skywhywalker",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "🏆 NaVi [0:0] Astralis | PGL Major Singapore 2026 Stage 2 | !ставка !fonbet"
+    "title": ""
    },
    {
     "name": "cs2_paragon_ru",
     "display": "twitch.tv/cs2_paragon_ru",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "[RU] REDZONE | Natus Vincere [0:0] Astralis | PGL Major Singapore 2026: Stage 2 | BO1 | @little_cs, @siberiancaster & @Roma_roo"
-   },
-   {
-    "name": "alcoreru",
-    "display": "twitch.tv/alcoreru",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "!tg Финал? Коопы Станция и всё в этом духе"
+    "title": ""
    },
    {
     "name": "leva2k",
     "display": "twitch.tv/leva2k",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel"
+    "title": ""
+   },
+   {
+    "name": "stintik",
+    "display": "twitch.tv/stintik",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "tpabomah",
@@ -89,43 +97,51 @@
     "platform": "twitch",
     "live": false,
     "viewers": 0,
-    "title": "ПЛЕЙОФФ ПРОТИВ РАМЗЕСА🔥 !ищунарезчика !розыгрыш !тг"
+    "title": ""
    },
    {
     "name": "dmitry_lixxx",
     "display": "twitch.tv/dmitry_lixxx",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "[MAJOR] NAVI vs Astralis | BO1 | PGL Major Singapore 2026 Stage 2 @Aunkere | !tg !winline !ЯО !ВТБ !avan"
+    "title": ""
    },
    {
-    "name": "stintik",
-    "display": "twitch.tv/stintik",
+    "name": "dyrachyo",
+    "display": "twitch.tv/dyrachyo",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "дароа"
+    "title": ""
+   },
+   {
+    "name": "praden",
+    "display": "twitch.tv/praden",
+    "platform": "twitch",
+    "live": false,
+    "viewers": 0,
+    "title": ""
    },
    {
     "name": "keliencs",
     "display": "twitch.tv/keliencs",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "MIBR vs Imperial | BO1 | PGL Major Singapore 2026 Stage 2 | @quefix_ !tg !fonbet"
+    "title": ""
    },
    {
-    "name": "ezpvp_lover",
-    "display": "twitch.tv/ezpvp_lover",
+    "name": "syslov171",
+    "display": "twitch.tv/syslov171",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "Wow Forever Движ! Ищу пати по Инстам, раскручиваю Аукич + профы"
+    "title": ""
    },
    {
-    "name": "wildanimalhs",
-    "display": "twitch.tv/wildanimalhs",
+    "name": "raythis",
+    "display": "twitch.tv/raythis",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
@@ -135,124 +151,28 @@
     "name": "bezp",
     "display": "twitch.tv/bezp",
     "platform": "twitch",
-    "live": true,
+    "live": false,
     "viewers": 0,
-    "title": "[EXCLUSIVE DROPS] Вотчпати турика !funpay"
+    "title": ""
    },
    {
-    "name": "zxcpulsedx",
-    "display": "twitch.tv/zxcpulsedx",
+    "name": "ezpvp_lover",
+    "display": "twitch.tv/ezpvp_lover",
     "platform": "twitch",
     "live": false,
     "viewers": 0,
     "title": ""
    },
    {
-    "name": "sh0kerix",
-    "display": "twitch.tv/sh0kerix",
+    "name": "blaaaackberry",
+    "display": "twitch.tv/blaaaackberry",
     "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "🏆 WCI DROPS 🏆 WCI 2026 | ПЛЕЙ-ОФФ ЧЕМПІОНАТУ СВІТУ ПО НАТИСКУ | ДЕНЬ 3"
-   },
-   {
-    "name": "dyrachyo",
-    "display": "twitch.tv/dyrachyo",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Yandex [0:1] Liquid bo3 BLAST SLAM IX Play Off | !bb !tg"
-   },
-   {
-    "name": "welovegames",
-    "display": "youtube.com/@welovegames",
-    "platform": "youtube",
     "live": false,
     "viewers": 0,
     "title": ""
-   },
-   {
-    "name": "bratishkinoff",
-    "display": "youtube.com/@bratishkinoff",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "KuplinovPlay",
-    "display": "youtube.com/@KuplinovPlay",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "5opka",
-    "display": "youtube.com/@5opka",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "stariy_bog",
-    "display": "youtube.com/@stariy_bog",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "AlinaRin",
-    "display": "youtube.com/@AlinaRin",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "Okisebi",
-    "display": "youtube.com/@Okisebi",
-    "platform": "youtube",
-    "live": false,
-    "viewers": 0,
-    "title": ""
-   },
-   {
-    "name": "gadjiev57",
-    "display": "twitch.tv/gadjiev57",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "БОЙ РОЗЫ И ЧИВИЛи в прямом эфире"
-   },
-   {
-    "name": "praden",
-    "display": "twitch.tv/praden",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "Свободный полёт"
-   },
-   {
-    "name": "raythis",
-    "display": "twitch.tv/raythis",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "ЭЛЕМ ШАМАН на 60 ЛвЛ в WoW Forever! Тестируем и Набираем р14 ШМОТ! Новый WoW ● РЭЙВИС"
-   },
-   {
-    "name": "syslov171",
-    "display": "twitch.tv/syslov171",
-    "platform": "twitch",
-    "live": true,
-    "viewers": 0,
-    "title": "ЯКУТСК ДЕНЬ 1 с @bondarenk01 @akimenem"
    }
   ],
-  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"strogo\", true, \"🔴 NaVi vs Astralis | PGL Major Singapore 2026 Stage 2 | @m3wsu  !бот\", 0], [\"nix\", true, \"Team Yandex vs Team Liquid bo3 0:1 BLAST SLAM IX Upper Bracket Final w/ Alagon\", 0], [\"bysl4m\", true, \"NAVI vs Astralis | PGL Major Singapore 2026 Stage 2 | КРИВОЙ ЭФИР | Day 1 | @bySL4M @WorldEdit\", 0], [\"solo\", true, \"Team Yandex [0:0] Team Liquid | BLAST SLAM IX: Playoffs w/ @kyzko_doto !tg !BETBOOM !розыгрыш\", 0], [\"betboom_dota_ru\", true, \"Team Yandex [0] vs [1] Team Liquid | Bo3 | Playoffs Day 3 | BLAST SLAM IX | cast: @arszeeqq & @adekvat !предикты\", 0], [\"skywhywalker\", true, \"🏆 NaVi [0:0] Astralis | PGL Major Singapore 2026 Stage 2 | !ставка !fonbet\", 0], [\"cs2_paragon_ru\", true, \"[RU] REDZONE | Natus Vincere [0:0] Astralis | PGL Major Singapore 2026: Stage 2 | BO1 | @little_cs, @siberiancaster & @Roma_roo\", 0], [\"alcoreru\", true, \"!tg Финал? Коопы Станция и всё в этом духе\", 0], [\"leva2k\", true, \"ИЗОЛЯЦИЯ ДЕНЬ 13 | !tg !donate !winline !ggsel\", 0], [\"tpabomah\", false, \"ПЛЕЙОФФ ПРОТИВ РАМЗЕСА🔥 !ищунарезчика !розыгрыш !тг\", 0], [\"dmitry_lixxx\", true, \"[MAJOR] NAVI vs Astralis | BO1 | PGL Major Singapore 2026 Stage 2 @Aunkere | !tg !winline !ЯО !ВТБ !avan\", 0], [\"stintik\", true, \"дароа\", 0], [\"keliencs\", true, \"MIBR vs Imperial | BO1 | PGL Major Singapore 2026 Stage 2 | @quefix_ !tg !fonbet\", 0], [\"ezpvp_lover\", true, \"Wow Forever Движ! Ищу пати по Инстам, раскручиваю Аукич + профы\", 0], [\"wildanimalhs\", false, \"\", 0], [\"bezp\", true, \"[EXCLUSIVE DROPS] Вотчпати турика !funpay\", 0], [\"zxcpulsedx\", false, \"\", 0], [\"sh0kerix\", true, \"🏆 WCI DROPS 🏆 WCI 2026 | ПЛЕЙ-ОФФ ЧЕМПІОНАТУ СВІТУ ПО НАТИСКУ | ДЕНЬ 3\", 0], [\"dyrachyo\", true, \"Yandex [0:1] Liquid bo3 BLAST SLAM IX Play Off | !bb !tg\", 0], [\"welovegames\", false, \"\", 0], [\"bratishkinoff\", false, \"\", 0], [\"KuplinovPlay\", false, \"\", 0], [\"5opka\", false, \"\", 0], [\"stariy_bog\", false, \"\", 0], [\"AlinaRin\", false, \"\", 0], [\"Okisebi\", false, \"\", 0], [\"gadjiev57\", true, \"БОЙ РОЗЫ И ЧИВИЛи в прямом эфире\", 0], [\"praden\", true, \"Свободный полёт\", 0], [\"raythis\", true, \"ЭЛЕМ ШАМАН на 60 ЛвЛ в WoW Forever! Тестируем и Набираем р14 ШМОТ! Новый WoW ● РЭЙВИС\", 0], [\"syslov171\", true, \"ЯКУТСК ДЕНЬ 1 с @bondarenk01 @akimenem\", 0]]"
+  "_live_sig": "[[\"honeymad\", false, \"\", 0], [\"nix\", false, \"\", 0], [\"strogo\", false, \"\", 0], [\"gadjiev57\", false, \"\", 0], [\"solo\", false, \"\", 0], [\"bysl4m\", false, \"\", 0], [\"betboom_dota_ru\", false, \"\", 0], [\"skywhywalker\", false, \"\", 0], [\"cs2_paragon_ru\", false, \"\", 0], [\"leva2k\", false, \"\", 0], [\"stintik\", false, \"\", 0], [\"tpabomah\", false, \"\", 0], [\"dmitry_lixxx\", false, \"\", 0], [\"dyrachyo\", false, \"\", 0], [\"praden\", false, \"\", 0], [\"keliencs\", false, \"\", 0], [\"syslov171\", false, \"\", 0], [\"raythis\", false, \"\", 0], [\"bezp\", false, \"\", 0], [\"ezpvp_lover\", false, \"\", 0], [\"blaaaackberry\", false, \"\", 0]]"
  },
  "clips": [
   {
